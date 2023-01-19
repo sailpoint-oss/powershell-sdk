@@ -1,0 +1,29 @@
+# TriggerInputVAClusterStatusChangeEvent
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Created** | **System.DateTime** | The date and time the status change occurred. | 
+**Type** | [**SystemCollectionsHashtable**](.md) | The type of the object that initiated this event. | 
+**Application** | [**TriggerInputVAClusterStatusChangeEventApplication**](TriggerInputVAClusterStatusChangeEventApplication.md) |  | 
+**HealthCheckResult** | [**TriggerInputVAClusterStatusChangeEventHealthCheckResult**](TriggerInputVAClusterStatusChangeEventHealthCheckResult.md) |  | 
+**PreviousHealthCheckResult** | [**TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResult**](TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResult.md) |  | 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$TriggerInputVAClusterStatusChangeEvent = Initialize-PSSailpointBetaTriggerInputVAClusterStatusChangeEvent  -Created 2020-06-29T22:01:50.474Z `
+ -Type CLUSTER `
+ -Application null `
+ -HealthCheckResult null `
+ -PreviousHealthCheckResult null
+```
+
+- Convert the resource to JSON
+```powershell
+$TriggerInputVAClusterStatusChangeEvent | ConvertTo-JSON
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

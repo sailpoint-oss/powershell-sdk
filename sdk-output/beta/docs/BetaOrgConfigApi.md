@@ -1,0 +1,155 @@
+# PSSailpointBeta.PSSailpointBeta/Api.BetaOrgConfigApi
+
+All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**Get-BetaOrgConfig**](BetaOrgConfigApi.md#Get-BetaOrgConfig) | **GET** /org-config | Get Org configuration settings
+[**Get-BetaValidTimeZones**](BetaOrgConfigApi.md#Get-BetaValidTimeZones) | **GET** /org-config/valid-time-zones | Get list of time zones
+[**Invoke-BetaPatchOrgConfig**](BetaOrgConfigApi.md#Invoke-BetaPatchOrgConfig) | **PATCH** /org-config | Patch an Org configuration property
+
+
+<a name="Get-BetaOrgConfig"></a>
+# **Get-BetaOrgConfig**
+> OrgConfig Get-BetaOrgConfig<br>
+
+Get Org configuration settings
+
+Get org configuration with only external (org admin) accessible properties for the current org.  Request will require the following security scope: - 'idn:org-config:read' - 'idn:org-config-internal:read'
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+
+# Get Org configuration settings
+try {
+    $Result = Get-BetaOrgConfig
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**OrgConfig**](OrgConfig.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaValidTimeZones"></a>
+# **Get-BetaValidTimeZones**
+> String[] Get-BetaValidTimeZones<br>
+
+Get list of time zones
+
+Get a list of valid time zones that can be set in org configurations. Request will require the following security scope: - 'idn:org-config-user:read' - 'idn:org-config:read' - 'idn:org-config-internal:read'
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+
+# Get list of time zones
+try {
+    $Result = Get-BetaValidTimeZones
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaValidTimeZones: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**String[]**
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Invoke-BetaPatchOrgConfig"></a>
+# **Invoke-BetaPatchOrgConfig**
+> OrgConfig Invoke-BetaPatchOrgConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
+
+Patch an Org configuration property
+
+Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org. Request will require a security scope of: - 'idn:org-config:write' - 'idn:org-config-internal:write'
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+# Patch an Org configuration property
+try {
+    $Result = Invoke-BetaPatchOrgConfig -JsonPatchOperation $JsonPatchOperation
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-BetaPatchOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+
+### Return type
+
+[**OrgConfig**](OrgConfig.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

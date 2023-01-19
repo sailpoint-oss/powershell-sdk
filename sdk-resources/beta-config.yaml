@@ -1,0 +1,5 @@
+templateDir: ./sdk-resources/beta-resources
+packageName: PSSailpointBeta
+packageVersion: 0.0.1
+apiNamePrefix: Beta
+companyName: SailPoint Technologies

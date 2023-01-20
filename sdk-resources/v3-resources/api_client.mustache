@@ -34,10 +34,12 @@ function Invoke-{{{apiNamePrefix}}}ApiClient {
     'Calling method: Invoke-{{{apiNamePrefix}}}ApiClient' | Write-Debug
     $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-    $Configuration = Get-{{{apiNamePrefix}}}Configuration
-    $RequestUri = $Configuration["BaseUrl"] + $Uri
+    $Configuration = Get-DefaultConfiguration
+    $RequestUri = $Configuration["BaseUrl"] + "v3" + $Uri
     $SkipCertificateCheck = $Configuration["SkipCertificateCheck"]
 
+    Write-Debug "Calling Endpoint: $RequestUri"
+    
     # cookie parameters
     foreach ($Parameter in $CookieParameters.GetEnumerator()) {
         if ($Parameter.Name -eq "cookieAuth") {
@@ -54,6 +56,23 @@ function Invoke-{{{apiNamePrefix}}}ApiClient {
     $Accept = SelectHeaders -Headers $Accepts
     if ($Accept) {
         $HeaderParameters['Accept'] = $Accept
+    }
+
+    if("" -eq $Configuration["Token"] -and $null -ne $Configuration["TokenUrl"] -and $null -ne $Configuration["ClientId"] -and $null -ne $Configuration["ClientSecret"]) {
+        Write-Debug $Configuration["TokenUrl"]
+        Write-Debug $Configuration["ClientId"]
+        Write-Debug $Configuration["ClientSecret"]
+        $Result = GetAccessToken -TokenUrl $Configuration["TokenUrl"] -ClientId $Configuration["ClientId"] -ClientSecret $Configuration["ClientSecret"]
+        
+        if ($Result.statuscode -eq '200') {
+            $Data = ConvertFrom-Json $Result.Content
+            $Token = $Data.access_token
+            Set-DefaultConfiguration -Token $Token
+            $HeaderParameters['Authorization'] = "Bearer $Token"
+        }
+    } else {
+        $Token = $Configuration["Token"]
+        $HeaderParameters['Authorization'] = "Bearer $Token"
     }
 
     [string]$MultiPartBoundary = $null
@@ -225,6 +244,44 @@ function IsJsonMIME {
         return $true
     } else {
         return $false
+    }
+}
+
+function GetAccessToken {
+    Param(
+        [Parameter(Mandatory)]
+        [string]$TokenUrl,
+        [Parameter(Mandatory)]
+        [string]$ClientId,
+        [Parameter(Mandatory)]
+        [string]$ClientSecret
+    )
+
+    Write-Debug "Getting Access Token"
+    Write-Debug $TokenUrl
+    Write-Debug $ClientId
+    Write-Debug $ClientSecret
+
+    $HttpValues = [System.Web.HttpUtility]::ParseQueryString([String]::Empty)
+    $HttpValues.Add("grant_type","client_credentials")
+    $HttpValues.Add("client_id", $ClientId)
+    $HttpValues.Add("client_secret",$ClientSecret)
+
+    # Build the request and load it with the query string.
+    $UriBuilder = [System.UriBuilder]($TokenUrl)
+    $UriBuilder.Query = $HttpValues.ToString()
+
+    Write-Debug $UriBuilder.Uri
+
+    try {
+        $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
+                                      -Method "POST" `
+                                      -ErrorAction Stop `
+                                      -UseBasicParsing                
+        return $Response
+    } catch {
+        Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+        Write-Debug ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
     }
 }
 

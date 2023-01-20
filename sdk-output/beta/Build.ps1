@@ -51,13 +51,13 @@ $Manifest = @{
     Path = "$ScriptDir\src\PSSailpointBeta\PSSailpointBeta.psd1"
 
     Author = 'OpenAPI Generator Team'
-    CompanyName = 'openapitools.org'
+    CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpointBeta - the PowerShell module for IdentityNow Beta API'
 
     ModuleVersion = '0.0.1'
 
     RootModule = 'PSSailpointBeta.psm1'
-    Guid = '{2F52C7D9-F56C-44C6-A62B-564EF7E7E963}' # Has to be static, otherwise each new build will be considered different module
+    Guid = '{61785CF2-2EB2-4FB6-9F7C-C5BD5B1733EB}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '6.2'
 

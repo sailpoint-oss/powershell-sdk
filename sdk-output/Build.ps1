@@ -45,18 +45,18 @@ function Get-FunctionsToExport {
 }
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
-$FunctionPath = 'Api', 'Model', 'Client' | ForEach-Object {Join-Path "$ScriptDir\src\PSSailpoint\" $_}
+$FunctionPath = 'v3/src/PSSailpoint/Api', 'v3/src/PSSailpoint/Model', 'v3/src/PSSailpoint/Client', 'beta/src/PSSailpointBeta/Api', 'beta/src/PSSailpointBeta/Model', 'beta/src/PSSailpointBeta/Client', 'v2/src/PSSailpointV2/Api', 'v2/src/PSSailpointV2/Model', 'v2/src/PSSailpointV2/Client', 'cc/src/PSSailpointCC/Api', 'cc/src/PSSailpointCC/Model', 'cc/src/PSSailpointCC/Client' | ForEach-Object {Join-Path "$ScriptDir" $_}
 
 $Manifest = @{
-    Path = "$ScriptDir\src\PSSailpoint\PSSailpoint.psd1"
+    Path = "$ScriptDir\PSSailpoint.psd1"
 
     Author = 'OpenAPI Generator Team'
     CompanyName = 'SailPoint Technologies'
-    Description = 'PSSailpoint - the PowerShell module for IdentityNow V3 API'
+    Description = 'PSSailpoint - the PowerShell module for IdentityNow'
 
     ModuleVersion = '0.0.1'
 
-    RootModule = 'PSSailpoint.psm1'
+    RootModule = 'sdk-output.psm1'
     Guid = '7A197170-97E8-4DCD-A171-271D4AEC2F36' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '6.2'

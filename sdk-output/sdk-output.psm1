@@ -34,8 +34,18 @@ $BetaClient = @( Get-ChildItem -Path $PSScriptRoot\beta\src\PSSailpointBeta\Clie
 $BetaModel = @( Get-ChildItem -Path $PSScriptRoot\beta\src\PSSailpointBeta\Model\*.ps1 )
 $BetaPrivate = @( Get-ChildItem -Path $PSScriptRoot\beta\src\PSSailpointBeta\Private\*.ps1 )
 
+$V2API = @( Get-ChildItem -Path $PSScriptRoot\v2\src\PSSailpointV2\Api\*.ps1 )
+$V2Client = @( Get-ChildItem -Path $PSScriptRoot\v2\src\PSSailpointV2\Client\*.ps1 )
+$V2Model = @( Get-ChildItem -Path $PSScriptRoot\v2\src\PSSailpointV2\Model\*.ps1 )
+$V2Private = @( Get-ChildItem -Path $PSScriptRoot\v2\src\PSSailpointV2\Private\*.ps1 )
 
-Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $BetaClient + $BetaModel + $BetaPrivate)) {
+$CCAPI = @( Get-ChildItem -Path $PSScriptRoot\cc\src\PSSailpointCC\Api\*.ps1 )
+$CCClient = @( Get-ChildItem -Path $PSScriptRoot\cc\src\PSSailpointCC\Client\*.ps1 )
+$CCModel = @( Get-ChildItem -Path $PSScriptRoot\cc\src\PSSailpointCC\Model\*.ps1 )
+$CCPrivate = @( Get-ChildItem -Path $PSScriptRoot\cc\src\PSSailpointCC\Private\*.ps1 )
+
+
+Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $BetaClient + $BetaModel + $BetaPrivate + $V2API + $V2Client + $V2Model + $V2Private + $CCAPI + $CCClient + $CCModel + $CCPrivate)) {
     Try {
         . $import.fullname
     }

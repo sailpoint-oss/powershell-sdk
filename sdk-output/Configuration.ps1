@@ -24,9 +24,9 @@ function Get-DefaultConfiguration {
 
     $Configuration["BaseUrl"] = "https://devrel.api.identitynow.com/";
     $Configuration["TokenUrl"] = "https://devrel.api.identitynow.com/oauth/token"
-    $Configuration["ClientId"] = "42cf9e909dc44e75a3572eefc638791f"
-    $Configuration["ClientSecret"] = "94a8419bd8a24377a53635eab7bad3f8216bdd1d81e7bcbf7d605176633126f7"
-    
+    $Configuration["ClientId"] = ""
+    $Configuration["ClientSecret"] = ""
+
     if (!$Configuration.containsKey("Token")) {
         $Configuration["Token"] = ""
     }

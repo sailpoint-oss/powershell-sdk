@@ -88,7 +88,7 @@ function Invoke-ScheduledSearchCreate {
 <#
 .SYNOPSIS
 
-Delete a Scheduled Search by ID
+Delete a Scheduled Search
 
 .DESCRIPTION
 
@@ -163,7 +163,7 @@ function Invoke-ScheduledSearchDelete {
 <#
 .SYNOPSIS
 
-Return a Scheduled Search by ID
+Get a Scheduled Search
 
 .DESCRIPTION
 
@@ -238,7 +238,7 @@ function Invoke-ScheduledSearchGet {
 <#
 .SYNOPSIS
 
-Return a list of scheduled searches
+List scheduled searches
 
 .DESCRIPTION
 

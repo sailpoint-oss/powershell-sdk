@@ -22,10 +22,44 @@ function Get-DefaultConfiguration {
 
     $Configuration = $Script:Configuration
 
-    $Configuration["BaseUrl"] = "https://devrel.api.identitynow.com/";
-    $Configuration["TokenUrl"] = "https://devrel.api.identitynow.com/oauth/token"
-    $Configuration["ClientId"] = ""
-    $Configuration["ClientSecret"] = ""
+    if (Test-Path -Path "$HOME/.sailpoint/config.yaml" -PathType leaf) {
+
+        $ConfigFileContents = Get-Content -Path "$HOME/.sailpoint/config.yaml" -Raw
+
+        $ConfigObject = ConvertFrom-YAML $ConfigFileContents
+
+        if ($null -ne $ConfigObject.pat.baseurl) {
+            $Configuration["BaseUrl"] = $ConfigObject.pat.baseurl + "/"
+        }
+
+        if ($null -ne $ConfigObject.pat.tokenurl) {
+            $Configuration["TokenUrl"] = $ConfigObject.pat.tokenurl
+        }
+
+        if ($null -ne $ConfigObject.pat.clientid) {
+            $Configuration["ClientId"] = $ConfigObject.pat.clientid
+        }
+
+        if ($null -ne $ConfigObject.pat.clientsecret) {
+            $Configuration["ClientSecret"] = $ConfigObject.pat.clientsecret
+        }
+    }
+
+    if ($null -ne $ENV:BaseUrl) {
+        $Configuration["BaseUrl"] = $ENV:BaseUrl + "/"
+    }
+
+    if ($null -ne $ENV:TokenUrl) {
+        $Configuration["TokenUrl"] = $ENV:TokenUrl
+    }
+
+    if ($null -ne $ENV:ClientId) {
+        $Configuration["ClientId"] = $ENV:ClientId
+    }
+
+    if ($null -ne $ENV:ClientSecret) {
+        $Configuration["ClientSecret"] = $ENV:ClientSecret
+    }
 
     if (!$Configuration.containsKey("Token")) {
         $Configuration["Token"] = ""

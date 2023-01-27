@@ -318,9 +318,13 @@ docs/SavedSearchApi.md
 docs/SavedSearchCreateRequest.md
 docs/Schedule.md
 docs/Schedule1.md
+docs/Schedule1Days.md
+docs/Schedule1Hours.md
+docs/ScheduleRecipientsInner.md
 docs/ScheduleType.md
 docs/ScheduledSearch.md
 docs/ScheduledSearchAllOf.md
+docs/ScheduledSearchAllOfOwner.md
 docs/ScheduledSearchApi.md
 docs/ScheduledSearchCreateRequest.md
 docs/Schema.md
@@ -713,9 +717,13 @@ src/PSSailpoint/Model/SavedSearchAllOf.ps1
 src/PSSailpoint/Model/SavedSearchCreateRequest.ps1
 src/PSSailpoint/Model/Schedule.ps1
 src/PSSailpoint/Model/Schedule1.ps1
+src/PSSailpoint/Model/Schedule1Days.ps1
+src/PSSailpoint/Model/Schedule1Hours.ps1
+src/PSSailpoint/Model/ScheduleRecipientsInner.ps1
 src/PSSailpoint/Model/ScheduleType.ps1
 src/PSSailpoint/Model/ScheduledSearch.ps1
 src/PSSailpoint/Model/ScheduledSearchAllOf.ps1
+src/PSSailpoint/Model/ScheduledSearchAllOfOwner.ps1
 src/PSSailpoint/Model/ScheduledSearchCreateRequest.ps1
 src/PSSailpoint/Model/Schema.ps1
 src/PSSailpoint/Model/Search.ps1
@@ -785,3 +793,7 @@ src/PSSailpoint/Private/HttpSignatureAuth.ps1
 src/PSSailpoint/Private/Out-DebugParameter.ps1
 src/PSSailpoint/Private/RSAEncryptionProvider.cs
 src/PSSailpoint/en-US/about_PSSailpoint.help.txt
+tests/Model/Schedule1Days.Tests.ps1
+tests/Model/Schedule1Hours.Tests.ps1
+tests/Model/ScheduleRecipientsInner.Tests.ps1
+tests/Model/ScheduledSearchAllOfOwner.Tests.ps1

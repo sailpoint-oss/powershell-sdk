@@ -4,18 +4,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | [**ScheduleType**](ScheduleType.md) |  | 
-**Months** | [**Selector**](Selector.md) |  | [optional] 
-**Days** | [**Selector**](Selector.md) |  | [optional] 
-**Hours** | [**Selector**](Selector.md) |  | 
+**Days** | [**Schedule1Days**](Schedule1Days.md) |  | [optional] 
+**Hours** | [**Schedule1Hours**](Schedule1Hours.md) |  | 
 **Expiration** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**TimeZoneId** | **String** | The ID of the time zone for the schedule.  | [optional] 
+**TimeZoneId** | **String** | The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org&#39;s default timezone is used. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $Schedule1 = Initialize-PSSailpointSchedule1  -Type null `
- -Months null `
  -Days null `
  -Hours null `
  -Expiration 2018-06-25T20:22:28.104Z `

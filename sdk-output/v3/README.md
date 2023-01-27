@@ -152,13 +152,13 @@ Class | Method | HTTP request | Description
 *SavedSearchApi* | [**Save-dSearchList**](docs/SavedSearchApi.md#Save-dSearchList) | **GET** /saved-searches | Return a list of Saved Searches
 *SavedSearchApi* | [**Save-dSearchUpdate**](docs/SavedSearchApi.md#Save-dSearchUpdate) | **PUT** /saved-searches/{id} | Updates an existing saved search 
 *ScheduledSearchApi* | [**Invoke-ScheduledSearchCreate**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchCreate) | **POST** /scheduled-searches | Create a new scheduled search
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchDelete**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchDelete) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search by ID
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchGet**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchGet) | **GET** /scheduled-searches/{id} | Return a Scheduled Search by ID
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchList**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchList) | **GET** /scheduled-searches | Return a list of scheduled searches
+*ScheduledSearchApi* | [**Invoke-ScheduledSearchDelete**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchDelete) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search
+*ScheduledSearchApi* | [**Invoke-ScheduledSearchGet**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchGet) | **GET** /scheduled-searches/{id} | Get a Scheduled Search
+*ScheduledSearchApi* | [**Invoke-ScheduledSearchList**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchList) | **GET** /scheduled-searches | List scheduled searches
 *ScheduledSearchApi* | [**Invoke-ScheduledSearchUnsubscribe**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchUnsubscribe) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from Scheduled Search
 *ScheduledSearchApi* | [**Invoke-ScheduledSearchUpdate**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchUpdate) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
 *SearchApi* | [**Search-Aggregate**](docs/SearchApi.md#Search-Aggregate) | **POST** /search/aggregate | Perform a Search Query Aggregation
-*SearchApi* | [**Search-Count**](docs/SearchApi.md#Search-Count) | **POST** /search/count | Count the number of Documents satisfying a Query
+*SearchApi* | [**Search-Count**](docs/SearchApi.md#Search-Count) | **POST** /search/count | Count Documents Satisfying a Query
 *SearchApi* | [**Search-Get**](docs/SearchApi.md#Search-Get) | **GET** /search/{index}/{id} | Get a Document by ID
 *SearchApi* | [**Search-Post**](docs/SearchApi.md#Search-Post) | **POST** /search | Perform Search
 *ServiceDeskIntegrationApi* | [**New-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#New-ServiceDeskIntegration) | **POST** /service-desk-integrations | Create a new Service Desk integration
@@ -518,9 +518,13 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SavedSearchCreateRequest](docs/SavedSearchCreateRequest.md)
  - [PSSailpoint/Model.Schedule](docs/Schedule.md)
  - [PSSailpoint/Model.Schedule1](docs/Schedule1.md)
+ - [PSSailpoint/Model.Schedule1Days](docs/Schedule1Days.md)
+ - [PSSailpoint/Model.Schedule1Hours](docs/Schedule1Hours.md)
+ - [PSSailpoint/Model.ScheduleRecipientsInner](docs/ScheduleRecipientsInner.md)
  - [PSSailpoint/Model.ScheduleType](docs/ScheduleType.md)
  - [PSSailpoint/Model.ScheduledSearch](docs/ScheduledSearch.md)
  - [PSSailpoint/Model.ScheduledSearchAllOf](docs/ScheduledSearchAllOf.md)
+ - [PSSailpoint/Model.ScheduledSearchAllOfOwner](docs/ScheduledSearchAllOfOwner.md)
  - [PSSailpoint/Model.ScheduledSearchCreateRequest](docs/ScheduledSearchCreateRequest.md)
  - [PSSailpoint/Model.Schema](docs/Schema.md)
  - [PSSailpoint/Model.Search](docs/Search.md)

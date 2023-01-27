@@ -1351,7 +1351,7 @@ No description available.
 The ID of the campaign template being modified.
 
 .PARAMETER RequestBody
-A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * deadlineDuration * campaign (all fields that are allowed during create) 
+A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
 .PARAMETER WithHttpInfo
 

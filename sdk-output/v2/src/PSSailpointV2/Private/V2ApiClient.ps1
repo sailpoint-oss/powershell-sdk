@@ -65,9 +65,6 @@ function Invoke-V2ApiClient {
     }
 
     if("" -eq $Configuration["Token"] -and $null -ne $Configuration["TokenUrl"] -and $null -ne $Configuration["ClientId"] -and $null -ne $Configuration["ClientSecret"]) {
-        Write-Debug $Configuration["TokenUrl"]
-        Write-Debug $Configuration["ClientId"]
-        Write-Debug $Configuration["ClientSecret"]
         $Result = GetAccessToken -TokenUrl $Configuration["TokenUrl"] -ClientId $Configuration["ClientId"] -ClientSecret $Configuration["ClientSecret"]
         
         if ($Result.statuscode -eq '200') {
@@ -77,10 +74,17 @@ function Invoke-V2ApiClient {
             $HeaderParameters['Authorization'] = "Bearer $Token"
         }
     } else {
-        $Token = $Configuration["Token"]
-        $HeaderParameters['Authorization'] = "Bearer $Token"
+        if ($null -eq $Configuration["ClientId"] -and $null -eq $Configuration["ClientSecret"] -and $null -eq $Configuration["TokenUrl"]) {
+            Write-Host "ClientId, ClientSecret or TokenUrl Missing. Please provide values in the environment or in ~/.sailpoint/config.yaml" -ForegroundColor Red
+        } else {
+            $Token = $Configuration["Token"]
+            $HeaderParameters['Authorization'] = "Bearer $Token"
+        }
     }
 
+    # Add Custom Header
+    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-0.0.1"
+    
     [string]$MultiPartBoundary = $null
     $ContentType= SelectHeaders -Headers $ContentTypes
     if ($ContentType) {

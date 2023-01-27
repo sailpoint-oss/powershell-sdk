@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 Build.ps1
 README.md
 appveyor.yml
@@ -44,20 +43,3 @@ src/PSSailpointV2/Private/V2ApiClient.ps1
 src/PSSailpointV2/Private/V2HttpSignatureAuth.ps1
 src/PSSailpointV2/Private/V2RSAEncryptionProvider.cs
 src/PSSailpointV2/en-US/about_PSSailpointV2.help.txt
-tests/Api/V2GovernanceGroupsApi.Tests.ps1
-tests/Api/V2OrgApi.Tests.ps1
-tests/Model/BulkDeleteWorkGroups200Response.Tests.ps1
-tests/Model/BulkDeleteWorkGroupsRequest.Tests.ps1
-tests/Model/CreateWorkgroupRequest.Tests.ps1
-tests/Model/CreateWorkgroupRequestOwner.Tests.ps1
-tests/Model/GetOrgSettings200Response.Tests.ps1
-tests/Model/GetOrgSettings200ResponseApprovalConfig.Tests.ps1
-tests/Model/GetOrgSettings200ResponseSystemNotificationConfig.Tests.ps1
-tests/Model/GetOrgSettings200ResponseSystemNotificationConfigNotificationsInner.Tests.ps1
-tests/Model/GetOrgSettings200ResponseSystemNotificationConfigNotificationsInnerThresholds.Tests.ps1
-tests/Model/ListWorkgroupConnections200ResponseInner.Tests.ps1
-tests/Model/ListWorkgroupMembers200ResponseInner.Tests.ps1
-tests/Model/ListWorkgroups200ResponseInner.Tests.ps1
-tests/Model/ListWorkgroups200ResponseInnerOwner.Tests.ps1
-tests/Model/ModifyWorkgroupMembersRequest.Tests.ps1
-tests/Model/UpdateOrgSettingsRequest.Tests.ps1

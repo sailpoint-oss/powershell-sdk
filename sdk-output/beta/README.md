@@ -851,6 +851,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SavedSearchComplete](docs/SavedSearchComplete.md)
  - [PSSailpointBeta/Model.Schedule](docs/Schedule.md)
  - [PSSailpointBeta/Model.Schedule1](docs/Schedule1.md)
+ - [PSSailpointBeta/Model.Schedule1Days](docs/Schedule1Days.md)
+ - [PSSailpointBeta/Model.Schedule1Hours](docs/Schedule1Hours.md)
  - [PSSailpointBeta/Model.ScheduleDays](docs/ScheduleDays.md)
  - [PSSailpointBeta/Model.ScheduleHours](docs/ScheduleHours.md)
  - [PSSailpointBeta/Model.ScheduleMonths](docs/ScheduleMonths.md)

@@ -474,6 +474,8 @@ docs/RoleMiningSessionStatus.md
 docs/SavedSearchComplete.md
 docs/Schedule.md
 docs/Schedule1.md
+docs/Schedule1Days.md
+docs/Schedule1Hours.md
 docs/ScheduleDays.md
 docs/ScheduleHours.md
 docs/ScheduleMonths.md
@@ -1150,6 +1152,8 @@ src/PSSailpointBeta/Model/RoleMiningSessionStatus.ps1
 src/PSSailpointBeta/Model/SavedSearchComplete.ps1
 src/PSSailpointBeta/Model/Schedule.ps1
 src/PSSailpointBeta/Model/Schedule1.ps1
+src/PSSailpointBeta/Model/Schedule1Days.ps1
+src/PSSailpointBeta/Model/Schedule1Hours.ps1
 src/PSSailpointBeta/Model/ScheduleDays.ps1
 src/PSSailpointBeta/Model/ScheduleHours.ps1
 src/PSSailpointBeta/Model/ScheduleMonths.ps1
@@ -1359,3 +1363,5 @@ src/PSSailpointBeta/Private/BetaRSAEncryptionProvider.cs
 src/PSSailpointBeta/Private/Get-CommonParameters.ps1
 src/PSSailpointBeta/Private/Out-DebugParameter.ps1
 src/PSSailpointBeta/en-US/about_PSSailpointBeta.help.txt
+tests/Model/Schedule1Days.Tests.ps1
+tests/Model/Schedule1Hours.Tests.ps1

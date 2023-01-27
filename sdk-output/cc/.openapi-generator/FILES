@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 Build.ps1
 README.md
 appveyor.yml
@@ -36,16 +35,3 @@ src/PSSailpointCC/Private/CCRSAEncryptionProvider.cs
 src/PSSailpointCC/Private/Get-CommonParameters.ps1
 src/PSSailpointCC/Private/Out-DebugParameter.ps1
 src/PSSailpointCC/en-US/about_PSSailpointCC.help.txt
-tests/Api/CCAccountsApi.Tests.ps1
-tests/Api/CCApplicationsApi.Tests.ps1
-tests/Api/CCConnectorsApi.Tests.ps1
-tests/Api/CCSourcesAccountsApi.Tests.ps1
-tests/Api/CCSourcesAggregationApi.Tests.ps1
-tests/Api/CCSystemApi.Tests.ps1
-tests/Api/CCUserApi.Tests.ps1
-tests/Model/CreateApplicationRequest.Tests.ps1
-tests/Model/CreateConnectorRequest.Tests.ps1
-tests/Model/ImportConnectorConfigRequest.Tests.ps1
-tests/Model/LoadAccountsRequest.Tests.ps1
-tests/Model/UpdateApplicationRequest.Tests.ps1
-tests/Model/UpdateUserPermissionsRequest.Tests.ps1

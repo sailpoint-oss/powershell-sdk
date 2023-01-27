@@ -15,15 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER SavedSearchId
-The ID of the saved search that will be executed. 
+The ID of the saved search that will be executed.
 .PARAMETER Created
-A date-time in ISO-8601 format
+The date the scheduled search was initially created.
 .PARAMETER Modified
-A date-time in ISO-8601 format
+The last date the scheduled search was modified.
 .PARAMETER Schedule
 No description available.
 .PARAMETER Recipients
-The email recipients. 
+A list of identities that should receive the scheduled search report via email.
 .PARAMETER Enabled
 Indicates if the scheduled search is enabled. 
 .PARAMETER EmailEmptyResults

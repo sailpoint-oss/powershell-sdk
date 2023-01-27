@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SavedSearchId** | **String** | The ID of the saved search that will be executed.  | 
-**Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
+**SavedSearchId** | **String** | The ID of the saved search that will be executed. | 
+**Created** | **System.DateTime** | The date the scheduled search was initially created. | [optional] [readonly] 
+**Modified** | **System.DateTime** | The last date the scheduled search was modified. | [optional] [readonly] 
 **Schedule** | [**Schedule1**](Schedule1.md) |  | 
-**Recipients** | [**TypedReference[]**](TypedReference.md) | The email recipients.  | 
+**Recipients** | [**ScheduleRecipientsInner[]**](ScheduleRecipientsInner.md) | A list of identities that should receive the scheduled search report via email. | 
 **Enabled** | **Boolean** | Indicates if the scheduled search is enabled.  | [optional] [default to $false]
 **EmailEmptyResults** | **Boolean** | Indicates if email generation should not be suppressed if search returns no results.  | [optional] [default to $false]
 **DisplayQueryDetails** | **Boolean** | Indicates if the generated email should include the query and search results preview (which could include PII).  | [optional] [default to $false]
@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Schedule = Initialize-PSSailpointSchedule  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
- -Created 2018-06-25T20:22:28.104Z `
- -Modified 2018-06-25T20:22:28.104Z `
+ -Created null `
+ -Modified null `
  -Schedule null `
  -Recipients null `
  -Enabled false `

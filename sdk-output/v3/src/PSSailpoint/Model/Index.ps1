@@ -28,5 +28,7 @@ enum Index {
     identities
     # enum value: "roles"
     roles
+    # enum value: "*"
+    STAR
 }
 

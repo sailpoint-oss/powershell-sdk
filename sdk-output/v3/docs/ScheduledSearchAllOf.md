@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The scheduled search ID.  | [optional] 
-**Owner** | [**TypedReference**](TypedReference.md) |  | [optional] 
-**OwnerId** | **String** | The ID of the scheduled search owner | [optional] 
+**Id** | **String** | The scheduled search ID. | [optional] [readonly] 
+**Owner** | [**ScheduledSearchAllOfOwner**](ScheduledSearchAllOfOwner.md) |  | [optional] 
+**OwnerId** | **String** | The ID of the scheduled search owner.  Please use the &#x60;id&#x60; in the &#x60;owner&#x60; object instead.  | [optional] [readonly] 
 
 ## Examples
 

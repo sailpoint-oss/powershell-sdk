@@ -22,7 +22,7 @@ $ConnectorRuleResponse = Initialize-PSSailpointBetaConnectorRuleResponse  -Name 
  -Type BuildMap `
  -Signature null `
  -SourceCode null `
- -Attributes null `
+ -Attributes {} `
  -Id 8113d48c0b914f17b4c6072d4dcb9dfe `
  -Created 021-07-22T15:59:23Z `
  -Modified 021-07-22T15:59:23Z

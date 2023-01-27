@@ -130,7 +130,7 @@ function Search-Aggregate {
 <#
 .SYNOPSIS
 
-Count the number of Documents satisfying a Query
+Count Documents Satisfying a Query
 
 .DESCRIPTION
 

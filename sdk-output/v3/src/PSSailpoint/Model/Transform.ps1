@@ -58,6 +58,14 @@ function Initialize-Transform {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
+        if ($Name.length -gt 50) {
+            throw "invalid value for 'Name', the character length must be smaller than or equal to 50."
+        }
+
+        if ($Name.length -lt 1) {
+            throw "invalid value for 'Name', the character length must be great than or equal to 1."
+        }
+
         if ($null -eq $Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }

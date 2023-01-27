@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-The scheduled search ID. 
+The scheduled search ID.
 .PARAMETER Owner
 No description available.
 .PARAMETER OwnerId
-The ID of the scheduled search owner
+The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead. 
 .OUTPUTS
 
 ScheduledSearchAllOf<PSCustomObject>

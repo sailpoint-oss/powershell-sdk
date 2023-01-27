@@ -760,7 +760,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | The desired campaign template's ID.
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The desired campaign template's ID.
 
 # Get a Campaign Template
 try {
@@ -925,7 +925,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the campaign template being modified.
-$RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * deadlineDuration * campaign (all fields that are allowed during create) 
+$RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
 # Update a Campaign Template
 try {
@@ -941,7 +941,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| The ID of the campaign template being modified. | 
- **RequestBody** | [**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md)| A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * deadlineDuration * campaign (all fields that are allowed during create)  | 
+ **RequestBody** | [**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md)| A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create)  | 
 
 ### Return type
 

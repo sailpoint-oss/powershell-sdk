@@ -5,9 +5,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Invoke-ScheduledSearchCreate**](ScheduledSearchApi.md#Invoke-ScheduledSearchCreate) | **POST** /scheduled-searches | Create a new scheduled search
-[**Invoke-ScheduledSearchDelete**](ScheduledSearchApi.md#Invoke-ScheduledSearchDelete) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search by ID
-[**Invoke-ScheduledSearchGet**](ScheduledSearchApi.md#Invoke-ScheduledSearchGet) | **GET** /scheduled-searches/{id} | Return a Scheduled Search by ID
-[**Invoke-ScheduledSearchList**](ScheduledSearchApi.md#Invoke-ScheduledSearchList) | **GET** /scheduled-searches | Return a list of scheduled searches
+[**Invoke-ScheduledSearchDelete**](ScheduledSearchApi.md#Invoke-ScheduledSearchDelete) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search
+[**Invoke-ScheduledSearchGet**](ScheduledSearchApi.md#Invoke-ScheduledSearchGet) | **GET** /scheduled-searches/{id} | Get a Scheduled Search
+[**Invoke-ScheduledSearchList**](ScheduledSearchApi.md#Invoke-ScheduledSearchList) | **GET** /scheduled-searches | List scheduled searches
 [**Invoke-ScheduledSearchUnsubscribe**](ScheduledSearchApi.md#Invoke-ScheduledSearchUnsubscribe) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from Scheduled Search
 [**Invoke-ScheduledSearchUpdate**](ScheduledSearchApi.md#Invoke-ScheduledSearchUpdate) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
 
@@ -31,11 +31,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Selector = Initialize-Selector -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Selector -Days $Selector -Hours $Selector -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
+$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
 
-$TypedReference = Initialize-TypedReference -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313"
-$ScheduledSearchCreateRequest = Initialize-ScheduledSearchCreateRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule1 -Recipients $TypedReference -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # ScheduledSearchCreateRequest | The scheduled search to persist.
+$ScheduleRecipientsInner = Initialize-ScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
+$ScheduledSearchCreateRequest = Initialize-ScheduledSearchCreateRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule1 -Recipients $ScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # ScheduledSearchCreateRequest | The scheduled search to persist.
 
 # Create a new scheduled search
 try {
@@ -72,7 +73,7 @@ Name | Type | Description  | Notes
 > void Invoke-ScheduledSearchDelete<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Delete a Scheduled Search by ID
+Delete a Scheduled Search
 
 Deletes the specified scheduled search. 
 
@@ -88,7 +89,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Delete a Scheduled Search by ID
+# Delete a Scheduled Search
 try {
     $Result = Invoke-ScheduledSearchDelete -Id $Id
 } catch {
@@ -123,9 +124,9 @@ void (empty response body)
 > ScheduledSearch Invoke-ScheduledSearchGet<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Return a Scheduled Search by ID
+Get a Scheduled Search
 
-Returns the specified scheduled search. 
+Returns the specified scheduled search.
 
 ### Example
 ```powershell
@@ -139,7 +140,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Return a Scheduled Search by ID
+# Get a Scheduled Search
 try {
     $Result = Invoke-ScheduledSearchGet -Id $Id
 } catch {
@@ -177,7 +178,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 
-Return a list of scheduled searches
+List scheduled searches
 
 Returns a list of scheduled searches. 
 
@@ -196,7 +197,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = "savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"" # String | An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Allowed filter properties: *owner.id*, *savedSearchId*  Allowed filter operator: *eq*  **Example filters**:  ```owner.id eq ""0de46054-fe90-434a-b84e-c6b3359d0c64""``` -- returns scheduled searches for the specified owner ID  ```savedSearchId eq ""6cc0945d-9eeb-4948-9033-72d066e1153e""``` -- returns scheduled searches that reference the specified saved search  ```owner.id eq me or savedSearchId eq ""6cc0945d-9eeb-4948-9033-72d066e1153e""``` -- returns all of the current user's scheduled searches as well as all scheduled searches that reference the specified saved search  (optional)
 
-# Return a list of scheduled searches
+# List scheduled searches
 try {
     $Result = Invoke-ScheduledSearchList -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters
 } catch {
@@ -304,11 +305,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-$Selector = Initialize-Selector -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Selector -Days $Selector -Hours $Selector -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
+$ScheduledSearchAllOfOwner = Initialize-ScheduledSearchAllOfOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
 
-$TypedReference = Initialize-TypedReference -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313"
-$ScheduledSearch = Initialize-ScheduledSearch -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule1 -Recipients $TypedReference -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $TypedReference -OwnerId "2c9180867624cbd7017642d8c8c81f67" # ScheduledSearch | The scheduled search to persist.
+$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
+
+$ScheduleRecipientsInner = Initialize-ScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
+$ScheduledSearch = Initialize-ScheduledSearch -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $ScheduledSearchAllOfOwner -OwnerId "2c9180867624cbd7017642d8c8c81f67" -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule1 -Recipients $ScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # ScheduledSearch | The scheduled search to persist.
 
 # Update an existing Scheduled Search
 try {

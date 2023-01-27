@@ -21,7 +21,7 @@ $ConnectorRuleUpdateRequest = Initialize-PSSailpointBetaConnectorRuleUpdateReque
  -Type BuildMap `
  -Signature null `
  -SourceCode null `
- -Attributes null
+ -Attributes {}
 ```
 
 - Convert the resource to JSON

@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Search-Aggregate**](SearchApi.md#Search-Aggregate) | **POST** /search/aggregate | Perform a Search Query Aggregation
-[**Search-Count**](SearchApi.md#Search-Count) | **POST** /search/count | Count the number of Documents satisfying a Query
+[**Search-Count**](SearchApi.md#Search-Count) | **POST** /search/count | Count Documents Satisfying a Query
 [**Search-Get**](SearchApi.md#Search-Get) | **GET** /search/{index}/{id} | Get a Document by ID
 [**Search-Post**](SearchApi.md#Search-Post) | **POST** /search | Perform Search
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Perform a Search Query Aggregation
 
-Performs a search query aggregation and returns aggregation result.
+Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
 
 ### Example
 ```powershell
@@ -97,9 +97,9 @@ Name | Type | Description  | Notes
 > void Search-Count<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search1] <PSCustomObject><br>
 
-Count the number of Documents satisfying a Query
+Count Documents Satisfying a Query
 
-Performs a search with provided query and returns count of results in the X-Total-Count header.
+Performs a search with a provided query and returns the count of results in the X-Total-Count header.
 
 ### Example
 ```powershell
@@ -135,7 +135,7 @@ $ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "accou
 
 $Search1 = Initialize-Search1 -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $Aggregation1 -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search1 | 
 
-# Count the number of Documents satisfying a Query
+# Count Documents Satisfying a Query
 try {
     $Result = Search-Count -Search1 $Search1
 } catch {
@@ -173,7 +173,7 @@ void (empty response body)
 
 Get a Document by ID
 
-Fetches a single document from the specified index using the specified document ID.
+Fetches a single document from the specified index, using the specified document ID.
 
 ### Example
 ```powershell
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 Perform Search
 
-Performs a search with the provided query and returns a matching result collection.
+Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
 
 ### Example
 ```powershell

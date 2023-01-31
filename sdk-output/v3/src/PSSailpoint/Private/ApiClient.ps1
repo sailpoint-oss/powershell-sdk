@@ -162,6 +162,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
+                                      -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -SkipCertificateCheck
         } else {
             # skip certification check, use proxy
@@ -171,6 +172,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
+                                      -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -SkipCertificateCheck `
                                       -Proxy $Configuration["Proxy"].GetProxy($UriBuilder.Uri) `
                                       -ProxyUseDefaultCredentials
@@ -183,7 +185,8 @@ function Invoke-ApiClient {
                                       -Headers $HeaderParameters `
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
-                                      -UseBasicParsing
+                                      -UseBasicParsing `
+                                      -MaximumRetryCount $Configuration["MaximumRetryCount"]
         } else {
             # perform certification check, use proxy
             $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
@@ -192,6 +195,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
+                                      -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -Proxy $Configuration["Proxy"].GetProxy($UriBuilder.Uri) `
                                       -ProxyUseDefaultCredentials
         }

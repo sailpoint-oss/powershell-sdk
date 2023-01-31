@@ -1363,5 +1363,3 @@ src/PSSailpointBeta/Private/BetaRSAEncryptionProvider.cs
 src/PSSailpointBeta/Private/Get-CommonParameters.ps1
 src/PSSailpointBeta/Private/Out-DebugParameter.ps1
 src/PSSailpointBeta/en-US/about_PSSailpointBeta.help.txt
-tests/Model/Schedule1Days.Tests.ps1
-tests/Model/Schedule1Hours.Tests.ps1

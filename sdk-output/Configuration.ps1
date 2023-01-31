@@ -69,6 +69,10 @@ function Get-DefaultConfiguration {
         $Configuration["SkipCertificateCheck"] = $false
     }
 
+    if (!$Configuration.containsKey("MaximumRetryCount")) {
+        $Configuration["MaximumRetryCount"] = 10
+    }
+
     if (!$Configuration.containsKey("Proxy")) {
         $Configuration["Proxy"] = $null
     }

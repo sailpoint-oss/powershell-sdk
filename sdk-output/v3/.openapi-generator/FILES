@@ -793,7 +793,3 @@ src/PSSailpoint/Private/HttpSignatureAuth.ps1
 src/PSSailpoint/Private/Out-DebugParameter.ps1
 src/PSSailpoint/Private/RSAEncryptionProvider.cs
 src/PSSailpoint/en-US/about_PSSailpoint.help.txt
-tests/Model/Schedule1Days.Tests.ps1
-tests/Model/Schedule1Hours.Tests.ps1
-tests/Model/ScheduleRecipientsInner.Tests.ps1
-tests/Model/ScheduledSearchAllOfOwner.Tests.ps1

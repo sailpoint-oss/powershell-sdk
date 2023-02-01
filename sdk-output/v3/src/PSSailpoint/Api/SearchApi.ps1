@@ -103,7 +103,14 @@ function Search-Aggregate {
             throw "Error! The required parameter `Search1` missing when calling searchAggregate."
         }
 
-        $LocalVarBodyParameter = $Search1 | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Search1 | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -183,7 +190,14 @@ function Search-Count {
             throw "Error! The required parameter `Search1` missing when calling searchCount."
         }
 
-        $LocalVarBodyParameter = $Search1 | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Search1 | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -381,7 +395,14 @@ function Search-Post {
             throw "Error! The required parameter `Search1` missing when calling searchPost."
         }
 
-        $LocalVarBodyParameter = $Search1 | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Search1 | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

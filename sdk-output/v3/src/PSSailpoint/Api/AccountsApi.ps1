@@ -61,7 +61,14 @@ function New-Account {
             throw "Error! The required parameter `AccountAttributesCreate` missing when calling createAccount."
         }
 
-        $LocalVarBodyParameter = $AccountAttributesCreate | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $AccountAttributesCreate | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -226,7 +233,14 @@ function Disable-Account {
             throw "Error! The required parameter `AccountToggleRequest` missing when calling disableAccount."
         }
 
-        $LocalVarBodyParameter = $AccountToggleRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $AccountToggleRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -316,7 +330,14 @@ function Enable-Account {
             throw "Error! The required parameter `AccountToggleRequest` missing when calling enableAccount."
         }
 
-        $LocalVarBodyParameter = $AccountToggleRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $AccountToggleRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -691,7 +712,14 @@ function Send-Account {
             throw "Error! The required parameter `AccountAttributes` missing when calling putAccount."
         }
 
-        $LocalVarBodyParameter = $AccountAttributes | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $AccountAttributes | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -856,7 +884,14 @@ function Unlock-Account {
             throw "Error! The required parameter `AccountUnlockRequest` missing when calling unlockAccount."
         }
 
-        $LocalVarBodyParameter = $AccountUnlockRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $AccountUnlockRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -946,7 +981,14 @@ function Update-Account {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateAccount."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

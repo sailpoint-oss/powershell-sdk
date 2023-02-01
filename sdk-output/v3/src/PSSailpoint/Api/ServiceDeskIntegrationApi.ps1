@@ -61,7 +61,14 @@ function New-ServiceDeskIntegration {
             throw "Error! The required parameter `ServiceDeskIntegrationDto` missing when calling createServiceDeskIntegration."
         }
 
-        $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -621,7 +628,14 @@ function Invoke-PatchServiceDeskIntegration {
             throw "Error! The required parameter `JsonPatch` missing when calling patchServiceDeskIntegration."
         }
 
-        $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -711,7 +725,14 @@ function Update-ServiceDeskIntegration {
             throw "Error! The required parameter `ServiceDeskIntegrationDto` missing when calling updateServiceDeskIntegration."
         }
 
-        $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -791,7 +812,14 @@ function Update-StatusCheckDetails {
             throw "Error! The required parameter `QueuedCheckConfigDetails` missing when calling updateStatusCheckDetails."
         }
 
-        $LocalVarBodyParameter = $QueuedCheckConfigDetails | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $QueuedCheckConfigDetails | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

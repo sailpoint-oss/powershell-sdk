@@ -71,7 +71,14 @@ function Complete-BetaInvocation {
             throw "Error! The required parameter `CompleteInvocation` missing when calling completeInvocation."
         }
 
-        $LocalVarBodyParameter = $CompleteInvocation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $CompleteInvocation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -151,7 +158,14 @@ function New-BetaSubscription {
             throw "Error! The required parameter `SubscriptionPostRequest` missing when calling createSubscription."
         }
 
-        $LocalVarBodyParameter = $SubscriptionPostRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SubscriptionPostRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -661,7 +675,14 @@ function Invoke-BetaPatchSubscription {
             throw "Error! The required parameter `SubscriptionPatchRequestInner` missing when calling patchSubscription."
         }
 
-        $LocalVarBodyParameter = $SubscriptionPatchRequestInner | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SubscriptionPatchRequestInner | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -741,7 +762,14 @@ function Start-BetaTestInvocation {
             throw "Error! The required parameter `TestInvocation` missing when calling startTestInvocation."
         }
 
-        $LocalVarBodyParameter = $TestInvocation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $TestInvocation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -831,7 +859,14 @@ function Update-BetaSubscription {
             throw "Error! The required parameter `SubscriptionPutRequest` missing when calling updateSubscription."
         }
 
-        $LocalVarBodyParameter = $SubscriptionPutRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SubscriptionPutRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -911,7 +946,14 @@ function Confirm-BetaFilter {
             throw "Error! The required parameter `ValidateFilterInputDto` missing when calling validateFilter."
         }
 
-        $LocalVarBodyParameter = $ValidateFilterInputDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ValidateFilterInputDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

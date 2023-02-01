@@ -97,7 +97,14 @@ function New-BetaPotentialRoleProvisionRequest {
             $LocalVarQueryParameters['include-common-access'] = $IncludeCommonAccess
         }
 
-        $LocalVarBodyParameter = $RoleMiningPotentialRoleProvisionRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $RoleMiningPotentialRoleProvisionRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -304,7 +311,14 @@ function Edit-BetaEntitlementsPotentialRole {
             throw "Error! The required parameter `RoleMiningPotentialRoleEditEntitlements` missing when calling editEntitlementsPotentialRole."
         }
 
-        $LocalVarBodyParameter = $RoleMiningPotentialRoleEditEntitlements | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $RoleMiningPotentialRoleEditEntitlements | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -497,7 +511,14 @@ function Export-BetaRoleMiningPotentialRoleAsync {
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
-        $LocalVarBodyParameter = $RoleMiningPotentialRoleExportRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $RoleMiningPotentialRoleExportRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1772,7 +1793,14 @@ function Invoke-BetaPatchRoleMiningSession {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchRoleMiningSession."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1852,7 +1880,14 @@ function Invoke-BetaRoleMiningSessions {
             throw "Error! The required parameter `RoleMiningSessionDto` missing when calling roleMiningSessions."
         }
 
-        $LocalVarBodyParameter = $RoleMiningSessionDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $RoleMiningSessionDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

@@ -61,7 +61,14 @@ function New-BetaSodPolicy {
             throw "Error! The required parameter `SodPolicy` missing when calling createSodPolicy."
         }
 
-        $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -965,7 +972,14 @@ function Invoke-BetaPatchSodPolicy {
             throw "Error! The required parameter `RequestBody` missing when calling patchSodPolicy."
         }
 
-        $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $RequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1041,7 +1055,14 @@ function Invoke-BetaRunAllPoliciesForOrg {
 
         $LocalVarUri = '/sod-violation-report/run'
 
-        $LocalVarBodyParameter = $MultiPolicyRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $MultiPolicyRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1206,7 +1227,14 @@ function Update-BetaPolicyById {
             throw "Error! The required parameter `SodPolicy` missing when calling updatePolicyById."
         }
 
-        $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1296,7 +1324,14 @@ function Update-BetaPolicyScheduleById {
             throw "Error! The required parameter `SodPolicySchedule` missing when calling updatePolicyScheduleById."
         }
 
-        $LocalVarBodyParameter = $SodPolicySchedule | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SodPolicySchedule | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

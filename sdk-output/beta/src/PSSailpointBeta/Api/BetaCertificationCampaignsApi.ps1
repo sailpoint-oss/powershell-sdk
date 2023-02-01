@@ -67,7 +67,14 @@ function Invoke-BetaActivateCampaign {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        $LocalVarBodyParameter = $ActivateCampaignOptions | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ActivateCampaignOptions | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -157,7 +164,14 @@ function Invoke-BetaAdminReassign {
             throw "Error! The required parameter `AdminReviewReassign` missing when calling adminReassign."
         }
 
-        $LocalVarBodyParameter = $AdminReviewReassign | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $AdminReviewReassign | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -243,7 +257,14 @@ function Complete-BetaCampaign {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        $LocalVarBodyParameter = $CompleteCampaignOptions | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $CompleteCampaignOptions | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -323,7 +344,14 @@ function New-BetaCampaign {
             throw "Error! The required parameter `Campaign` missing when calling createCampaign."
         }
 
-        $LocalVarBodyParameter = $Campaign | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Campaign | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -403,7 +431,14 @@ function New-BetaCampaignTemplate {
             throw "Error! The required parameter `CampaignTemplate` missing when calling createCampaignTemplate."
         }
 
-        $LocalVarBodyParameter = $CampaignTemplate | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $CampaignTemplate | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -633,7 +668,14 @@ function Invoke-BetaDeleteCampaigns {
             throw "Error! The required parameter `DeleteCampaignsRequest` missing when calling deleteCampaigns."
         }
 
-        $LocalVarBodyParameter = $DeleteCampaignsRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $DeleteCampaignsRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1404,7 +1446,14 @@ function Invoke-BetaPatchCampaignTemplate {
             throw "Error! The required parameter `RequestBody` missing when calling patchCampaignTemplate."
         }
 
-        $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $RequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1644,7 +1693,14 @@ function Set-BetaCampaignReportsConfig {
             throw "Error! The required parameter `CampaignReportsConfig` missing when calling setCampaignReportsConfig."
         }
 
-        $LocalVarBodyParameter = $CampaignReportsConfig | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $CampaignReportsConfig | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1730,7 +1786,14 @@ function Set-BetaCampaignTemplateSchedule {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        $LocalVarBodyParameter = $Schedule | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Schedule | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1820,7 +1883,14 @@ function Update-BetaCampaign {
             throw "Error! The required parameter `RequestBody` missing when calling updateCampaign."
         }
 
-        $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $RequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

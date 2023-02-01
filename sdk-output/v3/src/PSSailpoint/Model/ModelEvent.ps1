@@ -66,7 +66,7 @@ function Initialize-ModelEvent {
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Type},
+        ${DocumentType},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
@@ -78,7 +78,7 @@ function Initialize-ModelEvent {
         ${Action},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DocumentType},
+        ${Type},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Actor},
@@ -126,7 +126,7 @@ function Initialize-ModelEvent {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if ($null -eq $DocumentType) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
@@ -134,7 +134,7 @@ function Initialize-ModelEvent {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
+            "_type" = ${DocumentType}
             "created" = ${Created}
             "synced" = ${Synced}
             "action" = ${Action}
@@ -213,7 +213,7 @@ function ConvertFrom-JsonToModelEvent {
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "_type"))) {
             throw "Error! JSON cannot be serialized due to the required property '_type' missing."
         } else {
-            $Type = $JsonParameters.PSobject.Properties["_type"].value
+            $DocumentType = $JsonParameters.PSobject.Properties["_type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
@@ -309,7 +309,7 @@ function ConvertFrom-JsonToModelEvent {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
+            "_type" = ${DocumentType}
             "created" = ${Created}
             "synced" = ${Synced}
             "action" = ${Action}

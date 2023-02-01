@@ -71,7 +71,14 @@ function New-BetaSchemaAttribute {
             throw "Error! The required parameter `NonEmployeeSchemaAttributeBody` missing when calling createSchemaAttribute."
         }
 
-        $LocalVarBodyParameter = $NonEmployeeSchemaAttributeBody | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $NonEmployeeSchemaAttributeBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -766,7 +773,14 @@ function Invoke-BetaNonEmployeeApproveRequest {
             throw "Error! The required parameter `NonEmployeeApprovalDecision` missing when calling nonEmployeeApproveRequest."
         }
 
-        $LocalVarBodyParameter = $NonEmployeeApprovalDecision | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $NonEmployeeApprovalDecision | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1008,7 +1022,14 @@ function Invoke-BetaNonEmployeeRecordBulkDelete {
             throw "Error! The required parameter `NonEmployeeRecordBulkDeleteRequest` missing when calling nonEmployeeRecordBulkDelete."
         }
 
-        $LocalVarBodyParameter = $NonEmployeeRecordBulkDeleteRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $NonEmployeeRecordBulkDeleteRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1088,7 +1109,14 @@ function Invoke-BetaNonEmployeeRecordCreation {
             throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling nonEmployeeRecordCreation."
         }
 
-        $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1443,7 +1471,14 @@ function Invoke-BetaNonEmployeeRecordPatch {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling nonEmployeeRecordPatch."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1533,7 +1568,14 @@ function Invoke-BetaNonEmployeeRecordUpdate {
             throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling nonEmployeeRecordUpdate."
         }
 
-        $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1799,7 +1841,14 @@ function Invoke-BetaNonEmployeeRejectRequest {
             throw "Error! The required parameter `NonEmployeeRejectApprovalDecision` missing when calling nonEmployeeRejectRequest."
         }
 
-        $LocalVarBodyParameter = $NonEmployeeRejectApprovalDecision | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $NonEmployeeRejectApprovalDecision | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1879,7 +1928,14 @@ function Invoke-BetaNonEmployeeRequestCreation {
             throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling nonEmployeeRequestCreation."
         }
 
-        $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -2470,7 +2526,14 @@ function Invoke-BetaNonEmployeeSourcePatch {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling nonEmployeeSourcePatch."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -2550,7 +2613,14 @@ function Invoke-BetaNonEmployeeSourcesCreation {
             throw "Error! The required parameter `NonEmployeeSourceRequestBody` missing when calling nonEmployeeSourcesCreation."
         }
 
-        $LocalVarBodyParameter = $NonEmployeeSourceRequestBody | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $NonEmployeeSourceRequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -2777,7 +2847,14 @@ function Invoke-BetaPatchSchemaAttribute {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchSchemaAttribute."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

@@ -61,7 +61,14 @@ function Invoke-BetaBulkDeleteAccessProfiles {
             throw "Error! The required parameter `AccessProfileBulkDeleteRequest` missing when calling bulkDeleteAccessProfiles."
         }
 
-        $LocalVarBodyParameter = $AccessProfileBulkDeleteRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $AccessProfileBulkDeleteRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -141,7 +148,14 @@ function New-BetaAccessProfile {
             throw "Error! The required parameter `AccessProfile` missing when calling createAccessProfile."
         }
 
-        $LocalVarBodyParameter = $AccessProfile | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $AccessProfile | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -651,7 +665,14 @@ function Invoke-BetaPatchAccessProfile {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchAccessProfile."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

@@ -61,7 +61,14 @@ function Invoke-ScheduledSearchCreate {
             throw "Error! The required parameter `ScheduledSearchCreateRequest` missing when calling scheduledSearchCreate."
         }
 
-        $LocalVarBodyParameter = $ScheduledSearchCreateRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ScheduledSearchCreateRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -406,7 +413,14 @@ function Invoke-ScheduledSearchUnsubscribe {
             throw "Error! The required parameter `TypedReference` missing when calling scheduledSearchUnsubscribe."
         }
 
-        $LocalVarBodyParameter = $TypedReference | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $TypedReference | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -496,7 +510,14 @@ function Invoke-ScheduledSearchUpdate {
             throw "Error! The required parameter `ScheduledSearch` missing when calling scheduledSearchUpdate."
         }
 
-        $LocalVarBodyParameter = $ScheduledSearch | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ScheduledSearch | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

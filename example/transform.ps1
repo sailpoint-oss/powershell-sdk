@@ -1,6 +1,4 @@
- 
- 
- # Create transform
+# Create transform
 $Transform = @{
     "name" = "New Transform"
     "type" = "lookup"

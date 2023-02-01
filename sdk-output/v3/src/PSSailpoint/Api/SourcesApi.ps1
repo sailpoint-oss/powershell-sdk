@@ -71,7 +71,14 @@ function Invoke-BulkUpdateProvisioningPolicies {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling bulkUpdateProvisioningPolicies."
         }
 
-        $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -161,7 +168,14 @@ function New-ProvisioningPolicy {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling createProvisioningPolicy."
         }
 
-        $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -251,7 +265,14 @@ function New-Schema {
             throw "Error! The required parameter `Schema` missing when calling createSchema."
         }
 
-        $LocalVarBodyParameter = $Schema | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Schema | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -341,7 +362,14 @@ function New-Source {
             throw "Error! The required parameter `Source` missing when calling createSource."
         }
 
-        $LocalVarBodyParameter = $Source | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Source | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1475,7 +1503,14 @@ function Invoke-ReplaceProvisioningPolicy {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling replaceProvisioningPolicy."
         }
 
-        $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1575,7 +1610,14 @@ function Invoke-ReplaceSchema {
             throw "Error! The required parameter `Schema` missing when calling replaceSchema."
         }
 
-        $LocalVarBodyParameter = $Schema | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Schema | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1665,7 +1707,14 @@ function Invoke-ReplaceSource {
             throw "Error! The required parameter `Source` missing when calling replaceSource."
         }
 
-        $LocalVarBodyParameter = $Source | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $Source | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1765,7 +1814,14 @@ function Update-ProvisioningPolicy {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateProvisioningPolicy."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1865,7 +1921,14 @@ function Update-Schema {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSchema."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -1955,7 +2018,14 @@ function Update-Source {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSource."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

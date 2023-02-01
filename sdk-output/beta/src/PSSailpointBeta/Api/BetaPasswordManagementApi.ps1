@@ -61,7 +61,14 @@ function New-BetaDigitToken {
             throw "Error! The required parameter `PasswordDigitTokenReset` missing when calling generateDigitToken."
         }
 
-        $LocalVarBodyParameter = $PasswordDigitTokenReset | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $PasswordDigitTokenReset | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -216,7 +223,14 @@ function Invoke-BetaQueryPasswordInfo {
             throw "Error! The required parameter `PasswordInfoQueryDTO` missing when calling queryPasswordInfo."
         }
 
-        $LocalVarBodyParameter = $PasswordInfoQueryDTO | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $PasswordInfoQueryDTO | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -296,7 +310,14 @@ function Set-BetaPassword {
             throw "Error! The required parameter `PasswordChangeRequest` missing when calling setPassword."
         }
 
-        $LocalVarBodyParameter = $PasswordChangeRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $PasswordChangeRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

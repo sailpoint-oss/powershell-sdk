@@ -1,13 +1,22 @@
 
+$JSON = @"
+{
+	"indices": [
+		"identities"
+	],
+	"query": {
+		"query": "\"philip.ellis\"",
+		"fields": [
+		"name"
+		]
+	}
+	}
+"@
+
+$Search1 = ConvertFrom-JsonToSearch1 -Json $JSON
+
 $Parameters = @{
-    "Search1" = @{
-        "query" = @{
-            "query" = "name:a*"
-        }
-        "indices" = @(
-            "identities"
-        )
-    }
+    "Search1" = $Search1
 }
 
 # Accounts List

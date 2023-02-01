@@ -61,7 +61,14 @@ function New-BetaPasswordOrgConfig {
             throw "Error! The required parameter `PasswordOrgConfig` missing when calling createPasswordOrgConfig."
         }
 
-        $LocalVarBodyParameter = $PasswordOrgConfig | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $PasswordOrgConfig | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -206,7 +213,14 @@ function Update-BetaPasswordOrgConfig {
             throw "Error! The required parameter `PasswordOrgConfig` missing when calling updatePasswordOrgConfig."
         }
 
-        $LocalVarBodyParameter = $PasswordOrgConfig | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $PasswordOrgConfig | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

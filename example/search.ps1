@@ -1,14 +1,21 @@
-# Perform Search
+$Json = @"
+{
+	"indices": [
+		"identities"
+	],
+	"query": {
+		"query": "\"philip.ellis\"",
+		"fields": [
+		"name"
+		]
+	}
+	}
+"@
 
-$Parameters = @{
-    "Search1" = @{"query" = @{ "query" = "name:a*"}}
-    "Offset" = 0
-    "Limit" = 10
-
-}
+$Search1 = ConvertFrom-JsonToSearch1 -Json $Json
 
 try {
-    Search-Post @Parameters
+    Search-Post -Search1 $Search1
 } catch {
     Write-Host ("Exception occurred when calling Search-Post: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))

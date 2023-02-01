@@ -61,7 +61,14 @@ function Add-BetaTagToObject {
             throw "Error! The required parameter `TaggedObject` missing when calling addTagToObject."
         }
 
-        $LocalVarBodyParameter = $TaggedObject | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $TaggedObject | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -141,7 +148,14 @@ function Add-BetaTagsToManyObjects {
             throw "Error! The required parameter `BulkTaggedObject` missing when calling addTagsToManyObjects."
         }
 
-        $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -614,7 +628,14 @@ function Remove-BetaTagsToManyObject {
             throw "Error! The required parameter `BulkTaggedObject` missing when calling removeTagsToManyObject."
         }
 
-        $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -715,7 +736,14 @@ function Update-BetaTaggedObjectByTypeAndId {
             throw "Error! The required parameter `TaggedObject` missing when calling updateTaggedObjectByTypeAndId."
         }
 
-        $LocalVarBodyParameter = $TaggedObject | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $TaggedObject | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

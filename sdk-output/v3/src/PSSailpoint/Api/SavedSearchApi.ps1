@@ -61,7 +61,14 @@ function Save-dSearchCreate {
             throw "Error! The required parameter `SavedSearchCreateRequest` missing when calling savedSearchCreate."
         }
 
-        $LocalVarBodyParameter = $SavedSearchCreateRequest | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SavedSearchCreateRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -226,7 +233,14 @@ function Save-dSearchExecute {
             throw "Error! The required parameter `SearchArguments` missing when calling savedSearchExecute."
         }
 
-        $LocalVarBodyParameter = $SearchArguments | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SearchArguments | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 
@@ -496,7 +510,14 @@ function Save-dSearchUpdate {
             throw "Error! The required parameter `SavedSearch` missing when calling savedSearchUpdate."
         }
 
-        $LocalVarBodyParameter = $SavedSearch | ConvertTo-Json -Depth 100
+        $LocalVarBodyParameter = $SavedSearch | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
 
 
 

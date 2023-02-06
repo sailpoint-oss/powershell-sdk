@@ -5,10 +5,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-OauthClient**](OAuthClientsApi.md#New-OauthClient) | **POST** /oauth-clients | Create OAuth Client
-[**Invoke-DeleteOauthClient**](OAuthClientsApi.md#Invoke-DeleteOauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
+[**Remove-OauthClient**](OAuthClientsApi.md#Remove-OauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
 [**Get-OauthClient**](OAuthClientsApi.md#Get-OauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
-[**Invoke-ListOauthClients**](OAuthClientsApi.md#Invoke-ListOauthClients) | **GET** /oauth-clients | List OAuth Clients
-[**Invoke-PatchOauthClient**](OAuthClientsApi.md#Invoke-PatchOauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
+[**Get-OauthClients**](OAuthClientsApi.md#Get-OauthClients) | **GET** /oauth-clients | List OAuth Clients
+[**Update-OauthClient**](OAuthClientsApi.md#Update-OauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
 
 
 <a name="New-OauthClient"></a>
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteOauthClient"></a>
-# **Invoke-DeleteOauthClient**
-> void Invoke-DeleteOauthClient<br>
+<a name="Remove-OauthClient"></a>
+# **Remove-OauthClient**
+> void Remove-OauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete OAuth Client
@@ -85,9 +85,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 # Delete OAuth Client
 try {
-    $Result = Invoke-DeleteOauthClient -Id $Id
+    $Result = Remove-OauthClient -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteOauthClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-OauthClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -164,9 +164,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListOauthClients"></a>
-# **Invoke-ListOauthClients**
-> GetOAuthClientResponse[] Invoke-ListOauthClients<br>
+<a name="Get-OauthClients"></a>
+# **Get-OauthClients**
+> GetOAuthClientResponse[] Get-OauthClients<br>
 
 List OAuth Clients
 
@@ -185,9 +185,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # List OAuth Clients
 try {
-    $Result = Invoke-ListOauthClients
+    $Result = Get-OauthClients
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListOauthClients: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-OauthClients: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -210,9 +210,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PatchOauthClient"></a>
-# **Invoke-PatchOauthClient**
-> GetOAuthClientResponse Invoke-PatchOauthClient<br>
+<a name="Update-OauthClient"></a>
+# **Update-OauthClient**
+> GetOAuthClientResponse Update-OauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -236,9 +236,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch OAuth Client
 try {
-    $Result = Invoke-PatchOauthClient -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-OauthClient -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-PatchOauthClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-OauthClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

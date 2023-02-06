@@ -196,7 +196,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Entitlement[]
 #>
-function Invoke-BetaListEntitlementParents {
+function Get-BetaEntitlementParents {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -216,7 +216,7 @@ function Invoke-BetaListEntitlementParents {
     )
 
     Process {
-        'Calling method: Invoke-BetaListEntitlementParents' | Write-Debug
+        'Calling method: Get-BetaEntitlementParents' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -301,7 +301,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Entitlement[]
 #>
-function Invoke-BetaListEntitlementchildren {
+function Get-BetaEntitlementchildren {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -321,7 +321,7 @@ function Invoke-BetaListEntitlementchildren {
     )
 
     Process {
-        'Calling method: Invoke-BetaListEntitlementchildren' | Write-Debug
+        'Calling method: Get-BetaEntitlementchildren' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -421,7 +421,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Entitlement[]
 #>
-function Invoke-BetaListEntitlements {
+function Get-BetaEntitlements {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -456,7 +456,7 @@ function Invoke-BetaListEntitlements {
     )
 
     Process {
-        'Calling method: Invoke-BetaListEntitlements' | Write-Debug
+        'Calling method: Get-BetaEntitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -555,7 +555,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Entitlement
 #>
-function Invoke-BetaPatchEntitlement {
+function Update-BetaEntitlement {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -569,7 +569,7 @@ function Invoke-BetaPatchEntitlement {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchEntitlement' | Write-Debug
+        'Calling method: Update-BetaEntitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

@@ -482,7 +482,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteCampaignTemplate {
+function Remove-BetaCampaignTemplate {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -493,7 +493,7 @@ function Invoke-BetaDeleteCampaignTemplate {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteCampaignTemplate' | Write-Debug
+        'Calling method: Remove-BetaCampaignTemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -557,7 +557,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteCampaignTemplateSchedule {
+function Remove-BetaCampaignTemplateSchedule {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -568,7 +568,7 @@ function Invoke-BetaDeleteCampaignTemplateSchedule {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteCampaignTemplateSchedule' | Write-Debug
+        'Calling method: Remove-BetaCampaignTemplateSchedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -632,7 +632,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Invoke-BetaDeleteCampaigns {
+function Remove-BetaCampaigns {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -643,7 +643,7 @@ function Invoke-BetaDeleteCampaigns {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteCampaigns' | Write-Debug
+        'Calling method: Remove-BetaCampaigns' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1297,7 +1297,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 CampaignTemplate[]
 #>
-function Invoke-BetaListCampaignTemplates {
+function Get-BetaCampaignTemplates {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1320,7 +1320,7 @@ function Invoke-BetaListCampaignTemplates {
     )
 
     Process {
-        'Calling method: Invoke-BetaListCampaignTemplates' | Write-Debug
+        'Calling method: Get-BetaCampaignTemplates' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1403,7 +1403,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 CampaignTemplate
 #>
-function Invoke-BetaPatchCampaignTemplate {
+function Update-BetaCampaignTemplate {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1417,7 +1417,7 @@ function Invoke-BetaPatchCampaignTemplate {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchCampaignTemplate' | Write-Debug
+        'Calling method: Update-BetaCampaignTemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1497,7 +1497,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Invoke-BetaRunCampaignRemediationScan {
+function Start-BetaCampaignRemediationScan {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1508,7 +1508,7 @@ function Invoke-BetaRunCampaignRemediationScan {
     )
 
     Process {
-        'Calling method: Invoke-BetaRunCampaignRemediationScan' | Write-Debug
+        'Calling method: Start-BetaCampaignRemediationScan' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1575,7 +1575,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Invoke-BetaRunCampaignReport {
+function Start-BetaCampaignReport {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1589,7 +1589,7 @@ function Invoke-BetaRunCampaignReport {
     )
 
     Process {
-        'Calling method: Invoke-BetaRunCampaignReport' | Write-Debug
+        'Calling method: Start-BetaCampaignReport' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

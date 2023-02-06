@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaCustomPasswordInstructions**](BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
-[**Invoke-BetaDeleteCustomPasswordInstructions**](BetaCustomPasswordInstructionsApi.md#Invoke-BetaDeleteCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
+[**Remove-BetaCustomPasswordInstructions**](BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 [**Get-BetaCustomPasswordInstructions**](BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
 
 
@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteCustomPasswordInstructions"></a>
-# **Invoke-BetaDeleteCustomPasswordInstructions**
-> void Invoke-BetaDeleteCustomPasswordInstructions<br>
+<a name="Remove-BetaCustomPasswordInstructions"></a>
+# **Remove-BetaCustomPasswordInstructions**
+> void Remove-BetaCustomPasswordInstructions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PageId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Locale] <String><br>
 
@@ -85,9 +85,9 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 
 # Delete Custom Password Instructions by page ID
 try {
-    $Result = Invoke-BetaDeleteCustomPasswordInstructions -PageId $PageId -Locale $Locale
+    $Result = Remove-BetaCustomPasswordInstructions -PageId $PageId -Locale $Locale
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteCustomPasswordInstructions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaCustomPasswordInstructions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteSearchAttributeConfig {
+function Remove-BetaSearchAttributeConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-BetaDeleteSearchAttributeConfig {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSearchAttributeConfig' | Write-Debug
+        'Calling method: Remove-BetaSearchAttributeConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -330,7 +330,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SearchAttributeConfig
 #>
-function Invoke-BetaPatchSearchAttributeConfig {
+function Update-BetaSearchAttributeConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -344,7 +344,7 @@ function Invoke-BetaPatchSearchAttributeConfig {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchSearchAttributeConfig' | Write-Debug
+        'Calling method: Update-BetaSearchAttributeConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

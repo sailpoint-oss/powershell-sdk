@@ -315,7 +315,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 CompletedApproval[]
 #>
-function Invoke-ListCompletedApprovals {
+function Get-CompletedApprovals {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -341,7 +341,7 @@ function Invoke-ListCompletedApprovals {
     )
 
     Process {
-        'Calling method: Invoke-ListCompletedApprovals' | Write-Debug
+        'Calling method: Get-CompletedApprovals' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -440,7 +440,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 PendingApproval[]
 #>
-function Invoke-ListPendingApprovals {
+function Get-PendingApprovals {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -466,7 +466,7 @@ function Invoke-ListPendingApprovals {
     )
 
     Process {
-        'Calling method: Invoke-ListPendingApprovals' | Write-Debug
+        'Calling method: Get-PendingApprovals' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

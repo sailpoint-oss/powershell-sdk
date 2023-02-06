@@ -823,7 +823,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 IdentityListItem[]
 #>
-function Invoke-BetaListIdentities {
+function Get-BetaIdentities {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -846,7 +846,7 @@ function Invoke-BetaListIdentities {
     )
 
     Process {
-        'Calling method: Invoke-BetaListIdentities' | Write-Debug
+        'Calling method: Get-BetaIdentities' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -929,7 +929,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ListIdentityAccessItems200ResponseInner[]
 #>
-function Invoke-BetaListIdentityAccessItems {
+function Get-BetaIdentityAccessItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -943,7 +943,7 @@ function Invoke-BetaListIdentityAccessItems {
     )
 
     Process {
-        'Calling method: Invoke-BetaListIdentityAccessItems' | Write-Debug
+        'Calling method: Get-BetaIdentityAccessItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1017,7 +1017,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ListIdentityAccessItems200ResponseInner[]
 #>
-function Invoke-BetaListIdentitySnapshotAccessItems {
+function Get-BetaIdentitySnapshotAccessItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1034,7 +1034,7 @@ function Invoke-BetaListIdentitySnapshotAccessItems {
     )
 
     Process {
-        'Calling method: Invoke-BetaListIdentitySnapshotAccessItems' | Write-Debug
+        'Calling method: Get-BetaIdentitySnapshotAccessItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1121,7 +1121,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 IdentitySnapshotSummaryResponse[]
 #>
-function Invoke-BetaListIdentitySnapshots {
+function Get-BetaIdentitySnapshots {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1148,7 +1148,7 @@ function Invoke-BetaListIdentitySnapshots {
     )
 
     Process {
-        'Calling method: Invoke-BetaListIdentitySnapshots' | Write-Debug
+        'Calling method: Get-BetaIdentitySnapshots' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

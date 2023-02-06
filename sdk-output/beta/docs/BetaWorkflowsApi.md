@@ -4,19 +4,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Stop-BetaWorkflowExecution**](BetaWorkflowsApi.md#Stop-BetaWorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
+[**Suspend-BetaWorkflowExecution**](BetaWorkflowsApi.md#Suspend-BetaWorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
 [**New-BetaWorkflow**](BetaWorkflowsApi.md#New-BetaWorkflow) | **POST** /workflows | Create Workflow
-[**Invoke-BetaDeleteWorkflow**](BetaWorkflowsApi.md#Invoke-BetaDeleteWorkflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
+[**Remove-BetaWorkflow**](BetaWorkflowsApi.md#Remove-BetaWorkflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
 [**Get-BetaWorkflow**](BetaWorkflowsApi.md#Get-BetaWorkflow) | **GET** /workflows/{id} | Get Workflow By Id
 [**Get-BetaWorkflowExecution**](BetaWorkflowsApi.md#Get-BetaWorkflowExecution) | **GET** /workflow-executions/{id} | Get a Workflow Execution
 [**Get-BetaWorkflowExecutionHistory**](BetaWorkflowsApi.md#Get-BetaWorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get Workflow Execution History
-[**Invoke-BetaListCompleteWorkflowLibrary**](BetaWorkflowsApi.md#Invoke-BetaListCompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
-[**Invoke-BetaListWorkflowExecutions**](BetaWorkflowsApi.md#Invoke-BetaListWorkflowExecutions) | **GET** /workflows/{id}/executions | List Workflow Executions
-[**Invoke-BetaListWorkflowLibraryActions**](BetaWorkflowsApi.md#Invoke-BetaListWorkflowLibraryActions) | **GET** /workflow-library/actions | List Workflow Library Actions
-[**Invoke-BetaListWorkflowLibraryOperators**](BetaWorkflowsApi.md#Invoke-BetaListWorkflowLibraryOperators) | **GET** /workflow-library/operators | List Workflow Library Operators
-[**Invoke-BetaListWorkflowLibraryTriggers**](BetaWorkflowsApi.md#Invoke-BetaListWorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List Workflow Library Triggers
-[**Invoke-BetaListWorkflows**](BetaWorkflowsApi.md#Invoke-BetaListWorkflows) | **GET** /workflows | List Workflows
-[**Invoke-BetaPatchWorkflow**](BetaWorkflowsApi.md#Invoke-BetaPatchWorkflow) | **PATCH** /workflows/{id} | Patch Workflow
+[**Get-BetaCompleteWorkflowLibrary**](BetaWorkflowsApi.md#Get-BetaCompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
+[**Get-BetaWorkflowExecutions**](BetaWorkflowsApi.md#Get-BetaWorkflowExecutions) | **GET** /workflows/{id}/executions | List Workflow Executions
+[**Get-BetaWorkflowLibraryActions**](BetaWorkflowsApi.md#Get-BetaWorkflowLibraryActions) | **GET** /workflow-library/actions | List Workflow Library Actions
+[**Get-BetaWorkflowLibraryOperators**](BetaWorkflowsApi.md#Get-BetaWorkflowLibraryOperators) | **GET** /workflow-library/operators | List Workflow Library Operators
+[**Get-BetaWorkflowLibraryTriggers**](BetaWorkflowsApi.md#Get-BetaWorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List Workflow Library Triggers
+[**Get-BetaWorkflows**](BetaWorkflowsApi.md#Get-BetaWorkflows) | **GET** /workflows | List Workflows
+[**Update-BetaWorkflow**](BetaWorkflowsApi.md#Update-BetaWorkflow) | **PATCH** /workflows/{id} | Patch Workflow
 [**Submit-BetaExternalExecuteWorkflow**](BetaWorkflowsApi.md#Submit-BetaExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
 [**Submit-BetaWorkflowExternalTrigger**](BetaWorkflowsApi.md#Submit-BetaWorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
 [**Test-BetaExternalExecuteWorkflow**](BetaWorkflowsApi.md#Test-BetaExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id}/test | Test Workflow via External Trigger
@@ -24,9 +24,9 @@ Method | HTTP request | Description
 [**Update-BetaWorkflow**](BetaWorkflowsApi.md#Update-BetaWorkflow) | **PUT** /workflows/{id} | Update Workflow
 
 
-<a name="Stop-BetaWorkflowExecution"></a>
-# **Stop-BetaWorkflowExecution**
-> void Stop-BetaWorkflowExecution<br>
+<a name="Suspend-BetaWorkflowExecution"></a>
+# **Suspend-BetaWorkflowExecution**
+> void Suspend-BetaWorkflowExecution<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Cancel Workflow Execution by ID
@@ -47,9 +47,9 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution I
 
 # Cancel Workflow Execution by ID
 try {
-    $Result = Stop-BetaWorkflowExecution -Id $Id
+    $Result = Suspend-BetaWorkflowExecution -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Stop-BetaWorkflowExecution: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Suspend-BetaWorkflowExecution: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -132,9 +132,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteWorkflow"></a>
-# **Invoke-BetaDeleteWorkflow**
-> void Invoke-BetaDeleteWorkflow<br>
+<a name="Remove-BetaWorkflow"></a>
+# **Remove-BetaWorkflow**
+> void Remove-BetaWorkflow<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Workflow By Id
@@ -155,9 +155,9 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 # Delete Workflow By Id
 try {
-    $Result = Invoke-BetaDeleteWorkflow -Id $Id
+    $Result = Remove-BetaWorkflow -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteWorkflow: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaWorkflow: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -336,9 +336,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListCompleteWorkflowLibrary"></a>
-# **Invoke-BetaListCompleteWorkflowLibrary**
-> ListCompleteWorkflowLibrary200ResponseInner[] Invoke-BetaListCompleteWorkflowLibrary<br>
+<a name="Get-BetaCompleteWorkflowLibrary"></a>
+# **Get-BetaCompleteWorkflowLibrary**
+> ListCompleteWorkflowLibrary200ResponseInner[] Get-BetaCompleteWorkflowLibrary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 
@@ -361,9 +361,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 
 # List Complete Workflow Library
 try {
-    $Result = Invoke-BetaListCompleteWorkflowLibrary -Limit $Limit -Offset $Offset
+    $Result = Get-BetaCompleteWorkflowLibrary -Limit $Limit -Offset $Offset
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListCompleteWorkflowLibrary: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaCompleteWorkflowLibrary: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -390,9 +390,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListWorkflowExecutions"></a>
-# **Invoke-BetaListWorkflowExecutions**
-> WorkflowExecution[] Invoke-BetaListWorkflowExecutions<br>
+<a name="Get-BetaWorkflowExecutions"></a>
+# **Get-BetaWorkflowExecutions**
+> WorkflowExecution[] Get-BetaWorkflowExecutions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 List Workflow Executions
@@ -413,9 +413,9 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 
 # List Workflow Executions
 try {
-    $Result = Invoke-BetaListWorkflowExecutions -Id $Id
+    $Result = Get-BetaWorkflowExecutions -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListWorkflowExecutions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaWorkflowExecutions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -441,9 +441,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListWorkflowLibraryActions"></a>
-# **Invoke-BetaListWorkflowLibraryActions**
-> WorkflowLibraryAction[] Invoke-BetaListWorkflowLibraryActions<br>
+<a name="Get-BetaWorkflowLibraryActions"></a>
+# **Get-BetaWorkflowLibraryActions**
+> WorkflowLibraryAction[] Get-BetaWorkflowLibraryActions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
@@ -468,9 +468,9 @@ $Filters = "id eq "sp:create-campaign"" # String | Filter results using the stan
 
 # List Workflow Library Actions
 try {
-    $Result = Invoke-BetaListWorkflowLibraryActions -Limit $Limit -Offset $Offset -Filters $Filters
+    $Result = Get-BetaWorkflowLibraryActions -Limit $Limit -Offset $Offset -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListWorkflowLibraryActions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaWorkflowLibraryActions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -498,9 +498,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListWorkflowLibraryOperators"></a>
-# **Invoke-BetaListWorkflowLibraryOperators**
-> WorkflowLibraryOperator[] Invoke-BetaListWorkflowLibraryOperators<br>
+<a name="Get-BetaWorkflowLibraryOperators"></a>
+# **Get-BetaWorkflowLibraryOperators**
+> WorkflowLibraryOperator[] Get-BetaWorkflowLibraryOperators<br>
 
 List Workflow Library Operators
 
@@ -519,9 +519,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # List Workflow Library Operators
 try {
-    $Result = Invoke-BetaListWorkflowLibraryOperators
+    $Result = Get-BetaWorkflowLibraryOperators
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListWorkflowLibraryOperators: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaWorkflowLibraryOperators: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -544,9 +544,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListWorkflowLibraryTriggers"></a>
-# **Invoke-BetaListWorkflowLibraryTriggers**
-> WorkflowLibraryTrigger[] Invoke-BetaListWorkflowLibraryTriggers<br>
+<a name="Get-BetaWorkflowLibraryTriggers"></a>
+# **Get-BetaWorkflowLibraryTriggers**
+> WorkflowLibraryTrigger[] Get-BetaWorkflowLibraryTriggers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
@@ -571,9 +571,9 @@ $Filters = "id eq "idn:identity-attributes-changed"" # String | Filter results u
 
 # List Workflow Library Triggers
 try {
-    $Result = Invoke-BetaListWorkflowLibraryTriggers -Limit $Limit -Offset $Offset -Filters $Filters
+    $Result = Get-BetaWorkflowLibraryTriggers -Limit $Limit -Offset $Offset -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListWorkflowLibraryTriggers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaWorkflowLibraryTriggers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -601,9 +601,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListWorkflows"></a>
-# **Invoke-BetaListWorkflows**
-> Workflow[] Invoke-BetaListWorkflows<br>
+<a name="Get-BetaWorkflows"></a>
+# **Get-BetaWorkflows**
+> Workflow[] Get-BetaWorkflows<br>
 
 List Workflows
 
@@ -622,9 +622,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # List Workflows
 try {
-    $Result = Invoke-BetaListWorkflows
+    $Result = Get-BetaWorkflows
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListWorkflows: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaWorkflows: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -647,9 +647,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchWorkflow"></a>
-# **Invoke-BetaPatchWorkflow**
-> Workflow Invoke-BetaPatchWorkflow<br>
+<a name="Update-BetaWorkflow"></a>
+# **Update-BetaWorkflow**
+> Workflow Update-BetaWorkflow<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -673,9 +673,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch Workflow
 try {
-    $Result = Invoke-BetaPatchWorkflow -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaWorkflow -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchWorkflow: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaWorkflow: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

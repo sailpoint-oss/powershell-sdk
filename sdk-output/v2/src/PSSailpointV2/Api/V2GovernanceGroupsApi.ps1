@@ -199,7 +199,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-V2DeleteWorkgroup {
+function Remove-V2Workgroup {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -210,7 +210,7 @@ function Invoke-V2DeleteWorkgroup {
     )
 
     Process {
-        'Calling method: Invoke-V2DeleteWorkgroup' | Write-Debug
+        'Calling method: Remove-V2Workgroup' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -349,7 +349,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ListWorkgroupConnections200ResponseInner[]
 #>
-function Invoke-V2ListWorkgroupConnections {
+function Get-V2WorkgroupConnections {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -360,7 +360,7 @@ function Invoke-V2ListWorkgroupConnections {
     )
 
     Process {
-        'Calling method: Invoke-V2ListWorkgroupConnections' | Write-Debug
+        'Calling method: Get-V2WorkgroupConnections' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -424,7 +424,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ListWorkgroupMembers200ResponseInner[]
 #>
-function Invoke-V2ListWorkgroupMembers {
+function Get-V2WorkgroupMembers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -435,7 +435,7 @@ function Invoke-V2ListWorkgroupMembers {
     )
 
     Process {
-        'Calling method: Invoke-V2ListWorkgroupMembers' | Write-Debug
+        'Calling method: Get-V2WorkgroupMembers' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -496,7 +496,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ListWorkgroups200ResponseInner[]
 #>
-function Invoke-V2ListWorkgroups {
+function Get-V2Workgroups {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -504,7 +504,7 @@ function Invoke-V2ListWorkgroups {
     )
 
     Process {
-        'Calling method: Invoke-V2ListWorkgroups' | Write-Debug
+        'Calling method: Get-V2Workgroups' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

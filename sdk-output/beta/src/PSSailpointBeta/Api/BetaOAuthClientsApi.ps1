@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteOauthClient {
+function Remove-BetaOauthClient {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-BetaDeleteOauthClient {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteOauthClient' | Write-Debug
+        'Calling method: Remove-BetaOauthClient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -259,7 +259,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 GetOAuthClientResponse[]
 #>
-function Invoke-BetaListOauthClients {
+function Get-BetaOauthClients {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -267,7 +267,7 @@ function Invoke-BetaListOauthClients {
     )
 
     Process {
-        'Calling method: Invoke-BetaListOauthClients' | Write-Debug
+        'Calling method: Get-BetaOauthClients' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -330,7 +330,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 GetOAuthClientResponse
 #>
-function Invoke-BetaPatchOauthClient {
+function Update-BetaOauthClient {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -344,7 +344,7 @@ function Invoke-BetaPatchOauthClient {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchOauthClient' | Write-Debug
+        'Calling method: Update-BetaOauthClient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

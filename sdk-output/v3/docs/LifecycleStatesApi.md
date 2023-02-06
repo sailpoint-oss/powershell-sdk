@@ -5,9 +5,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-LifecycleState**](LifecycleStatesApi.md#New-LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create Lifecycle State
-[**Invoke-DeleteLifecycleState**](LifecycleStatesApi.md#Invoke-DeleteLifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State by ID
+[**Remove-LifecycleState**](LifecycleStatesApi.md#Remove-LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State by ID
 [**Get-LifecycleState**](LifecycleStatesApi.md#Get-LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Retrieves Lifecycle State
-[**Invoke-ListLifecycleStates**](LifecycleStatesApi.md#Invoke-ListLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
+[**Get-LifecycleStates**](LifecycleStatesApi.md#Get-LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
 [**Set-LifecycleState**](LifecycleStatesApi.md#Set-LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set Lifecycle State
 [**Update-LifecycleStates**](LifecycleStatesApi.md#Update-LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteLifecycleState"></a>
-# **Invoke-DeleteLifecycleState**
-> BaseReferenceDto Invoke-DeleteLifecycleState<br>
+<a name="Remove-LifecycleState"></a>
+# **Remove-LifecycleState**
+> BaseReferenceDto Remove-LifecycleState<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LifecycleStateId] <String><br>
 
@@ -93,9 +93,9 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle Stat
 
 # Delete Lifecycle State by ID
 try {
-    $Result = Invoke-DeleteLifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId
+    $Result = Remove-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteLifecycleState: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-LifecycleState: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -176,9 +176,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListLifecycleStates"></a>
-# **Invoke-ListLifecycleStates**
-> LifecycleState[] Invoke-ListLifecycleStates<br>
+<a name="Get-LifecycleStates"></a>
+# **Get-LifecycleStates**
+> LifecycleState[] Get-LifecycleStates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -207,9 +207,9 @@ $Sorters = "created,modified" # String | Sort results using the standard syntax 
 
 # Lists LifecycleStates
 try {
-    $Result = Invoke-ListLifecycleStates -IdentityProfileId $IdentityProfileId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters
+    $Result = Get-LifecycleStates -IdentityProfileId $IdentityProfileId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListLifecycleStates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-LifecycleStates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -286,7 +286,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteVerifiedFromAddress {
+function Remove-BetaVerifiedFromAddress {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -297,7 +297,7 @@ function Invoke-BetaDeleteVerifiedFromAddress {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteVerifiedFromAddress' | Write-Debug
+        'Calling method: Remove-BetaVerifiedFromAddress' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -664,7 +664,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 EmailStatusDto[]
 #>
-function Invoke-BetaListFromAddresses {
+function Get-BetaFromAddresses {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -687,7 +687,7 @@ function Invoke-BetaListFromAddresses {
     )
 
     Process {
-        'Calling method: Invoke-BetaListFromAddresses' | Write-Debug
+        'Calling method: Get-BetaFromAddresses' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -773,7 +773,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 TemplateDtoDefault[]
 #>
-function Invoke-BetaListNotificationTemplateDefaults {
+function Get-BetaNotificationTemplateDefaults {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -790,7 +790,7 @@ function Invoke-BetaListNotificationTemplateDefaults {
     )
 
     Process {
-        'Calling method: Invoke-BetaListNotificationTemplateDefaults' | Write-Debug
+        'Calling method: Get-BetaNotificationTemplateDefaults' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -868,7 +868,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 TemplateDto[]
 #>
-function Invoke-BetaListNotificationTemplates {
+function Get-BetaNotificationTemplates {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -885,7 +885,7 @@ function Invoke-BetaListNotificationTemplates {
     )
 
     Process {
-        'Calling method: Invoke-BetaListNotificationTemplates' | Write-Debug
+        'Calling method: Get-BetaNotificationTemplates' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

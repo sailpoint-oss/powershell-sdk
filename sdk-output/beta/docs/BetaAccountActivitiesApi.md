@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaAccountActivity**](BetaAccountActivitiesApi.md#Get-BetaAccountActivity) | **GET** /account-activities/{id} | Get Account Activity
-[**Invoke-BetaListAccountActivities**](BetaAccountActivitiesApi.md#Invoke-BetaListAccountActivities) | **GET** /account-activities | List Account Activities
+[**Get-BetaAccountActivities**](BetaAccountActivitiesApi.md#Get-BetaAccountActivities) | **GET** /account-activities | List Account Activities
 
 
 <a name="Get-BetaAccountActivity"></a>
@@ -59,9 +59,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListAccountActivities"></a>
-# **Invoke-BetaListAccountActivities**
-> CancelableAccountActivity[] Invoke-BetaListAccountActivities<br>
+<a name="Get-BetaAccountActivities"></a>
+# **Get-BetaAccountActivities**
+> CancelableAccountActivity[] Get-BetaAccountActivities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedFor] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedBy] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RegardingIdentity] <String><br>
@@ -98,9 +98,9 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 
 # List Account Activities
 try {
-    $Result = Invoke-BetaListAccountActivities -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaAccountActivities -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListAccountActivities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaAccountActivities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

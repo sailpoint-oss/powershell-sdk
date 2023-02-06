@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 BaseReferenceDto
 #>
-function Invoke-BetaDeleteRole {
+function Remove-BetaRole {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-BetaDeleteRole {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteRole' | Write-Debug
+        'Calling method: Remove-BetaRole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -408,7 +408,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Role[]
 #>
-function Invoke-BetaListRoles {
+function Get-BetaRoles {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -440,7 +440,7 @@ function Invoke-BetaListRoles {
     )
 
     Process {
-        'Calling method: Invoke-BetaListRoles' | Write-Debug
+        'Calling method: Get-BetaRoles' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -535,7 +535,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Role
 #>
-function Invoke-BetaPatchRole {
+function Update-BetaRole {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -549,7 +549,7 @@ function Invoke-BetaPatchRole {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchRole' | Write-Debug
+        'Calling method: Update-BetaRole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

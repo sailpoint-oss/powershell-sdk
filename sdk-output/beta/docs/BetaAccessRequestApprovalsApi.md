@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**Invoke-BetaApprovalSummary**](BetaAccessRequestApprovalsApi.md#Invoke-BetaApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of pending, approved and rejected access requests approvals
 [**Approve-BetaRequest**](BetaAccessRequestApprovalsApi.md#Approve-BetaRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
 [**Invoke-BetaForwardRequest**](BetaAccessRequestApprovalsApi.md#Invoke-BetaForwardRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval to a new owner.
-[**Invoke-BetaListCompletedApprovals**](BetaAccessRequestApprovalsApi.md#Invoke-BetaListCompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
-[**Invoke-BetaListPendingApprovals**](BetaAccessRequestApprovalsApi.md#Invoke-BetaListPendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
+[**Get-BetaCompletedApprovals**](BetaAccessRequestApprovalsApi.md#Get-BetaCompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
+[**Get-BetaPendingApprovals**](BetaAccessRequestApprovalsApi.md#Get-BetaPendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
 [**Deny-BetaRequest**](BetaAccessRequestApprovalsApi.md#Deny-BetaRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
 
 
@@ -174,9 +174,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListCompletedApprovals"></a>
-# **Invoke-BetaListCompletedApprovals**
-> CompletedApproval[] Invoke-BetaListCompletedApprovals<br>
+<a name="Get-BetaCompletedApprovals"></a>
+# **Get-BetaCompletedApprovals**
+> CompletedApproval[] Get-BetaCompletedApprovals<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -207,9 +207,9 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 
 # Completed Access Request Approvals List
 try {
-    $Result = Invoke-BetaListCompletedApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaCompletedApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListCompletedApprovals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaCompletedApprovals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -240,9 +240,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListPendingApprovals"></a>
-# **Invoke-BetaListPendingApprovals**
-> PendingApproval[] Invoke-BetaListPendingApprovals<br>
+<a name="Get-BetaPendingApprovals"></a>
+# **Get-BetaPendingApprovals**
+> PendingApproval[] Get-BetaPendingApprovals<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -273,9 +273,9 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 
 # Pending Access Request Approvals List
 try {
-    $Result = Invoke-BetaListPendingApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaPendingApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListPendingApprovals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaPendingApprovals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

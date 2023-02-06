@@ -124,7 +124,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 CancelableAccountActivity[]
 #>
-function Invoke-BetaListAccountActivities {
+function Get-BetaAccountActivities {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -159,7 +159,7 @@ function Invoke-BetaListAccountActivities {
     )
 
     Process {
-        'Calling method: Invoke-BetaListAccountActivities' | Write-Debug
+        'Calling method: Get-BetaAccountActivities' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

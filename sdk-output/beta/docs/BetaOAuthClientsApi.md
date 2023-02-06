@@ -5,10 +5,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaOauthClient**](BetaOAuthClientsApi.md#New-BetaOauthClient) | **POST** /oauth-clients | Create OAuth Client
-[**Invoke-BetaDeleteOauthClient**](BetaOAuthClientsApi.md#Invoke-BetaDeleteOauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
+[**Remove-BetaOauthClient**](BetaOAuthClientsApi.md#Remove-BetaOauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
 [**Get-BetaOauthClient**](BetaOAuthClientsApi.md#Get-BetaOauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
-[**Invoke-BetaListOauthClients**](BetaOAuthClientsApi.md#Invoke-BetaListOauthClients) | **GET** /oauth-clients | List OAuth Clients
-[**Invoke-BetaPatchOauthClient**](BetaOAuthClientsApi.md#Invoke-BetaPatchOauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
+[**Get-BetaOauthClients**](BetaOAuthClientsApi.md#Get-BetaOauthClients) | **GET** /oauth-clients | List OAuth Clients
+[**Update-BetaOauthClient**](BetaOAuthClientsApi.md#Update-BetaOauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
 
 
 <a name="New-BetaOauthClient"></a>
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteOauthClient"></a>
-# **Invoke-BetaDeleteOauthClient**
-> void Invoke-BetaDeleteOauthClient<br>
+<a name="Remove-BetaOauthClient"></a>
+# **Remove-BetaOauthClient**
+> void Remove-BetaOauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete OAuth Client
@@ -85,9 +85,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 # Delete OAuth Client
 try {
-    $Result = Invoke-BetaDeleteOauthClient -Id $Id
+    $Result = Remove-BetaOauthClient -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteOauthClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaOauthClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -164,9 +164,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListOauthClients"></a>
-# **Invoke-BetaListOauthClients**
-> GetOAuthClientResponse[] Invoke-BetaListOauthClients<br>
+<a name="Get-BetaOauthClients"></a>
+# **Get-BetaOauthClients**
+> GetOAuthClientResponse[] Get-BetaOauthClients<br>
 
 List OAuth Clients
 
@@ -185,9 +185,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # List OAuth Clients
 try {
-    $Result = Invoke-BetaListOauthClients
+    $Result = Get-BetaOauthClients
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListOauthClients: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaOauthClients: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -210,9 +210,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchOauthClient"></a>
-# **Invoke-BetaPatchOauthClient**
-> GetOAuthClientResponse Invoke-BetaPatchOauthClient<br>
+<a name="Update-BetaOauthClient"></a>
+# **Update-BetaOauthClient**
+> GetOAuthClientResponse Update-BetaOauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -236,9 +236,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch OAuth Client
 try {
-    $Result = Invoke-BetaPatchOauthClient -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaOauthClient -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchOauthClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaOauthClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

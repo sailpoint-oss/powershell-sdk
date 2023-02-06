@@ -163,6 +163,7 @@ function Invoke-CCApiClient {
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
+                                      -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -SkipCertificateCheck
         } else {
             # skip certification check, use proxy
@@ -173,6 +174,7 @@ function Invoke-CCApiClient {
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
+                                      -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -SkipCertificateCheck `
                                       -Proxy $Configuration["Proxy"].GetProxy($UriBuilder.Uri) `
                                       -ProxyUseDefaultCredentials
@@ -186,7 +188,8 @@ function Invoke-CCApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
-                                      -MaximumRetryCount $Configuration["MaximumRetryCount"]
+                                      -MaximumRetryCount $Configuration["MaximumRetryCount"] `
+                                      -RetryIntervalSec $Configuration["RetryIntervalSeconds"]
         } else {
             # perform certification check, use proxy
             $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
@@ -196,6 +199,7 @@ function Invoke-CCApiClient {
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
+                                      -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -Proxy $Configuration["Proxy"].GetProxy($UriBuilder.Uri) `
                                       -ProxyUseDefaultCredentials
         }

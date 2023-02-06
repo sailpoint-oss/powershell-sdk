@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 PasswordInfo
 #>
-function Invoke-BetaQueryPasswordInfo {
+function Search-BetaPasswordInfo {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -198,7 +198,7 @@ function Invoke-BetaQueryPasswordInfo {
     )
 
     Process {
-        'Calling method: Invoke-BetaQueryPasswordInfo' | Write-Debug
+        'Calling method: Search-BetaPasswordInfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

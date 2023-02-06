@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeletePersonalAccessToken {
+function Remove-BetaPersonalAccessToken {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-BetaDeletePersonalAccessToken {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeletePersonalAccessToken' | Write-Debug
+        'Calling method: Remove-BetaPersonalAccessToken' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 GetPersonalAccessTokenResponse[]
 #>
-function Invoke-BetaListPersonalAccessTokens {
+function Get-BetaPersonalAccessTokens {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -198,7 +198,7 @@ function Invoke-BetaListPersonalAccessTokens {
     )
 
     Process {
-        'Calling method: Invoke-BetaListPersonalAccessTokens' | Write-Debug
+        'Calling method: Get-BetaPersonalAccessTokens' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -265,7 +265,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 GetPersonalAccessTokenResponse
 #>
-function Invoke-BetaPatchPersonalAccessToken {
+function Update-BetaPersonalAccessToken {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -279,7 +279,7 @@ function Invoke-BetaPatchPersonalAccessToken {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchPersonalAccessToken' | Write-Debug
+        'Calling method: Update-BetaPersonalAccessToken' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

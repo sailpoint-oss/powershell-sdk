@@ -73,6 +73,10 @@ function Get-DefaultConfiguration {
         $Configuration["MaximumRetryCount"] = 10
     }
 
+    if (!$Configuration.containsKey("RetryIntervalSeconds")) {
+        $Configuration["RetryIntervalSeconds"] = 5
+    }
+
     if (!$Configuration.containsKey("Proxy")) {
         $Configuration["Proxy"] = $null
     }

@@ -5,11 +5,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaRole**](BetaRolesApi.md#New-BetaRole) | **POST** /roles | Create a Role
-[**Invoke-BetaDeleteRole**](BetaRolesApi.md#Invoke-BetaDeleteRole) | **DELETE** /roles/{id} | Delete a Role
+[**Remove-BetaRole**](BetaRolesApi.md#Remove-BetaRole) | **DELETE** /roles/{id} | Delete a Role
 [**Get-BetaRole**](BetaRolesApi.md#Get-BetaRole) | **GET** /roles/{id} | Get a Role
 [**Get-BetaRoleAssignedIdentities**](BetaRolesApi.md#Get-BetaRoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | Get a list of Identities assigned a Role
-[**Invoke-BetaListRoles**](BetaRolesApi.md#Invoke-BetaListRoles) | **GET** /roles | List Roles
-[**Invoke-BetaPatchRole**](BetaRolesApi.md#Invoke-BetaPatchRole) | **PATCH** /roles/{id} | Patch a specified Role
+[**Get-BetaRoles**](BetaRolesApi.md#Get-BetaRoles) | **GET** /roles | List Roles
+[**Update-BetaRole**](BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
 
 
 <a name="New-BetaRole"></a>
@@ -83,9 +83,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteRole"></a>
-# **Invoke-BetaDeleteRole**
-> BaseReferenceDto Invoke-BetaDeleteRole<br>
+<a name="Remove-BetaRole"></a>
+# **Remove-BetaRole**
+> BaseReferenceDto Remove-BetaRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a Role
@@ -106,9 +106,9 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
 # Delete a Role
 try {
-    $Result = Invoke-BetaDeleteRole -Id $Id
+    $Result = Remove-BetaRole -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteRole: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaRole: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -249,9 +249,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListRoles"></a>
-# **Invoke-BetaListRoles**
-> Role[] Invoke-BetaListRoles<br>
+<a name="Get-BetaRoles"></a>
+# **Get-BetaRoles**
+> Role[] Get-BetaRoles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForSubadmin] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -286,9 +286,9 @@ $IncludeUnsegmented = $false # Boolean | Whether or not the response list should
 
 # List Roles
 try {
-    $Result = Invoke-BetaListRoles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented
+    $Result = Get-BetaRoles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListRoles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaRoles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -321,9 +321,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchRole"></a>
-# **Invoke-BetaPatchRole**
-> Role Invoke-BetaPatchRole<br>
+<a name="Update-BetaRole"></a>
+# **Update-BetaRole**
+> Role Update-BetaRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -347,9 +347,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch a specified Role
 try {
-    $Result = Invoke-BetaPatchRole -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaRole -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchRole: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaRole: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

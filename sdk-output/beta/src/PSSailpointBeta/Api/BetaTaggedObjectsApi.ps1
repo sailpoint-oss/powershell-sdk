@@ -202,7 +202,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteTaggedObjectByTypeAndId {
+function Remove-BetaTaggedObjectByTypeAndId {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -217,7 +217,7 @@ function Invoke-BetaDeleteTaggedObjectByTypeAndId {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteTaggedObjectByTypeAndId' | Write-Debug
+        'Calling method: Remove-BetaTaggedObjectByTypeAndId' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -380,7 +380,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 TaggedObject
 #>
-function Invoke-BetaListTaggedObjects {
+function Get-BetaTaggedObjects {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -400,7 +400,7 @@ function Invoke-BetaListTaggedObjects {
     )
 
     Process {
-        'Calling method: Invoke-BetaListTaggedObjects' | Write-Debug
+        'Calling method: Get-BetaTaggedObjects' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -488,7 +488,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 TaggedObject[]
 #>
-function Invoke-BetaListTaggedObjectsByType {
+function Get-BetaTaggedObjectsByType {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -512,7 +512,7 @@ function Invoke-BetaListTaggedObjectsByType {
     )
 
     Process {
-        'Calling method: Invoke-BetaListTaggedObjectsByType' | Write-Debug
+        'Calling method: Get-BetaTaggedObjectsByType' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

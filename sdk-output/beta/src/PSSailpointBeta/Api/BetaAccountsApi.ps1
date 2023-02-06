@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 AccountsAsyncResult
 #>
-function Invoke-BetaDeleteAccount {
+function Remove-BetaAccount {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-BetaDeleteAccount {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteAccount' | Write-Debug
+        'Calling method: Remove-BetaAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -573,7 +573,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ListAccounts200ResponseInner[]
 #>
-function Invoke-BetaListAccounts {
+function Get-BetaAccounts {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -597,7 +597,7 @@ function Invoke-BetaListAccounts {
     )
 
     Process {
-        'Calling method: Invoke-BetaListAccounts' | Write-Debug
+        'Calling method: Get-BetaAccounts' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

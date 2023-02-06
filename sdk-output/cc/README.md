@@ -51,19 +51,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CCAccountsApi* | [**Invoke-CCListAccounts**](docs/CCAccountsApi.md#Invoke-CCListAccounts) | **GET** /cc/api/account/list | List Accounts
+*CCAccountsApi* | [**Get-CCAccounts**](docs/CCAccountsApi.md#Get-CCAccounts) | **GET** /cc/api/account/list | List Accounts
 *CCAccountsApi* | [**Remove-CCAccount**](docs/CCAccountsApi.md#Remove-CCAccount) | **POST** /cc/api/account/remove/:id | Remove Account
 *CCApplicationsApi* | [**New-CCApplication**](docs/CCApplicationsApi.md#New-CCApplication) | **POST** /cc/api/app/create | Create Application
-*CCApplicationsApi* | [**Invoke-CCDeleteApplication**](docs/CCApplicationsApi.md#Invoke-CCDeleteApplication) | **POST** /cc/api/app/delete/:id | Delete Application
+*CCApplicationsApi* | [**Remove-CCApplication**](docs/CCApplicationsApi.md#Remove-CCApplication) | **POST** /cc/api/app/delete/:id | Delete Application
 *CCApplicationsApi* | [**Get-CCApplication**](docs/CCApplicationsApi.md#Get-CCApplication) | **GET** /cc/api/app/get/:id | Get Single Application
 *CCApplicationsApi* | [**Get-CCApplicationAccessProfiles**](docs/CCApplicationsApi.md#Get-CCApplicationAccessProfiles) | **GET** /cc/api/app/getAccessProfiles/:id | Get Access Profiles for Application
-*CCApplicationsApi* | [**Invoke-CCListApplications**](docs/CCApplicationsApi.md#Invoke-CCListApplications) | **GET** /cc/api/app | List Applications
+*CCApplicationsApi* | [**Get-CCApplications**](docs/CCApplicationsApi.md#Get-CCApplications) | **GET** /cc/api/app | List Applications
 *CCApplicationsApi* | [**Update-CCApplication**](docs/CCApplicationsApi.md#Update-CCApplication) | **POST** /cc/api/app/update/:id | Update Application
 *CCConnectorsApi* | [**New-CCConnector**](docs/CCConnectorsApi.md#New-CCConnector) | **POST** /cc/api/connector/create | Create Connector
-*CCConnectorsApi* | [**Invoke-CCDeleteConnector**](docs/CCConnectorsApi.md#Invoke-CCDeleteConnector) | **POST** /cc/api/connector/delete/{id} | Delete Connector
+*CCConnectorsApi* | [**Remove-CCConnector**](docs/CCConnectorsApi.md#Remove-CCConnector) | **POST** /cc/api/connector/delete/{id} | Delete Connector
 *CCConnectorsApi* | [**Export-CCConnectorConfig**](docs/CCConnectorsApi.md#Export-CCConnectorConfig) | **GET** /cc/api/connector/export/{id} | Export Connector Config
 *CCConnectorsApi* | [**Import-CCConnectorConfig**](docs/CCConnectorsApi.md#Import-CCConnectorConfig) | **POST** /cc/api/connector/import/{id} | Import Connector Config
-*CCConnectorsApi* | [**Invoke-CCListConnectors**](docs/CCConnectorsApi.md#Invoke-CCListConnectors) | **GET** /cc/api/connector/list | List Connectors
+*CCConnectorsApi* | [**Get-CCConnectors**](docs/CCConnectorsApi.md#Get-CCConnectors) | **GET** /cc/api/connector/list | List Connectors
 *CCSourcesAccountsApi* | [**Export-CCAccountFeed**](docs/CCSourcesAccountsApi.md#Export-CCAccountFeed) | **GET** /cc/api/source/exportAccountFeed/{id} | Export Account Feed
 *CCSourcesAggregationApi* | [**Invoke-CCLoadAccounts**](docs/CCSourcesAggregationApi.md#Invoke-CCLoadAccounts) | **POST** /cc/api/source/loadAccounts/{id} | Account Aggregation (File)
 *CCSystemApi* | [**Invoke-CCRefreshIdentities**](docs/CCSystemApi.md#Invoke-CCRefreshIdentities) | **POST** /cc/api/system/refreshIdentities | Refresh Identities

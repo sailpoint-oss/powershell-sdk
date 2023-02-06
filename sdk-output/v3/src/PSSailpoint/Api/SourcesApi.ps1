@@ -416,7 +416,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-DeleteProvisioningPolicy {
+function Remove-ProvisioningPolicy {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -430,7 +430,7 @@ function Invoke-DeleteProvisioningPolicy {
     )
 
     Process {
-        'Calling method: Invoke-DeleteProvisioningPolicy' | Write-Debug
+        'Calling method: Remove-ProvisioningPolicy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -501,7 +501,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-DeleteSchema {
+function Remove-Schema {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -515,7 +515,7 @@ function Invoke-DeleteSchema {
     )
 
     Process {
-        'Calling method: Invoke-DeleteSchema' | Write-Debug
+        'Calling method: Remove-Schema' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -583,7 +583,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 DeleteSource202Response
 #>
-function Invoke-DeleteSource {
+function Remove-Source {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -594,7 +594,7 @@ function Invoke-DeleteSource {
     )
 
     Process {
-        'Calling method: Invoke-DeleteSource' | Write-Debug
+        'Calling method: Remove-Source' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1162,7 +1162,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ProvisioningPolicyDto[]
 #>
-function Invoke-ListProvisioningPolicies {
+function Get-ProvisioningPolicies {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1173,7 +1173,7 @@ function Invoke-ListProvisioningPolicies {
     )
 
     Process {
-        'Calling method: Invoke-ListProvisioningPolicies' | Write-Debug
+        'Calling method: Get-ProvisioningPolicies' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1240,7 +1240,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Schema[]
 #>
-function Invoke-ListSchemas {
+function Get-Schemas {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1254,7 +1254,7 @@ function Invoke-ListSchemas {
     )
 
     Process {
-        'Calling method: Invoke-ListSchemas' | Write-Debug
+        'Calling method: Get-Schemas' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1337,7 +1337,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Source[]
 #>
-function Invoke-ListSources {
+function Get-Sources {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1363,7 +1363,7 @@ function Invoke-ListSources {
     )
 
     Process {
-        'Calling method: Invoke-ListSources' | Write-Debug
+        'Calling method: Get-Sources' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

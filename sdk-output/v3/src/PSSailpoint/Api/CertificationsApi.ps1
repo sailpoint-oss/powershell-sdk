@@ -124,7 +124,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 AccessReviewItem[]
 #>
-function Invoke-ListIdentityAccessReviewItems {
+function Get-IdentityAccessReviewItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -159,7 +159,7 @@ function Invoke-ListIdentityAccessReviewItems {
     )
 
     Process {
-        'Calling method: Invoke-ListIdentityAccessReviewItems' | Write-Debug
+        'Calling method: Get-IdentityAccessReviewItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -270,7 +270,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 IdentityCertificationDto[]
 #>
-function Invoke-ListIdentityCertifications {
+function Get-IdentityCertifications {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -296,7 +296,7 @@ function Invoke-ListIdentityCertifications {
     )
 
     Process {
-        'Calling method: Invoke-ListIdentityCertifications' | Write-Debug
+        'Calling method: Get-IdentityCertifications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -383,7 +383,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 IdentityCertificationDto
 #>
-function New-IdentityDecision {
+function Select-IdentityDecision {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -397,7 +397,7 @@ function New-IdentityDecision {
     )
 
     Process {
-        'Calling method: New-IdentityDecision' | Write-Debug
+        'Calling method: Select-IdentityDecision' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

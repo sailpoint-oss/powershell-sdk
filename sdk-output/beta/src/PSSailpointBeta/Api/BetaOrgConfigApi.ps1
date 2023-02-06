@@ -155,7 +155,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 OrgConfig
 #>
-function Invoke-BetaPatchOrgConfig {
+function Update-BetaOrgConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -166,7 +166,7 @@ function Invoke-BetaPatchOrgConfig {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchOrgConfig' | Write-Debug
+        'Calling method: Update-BetaOrgConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

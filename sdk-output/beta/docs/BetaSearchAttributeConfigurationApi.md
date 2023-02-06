@@ -5,10 +5,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#New-BetaSearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create extended search attributes in IdentityNow.
-[**Invoke-BetaDeleteSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Invoke-BetaDeleteSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete an extended search attribute in IdentityNow.
+[**Remove-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Remove-BetaSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete an extended search attribute in IdentityNow.
 [**Get-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Get-BetaSearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve a list of extended search attributes in IdentityNow.
 [**Get-BetaSingleSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Get-BetaSingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get the details of a specific extended search attribute in IdentityNow.
-[**Invoke-BetaPatchSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Invoke-BetaPatchSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update the details of a specific extended search attribute in IdentityNow.
+[**Update-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Update-BetaSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update the details of a specific extended search attribute in IdentityNow.
 
 
 <a name="New-BetaSearchAttributeConfig"></a>
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSearchAttributeConfig"></a>
-# **Invoke-BetaDeleteSearchAttributeConfig**
-> void Invoke-BetaDeleteSearchAttributeConfig<br>
+<a name="Remove-BetaSearchAttributeConfig"></a>
+# **Remove-BetaSearchAttributeConfig**
+> void Remove-BetaSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
 
 Delete an extended search attribute in IdentityNow.
@@ -85,9 +85,9 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 
 # Delete an extended search attribute in IdentityNow.
 try {
-    $Result = Invoke-BetaDeleteSearchAttributeConfig -Name $Name
+    $Result = Remove-BetaSearchAttributeConfig -Name $Name
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSearchAttributeConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSearchAttributeConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -210,9 +210,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchSearchAttributeConfig"></a>
-# **Invoke-BetaPatchSearchAttributeConfig**
-> SearchAttributeConfig Invoke-BetaPatchSearchAttributeConfig<br>
+<a name="Update-BetaSearchAttributeConfig"></a>
+# **Update-BetaSearchAttributeConfig**
+> SearchAttributeConfig Update-BetaSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -236,9 +236,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Update the details of a specific extended search attribute in IdentityNow.
 try {
-    $Result = Invoke-BetaPatchSearchAttributeConfig -Name $Name -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchSearchAttributeConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaSearchAttributeConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

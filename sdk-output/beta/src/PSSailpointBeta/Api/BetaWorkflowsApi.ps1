@@ -25,7 +25,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Stop-BetaWorkflowExecution {
+function Suspend-BetaWorkflowExecution {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -36,7 +36,7 @@ function Stop-BetaWorkflowExecution {
     )
 
     Process {
-        'Calling method: Stop-BetaWorkflowExecution' | Write-Debug
+        'Calling method: Suspend-BetaWorkflowExecution' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteWorkflow {
+function Remove-BetaWorkflow {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -198,7 +198,7 @@ function Invoke-BetaDeleteWorkflow {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteWorkflow' | Write-Debug
+        'Calling method: Remove-BetaWorkflow' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -490,7 +490,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ListCompleteWorkflowLibrary200ResponseInner[]
 #>
-function Invoke-BetaListCompleteWorkflowLibrary {
+function Get-BetaCompleteWorkflowLibrary {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -504,7 +504,7 @@ function Invoke-BetaListCompleteWorkflowLibrary {
     )
 
     Process {
-        'Calling method: Invoke-BetaListCompleteWorkflowLibrary' | Write-Debug
+        'Calling method: Get-BetaCompleteWorkflowLibrary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -572,7 +572,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkflowExecution[]
 #>
-function Invoke-BetaListWorkflowExecutions {
+function Get-BetaWorkflowExecutions {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -583,7 +583,7 @@ function Invoke-BetaListWorkflowExecutions {
     )
 
     Process {
-        'Calling method: Invoke-BetaListWorkflowExecutions' | Write-Debug
+        'Calling method: Get-BetaWorkflowExecutions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -653,7 +653,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkflowLibraryAction[]
 #>
-function Invoke-BetaListWorkflowLibraryActions {
+function Get-BetaWorkflowLibraryActions {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -670,7 +670,7 @@ function Invoke-BetaListWorkflowLibraryActions {
     )
 
     Process {
-        'Calling method: Invoke-BetaListWorkflowLibraryActions' | Write-Debug
+        'Calling method: Get-BetaWorkflowLibraryActions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -739,7 +739,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkflowLibraryOperator[]
 #>
-function Invoke-BetaListWorkflowLibraryOperators {
+function Get-BetaWorkflowLibraryOperators {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -747,7 +747,7 @@ function Invoke-BetaListWorkflowLibraryOperators {
     )
 
     Process {
-        'Calling method: Invoke-BetaListWorkflowLibraryOperators' | Write-Debug
+        'Calling method: Get-BetaWorkflowLibraryOperators' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -813,7 +813,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkflowLibraryTrigger[]
 #>
-function Invoke-BetaListWorkflowLibraryTriggers {
+function Get-BetaWorkflowLibraryTriggers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -830,7 +830,7 @@ function Invoke-BetaListWorkflowLibraryTriggers {
     )
 
     Process {
-        'Calling method: Invoke-BetaListWorkflowLibraryTriggers' | Write-Debug
+        'Calling method: Get-BetaWorkflowLibraryTriggers' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -899,7 +899,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Workflow[]
 #>
-function Invoke-BetaListWorkflows {
+function Get-BetaWorkflows {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -907,7 +907,7 @@ function Invoke-BetaListWorkflows {
     )
 
     Process {
-        'Calling method: Invoke-BetaListWorkflows' | Write-Debug
+        'Calling method: Get-BetaWorkflows' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -970,7 +970,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Workflow
 #>
-function Invoke-BetaPatchWorkflow {
+function Update-BetaWorkflow {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -984,7 +984,7 @@ function Invoke-BetaPatchWorkflow {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchWorkflow' | Write-Debug
+        'Calling method: Update-BetaWorkflow' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

@@ -4,16 +4,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Stop-AccessRequest**](AccessRequestsApi.md#Stop-AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
+[**Suspend-AccessRequest**](AccessRequestsApi.md#Suspend-AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 [**New-AccessRequest**](AccessRequestsApi.md#New-AccessRequest) | **POST** /access-requests | Submit an Access Request
 [**Get-AccessRequestConfig**](AccessRequestsApi.md#Get-AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
-[**Invoke-ListAccessRequestStatus**](AccessRequestsApi.md#Invoke-ListAccessRequestStatus) | **GET** /access-request-status | Access Request Status
+[**Get-AccessRequestStatus**](AccessRequestsApi.md#Get-AccessRequestStatus) | **GET** /access-request-status | Access Request Status
 [**Update-AccessRequestConfig**](AccessRequestsApi.md#Update-AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 
 
-<a name="Stop-AccessRequest"></a>
-# **Stop-AccessRequest**
-> SystemCollectionsHashtable Stop-AccessRequest<br>
+<a name="Suspend-AccessRequest"></a>
+# **Suspend-AccessRequest**
+> SystemCollectionsHashtable Suspend-AccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CancelAccessRequest] <PSCustomObject><br>
 
 Cancel Access Request
@@ -34,9 +34,9 @@ $CancelAccessRequest = Initialize-CancelAccessRequest -AccountActivityId "2c9180
 
 # Cancel Access Request
 try {
-    $Result = Stop-AccessRequest -CancelAccessRequest $CancelAccessRequest
+    $Result = Suspend-AccessRequest -CancelAccessRequest $CancelAccessRequest
 } catch {
-    Write-Host ("Exception occurred when calling Stop-AccessRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Suspend-AccessRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -160,9 +160,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListAccessRequestStatus"></a>
-# **Invoke-ListAccessRequestStatus**
-> RequestedItemStatus[] Invoke-ListAccessRequestStatus<br>
+<a name="Get-AccessRequestStatus"></a>
+# **Get-AccessRequestStatus**
+> RequestedItemStatus[] Get-AccessRequestStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedFor] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedBy] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RegardingIdentity] <String><br>
@@ -197,9 +197,9 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 
 # Access Request Status
 try {
-    $Result = Invoke-ListAccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters
+    $Result = Get-AccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListAccessRequestStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-AccessRequestStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -125,7 +125,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 BaseReferenceDto
 #>
-function Invoke-DeleteLifecycleState {
+function Remove-LifecycleState {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -139,7 +139,7 @@ function Invoke-DeleteLifecycleState {
     )
 
     Process {
-        'Calling method: Invoke-DeleteLifecycleState' | Write-Debug
+        'Calling method: Remove-LifecycleState' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -304,7 +304,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 LifecycleState[]
 #>
-function Invoke-ListLifecycleStates {
+function Get-LifecycleStates {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -327,7 +327,7 @@ function Invoke-ListLifecycleStates {
     )
 
     Process {
-        'Calling method: Invoke-ListLifecycleStates' | Write-Debug
+        'Calling method: Get-LifecycleStates' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

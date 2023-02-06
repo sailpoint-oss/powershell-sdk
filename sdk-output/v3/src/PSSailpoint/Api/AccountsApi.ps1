@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 AccountsAsyncResult
 #>
-function Invoke-DeleteAccount {
+function Remove-Account {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-DeleteAccount {
     )
 
     Process {
-        'Calling method: Invoke-DeleteAccount' | Write-Debug
+        'Calling method: Remove-Account' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -570,7 +570,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Account[]
 #>
-function Invoke-ListAccounts {
+function Get-Accounts {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -590,7 +590,7 @@ function Invoke-ListAccounts {
     )
 
     Process {
-        'Calling method: Invoke-ListAccounts' | Write-Debug
+        'Calling method: Get-Accounts' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteSegmentById {
+function Remove-BetaSegmentById {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-BetaDeleteSegmentById {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSegmentById' | Write-Debug
+        'Calling method: Remove-BetaSegmentById' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -268,7 +268,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Segment[]
 #>
-function Invoke-BetaListSegments {
+function Get-BetaSegments {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -285,7 +285,7 @@ function Invoke-BetaListSegments {
     )
 
     Process {
-        'Calling method: Invoke-BetaListSegments' | Write-Debug
+        'Calling method: Get-BetaSegments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -360,7 +360,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Segment
 #>
-function Invoke-BetaPatchSegment {
+function Update-BetaSegment {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -374,7 +374,7 @@ function Invoke-BetaPatchSegment {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchSegment' | Write-Debug
+        'Calling method: Update-BetaSegment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

@@ -53,11 +53,11 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *V2GovernanceGroupsApi* | [**Invoke-V2BulkDeleteWorkGroups**](docs/V2GovernanceGroupsApi.md#Invoke-V2BulkDeleteWorkGroups) | **POST** /workgroups/bulk-delete | Bulk delete work groups
 *V2GovernanceGroupsApi* | [**New-V2Workgroup**](docs/V2GovernanceGroupsApi.md#New-V2Workgroup) | **POST** /workgroups | Create Work Group
-*V2GovernanceGroupsApi* | [**Invoke-V2DeleteWorkgroup**](docs/V2GovernanceGroupsApi.md#Invoke-V2DeleteWorkgroup) | **DELETE** /workgroups/{workgroupId} | Delete Work Group By Id
+*V2GovernanceGroupsApi* | [**Remove-V2Workgroup**](docs/V2GovernanceGroupsApi.md#Remove-V2Workgroup) | **DELETE** /workgroups/{workgroupId} | Delete Work Group By Id
 *V2GovernanceGroupsApi* | [**Get-V2Workgroup**](docs/V2GovernanceGroupsApi.md#Get-V2Workgroup) | **GET** /workgroups/{workgroupId} | Get Work Group By Id
-*V2GovernanceGroupsApi* | [**Invoke-V2ListWorkgroupConnections**](docs/V2GovernanceGroupsApi.md#Invoke-V2ListWorkgroupConnections) | **GET** /workgroups/{workgroupId}/connections | List Work Group Connections
-*V2GovernanceGroupsApi* | [**Invoke-V2ListWorkgroupMembers**](docs/V2GovernanceGroupsApi.md#Invoke-V2ListWorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List Work Group Members
-*V2GovernanceGroupsApi* | [**Invoke-V2ListWorkgroups**](docs/V2GovernanceGroupsApi.md#Invoke-V2ListWorkgroups) | **GET** /workgroups | List Work Groups
+*V2GovernanceGroupsApi* | [**Get-V2WorkgroupConnections**](docs/V2GovernanceGroupsApi.md#Get-V2WorkgroupConnections) | **GET** /workgroups/{workgroupId}/connections | List Work Group Connections
+*V2GovernanceGroupsApi* | [**Get-V2WorkgroupMembers**](docs/V2GovernanceGroupsApi.md#Get-V2WorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List Work Group Members
+*V2GovernanceGroupsApi* | [**Get-V2Workgroups**](docs/V2GovernanceGroupsApi.md#Get-V2Workgroups) | **GET** /workgroups | List Work Groups
 *V2GovernanceGroupsApi* | [**Edit-V2WorkgroupMembers**](docs/V2GovernanceGroupsApi.md#Edit-V2WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members | Modify Work Group Members
 *V2GovernanceGroupsApi* | [**Update-V2Workgroup**](docs/V2GovernanceGroupsApi.md#Update-V2Workgroup) | **PATCH** /workgroups/{workgroupId} | Update Work Group By Id
 *V2OrgApi* | [**Get-V2OrgSettings**](docs/V2OrgApi.md#Get-V2OrgSettings) | **GET** /org | Retrieves your org settings.

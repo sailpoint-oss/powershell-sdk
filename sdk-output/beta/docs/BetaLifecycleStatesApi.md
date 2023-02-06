@@ -4,13 +4,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaListLifecycleStates**](BetaLifecycleStatesApi.md#Invoke-BetaListLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Lifecycle State
+[**Get-BetaLifecycleStates**](BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Lifecycle State
 [**Update-BetaLifecycleStates**](BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 
 
-<a name="Invoke-BetaListLifecycleStates"></a>
-# **Invoke-BetaListLifecycleStates**
-> LifecycleState Invoke-BetaListLifecycleStates<br>
+<a name="Get-BetaLifecycleStates"></a>
+# **Get-BetaLifecycleStates**
+> LifecycleState Get-BetaLifecycleStates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LifecycleStateId] <String><br>
 
@@ -33,9 +33,9 @@ $LifecycleStateId = "MyLifecycleStateId" # String | Lifecycle State ID
 
 # Lifecycle State
 try {
-    $Result = Invoke-BetaListLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId
+    $Result = Get-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListLifecycleStates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaLifecycleStates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

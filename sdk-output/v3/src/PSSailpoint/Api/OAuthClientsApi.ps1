@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-DeleteOauthClient {
+function Remove-OauthClient {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-DeleteOauthClient {
     )
 
     Process {
-        'Calling method: Invoke-DeleteOauthClient' | Write-Debug
+        'Calling method: Remove-OauthClient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -259,7 +259,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 GetOAuthClientResponse[]
 #>
-function Invoke-ListOauthClients {
+function Get-OauthClients {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -267,7 +267,7 @@ function Invoke-ListOauthClients {
     )
 
     Process {
-        'Calling method: Invoke-ListOauthClients' | Write-Debug
+        'Calling method: Get-OauthClients' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -330,7 +330,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 GetOAuthClientResponse
 #>
-function Invoke-PatchOauthClient {
+function Update-OauthClient {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -344,7 +344,7 @@ function Invoke-PatchOauthClient {
     )
 
     Process {
-        'Calling method: Invoke-PatchOauthClient' | Write-Debug
+        'Calling method: Update-OauthClient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

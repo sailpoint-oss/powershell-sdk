@@ -674,7 +674,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItems[]
 #>
-function Invoke-ListWorkItems {
+function Get-WorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -694,7 +694,7 @@ function Invoke-ListWorkItems {
     )
 
     Process {
-        'Calling method: Invoke-ListWorkItems' | Write-Debug
+        'Calling method: Get-WorkItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

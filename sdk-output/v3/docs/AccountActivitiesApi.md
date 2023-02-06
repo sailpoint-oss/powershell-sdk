@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-AccountActivity**](AccountActivitiesApi.md#Get-AccountActivity) | **GET** /account-activities/{id} | Get an Account Activity
-[**Invoke-ListAccountActivities**](AccountActivitiesApi.md#Invoke-ListAccountActivities) | **GET** /account-activities | List Account Activities
+[**Get-AccountActivities**](AccountActivitiesApi.md#Get-AccountActivities) | **GET** /account-activities | List Account Activities
 
 
 <a name="Get-AccountActivity"></a>
@@ -59,9 +59,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListAccountActivities"></a>
-# **Invoke-ListAccountActivities**
-> AccountActivity[] Invoke-ListAccountActivities<br>
+<a name="Get-AccountActivities"></a>
+# **Get-AccountActivities**
+> AccountActivity[] Get-AccountActivities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedFor] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedBy] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RegardingIdentity] <String><br>
@@ -96,9 +96,9 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 
 # List Account Activities
 try {
-    $Result = Invoke-ListAccountActivities -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-AccountActivities -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListAccountActivities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-AccountActivities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

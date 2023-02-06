@@ -9,9 +9,9 @@ Method | HTTP request | Description
 [**Complete-BetaCampaign**](BetaCertificationCampaignsApi.md#Complete-BetaCampaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 [**New-BetaCampaign**](BetaCertificationCampaignsApi.md#New-BetaCampaign) | **POST** /campaigns | Create a campaign
 [**New-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#New-BetaCampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
-[**Invoke-BetaDeleteCampaignTemplate**](BetaCertificationCampaignsApi.md#Invoke-BetaDeleteCampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
-[**Invoke-BetaDeleteCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Invoke-BetaDeleteCampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Deletes a Campaign Template&#39;s Schedule
-[**Invoke-BetaDeleteCampaigns**](BetaCertificationCampaignsApi.md#Invoke-BetaDeleteCampaigns) | **POST** /campaigns/delete | Deletes Campaigns
+[**Remove-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
+[**Remove-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Deletes a Campaign Template&#39;s Schedule
+[**Remove-BetaCampaigns**](BetaCertificationCampaignsApi.md#Remove-BetaCampaigns) | **POST** /campaigns/delete | Deletes Campaigns
 [**New-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#New-BetaCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a Campaign from Template
 [**Get-BetaActiveCampaigns**](BetaCertificationCampaignsApi.md#Get-BetaActiveCampaigns) | **GET** /campaigns | List Campaigns
 [**Get-BetaCampaign**](BetaCertificationCampaignsApi.md#Get-BetaCampaign) | **GET** /campaigns/{id} | Get a campaign
@@ -19,10 +19,10 @@ Method | HTTP request | Description
 [**Get-BetaCampaignReportsConfig**](BetaCertificationCampaignsApi.md#Get-BetaCampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
 [**Get-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplate) | **GET** /campaign-templates/{id} | Get a Campaign Template
 [**Get-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Gets a Campaign Template&#39;s Schedule
-[**Invoke-BetaListCampaignTemplates**](BetaCertificationCampaignsApi.md#Invoke-BetaListCampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
-[**Invoke-BetaPatchCampaignTemplate**](BetaCertificationCampaignsApi.md#Invoke-BetaPatchCampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
-[**Invoke-BetaRunCampaignRemediationScan**](BetaCertificationCampaignsApi.md#Invoke-BetaRunCampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
-[**Invoke-BetaRunCampaignReport**](BetaCertificationCampaignsApi.md#Invoke-BetaRunCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
+[**Get-BetaCampaignTemplates**](BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
+[**Update-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#Update-BetaCampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
+[**Start-BetaCampaignRemediationScan**](BetaCertificationCampaignsApi.md#Start-BetaCampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
+[**Start-BetaCampaignReport**](BetaCertificationCampaignsApi.md#Start-BetaCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
 [**Set-BetaCampaignReportsConfig**](BetaCertificationCampaignsApi.md#Set-BetaCampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
 [**Set-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Set-BetaCampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Sets a Campaign Template&#39;s Schedule
 [**Update-BetaCampaign**](BetaCertificationCampaignsApi.md#Update-BetaCampaign) | **PATCH** /campaigns/{id} | Update a Campaign
@@ -323,9 +323,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteCampaignTemplate"></a>
-# **Invoke-BetaDeleteCampaignTemplate**
-> void Invoke-BetaDeleteCampaignTemplate<br>
+<a name="Remove-BetaCampaignTemplate"></a>
+# **Remove-BetaCampaignTemplate**
+> void Remove-BetaCampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a Campaign Template
@@ -346,9 +346,9 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the campaign templ
 
 # Delete a Campaign Template
 try {
-    $Result = Invoke-BetaDeleteCampaignTemplate -Id $Id
+    $Result = Remove-BetaCampaignTemplate -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteCampaignTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaCampaignTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -374,9 +374,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteCampaignTemplateSchedule"></a>
-# **Invoke-BetaDeleteCampaignTemplateSchedule**
-> void Invoke-BetaDeleteCampaignTemplateSchedule<br>
+<a name="Remove-BetaCampaignTemplateSchedule"></a>
+# **Remove-BetaCampaignTemplateSchedule**
+> void Remove-BetaCampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Deletes a Campaign Template's Schedule
@@ -397,9 +397,9 @@ $Id = "MyId" # String | The ID of the campaign template whose schedule is being 
 
 # Deletes a Campaign Template's Schedule
 try {
-    $Result = Invoke-BetaDeleteCampaignTemplateSchedule -Id $Id
+    $Result = Remove-BetaCampaignTemplateSchedule -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteCampaignTemplateSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaCampaignTemplateSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -425,9 +425,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteCampaigns"></a>
-# **Invoke-BetaDeleteCampaigns**
-> SystemCollectionsHashtable Invoke-BetaDeleteCampaigns<br>
+<a name="Remove-BetaCampaigns"></a>
+# **Remove-BetaCampaigns**
+> SystemCollectionsHashtable Remove-BetaCampaigns<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DeleteCampaignsRequest] <PSCustomObject><br>
 
 Deletes Campaigns
@@ -448,9 +448,9 @@ $DeleteCampaignsRequest = Initialize-DeleteCampaignsRequest -Ids "MyIds" # Delet
 
 # Deletes Campaigns
 try {
-    $Result = Invoke-BetaDeleteCampaigns -DeleteCampaignsRequest $DeleteCampaignsRequest
+    $Result = Remove-BetaCampaigns -DeleteCampaignsRequest $DeleteCampaignsRequest
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteCampaigns: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaCampaigns: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -843,9 +843,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListCampaignTemplates"></a>
-# **Invoke-BetaListCampaignTemplates**
-> CampaignTemplate[] Invoke-BetaListCampaignTemplates<br>
+<a name="Get-BetaCampaignTemplates"></a>
+# **Get-BetaCampaignTemplates**
+> CampaignTemplate[] Get-BetaCampaignTemplates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -872,9 +872,9 @@ $Filters = "MyFilters" # String | Filter results using the standard syntax descr
 
 # List Campaign Templates
 try {
-    $Result = Invoke-BetaListCampaignTemplates -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters
+    $Result = Get-BetaCampaignTemplates -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListCampaignTemplates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaCampaignTemplates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -904,9 +904,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchCampaignTemplate"></a>
-# **Invoke-BetaPatchCampaignTemplate**
-> CampaignTemplate Invoke-BetaPatchCampaignTemplate<br>
+<a name="Update-BetaCampaignTemplate"></a>
+# **Update-BetaCampaignTemplate**
+> CampaignTemplate Update-BetaCampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <PSCustomObject[]><br>
 
@@ -929,9 +929,9 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update opera
 
 # Update a Campaign Template
 try {
-    $Result = Invoke-BetaPatchCampaignTemplate -Id $Id -RequestBody $RequestBody
+    $Result = Update-BetaCampaignTemplate -Id $Id -RequestBody $RequestBody
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchCampaignTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaCampaignTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -958,9 +958,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaRunCampaignRemediationScan"></a>
-# **Invoke-BetaRunCampaignRemediationScan**
-> SystemCollectionsHashtable Invoke-BetaRunCampaignRemediationScan<br>
+<a name="Start-BetaCampaignRemediationScan"></a>
+# **Start-BetaCampaignRemediationScan**
+> SystemCollectionsHashtable Start-BetaCampaignRemediationScan<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Run Campaign Remediation Scan
@@ -981,9 +981,9 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign for w
 
 # Run Campaign Remediation Scan
 try {
-    $Result = Invoke-BetaRunCampaignRemediationScan -Id $Id
+    $Result = Start-BetaCampaignRemediationScan -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaRunCampaignRemediationScan: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Start-BetaCampaignRemediationScan: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1009,9 +1009,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaRunCampaignReport"></a>
-# **Invoke-BetaRunCampaignReport**
-> SystemCollectionsHashtable Invoke-BetaRunCampaignReport<br>
+<a name="Start-BetaCampaignReport"></a>
+# **Start-BetaCampaignReport**
+> SystemCollectionsHashtable Start-BetaCampaignReport<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <PSCustomObject><br>
 
@@ -1034,9 +1034,9 @@ $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | The type of the report to r
 
 # Run Campaign Report
 try {
-    $Result = Invoke-BetaRunCampaignReport -Id $Id -Type $Type
+    $Result = Start-BetaCampaignReport -Id $Id -Type $Type
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaRunCampaignReport: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Start-BetaCampaignReport: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

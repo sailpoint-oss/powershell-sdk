@@ -5,10 +5,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSegment**](BetaSegmentsApi.md#New-BetaSegment) | **POST** /segments | Create Segment
-[**Invoke-BetaDeleteSegmentById**](BetaSegmentsApi.md#Invoke-BetaDeleteSegmentById) | **DELETE** /segments/{id} | Delete Segment by ID
+[**Remove-BetaSegmentById**](BetaSegmentsApi.md#Remove-BetaSegmentById) | **DELETE** /segments/{id} | Delete Segment by ID
 [**Get-BetaSegmentById**](BetaSegmentsApi.md#Get-BetaSegmentById) | **GET** /segments/{id} | Get a Segment by its ID
-[**Invoke-BetaListSegments**](BetaSegmentsApi.md#Invoke-BetaListSegments) | **GET** /segments | List Segments
-[**Invoke-BetaPatchSegment**](BetaSegmentsApi.md#Invoke-BetaPatchSegment) | **PATCH** /segments/{id} | Update a Segment
+[**Get-BetaSegments**](BetaSegmentsApi.md#Get-BetaSegments) | **GET** /segments | List Segments
+[**Update-BetaSegment**](BetaSegmentsApi.md#Update-BetaSegment) | **PATCH** /segments/{id} | Update a Segment
 
 
 <a name="New-BetaSegment"></a>
@@ -69,9 +69,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSegmentById"></a>
-# **Invoke-BetaDeleteSegmentById**
-> void Invoke-BetaDeleteSegmentById<br>
+<a name="Remove-BetaSegmentById"></a>
+# **Remove-BetaSegmentById**
+> void Remove-BetaSegmentById<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Segment by ID
@@ -92,9 +92,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the Segment to del
 
 # Delete Segment by ID
 try {
-    $Result = Invoke-BetaDeleteSegmentById -Id $Id
+    $Result = Remove-BetaSegmentById -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSegmentById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSegmentById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -171,9 +171,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListSegments"></a>
-# **Invoke-BetaListSegments**
-> Segment[] Invoke-BetaListSegments<br>
+<a name="Get-BetaSegments"></a>
+# **Get-BetaSegments**
+> Segment[] Get-BetaSegments<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -198,9 +198,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 # List Segments
 try {
-    $Result = Invoke-BetaListSegments -Limit $Limit -Offset $Offset -Count $Count
+    $Result = Get-BetaSegments -Limit $Limit -Offset $Offset -Count $Count
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListSegments: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSegments: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -228,9 +228,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchSegment"></a>
-# **Invoke-BetaPatchSegment**
-> Segment Invoke-BetaPatchSegment<br>
+<a name="Update-BetaSegment"></a>
+# **Update-BetaSegment**
+> Segment Update-BetaSegment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <PSCustomObject[]><br>
 
@@ -253,9 +253,9 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of Segment update operat
 
 # Update a Segment
 try {
-    $Result = Invoke-BetaPatchSegment -Id $Id -RequestBody $RequestBody
+    $Result = Update-BetaSegment -Id $Id -RequestBody $RequestBody
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchSegment: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaSegment: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

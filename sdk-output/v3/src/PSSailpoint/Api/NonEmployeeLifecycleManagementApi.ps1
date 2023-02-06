@@ -125,7 +125,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-DeleteSchemaAttribute {
+function Remove-SchemaAttribute {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -139,7 +139,7 @@ function Invoke-DeleteSchemaAttribute {
     )
 
     Process {
-        'Calling method: Invoke-DeleteSchemaAttribute' | Write-Debug
+        'Calling method: Remove-SchemaAttribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -207,7 +207,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-DeleteSchemaAttributes {
+function Remove-SchemaAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -218,7 +218,7 @@ function Invoke-DeleteSchemaAttributes {
     )
 
     Process {
-        'Calling method: Invoke-DeleteSchemaAttributes' | Write-Debug
+        'Calling method: Remove-SchemaAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -2796,7 +2796,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 NonEmployeeSchemaAttribute
 #>
-function Invoke-PatchSchemaAttribute {
+function Update-SchemaAttribute {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -2813,7 +2813,7 @@ function Invoke-PatchSchemaAttribute {
     )
 
     Process {
-        'Calling method: Invoke-PatchSchemaAttribute' | Write-Debug
+        'Calling method: Update-SchemaAttribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

@@ -209,7 +209,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteSubscription {
+function Remove-BetaSubscription {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -220,7 +220,7 @@ function Invoke-BetaDeleteSubscription {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSubscription' | Write-Debug
+        'Calling method: Remove-BetaSubscription' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -296,7 +296,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 InvocationStatus[]
 #>
-function Invoke-BetaListInvocationStatus {
+function Get-BetaInvocationStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -319,7 +319,7 @@ function Invoke-BetaListInvocationStatus {
     )
 
     Process {
-        'Calling method: Invoke-BetaListInvocationStatus' | Write-Debug
+        'Calling method: Get-BetaInvocationStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -411,7 +411,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Subscription[]
 #>
-function Invoke-BetaListSubscriptions {
+function Get-BetaSubscriptions {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -434,7 +434,7 @@ function Invoke-BetaListSubscriptions {
     )
 
     Process {
-        'Calling method: Invoke-BetaListSubscriptions' | Write-Debug
+        'Calling method: Get-BetaSubscriptions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -526,7 +526,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Trigger[]
 #>
-function Invoke-BetaListTriggers {
+function Get-BetaTriggers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -549,7 +549,7 @@ function Invoke-BetaListTriggers {
     )
 
     Process {
-        'Calling method: Invoke-BetaListTriggers' | Write-Debug
+        'Calling method: Get-BetaTriggers' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -632,7 +632,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Subscription
 #>
-function Invoke-BetaPatchSubscription {
+function Update-BetaSubscription {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -646,7 +646,7 @@ function Invoke-BetaPatchSubscription {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchSubscription' | Write-Debug
+        'Calling method: Update-BetaSubscription' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

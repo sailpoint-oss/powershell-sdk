@@ -28,7 +28,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 LifecycleState
 #>
-function Invoke-BetaListLifecycleStates {
+function Get-BetaLifecycleStates {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -42,7 +42,7 @@ function Invoke-BetaListLifecycleStates {
     )
 
     Process {
-        'Calling method: Invoke-BetaListLifecycleStates' | Write-Debug
+        'Calling method: Get-BetaLifecycleStates' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

@@ -5,13 +5,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#New-BetaServiceDeskIntegration) | **POST** /service-desk-integrations | Create a new Service Desk integration
-[**Invoke-BetaDeleteServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Invoke-BetaDeleteServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration by ID
+[**Remove-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Remove-BetaServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration by ID
 [**Get-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration by ID
 [**Get-BetaServiceDeskIntegrationList**](BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationList) | **GET** /service-desk-integrations | List existing Service Desk Integrations
 [**Get-BetaServiceDeskIntegrationTemplate**](BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName.
 [**Get-BetaServiceDeskIntegrationTypes**](BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
 [**Get-BetaStatusCheckDetails**](BetaServiceDeskIntegrationApi.md#Get-BetaStatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration of queued SDIM tickets
-[**Invoke-BetaPatchServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Invoke-BetaPatchServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
+[**Update-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
 [**Update-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration by ID
 [**Update-BetaStatusCheckDetails**](BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
 
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteServiceDeskIntegration"></a>
-# **Invoke-BetaDeleteServiceDeskIntegration**
-> void Invoke-BetaDeleteServiceDeskIntegration<br>
+<a name="Remove-BetaServiceDeskIntegration"></a>
+# **Remove-BetaServiceDeskIntegration**
+> void Remove-BetaServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a Service Desk integration by ID
@@ -99,9 +99,9 @@ $Id = "anId" # String | ID of Service Desk integration to delete
 
 # Delete a Service Desk integration by ID
 try {
-    $Result = Invoke-BetaDeleteServiceDeskIntegration -Id $Id
+    $Result = Remove-BetaServiceDeskIntegration -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -384,9 +384,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchServiceDeskIntegration"></a>
-# **Invoke-BetaPatchServiceDeskIntegration**
-> ServiceDeskIntegrationDto Invoke-BetaPatchServiceDeskIntegration<br>
+<a name="Update-BetaServiceDeskIntegration"></a>
+# **Update-BetaServiceDeskIntegration**
+> ServiceDeskIntegrationDto Update-BetaServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatch] <PSCustomObject><br>
 
@@ -412,9 +412,9 @@ $JsonPatch = Initialize-JsonPatch -Operations $JsonPatchOperation # JsonPatch | 
 
 # Service Desk Integration Update - PATCH
 try {
-    $Result = Invoke-BetaPatchServiceDeskIntegration -Id $Id -JsonPatch $JsonPatch
+    $Result = Update-BetaServiceDeskIntegration -Id $Id -JsonPatch $JsonPatch
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

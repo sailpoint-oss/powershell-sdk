@@ -100,7 +100,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 PasswordInfo
 #>
-function Invoke-QueryPasswordInfo {
+function Search-PasswordInfo {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -111,7 +111,7 @@ function Invoke-QueryPasswordInfo {
     )
 
     Process {
-        'Calling method: Invoke-QueryPasswordInfo' | Write-Debug
+        'Calling method: Search-PasswordInfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

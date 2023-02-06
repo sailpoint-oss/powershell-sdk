@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Invoke-BetaEntitlementsBulkUpdate**](BetaEntitlementsApi.md#Invoke-BetaEntitlementsBulkUpdate) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 [**Get-BetaEntitlement**](BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an Entitlement
-[**Invoke-BetaListEntitlementParents**](BetaEntitlementsApi.md#Invoke-BetaListEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
-[**Invoke-BetaListEntitlementchildren**](BetaEntitlementsApi.md#Invoke-BetaListEntitlementchildren) | **GET** /entitlements/{id}/children | List of entitlements children
-[**Invoke-BetaListEntitlements**](BetaEntitlementsApi.md#Invoke-BetaListEntitlements) | **GET** /entitlements | Gets a list of entitlements.
-[**Invoke-BetaPatchEntitlement**](BetaEntitlementsApi.md#Invoke-BetaPatchEntitlement) | **PATCH** /entitlements/{id} | Patch a specified Entitlement
+[**Get-BetaEntitlementParents**](BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
+[**Get-BetaEntitlementchildren**](BetaEntitlementsApi.md#Get-BetaEntitlementchildren) | **GET** /entitlements/{id}/children | List of entitlements children
+[**Get-BetaEntitlements**](BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
+[**Update-BetaEntitlement**](BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch a specified Entitlement
 
 
 <a name="Invoke-BetaEntitlementsBulkUpdate"></a>
@@ -117,9 +117,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListEntitlementParents"></a>
-# **Invoke-BetaListEntitlementParents**
-> Entitlement[] Invoke-BetaListEntitlementParents<br>
+<a name="Get-BetaEntitlementParents"></a>
+# **Get-BetaEntitlementParents**
+> Entitlement[] Get-BetaEntitlementParents<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -146,9 +146,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 # List of entitlements parents
 try {
-    $Result = Invoke-BetaListEntitlementParents -Id $Id -Limit $Limit -Offset $Offset -Count $Count
+    $Result = Get-BetaEntitlementParents -Id $Id -Limit $Limit -Offset $Offset -Count $Count
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListEntitlementParents: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaEntitlementParents: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -177,9 +177,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListEntitlementchildren"></a>
-# **Invoke-BetaListEntitlementchildren**
-> Entitlement[] Invoke-BetaListEntitlementchildren<br>
+<a name="Get-BetaEntitlementchildren"></a>
+# **Get-BetaEntitlementchildren**
+> Entitlement[] Get-BetaEntitlementchildren<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -206,9 +206,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 # List of entitlements children
 try {
-    $Result = Invoke-BetaListEntitlementchildren -Id $Id -Limit $Limit -Offset $Offset -Count $Count
+    $Result = Get-BetaEntitlementchildren -Id $Id -Limit $Limit -Offset $Offset -Count $Count
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListEntitlementchildren: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaEntitlementchildren: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -237,9 +237,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListEntitlements"></a>
-# **Invoke-BetaListEntitlements**
-> Entitlement[] Invoke-BetaListEntitlements<br>
+<a name="Get-BetaEntitlements"></a>
+# **Get-BetaEntitlements**
+> Entitlement[] Get-BetaEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SegmentedForIdentity] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForSegmentIds] <String><br>
@@ -276,9 +276,9 @@ $Filters = "attribute eq "memberOf"" # String | Filter results using the standar
 
 # Gets a list of entitlements.
 try {
-    $Result = Invoke-BetaListEntitlements -AccountId $AccountId -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters
+    $Result = Get-BetaEntitlements -AccountId $AccountId -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -312,9 +312,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchEntitlement"></a>
-# **Invoke-BetaPatchEntitlement**
-> Entitlement Invoke-BetaPatchEntitlement<br>
+<a name="Update-BetaEntitlement"></a>
+# **Update-BetaEntitlement**
+> Entitlement Update-BetaEntitlement<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -338,9 +338,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch a specified Entitlement
 try {
-    $Result = Invoke-BetaPatchEntitlement -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaEntitlement -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchEntitlement: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaEntitlement: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -491,7 +491,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteProvisioningPolicy {
+function Remove-BetaProvisioningPolicy {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -505,7 +505,7 @@ function Invoke-BetaDeleteProvisioningPolicy {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteProvisioningPolicy' | Write-Debug
+        'Calling method: Remove-BetaProvisioningPolicy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -576,7 +576,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteSchema {
+function Remove-BetaSchema {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -590,7 +590,7 @@ function Invoke-BetaDeleteSchema {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSchema' | Write-Debug
+        'Calling method: Remove-BetaSchema' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -658,7 +658,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 DeleteSource202Response
 #>
-function Invoke-BetaDeleteSource {
+function Remove-BetaSource {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -669,7 +669,7 @@ function Invoke-BetaDeleteSource {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSource' | Write-Debug
+        'Calling method: Remove-BetaSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1323,7 +1323,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ProvisioningPolicyDto[]
 #>
-function Invoke-BetaListProvisioningPolicies {
+function Get-BetaProvisioningPolicies {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1334,7 +1334,7 @@ function Invoke-BetaListProvisioningPolicies {
     )
 
     Process {
-        'Calling method: Invoke-BetaListProvisioningPolicies' | Write-Debug
+        'Calling method: Get-BetaProvisioningPolicies' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1401,7 +1401,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Schema[]
 #>
-function Invoke-BetaListSchemas {
+function Get-BetaSchemas {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1415,7 +1415,7 @@ function Invoke-BetaListSchemas {
     )
 
     Process {
-        'Calling method: Invoke-BetaListSchemas' | Write-Debug
+        'Calling method: Get-BetaSchemas' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1498,7 +1498,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Source[]
 #>
-function Invoke-BetaListSources {
+function Get-BetaSources {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1524,7 +1524,7 @@ function Invoke-BetaListSources {
     )
 
     Process {
-        'Calling method: Invoke-BetaListSources' | Write-Debug
+        'Calling method: Get-BetaSources' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

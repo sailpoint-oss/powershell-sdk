@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**Invoke-ApprovalSummary**](AccessRequestApprovalsApi.md#Invoke-ApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of access-requests-approvals
 [**Approve-Request**](AccessRequestApprovalsApi.md#Approve-Request) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
 [**Invoke-ForwardRequest**](AccessRequestApprovalsApi.md#Invoke-ForwardRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval.
-[**Invoke-ListCompletedApprovals**](AccessRequestApprovalsApi.md#Invoke-ListCompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
-[**Invoke-ListPendingApprovals**](AccessRequestApprovalsApi.md#Invoke-ListPendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
+[**Get-CompletedApprovals**](AccessRequestApprovalsApi.md#Get-CompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
+[**Get-PendingApprovals**](AccessRequestApprovalsApi.md#Get-PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
 [**Deny-Request**](AccessRequestApprovalsApi.md#Deny-Request) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
 
 
@@ -175,9 +175,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListCompletedApprovals"></a>
-# **Invoke-ListCompletedApprovals**
-> CompletedApproval[] Invoke-ListCompletedApprovals<br>
+<a name="Get-CompletedApprovals"></a>
+# **Get-CompletedApprovals**
+> CompletedApproval[] Get-CompletedApprovals<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -208,9 +208,9 @@ $Sorters = "modified" # String | Sort results using the standard syntax describe
 
 # Completed Access Request Approvals List
 try {
-    $Result = Invoke-ListCompletedApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-CompletedApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListCompletedApprovals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CompletedApprovals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -241,9 +241,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListPendingApprovals"></a>
-# **Invoke-ListPendingApprovals**
-> PendingApproval[] Invoke-ListPendingApprovals<br>
+<a name="Get-PendingApprovals"></a>
+# **Get-PendingApprovals**
+> PendingApproval[] Get-PendingApprovals<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -274,9 +274,9 @@ $Sorters = "modified" # String | Sort results using the standard syntax describe
 
 # Pending Access Request Approvals List
 try {
-    $Result = Invoke-ListPendingApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-PendingApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListPendingApprovals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-PendingApprovals: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

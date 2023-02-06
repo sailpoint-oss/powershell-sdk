@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Add-BetaTagToObject**](BetaTaggedObjectsApi.md#Add-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 [**Add-BetaTagsToManyObjects**](BetaTaggedObjectsApi.md#Add-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
-[**Invoke-BetaDeleteTaggedObjectByTypeAndId**](BetaTaggedObjectsApi.md#Invoke-BetaDeleteTaggedObjectByTypeAndId) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+[**Remove-BetaTaggedObjectByTypeAndId**](BetaTaggedObjectsApi.md#Remove-BetaTaggedObjectByTypeAndId) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
 [**Get-BetaTaggedObjectByTypeAndId**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjectByTypeAndId) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
-[**Invoke-BetaListTaggedObjects**](BetaTaggedObjectsApi.md#Invoke-BetaListTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
-[**Invoke-BetaListTaggedObjectsByType**](BetaTaggedObjectsApi.md#Invoke-BetaListTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
+[**Get-BetaTaggedObjects**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
+[**Get-BetaTaggedObjectsByType**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
 [**Remove-BetaTagsToManyObject**](BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 [**Update-BetaTaggedObjectByTypeAndId**](BetaTaggedObjectsApi.md#Update-BetaTaggedObjectByTypeAndId) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 
@@ -118,9 +118,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteTaggedObjectByTypeAndId"></a>
-# **Invoke-BetaDeleteTaggedObjectByTypeAndId**
-> void Invoke-BetaDeleteTaggedObjectByTypeAndId<br>
+<a name="Remove-BetaTaggedObjectByTypeAndId"></a>
+# **Remove-BetaTaggedObjectByTypeAndId**
+> void Remove-BetaTaggedObjectByTypeAndId<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
@@ -143,9 +143,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 
 # Delete Tagged Object
 try {
-    $Result = Invoke-BetaDeleteTaggedObjectByTypeAndId -Type $Type -Id $Id
+    $Result = Remove-BetaTaggedObjectByTypeAndId -Type $Type -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteTaggedObjectByTypeAndId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaTaggedObjectByTypeAndId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -226,9 +226,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListTaggedObjects"></a>
-# **Invoke-BetaListTaggedObjects**
-> TaggedObject Invoke-BetaListTaggedObjects<br>
+<a name="Get-BetaTaggedObjects"></a>
+# **Get-BetaTaggedObjects**
+> TaggedObject Get-BetaTaggedObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -255,9 +255,9 @@ $Filters = "tagName eq "BU_FINANCE"" # String | Filter results using the standar
 
 # List Tagged Objects
 try {
-    $Result = Invoke-BetaListTaggedObjects -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
+    $Result = Get-BetaTaggedObjects -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListTaggedObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaTaggedObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -286,9 +286,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListTaggedObjectsByType"></a>
-# **Invoke-BetaListTaggedObjectsByType**
-> TaggedObject[] Invoke-BetaListTaggedObjectsByType<br>
+<a name="Get-BetaTaggedObjectsByType"></a>
+# **Get-BetaTaggedObjectsByType**
+> TaggedObject[] Get-BetaTaggedObjectsByType<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -317,9 +317,9 @@ $Filters = "objectRef.id eq "2c91808568c529c60168cca6f90c1313"" # String | Filte
 
 # List Tagged Objects
 try {
-    $Result = Invoke-BetaListTaggedObjectsByType -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
+    $Result = Get-BetaTaggedObjectsByType -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListTaggedObjectsByType: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaTaggedObjectsByType: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

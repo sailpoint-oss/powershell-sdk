@@ -4,13 +4,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-CCListAccounts**](CCAccountsApi.md#Invoke-CCListAccounts) | **GET** /cc/api/account/list | List Accounts
+[**Get-CCAccounts**](CCAccountsApi.md#Get-CCAccounts) | **GET** /cc/api/account/list | List Accounts
 [**Remove-CCAccount**](CCAccountsApi.md#Remove-CCAccount) | **POST** /cc/api/account/remove/:id | Remove Account
 
 
-<a name="Invoke-CCListAccounts"></a>
-# **Invoke-CCListAccounts**
-> void Invoke-CCListAccounts<br>
+<a name="Get-CCAccounts"></a>
+# **Get-CCAccounts**
+> void Get-CCAccounts<br>
 
 List Accounts
 
@@ -27,9 +27,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # List Accounts
 try {
-    $Result = Invoke-CCListAccounts
+    $Result = Get-CCAccounts
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-CCListAccounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CCAccounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

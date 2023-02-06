@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-Transform**](TransformsApi.md#New-Transform) | **POST** /transforms | Create transform
-[**Invoke-DeleteTransform**](TransformsApi.md#Invoke-DeleteTransform) | **DELETE** /transforms/{id} | Delete a transform
+[**Remove-Transform**](TransformsApi.md#Remove-Transform) | **DELETE** /transforms/{id} | Delete a transform
 [**Get-Transform**](TransformsApi.md#Get-Transform) | **GET** /transforms/{id} | Transform by ID
 [**Get-TransformsList**](TransformsApi.md#Get-TransformsList) | **GET** /transforms | List transforms
 [**Update-Transform**](TransformsApi.md#Update-Transform) | **PUT** /transforms/{id} | Update a transform
@@ -70,9 +70,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteTransform"></a>
-# **Invoke-DeleteTransform**
-> void Invoke-DeleteTransform<br>
+<a name="Remove-Transform"></a>
+# **Remove-Transform**
+> void Remove-Transform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a transform
@@ -93,9 +93,9 @@ $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 
 # Delete a transform
 try {
-    $Result = Invoke-DeleteTransform -Id $Id
+    $Result = Remove-Transform -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteTransform: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-Transform: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

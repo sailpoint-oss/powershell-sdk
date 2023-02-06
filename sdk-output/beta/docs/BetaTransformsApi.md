@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaTransform**](BetaTransformsApi.md#New-BetaTransform) | **POST** /transforms | Create transform
-[**Invoke-BetaDeleteTransform**](BetaTransformsApi.md#Invoke-BetaDeleteTransform) | **DELETE** /transforms/{id} | Delete a transform
+[**Remove-BetaTransform**](BetaTransformsApi.md#Remove-BetaTransform) | **DELETE** /transforms/{id} | Delete a transform
 [**Get-BetaTransform**](BetaTransformsApi.md#Get-BetaTransform) | **GET** /transforms/{id} | Transform by ID
 [**Get-BetaTransformsList**](BetaTransformsApi.md#Get-BetaTransformsList) | **GET** /transforms | List transforms
 [**Update-BetaTransform**](BetaTransformsApi.md#Update-BetaTransform) | **PUT** /transforms/{id} | Update a transform
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteTransform"></a>
-# **Invoke-BetaDeleteTransform**
-> void Invoke-BetaDeleteTransform<br>
+<a name="Remove-BetaTransform"></a>
+# **Remove-BetaTransform**
+> void Remove-BetaTransform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a transform
@@ -85,9 +85,9 @@ $Id = "MyId" # String | ID of the transform to delete
 
 # Delete a transform
 try {
-    $Result = Invoke-BetaDeleteTransform -Id $Id
+    $Result = Remove-BetaTransform -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteTransform: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaTransform: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

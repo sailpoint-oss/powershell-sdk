@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaConnectorRule**](BetaConnectorRuleManagementApi.md#New-BetaConnectorRule) | **POST** /connector-rules | Create Connector Rule
-[**Invoke-BetaDeleteConnectorRule**](BetaConnectorRuleManagementApi.md#Invoke-BetaDeleteConnectorRule) | **DELETE** /connector-rules/{id} | Delete a Connector-Rule
+[**Remove-BetaConnectorRule**](BetaConnectorRuleManagementApi.md#Remove-BetaConnectorRule) | **DELETE** /connector-rules/{id} | Delete a Connector-Rule
 [**Get-BetaConnectorRule**](BetaConnectorRuleManagementApi.md#Get-BetaConnectorRule) | **GET** /connector-rules/{id} | Connector-Rule by ID
 [**Get-BetaConnectorRuleList**](BetaConnectorRuleManagementApi.md#Get-BetaConnectorRuleList) | **GET** /connector-rules | List Connector Rules
 [**Update-BetaConnectorRule**](BetaConnectorRuleManagementApi.md#Update-BetaConnectorRule) | **PUT** /connector-rules/{id} | Update a Connector Rule
@@ -67,9 +67,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteConnectorRule"></a>
-# **Invoke-BetaDeleteConnectorRule**
-> void Invoke-BetaDeleteConnectorRule<br>
+<a name="Remove-BetaConnectorRule"></a>
+# **Remove-BetaConnectorRule**
+> void Remove-BetaConnectorRule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a Connector-Rule
@@ -90,9 +90,9 @@ $Id = "MyId" # String | ID of the connector rule to delete
 
 # Delete a Connector-Rule
 try {
-    $Result = Invoke-BetaDeleteConnectorRule -Id $Id
+    $Result = Remove-BetaConnectorRule -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteConnectorRule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaConnectorRule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -9,9 +9,9 @@ Method | HTTP request | Description
 [**New-BetaProvisioningPolicy**](BetaSourcesApi.md#New-BetaProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 [**New-BetaSchema**](BetaSourcesApi.md#New-BetaSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
 [**New-BetaSource**](BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
-[**Invoke-BetaDeleteProvisioningPolicy**](BetaSourcesApi.md#Invoke-BetaDeleteProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
-[**Invoke-BetaDeleteSchema**](BetaSourcesApi.md#Invoke-BetaDeleteSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
-[**Invoke-BetaDeleteSource**](BetaSourcesApi.md#Invoke-BetaDeleteSource) | **DELETE** /sources/{id} | Delete Source by ID
+[**Remove-BetaProvisioningPolicy**](BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
+[**Remove-BetaSchema**](BetaSourcesApi.md#Remove-BetaSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
+[**Remove-BetaSource**](BetaSourcesApi.md#Remove-BetaSource) | **DELETE** /sources/{id} | Delete Source by ID
 [**Invoke-BetaDownloadSourceAccountsSchema**](BetaSourcesApi.md#Invoke-BetaDownloadSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
 [**Invoke-BetaDownloadSourceEntitlementsSchema**](BetaSourcesApi.md#Invoke-BetaDownloadSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 [**Get-BetaProvisioningPolicy**](BetaSourcesApi.md#Get-BetaProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
@@ -19,9 +19,9 @@ Method | HTTP request | Description
 [**Get-BetaSource**](BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
 [**Get-BetaSourceAttrSyncConfig**](BetaSourcesApi.md#Get-BetaSourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
 [**Get-BetaSourceConfig**](BetaSourcesApi.md#Get-BetaSourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
-[**Invoke-BetaListProvisioningPolicies**](BetaSourcesApi.md#Invoke-BetaListProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-[**Invoke-BetaListSchemas**](BetaSourcesApi.md#Invoke-BetaListSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
-[**Invoke-BetaListSources**](BetaSourcesApi.md#Invoke-BetaListSources) | **GET** /sources | Lists all sources in IdentityNow.
+[**Get-BetaProvisioningPolicies**](BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
+[**Get-BetaSchemas**](BetaSourcesApi.md#Get-BetaSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
+[**Get-BetaSources**](BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 [**Receive-BetaResourceObjects**](BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek resource objects from the source connector
 [**Ping-BetaCluster**](BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for the source connector
 [**Send-BetaSourceAttrSyncConfig**](BetaSourcesApi.md#Send-BetaSourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
@@ -318,9 +318,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteProvisioningPolicy"></a>
-# **Invoke-BetaDeleteProvisioningPolicy**
-> void Invoke-BetaDeleteProvisioningPolicy<br>
+<a name="Remove-BetaProvisioningPolicy"></a>
+# **Remove-BetaProvisioningPolicy**
+> void Remove-BetaProvisioningPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UsageType] <PSCustomObject><br>
 
@@ -343,9 +343,9 @@ $UsageType = "CREATE" # UsageType | The type of ProvisioningPolicy usage.
 
 # Delete Provisioning Policy by UsageType
 try {
-    $Result = Invoke-BetaDeleteProvisioningPolicy -SourceId $SourceId -UsageType $UsageType
+    $Result = Remove-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteProvisioningPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaProvisioningPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -372,9 +372,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSchema"></a>
-# **Invoke-BetaDeleteSchema**
-> void Invoke-BetaDeleteSchema<br>
+<a name="Remove-BetaSchema"></a>
+# **Remove-BetaSchema**
+> void Remove-BetaSchema<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
 
@@ -395,9 +395,9 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
 
 # Delete Source Schema by ID
 try {
-    $Result = Invoke-BetaDeleteSchema -SourceId $SourceId -SchemaId $SchemaId
+    $Result = Remove-BetaSchema -SourceId $SourceId -SchemaId $SchemaId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -424,9 +424,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSource"></a>
-# **Invoke-BetaDeleteSource**
-> DeleteSource202Response Invoke-BetaDeleteSource<br>
+<a name="Remove-BetaSource"></a>
+# **Remove-BetaSource**
+> DeleteSource202Response Remove-BetaSource<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Source by ID
@@ -447,9 +447,9 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The Source ID
 
 # Delete Source by ID
 try {
-    $Result = Invoke-BetaDeleteSource -Id $Id
+    $Result = Remove-BetaSource -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -840,9 +840,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListProvisioningPolicies"></a>
-# **Invoke-BetaListProvisioningPolicies**
-> ProvisioningPolicyDto[] Invoke-BetaListProvisioningPolicies<br>
+<a name="Get-BetaProvisioningPolicies"></a>
+# **Get-BetaProvisioningPolicies**
+> ProvisioningPolicyDto[] Get-BetaProvisioningPolicies<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
 Lists ProvisioningPolicies
@@ -863,9 +863,9 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 
 # Lists ProvisioningPolicies
 try {
-    $Result = Invoke-BetaListProvisioningPolicies -SourceId $SourceId
+    $Result = Get-BetaProvisioningPolicies -SourceId $SourceId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListProvisioningPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaProvisioningPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -891,9 +891,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListSchemas"></a>
-# **Invoke-BetaListSchemas**
-> Schema[] Invoke-BetaListSchemas<br>
+<a name="Get-BetaSchemas"></a>
+# **Get-BetaSchemas**
+> Schema[] Get-BetaSchemas<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTypes] <String><br>
 
@@ -914,9 +914,9 @@ $IncludeTypes = "group" # String | If set to 'group', then the account schema is
 
 # Lists the Schemas that exist on the specified Source in IdentityNow.
 try {
-    $Result = Invoke-BetaListSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
+    $Result = Get-BetaSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -943,9 +943,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListSources"></a>
-# **Invoke-BetaListSources**
-> Source[] Invoke-BetaListSources<br>
+<a name="Get-BetaSources"></a>
+# **Get-BetaSources**
+> Source[] Get-BetaSources<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -976,9 +976,9 @@ $ForSubadmin = "name" # String | Filter the returned list of sources for the ide
 
 # Lists all sources in IdentityNow.
 try {
-    $Result = Invoke-BetaListSources -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSubadmin $ForSubadmin
+    $Result = Get-BetaSources -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSubadmin $ForSubadmin
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListSources: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSources: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

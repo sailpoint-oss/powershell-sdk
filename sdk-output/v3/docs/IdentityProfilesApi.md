@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Get-DefaultIdentityAttributeConfig**](IdentityProfilesApi.md#Get-DefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Get default Identity Attribute Config
 [**Get-IdentityProfile**](IdentityProfilesApi.md#Get-IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get single Identity Profile
 [**Import-IdentityProfiles**](IdentityProfilesApi.md#Import-IdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-[**Invoke-ListIdentityProfiles**](IdentityProfilesApi.md#Invoke-ListIdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
+[**Get-IdentityProfiles**](IdentityProfilesApi.md#Get-IdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
 
 
 <a name="Export-IdentityProfiles"></a>
@@ -242,9 +242,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListIdentityProfiles"></a>
-# **Invoke-ListIdentityProfiles**
-> IdentityProfile[] Invoke-ListIdentityProfiles<br>
+<a name="Get-IdentityProfiles"></a>
+# **Get-IdentityProfiles**
+> IdentityProfile[] Get-IdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -273,9 +273,9 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 
 # Identity Profiles List
 try {
-    $Result = Invoke-ListIdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-IdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListIdentityProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-IdentityProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

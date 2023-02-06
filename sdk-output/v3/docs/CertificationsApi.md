@@ -5,9 +5,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-IdentityCertification**](CertificationsApi.md#Get-IdentityCertification) | **GET** /certifications/{id} | Identity Certification by ID
-[**Invoke-ListIdentityAccessReviewItems**](CertificationsApi.md#Invoke-ListIdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of Access Review Items
-[**Invoke-ListIdentityCertifications**](CertificationsApi.md#Invoke-ListIdentityCertifications) | **GET** /certifications | Identity Campaign Certifications by IDs
-[**New-IdentityDecision**](CertificationsApi.md#New-IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
+[**Get-IdentityAccessReviewItems**](CertificationsApi.md#Get-IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of Access Review Items
+[**Get-IdentityCertifications**](CertificationsApi.md#Get-IdentityCertifications) | **GET** /certifications | Identity Campaign Certifications by IDs
+[**Select-IdentityDecision**](CertificationsApi.md#Select-IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
 [**Invoke-ReassignIdentityCertifications**](CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 [**Invoke-SignOffIdentityCertification**](CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
 
@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListIdentityAccessReviewItems"></a>
-# **Invoke-ListIdentityAccessReviewItems**
-> AccessReviewItem[] Invoke-ListIdentityAccessReviewItems<br>
+<a name="Get-IdentityAccessReviewItems"></a>
+# **Get-IdentityAccessReviewItems**
+> AccessReviewItem[] Get-IdentityAccessReviewItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -102,9 +102,9 @@ $Roles = "userRole" # String | Filter results to view access review items that p
 
 # List of Access Review Items
 try {
-    $Result = Invoke-ListIdentityAccessReviewItems -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -Entitlements $Entitlements -AccessProfiles $AccessProfiles -Roles $Roles
+    $Result = Get-IdentityAccessReviewItems -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -Entitlements $Entitlements -AccessProfiles $AccessProfiles -Roles $Roles
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListIdentityAccessReviewItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-IdentityAccessReviewItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -138,9 +138,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListIdentityCertifications"></a>
-# **Invoke-ListIdentityCertifications**
-> IdentityCertificationDto[] Invoke-ListIdentityCertifications<br>
+<a name="Get-IdentityCertifications"></a>
+# **Get-IdentityCertifications**
+> IdentityCertificationDto[] Get-IdentityCertifications<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReviewerIdentity] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -171,9 +171,9 @@ $Sorters = "name,due" # String | Sort results using the standard syntax describe
 
 # Identity Campaign Certifications by IDs
 try {
-    $Result = Invoke-ListIdentityCertifications -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-IdentityCertifications -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListIdentityCertifications: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-IdentityCertifications: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -204,9 +204,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-IdentityDecision"></a>
-# **New-IdentityDecision**
-> IdentityCertificationDto New-IdentityDecision<br>
+<a name="Select-IdentityDecision"></a>
+# **Select-IdentityDecision**
+> IdentityCertificationDto Select-IdentityDecision<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReviewDecision] <PSCustomObject[]><br>
 
@@ -230,9 +230,9 @@ $ReviewDecision = Initialize-ReviewDecision -Id "ef38f94347e94562b5bb8424a56397d
 
 # Decide on a Certification Item
 try {
-    $Result = New-IdentityDecision -Id $Id -ReviewDecision $ReviewDecision
+    $Result = Select-IdentityDecision -Id $Id -ReviewDecision $ReviewDecision
 } catch {
-    Write-Host ("Exception occurred when calling New-IdentityDecision: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Select-IdentityDecision: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

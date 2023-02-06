@@ -115,7 +115,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteSodPolicyById {
+function Remove-BetaSodPolicyById {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -129,7 +129,7 @@ function Invoke-BetaDeleteSodPolicyById {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSodPolicyById' | Write-Debug
+        'Calling method: Remove-BetaSodPolicyById' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -197,7 +197,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteSodPolicyScheduleById {
+function Remove-BetaSodPolicyScheduleById {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -208,7 +208,7 @@ function Invoke-BetaDeleteSodPolicyScheduleById {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSodPolicyScheduleById' | Write-Debug
+        'Calling method: Remove-BetaSodPolicyScheduleById' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -830,7 +830,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SodPolicy[]
 #>
-function Invoke-BetaListSodPolicies {
+function Get-BetaSodPolicies {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -850,7 +850,7 @@ function Invoke-BetaListSodPolicies {
     )
 
     Process {
-        'Calling method: Invoke-BetaListSodPolicies' | Write-Debug
+        'Calling method: Get-BetaSodPolicies' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -929,7 +929,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SodPolicy
 #>
-function Invoke-BetaPatchSodPolicy {
+function Update-BetaSodPolicy {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -943,7 +943,7 @@ function Invoke-BetaPatchSodPolicy {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchSodPolicy' | Write-Debug
+        'Calling method: Update-BetaSodPolicy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1023,7 +1023,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ReportResultReference
 #>
-function Invoke-BetaRunAllPoliciesForOrg {
+function Start-BetaAllPoliciesForOrg {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1034,7 +1034,7 @@ function Invoke-BetaRunAllPoliciesForOrg {
     )
 
     Process {
-        'Calling method: Invoke-BetaRunAllPoliciesForOrg' | Write-Debug
+        'Calling method: Start-BetaAllPoliciesForOrg' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1106,7 +1106,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ReportResultReference
 #>
-function Invoke-BetaRunSodPolicy {
+function Start-BetaSodPolicy {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1117,7 +1117,7 @@ function Invoke-BetaRunSodPolicy {
     )
 
     Process {
-        'Calling method: Invoke-BetaRunSodPolicy' | Write-Debug
+        'Calling method: Start-BetaSodPolicy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

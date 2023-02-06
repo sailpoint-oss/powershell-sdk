@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-DeleteServiceDeskIntegration {
+function Remove-ServiceDeskIntegration {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-DeleteServiceDeskIntegration {
     )
 
     Process {
-        'Calling method: Invoke-DeleteServiceDeskIntegration' | Write-Debug
+        'Calling method: Remove-ServiceDeskIntegration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -585,7 +585,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ServiceDeskIntegrationDto
 #>
-function Invoke-PatchServiceDeskIntegration {
+function Update-ServiceDeskIntegration {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -599,7 +599,7 @@ function Invoke-PatchServiceDeskIntegration {
     )
 
     Process {
-        'Calling method: Invoke-PatchServiceDeskIntegration' | Write-Debug
+        'Calling method: Update-ServiceDeskIntegration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

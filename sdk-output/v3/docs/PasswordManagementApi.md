@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-PasswordChangeStatus**](PasswordManagementApi.md#Get-PasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
-[**Invoke-QueryPasswordInfo**](PasswordManagementApi.md#Invoke-QueryPasswordInfo) | **POST** /query-password-info | Query Password Info
+[**Search-PasswordInfo**](PasswordManagementApi.md#Search-PasswordInfo) | **POST** /query-password-info | Query Password Info
 [**Set-Password**](PasswordManagementApi.md#Set-Password) | **POST** /set-password | Set Identity&#39;s Password
 
 
@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-QueryPasswordInfo"></a>
-# **Invoke-QueryPasswordInfo**
-> PasswordInfo Invoke-QueryPasswordInfo<br>
+<a name="Search-PasswordInfo"></a>
+# **Search-PasswordInfo**
+> PasswordInfo Search-PasswordInfo<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordInfoQueryDTO] <PSCustomObject><br>
 
 Query Password Info
@@ -83,9 +83,9 @@ $PasswordInfoQueryDTO = Initialize-PasswordInfoQueryDTO -UserName "Abby.Smith" -
 
 # Query Password Info
 try {
-    $Result = Invoke-QueryPasswordInfo -PasswordInfoQueryDTO $PasswordInfoQueryDTO
+    $Result = Search-PasswordInfo -PasswordInfoQueryDTO $PasswordInfoQueryDTO
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-QueryPasswordInfo: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Search-PasswordInfo: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -25,7 +25,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Stop-AccessRequest {
+function Suspend-AccessRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -36,7 +36,7 @@ function Stop-AccessRequest {
     )
 
     Process {
-        'Calling method: Stop-AccessRequest' | Write-Debug
+        'Calling method: Suspend-AccessRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -285,7 +285,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 RequestedItemStatus[]
 #>
-function Invoke-ListAccessRequestStatus {
+function Get-AccessRequestStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -317,7 +317,7 @@ function Invoke-ListAccessRequestStatus {
     )
 
     Process {
-        'Calling method: Invoke-ListAccessRequestStatus' | Write-Debug
+        'Calling method: Get-AccessRequestStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

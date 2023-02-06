@@ -5,8 +5,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-SchemaAttribute**](NonEmployeeLifecycleManagementApi.md#New-SchemaAttribute) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
-[**Invoke-DeleteSchemaAttribute**](NonEmployeeLifecycleManagementApi.md#Invoke-DeleteSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
-[**Invoke-DeleteSchemaAttributes**](NonEmployeeLifecycleManagementApi.md#Invoke-DeleteSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
+[**Remove-SchemaAttribute**](NonEmployeeLifecycleManagementApi.md#Remove-SchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
+[**Remove-SchemaAttributes**](NonEmployeeLifecycleManagementApi.md#Remove-SchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
 [**Get-SchemaAttribute**](NonEmployeeLifecycleManagementApi.md#Get-SchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
 [**Get-SchemaAttributes**](NonEmployeeLifecycleManagementApi.md#Get-SchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
 [**Invoke-NonEmployeeApprovalGet**](NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeApprovalGet) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
@@ -35,7 +35,7 @@ Method | HTTP request | Description
 [**Invoke-NonEmployeeSourcePatch**](NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeSourcePatch) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
 [**Invoke-NonEmployeeSourcesCreation**](NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeSourcesCreation) | **POST** /non-employee-sources | Create Non-Employee Source
 [**Invoke-NonEmployeeSourcesList**](NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeSourcesList) | **GET** /non-employee-sources | List Non-Employee Sources
-[**Invoke-PatchSchemaAttribute**](NonEmployeeLifecycleManagementApi.md#Invoke-PatchSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
+[**Update-SchemaAttribute**](NonEmployeeLifecycleManagementApi.md#Update-SchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
 
 
 <a name="New-SchemaAttribute"></a>
@@ -92,9 +92,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteSchemaAttribute"></a>
-# **Invoke-DeleteSchemaAttribute**
-> void Invoke-DeleteSchemaAttribute<br>
+<a name="Remove-SchemaAttribute"></a>
+# **Remove-SchemaAttribute**
+> void Remove-SchemaAttribute<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
@@ -117,9 +117,9 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 
 # Delete a Schema Attribute for Non-Employee Source
 try {
-    $Result = Invoke-DeleteSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId
+    $Result = Remove-SchemaAttribute -AttributeId $AttributeId -SourceId $SourceId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteSchemaAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-SchemaAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -146,9 +146,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteSchemaAttributes"></a>
-# **Invoke-DeleteSchemaAttributes**
-> void Invoke-DeleteSchemaAttributes<br>
+<a name="Remove-SchemaAttributes"></a>
+# **Remove-SchemaAttributes**
+> void Remove-SchemaAttributes<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
 Delete all custom schema attributes for Non-Employee Source
@@ -169,9 +169,9 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 
 # Delete all custom schema attributes for Non-Employee Source
 try {
-    $Result = Invoke-DeleteSchemaAttributes -SourceId $SourceId
+    $Result = Remove-SchemaAttributes -SourceId $SourceId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteSchemaAttributes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-SchemaAttributes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1709,9 +1709,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PatchSchemaAttribute"></a>
-# **Invoke-PatchSchemaAttribute**
-> NonEmployeeSchemaAttribute Invoke-PatchSchemaAttribute<br>
+<a name="Update-SchemaAttribute"></a>
+# **Update-SchemaAttribute**
+> NonEmployeeSchemaAttribute Update-SchemaAttribute<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
@@ -1737,9 +1737,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch a Schema Attribute for Non-Employee Source
 try {
-    $Result = Invoke-PatchSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-SchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-PatchSchemaAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-SchemaAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

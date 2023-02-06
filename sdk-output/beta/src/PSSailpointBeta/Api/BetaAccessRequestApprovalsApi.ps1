@@ -315,7 +315,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 CompletedApproval[]
 #>
-function Invoke-BetaListCompletedApprovals {
+function Get-BetaCompletedApprovals {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -341,7 +341,7 @@ function Invoke-BetaListCompletedApprovals {
     )
 
     Process {
-        'Calling method: Invoke-BetaListCompletedApprovals' | Write-Debug
+        'Calling method: Get-BetaCompletedApprovals' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -440,7 +440,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 PendingApproval[]
 #>
-function Invoke-BetaListPendingApprovals {
+function Get-BetaPendingApprovals {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -466,7 +466,7 @@ function Invoke-BetaListPendingApprovals {
     )
 
     Process {
-        'Calling method: Invoke-BetaListPendingApprovals' | Write-Debug
+        'Calling method: Get-BetaPendingApprovals' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

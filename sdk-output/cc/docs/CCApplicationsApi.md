@@ -5,10 +5,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-CCApplication**](CCApplicationsApi.md#New-CCApplication) | **POST** /cc/api/app/create | Create Application
-[**Invoke-CCDeleteApplication**](CCApplicationsApi.md#Invoke-CCDeleteApplication) | **POST** /cc/api/app/delete/:id | Delete Application
+[**Remove-CCApplication**](CCApplicationsApi.md#Remove-CCApplication) | **POST** /cc/api/app/delete/:id | Delete Application
 [**Get-CCApplication**](CCApplicationsApi.md#Get-CCApplication) | **GET** /cc/api/app/get/:id | Get Single Application
 [**Get-CCApplicationAccessProfiles**](CCApplicationsApi.md#Get-CCApplicationAccessProfiles) | **GET** /cc/api/app/getAccessProfiles/:id | Get Access Profiles for Application
-[**Invoke-CCListApplications**](CCApplicationsApi.md#Invoke-CCListApplications) | **GET** /cc/api/app | List Applications
+[**Get-CCApplications**](CCApplicationsApi.md#Get-CCApplications) | **GET** /cc/api/app | List Applications
 [**Update-CCApplication**](CCApplicationsApi.md#Update-CCApplication) | **POST** /cc/api/app/update/:id | Update Application
 
 
@@ -61,9 +61,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-CCDeleteApplication"></a>
-# **Invoke-CCDeleteApplication**
-> void Invoke-CCDeleteApplication<br>
+<a name="Remove-CCApplication"></a>
+# **Remove-CCApplication**
+> void Remove-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Application
@@ -82,9 +82,9 @@ $Id = "12345" # String |  (optional)
 
 # Delete Application
 try {
-    $Result = Invoke-CCDeleteApplication -Id $Id
+    $Result = Remove-CCApplication -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-CCDeleteApplication: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-CCApplication: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -200,9 +200,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-CCListApplications"></a>
-# **Invoke-CCListApplications**
-> void Invoke-CCListApplications<br>
+<a name="Get-CCApplications"></a>
+# **Get-CCApplications**
+> void Get-CCApplications<br>
 
 List Applications
 
@@ -219,9 +219,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # List Applications
 try {
-    $Result = Invoke-CCListApplications
+    $Result = Get-CCApplications
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-CCListApplications: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CCApplications: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

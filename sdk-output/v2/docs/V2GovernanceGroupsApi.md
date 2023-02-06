@@ -6,11 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Invoke-V2BulkDeleteWorkGroups**](V2GovernanceGroupsApi.md#Invoke-V2BulkDeleteWorkGroups) | **POST** /workgroups/bulk-delete | Bulk delete work groups
 [**New-V2Workgroup**](V2GovernanceGroupsApi.md#New-V2Workgroup) | **POST** /workgroups | Create Work Group
-[**Invoke-V2DeleteWorkgroup**](V2GovernanceGroupsApi.md#Invoke-V2DeleteWorkgroup) | **DELETE** /workgroups/{workgroupId} | Delete Work Group By Id
+[**Remove-V2Workgroup**](V2GovernanceGroupsApi.md#Remove-V2Workgroup) | **DELETE** /workgroups/{workgroupId} | Delete Work Group By Id
 [**Get-V2Workgroup**](V2GovernanceGroupsApi.md#Get-V2Workgroup) | **GET** /workgroups/{workgroupId} | Get Work Group By Id
-[**Invoke-V2ListWorkgroupConnections**](V2GovernanceGroupsApi.md#Invoke-V2ListWorkgroupConnections) | **GET** /workgroups/{workgroupId}/connections | List Work Group Connections
-[**Invoke-V2ListWorkgroupMembers**](V2GovernanceGroupsApi.md#Invoke-V2ListWorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List Work Group Members
-[**Invoke-V2ListWorkgroups**](V2GovernanceGroupsApi.md#Invoke-V2ListWorkgroups) | **GET** /workgroups | List Work Groups
+[**Get-V2WorkgroupConnections**](V2GovernanceGroupsApi.md#Get-V2WorkgroupConnections) | **GET** /workgroups/{workgroupId}/connections | List Work Group Connections
+[**Get-V2WorkgroupMembers**](V2GovernanceGroupsApi.md#Get-V2WorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List Work Group Members
+[**Get-V2Workgroups**](V2GovernanceGroupsApi.md#Get-V2Workgroups) | **GET** /workgroups | List Work Groups
 [**Edit-V2WorkgroupMembers**](V2GovernanceGroupsApi.md#Edit-V2WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members | Modify Work Group Members
 [**Update-V2Workgroup**](V2GovernanceGroupsApi.md#Update-V2Workgroup) | **PATCH** /workgroups/{workgroupId} | Update Work Group By Id
 
@@ -118,9 +118,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-V2DeleteWorkgroup"></a>
-# **Invoke-V2DeleteWorkgroup**
-> void Invoke-V2DeleteWorkgroup<br>
+<a name="Remove-V2Workgroup"></a>
+# **Remove-V2Workgroup**
+> void Remove-V2Workgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
 
 Delete Work Group By Id
@@ -141,9 +141,9 @@ $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 
 # Delete Work Group By Id
 try {
-    $Result = Invoke-V2DeleteWorkgroup -WorkgroupId $WorkgroupId
+    $Result = Remove-V2Workgroup -WorkgroupId $WorkgroupId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-V2DeleteWorkgroup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-V2Workgroup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -220,9 +220,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-V2ListWorkgroupConnections"></a>
-# **Invoke-V2ListWorkgroupConnections**
-> ListWorkgroupConnections200ResponseInner[] Invoke-V2ListWorkgroupConnections<br>
+<a name="Get-V2WorkgroupConnections"></a>
+# **Get-V2WorkgroupConnections**
+> ListWorkgroupConnections200ResponseInner[] Get-V2WorkgroupConnections<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
 
 List Work Group Connections
@@ -243,9 +243,9 @@ $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 
 # List Work Group Connections
 try {
-    $Result = Invoke-V2ListWorkgroupConnections -WorkgroupId $WorkgroupId
+    $Result = Get-V2WorkgroupConnections -WorkgroupId $WorkgroupId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-V2ListWorkgroupConnections: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-V2WorkgroupConnections: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -271,9 +271,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-V2ListWorkgroupMembers"></a>
-# **Invoke-V2ListWorkgroupMembers**
-> ListWorkgroupMembers200ResponseInner[] Invoke-V2ListWorkgroupMembers<br>
+<a name="Get-V2WorkgroupMembers"></a>
+# **Get-V2WorkgroupMembers**
+> ListWorkgroupMembers200ResponseInner[] Get-V2WorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
 
 List Work Group Members
@@ -294,9 +294,9 @@ $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 
 # List Work Group Members
 try {
-    $Result = Invoke-V2ListWorkgroupMembers -WorkgroupId $WorkgroupId
+    $Result = Get-V2WorkgroupMembers -WorkgroupId $WorkgroupId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-V2ListWorkgroupMembers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-V2WorkgroupMembers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -322,9 +322,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-V2ListWorkgroups"></a>
-# **Invoke-V2ListWorkgroups**
-> ListWorkgroups200ResponseInner[] Invoke-V2ListWorkgroups<br>
+<a name="Get-V2Workgroups"></a>
+# **Get-V2Workgroups**
+> ListWorkgroups200ResponseInner[] Get-V2Workgroups<br>
 
 List Work Groups
 
@@ -343,9 +343,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # List Work Groups
 try {
-    $Result = Invoke-V2ListWorkgroups
+    $Result = Get-V2Workgroups
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-V2ListWorkgroups: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-V2Workgroups: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

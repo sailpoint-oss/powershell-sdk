@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaOrgConfig**](BetaOrgConfigApi.md#Get-BetaOrgConfig) | **GET** /org-config | Get Org configuration settings
 [**Get-BetaValidTimeZones**](BetaOrgConfigApi.md#Get-BetaValidTimeZones) | **GET** /org-config/valid-time-zones | Get list of time zones
-[**Invoke-BetaPatchOrgConfig**](BetaOrgConfigApi.md#Invoke-BetaPatchOrgConfig) | **PATCH** /org-config | Patch an Org configuration property
+[**Update-BetaOrgConfig**](BetaOrgConfigApi.md#Update-BetaOrgConfig) | **PATCH** /org-config | Patch an Org configuration property
 
 
 <a name="Get-BetaOrgConfig"></a>
@@ -101,9 +101,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchOrgConfig"></a>
-# **Invoke-BetaPatchOrgConfig**
-> OrgConfig Invoke-BetaPatchOrgConfig<br>
+<a name="Update-BetaOrgConfig"></a>
+# **Update-BetaOrgConfig**
+> OrgConfig Update-BetaOrgConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
 Patch an Org configuration property
@@ -125,9 +125,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch an Org configuration property
 try {
-    $Result = Invoke-BetaPatchOrgConfig -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaOrgConfig -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

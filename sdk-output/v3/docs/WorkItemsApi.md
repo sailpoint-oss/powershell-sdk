@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Invoke-CountCompletedWorkItems**](WorkItemsApi.md#Invoke-CountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
 [**Invoke-CountWorkItems**](WorkItemsApi.md#Invoke-CountWorkItems) | **GET** /work-items/count | Count Work Items
 [**Get-WorkItems**](WorkItemsApi.md#Get-WorkItems) | **GET** /work-items/{id} | Get a Work Item
-[**Invoke-ListWorkItems**](WorkItemsApi.md#Invoke-ListWorkItems) | **GET** /work-items | List Work Items
+[**Get-WorkItems**](WorkItemsApi.md#Get-WorkItems) | **GET** /work-items | List Work Items
 [**Deny-ApprovalItem**](WorkItemsApi.md#Deny-ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
 [**Submit-AccountSelection**](WorkItemsApi.md#Submit-AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
 [**Invoke-SummaryWorkItems**](WorkItemsApi.md#Invoke-SummaryWorkItems) | **GET** /work-items/summary | Work Items Summary
@@ -438,9 +438,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListWorkItems"></a>
-# **Invoke-ListWorkItems**
-> WorkItems[] Invoke-ListWorkItems<br>
+<a name="Get-WorkItems"></a>
+# **Get-WorkItems**
+> WorkItems[] Get-WorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -467,9 +467,9 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item own
 
 # List Work Items
 try {
-    $Result = Invoke-ListWorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId
+    $Result = Get-WorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-WorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -153,7 +153,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-CCDeleteConnector {
+function Remove-CCConnector {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -164,7 +164,7 @@ function Invoke-CCDeleteConnector {
     )
 
     Process {
-        'Calling method: Invoke-CCDeleteConnector' | Write-Debug
+        'Calling method: Remove-CCConnector' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -388,7 +388,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-CCListConnectors {
+function Get-CCConnectors {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -396,7 +396,7 @@ function Invoke-CCListConnectors {
     )
 
     Process {
-        'Calling method: Invoke-CCListConnectors' | Write-Debug
+        'Calling method: Get-CCConnectors' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

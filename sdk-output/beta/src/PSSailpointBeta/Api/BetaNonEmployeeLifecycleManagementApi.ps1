@@ -125,7 +125,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteSchemaAttribute {
+function Remove-BetaSchemaAttribute {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -139,7 +139,7 @@ function Invoke-BetaDeleteSchemaAttribute {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSchemaAttribute' | Write-Debug
+        'Calling method: Remove-BetaSchemaAttribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -207,7 +207,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteSchemaAttributes {
+function Remove-BetaSchemaAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -218,7 +218,7 @@ function Invoke-BetaDeleteSchemaAttributes {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteSchemaAttributes' | Write-Debug
+        'Calling method: Remove-BetaSchemaAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -2797,7 +2797,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 NonEmployeeSchemaAttribute
 #>
-function Invoke-BetaPatchSchemaAttribute {
+function Update-BetaSchemaAttribute {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -2814,7 +2814,7 @@ function Invoke-BetaPatchSchemaAttribute {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchSchemaAttribute' | Write-Debug
+        'Calling method: Update-BetaSchemaAttribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

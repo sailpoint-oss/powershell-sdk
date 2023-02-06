@@ -6,11 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Invoke-BetaBulkDeleteAccessProfiles**](BetaAccessProfilesApi.md#Invoke-BetaBulkDeleteAccessProfiles) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
 [**New-BetaAccessProfile**](BetaAccessProfilesApi.md#New-BetaAccessProfile) | **POST** /access-profiles | Create an Access Profile
-[**Invoke-BetaDeleteAccessProfile**](BetaAccessProfilesApi.md#Invoke-BetaDeleteAccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
+[**Remove-BetaAccessProfile**](BetaAccessProfilesApi.md#Remove-BetaAccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
 [**Get-BetaAccessProfile**](BetaAccessProfilesApi.md#Get-BetaAccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
-[**Invoke-BetaListAccessProfileEntitlements**](BetaAccessProfilesApi.md#Invoke-BetaListAccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile&#39;s Entitlements
-[**Invoke-BetaListAccessProfiles**](BetaAccessProfilesApi.md#Invoke-BetaListAccessProfiles) | **GET** /access-profiles | List Access Profiles
-[**Invoke-BetaPatchAccessProfile**](BetaAccessProfilesApi.md#Invoke-BetaPatchAccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
+[**Get-BetaAccessProfileEntitlements**](BetaAccessProfilesApi.md#Get-BetaAccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile&#39;s Entitlements
+[**Get-BetaAccessProfiles**](BetaAccessProfilesApi.md#Get-BetaAccessProfiles) | **GET** /access-profiles | List Access Profiles
+[**Update-BetaAccessProfile**](BetaAccessProfilesApi.md#Update-BetaAccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
 
 
 <a name="Invoke-BetaBulkDeleteAccessProfiles"></a>
@@ -129,9 +129,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteAccessProfile"></a>
-# **Invoke-BetaDeleteAccessProfile**
-> BaseReferenceDto Invoke-BetaDeleteAccessProfile<br>
+<a name="Remove-BetaAccessProfile"></a>
+# **Remove-BetaAccessProfile**
+> BaseReferenceDto Remove-BetaAccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete the specified Access Profile
@@ -152,9 +152,9 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 
 # Delete the specified Access Profile
 try {
-    $Result = Invoke-BetaDeleteAccessProfile -Id $Id
+    $Result = Remove-BetaAccessProfile -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteAccessProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaAccessProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -231,9 +231,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListAccessProfileEntitlements"></a>
-# **Invoke-BetaListAccessProfileEntitlements**
-> Entitlement[] Invoke-BetaListAccessProfileEntitlements<br>
+<a name="Get-BetaAccessProfileEntitlements"></a>
+# **Get-BetaAccessProfileEntitlements**
+> Entitlement[] Get-BetaAccessProfileEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -264,9 +264,9 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 
 # List Access Profile's Entitlements
 try {
-    $Result = Invoke-BetaListAccessProfileEntitlements -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaAccessProfileEntitlements -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListAccessProfileEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaAccessProfileEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -297,9 +297,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListAccessProfiles"></a>
-# **Invoke-BetaListAccessProfiles**
-> AccessProfile[] Invoke-BetaListAccessProfiles<br>
+<a name="Get-BetaAccessProfiles"></a>
+# **Get-BetaAccessProfiles**
+> AccessProfile[] Get-BetaAccessProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForSubadmin] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -334,9 +334,9 @@ $IncludeUnsegmented = $false # Boolean | Whether or not the response list should
 
 # List Access Profiles
 try {
-    $Result = Invoke-BetaListAccessProfiles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented
+    $Result = Get-BetaAccessProfiles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListAccessProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaAccessProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -369,9 +369,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchAccessProfile"></a>
-# **Invoke-BetaPatchAccessProfile**
-> AccessProfile Invoke-BetaPatchAccessProfile<br>
+<a name="Update-BetaAccessProfile"></a>
+# **Update-BetaAccessProfile**
+> AccessProfile Update-BetaAccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -395,9 +395,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch a specified Access Profile
 try {
-    $Result = Invoke-BetaPatchAccessProfile -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaAccessProfile -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchAccessProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaAccessProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

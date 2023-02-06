@@ -5,13 +5,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#New-ServiceDeskIntegration) | **POST** /service-desk-integrations | Create a new Service Desk integration
-[**Invoke-DeleteServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Invoke-DeleteServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration by ID
+[**Remove-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Remove-ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration by ID
 [**Get-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration by ID
 [**Get-ServiceDeskIntegrationList**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrationList) | **GET** /service-desk-integrations | List existing Service Desk Integrations
 [**Get-ServiceDeskIntegrationTemplate**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName.
 [**Get-ServiceDeskIntegrationTypes**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
 [**Get-StatusCheckDetails**](ServiceDeskIntegrationApi.md#Get-StatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration of queued SDIM tickets
-[**Invoke-PatchServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Invoke-PatchServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
+[**Update-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
 [**Update-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration by ID
 [**Update-StatusCheckDetails**](ServiceDeskIntegrationApi.md#Update-StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
 
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteServiceDeskIntegration"></a>
-# **Invoke-DeleteServiceDeskIntegration**
-> void Invoke-DeleteServiceDeskIntegration<br>
+<a name="Remove-ServiceDeskIntegration"></a>
+# **Remove-ServiceDeskIntegration**
+> void Remove-ServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a Service Desk integration by ID
@@ -99,9 +99,9 @@ $Id = "anId" # String | ID of Service Desk integration to delete
 
 # Delete a Service Desk integration by ID
 try {
-    $Result = Invoke-DeleteServiceDeskIntegration -Id $Id
+    $Result = Remove-ServiceDeskIntegration -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-ServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -384,9 +384,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PatchServiceDeskIntegration"></a>
-# **Invoke-PatchServiceDeskIntegration**
-> ServiceDeskIntegrationDto Invoke-PatchServiceDeskIntegration<br>
+<a name="Update-ServiceDeskIntegration"></a>
+# **Update-ServiceDeskIntegration**
+> ServiceDeskIntegrationDto Update-ServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatch] <PSCustomObject><br>
 
@@ -412,9 +412,9 @@ $JsonPatch = Initialize-JsonPatch -Operations $JsonPatchOperation # JsonPatch | 
 
 # Service Desk Integration Update - PATCH
 try {
-    $Result = Invoke-PatchServiceDeskIntegration -Id $Id -JsonPatch $JsonPatch
+    $Result = Update-ServiceDeskIntegration -Id $Id -JsonPatch $JsonPatch
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-PatchServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-ServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

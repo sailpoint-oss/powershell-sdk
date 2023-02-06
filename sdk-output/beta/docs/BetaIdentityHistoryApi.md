@@ -11,10 +11,10 @@ Method | HTTP request | Description
 [**Get-BetaIdentitySnapshot**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 [**Get-BetaIdentitySnapshotSummary**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 [**Get-BetaStartDate**](BetaIdentityHistoryApi.md#Get-BetaStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
-[**Invoke-BetaListIdentities**](BetaIdentityHistoryApi.md#Invoke-BetaListIdentities) | **GET** /historical-identities | Lists all the identities
-[**Invoke-BetaListIdentityAccessItems**](BetaIdentityHistoryApi.md#Invoke-BetaListIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
-[**Invoke-BetaListIdentitySnapshotAccessItems**](BetaIdentityHistoryApi.md#Invoke-BetaListIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
-[**Invoke-BetaListIdentitySnapshots**](BetaIdentityHistoryApi.md#Invoke-BetaListIdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
+[**Get-BetaIdentities**](BetaIdentityHistoryApi.md#Get-BetaIdentities) | **GET** /historical-identities | Lists all the identities
+[**Get-BetaIdentityAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
+[**Get-BetaIdentitySnapshotAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
+[**Get-BetaIdentitySnapshots**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
 
 
 <a name="Compare-BetaIdentitySnapshots"></a>
@@ -452,9 +452,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListIdentities"></a>
-# **Invoke-BetaListIdentities**
-> IdentityListItem[] Invoke-BetaListIdentities<br>
+<a name="Get-BetaIdentities"></a>
+# **Get-BetaIdentities**
+> IdentityListItem[] Get-BetaIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StartsWithQuery] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IsDeleted] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IsActive] <System.Nullable[Boolean]><br>
@@ -483,9 +483,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 
 # Lists all the identities
 try {
-    $Result = Invoke-BetaListIdentities -StartsWithQuery $StartsWithQuery -IsDeleted $IsDeleted -IsActive $IsActive -Limit $Limit -Offset $Offset
+    $Result = Get-BetaIdentities -StartsWithQuery $StartsWithQuery -IsDeleted $IsDeleted -IsActive $IsActive -Limit $Limit -Offset $Offset
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListIdentities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -515,9 +515,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListIdentityAccessItems"></a>
-# **Invoke-BetaListIdentityAccessItems**
-> ListIdentityAccessItems200ResponseInner[] Invoke-BetaListIdentityAccessItems<br>
+<a name="Get-BetaIdentityAccessItems"></a>
+# **Get-BetaIdentityAccessItems**
+> ListIdentityAccessItems200ResponseInner[] Get-BetaIdentityAccessItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
 
@@ -540,9 +540,9 @@ $Type = "account" # String | The type of access item for the identity. If not pr
 
 # Gets a list of access items for the identity filtered by item type
 try {
-    $Result = Invoke-BetaListIdentityAccessItems -Id $Id -Type $Type
+    $Result = Get-BetaIdentityAccessItems -Id $Id -Type $Type
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListIdentityAccessItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentityAccessItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -569,9 +569,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListIdentitySnapshotAccessItems"></a>
-# **Invoke-BetaListIdentitySnapshotAccessItems**
-> ListIdentityAccessItems200ResponseInner[] Invoke-BetaListIdentitySnapshotAccessItems<br>
+<a name="Get-BetaIdentitySnapshotAccessItems"></a>
+# **Get-BetaIdentitySnapshotAccessItems**
+> ListIdentityAccessItems200ResponseInner[] Get-BetaIdentitySnapshotAccessItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Date] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -596,9 +596,9 @@ $Type = "account" # String | The access item type (optional)
 
 # Gets the list of identity access items at a given date filterd by item type
 try {
-    $Result = Invoke-BetaListIdentitySnapshotAccessItems -Id $Id -Date $Date -Type $Type
+    $Result = Get-BetaIdentitySnapshotAccessItems -Id $Id -Date $Date -Type $Type
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListIdentitySnapshotAccessItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentitySnapshotAccessItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -626,9 +626,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListIdentitySnapshots"></a>
-# **Invoke-BetaListIdentitySnapshots**
-> IdentitySnapshotSummaryResponse[] Invoke-BetaListIdentitySnapshots<br>
+<a name="Get-BetaIdentitySnapshots"></a>
+# **Get-BetaIdentitySnapshots**
+> IdentitySnapshotSummaryResponse[] Get-BetaIdentitySnapshots<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Start] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Interval] <String><br>
@@ -659,9 +659,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 # Lists all the snapshots for the identity
 try {
-    $Result = Invoke-BetaListIdentitySnapshots -Id $Id -Start $Start -Interval $Interval -Limit $Limit -Offset $Offset -Count $Count
+    $Result = Get-BetaIdentitySnapshots -Id $Id -Start $Start -Interval $Interval -Limit $Limit -Offset $Offset -Count $Count
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListIdentitySnapshots: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentitySnapshots: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

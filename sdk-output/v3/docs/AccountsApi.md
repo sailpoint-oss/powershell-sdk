@@ -5,12 +5,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-Account**](AccountsApi.md#New-Account) | **POST** /accounts | Create Account
-[**Invoke-DeleteAccount**](AccountsApi.md#Invoke-DeleteAccount) | **DELETE** /accounts/{id} | Delete Account
+[**Remove-Account**](AccountsApi.md#Remove-Account) | **DELETE** /accounts/{id} | Delete Account
 [**Disable-Account**](AccountsApi.md#Disable-Account) | **POST** /accounts/{id}/disable | Disable Account
 [**Enable-Account**](AccountsApi.md#Enable-Account) | **POST** /accounts/{id}/enable | Enable Account
 [**Get-Account**](AccountsApi.md#Get-Account) | **GET** /accounts/{id} | Account Details
 [**Get-AccountEntitlements**](AccountsApi.md#Get-AccountEntitlements) | **GET** /accounts/{id}/entitlements | Account Entitlements
-[**Invoke-ListAccounts**](AccountsApi.md#Invoke-ListAccounts) | **GET** /accounts | Accounts List
+[**Get-Accounts**](AccountsApi.md#Get-Accounts) | **GET** /accounts | Accounts List
 [**Send-Account**](AccountsApi.md#Send-Account) | **PUT** /accounts/{id} | Update Account
 [**Invoke-ReloadAccount**](AccountsApi.md#Invoke-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 [**Unlock-Account**](AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteAccount"></a>
-# **Invoke-DeleteAccount**
-> AccountsAsyncResult Invoke-DeleteAccount<br>
+<a name="Remove-Account"></a>
+# **Remove-Account**
+> AccountsAsyncResult Remove-Account<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Account
@@ -91,9 +91,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID
 
 # Delete Account
 try {
-    $Result = Invoke-DeleteAccount -Id $Id
+    $Result = Remove-Account -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteAccount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-Account: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -338,9 +338,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListAccounts"></a>
-# **Invoke-ListAccounts**
-> Account[] Invoke-ListAccounts<br>
+<a name="Get-Accounts"></a>
+# **Get-Accounts**
+> Account[] Get-Accounts<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -367,9 +367,9 @@ $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter 
 
 # Accounts List
 try {
-    $Result = Invoke-ListAccounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
+    $Result = Get-Accounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListAccounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-Accounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**Get-BetaRoleMiningSession**](BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSession) | **GET** /role-mining-sessions/{sessionId} | Get a role mining session
 [**Get-BetaRoleMiningSessionStatus**](BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessionStatus) | **GET** /role-mining-sessions/{sessionId}/status | Get role mining session status state
 [**Get-BetaRoleMiningSessions**](BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
-[**Invoke-BetaPatchRoleMiningSession**](BetaIAIRoleMiningApi.md#Invoke-BetaPatchRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
+[**Update-BetaRoleMiningSession**](BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 [**Invoke-BetaRoleMiningSessions**](BetaIAIRoleMiningApi.md#Invoke-BetaRoleMiningSessions) | **POST** /role-mining-sessions | Create a role mining session
 
 
@@ -981,9 +981,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchRoleMiningSession"></a>
-# **Invoke-BetaPatchRoleMiningSession**
-> SystemCollectionsHashtable Invoke-BetaPatchRoleMiningSession<br>
+<a name="Update-BetaRoleMiningSession"></a>
+# **Update-BetaRoleMiningSession**
+> SystemCollectionsHashtable Update-BetaRoleMiningSession<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -1007,9 +1007,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch a role mining session
 try {
-    $Result = Invoke-BetaPatchRoleMiningSession -SessionId $SessionId -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaRoleMiningSession -SessionId $SessionId -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchRoleMiningSession: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaRoleMiningSession: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

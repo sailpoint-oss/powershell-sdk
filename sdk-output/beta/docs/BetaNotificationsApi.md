@@ -7,14 +7,14 @@ Method | HTTP request | Description
 [**Invoke-BetaBulkDeleteNotificationTemplates**](BetaNotificationsApi.md#Invoke-BetaBulkDeleteNotificationTemplates) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 [**New-BetaNotificationTemplate**](BetaNotificationsApi.md#New-BetaNotificationTemplate) | **POST** /notification-templates | Create Notification Template
 [**New-BetaVerifiedFromAddress**](BetaNotificationsApi.md#New-BetaVerifiedFromAddress) | **POST** /verified-from-addresses | Create Verified From Address
-[**Invoke-BetaDeleteVerifiedFromAddress**](BetaNotificationsApi.md#Invoke-BetaDeleteVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
+[**Remove-BetaVerifiedFromAddress**](BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 [**Get-BetaDkimAttributes**](BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /dkim-attributes/{identities} | Get DKIM Attributes
 [**Get-BetaNotificationPreference**](BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
 [**Get-BetaNotificationTemplate**](BetaNotificationsApi.md#Get-BetaNotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
 [**Get-BetaNotificationsTemplateContext**](BetaNotificationsApi.md#Get-BetaNotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context
-[**Invoke-BetaListFromAddresses**](BetaNotificationsApi.md#Invoke-BetaListFromAddresses) | **GET** /verified-from-addresses | List From Addresses
-[**Invoke-BetaListNotificationTemplateDefaults**](BetaNotificationsApi.md#Invoke-BetaListNotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
-[**Invoke-BetaListNotificationTemplates**](BetaNotificationsApi.md#Invoke-BetaListNotificationTemplates) | **GET** /notification-templates | List Notification Templates
+[**Get-BetaFromAddresses**](BetaNotificationsApi.md#Get-BetaFromAddresses) | **GET** /verified-from-addresses | List From Addresses
+[**Get-BetaNotificationTemplateDefaults**](BetaNotificationsApi.md#Get-BetaNotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
+[**Get-BetaNotificationTemplates**](BetaNotificationsApi.md#Get-BetaNotificationTemplates) | **GET** /notification-templates | List Notification Templates
 [**Send-BetaNotificationPreference**](BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite the preferences for the given notification key.
 [**Send-BetaTestNotification**](BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
 [**Test-BetaDomainDkim**](BetaNotificationsApi.md#Test-BetaDomainDkim) | **POST** /verify-domain-dkim | Verify domain address via DKIM
@@ -173,9 +173,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteVerifiedFromAddress"></a>
-# **Invoke-BetaDeleteVerifiedFromAddress**
-> void Invoke-BetaDeleteVerifiedFromAddress<br>
+<a name="Remove-BetaVerifiedFromAddress"></a>
+# **Remove-BetaVerifiedFromAddress**
+> void Remove-BetaVerifiedFromAddress<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Verified From Address
@@ -196,9 +196,9 @@ $Id = "MyId" # String |
 
 # Delete Verified From Address
 try {
-    $Result = Invoke-BetaDeleteVerifiedFromAddress -Id $Id
+    $Result = Remove-BetaVerifiedFromAddress -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteVerifiedFromAddress: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaVerifiedFromAddress: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -423,9 +423,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListFromAddresses"></a>
-# **Invoke-BetaListFromAddresses**
-> EmailStatusDto[] Invoke-BetaListFromAddresses<br>
+<a name="Get-BetaFromAddresses"></a>
+# **Get-BetaFromAddresses**
+> EmailStatusDto[] Get-BetaFromAddresses<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -454,9 +454,9 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 
 # List From Addresses
 try {
-    $Result = Invoke-BetaListFromAddresses -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaFromAddresses -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListFromAddresses: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaFromAddresses: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -486,9 +486,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListNotificationTemplateDefaults"></a>
-# **Invoke-BetaListNotificationTemplateDefaults**
-> TemplateDtoDefault[] Invoke-BetaListNotificationTemplateDefaults<br>
+<a name="Get-BetaNotificationTemplateDefaults"></a>
+# **Get-BetaNotificationTemplateDefaults**
+> TemplateDtoDefault[] Get-BetaNotificationTemplateDefaults<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
@@ -513,9 +513,9 @@ $Filters = "MyFilters" # String | Filter results using the standard syntax descr
 
 # List Notification Template Defaults
 try {
-    $Result = Invoke-BetaListNotificationTemplateDefaults -Limit $Limit -Offset $Offset -Filters $Filters
+    $Result = Get-BetaNotificationTemplateDefaults -Limit $Limit -Offset $Offset -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListNotificationTemplateDefaults: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaNotificationTemplateDefaults: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -543,9 +543,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListNotificationTemplates"></a>
-# **Invoke-BetaListNotificationTemplates**
-> TemplateDto[] Invoke-BetaListNotificationTemplates<br>
+<a name="Get-BetaNotificationTemplates"></a>
+# **Get-BetaNotificationTemplates**
+> TemplateDto[] Get-BetaNotificationTemplates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
@@ -570,9 +570,9 @@ $Filters = "medium eq "EMAIL"" # String | Filter results using the standard synt
 
 # List Notification Templates
 try {
-    $Result = Invoke-BetaListNotificationTemplates -Limit $Limit -Offset $Offset -Filters $Filters
+    $Result = Get-BetaNotificationTemplates -Limit $Limit -Offset $Offset -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListNotificationTemplates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaNotificationTemplates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

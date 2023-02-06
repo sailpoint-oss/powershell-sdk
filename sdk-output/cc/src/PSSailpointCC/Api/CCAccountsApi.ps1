@@ -22,7 +22,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-CCListAccounts {
+function Get-CCAccounts {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -30,7 +30,7 @@ function Invoke-CCListAccounts {
     )
 
     Process {
-        'Calling method: Invoke-CCListAccounts' | Write-Debug
+        'Calling method: Get-CCAccounts' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

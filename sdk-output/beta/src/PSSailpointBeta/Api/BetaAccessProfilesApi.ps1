@@ -199,7 +199,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 BaseReferenceDto
 #>
-function Invoke-BetaDeleteAccessProfile {
+function Remove-BetaAccessProfile {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -210,7 +210,7 @@ function Invoke-BetaDeleteAccessProfile {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteAccessProfile' | Write-Debug
+        'Calling method: Remove-BetaAccessProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -364,7 +364,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Entitlement[]
 #>
-function Invoke-BetaListAccessProfileEntitlements {
+function Get-BetaAccessProfileEntitlements {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -390,7 +390,7 @@ function Invoke-BetaListAccessProfileEntitlements {
     )
 
     Process {
-        'Calling method: Invoke-BetaListAccessProfileEntitlements' | Write-Debug
+        'Calling method: Get-BetaAccessProfileEntitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -495,7 +495,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 AccessProfile[]
 #>
-function Invoke-BetaListAccessProfiles {
+function Get-BetaAccessProfiles {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -527,7 +527,7 @@ function Invoke-BetaListAccessProfiles {
     )
 
     Process {
-        'Calling method: Invoke-BetaListAccessProfiles' | Write-Debug
+        'Calling method: Get-BetaAccessProfiles' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -622,7 +622,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 AccessProfile
 #>
-function Invoke-BetaPatchAccessProfile {
+function Update-BetaAccessProfile {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -636,7 +636,7 @@ function Invoke-BetaPatchAccessProfile {
     )
 
     Process {
-        'Calling method: Invoke-BetaPatchAccessProfile' | Write-Debug
+        'Calling method: Update-BetaAccessProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

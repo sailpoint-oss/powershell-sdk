@@ -115,7 +115,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaDeleteCustomPasswordInstructions {
+function Remove-BetaCustomPasswordInstructions {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -130,7 +130,7 @@ function Invoke-BetaDeleteCustomPasswordInstructions {
     )
 
     Process {
-        'Calling method: Invoke-BetaDeleteCustomPasswordInstructions' | Write-Debug
+        'Calling method: Remove-BetaCustomPasswordInstructions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

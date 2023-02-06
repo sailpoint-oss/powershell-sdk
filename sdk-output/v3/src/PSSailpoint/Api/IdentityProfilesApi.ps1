@@ -389,7 +389,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 IdentityProfile[]
 #>
-function Invoke-ListIdentityProfiles {
+function Get-IdentityProfiles {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -412,7 +412,7 @@ function Invoke-ListIdentityProfiles {
     )
 
     Process {
-        'Calling method: Invoke-ListIdentityProfiles' | Write-Debug
+        'Calling method: Get-IdentityProfiles' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

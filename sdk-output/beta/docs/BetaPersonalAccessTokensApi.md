@@ -5,9 +5,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaPersonalAccessToken**](BetaPersonalAccessTokensApi.md#New-BetaPersonalAccessToken) | **POST** /personal-access-tokens | Create Personal Access Token
-[**Invoke-BetaDeletePersonalAccessToken**](BetaPersonalAccessTokensApi.md#Invoke-BetaDeletePersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
-[**Invoke-BetaListPersonalAccessTokens**](BetaPersonalAccessTokensApi.md#Invoke-BetaListPersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
-[**Invoke-BetaPatchPersonalAccessToken**](BetaPersonalAccessTokensApi.md#Invoke-BetaPatchPersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
+[**Remove-BetaPersonalAccessToken**](BetaPersonalAccessTokensApi.md#Remove-BetaPersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
+[**Get-BetaPersonalAccessTokens**](BetaPersonalAccessTokensApi.md#Get-BetaPersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
+[**Update-BetaPersonalAccessToken**](BetaPersonalAccessTokensApi.md#Update-BetaPersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
 
 
 <a name="New-BetaPersonalAccessToken"></a>
@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeletePersonalAccessToken"></a>
-# **Invoke-BetaDeletePersonalAccessToken**
-> void Invoke-BetaDeletePersonalAccessToken<br>
+<a name="Remove-BetaPersonalAccessToken"></a>
+# **Remove-BetaPersonalAccessToken**
+> void Remove-BetaPersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Personal Access Token
@@ -84,9 +84,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 
 # Delete Personal Access Token
 try {
-    $Result = Invoke-BetaDeletePersonalAccessToken -Id $Id
+    $Result = Remove-BetaPersonalAccessToken -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeletePersonalAccessToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaPersonalAccessToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -112,9 +112,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListPersonalAccessTokens"></a>
-# **Invoke-BetaListPersonalAccessTokens**
-> GetPersonalAccessTokenResponse[] Invoke-BetaListPersonalAccessTokens<br>
+<a name="Get-BetaPersonalAccessTokens"></a>
+# **Get-BetaPersonalAccessTokens**
+> GetPersonalAccessTokenResponse[] Get-BetaPersonalAccessTokens<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 
 List Personal Access Tokens
@@ -135,9 +135,9 @@ $OwnerId = "2c9180867b50d088017b554662fb281e" # String | The identity ID of the 
 
 # List Personal Access Tokens
 try {
-    $Result = Invoke-BetaListPersonalAccessTokens -OwnerId $OwnerId
+    $Result = Get-BetaPersonalAccessTokens -OwnerId $OwnerId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListPersonalAccessTokens: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaPersonalAccessTokens: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -163,9 +163,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchPersonalAccessToken"></a>
-# **Invoke-BetaPatchPersonalAccessToken**
-> GetPersonalAccessTokenResponse Invoke-BetaPatchPersonalAccessToken<br>
+<a name="Update-BetaPersonalAccessToken"></a>
+# **Update-BetaPersonalAccessToken**
+> GetPersonalAccessTokenResponse Update-BetaPersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -189,9 +189,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch Personal Access Token
 try {
-    $Result = Invoke-BetaPatchPersonalAccessToken -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaPersonalAccessToken -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchPersonalAccessToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaPersonalAccessToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

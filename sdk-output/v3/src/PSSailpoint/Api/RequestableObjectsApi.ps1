@@ -49,7 +49,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 RequestableObject[]
 #>
-function Invoke-ListRequestableObjects {
+function Get-RequestableObjects {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -84,7 +84,7 @@ function Invoke-ListRequestableObjects {
     )
 
     Process {
-        'Calling method: Invoke-ListRequestableObjects' | Write-Debug
+        'Calling method: Get-RequestableObjects' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

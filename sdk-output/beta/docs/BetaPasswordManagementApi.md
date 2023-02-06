@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaDigitToken**](BetaPasswordManagementApi.md#New-BetaDigitToken) | **POST** /generate-password-reset-token/digit | Generate a digit token
 [**Get-BetaPasswordChangeStatus**](BetaPasswordManagementApi.md#Get-BetaPasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
-[**Invoke-BetaQueryPasswordInfo**](BetaPasswordManagementApi.md#Invoke-BetaQueryPasswordInfo) | **POST** /query-password-info | Query Password Info
+[**Search-BetaPasswordInfo**](BetaPasswordManagementApi.md#Search-BetaPasswordInfo) | **POST** /query-password-info | Query Password Info
 [**Set-BetaPassword**](BetaPasswordManagementApi.md#Set-BetaPassword) | **POST** /set-password | Set Identity&#39;s Password
 
 
@@ -112,9 +112,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaQueryPasswordInfo"></a>
-# **Invoke-BetaQueryPasswordInfo**
-> PasswordInfo Invoke-BetaQueryPasswordInfo<br>
+<a name="Search-BetaPasswordInfo"></a>
+# **Search-BetaPasswordInfo**
+> PasswordInfo Search-BetaPasswordInfo<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordInfoQueryDTO] <PSCustomObject><br>
 
 Query Password Info
@@ -135,9 +135,9 @@ $PasswordInfoQueryDTO = Initialize-PasswordInfoQueryDTO -UserName "Abby.Smith" -
 
 # Query Password Info
 try {
-    $Result = Invoke-BetaQueryPasswordInfo -PasswordInfoQueryDTO $PasswordInfoQueryDTO
+    $Result = Search-BetaPasswordInfo -PasswordInfoQueryDTO $PasswordInfoQueryDTO
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaQueryPasswordInfo: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Search-BetaPasswordInfo: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

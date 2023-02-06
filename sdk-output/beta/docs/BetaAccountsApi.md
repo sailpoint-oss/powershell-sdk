@@ -5,12 +5,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaAccount**](BetaAccountsApi.md#New-BetaAccount) | **POST** /accounts | Create Account
-[**Invoke-BetaDeleteAccount**](BetaAccountsApi.md#Invoke-BetaDeleteAccount) | **DELETE** /accounts/{id} | Delete Account
+[**Remove-BetaAccount**](BetaAccountsApi.md#Remove-BetaAccount) | **DELETE** /accounts/{id} | Delete Account
 [**Disable-BetaAccount**](BetaAccountsApi.md#Disable-BetaAccount) | **POST** /accounts/{id}/disable | Disable Account
 [**Enable-BetaAccount**](BetaAccountsApi.md#Enable-BetaAccount) | **POST** /accounts/{id}/enable | Enable Account
 [**Get-BetaAccount**](BetaAccountsApi.md#Get-BetaAccount) | **GET** /accounts/{id} | Account Details
 [**Get-BetaAccountEntitlements**](BetaAccountsApi.md#Get-BetaAccountEntitlements) | **GET** /accounts/{id}/entitlements | Account Entitlements
-[**Invoke-BetaListAccounts**](BetaAccountsApi.md#Invoke-BetaListAccounts) | **GET** /accounts | Accounts List
+[**Get-BetaAccounts**](BetaAccountsApi.md#Get-BetaAccounts) | **GET** /accounts | Accounts List
 [**Send-BetaAccount**](BetaAccountsApi.md#Send-BetaAccount) | **PUT** /accounts/{id} | Update Account
 [**Invoke-BetaReloadAccount**](BetaAccountsApi.md#Invoke-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 [**Unlock-BetaAccount**](BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteAccount"></a>
-# **Invoke-BetaDeleteAccount**
-> AccountsAsyncResult Invoke-BetaDeleteAccount<br>
+<a name="Remove-BetaAccount"></a>
+# **Remove-BetaAccount**
+> AccountsAsyncResult Remove-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Account
@@ -91,9 +91,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID
 
 # Delete Account
 try {
-    $Result = Invoke-BetaDeleteAccount -Id $Id
+    $Result = Remove-BetaAccount -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteAccount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaAccount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -338,9 +338,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListAccounts"></a>
-# **Invoke-BetaListAccounts**
-> ListAccounts200ResponseInner[] Invoke-BetaListAccounts<br>
+<a name="Get-BetaAccounts"></a>
+# **Get-BetaAccounts**
+> ListAccounts200ResponseInner[] Get-BetaAccounts<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DetailLevel] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -369,9 +369,9 @@ $Filters = "MyFilters" # String | Filter results using the standard syntax descr
 
 # Accounts List
 try {
-    $Result = Invoke-BetaListAccounts -DetailLevel $DetailLevel -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
+    $Result = Get-BetaAccounts -DetailLevel $DetailLevel -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListAccounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaAccounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

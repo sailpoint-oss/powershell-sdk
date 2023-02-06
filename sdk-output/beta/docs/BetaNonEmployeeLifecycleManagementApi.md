@@ -5,8 +5,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#New-BetaSchemaAttribute) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
-[**Invoke-BetaDeleteSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaDeleteSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
-[**Invoke-BetaDeleteSchemaAttributes**](BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaDeleteSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
+[**Remove-BetaSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
+[**Remove-BetaSchemaAttributes**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
 [**Get-BetaSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
 [**Get-BetaSchemaAttributes**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
 [**Invoke-BetaNonEmployeeApprovalGet**](BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeApprovalGet) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
@@ -35,7 +35,7 @@ Method | HTTP request | Description
 [**Invoke-BetaNonEmployeeSourcePatch**](BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeSourcePatch) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
 [**Invoke-BetaNonEmployeeSourcesCreation**](BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeSourcesCreation) | **POST** /non-employee-sources | Create Non-Employee Source
 [**Invoke-BetaNonEmployeeSourcesList**](BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeSourcesList) | **GET** /non-employee-sources | List Non-Employee Sources
-[**Invoke-BetaPatchSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaPatchSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
+[**Update-BetaSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Update-BetaSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
 
 
 <a name="New-BetaSchemaAttribute"></a>
@@ -92,9 +92,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSchemaAttribute"></a>
-# **Invoke-BetaDeleteSchemaAttribute**
-> void Invoke-BetaDeleteSchemaAttribute<br>
+<a name="Remove-BetaSchemaAttribute"></a>
+# **Remove-BetaSchemaAttribute**
+> void Remove-BetaSchemaAttribute<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
@@ -117,9 +117,9 @@ $SourceId = "MySourceId" # String | The Source id
 
 # Delete a Schema Attribute for Non-Employee Source
 try {
-    $Result = Invoke-BetaDeleteSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId
+    $Result = Remove-BetaSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSchemaAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSchemaAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -146,9 +146,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSchemaAttributes"></a>
-# **Invoke-BetaDeleteSchemaAttributes**
-> void Invoke-BetaDeleteSchemaAttributes<br>
+<a name="Remove-BetaSchemaAttributes"></a>
+# **Remove-BetaSchemaAttributes**
+> void Remove-BetaSchemaAttributes<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
 Delete all custom schema attributes for Non-Employee Source
@@ -169,9 +169,9 @@ $SourceId = "MySourceId" # String | The Source id
 
 # Delete all custom schema attributes for Non-Employee Source
 try {
-    $Result = Invoke-BetaDeleteSchemaAttributes -SourceId $SourceId
+    $Result = Remove-BetaSchemaAttributes -SourceId $SourceId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSchemaAttributes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSchemaAttributes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1709,9 +1709,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchSchemaAttribute"></a>
-# **Invoke-BetaPatchSchemaAttribute**
-> NonEmployeeSchemaAttribute Invoke-BetaPatchSchemaAttribute<br>
+<a name="Update-BetaSchemaAttribute"></a>
+# **Update-BetaSchemaAttribute**
+> NonEmployeeSchemaAttribute Update-BetaSchemaAttribute<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
@@ -1737,9 +1737,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch a Schema Attribute for Non-Employee Source
 try {
-    $Result = Invoke-BetaPatchSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchSchemaAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaSchemaAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

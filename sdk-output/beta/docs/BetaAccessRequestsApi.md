@@ -4,17 +4,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Stop-BetaAccessRequest**](BetaAccessRequestsApi.md#Stop-BetaAccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
+[**Suspend-BetaAccessRequest**](BetaAccessRequestsApi.md#Suspend-BetaAccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 [**Close-BetaAccessRequest**](BetaAccessRequestsApi.md#Close-BetaAccessRequest) | **POST** /access-requests/close | Close Access Request
 [**New-BetaAccessRequest**](BetaAccessRequestsApi.md#New-BetaAccessRequest) | **POST** /access-requests | Submit an Access Request
 [**Get-BetaAccessRequestConfig**](BetaAccessRequestsApi.md#Get-BetaAccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
-[**Invoke-BetaListAccessRequestStatus**](BetaAccessRequestsApi.md#Invoke-BetaListAccessRequestStatus) | **GET** /access-request-status | Access Request Status
+[**Get-BetaAccessRequestStatus**](BetaAccessRequestsApi.md#Get-BetaAccessRequestStatus) | **GET** /access-request-status | Access Request Status
 [**Update-BetaAccessRequestConfig**](BetaAccessRequestsApi.md#Update-BetaAccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 
 
-<a name="Stop-BetaAccessRequest"></a>
-# **Stop-BetaAccessRequest**
-> SystemCollectionsHashtable Stop-BetaAccessRequest<br>
+<a name="Suspend-BetaAccessRequest"></a>
+# **Suspend-BetaAccessRequest**
+> SystemCollectionsHashtable Suspend-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CancelAccessRequest] <PSCustomObject><br>
 
 Cancel Access Request
@@ -35,9 +35,9 @@ $CancelAccessRequest = Initialize-CancelAccessRequest -AccountActivityId "2c9180
 
 # Cancel Access Request
 try {
-    $Result = Stop-BetaAccessRequest -CancelAccessRequest $CancelAccessRequest
+    $Result = Suspend-BetaAccessRequest -CancelAccessRequest $CancelAccessRequest
 } catch {
-    Write-Host ("Exception occurred when calling Stop-BetaAccessRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Suspend-BetaAccessRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -212,9 +212,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListAccessRequestStatus"></a>
-# **Invoke-BetaListAccessRequestStatus**
-> RequestedItemStatus[] Invoke-BetaListAccessRequestStatus<br>
+<a name="Get-BetaAccessRequestStatus"></a>
+# **Get-BetaAccessRequestStatus**
+> RequestedItemStatus[] Get-BetaAccessRequestStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedFor] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedBy] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RegardingIdentity] <String><br>
@@ -249,9 +249,9 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 
 # Access Request Status
 try {
-    $Result = Invoke-BetaListAccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaAccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListAccessRequestStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaAccessRequestStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

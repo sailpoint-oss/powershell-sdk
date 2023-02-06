@@ -4,12 +4,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ListRequestableObjects**](RequestableObjectsApi.md#Invoke-ListRequestableObjects) | **GET** /requestable-objects | Requestable Objects List
+[**Get-RequestableObjects**](RequestableObjectsApi.md#Get-RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
 
 
-<a name="Invoke-ListRequestableObjects"></a>
-# **Invoke-ListRequestableObjects**
-> RequestableObject[] Invoke-ListRequestableObjects<br>
+<a name="Get-RequestableObjects"></a>
+# **Get-RequestableObjects**
+> RequestableObject[] Get-RequestableObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Types] <PSCustomObject[]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Term] <String><br>
@@ -46,9 +46,9 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 
 # Requestable Objects List
 try {
-    $Result = Invoke-ListRequestableObjects -IdentityId $IdentityId -Types $Types -Term $Term -Statuses $Statuses -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-RequestableObjects -IdentityId $IdentityId -Types $Types -Term $Term -Statuses $Statuses -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListRequestableObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-RequestableObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

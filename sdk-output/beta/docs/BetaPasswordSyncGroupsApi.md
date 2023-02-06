@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaPasswordSyncGroup**](BetaPasswordSyncGroupsApi.md#New-BetaPasswordSyncGroup) | **POST** /password-sync-groups | Create Password Sync Group
-[**Invoke-BetaDeletePasswordSyncGroup**](BetaPasswordSyncGroupsApi.md#Invoke-BetaDeletePasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete Password Sync Group by ID
+[**Remove-BetaPasswordSyncGroup**](BetaPasswordSyncGroupsApi.md#Remove-BetaPasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete Password Sync Group by ID
 [**Get-BetaPasswordSyncGroup**](BetaPasswordSyncGroupsApi.md#Get-BetaPasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get Password Sync Group by ID
 [**Get-BetaPasswordSyncGroups**](BetaPasswordSyncGroupsApi.md#Get-BetaPasswordSyncGroups) | **GET** /password-sync-groups | Get Password Sync Group List
 [**Update-BetaPasswordSyncGroup**](BetaPasswordSyncGroupsApi.md#Update-BetaPasswordSyncGroup) | **PUT** /password-sync-groups/{id} | Update Password Sync Group by ID
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeletePasswordSyncGroup"></a>
-# **Invoke-BetaDeletePasswordSyncGroup**
-> void Invoke-BetaDeletePasswordSyncGroup<br>
+<a name="Remove-BetaPasswordSyncGroup"></a>
+# **Remove-BetaPasswordSyncGroup**
+> void Remove-BetaPasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Password Sync Group by ID
@@ -85,9 +85,9 @@ $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync 
 
 # Delete Password Sync Group by ID
 try {
-    $Result = Invoke-BetaDeletePasswordSyncGroup -Id $Id
+    $Result = Remove-BetaPasswordSyncGroup -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeletePasswordSyncGroup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaPasswordSyncGroup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Invoke-BetaCountCompletedWorkItems**](BetaWorkItemsApi.md#Invoke-BetaCountCompletedWorkItems) | **GET** /work-items/count/completed | Count Completed Work Items
 [**Invoke-BetaCountWorkItems**](BetaWorkItemsApi.md#Invoke-BetaCountWorkItems) | **GET** /work-items/count | Count Work Items
 [**Get-BetaWorkItems**](BetaWorkItemsApi.md#Get-BetaWorkItems) | **GET** /work-items/{id} | Get a Work Item
-[**Invoke-BetaListWorkItems**](BetaWorkItemsApi.md#Invoke-BetaListWorkItems) | **GET** /work-items | List Work Items
+[**Get-BetaWorkItems**](BetaWorkItemsApi.md#Get-BetaWorkItems) | **GET** /work-items | List Work Items
 [**Deny-BetaApprovalItem**](BetaWorkItemsApi.md#Deny-BetaApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
 [**Submit-BetaAccountSelection**](BetaWorkItemsApi.md#Submit-BetaAccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
 [**Invoke-BetaSummaryWorkItems**](BetaWorkItemsApi.md#Invoke-BetaSummaryWorkItems) | **GET** /work-items/summary | Work Items Summary
@@ -441,9 +441,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListWorkItems"></a>
-# **Invoke-BetaListWorkItems**
-> WorkItems[] Invoke-BetaListWorkItems<br>
+<a name="Get-BetaWorkItems"></a>
+# **Get-BetaWorkItems**
+> WorkItems[] Get-BetaWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -470,9 +470,9 @@ $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 
 # List Work Items
 try {
-    $Result = Invoke-BetaListWorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId
+    $Result = Get-BetaWorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

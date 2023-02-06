@@ -5,8 +5,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSodPolicy**](BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD Policy
-[**Invoke-BetaDeleteSodPolicyById**](BetaSODPolicyApi.md#Invoke-BetaDeleteSodPolicyById) | **DELETE** /sod-policies/{id} | Delete SOD Policy by ID
-[**Invoke-BetaDeleteSodPolicyScheduleById**](BetaSODPolicyApi.md#Invoke-BetaDeleteSodPolicyScheduleById) | **DELETE** /sod-policies/{id}/schedule | Delete SOD Policy Schedule
+[**Remove-BetaSodPolicyById**](BetaSODPolicyApi.md#Remove-BetaSodPolicyById) | **DELETE** /sod-policies/{id} | Delete SOD Policy by ID
+[**Remove-BetaSodPolicyScheduleById**](BetaSODPolicyApi.md#Remove-BetaSodPolicyScheduleById) | **DELETE** /sod-policies/{id}/schedule | Delete SOD Policy Schedule
 [**Invoke-BetaDownloadCustomViolationReport**](BetaSODPolicyApi.md#Invoke-BetaDownloadCustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 [**Invoke-BetaDownloadDefaultViolationReport**](BetaSODPolicyApi.md#Invoke-BetaDownloadDefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 [**Get-BetaSodAllReportRunStatus**](BetaSODPolicyApi.md#Get-BetaSodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
@@ -14,10 +14,10 @@ Method | HTTP request | Description
 [**Get-BetaSodPolicyScheduleById**](BetaSODPolicyApi.md#Get-BetaSodPolicyScheduleById) | **GET** /sod-policies/{id}/schedule | Get SOD Policy Schedule
 [**Get-BetaSodViolationReportRunStatus**](BetaSODPolicyApi.md#Get-BetaSodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
 [**Get-BetaSodViolationReportStatus**](BetaSODPolicyApi.md#Get-BetaSodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
-[**Invoke-BetaListSodPolicies**](BetaSODPolicyApi.md#Invoke-BetaListSodPolicies) | **GET** /sod-policies | List SOD Policies
-[**Invoke-BetaPatchSodPolicy**](BetaSODPolicyApi.md#Invoke-BetaPatchSodPolicy) | **PATCH** /sod-policies/{id} | Update a SOD Policy
-[**Invoke-BetaRunAllPoliciesForOrg**](BetaSODPolicyApi.md#Invoke-BetaRunAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for Org.
-[**Invoke-BetaRunSodPolicy**](BetaSODPolicyApi.md#Invoke-BetaRunSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD Policy Violation Report
+[**Get-BetaSodPolicies**](BetaSODPolicyApi.md#Get-BetaSodPolicies) | **GET** /sod-policies | List SOD Policies
+[**Update-BetaSodPolicy**](BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PATCH** /sod-policies/{id} | Update a SOD Policy
+[**Start-BetaAllPoliciesForOrg**](BetaSODPolicyApi.md#Start-BetaAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for Org.
+[**Start-BetaSodPolicy**](BetaSODPolicyApi.md#Start-BetaSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD Policy Violation Report
 [**Update-BetaPolicyById**](BetaSODPolicyApi.md#Update-BetaPolicyById) | **PUT** /sod-policies/{id} | Update SOD Policy By ID
 [**Update-BetaPolicyScheduleById**](BetaSODPolicyApi.md#Update-BetaPolicyScheduleById) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
 
@@ -82,9 +82,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSodPolicyById"></a>
-# **Invoke-BetaDeleteSodPolicyById**
-> void Invoke-BetaDeleteSodPolicyById<br>
+<a name="Remove-BetaSodPolicyById"></a>
+# **Remove-BetaSodPolicyById**
+> void Remove-BetaSodPolicyById<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Logical] <System.Nullable[Boolean]><br>
 
@@ -107,9 +107,9 @@ $Logical = $true # Boolean | whether this is soft delete i.e. logical true or ha
 
 # Delete SOD Policy by ID
 try {
-    $Result = Invoke-BetaDeleteSodPolicyById -Id $Id -Logical $Logical
+    $Result = Remove-BetaSodPolicyById -Id $Id -Logical $Logical
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSodPolicyById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSodPolicyById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -136,9 +136,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSodPolicyScheduleById"></a>
-# **Invoke-BetaDeleteSodPolicyScheduleById**
-> void Invoke-BetaDeleteSodPolicyScheduleById<br>
+<a name="Remove-BetaSodPolicyScheduleById"></a>
+# **Remove-BetaSodPolicyScheduleById**
+> void Remove-BetaSodPolicyScheduleById<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete SOD Policy Schedule
@@ -159,9 +159,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD Policy for
 
 # Delete SOD Policy Schedule
 try {
-    $Result = Invoke-BetaDeleteSodPolicyScheduleById -Id $Id
+    $Result = Remove-BetaSodPolicyScheduleById -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSodPolicyScheduleById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSodPolicyScheduleById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -542,9 +542,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListSodPolicies"></a>
-# **Invoke-BetaListSodPolicies**
-> SodPolicy[] Invoke-BetaListSodPolicies<br>
+<a name="Get-BetaSodPolicies"></a>
+# **Get-BetaSodPolicies**
+> SodPolicy[] Get-BetaSodPolicies<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -571,9 +571,9 @@ $Filters = "id eq "bc693f07e7b645539626c25954c58554"" # String | Filter results 
 
 # List SOD Policies
 try {
-    $Result = Invoke-BetaListSodPolicies -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
+    $Result = Get-BetaSodPolicies -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListSodPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSodPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -602,9 +602,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchSodPolicy"></a>
-# **Invoke-BetaPatchSodPolicy**
-> SodPolicy Invoke-BetaPatchSodPolicy<br>
+<a name="Update-BetaSodPolicy"></a>
+# **Update-BetaSodPolicy**
+> SodPolicy Update-BetaSodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <PSCustomObject[]><br>
 
@@ -627,9 +627,9 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of SOD Policy update ope
 
 # Update a SOD Policy
 try {
-    $Result = Invoke-BetaPatchSodPolicy -Id $Id -RequestBody $RequestBody
+    $Result = Update-BetaSodPolicy -Id $Id -RequestBody $RequestBody
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchSodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaSodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -656,9 +656,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaRunAllPoliciesForOrg"></a>
-# **Invoke-BetaRunAllPoliciesForOrg**
-> ReportResultReference Invoke-BetaRunAllPoliciesForOrg<br>
+<a name="Start-BetaAllPoliciesForOrg"></a>
+# **Start-BetaAllPoliciesForOrg**
+> ReportResultReference Start-BetaAllPoliciesForOrg<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MultiPolicyRequest] <PSCustomObject><br>
 
 Runs all policies for Org.
@@ -679,9 +679,9 @@ $MultiPolicyRequest = Initialize-MultiPolicyRequest -FilteredPolicyList "MyFilte
 
 # Runs all policies for Org.
 try {
-    $Result = Invoke-BetaRunAllPoliciesForOrg -MultiPolicyRequest $MultiPolicyRequest
+    $Result = Start-BetaAllPoliciesForOrg -MultiPolicyRequest $MultiPolicyRequest
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaRunAllPoliciesForOrg: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Start-BetaAllPoliciesForOrg: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -707,9 +707,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaRunSodPolicy"></a>
-# **Invoke-BetaRunSodPolicy**
-> ReportResultReference Invoke-BetaRunSodPolicy<br>
+<a name="Start-BetaSodPolicy"></a>
+# **Start-BetaSodPolicy**
+> ReportResultReference Start-BetaSodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Runs SOD Policy Violation Report
@@ -730,9 +730,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD Policy to 
 
 # Runs SOD Policy Violation Report
 try {
-    $Result = Invoke-BetaRunSodPolicy -Id $Id
+    $Result = Start-BetaSodPolicy -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaRunSodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Start-BetaSodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

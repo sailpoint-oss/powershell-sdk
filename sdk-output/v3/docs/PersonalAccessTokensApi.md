@@ -5,9 +5,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-PersonalAccessToken**](PersonalAccessTokensApi.md#New-PersonalAccessToken) | **POST** /personal-access-tokens | Create Personal Access Token
-[**Invoke-DeletePersonalAccessToken**](PersonalAccessTokensApi.md#Invoke-DeletePersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
-[**Invoke-ListPersonalAccessTokens**](PersonalAccessTokensApi.md#Invoke-ListPersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
-[**Invoke-PatchPersonalAccessToken**](PersonalAccessTokensApi.md#Invoke-PatchPersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
+[**Remove-PersonalAccessToken**](PersonalAccessTokensApi.md#Remove-PersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
+[**Get-PersonalAccessTokens**](PersonalAccessTokensApi.md#Get-PersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
+[**Update-PersonalAccessToken**](PersonalAccessTokensApi.md#Update-PersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
 
 
 <a name="New-PersonalAccessToken"></a>
@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeletePersonalAccessToken"></a>
-# **Invoke-DeletePersonalAccessToken**
-> void Invoke-DeletePersonalAccessToken<br>
+<a name="Remove-PersonalAccessToken"></a>
+# **Remove-PersonalAccessToken**
+> void Remove-PersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Personal Access Token
@@ -84,9 +84,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 
 # Delete Personal Access Token
 try {
-    $Result = Invoke-DeletePersonalAccessToken -Id $Id
+    $Result = Remove-PersonalAccessToken -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeletePersonalAccessToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-PersonalAccessToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -112,9 +112,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListPersonalAccessTokens"></a>
-# **Invoke-ListPersonalAccessTokens**
-> GetPersonalAccessTokenResponse[] Invoke-ListPersonalAccessTokens<br>
+<a name="Get-PersonalAccessTokens"></a>
+# **Get-PersonalAccessTokens**
+> GetPersonalAccessTokenResponse[] Get-PersonalAccessTokens<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 
 List Personal Access Tokens
@@ -135,9 +135,9 @@ $OwnerId = "2c9180867b50d088017b554662fb281e" # String | The identity ID of the 
 
 # List Personal Access Tokens
 try {
-    $Result = Invoke-ListPersonalAccessTokens -OwnerId $OwnerId
+    $Result = Get-PersonalAccessTokens -OwnerId $OwnerId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListPersonalAccessTokens: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-PersonalAccessTokens: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -163,9 +163,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PatchPersonalAccessToken"></a>
-# **Invoke-PatchPersonalAccessToken**
-> GetPersonalAccessTokenResponse Invoke-PatchPersonalAccessToken<br>
+<a name="Update-PersonalAccessToken"></a>
+# **Update-PersonalAccessToken**
+> GetPersonalAccessTokenResponse Update-PersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
@@ -189,9 +189,9 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 # Patch Personal Access Token
 try {
-    $Result = Invoke-PatchPersonalAccessToken -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-PersonalAccessToken -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-PatchPersonalAccessToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-PersonalAccessToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

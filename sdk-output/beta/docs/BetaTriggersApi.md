@@ -6,11 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Complete-BetaInvocation**](BetaTriggersApi.md#Complete-BetaInvocation) | **POST** /trigger-invocations/{id}/complete | Complete Trigger Invocation
 [**New-BetaSubscription**](BetaTriggersApi.md#New-BetaSubscription) | **POST** /trigger-subscriptions | Create a Subscription
-[**Invoke-BetaDeleteSubscription**](BetaTriggersApi.md#Invoke-BetaDeleteSubscription) | **DELETE** /trigger-subscriptions/{id} | Delete a Subscription
-[**Invoke-BetaListInvocationStatus**](BetaTriggersApi.md#Invoke-BetaListInvocationStatus) | **GET** /trigger-invocations/status | List Latest Invocation Statuses
-[**Invoke-BetaListSubscriptions**](BetaTriggersApi.md#Invoke-BetaListSubscriptions) | **GET** /trigger-subscriptions | List Subscriptions
-[**Invoke-BetaListTriggers**](BetaTriggersApi.md#Invoke-BetaListTriggers) | **GET** /triggers | List Triggers
-[**Invoke-BetaPatchSubscription**](BetaTriggersApi.md#Invoke-BetaPatchSubscription) | **PATCH** /trigger-subscriptions/{id} | Patch a Subscription
+[**Remove-BetaSubscription**](BetaTriggersApi.md#Remove-BetaSubscription) | **DELETE** /trigger-subscriptions/{id} | Delete a Subscription
+[**Get-BetaInvocationStatus**](BetaTriggersApi.md#Get-BetaInvocationStatus) | **GET** /trigger-invocations/status | List Latest Invocation Statuses
+[**Get-BetaSubscriptions**](BetaTriggersApi.md#Get-BetaSubscriptions) | **GET** /trigger-subscriptions | List Subscriptions
+[**Get-BetaTriggers**](BetaTriggersApi.md#Get-BetaTriggers) | **GET** /triggers | List Triggers
+[**Update-BetaSubscription**](BetaTriggersApi.md#Update-BetaSubscription) | **PATCH** /trigger-subscriptions/{id} | Patch a Subscription
 [**Start-BetaTestInvocation**](BetaTriggersApi.md#Start-BetaTestInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
 [**Update-BetaSubscription**](BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
 [**Confirm-BetaFilter**](BetaTriggersApi.md#Confirm-BetaFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
@@ -126,9 +126,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteSubscription"></a>
-# **Invoke-BetaDeleteSubscription**
-> void Invoke-BetaDeleteSubscription<br>
+<a name="Remove-BetaSubscription"></a>
+# **Remove-BetaSubscription**
+> void Remove-BetaSubscription<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a Subscription
@@ -149,9 +149,9 @@ $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
 
 # Delete a Subscription
 try {
-    $Result = Invoke-BetaDeleteSubscription -Id $Id
+    $Result = Remove-BetaSubscription -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteSubscription: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSubscription: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -177,9 +177,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListInvocationStatus"></a>
-# **Invoke-BetaListInvocationStatus**
-> InvocationStatus[] Invoke-BetaListInvocationStatus<br>
+<a name="Get-BetaInvocationStatus"></a>
+# **Get-BetaInvocationStatus**
+> InvocationStatus[] Get-BetaInvocationStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -208,9 +208,9 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 
 # List Latest Invocation Statuses
 try {
-    $Result = Invoke-BetaListInvocationStatus -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaInvocationStatus -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListInvocationStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaInvocationStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -240,9 +240,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListSubscriptions"></a>
-# **Invoke-BetaListSubscriptions**
-> Subscription[] Invoke-BetaListSubscriptions<br>
+<a name="Get-BetaSubscriptions"></a>
+# **Get-BetaSubscriptions**
+> Subscription[] Get-BetaSubscriptions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -271,9 +271,9 @@ $Sorters = "triggerName" # String | Sort results using the standard syntax descr
 
 # List Subscriptions
 try {
-    $Result = Invoke-BetaListSubscriptions -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaSubscriptions -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListSubscriptions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSubscriptions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -303,9 +303,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListTriggers"></a>
-# **Invoke-BetaListTriggers**
-> Trigger[] Invoke-BetaListTriggers<br>
+<a name="Get-BetaTriggers"></a>
+# **Get-BetaTriggers**
+> Trigger[] Get-BetaTriggers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -334,9 +334,9 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 
 # List Triggers
 try {
-    $Result = Invoke-BetaListTriggers -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaTriggers -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListTriggers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaTriggers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -366,9 +366,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaPatchSubscription"></a>
-# **Invoke-BetaPatchSubscription**
-> Subscription Invoke-BetaPatchSubscription<br>
+<a name="Update-BetaSubscription"></a>
+# **Update-BetaSubscription**
+> Subscription Update-BetaSubscription<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SubscriptionPatchRequestInner] <PSCustomObject[]><br>
 
@@ -392,9 +392,9 @@ $SubscriptionPatchRequestInner = Initialize-SubscriptionPatchRequestInner -Op "a
 
 # Patch a Subscription
 try {
-    $Result = Invoke-BetaPatchSubscription -Id $Id -SubscriptionPatchRequestInner $SubscriptionPatchRequestInner
+    $Result = Update-BetaSubscription -Id $Id -SubscriptionPatchRequestInner $SubscriptionPatchRequestInner
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPatchSubscription: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaSubscription: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

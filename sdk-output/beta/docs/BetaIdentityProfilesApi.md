@@ -5,14 +5,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaIdentityProfile**](BetaIdentityProfilesApi.md#New-BetaIdentityProfile) | **POST** /identity-profiles | Create an Identity Profile
-[**Invoke-BetaDeleteIdentityProfile**](BetaIdentityProfilesApi.md#Invoke-BetaDeleteIdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
-[**Invoke-BetaDeleteIdentityProfiles**](BetaIdentityProfilesApi.md#Invoke-BetaDeleteIdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
+[**Remove-BetaIdentityProfile**](BetaIdentityProfilesApi.md#Remove-BetaIdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
+[**Remove-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Remove-BetaIdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 [**Export-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Export-BetaIdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
 [**New-BetaIdentityPreview**](BetaIdentityProfilesApi.md#New-BetaIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 [**Get-BetaDefaultIdentityAttributeConfig**](BetaIdentityProfilesApi.md#Get-BetaDefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Gets the default identity attribute config
 [**Get-BetaIdentityProfile**](BetaIdentityProfilesApi.md#Get-BetaIdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Gets a single Identity Profile
 [**Import-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Import-BetaIdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-[**Invoke-BetaListIdentityProfiles**](BetaIdentityProfilesApi.md#Invoke-BetaListIdentityProfiles) | **GET** /identity-profiles | Identity Profiles list
+[**Get-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles list
 [**Invoke-BetaRefreshIdentityProfile**](BetaIdentityProfilesApi.md#Invoke-BetaRefreshIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/refresh-identities | Refreshes all the identities under this profile
 [**Update-BetaIdentityProfile**](BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
 
@@ -77,9 +77,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteIdentityProfile"></a>
-# **Invoke-BetaDeleteIdentityProfile**
-> BaseReferenceDto1 Invoke-BetaDeleteIdentityProfile<br>
+<a name="Remove-BetaIdentityProfile"></a>
+# **Remove-BetaIdentityProfile**
+> BaseReferenceDto1 Remove-BetaIdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 
 Delete an Identity Profile
@@ -100,9 +100,9 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 
 # Delete an Identity Profile
 try {
-    $Result = Invoke-BetaDeleteIdentityProfile -IdentityProfileId $IdentityProfileId
+    $Result = Remove-BetaIdentityProfile -IdentityProfileId $IdentityProfileId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteIdentityProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaIdentityProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -128,9 +128,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDeleteIdentityProfiles"></a>
-# **Invoke-BetaDeleteIdentityProfiles**
-> BaseReferenceDto Invoke-BetaDeleteIdentityProfiles<br>
+<a name="Remove-BetaIdentityProfiles"></a>
+# **Remove-BetaIdentityProfiles**
+> BaseReferenceDto Remove-BetaIdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 
 Delete Identity Profiles
@@ -151,9 +151,9 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 
 # Delete Identity Profiles
 try {
-    $Result = Invoke-BetaDeleteIdentityProfiles -RequestBody $RequestBody
+    $Result = Remove-BetaIdentityProfiles -RequestBody $RequestBody
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaDeleteIdentityProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaIdentityProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -466,9 +466,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaListIdentityProfiles"></a>
-# **Invoke-BetaListIdentityProfiles**
-> IdentityProfile[] Invoke-BetaListIdentityProfiles<br>
+<a name="Get-BetaIdentityProfiles"></a>
+# **Get-BetaIdentityProfiles**
+> IdentityProfile[] Get-BetaIdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -497,9 +497,9 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 
 # Identity Profiles list
 try {
-    $Result = Invoke-BetaListIdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaIdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaListIdentityProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentityProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

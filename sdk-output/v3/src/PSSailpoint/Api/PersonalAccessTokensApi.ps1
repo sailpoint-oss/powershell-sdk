@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-DeletePersonalAccessToken {
+function Remove-PersonalAccessToken {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-DeletePersonalAccessToken {
     )
 
     Process {
-        'Calling method: Invoke-DeletePersonalAccessToken' | Write-Debug
+        'Calling method: Remove-PersonalAccessToken' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 GetPersonalAccessTokenResponse[]
 #>
-function Invoke-ListPersonalAccessTokens {
+function Get-PersonalAccessTokens {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -198,7 +198,7 @@ function Invoke-ListPersonalAccessTokens {
     )
 
     Process {
-        'Calling method: Invoke-ListPersonalAccessTokens' | Write-Debug
+        'Calling method: Get-PersonalAccessTokens' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -265,7 +265,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 GetPersonalAccessTokenResponse
 #>
-function Invoke-PatchPersonalAccessToken {
+function Update-PersonalAccessToken {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -279,7 +279,7 @@ function Invoke-PatchPersonalAccessToken {
     )
 
     Process {
-        'Calling method: Invoke-PatchPersonalAccessToken' | Write-Debug
+        'Calling method: Update-PersonalAccessToken' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

@@ -25,7 +25,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Stop-BetaAccessRequest {
+function Suspend-BetaAccessRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -36,7 +36,7 @@ function Stop-BetaAccessRequest {
     )
 
     Process {
-        'Calling method: Stop-BetaAccessRequest' | Write-Debug
+        'Calling method: Suspend-BetaAccessRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -372,7 +372,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 RequestedItemStatus[]
 #>
-function Invoke-BetaListAccessRequestStatus {
+function Get-BetaAccessRequestStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -404,7 +404,7 @@ function Invoke-BetaListAccessRequestStatus {
     )
 
     Process {
-        'Calling method: Invoke-BetaListAccessRequestStatus' | Write-Debug
+        'Calling method: Get-BetaAccessRequestStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

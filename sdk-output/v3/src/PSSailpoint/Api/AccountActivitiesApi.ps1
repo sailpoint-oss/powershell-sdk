@@ -121,7 +121,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 AccountActivity[]
 #>
-function Invoke-ListAccountActivities {
+function Get-AccountActivities {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -153,7 +153,7 @@ function Invoke-ListAccountActivities {
     )
 
     Process {
-        'Calling method: Invoke-ListAccountActivities' | Write-Debug
+        'Calling method: Get-AccountActivities' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

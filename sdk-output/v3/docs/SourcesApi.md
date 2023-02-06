@@ -8,18 +8,18 @@ Method | HTTP request | Description
 [**New-ProvisioningPolicy**](SourcesApi.md#New-ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 [**New-Schema**](SourcesApi.md#New-Schema) | **POST** /sources/{sourceId}/schemas | Create Schema on a Source
 [**New-Source**](SourcesApi.md#New-Source) | **POST** /sources | Creates a source in IdentityNow.
-[**Invoke-DeleteProvisioningPolicy**](SourcesApi.md#Invoke-DeleteProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
-[**Invoke-DeleteSchema**](SourcesApi.md#Invoke-DeleteSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
-[**Invoke-DeleteSource**](SourcesApi.md#Invoke-DeleteSource) | **DELETE** /sources/{id} | Delete Source by ID
+[**Remove-ProvisioningPolicy**](SourcesApi.md#Remove-ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
+[**Remove-Schema**](SourcesApi.md#Remove-Schema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
+[**Remove-Source**](SourcesApi.md#Remove-Source) | **DELETE** /sources/{id} | Delete Source by ID
 [**Invoke-DownloadSourceAccountsSchema**](SourcesApi.md#Invoke-DownloadSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
 [**Invoke-DownloadSourceEntitlementsSchema**](SourcesApi.md#Invoke-DownloadSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 [**Get-ProvisioningPolicy**](SourcesApi.md#Get-ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 [**Get-Schema**](SourcesApi.md#Get-Schema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 [**Get-Source**](SourcesApi.md#Get-Source) | **GET** /sources/{id} | Get Source by ID
 [**Get-SourceHealth**](SourcesApi.md#Get-SourceHealth) | **GET** /sources/{sourceId}/source-health | This API fetches source health by source&#39;s id
-[**Invoke-ListProvisioningPolicies**](SourcesApi.md#Invoke-ListProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-[**Invoke-ListSchemas**](SourcesApi.md#Invoke-ListSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on a Source
-[**Invoke-ListSources**](SourcesApi.md#Invoke-ListSources) | **GET** /sources | Lists all sources in IdentityNow.
+[**Get-ProvisioningPolicies**](SourcesApi.md#Get-ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
+[**Get-Schemas**](SourcesApi.md#Get-Schemas) | **GET** /sources/{sourceId}/schemas | List Schemas on a Source
+[**Get-Sources**](SourcesApi.md#Get-Sources) | **GET** /sources | Lists all sources in IdentityNow.
 [**Invoke-ReplaceProvisioningPolicy**](SourcesApi.md#Invoke-ReplaceProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 [**Invoke-ReplaceSchema**](SourcesApi.md#Invoke-ReplaceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
 [**Invoke-ReplaceSource**](SourcesApi.md#Invoke-ReplaceSource) | **PUT** /sources/{id} | Update Source (Full)
@@ -262,9 +262,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteProvisioningPolicy"></a>
-# **Invoke-DeleteProvisioningPolicy**
-> void Invoke-DeleteProvisioningPolicy<br>
+<a name="Remove-ProvisioningPolicy"></a>
+# **Remove-ProvisioningPolicy**
+> void Remove-ProvisioningPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UsageType] <PSCustomObject><br>
 
@@ -287,9 +287,9 @@ $UsageType = "CREATE" # UsageType | The type of ProvisioningPolicy usage.
 
 # Delete Provisioning Policy by UsageType
 try {
-    $Result = Invoke-DeleteProvisioningPolicy -SourceId $SourceId -UsageType $UsageType
+    $Result = Remove-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteProvisioningPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-ProvisioningPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -316,9 +316,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteSchema"></a>
-# **Invoke-DeleteSchema**
-> void Invoke-DeleteSchema<br>
+<a name="Remove-Schema"></a>
+# **Remove-Schema**
+> void Remove-Schema<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
 
@@ -339,9 +339,9 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 # Delete Source Schema by ID
 try {
-    $Result = Invoke-DeleteSchema -SourceId $SourceId -SchemaId $SchemaId
+    $Result = Remove-Schema -SourceId $SourceId -SchemaId $SchemaId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-Schema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -368,9 +368,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DeleteSource"></a>
-# **Invoke-DeleteSource**
-> DeleteSource202Response Invoke-DeleteSource<br>
+<a name="Remove-Source"></a>
+# **Remove-Source**
+> DeleteSource202Response Remove-Source<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Source by ID
@@ -391,9 +391,9 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 
 # Delete Source by ID
 try {
-    $Result = Invoke-DeleteSource -Id $Id
+    $Result = Remove-Source -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DeleteSource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-Source: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -734,9 +734,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListProvisioningPolicies"></a>
-# **Invoke-ListProvisioningPolicies**
-> ProvisioningPolicyDto[] Invoke-ListProvisioningPolicies<br>
+<a name="Get-ProvisioningPolicies"></a>
+# **Get-ProvisioningPolicies**
+> ProvisioningPolicyDto[] Get-ProvisioningPolicies<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
 Lists ProvisioningPolicies
@@ -757,9 +757,9 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 
 # Lists ProvisioningPolicies
 try {
-    $Result = Invoke-ListProvisioningPolicies -SourceId $SourceId
+    $Result = Get-ProvisioningPolicies -SourceId $SourceId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListProvisioningPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-ProvisioningPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -785,9 +785,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListSchemas"></a>
-# **Invoke-ListSchemas**
-> Schema[] Invoke-ListSchemas<br>
+<a name="Get-Schemas"></a>
+# **Get-Schemas**
+> Schema[] Get-Schemas<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTypes] <String><br>
 
@@ -810,9 +810,9 @@ $IncludeTypes = "group" # String | If set to 'group', then the account schema is
 
 # List Schemas on a Source
 try {
-    $Result = Invoke-ListSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
+    $Result = Get-Schemas -SourceId $SourceId -IncludeTypes $IncludeTypes
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-Schemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -839,9 +839,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ListSources"></a>
-# **Invoke-ListSources**
-> Source[] Invoke-ListSources<br>
+<a name="Get-Sources"></a>
+# **Get-Sources**
+> Source[] Get-Sources<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -872,9 +872,9 @@ $ForSubadmin = "name" # String | Filter the returned list of sources for the ide
 
 # Lists all sources in IdentityNow.
 try {
-    $Result = Invoke-ListSources -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSubadmin $ForSubadmin
+    $Result = Get-Sources -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSubadmin $ForSubadmin
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ListSources: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-Sources: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

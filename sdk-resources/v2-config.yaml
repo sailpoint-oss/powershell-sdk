@@ -4,3 +4,4 @@ packageVersion: 0.0.1
 apiNamePrefix: V2
 companyName: SailPoint Technologies
 packageGuid: 576AB9F7-C3C5-4012-A4D6-2D4A6149FEDF
+commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select

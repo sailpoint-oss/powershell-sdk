@@ -8,7 +8,7 @@ on:
 
 jobs:
   build_powershell_sdk:
-    name: Build go SDK
+    name: Build powershell SDK
     runs-on: ubuntu-latest
     steps:
       - name: Checkout PR branch

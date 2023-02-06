@@ -4,3 +4,4 @@ packageVersion: 0.0.1
 apiNamePrefix: CC
 companyName: SailPoint Technologies
 packageGuid: DBF29A39-B5FF-407A-AF70-A8B4527E0EB8
+commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select

@@ -1,0 +1,24 @@
+name: "Publish Powershell Module"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish_powershell_sdk:
+    name: Publish powershell SDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+
+      - name: Publish Module
+        shell: pwsh
+        run: |
+          $DebugPreference="Continue"
+          Publish-Module `
+              -Path './sdk-output' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force

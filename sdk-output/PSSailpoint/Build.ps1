@@ -45,18 +45,18 @@ function Get-FunctionsToExport {
 }
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
-$FunctionPath = 'v3/src/PSSailpoint/Api', 'v3/src/PSSailpoint/Model', 'v3/src/PSSailpoint/Client', 'beta/src/PSSailpointBeta/Api', 'beta/src/PSSailpointBeta/Model', 'beta/src/PSSailpointBeta/Client', 'v2/src/PSSailpointV2/Api', 'v2/src/PSSailpointV2/Model', 'v2/src/PSSailpointV2/Client', 'cc/src/PSSailpointCC/Api', 'cc/src/PSSailpointCC/Model', 'cc/src/PSSailpointCC/Client' | ForEach-Object {Join-Path "$ScriptDir" $_}
+$FunctionPath = 'sdk-output/v3/src/PSSailpoint/Api', 'sdk-output/v3/src/PSSailpoint/Model', 'sdk-output/v3/src/PSSailpoint/Client', 'sdk-output/beta/src/PSSailpointBeta/Api', 'sdk-output/beta/src/PSSailpointBeta/Model', 'sdk-output/beta/src/PSSailpointBeta/Client', 'sdk-output/v2/src/PSSailpointV2/Api', 'sdk-output/v2/src/PSSailpointV2/Model', 'sdk-output/v2/src/PSSailpointV2/Client', 'sdk-output/cc/src/PSSailpointCC/Api', 'sdk-output/cc/src/PSSailpointCC/Model', 'sdk-output/cc/src/PSSailpointCC/Client', 'sdk-output/PSSailpoint' | ForEach-Object {$_}
 
 $Manifest = @{
     Path = "$ScriptDir\PSSailpoint.psd1"
 
-    Author = 'OpenAPI Generator Team'
+    Author = 'Sailpoint Developer Relations'
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint - the PowerShell module for IdentityNow'
 
     ModuleVersion = '0.0.1'
 
-    RootModule = 'sdk-output.psm1'
+    RootModule = 'PSSailpoint.psm1'
     Guid = '7A197170-97E8-4DCD-A171-271D4AEC2F36' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '6.2'

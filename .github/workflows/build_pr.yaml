@@ -62,4 +62,4 @@ jobs:
         shell: pwsh
         run: |
           $DebugPreference="Continue"
-          Import-Module -Name '.\sdk-output' -Verbose
+          Import-Module -Name '.\sdk-output\PSSailpoint' -Verbose

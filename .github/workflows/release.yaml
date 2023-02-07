@@ -18,8 +18,7 @@ jobs:
         shell: pwsh
         run: |
           $DebugPreference="Continue"
-          mv ./sdk-output/PSSailpoint.psd1 ./sdk-output/sdk-output.psd1
           Publish-Module `
-              -Path './sdk-output' `
+              -Path './sdk-output/PSSailpoint' `
               -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
               -Verbose -Force

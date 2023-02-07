@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Cause** | **String** |  | [optional] 
 **Name** | **String** | The name of the item | [optional] 
 **AttributeRequests** | [**AttributeRequest[]**](AttributeRequest.md) |  | [optional] 
-**Source** | [**Source1**](Source1.md) |  | [optional] 
+**Source** | [**AccountSource**](AccountSource.md) |  | [optional] 
 
 ## Examples
 

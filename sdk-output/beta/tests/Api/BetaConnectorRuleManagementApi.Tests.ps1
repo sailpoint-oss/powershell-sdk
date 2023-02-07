@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaConnectorRuleManagementApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteConnectorRule' {
-        It 'Test Invoke-BetaDeleteConnectorRule' {
-            #$TestResult = Invoke-BetaDeleteConnectorRule -Id "TEST_VALUE"
+    Context 'Remove-BetaConnectorRule' {
+        It 'Test Remove-BetaConnectorRule' {
+            #$TestResult = Remove-BetaConnectorRule -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

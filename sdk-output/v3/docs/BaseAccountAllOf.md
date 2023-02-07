@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **String** | The ID of the account | [optional] 
-**Source** | [**Source1**](Source1.md) |  | [optional] 
+**Source** | [**AccountSource**](AccountSource.md) |  | [optional] 
 **Disabled** | **Boolean** | Indicates if the account is disabled | [optional] 
 **Locked** | **Boolean** | Indicates if the account is locked | [optional] 
 **Privileged** | **Boolean** |  | [optional] 

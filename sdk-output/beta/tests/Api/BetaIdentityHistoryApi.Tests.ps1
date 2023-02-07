@@ -62,33 +62,33 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityHistoryApi' {
         }
     }
 
-    Context 'Invoke-BetaListIdentities' {
-        It 'Test Invoke-BetaListIdentities' {
-            #$TestResult = Invoke-BetaListIdentities -StartsWithQuery "TEST_VALUE" -IsDeleted "TEST_VALUE" -IsActive "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+    Context 'Get-BetaIdentities' {
+        It 'Test Get-BetaIdentities' {
+            #$TestResult = Get-BetaIdentities -StartsWithQuery "TEST_VALUE" -IsDeleted "TEST_VALUE" -IsActive "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListIdentityAccessItems' {
-        It 'Test Invoke-BetaListIdentityAccessItems' {
-            #$TestResult = Invoke-BetaListIdentityAccessItems -Id "TEST_VALUE" -Type "TEST_VALUE"
+    Context 'Get-BetaIdentityAccessItems' {
+        It 'Test Get-BetaIdentityAccessItems' {
+            #$TestResult = Get-BetaIdentityAccessItems -Id "TEST_VALUE" -Type "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListIdentitySnapshotAccessItems' {
-        It 'Test Invoke-BetaListIdentitySnapshotAccessItems' {
-            #$TestResult = Invoke-BetaListIdentitySnapshotAccessItems -Id "TEST_VALUE" -Date "TEST_VALUE" -Type "TEST_VALUE"
+    Context 'Get-BetaIdentitySnapshotAccessItems' {
+        It 'Test Get-BetaIdentitySnapshotAccessItems' {
+            #$TestResult = Get-BetaIdentitySnapshotAccessItems -Id "TEST_VALUE" -Date "TEST_VALUE" -Type "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListIdentitySnapshots' {
-        It 'Test Invoke-BetaListIdentitySnapshots' {
-            #$TestResult = Invoke-BetaListIdentitySnapshots -Id "TEST_VALUE" -Start "TEST_VALUE" -Interval "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaIdentitySnapshots' {
+        It 'Test Get-BetaIdentitySnapshots' {
+            #$TestResult = Get-BetaIdentitySnapshots -Id "TEST_VALUE" -Start "TEST_VALUE" -Interval "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -87,10 +87,10 @@ $OwnerReference = Initialize-OwnerReference -Type "ACCOUNT_CORRELATION_CONFIG" -
 $AccessProfileSourceRef = Initialize-AccessProfileSourceRef -Id "2c91809773dee3610173fdb0b6061ef4" -Type "SOURCE" -Name "ODS-AD-SOURCE"
 $EntitlementRef = Initialize-EntitlementRef -Id "2c91809773dee32014e13e122092014e" -Type "ENTITLEMENT" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
 
-$ApprovalScheme = Initialize-ApprovalScheme -ApproverType "APP_OWNER" -ApproverId "46c79819-a69f-49a2-becb-12c971ae66c6"
-$Requestability = Initialize-Requestability -CommentsRequired $true -DenialCommentsRequired $true -ApprovalSchemes $ApprovalScheme
+$AccessProfileApprovalScheme = Initialize-AccessProfileApprovalScheme -ApproverType "APP_OWNER" -ApproverId "46c79819-a69f-49a2-becb-12c971ae66c6"
+$Requestability = Initialize-Requestability -CommentsRequired $true -DenialCommentsRequired $true -ApprovalSchemes $AccessProfileApprovalScheme
 
-$Revocability = Initialize-Revocability -ApprovalSchemes $ApprovalScheme
+$Revocability = Initialize-Revocability -ApprovalSchemes $AccessProfileApprovalScheme
 
 $ProvisioningCriteriaLevel3 = Initialize-ProvisioningCriteriaLevel3 -Operation "EQUALS" -Attribute "email" -Value "carlee.cert1c9f9b6fd@mailinator.com"
 $ProvisioningCriteriaLevel2 = Initialize-ProvisioningCriteriaLevel2 -Operation "EQUALS" -Attribute "email" -Value "carlee.cert1c9f9b6fd@mailinator.com" -Children $ProvisioningCriteriaLevel3

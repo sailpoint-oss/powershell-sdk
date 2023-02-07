@@ -30,17 +30,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessRequestApprovalsApi' {
         }
     }
 
-    Context 'Invoke-BetaListCompletedApprovals' {
-        It 'Test Invoke-BetaListCompletedApprovals' {
-            #$TestResult = Invoke-BetaListCompletedApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaCompletedApprovals' {
+        It 'Test Get-BetaCompletedApprovals' {
+            #$TestResult = Get-BetaCompletedApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListPendingApprovals' {
-        It 'Test Invoke-BetaListPendingApprovals' {
-            #$TestResult = Invoke-BetaListPendingApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaPendingApprovals' {
+        It 'Test Get-BetaPendingApprovals' {
+            #$TestResult = Get-BetaPendingApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

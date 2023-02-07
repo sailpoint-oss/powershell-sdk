@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | 
-**Name** | **String** |  | 
+**Id** | **String** | The unique ID of the referenced object. | 
+**Name** | **String** | The human readable name of the referenced object. | 
 **Type** | [**DocumentType**](DocumentType.md) |  | 
 **AccountId** | **String** | The ID of the account | [optional] 
-**Source** | [**Source1**](Source1.md) |  | [optional] 
+**Source** | [**AccountSource**](AccountSource.md) |  | [optional] 
 **Disabled** | **Boolean** | Indicates if the account is disabled | [optional] 
 **Locked** | **Boolean** | Indicates if the account is locked | [optional] 
 **Privileged** | **Boolean** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | a map or dictionary of key/value pairs | [optional] 
 **Identity** | [**DisplayReference**](DisplayReference.md) |  | [optional] 
-**Access** | [**Entitlement1[]**](Entitlement1.md) |  | [optional] 
+**Access** | [**AccessProfileEntitlement[]**](AccessProfileEntitlement.md) |  | [optional] 
 **EntitlementCount** | **Int32** | The number of entitlements assigned to the account | [optional] 
 **Uncorrelated** | **Boolean** | Indicates if the account is not correlated to an identity | [optional] 
 **Tags** | **String[]** |  | [optional] 

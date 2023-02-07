@@ -70,9 +70,9 @@ Describe -tag 'PSSailpoint' -name 'WorkItemsApi' {
         }
     }
 
-    Context 'Invoke-ListWorkItems' {
-        It 'Test Invoke-ListWorkItems' {
-            #$TestResult = Invoke-ListWorkItems -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -OwnerId "TEST_VALUE"
+    Context 'Get-WorkItems' {
+        It 'Test Get-WorkItems' {
+            #$TestResult = Get-WorkItems -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

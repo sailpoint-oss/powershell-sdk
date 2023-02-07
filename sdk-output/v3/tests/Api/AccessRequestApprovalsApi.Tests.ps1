@@ -30,17 +30,17 @@ Describe -tag 'PSSailpoint' -name 'AccessRequestApprovalsApi' {
         }
     }
 
-    Context 'Invoke-ListCompletedApprovals' {
-        It 'Test Invoke-ListCompletedApprovals' {
-            #$TestResult = Invoke-ListCompletedApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-CompletedApprovals' {
+        It 'Test Get-CompletedApprovals' {
+            #$TestResult = Get-CompletedApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ListPendingApprovals' {
-        It 'Test Invoke-ListPendingApprovals' {
-            #$TestResult = Invoke-ListPendingApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-PendingApprovals' {
+        It 'Test Get-PendingApprovals' {
+            #$TestResult = Get-PendingApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

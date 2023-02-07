@@ -34,144 +34,144 @@ function ConvertFrom-JsonToSearchDocument {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match AccessProfile defined in the oneOf schemas
+        # try to match AccessProfileDocument defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccessProfile $Json
+            $matchInstance = ConvertFrom-JsonToAccessProfileDocument $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "AccessProfile"
+                    $matchType = "AccessProfileDocument"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccessProfile' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccessProfileDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
-        # try to match Account1 defined in the oneOf schemas
+        # try to match AccountActivityDocument defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccount1 $Json
+            $matchInstance = ConvertFrom-JsonToAccountActivityDocument $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Account1"
+                    $matchType = "AccountActivityDocument"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Account1' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountActivityDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
-        # try to match AccountActivity1 defined in the oneOf schemas
+        # try to match AccountDocument defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAccountActivity1 $Json
+            $matchInstance = ConvertFrom-JsonToAccountDocument $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "AccountActivity1"
+                    $matchType = "AccountDocument"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccountActivity1' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
-        # try to match Aggregation defined in the oneOf schemas
+        # try to match AggregationDocument defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToAggregation $Json
+            $matchInstance = ConvertFrom-JsonToAggregationDocument $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Aggregation"
+                    $matchType = "AggregationDocument"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Aggregation' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AggregationDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
-        # try to match Entitlement defined in the oneOf schemas
+        # try to match EntitlementDocument defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToEntitlement $Json
+            $matchInstance = ConvertFrom-JsonToEntitlementDocument $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Entitlement"
+                    $matchType = "EntitlementDocument"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Entitlement' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'EntitlementDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
-        # try to match Identity defined in the oneOf schemas
+        # try to match EventDocument defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToIdentity $Json
+            $matchInstance = ConvertFrom-JsonToEventDocument $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Identity"
+                    $matchType = "EventDocument"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Identity' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'EventDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
-        # try to match ModelEvent defined in the oneOf schemas
+        # try to match IdentityDocument defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToModelEvent $Json
+            $matchInstance = ConvertFrom-JsonToIdentityDocument $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "ModelEvent"
+                    $matchType = "IdentityDocument"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'ModelEvent' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'IdentityDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
-        # try to match Role defined in the oneOf schemas
+        # try to match RoleDocument defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToRole $Json
+            $matchInstance = ConvertFrom-JsonToRoleDocument $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "Role"
+                    $matchType = "RoleDocument"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Role' defined in oneOf (SearchDocument). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'RoleDocument' defined in oneOf (SearchDocument). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessProfile, Account1, AccountActivity1, Aggregation, Entitlement, Identity, ModelEvent, Role]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessProfileDocument, AccountActivityDocument, AccountDocument, AggregationDocument, EntitlementDocument, EventDocument, IdentityDocument, RoleDocument]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("AccessProfile", "Account1", "AccountActivity1", "Aggregation", "Entitlement", "Identity", "ModelEvent", "Role")
+                "OneOfSchemas" = @("AccessProfileDocument", "AccountActivityDocument", "AccountDocument", "AggregationDocument", "EntitlementDocument", "EventDocument", "IdentityDocument", "RoleDocument")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessProfile, Account1, AccountActivity1, Aggregation, Entitlement, Identity, ModelEvent, Role]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessProfileDocument, AccountActivityDocument, AccountDocument, AggregationDocument, EntitlementDocument, EventDocument, IdentityDocument, RoleDocument]). JSON Payload: $($Json)"
         }
     }
 }

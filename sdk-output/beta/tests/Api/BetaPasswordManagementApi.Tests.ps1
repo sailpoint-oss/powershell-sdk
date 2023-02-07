@@ -22,9 +22,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaPasswordManagementApi' {
         }
     }
 
-    Context 'Invoke-BetaQueryPasswordInfo' {
-        It 'Test Invoke-BetaQueryPasswordInfo' {
-            #$TestResult = Invoke-BetaQueryPasswordInfo -PasswordInfoQueryDTO "TEST_VALUE"
+    Context 'Search-BetaPasswordInfo' {
+        It 'Test Search-BetaPasswordInfo' {
+            #$TestResult = Search-BetaPasswordInfo -PasswordInfoQueryDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

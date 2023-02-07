@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ReviewedBy** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **Modified** | **System.DateTime** | Time at which item was modified. | [optional] 
 **Status** | [**ManualWorkItemState**](ManualWorkItemState.md) |  | [optional] 
-**Scheme** | [**ApprovalScheme1**](ApprovalScheme1.md) |  | [optional] 
+**Scheme** | [**ApprovalScheme**](ApprovalScheme.md) |  | [optional] 
 **ErrorMessages** | [**ErrorMessageDto[]**](ErrorMessageDto.md) | If the request failed, includes any error messages that were generated. | [optional] 
 **Comment** | **String** | Comment, if any, provided by the approver. | [optional] 
 **RemoveDate** | **System.DateTime** | The date the role or access profile is no longer assigned to the specified identity. | [optional] 

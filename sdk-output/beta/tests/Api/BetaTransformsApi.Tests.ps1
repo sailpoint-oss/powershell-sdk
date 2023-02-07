@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTransformsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteTransform' {
-        It 'Test Invoke-BetaDeleteTransform' {
-            #$TestResult = Invoke-BetaDeleteTransform -Id "TEST_VALUE"
+    Context 'Remove-BetaTransform' {
+        It 'Test Remove-BetaTransform' {
+            #$TestResult = Remove-BetaTransform -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

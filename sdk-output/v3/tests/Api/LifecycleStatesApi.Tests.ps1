@@ -14,9 +14,9 @@ Describe -tag 'PSSailpoint' -name 'LifecycleStatesApi' {
         }
     }
 
-    Context 'Invoke-DeleteLifecycleState' {
-        It 'Test Invoke-DeleteLifecycleState' {
-            #$TestResult = Invoke-DeleteLifecycleState -IdentityProfileId "TEST_VALUE" -LifecycleStateId "TEST_VALUE"
+    Context 'Remove-LifecycleState' {
+        It 'Test Remove-LifecycleState' {
+            #$TestResult = Remove-LifecycleState -IdentityProfileId "TEST_VALUE" -LifecycleStateId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -30,9 +30,9 @@ Describe -tag 'PSSailpoint' -name 'LifecycleStatesApi' {
         }
     }
 
-    Context 'Invoke-ListLifecycleStates' {
-        It 'Test Invoke-ListLifecycleStates' {
-            #$TestResult = Invoke-ListLifecycleStates -IdentityProfileId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-LifecycleStates' {
+        It 'Test Get-LifecycleStates' {
+            #$TestResult = Get-LifecycleStates -IdentityProfileId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

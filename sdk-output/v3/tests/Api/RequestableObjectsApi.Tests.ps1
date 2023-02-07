@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'RequestableObjectsApi' {
-    Context 'Invoke-ListRequestableObjects' {
-        It 'Test Invoke-ListRequestableObjects' {
-            #$TestResult = Invoke-ListRequestableObjects -IdentityId "TEST_VALUE" -Types "TEST_VALUE" -Term "TEST_VALUE" -Statuses "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-RequestableObjects' {
+        It 'Test Get-RequestableObjects' {
+            #$TestResult = Get-RequestableObjects -IdentityId "TEST_VALUE" -Types "TEST_VALUE" -Term "TEST_VALUE" -Statuses "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

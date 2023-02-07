@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint' -name 'SearchApi' {
     Context 'Search-Aggregate' {
         It 'Test Search-Aggregate' {
-            #$TestResult = Search-Aggregate -Search1 "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Search-Aggregate -Search "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint' -name 'SearchApi' {
 
     Context 'Search-Count' {
         It 'Test Search-Count' {
-            #$TestResult = Search-Count -Search1 "TEST_VALUE"
+            #$TestResult = Search-Count -Search "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint' -name 'SearchApi' {
 
     Context 'Search-Post' {
         It 'Test Search-Post' {
-            #$TestResult = Search-Post -Search1 "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Search-Post -Search "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -24,6 +24,8 @@ Scopes of the personal  access token.
 No description available.
 .PARAMETER Created
 The date and time, down to the millisecond, when this personal access token was created.
+.PARAMETER LastUsed
+The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed.
 .OUTPUTS
 
 GetPersonalAccessTokenResponse<PSCustomObject>
@@ -46,7 +48,10 @@ function Initialize-GetPersonalAccessTokenResponse {
         ${Owner},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
-        ${Created}
+        ${Created},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${LastUsed}
     )
 
     Process {
@@ -76,6 +81,7 @@ function Initialize-GetPersonalAccessTokenResponse {
             "scope" = ${Scope}
             "owner" = ${Owner}
             "created" = ${Created}
+            "lastUsed" = ${LastUsed}
         }
 
 
@@ -113,7 +119,7 @@ function ConvertFrom-JsonToGetPersonalAccessTokenResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in GetPersonalAccessTokenResponse
-        $AllProperties = ("id", "name", "scope", "owner", "created")
+        $AllProperties = ("id", "name", "scope", "owner", "created", "lastUsed")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -154,12 +160,19 @@ function ConvertFrom-JsonToGetPersonalAccessTokenResponse {
             $Created = $JsonParameters.PSobject.Properties["created"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "lastUsed"))) { #optional property not found
+            $LastUsed = $null
+        } else {
+            $LastUsed = $JsonParameters.PSobject.Properties["lastUsed"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
             "scope" = ${Scope}
             "owner" = ${Owner}
             "created" = ${Created}
+            "lastUsed" = ${LastUsed}
         }
 
         return $PSO

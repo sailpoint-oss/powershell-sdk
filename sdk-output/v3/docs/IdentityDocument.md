@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | 
-**Name** | **String** |  | 
+**Id** | **String** | The unique ID of the referenced object. | 
+**Name** | **String** | The human readable name of the referenced object. | 
 **Type** | [**DocumentType**](DocumentType.md) |  | 
 **DisplayName** | **String** | The display name of the identity | [optional] 
 **FirstName** | **String** | The first name of the identity | [optional] 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **AccountCount** | **Int32** | Number of accounts associated with the identity | [optional] 
 **Apps** | [**App[]**](App.md) | The list of applications the identity has access to | [optional] 
 **AppCount** | **Int32** | The number of applications the identity has access to | [optional] 
-**Access** | [**Access1[]**](Access1.md) | The list of access items assigned to the identity | [optional] 
+**Access** | [**IdentityAccess[]**](IdentityAccess.md) | The list of access items assigned to the identity | [optional] 
 **AccessCount** | **Int32** | The number of access items assigned to the identity | [optional] 
 **AccessProfileCount** | **Int32** | The number of access profiles assigned to the identity | [optional] 
 **EntitlementCount** | **Int32** | The number of entitlements assigned to the identity | [optional] 

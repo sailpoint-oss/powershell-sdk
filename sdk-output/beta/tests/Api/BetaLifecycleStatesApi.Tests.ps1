@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaLifecycleStatesApi' {
-    Context 'Invoke-BetaListLifecycleStates' {
-        It 'Test Invoke-BetaListLifecycleStates' {
-            #$TestResult = Invoke-BetaListLifecycleStates -IdentityProfileId "TEST_VALUE" -LifecycleStateId "TEST_VALUE"
+    Context 'Get-BetaLifecycleStates' {
+        It 'Test Get-BetaLifecycleStates' {
+            #$TestResult = Get-BetaLifecycleStates -IdentityProfileId "TEST_VALUE" -LifecycleStateId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

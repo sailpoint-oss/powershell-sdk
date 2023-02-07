@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaApprovalScheme' {
     Context 'BetaApprovalScheme' {
         It 'Initialize-BetaApprovalScheme' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaApprovalScheme -ApproverType "TEST_VALUE" -ApproverId "TEST_VALUE"
+            #$NewObject = Initialize-BetaApprovalScheme
             #$NewObject | Should -BeOfType ApprovalScheme
             #$NewObject.property | Should -Be 0
         }

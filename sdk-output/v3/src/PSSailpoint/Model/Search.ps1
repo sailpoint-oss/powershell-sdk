@@ -14,24 +14,36 @@ No summary available.
 
 No description available.
 
-.PARAMETER Public
-Indicates if the saved search is public. 
-.PARAMETER Created
-A date-time in ISO-8601 format
-.PARAMETER Modified
-A date-time in ISO-8601 format
 .PARAMETER Indices
-The names of the Elasticsearch indices in which to search. 
-.PARAMETER Columns
-The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
-.PARAMETER Query
-The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
-.PARAMETER Fields
-The fields to be searched against in a multi-field query. 
-.PARAMETER Sort
-The fields to be used to sort the search results. 
-.PARAMETER Filters
+The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
+.PARAMETER QueryType
 No description available.
+.PARAMETER QueryVersion
+No description available.
+.PARAMETER Query
+No description available.
+.PARAMETER QueryDsl
+The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax.
+.PARAMETER TypeAheadQuery
+No description available.
+.PARAMETER IncludeNested
+Indicates whether nested objects from returned search results should be included.
+.PARAMETER QueryResultFilter
+No description available.
+.PARAMETER AggregationType
+No description available.
+.PARAMETER AggregationsVersion
+No description available.
+.PARAMETER AggregationsDsl
+The aggregation search query using Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) syntax.
+.PARAMETER Aggregations
+No description available.
+.PARAMETER Sort
+The fields to be used to sort the search results. Use + or - to specify the sort direction.
+.PARAMETER SearchAfter
+Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set. This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value. It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging. For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example [""displayName"", ""id""].  If the last identity ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last displayName is ""John Doe"", then using that displayName and ID will start a new search after this identity. The searchAfter value will look like [""John Doe"",""2c91808375d8e80a0175e1f88a575221""]
+.PARAMETER Filters
+The filters to be applied for each filtered field name.
 .OUTPUTS
 
 Search<PSCustomObject>
@@ -41,31 +53,49 @@ function Initialize-Search {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Public} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Indices},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable]
-        ${Columns},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${QueryType},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[String]]
+        ${QueryVersion},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
         ${Query},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${QueryDsl},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${TypeAheadQuery},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${Fields},
+        [System.Nullable[Boolean]]
+        ${IncludeNested} = $true,
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${Sort},
+        [PSCustomObject]
+        ${QueryResultFilter},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
+        ${AggregationType},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[String]]
+        ${AggregationsVersion},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${AggregationsDsl},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Aggregations},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${Sort},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${SearchAfter},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
         ${Filters}
     )
 
@@ -73,24 +103,22 @@ function Initialize-Search {
         'Creating PSCustomObject: PSSailpoint => Search' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Indices) {
-            throw "invalid value for 'Indices', 'Indices' cannot be null."
-        }
-
-        if ($null -eq $Query) {
-            throw "invalid value for 'Query', 'Query' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
-            "public" = ${Public}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "indices" = ${Indices}
-            "columns" = ${Columns}
+            "queryType" = ${QueryType}
+            "queryVersion" = ${QueryVersion}
             "query" = ${Query}
-            "fields" = ${Fields}
+            "queryDsl" = ${QueryDsl}
+            "typeAheadQuery" = ${TypeAheadQuery}
+            "includeNested" = ${IncludeNested}
+            "queryResultFilter" = ${QueryResultFilter}
+            "aggregationType" = ${AggregationType}
+            "aggregationsVersion" = ${AggregationsVersion}
+            "aggregationsDsl" = ${AggregationsDsl}
+            "aggregations" = ${Aggregations}
             "sort" = ${Sort}
+            "searchAfter" = ${SearchAfter}
             "filters" = ${Filters}
         }
 
@@ -129,63 +157,95 @@ function ConvertFrom-JsonToSearch {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Search
-        $AllProperties = ("public", "created", "modified", "indices", "columns", "query", "fields", "sort", "filters")
+        $AllProperties = ("indices", "queryType", "queryVersion", "query", "queryDsl", "typeAheadQuery", "includeNested", "queryResultFilter", "aggregationType", "aggregationsVersion", "aggregationsDsl", "aggregations", "sort", "searchAfter", "filters")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'indices' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "indices"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'indices' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "indices"))) { #optional property not found
+            $Indices = $null
         } else {
             $Indices = $JsonParameters.PSobject.Properties["indices"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "query"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'query' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "queryType"))) { #optional property not found
+            $QueryType = $null
+        } else {
+            $QueryType = $JsonParameters.PSobject.Properties["queryType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "queryVersion"))) { #optional property not found
+            $QueryVersion = $null
+        } else {
+            $QueryVersion = $JsonParameters.PSobject.Properties["queryVersion"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "query"))) { #optional property not found
+            $Query = $null
         } else {
             $Query = $JsonParameters.PSobject.Properties["query"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "public"))) { #optional property not found
-            $Public = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "queryDsl"))) { #optional property not found
+            $QueryDsl = $null
         } else {
-            $Public = $JsonParameters.PSobject.Properties["public"].value
+            $QueryDsl = $JsonParameters.PSobject.Properties["queryDsl"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
-            $Created = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "typeAheadQuery"))) { #optional property not found
+            $TypeAheadQuery = $null
         } else {
-            $Created = $JsonParameters.PSobject.Properties["created"].value
+            $TypeAheadQuery = $JsonParameters.PSobject.Properties["typeAheadQuery"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
-            $Modified = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "includeNested"))) { #optional property not found
+            $IncludeNested = $null
         } else {
-            $Modified = $JsonParameters.PSobject.Properties["modified"].value
+            $IncludeNested = $JsonParameters.PSobject.Properties["includeNested"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "columns"))) { #optional property not found
-            $Columns = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "queryResultFilter"))) { #optional property not found
+            $QueryResultFilter = $null
         } else {
-            $Columns = $JsonParameters.PSobject.Properties["columns"].value
+            $QueryResultFilter = $JsonParameters.PSobject.Properties["queryResultFilter"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fields"))) { #optional property not found
-            $Fields = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "aggregationType"))) { #optional property not found
+            $AggregationType = $null
         } else {
-            $Fields = $JsonParameters.PSobject.Properties["fields"].value
+            $AggregationType = $JsonParameters.PSobject.Properties["aggregationType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "aggregationsVersion"))) { #optional property not found
+            $AggregationsVersion = $null
+        } else {
+            $AggregationsVersion = $JsonParameters.PSobject.Properties["aggregationsVersion"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "aggregationsDsl"))) { #optional property not found
+            $AggregationsDsl = $null
+        } else {
+            $AggregationsDsl = $JsonParameters.PSobject.Properties["aggregationsDsl"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "aggregations"))) { #optional property not found
+            $Aggregations = $null
+        } else {
+            $Aggregations = $JsonParameters.PSobject.Properties["aggregations"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sort"))) { #optional property not found
             $Sort = $null
         } else {
             $Sort = $JsonParameters.PSobject.Properties["sort"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "searchAfter"))) { #optional property not found
+            $SearchAfter = $null
+        } else {
+            $SearchAfter = $JsonParameters.PSobject.Properties["searchAfter"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "filters"))) { #optional property not found
@@ -195,14 +255,20 @@ function ConvertFrom-JsonToSearch {
         }
 
         $PSO = [PSCustomObject]@{
-            "public" = ${Public}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "indices" = ${Indices}
-            "columns" = ${Columns}
+            "queryType" = ${QueryType}
+            "queryVersion" = ${QueryVersion}
             "query" = ${Query}
-            "fields" = ${Fields}
+            "queryDsl" = ${QueryDsl}
+            "typeAheadQuery" = ${TypeAheadQuery}
+            "includeNested" = ${IncludeNested}
+            "queryResultFilter" = ${QueryResultFilter}
+            "aggregationType" = ${AggregationType}
+            "aggregationsVersion" = ${AggregationsVersion}
+            "aggregationsDsl" = ${AggregationsDsl}
+            "aggregations" = ${Aggregations}
             "sort" = ${Sort}
+            "searchAfter" = ${SearchAfter}
             "filters" = ${Filters}
         }
 

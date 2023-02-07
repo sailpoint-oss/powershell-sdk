@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaPasswordSyncGroupsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeletePasswordSyncGroup' {
-        It 'Test Invoke-BetaDeletePasswordSyncGroup' {
-            #$TestResult = Invoke-BetaDeletePasswordSyncGroup -Id "TEST_VALUE"
+    Context 'Remove-BetaPasswordSyncGroup' {
+        It 'Test Remove-BetaPasswordSyncGroup' {
+            #$TestResult = Remove-BetaPasswordSyncGroup -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -46,25 +46,25 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteProvisioningPolicy' {
-        It 'Test Invoke-BetaDeleteProvisioningPolicy' {
-            #$TestResult = Invoke-BetaDeleteProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
+    Context 'Remove-BetaProvisioningPolicy' {
+        It 'Test Remove-BetaProvisioningPolicy' {
+            #$TestResult = Remove-BetaProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaDeleteSchema' {
-        It 'Test Invoke-BetaDeleteSchema' {
-            #$TestResult = Invoke-BetaDeleteSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
+    Context 'Remove-BetaSchema' {
+        It 'Test Remove-BetaSchema' {
+            #$TestResult = Remove-BetaSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaDeleteSource' {
-        It 'Test Invoke-BetaDeleteSource' {
-            #$TestResult = Invoke-BetaDeleteSource -Id "TEST_VALUE"
+    Context 'Remove-BetaSource' {
+        It 'Test Remove-BetaSource' {
+            #$TestResult = Remove-BetaSource -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -126,25 +126,25 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
-    Context 'Invoke-BetaListProvisioningPolicies' {
-        It 'Test Invoke-BetaListProvisioningPolicies' {
-            #$TestResult = Invoke-BetaListProvisioningPolicies -SourceId "TEST_VALUE"
+    Context 'Get-BetaProvisioningPolicies' {
+        It 'Test Get-BetaProvisioningPolicies' {
+            #$TestResult = Get-BetaProvisioningPolicies -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListSchemas' {
-        It 'Test Invoke-BetaListSchemas' {
-            #$TestResult = Invoke-BetaListSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
+    Context 'Get-BetaSchemas' {
+        It 'Test Get-BetaSchemas' {
+            #$TestResult = Get-BetaSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListSources' {
-        It 'Test Invoke-BetaListSources' {
-            #$TestResult = Invoke-BetaListSources -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSubadmin "TEST_VALUE"
+    Context 'Get-BetaSources' {
+        It 'Test Get-BetaSources' {
+            #$TestResult = Get-BetaSources -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSubadmin "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

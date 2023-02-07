@@ -14,25 +14,25 @@ Describe -tag 'PSSailpoint' -name 'CertificationsApi' {
         }
     }
 
-    Context 'Invoke-ListIdentityAccessReviewItems' {
-        It 'Test Invoke-ListIdentityAccessReviewItems' {
-            #$TestResult = Invoke-ListIdentityAccessReviewItems -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Entitlements "TEST_VALUE" -AccessProfiles "TEST_VALUE" -Roles "TEST_VALUE"
+    Context 'Get-IdentityAccessReviewItems' {
+        It 'Test Get-IdentityAccessReviewItems' {
+            #$TestResult = Get-IdentityAccessReviewItems -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Entitlements "TEST_VALUE" -AccessProfiles "TEST_VALUE" -Roles "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ListIdentityCertifications' {
-        It 'Test Invoke-ListIdentityCertifications' {
-            #$TestResult = Invoke-ListIdentityCertifications -ReviewerIdentity "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-IdentityCertifications' {
+        It 'Test Get-IdentityCertifications' {
+            #$TestResult = Get-IdentityCertifications -ReviewerIdentity "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'New-IdentityDecision' {
-        It 'Test New-IdentityDecision' {
-            #$TestResult = New-IdentityDecision -Id "TEST_VALUE" -ReviewDecision "TEST_VALUE"
+    Context 'Select-IdentityDecision' {
+        It 'Test Select-IdentityDecision' {
+            #$TestResult = Select-IdentityDecision -Id "TEST_VALUE" -ReviewDecision "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

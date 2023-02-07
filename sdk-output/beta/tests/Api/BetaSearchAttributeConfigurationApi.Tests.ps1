@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSearchAttributeConfigurationApi' 
         }
     }
 
-    Context 'Invoke-BetaDeleteSearchAttributeConfig' {
-        It 'Test Invoke-BetaDeleteSearchAttributeConfig' {
-            #$TestResult = Invoke-BetaDeleteSearchAttributeConfig -Name "TEST_VALUE"
+    Context 'Remove-BetaSearchAttributeConfig' {
+        It 'Test Remove-BetaSearchAttributeConfig' {
+            #$TestResult = Remove-BetaSearchAttributeConfig -Name "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,9 +38,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSearchAttributeConfigurationApi' 
         }
     }
 
-    Context 'Invoke-BetaPatchSearchAttributeConfig' {
-        It 'Test Invoke-BetaPatchSearchAttributeConfig' {
-            #$TestResult = Invoke-BetaPatchSearchAttributeConfig -Name "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaSearchAttributeConfig' {
+        It 'Test Update-BetaSearchAttributeConfig' {
+            #$TestResult = Update-BetaSearchAttributeConfig -Name "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

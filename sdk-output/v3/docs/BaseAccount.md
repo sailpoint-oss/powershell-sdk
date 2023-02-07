@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] 
-**Name** | **String** |  | [optional] 
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
 **AccountId** | **String** | The ID of the account | [optional] 
-**Source** | [**Source1**](Source1.md) |  | [optional] 
+**Source** | [**AccountSource**](AccountSource.md) |  | [optional] 
 **Disabled** | **Boolean** | Indicates if the account is disabled | [optional] 
 **Locked** | **Boolean** | Indicates if the account is locked | [optional] 
 **Privileged** | **Boolean** |  | [optional] 

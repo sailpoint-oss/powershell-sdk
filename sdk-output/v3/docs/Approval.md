@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comments** | [**Comment1[]**](Comment1.md) |  | [optional] 
+**Comments** | [**ApprovalComment[]**](ApprovalComment.md) |  | [optional] 
 **Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Owner** | [**Source1**](Source1.md) |  | [optional] 
+**Owner** | [**AccountSource**](AccountSource.md) |  | [optional] 
 **Result** | **String** | The result of the approval | [optional] 
 **Type** | **String** |  | [optional] 
 

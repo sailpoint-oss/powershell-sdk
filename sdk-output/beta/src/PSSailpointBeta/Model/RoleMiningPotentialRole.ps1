@@ -14,24 +14,36 @@ No summary available.
 
 No description available.
 
-.PARAMETER CreateDate
-The creation date for a potential role
+.PARAMETER CreatedBy
+No description available.
+.PARAMETER Density
+The density of a potential role.
+.PARAMETER Description
+The description of a potential role.
 .PARAMETER EntitlementCount
 The number of entitlements in a potential role.
 .PARAMETER ExcludedEntitlements
 The list of entitlement ids to be excluded.
-.PARAMETER Id
-Id of the potential role
+.PARAMETER Freshness
+The freshness of a potential role.
 .PARAMETER IdentityCount
 The number of identities in a potential role.
 .PARAMETER IdentityDistribution
-Identity attribute distribution
+Identity attribute distribution.
 .PARAMETER IdentityIds
 The list of ids in a potential role.
-.PARAMETER ModifiedDate
-The modified date for a potential role
 .PARAMETER Name
-Name of the potential role
+Name of the potential role.
+.PARAMETER ProvisionState
+No description available.
+.PARAMETER Quality
+The quality of a potential role.
+.PARAMETER RoleId
+The roleId of a potential role.
+.PARAMETER Saved
+The potential role's saved status.
+.PARAMETER Session
+No description available.
 .PARAMETER Type
 No description available.
 .OUTPUTS
@@ -43,33 +55,51 @@ function Initialize-BetaRoleMiningPotentialRole {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${CreateDate},
+        [PSCustomObject]
+        ${CreatedBy},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${EntitlementCount},
+        ${Density},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${EntitlementCount},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${ExcludedEntitlements},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${Freshness},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${IdentityCount},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${IdentityDistribution},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${IdentityIds},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${ModifiedDate},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ProvisionState},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${Quality},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${RoleId},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Saved},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Session},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Type}
     )
@@ -80,15 +110,21 @@ function Initialize-BetaRoleMiningPotentialRole {
 
 
         $PSO = [PSCustomObject]@{
-            "createDate" = ${CreateDate}
+            "createdBy" = ${CreatedBy}
+            "density" = ${Density}
+            "description" = ${Description}
             "entitlementCount" = ${EntitlementCount}
             "excludedEntitlements" = ${ExcludedEntitlements}
-            "id" = ${Id}
+            "freshness" = ${Freshness}
             "identityCount" = ${IdentityCount}
             "identityDistribution" = ${IdentityDistribution}
             "identityIds" = ${IdentityIds}
-            "modifiedDate" = ${ModifiedDate}
             "name" = ${Name}
+            "provisionState" = ${ProvisionState}
+            "quality" = ${Quality}
+            "roleId" = ${RoleId}
+            "saved" = ${Saved}
+            "session" = ${Session}
             "type" = ${Type}
         }
 
@@ -127,17 +163,29 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningPotentialRole
-        $AllProperties = ("createDate", "entitlementCount", "excludedEntitlements", "id", "identityCount", "identityDistribution", "identityIds", "modifiedDate", "name", "type")
+        $AllProperties = ("createdBy", "density", "description", "entitlementCount", "excludedEntitlements", "freshness", "identityCount", "identityDistribution", "identityIds", "name", "provisionState", "quality", "roleId", "saved", "session", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createDate"))) { #optional property not found
-            $CreateDate = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdBy"))) { #optional property not found
+            $CreatedBy = $null
         } else {
-            $CreateDate = $JsonParameters.PSobject.Properties["createDate"].value
+            $CreatedBy = $JsonParameters.PSobject.Properties["createdBy"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "density"))) { #optional property not found
+            $Density = $null
+        } else {
+            $Density = $JsonParameters.PSobject.Properties["density"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlementCount"))) { #optional property not found
@@ -152,10 +200,10 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
             $ExcludedEntitlements = $JsonParameters.PSobject.Properties["excludedEntitlements"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "freshness"))) { #optional property not found
+            $Freshness = $null
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Freshness = $JsonParameters.PSobject.Properties["freshness"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityCount"))) { #optional property not found
@@ -176,16 +224,40 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
             $IdentityIds = $JsonParameters.PSobject.Properties["identityIds"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modifiedDate"))) { #optional property not found
-            $ModifiedDate = $null
-        } else {
-            $ModifiedDate = $JsonParameters.PSobject.Properties["modifiedDate"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
             $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisionState"))) { #optional property not found
+            $ProvisionState = $null
+        } else {
+            $ProvisionState = $JsonParameters.PSobject.Properties["provisionState"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "quality"))) { #optional property not found
+            $Quality = $null
+        } else {
+            $Quality = $JsonParameters.PSobject.Properties["quality"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "roleId"))) { #optional property not found
+            $RoleId = $null
+        } else {
+            $RoleId = $JsonParameters.PSobject.Properties["roleId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "saved"))) { #optional property not found
+            $Saved = $null
+        } else {
+            $Saved = $JsonParameters.PSobject.Properties["saved"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "session"))) { #optional property not found
+            $Session = $null
+        } else {
+            $Session = $JsonParameters.PSobject.Properties["session"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
@@ -195,15 +267,21 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
         }
 
         $PSO = [PSCustomObject]@{
-            "createDate" = ${CreateDate}
+            "createdBy" = ${CreatedBy}
+            "density" = ${Density}
+            "description" = ${Description}
             "entitlementCount" = ${EntitlementCount}
             "excludedEntitlements" = ${ExcludedEntitlements}
-            "id" = ${Id}
+            "freshness" = ${Freshness}
             "identityCount" = ${IdentityCount}
             "identityDistribution" = ${IdentityDistribution}
             "identityIds" = ${IdentityIds}
-            "modifiedDate" = ${ModifiedDate}
             "name" = ${Name}
+            "provisionState" = ${ProvisionState}
+            "quality" = ${Quality}
+            "roleId" = ${RoleId}
+            "saved" = ${Saved}
+            "session" = ${Session}
             "type" = ${Type}
         }
 

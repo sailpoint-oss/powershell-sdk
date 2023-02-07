@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaServiceDeskIntegrationApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteServiceDeskIntegration' {
-        It 'Test Invoke-BetaDeleteServiceDeskIntegration' {
-            #$TestResult = Invoke-BetaDeleteServiceDeskIntegration -Id "TEST_VALUE"
+    Context 'Remove-BetaServiceDeskIntegration' {
+        It 'Test Remove-BetaServiceDeskIntegration' {
+            #$TestResult = Remove-BetaServiceDeskIntegration -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -62,9 +62,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaServiceDeskIntegrationApi' {
         }
     }
 
-    Context 'Invoke-BetaPatchServiceDeskIntegration' {
-        It 'Test Invoke-BetaPatchServiceDeskIntegration' {
-            #$TestResult = Invoke-BetaPatchServiceDeskIntegration -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
+    Context 'Update-BetaServiceDeskIntegration' {
+        It 'Test Update-BetaServiceDeskIntegration' {
+            #$TestResult = Update-BetaServiceDeskIntegration -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

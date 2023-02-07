@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | 
-**Name** | **String** |  | 
+**Id** | **String** | The unique ID of the referenced object. | 
+**Name** | **String** | The human readable name of the referenced object. | 
 **Type** | [**DocumentType**](DocumentType.md) |  | 
 **Description** | **String** | A description of the entitlement | [optional] 
 **Attribute** | **String** | The name of the entitlement attribute | [optional] 

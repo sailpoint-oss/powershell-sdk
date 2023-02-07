@@ -14,17 +14,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODPolicyApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteSodPolicyById' {
-        It 'Test Invoke-BetaDeleteSodPolicyById' {
-            #$TestResult = Invoke-BetaDeleteSodPolicyById -Id "TEST_VALUE" -Logical "TEST_VALUE"
+    Context 'Remove-BetaSodPolicyById' {
+        It 'Test Remove-BetaSodPolicyById' {
+            #$TestResult = Remove-BetaSodPolicyById -Id "TEST_VALUE" -Logical "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaDeleteSodPolicyScheduleById' {
-        It 'Test Invoke-BetaDeleteSodPolicyScheduleById' {
-            #$TestResult = Invoke-BetaDeleteSodPolicyScheduleById -Id "TEST_VALUE"
+    Context 'Remove-BetaSodPolicyScheduleById' {
+        It 'Test Remove-BetaSodPolicyScheduleById' {
+            #$TestResult = Remove-BetaSodPolicyScheduleById -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -86,33 +86,33 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODPolicyApi' {
         }
     }
 
-    Context 'Invoke-BetaListSodPolicies' {
-        It 'Test Invoke-BetaListSodPolicies' {
-            #$TestResult = Invoke-BetaListSodPolicies -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaSodPolicies' {
+        It 'Test Get-BetaSodPolicies' {
+            #$TestResult = Get-BetaSodPolicies -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchSodPolicy' {
-        It 'Test Invoke-BetaPatchSodPolicy' {
-            #$TestResult = Invoke-BetaPatchSodPolicy -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+    Context 'Update-BetaSodPolicy' {
+        It 'Test Update-BetaSodPolicy' {
+            #$TestResult = Update-BetaSodPolicy -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaRunAllPoliciesForOrg' {
-        It 'Test Invoke-BetaRunAllPoliciesForOrg' {
-            #$TestResult = Invoke-BetaRunAllPoliciesForOrg -MultiPolicyRequest "TEST_VALUE"
+    Context 'Start-BetaAllPoliciesForOrg' {
+        It 'Test Start-BetaAllPoliciesForOrg' {
+            #$TestResult = Start-BetaAllPoliciesForOrg -MultiPolicyRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaRunSodPolicy' {
-        It 'Test Invoke-BetaRunSodPolicy' {
-            #$TestResult = Invoke-BetaRunSodPolicy -Id "TEST_VALUE"
+    Context 'Start-BetaSodPolicy' {
+        It 'Test Start-BetaSodPolicy' {
+            #$TestResult = Start-BetaSodPolicy -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

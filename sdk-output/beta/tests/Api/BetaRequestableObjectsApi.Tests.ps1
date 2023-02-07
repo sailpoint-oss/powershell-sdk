@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaRequestableObjectsApi' {
-    Context 'Invoke-BetaListRequestableObjects' {
-        It 'Test Invoke-BetaListRequestableObjects' {
-            #$TestResult = Invoke-BetaListRequestableObjects -IdentityId "TEST_VALUE" -Types "TEST_VALUE" -Term "TEST_VALUE" -Statuses "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaRequestableObjects' {
+        It 'Test Get-BetaRequestableObjects' {
+            #$TestResult = Get-BetaRequestableObjects -IdentityId "TEST_VALUE" -Types "TEST_VALUE" -Term "TEST_VALUE" -Statuses "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

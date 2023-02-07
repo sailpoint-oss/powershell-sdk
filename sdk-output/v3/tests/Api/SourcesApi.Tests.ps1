@@ -38,25 +38,25 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Invoke-DeleteProvisioningPolicy' {
-        It 'Test Invoke-DeleteProvisioningPolicy' {
-            #$TestResult = Invoke-DeleteProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
+    Context 'Remove-ProvisioningPolicy' {
+        It 'Test Remove-ProvisioningPolicy' {
+            #$TestResult = Remove-ProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-DeleteSchema' {
-        It 'Test Invoke-DeleteSchema' {
-            #$TestResult = Invoke-DeleteSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
+    Context 'Remove-Schema' {
+        It 'Test Remove-Schema' {
+            #$TestResult = Remove-Schema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-DeleteSource' {
-        It 'Test Invoke-DeleteSource' {
-            #$TestResult = Invoke-DeleteSource -Id "TEST_VALUE"
+    Context 'Remove-Source' {
+        It 'Test Remove-Source' {
+            #$TestResult = Remove-Source -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -110,25 +110,25 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Invoke-ListProvisioningPolicies' {
-        It 'Test Invoke-ListProvisioningPolicies' {
-            #$TestResult = Invoke-ListProvisioningPolicies -SourceId "TEST_VALUE"
+    Context 'Get-ProvisioningPolicies' {
+        It 'Test Get-ProvisioningPolicies' {
+            #$TestResult = Get-ProvisioningPolicies -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ListSchemas' {
-        It 'Test Invoke-ListSchemas' {
-            #$TestResult = Invoke-ListSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
+    Context 'Get-Schemas' {
+        It 'Test Get-Schemas' {
+            #$TestResult = Get-Schemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ListSources' {
-        It 'Test Invoke-ListSources' {
-            #$TestResult = Invoke-ListSources -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSubadmin "TEST_VALUE"
+    Context 'Get-Sources' {
+        It 'Test Get-Sources' {
+            #$TestResult = Get-Sources -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSubadmin "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

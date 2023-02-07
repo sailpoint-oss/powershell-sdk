@@ -3,27 +3,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SavedSearchId** | **String** | The ID of the saved search that will be executed. | 
-**Created** | **System.DateTime** | The date the scheduled search was initially created. | [optional] [readonly] 
-**Modified** | **System.DateTime** | The last date the scheduled search was modified. | [optional] [readonly] 
-**Schedule** | [**Schedule1**](Schedule1.md) |  | 
-**Recipients** | [**ScheduleRecipientsInner[]**](ScheduleRecipientsInner.md) | A list of identities that should receive the scheduled search report via email. | 
-**Enabled** | **Boolean** | Indicates if the scheduled search is enabled.  | [optional] [default to $false]
-**EmailEmptyResults** | **Boolean** | Indicates if email generation should not be suppressed if search returns no results.  | [optional] [default to $false]
-**DisplayQueryDetails** | **Boolean** | Indicates if the generated email should include the query and search results preview (which could include PII).  | [optional] [default to $false]
+**Type** | [**ScheduleType**](ScheduleType.md) |  | 
+**Days** | [**ScheduleDays**](ScheduleDays.md) |  | [optional] 
+**Hours** | [**ScheduleHours**](ScheduleHours.md) |  | 
+**Expiration** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
+**TimeZoneId** | **String** | The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org&#39;s default timezone is used. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Schedule = Initialize-PSSailpointSchedule  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
- -Created null `
- -Modified null `
- -Schedule null `
- -Recipients null `
- -Enabled false `
- -EmailEmptyResults false `
- -DisplayQueryDetails false
+$Schedule = Initialize-PSSailpointSchedule  -Type null `
+ -Days null `
+ -Hours null `
+ -Expiration 2018-06-25T20:22:28.104Z `
+ -TimeZoneId GMT-06:00
 ```
 
 - Convert the resource to JSON

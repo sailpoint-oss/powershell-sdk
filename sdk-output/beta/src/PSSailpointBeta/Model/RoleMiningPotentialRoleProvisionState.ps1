@@ -12,7 +12,7 @@ Enum RoleMiningPotentialRoleProvisionState.
 
 .DESCRIPTION
 
-No description available.
+Provision state
 #>
 
 enum RoleMiningPotentialRoleProvisionState {

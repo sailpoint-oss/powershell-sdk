@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaRolesApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteRole' {
-        It 'Test Invoke-BetaDeleteRole' {
-            #$TestResult = Invoke-BetaDeleteRole -Id "TEST_VALUE"
+    Context 'Remove-BetaRole' {
+        It 'Test Remove-BetaRole' {
+            #$TestResult = Remove-BetaRole -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,17 +38,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaRolesApi' {
         }
     }
 
-    Context 'Invoke-BetaListRoles' {
-        It 'Test Invoke-BetaListRoles' {
-            #$TestResult = Invoke-BetaListRoles -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE"
+    Context 'Get-BetaRoles' {
+        It 'Test Get-BetaRoles' {
+            #$TestResult = Get-BetaRoles -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchRole' {
-        It 'Test Invoke-BetaPatchRole' {
-            #$TestResult = Invoke-BetaPatchRole -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaRole' {
+        It 'Test Update-BetaRole' {
+            #$TestResult = Update-BetaRole -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

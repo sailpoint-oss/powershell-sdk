@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 **AccountId** | **String** | Unique ID of the account | [optional] 
 **AttributeRequests** | [**AttributeRequest[]**](AttributeRequest.md) |  | [optional] 
 **Op** | **String** | The operation that was performed | [optional] 
-**ProvisioningTarget** | [**Source1**](Source1.md) |  | [optional] 
+**ProvisioningTarget** | [**AccountSource**](AccountSource.md) |  | [optional] 
 **Result** | [**AccountRequestResult**](AccountRequestResult.md) |  | [optional] 
-**Source** | [**Source1**](Source1.md) |  | [optional] 
+**Source** | [**AccountSource**](AccountSource.md) |  | [optional] 
 
 ## Examples
 

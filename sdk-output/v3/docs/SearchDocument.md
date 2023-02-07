@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | 
-**Name** | **String** |  | 
+**Id** | **String** | The unique ID of the referenced object. | 
+**Name** | **String** | The human readable name of the referenced object. | 
 **Type** | [**DocumentType**](DocumentType.md) |  | 
 **Description** | **String** | The description of the access item | [optional] 
 **Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **Stage** | **String** | The current stage of the activity | [optional] 
 **Origin** | **String** |  | [optional] 
 **Status** | **String** | The identity&#39;s status in SailPoint | [optional] 
-**Requester** | [**Source1**](Source1.md) |  | [optional] 
-**Recipient** | [**Source1**](Source1.md) |  | [optional] 
+**Requester** | [**AccountSource**](AccountSource.md) |  | [optional] 
+**Recipient** | [**AccountSource**](AccountSource.md) |  | [optional] 
 **TrackingNumber** | **String** |  | [optional] 
 **Errors** | **String[]** |  | [optional] 
 **Warnings** | **String[]** |  | [optional] 
@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **EntitlementAttributes** | [**System.Collections.Hashtable**](AnyType.md) | a map or dictionary of key/value pairs | [optional] 
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | a map or dictionary of key/value pairs | [optional] 
 **Identity** | [**DisplayReference**](DisplayReference.md) |  | [optional] 
-**Access** | [**Access1[]**](Access1.md) | The list of access items assigned to the identity | [optional] 
+**Access** | [**IdentityAccess[]**](IdentityAccess.md) | The list of access items assigned to the identity | [optional] 
 **Uncorrelated** | **Boolean** | Indicates if the account is not correlated to an identity | [optional] 
 **Duration** | **Int32** |  | [optional] 
 **AvgDuration** | **Int32** |  | [optional] 

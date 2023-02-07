@@ -30,9 +30,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationsApi' {
         }
     }
 
-    Context 'Invoke-BetaListReviewers' {
-        It 'Test Invoke-BetaListReviewers' {
-            #$TestResult = Invoke-BetaListReviewers -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaReviewers' {
+        It 'Test Get-BetaReviewers' {
+            #$TestResult = Get-BetaReviewers -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

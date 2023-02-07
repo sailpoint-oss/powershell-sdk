@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCustomPasswordInstructionsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteCustomPasswordInstructions' {
-        It 'Test Invoke-BetaDeleteCustomPasswordInstructions' {
-            #$TestResult = Invoke-BetaDeleteCustomPasswordInstructions -PageId "TEST_VALUE" -Locale "TEST_VALUE"
+    Context 'Remove-BetaCustomPasswordInstructions' {
+        It 'Test Remove-BetaCustomPasswordInstructions' {
+            #$TestResult = Remove-BetaCustomPasswordInstructions -PageId "TEST_VALUE" -Locale "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

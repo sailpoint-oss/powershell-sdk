@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] 
-**Name** | **String** |  | [optional] 
+**Id** | **String** | The unique ID of the referenced object. | [optional] 
+**Name** | **String** | The human readable name of the referenced object. | [optional] 
 **Source** | [**Reference1**](Reference1.md) |  | [optional] 
 **Account** | [**AppAllOfAccount**](AppAllOfAccount.md) |  | [optional] 
 

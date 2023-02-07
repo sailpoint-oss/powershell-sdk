@@ -15,9 +15,9 @@ No summary available.
 This is more of a complete representation of an access profile.  
 
 .PARAMETER Id
-No description available.
+The unique ID of the referenced object.
 .PARAMETER Name
-No description available.
+The human readable name of the referenced object.
 .PARAMETER Type
 No description available.
 .PARAMETER Description

@@ -14,9 +14,9 @@ Describe -tag 'PSSailpoint' -name 'AccountActivitiesApi' {
         }
     }
 
-    Context 'Invoke-ListAccountActivities' {
-        It 'Test Invoke-ListAccountActivities' {
-            #$TestResult = Invoke-ListAccountActivities -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-AccountActivities' {
+        It 'Test Get-AccountActivities' {
+            #$TestResult = Get-AccountActivities -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

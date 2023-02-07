@@ -22,9 +22,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaOrgConfigApi' {
         }
     }
 
-    Context 'Invoke-BetaPatchOrgConfig' {
-        It 'Test Invoke-BetaPatchOrgConfig' {
-            #$TestResult = Invoke-BetaPatchOrgConfig -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaOrgConfig' {
+        It 'Test Update-BetaOrgConfig' {
+            #$TestResult = Update-BetaOrgConfig -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

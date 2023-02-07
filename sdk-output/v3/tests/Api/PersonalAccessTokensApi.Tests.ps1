@@ -14,25 +14,25 @@ Describe -tag 'PSSailpoint' -name 'PersonalAccessTokensApi' {
         }
     }
 
-    Context 'Invoke-DeletePersonalAccessToken' {
-        It 'Test Invoke-DeletePersonalAccessToken' {
-            #$TestResult = Invoke-DeletePersonalAccessToken -Id "TEST_VALUE"
+    Context 'Remove-PersonalAccessToken' {
+        It 'Test Remove-PersonalAccessToken' {
+            #$TestResult = Remove-PersonalAccessToken -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ListPersonalAccessTokens' {
-        It 'Test Invoke-ListPersonalAccessTokens' {
-            #$TestResult = Invoke-ListPersonalAccessTokens -OwnerId "TEST_VALUE"
+    Context 'Get-PersonalAccessTokens' {
+        It 'Test Get-PersonalAccessTokens' {
+            #$TestResult = Get-PersonalAccessTokens -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-PatchPersonalAccessToken' {
-        It 'Test Invoke-PatchPersonalAccessToken' {
-            #$TestResult = Invoke-PatchPersonalAccessToken -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-PersonalAccessToken' {
+        It 'Test Update-PersonalAccessToken' {
+            #$TestResult = Update-PersonalAccessToken -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

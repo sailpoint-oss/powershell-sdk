@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'AccessRequestsApi' {
-    Context 'Stop-AccessRequest' {
-        It 'Test Stop-AccessRequest' {
-            #$TestResult = Stop-AccessRequest -CancelAccessRequest "TEST_VALUE"
+    Context 'Suspend-AccessRequest' {
+        It 'Test Suspend-AccessRequest' {
+            #$TestResult = Suspend-AccessRequest -CancelAccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -30,9 +30,9 @@ Describe -tag 'PSSailpoint' -name 'AccessRequestsApi' {
         }
     }
 
-    Context 'Invoke-ListAccessRequestStatus' {
-        It 'Test Invoke-ListAccessRequestStatus' {
-            #$TestResult = Invoke-ListAccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-AccessRequestStatus' {
+        It 'Test Get-AccessRequestStatus' {
+            #$TestResult = Get-AccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

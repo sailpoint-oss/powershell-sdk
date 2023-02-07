@@ -30,9 +30,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteVerifiedFromAddress' {
-        It 'Test Invoke-BetaDeleteVerifiedFromAddress' {
-            #$TestResult = Invoke-BetaDeleteVerifiedFromAddress -Id "TEST_VALUE"
+    Context 'Remove-BetaVerifiedFromAddress' {
+        It 'Test Remove-BetaVerifiedFromAddress' {
+            #$TestResult = Remove-BetaVerifiedFromAddress -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -70,25 +70,25 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
         }
     }
 
-    Context 'Invoke-BetaListFromAddresses' {
-        It 'Test Invoke-BetaListFromAddresses' {
-            #$TestResult = Invoke-BetaListFromAddresses -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaFromAddresses' {
+        It 'Test Get-BetaFromAddresses' {
+            #$TestResult = Get-BetaFromAddresses -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListNotificationTemplateDefaults' {
-        It 'Test Invoke-BetaListNotificationTemplateDefaults' {
-            #$TestResult = Invoke-BetaListNotificationTemplateDefaults -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaNotificationTemplateDefaults' {
+        It 'Test Get-BetaNotificationTemplateDefaults' {
+            #$TestResult = Get-BetaNotificationTemplateDefaults -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListNotificationTemplates' {
-        It 'Test Invoke-BetaListNotificationTemplates' {
-            #$TestResult = Invoke-BetaListNotificationTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaNotificationTemplates' {
+        It 'Test Get-BetaNotificationTemplates' {
+            #$TestResult = Get-BetaNotificationTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

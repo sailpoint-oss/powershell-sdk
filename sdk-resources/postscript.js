@@ -55,7 +55,35 @@ const fixFiles = function (myArray) {
       rawDataArra = fileOut.slice();
       fileOut = [];
     }
-  
+
+    
+    let changedDocumentType = false
+    if (file.includes("EventDocument.ps1")) {
+      for (const line of rawDataArra) {
+        if (line.includes("{Type}") && changedDocumentType == false) {
+          fileOut.push(line.replace("{Type}", "{DocumentType}"));
+          madeChange = true;
+          changedDocumentType = true;
+        }
+        else if (line.includes("if ($null -eq $Type) {")) {
+          fileOut.push(line.replace("if ($null -eq $Type) {", "if ($null -eq $DocumentType) {"));
+          madeChange = true;
+        }
+        else if (line.includes('"_type" = ${Type}')) {
+          fileOut.push(line.replace('"_type" = ${Type}', '"_type" = ${DocumentType}'));
+          madeChange = true;
+        } 
+        else if (line.includes('$Type = $JsonParameters.PSobject.Properties["_type"].value')) {
+          fileOut.push(line.replace('$Type = $JsonParameters.PSobject.Properties["_type"].value', '$DocumentType = $JsonParameters.PSobject.Properties["_type"].value'));
+          madeChange = true;
+        } 
+        else {
+          fileOut.push(line);
+        }
+      }
+      rawDataArra = fileOut.slice();
+      fileOut = [];
+    }
     if (madeChange) {
       fs.writeFileSync(file, rawDataArra.join("\n"));
     }

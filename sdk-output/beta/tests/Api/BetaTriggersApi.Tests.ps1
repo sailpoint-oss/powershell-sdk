@@ -22,41 +22,41 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTriggersApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteSubscription' {
-        It 'Test Invoke-BetaDeleteSubscription' {
-            #$TestResult = Invoke-BetaDeleteSubscription -Id "TEST_VALUE"
+    Context 'Remove-BetaSubscription' {
+        It 'Test Remove-BetaSubscription' {
+            #$TestResult = Remove-BetaSubscription -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListInvocationStatus' {
-        It 'Test Invoke-BetaListInvocationStatus' {
-            #$TestResult = Invoke-BetaListInvocationStatus -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaInvocationStatus' {
+        It 'Test Get-BetaInvocationStatus' {
+            #$TestResult = Get-BetaInvocationStatus -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListSubscriptions' {
-        It 'Test Invoke-BetaListSubscriptions' {
-            #$TestResult = Invoke-BetaListSubscriptions -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaSubscriptions' {
+        It 'Test Get-BetaSubscriptions' {
+            #$TestResult = Get-BetaSubscriptions -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListTriggers' {
-        It 'Test Invoke-BetaListTriggers' {
-            #$TestResult = Invoke-BetaListTriggers -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaTriggers' {
+        It 'Test Get-BetaTriggers' {
+            #$TestResult = Get-BetaTriggers -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchSubscription' {
-        It 'Test Invoke-BetaPatchSubscription' {
-            #$TestResult = Invoke-BetaPatchSubscription -Id "TEST_VALUE" -SubscriptionPatchRequestInner "TEST_VALUE"
+    Context 'Update-BetaSubscription' {
+        It 'Test Update-BetaSubscription' {
+            #$TestResult = Update-BetaSubscription -Id "TEST_VALUE" -SubscriptionPatchRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

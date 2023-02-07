@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessRequestsApi' {
-    Context 'Stop-BetaAccessRequest' {
-        It 'Test Stop-BetaAccessRequest' {
-            #$TestResult = Stop-BetaAccessRequest -CancelAccessRequest "TEST_VALUE"
+    Context 'Suspend-BetaAccessRequest' {
+        It 'Test Suspend-BetaAccessRequest' {
+            #$TestResult = Suspend-BetaAccessRequest -CancelAccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,9 +38,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessRequestsApi' {
         }
     }
 
-    Context 'Invoke-BetaListAccessRequestStatus' {
-        It 'Test Invoke-BetaListAccessRequestStatus' {
-            #$TestResult = Invoke-BetaListAccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaAccessRequestStatus' {
+        It 'Test Get-BetaAccessRequestStatus' {
+            #$TestResult = Get-BetaAccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

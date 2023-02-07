@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccountsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteAccount' {
-        It 'Test Invoke-BetaDeleteAccount' {
-            #$TestResult = Invoke-BetaDeleteAccount -Id "TEST_VALUE"
+    Context 'Remove-BetaAccount' {
+        It 'Test Remove-BetaAccount' {
+            #$TestResult = Remove-BetaAccount -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -54,9 +54,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccountsApi' {
         }
     }
 
-    Context 'Invoke-BetaListAccounts' {
-        It 'Test Invoke-BetaListAccounts' {
-            #$TestResult = Invoke-BetaListAccounts -DetailLevel "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaAccounts' {
+        It 'Test Get-BetaAccounts' {
+            #$TestResult = Get-BetaAccounts -DetailLevel "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

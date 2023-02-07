@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSegmentsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteSegmentById' {
-        It 'Test Invoke-BetaDeleteSegmentById' {
-            #$TestResult = Invoke-BetaDeleteSegmentById -Id "TEST_VALUE"
+    Context 'Remove-BetaSegmentById' {
+        It 'Test Remove-BetaSegmentById' {
+            #$TestResult = Remove-BetaSegmentById -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -30,17 +30,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSegmentsApi' {
         }
     }
 
-    Context 'Invoke-BetaListSegments' {
-        It 'Test Invoke-BetaListSegments' {
-            #$TestResult = Invoke-BetaListSegments -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaSegments' {
+        It 'Test Get-BetaSegments' {
+            #$TestResult = Get-BetaSegments -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchSegment' {
-        It 'Test Invoke-BetaPatchSegment' {
-            #$TestResult = Invoke-BetaPatchSegment -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+    Context 'Update-BetaSegment' {
+        It 'Test Update-BetaSegment' {
+            #$TestResult = Update-BetaSegment -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

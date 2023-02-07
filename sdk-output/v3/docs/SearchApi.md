@@ -13,7 +13,7 @@ Method | HTTP request | Description
 <a name="Search-Aggregate"></a>
 # **Search-Aggregate**
 > AggregationResult Search-Aggregate<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search1] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -45,23 +45,23 @@ $BucketAggregation = Initialize-BucketAggregation -Name "Identity Locations" -Ty
 
 $Aggregations = Initialize-Aggregations -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation
 
-$Aggregation2 = Initialize-Aggregation2 -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregations
+$SubSearchAggregationSpecification = Initialize-SubSearchAggregationSpecification -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregations
 
-$Aggregation1 = Initialize-Aggregation1 -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregation2
+$SearchAggregationSpecification = Initialize-SearchAggregationSpecification -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $SubSearchAggregationSpecification
 
 $Bound = Initialize-Bound -Value "1" -Inclusive $false
 $Range = Initialize-Range -Lower $Bound -Upper $Bound
 
 $ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
-$Search1 = Initialize-Search1 -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $Aggregation1 -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search1 | 
+$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # Perform a Search Query Aggregation
 try {
-    $Result = Search-Aggregate -Search1 $Search1 -Offset $Offset -Limit $Limit -Count $Count
+    $Result = Search-Aggregate -Search $Search -Offset $Offset -Limit $Limit -Count $Count
 } catch {
     Write-Host ("Exception occurred when calling Search-Aggregate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -72,7 +72,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Search1** | [**Search1**](Search1.md)|  | 
+ **Search** | [**Search**](Search.md)|  | 
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 <a name="Search-Count"></a>
 # **Search-Count**
 > void Search-Count<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search1] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <PSCustomObject><br>
 
 Count Documents Satisfying a Query
 
@@ -124,20 +124,20 @@ $BucketAggregation = Initialize-BucketAggregation -Name "Identity Locations" -Ty
 
 $Aggregations = Initialize-Aggregations -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation
 
-$Aggregation2 = Initialize-Aggregation2 -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregations
+$SubSearchAggregationSpecification = Initialize-SubSearchAggregationSpecification -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregations
 
-$Aggregation1 = Initialize-Aggregation1 -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregation2
+$SearchAggregationSpecification = Initialize-SearchAggregationSpecification -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $SubSearchAggregationSpecification
 
 $Bound = Initialize-Bound -Value "1" -Inclusive $false
 $Range = Initialize-Range -Lower $Bound -Upper $Bound
 
 $ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
-$Search1 = Initialize-Search1 -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $Aggregation1 -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search1 | 
+$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
 
 # Count Documents Satisfying a Query
 try {
-    $Result = Search-Count -Search1 $Search1
+    $Result = Search-Count -Search $Search
 } catch {
     Write-Host ("Exception occurred when calling Search-Count: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -148,7 +148,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Search1** | [**Search1**](Search1.md)|  | 
+ **Search** | [**Search**](Search.md)|  | 
 
 ### Return type
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 <a name="Search-Post"></a>
 # **Search-Post**
 > SearchDocument[] Search-Post<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search1] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -254,23 +254,23 @@ $BucketAggregation = Initialize-BucketAggregation -Name "Identity Locations" -Ty
 
 $Aggregations = Initialize-Aggregations -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation
 
-$Aggregation2 = Initialize-Aggregation2 -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregations
+$SubSearchAggregationSpecification = Initialize-SubSearchAggregationSpecification -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregations
 
-$Aggregation1 = Initialize-Aggregation1 -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $Aggregation2
+$SearchAggregationSpecification = Initialize-SearchAggregationSpecification -Nested $NestedAggregation -Metric $MetricAggregation -VarFilter $FilterAggregation -Bucket $BucketAggregation -SubAggregation $SubSearchAggregationSpecification
 
 $Bound = Initialize-Bound -Value "1" -Inclusive $false
 $Range = Initialize-Range -Lower $Bound -Upper $Bound
 
 $ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
-$Search1 = Initialize-Search1 -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $Aggregation1 -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search1 | 
+$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # Perform Search
 try {
-    $Result = Search-Post -Search1 $Search1 -Offset $Offset -Limit $Limit -Count $Count
+    $Result = Search-Post -Search $Search -Offset $Offset -Limit $Limit -Count $Count
 } catch {
     Write-Host ("Exception occurred when calling Search-Post: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -281,7 +281,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Search1** | [**Search1**](Search1.md)|  | 
+ **Search** | [**Search**](Search.md)|  | 
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]

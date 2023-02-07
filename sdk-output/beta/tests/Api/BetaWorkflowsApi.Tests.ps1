@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaWorkflowsApi' {
-    Context 'Stop-BetaWorkflowExecution' {
-        It 'Test Stop-BetaWorkflowExecution' {
-            #$TestResult = Stop-BetaWorkflowExecution -Id "TEST_VALUE"
+    Context 'Suspend-BetaWorkflowExecution' {
+        It 'Test Suspend-BetaWorkflowExecution' {
+            #$TestResult = Suspend-BetaWorkflowExecution -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -22,9 +22,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaWorkflowsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteWorkflow' {
-        It 'Test Invoke-BetaDeleteWorkflow' {
-            #$TestResult = Invoke-BetaDeleteWorkflow -Id "TEST_VALUE"
+    Context 'Remove-BetaWorkflow' {
+        It 'Test Remove-BetaWorkflow' {
+            #$TestResult = Remove-BetaWorkflow -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -54,57 +54,57 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaWorkflowsApi' {
         }
     }
 
-    Context 'Invoke-BetaListCompleteWorkflowLibrary' {
-        It 'Test Invoke-BetaListCompleteWorkflowLibrary' {
-            #$TestResult = Invoke-BetaListCompleteWorkflowLibrary -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+    Context 'Get-BetaCompleteWorkflowLibrary' {
+        It 'Test Get-BetaCompleteWorkflowLibrary' {
+            #$TestResult = Get-BetaCompleteWorkflowLibrary -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListWorkflowExecutions' {
-        It 'Test Invoke-BetaListWorkflowExecutions' {
-            #$TestResult = Invoke-BetaListWorkflowExecutions -Id "TEST_VALUE"
+    Context 'Get-BetaWorkflowExecutions' {
+        It 'Test Get-BetaWorkflowExecutions' {
+            #$TestResult = Get-BetaWorkflowExecutions -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListWorkflowLibraryActions' {
-        It 'Test Invoke-BetaListWorkflowLibraryActions' {
-            #$TestResult = Invoke-BetaListWorkflowLibraryActions -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaWorkflowLibraryActions' {
+        It 'Test Get-BetaWorkflowLibraryActions' {
+            #$TestResult = Get-BetaWorkflowLibraryActions -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListWorkflowLibraryOperators' {
-        It 'Test Invoke-BetaListWorkflowLibraryOperators' {
-            #$TestResult = Invoke-BetaListWorkflowLibraryOperators
+    Context 'Get-BetaWorkflowLibraryOperators' {
+        It 'Test Get-BetaWorkflowLibraryOperators' {
+            #$TestResult = Get-BetaWorkflowLibraryOperators
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListWorkflowLibraryTriggers' {
-        It 'Test Invoke-BetaListWorkflowLibraryTriggers' {
-            #$TestResult = Invoke-BetaListWorkflowLibraryTriggers -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaWorkflowLibraryTriggers' {
+        It 'Test Get-BetaWorkflowLibraryTriggers' {
+            #$TestResult = Get-BetaWorkflowLibraryTriggers -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListWorkflows' {
-        It 'Test Invoke-BetaListWorkflows' {
-            #$TestResult = Invoke-BetaListWorkflows
+    Context 'Get-BetaWorkflows' {
+        It 'Test Get-BetaWorkflows' {
+            #$TestResult = Get-BetaWorkflows
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchWorkflow' {
-        It 'Test Invoke-BetaPatchWorkflow' {
-            #$TestResult = Invoke-BetaPatchWorkflow -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaWorkflow' {
+        It 'Test Update-BetaWorkflow' {
+            #$TestResult = Update-BetaWorkflow -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

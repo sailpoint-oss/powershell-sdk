@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | 
-**Name** | **String** |  | 
+**Id** | **String** | The unique ID of the referenced object. | 
+**Name** | **String** | The human readable name of the referenced object. | 
 **Type** | [**DocumentType**](DocumentType.md) |  | 
 **Description** | **String** | The description of the access item | [optional] 
 **Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 

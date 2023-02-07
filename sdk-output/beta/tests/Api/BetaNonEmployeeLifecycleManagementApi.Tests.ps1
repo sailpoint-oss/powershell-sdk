@@ -14,17 +14,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNonEmployeeLifecycleManagementApi
         }
     }
 
-    Context 'Invoke-BetaDeleteSchemaAttribute' {
-        It 'Test Invoke-BetaDeleteSchemaAttribute' {
-            #$TestResult = Invoke-BetaDeleteSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE"
+    Context 'Remove-BetaSchemaAttribute' {
+        It 'Test Remove-BetaSchemaAttribute' {
+            #$TestResult = Remove-BetaSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaDeleteSchemaAttributes' {
-        It 'Test Invoke-BetaDeleteSchemaAttributes' {
-            #$TestResult = Invoke-BetaDeleteSchemaAttributes -SourceId "TEST_VALUE"
+    Context 'Remove-BetaSchemaAttributes' {
+        It 'Test Remove-BetaSchemaAttributes' {
+            #$TestResult = Remove-BetaSchemaAttributes -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -254,9 +254,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNonEmployeeLifecycleManagementApi
         }
     }
 
-    Context 'Invoke-BetaPatchSchemaAttribute' {
-        It 'Test Invoke-BetaPatchSchemaAttribute' {
-            #$TestResult = Invoke-BetaPatchSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaSchemaAttribute' {
+        It 'Test Update-BetaSchemaAttribute' {
+            #$TestResult = Update-BetaSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

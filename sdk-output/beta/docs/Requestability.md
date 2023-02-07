@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommentsRequired** | **Boolean** | Whether the requester of the containing object must provide comments justifying the request | [optional] 
 **DenialCommentsRequired** | **Boolean** | Whether an approver must provide comments when denying the request | [optional] 
-**ApprovalSchemes** | [**ApprovalScheme[]**](ApprovalScheme.md) | List describing the steps in approving the request | [optional] 
+**ApprovalSchemes** | [**AccessProfileApprovalScheme[]**](AccessProfileApprovalScheme.md) | List describing the steps in approving the request | [optional] 
 
 ## Examples
 

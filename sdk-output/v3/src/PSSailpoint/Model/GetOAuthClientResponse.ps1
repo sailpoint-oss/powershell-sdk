@@ -48,6 +48,8 @@ An indicator of whether the API Client supports the serialization of SAML claims
 The date and time, down to the millisecond, when the API Client was created
 .PARAMETER Modified
 The date and time, down to the millisecond, when the API Client was last updated
+.PARAMETER LastUsed
+The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed.
 .PARAMETER Scope
 Scopes of the API Client.
 .OUTPUTS
@@ -110,6 +112,9 @@ function Initialize-GetOAuthClientResponse {
         [System.DateTime]
         ${Modified},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${LastUsed},
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Scope}
     )
@@ -189,6 +194,7 @@ function Initialize-GetOAuthClientResponse {
             "claimsSupported" = ${ClaimsSupported}
             "created" = ${Created}
             "modified" = ${Modified}
+            "lastUsed" = ${LastUsed}
             "scope" = ${Scope}
         }
 
@@ -227,7 +233,7 @@ function ConvertFrom-JsonToGetOAuthClientResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in GetOAuthClientResponse
-        $AllProperties = ("id", "businessName", "homepageUrl", "name", "description", "accessTokenValiditySeconds", "refreshTokenValiditySeconds", "redirectUris", "grantTypes", "accessType", "type", "internal", "enabled", "strongAuthSupported", "claimsSupported", "created", "modified", "scope")
+        $AllProperties = ("id", "businessName", "homepageUrl", "name", "description", "accessTokenValiditySeconds", "refreshTokenValiditySeconds", "redirectUris", "grantTypes", "accessType", "type", "internal", "enabled", "strongAuthSupported", "claimsSupported", "created", "modified", "lastUsed", "scope")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -346,6 +352,12 @@ function ConvertFrom-JsonToGetOAuthClientResponse {
             $Scope = $JsonParameters.PSobject.Properties["scope"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "lastUsed"))) { #optional property not found
+            $LastUsed = $null
+        } else {
+            $LastUsed = $JsonParameters.PSobject.Properties["lastUsed"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "businessName" = ${BusinessName}
@@ -364,6 +376,7 @@ function ConvertFrom-JsonToGetOAuthClientResponse {
             "claimsSupported" = ${ClaimsSupported}
             "created" = ${Created}
             "modified" = ${Modified}
+            "lastUsed" = ${LastUsed}
             "scope" = ${Scope}
         }
 

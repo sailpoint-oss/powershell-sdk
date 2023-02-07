@@ -14,9 +14,9 @@ Describe -tag 'PSSailpoint' -name 'OAuthClientsApi' {
         }
     }
 
-    Context 'Invoke-DeleteOauthClient' {
-        It 'Test Invoke-DeleteOauthClient' {
-            #$TestResult = Invoke-DeleteOauthClient -Id "TEST_VALUE"
+    Context 'Remove-OauthClient' {
+        It 'Test Remove-OauthClient' {
+            #$TestResult = Remove-OauthClient -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -30,17 +30,17 @@ Describe -tag 'PSSailpoint' -name 'OAuthClientsApi' {
         }
     }
 
-    Context 'Invoke-ListOauthClients' {
-        It 'Test Invoke-ListOauthClients' {
-            #$TestResult = Invoke-ListOauthClients
+    Context 'Get-OauthClients' {
+        It 'Test Get-OauthClients' {
+            #$TestResult = Get-OauthClients
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-PatchOauthClient' {
-        It 'Test Invoke-PatchOauthClient' {
-            #$TestResult = Invoke-PatchOauthClient -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-OauthClient' {
+        It 'Test Update-OauthClient' {
+            #$TestResult = Update-OauthClient -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

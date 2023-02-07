@@ -1150,6 +1150,91 @@ function Get-BetaIdentitiesPotentialRole {
 <#
 .SYNOPSIS
 
+Retrieves a specific potential role
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SessionId
+The role mining session id
+
+.PARAMETER PotentialRoleId
+A potential role id in a role mining session
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+RoleMiningPotentialRole
+#>
+function Get-BetaPotentialRole {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SessionId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${PotentialRoleId},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaPotentialRole' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-BetaConfiguration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}'
+        if (!$SessionId) {
+            throw "Error! The required parameter `SessionId` missing when calling getPotentialRole."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
+        if (!$PotentialRoleId) {
+            throw "Error! The required parameter `PotentialRoleId` missing when calling getPotentialRole."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "RoleMiningPotentialRole" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Retrieves the applications of a potential role for a role mining session
 
 .DESCRIPTION
@@ -1265,7 +1350,7 @@ function Get-BetaPotentialRoleApplications {
 <#
 .SYNOPSIS
 
-Retrieves the potential role summaries for a role mining session
+Retrieves all potential role summaries
 
 .DESCRIPTION
 
@@ -1275,7 +1360,10 @@ No description available.
 The role mining session id
 
 .PARAMETER Sorters
-sort by identityCount, density, freshness or quality
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **createdDate**
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Filtering is supported for the following fields and operators: **createdById**: *eq, sw, co* **createdByName**: *eq, sw, co* **description**: *sw, co* **endDate**: *le, lt* **freshness**: *eq, ge, gt, le, lt* **name**: *eq, sw, co* **quality**: *eq, ge, gt, le, lt* **startDate**: *ge, gt* **saved**: *eq* **type**: *eq*
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1304,12 +1392,15 @@ function Get-BetaPotentialRoleSummaries {
         [String]
         ${Sorters},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Offset},
+        [String]
+        ${Filters},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
-        ${Limit},
+        ${Offset},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
         [Switch]
@@ -1343,6 +1434,10 @@ function Get-BetaPotentialRoleSummaries {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
         }
@@ -1367,91 +1462,6 @@ function Get-BetaPotentialRoleSummaries {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "RoleMiningPotentialRoleSummary[]" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Retrieves a specific potential role for a role mining session
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER SessionId
-The role mining session id
-
-.PARAMETER PotentialRoleId
-A potential role id in a role mining session
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-RoleMiningPotentialRoleSummaryDistribution
-#>
-function Get-BetaPotentialRoleSummary {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${SessionId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${PotentialRoleId},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-BetaPotentialRoleSummary' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-BetaConfiguration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}'
-        if (!$SessionId) {
-            throw "Error! The required parameter `SessionId` missing when calling getPotentialRoleSummary."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
-        if (!$PotentialRoleId) {
-            throw "Error! The required parameter `PotentialRoleId` missing when calling getPotentialRoleSummary."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RoleMiningPotentialRoleSummaryDistribution" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1717,6 +1727,113 @@ function Get-BetaRoleMiningSessions {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "RoleMiningSessionDto[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Update a potential role
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER SessionId
+The role mining session id
+
+.PARAMETER PotentialRoleId
+The potential role summary id
+
+.PARAMETER PatchPotentialRoleRequestInner
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SystemCollectionsHashtable
+#>
+function Update-BetaPotentialRole {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SessionId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${PotentialRoleId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${PatchPotentialRoleRequestInner},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-BetaPotentialRole' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-BetaConfiguration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json-patch+json')
+
+        $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}'
+        if (!$SessionId) {
+            throw "Error! The required parameter `SessionId` missing when calling patchPotentialRole."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
+        if (!$PotentialRoleId) {
+            throw "Error! The required parameter `PotentialRoleId` missing when calling patchPotentialRole."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
+
+        if (!$PatchPotentialRoleRequestInner) {
+            throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchPotentialRole."
+        }
+
+        $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SystemCollectionsHashtable" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **AccountId** | **String** | the account id | [optional] 
 **AttributeRequests** | [**AttributeRequest[]**](AttributeRequest.md) |  | [optional] 
 **Op** | **String** | the operation that was used | [optional] 
-**Source** | [**Source1**](Source1.md) |  | [optional] 
+**Source** | [**AccountSource**](AccountSource.md) |  | [optional] 
 
 ## Examples
 

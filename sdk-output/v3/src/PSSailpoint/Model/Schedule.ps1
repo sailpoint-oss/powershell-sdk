@@ -12,24 +12,18 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+The schedule information.
 
-.PARAMETER SavedSearchId
-The ID of the saved search that will be executed.
-.PARAMETER Created
-The date the scheduled search was initially created.
-.PARAMETER Modified
-The last date the scheduled search was modified.
-.PARAMETER Schedule
+.PARAMETER Type
 No description available.
-.PARAMETER Recipients
-A list of identities that should receive the scheduled search report via email.
-.PARAMETER Enabled
-Indicates if the scheduled search is enabled. 
-.PARAMETER EmailEmptyResults
-Indicates if email generation should not be suppressed if search returns no results. 
-.PARAMETER DisplayQueryDetails
-Indicates if the generated email should include the query and search results preview (which could include PII). 
+.PARAMETER Days
+No description available.
+.PARAMETER Hours
+No description available.
+.PARAMETER Expiration
+A date-time in ISO-8601 format
+.PARAMETER TimeZoneId
+The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org's default timezone is used.
 .OUTPUTS
 
 Schedule<PSCustomObject>
@@ -39,57 +33,41 @@ function Initialize-Schedule {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SavedSearchId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Schedule},
+        ${Type},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Days},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Hours},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Expiration},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${Recipients},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Enabled} = $false,
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${EmailEmptyResults} = $false,
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${DisplayQueryDetails} = $false
+        [String]
+        ${TimeZoneId}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => Schedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $SavedSearchId) {
-            throw "invalid value for 'SavedSearchId', 'SavedSearchId' cannot be null."
+        if ($null -eq $Type) {
+            throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Schedule) {
-            throw "invalid value for 'Schedule', 'Schedule' cannot be null."
-        }
-
-        if ($null -eq $Recipients) {
-            throw "invalid value for 'Recipients', 'Recipients' cannot be null."
+        if ($null -eq $Hours) {
+            throw "invalid value for 'Hours', 'Hours' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "savedSearchId" = ${SavedSearchId}
-            "created" = ${Created}
-            "modified" = ${Modified}
-            "schedule" = ${Schedule}
-            "recipients" = ${Recipients}
-            "enabled" = ${Enabled}
-            "emailEmptyResults" = ${EmailEmptyResults}
-            "displayQueryDetails" = ${DisplayQueryDetails}
+            "type" = ${Type}
+            "days" = ${Days}
+            "hours" = ${Hours}
+            "expiration" = ${Expiration}
+            "timeZoneId" = ${TimeZoneId}
         }
 
 
@@ -127,7 +105,7 @@ function ConvertFrom-JsonToSchedule {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Schedule
-        $AllProperties = ("savedSearchId", "created", "modified", "schedule", "recipients", "enabled", "emailEmptyResults", "displayQueryDetails")
+        $AllProperties = ("type", "days", "hours", "expiration", "timeZoneId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,66 +113,45 @@ function ConvertFrom-JsonToSchedule {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'savedSearchId' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'type' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "savedSearchId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'savedSearchId' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
-            $SavedSearchId = $JsonParameters.PSobject.Properties["savedSearchId"].value
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "schedule"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'schedule' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "hours"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'hours' missing."
         } else {
-            $Schedule = $JsonParameters.PSobject.Properties["schedule"].value
+            $Hours = $JsonParameters.PSobject.Properties["hours"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "recipients"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'recipients' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "days"))) { #optional property not found
+            $Days = $null
         } else {
-            $Recipients = $JsonParameters.PSobject.Properties["recipients"].value
+            $Days = $JsonParameters.PSobject.Properties["days"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
-            $Created = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "expiration"))) { #optional property not found
+            $Expiration = $null
         } else {
-            $Created = $JsonParameters.PSobject.Properties["created"].value
+            $Expiration = $JsonParameters.PSobject.Properties["expiration"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
-            $Modified = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timeZoneId"))) { #optional property not found
+            $TimeZoneId = $null
         } else {
-            $Modified = $JsonParameters.PSobject.Properties["modified"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "enabled"))) { #optional property not found
-            $Enabled = $null
-        } else {
-            $Enabled = $JsonParameters.PSobject.Properties["enabled"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "emailEmptyResults"))) { #optional property not found
-            $EmailEmptyResults = $null
-        } else {
-            $EmailEmptyResults = $JsonParameters.PSobject.Properties["emailEmptyResults"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayQueryDetails"))) { #optional property not found
-            $DisplayQueryDetails = $null
-        } else {
-            $DisplayQueryDetails = $JsonParameters.PSobject.Properties["displayQueryDetails"].value
+            $TimeZoneId = $JsonParameters.PSobject.Properties["timeZoneId"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "savedSearchId" = ${SavedSearchId}
-            "created" = ${Created}
-            "modified" = ${Modified}
-            "schedule" = ${Schedule}
-            "recipients" = ${Recipients}
-            "enabled" = ${Enabled}
-            "emailEmptyResults" = ${EmailEmptyResults}
-            "displayQueryDetails" = ${DisplayQueryDetails}
+            "type" = ${Type}
+            "days" = ${Days}
+            "hours" = ${Hours}
+            "expiration" = ${Expiration}
+            "timeZoneId" = ${TimeZoneId}
         }
 
         return $PSO

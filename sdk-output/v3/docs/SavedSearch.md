@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Query** | **String** | The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL.  | 
 **Fields** | **String[]** | The fields to be searched against in a multi-field query.  | [optional] 
 **Sort** | **String[]** | The fields to be used to sort the search results.  | [optional] 
-**Filters** | [**SearchFilters**](SearchFilters.md) |  | [optional] 
+**Filters** | [**SavedSearchDetailFilters**](SavedSearchDetailFilters.md) |  | [optional] 
 
 ## Examples
 

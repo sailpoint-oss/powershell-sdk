@@ -14,17 +14,17 @@ Describe -tag 'PSSailpoint' -name 'NonEmployeeLifecycleManagementApi' {
         }
     }
 
-    Context 'Invoke-DeleteSchemaAttribute' {
-        It 'Test Invoke-DeleteSchemaAttribute' {
-            #$TestResult = Invoke-DeleteSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE"
+    Context 'Remove-SchemaAttribute' {
+        It 'Test Remove-SchemaAttribute' {
+            #$TestResult = Remove-SchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-DeleteSchemaAttributes' {
-        It 'Test Invoke-DeleteSchemaAttributes' {
-            #$TestResult = Invoke-DeleteSchemaAttributes -SourceId "TEST_VALUE"
+    Context 'Remove-SchemaAttributes' {
+        It 'Test Remove-SchemaAttributes' {
+            #$TestResult = Remove-SchemaAttributes -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -254,9 +254,9 @@ Describe -tag 'PSSailpoint' -name 'NonEmployeeLifecycleManagementApi' {
         }
     }
 
-    Context 'Invoke-PatchSchemaAttribute' {
-        It 'Test Invoke-PatchSchemaAttribute' {
-            #$TestResult = Invoke-PatchSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-SchemaAttribute' {
+        It 'Test Update-SchemaAttribute' {
+            #$TestResult = Update-SchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

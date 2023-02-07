@@ -14,17 +14,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityProfilesApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteIdentityProfile' {
-        It 'Test Invoke-BetaDeleteIdentityProfile' {
-            #$TestResult = Invoke-BetaDeleteIdentityProfile -IdentityProfileId "TEST_VALUE"
+    Context 'Remove-BetaIdentityProfile' {
+        It 'Test Remove-BetaIdentityProfile' {
+            #$TestResult = Remove-BetaIdentityProfile -IdentityProfileId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaDeleteIdentityProfiles' {
-        It 'Test Invoke-BetaDeleteIdentityProfiles' {
-            #$TestResult = Invoke-BetaDeleteIdentityProfiles -RequestBody "TEST_VALUE"
+    Context 'Remove-BetaIdentityProfiles' {
+        It 'Test Remove-BetaIdentityProfiles' {
+            #$TestResult = Remove-BetaIdentityProfiles -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -70,9 +70,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityProfilesApi' {
         }
     }
 
-    Context 'Invoke-BetaListIdentityProfiles' {
-        It 'Test Invoke-BetaListIdentityProfiles' {
-            #$TestResult = Invoke-BetaListIdentityProfiles -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaIdentityProfiles' {
+        It 'Test Get-BetaIdentityProfiles' {
+            #$TestResult = Get-BetaIdentityProfiles -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

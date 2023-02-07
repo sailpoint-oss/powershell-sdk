@@ -70,9 +70,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaWorkItemsApi' {
         }
     }
 
-    Context 'Invoke-BetaListWorkItems' {
-        It 'Test Invoke-BetaListWorkItems' {
-            #$TestResult = Invoke-BetaListWorkItems -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -OwnerId "TEST_VALUE"
+    Context 'Get-BetaWorkItems' {
+        It 'Test Get-BetaWorkItems' {
+            #$TestResult = Get-BetaWorkItems -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

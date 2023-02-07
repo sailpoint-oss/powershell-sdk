@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the filter aggregate to be included in the result. | 
-**Type** | [**FilterType1**](FilterType1.md) |  | [optional] 
+**Type** | [**SearchFilterType**](SearchFilterType.md) |  | [optional] 
 **Field** | **String** | The search field to apply the filter to.  Prefix the field name with &#39;@&#39; to reference a nested object.  | 
 **Value** | **String** | The value to filter on. | 
 

@@ -86,6 +86,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIRoleMiningApi' {
         }
     }
 
+    Context 'Get-BetaPotentialRole' {
+        It 'Test Get-BetaPotentialRole' {
+            #$TestResult = Get-BetaPotentialRole -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaPotentialRoleApplications' {
         It 'Test Get-BetaPotentialRoleApplications' {
             #$TestResult = Get-BetaPotentialRoleApplications -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
@@ -96,15 +104,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIRoleMiningApi' {
 
     Context 'Get-BetaPotentialRoleSummaries' {
         It 'Test Get-BetaPotentialRoleSummaries' {
-            #$TestResult = Get-BetaPotentialRoleSummaries -SessionId "TEST_VALUE" -Sorters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-BetaPotentialRoleSummary' {
-        It 'Test Get-BetaPotentialRoleSummary' {
-            #$TestResult = Get-BetaPotentialRoleSummary -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE"
+            #$TestResult = Get-BetaPotentialRoleSummaries -SessionId "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -134,9 +134,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIRoleMiningApi' {
         }
     }
 
-    Context 'Invoke-BetaPatchRoleMiningSession' {
-        It 'Test Invoke-BetaPatchRoleMiningSession' {
-            #$TestResult = Invoke-BetaPatchRoleMiningSession -SessionId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaPotentialRole' {
+        It 'Test Update-BetaPotentialRole' {
+            #$TestResult = Update-BetaPotentialRole -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -PatchPotentialRoleRequestInner "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaRoleMiningSession' {
+        It 'Test Update-BetaRoleMiningSession' {
+            #$TestResult = Update-BetaRoleMiningSession -SessionId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

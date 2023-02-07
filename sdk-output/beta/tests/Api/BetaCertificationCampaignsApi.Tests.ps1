@@ -46,25 +46,25 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteCampaignTemplate' {
-        It 'Test Invoke-BetaDeleteCampaignTemplate' {
-            #$TestResult = Invoke-BetaDeleteCampaignTemplate -Id "TEST_VALUE"
+    Context 'Remove-BetaCampaignTemplate' {
+        It 'Test Remove-BetaCampaignTemplate' {
+            #$TestResult = Remove-BetaCampaignTemplate -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaDeleteCampaignTemplateSchedule' {
-        It 'Test Invoke-BetaDeleteCampaignTemplateSchedule' {
-            #$TestResult = Invoke-BetaDeleteCampaignTemplateSchedule -Id "TEST_VALUE"
+    Context 'Remove-BetaCampaignTemplateSchedule' {
+        It 'Test Remove-BetaCampaignTemplateSchedule' {
+            #$TestResult = Remove-BetaCampaignTemplateSchedule -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaDeleteCampaigns' {
-        It 'Test Invoke-BetaDeleteCampaigns' {
-            #$TestResult = Invoke-BetaDeleteCampaigns -DeleteCampaignsRequest "TEST_VALUE"
+    Context 'Remove-BetaCampaigns' {
+        It 'Test Remove-BetaCampaigns' {
+            #$TestResult = Remove-BetaCampaigns -DeleteCampaignsRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -126,33 +126,33 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
         }
     }
 
-    Context 'Invoke-BetaListCampaignTemplates' {
-        It 'Test Invoke-BetaListCampaignTemplates' {
-            #$TestResult = Invoke-BetaListCampaignTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaCampaignTemplates' {
+        It 'Test Get-BetaCampaignTemplates' {
+            #$TestResult = Get-BetaCampaignTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchCampaignTemplate' {
-        It 'Test Invoke-BetaPatchCampaignTemplate' {
-            #$TestResult = Invoke-BetaPatchCampaignTemplate -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+    Context 'Update-BetaCampaignTemplate' {
+        It 'Test Update-BetaCampaignTemplate' {
+            #$TestResult = Update-BetaCampaignTemplate -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaRunCampaignRemediationScan' {
-        It 'Test Invoke-BetaRunCampaignRemediationScan' {
-            #$TestResult = Invoke-BetaRunCampaignRemediationScan -Id "TEST_VALUE"
+    Context 'Start-BetaCampaignRemediationScan' {
+        It 'Test Start-BetaCampaignRemediationScan' {
+            #$TestResult = Start-BetaCampaignRemediationScan -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaRunCampaignReport' {
-        It 'Test Invoke-BetaRunCampaignReport' {
-            #$TestResult = Invoke-BetaRunCampaignReport -Id "TEST_VALUE" -Type "TEST_VALUE"
+    Context 'Start-BetaCampaignReport' {
+        It 'Test Start-BetaCampaignReport' {
+            #$TestResult = Start-BetaCampaignReport -Id "TEST_VALUE" -Type "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

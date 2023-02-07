@@ -14,12 +14,13 @@ Method | HTTP request | Description
 [**Get-BetaEntitlementsPotentialRole**](BetaIAIRoleMiningApi.md#Get-BetaEntitlementsPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities | Retrieves entitlements for a potential role in a role mining session
 [**Get-BetaExcludedEntitlementsPotentialRole**](BetaIAIRoleMiningApi.md#Get-BetaExcludedEntitlementsPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements | Retrieves excluded entitlements for a potential role in a role mining session
 [**Get-BetaIdentitiesPotentialRole**](BetaIAIRoleMiningApi.md#Get-BetaIdentitiesPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities | Retrieves identities for a potential role in a role mining session
+[**Get-BetaPotentialRole**](BetaIAIRoleMiningApi.md#Get-BetaPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Retrieves a specific potential role
 [**Get-BetaPotentialRoleApplications**](BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleApplications) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications | Retrieves the applications of a potential role for a role mining session
-[**Get-BetaPotentialRoleSummaries**](BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleSummaries) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries | Retrieves the potential role summaries for a role mining session
-[**Get-BetaPotentialRoleSummary**](BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleSummary) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Retrieves a specific potential role for a role mining session
+[**Get-BetaPotentialRoleSummaries**](BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleSummaries) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries | Retrieves all potential role summaries
 [**Get-BetaRoleMiningSession**](BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSession) | **GET** /role-mining-sessions/{sessionId} | Get a role mining session
 [**Get-BetaRoleMiningSessionStatus**](BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessionStatus) | **GET** /role-mining-sessions/{sessionId}/status | Get role mining session status state
 [**Get-BetaRoleMiningSessions**](BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
+[**Update-BetaPotentialRole**](BetaIAIRoleMiningApi.md#Update-BetaPotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role
 [**Update-BetaRoleMiningSession**](BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 [**Invoke-BetaRoleMiningSessions**](BetaIAIRoleMiningApi.md#Invoke-BetaRoleMiningSessions) | **POST** /role-mining-sessions | Create a role mining session
 
@@ -636,6 +637,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Get-BetaPotentialRole"></a>
+# **Get-BetaPotentialRole**
+> RoleMiningPotentialRole Get-BetaPotentialRole<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
+
+Retrieves a specific potential role
+
+This method returns a specific potential role for a role mining session.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
+$PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
+
+# Retrieves a specific potential role
+try {
+    $Result = Get-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaPotentialRole: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SessionId** | **String**| The role mining session id | 
+ **PotentialRoleId** | **String**| A potential role id in a role mining session | 
+
+### Return type
+
+[**RoleMiningPotentialRole**](RoleMiningPotentialRole.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Get-BetaPotentialRoleApplications"></a>
 # **Get-BetaPotentialRoleApplications**
 > RoleMiningPotentialRoleApplication[] Get-BetaPotentialRoleApplications<br>
@@ -704,11 +759,12 @@ Name | Type | Description  | Notes
 > RoleMiningPotentialRoleSummary[] Get-BetaPotentialRoleSummaries<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 
-Retrieves the potential role summaries for a role mining session
+Retrieves all potential role summaries
 
 This method returns the potential role summaries for a role mining session.
 
@@ -723,14 +779,15 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
-$Sorters = "MySorters" # String | sort by identityCount, density, freshness or quality (optional)
+$Sorters = "createdDate" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **createdDate** (optional)
+$Filters = "(createdByName co "int")and (createdById sw "2c9180907")and (type eq "COMMON")and ((name co "entt")or (saved eq true))" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Filtering is supported for the following fields and operators: **createdById**: *eq, sw, co* **createdByName**: *eq, sw, co* **description**: *sw, co* **endDate**: *le, lt* **freshness**: *eq, ge, gt, le, lt* **name**: *eq, sw, co* **quality**: *eq, ge, gt, le, lt* **startDate**: *ge, gt* **saved**: *eq* **type**: *eq* (optional)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Retrieves the potential role summaries for a role mining session
+# Retrieves all potential role summaries
 try {
-    $Result = Get-BetaPotentialRoleSummaries -SessionId $SessionId -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count
+    $Result = Get-BetaPotentialRoleSummaries -SessionId $SessionId -Sorters $Sorters -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count
 } catch {
     Write-Host ("Exception occurred when calling Get-BetaPotentialRoleSummaries: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -742,7 +799,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SessionId** | **String**| The role mining session id | 
- **Sorters** | **String**| sort by identityCount, density, freshness or quality | [optional] 
+ **Sorters** | **String**| Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **createdDate** | [optional] 
+ **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Filtering is supported for the following fields and operators: **createdById**: *eq, sw, co* **createdByName**: *eq, sw, co* **description**: *sw, co* **endDate**: *le, lt* **freshness**: *eq, ge, gt, le, lt* **name**: *eq, sw, co* **quality**: *eq, ge, gt, le, lt* **startDate**: *ge, gt* **saved**: *eq* **type**: *eq* | [optional] 
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
@@ -750,60 +808,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RoleMiningPotentialRoleSummary[]**](RoleMiningPotentialRoleSummary.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Get-BetaPotentialRoleSummary"></a>
-# **Get-BetaPotentialRoleSummary**
-> RoleMiningPotentialRoleSummaryDistribution Get-BetaPotentialRoleSummary<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
-
-Retrieves a specific potential role for a role mining session
-
-This method returns a specific potential role for a role mining session.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
-$PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
-
-# Retrieves a specific potential role for a role mining session
-try {
-    $Result = Get-BetaPotentialRoleSummary -SessionId $SessionId -PotentialRoleId $PotentialRoleId
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaPotentialRoleSummary: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SessionId** | **String**| The role mining session id | 
- **PotentialRoleId** | **String**| A potential role id in a role mining session | 
-
-### Return type
-
-[**RoleMiningPotentialRoleSummaryDistribution**](RoleMiningPotentialRoleSummaryDistribution.md) (PSCustomObject)
 
 ### Authorization
 
@@ -977,6 +981,64 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Update-BetaPotentialRole"></a>
+# **Update-BetaPotentialRole**
+> SystemCollectionsHashtable Update-BetaPotentialRole<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchPotentialRoleRequestInner] <PSCustomObject[]><br>
+
+Update a potential role
+
+The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields can not be modified.** 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
+$PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
+$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
+$PatchPotentialRoleRequestInner = Initialize-PatchPotentialRoleRequestInner -Op "remove" -Path "/description" -Value $JsonPatchOperationValue # PatchPotentialRoleRequestInner[] | 
+
+# Update a potential role
+try {
+    $Result = Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $PatchPotentialRoleRequestInner
+} catch {
+    Write-Host ("Exception occurred when calling Update-BetaPotentialRole: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SessionId** | **String**| The role mining session id | 
+ **PotentialRoleId** | **String**| The potential role summary id | 
+ **PatchPotentialRoleRequestInner** | [**PatchPotentialRoleRequestInner[]**](PatchPotentialRoleRequestInner.md)|  | 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

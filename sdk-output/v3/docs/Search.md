@@ -3,29 +3,41 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Public** | **Boolean** | Indicates if the saved search is public.  | [optional] [default to $false]
-**Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Indices** | [**Index[]**](Index.md) | The names of the Elasticsearch indices in which to search.  | 
-**Columns** | [**System.Collections.Hashtable**](Array.md) | The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_.  | [optional] 
-**Query** | **String** | The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL.  | 
-**Fields** | **String[]** | The fields to be searched against in a multi-field query.  | [optional] 
-**Sort** | **String[]** | The fields to be used to sort the search results.  | [optional] 
-**Filters** | [**SearchFilters**](SearchFilters.md) |  | [optional] 
+**Indices** | [**Index[]**](Index.md) | The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched. | [optional] 
+**QueryType** | [**QueryType**](QueryType.md) |  | [optional] 
+**QueryVersion** | **String** |  | [optional] 
+**Query** | [**Query**](Query.md) |  | [optional] 
+**QueryDsl** | [**SystemCollectionsHashtable**](.md) | The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax. | [optional] 
+**TypeAheadQuery** | [**TypeAheadQuery**](TypeAheadQuery.md) |  | [optional] 
+**IncludeNested** | **Boolean** | Indicates whether nested objects from returned search results should be included. | [optional] [default to $true]
+**QueryResultFilter** | [**QueryResultFilter**](QueryResultFilter.md) |  | [optional] 
+**AggregationType** | [**AggregationType**](AggregationType.md) |  | [optional] 
+**AggregationsVersion** | **String** |  | [optional] 
+**AggregationsDsl** | [**SystemCollectionsHashtable**](.md) | The aggregation search query using Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) syntax. | [optional] 
+**Aggregations** | [**SearchAggregationSpecification**](SearchAggregationSpecification.md) |  | [optional] 
+**Sort** | **String[]** | The fields to be used to sort the search results. Use + or - to specify the sort direction. | [optional] 
+**SearchAfter** | **String[]** | Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set. This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value. It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don&#39;t get duplicate results while paging. For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example [&quot;&quot;displayName&quot;&quot;, &quot;&quot;id&quot;&quot;].  If the last identity ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last displayName is &quot;&quot;John Doe&quot;&quot;, then using that displayName and ID will start a new search after this identity. The searchAfter value will look like [&quot;&quot;John Doe&quot;&quot;,&quot;&quot;2c91808375d8e80a0175e1f88a575221&quot;&quot;] | [optional] 
+**Filters** | [**System.Collections.Hashtable**](ModelFilter.md) | The filters to be applied for each filtered field name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Search = Initialize-PSSailpointSearch  -Public false `
- -Created 2018-06-25T20:22:28.104Z `
- -Modified 2018-06-25T20:22:28.104Z `
- -Indices [identities] `
- -Columns {identity&#x3D;[{field&#x3D;displayName, header&#x3D;Display Name}, {field&#x3D;e-mail, header&#x3D;Work Email}]} `
- -Query @accounts(disabled:true) `
- -Fields [disabled] `
- -Sort [displayName] `
- -Filters null
+$Search = Initialize-PSSailpointSearch  -Indices [identities] `
+ -QueryType null `
+ -QueryVersion null `
+ -Query null `
+ -QueryDsl {match&#x3D;{name&#x3D;john.doe}} `
+ -TypeAheadQuery null `
+ -IncludeNested true `
+ -QueryResultFilter null `
+ -AggregationType null `
+ -AggregationsVersion null `
+ -AggregationsDsl {} `
+ -Aggregations null `
+ -Sort null `
+ -SearchAfter null `
+ -Filters {}
 ```
 
 - Convert the resource to JSON

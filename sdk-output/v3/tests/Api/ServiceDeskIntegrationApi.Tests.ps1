@@ -14,9 +14,9 @@ Describe -tag 'PSSailpoint' -name 'ServiceDeskIntegrationApi' {
         }
     }
 
-    Context 'Invoke-DeleteServiceDeskIntegration' {
-        It 'Test Invoke-DeleteServiceDeskIntegration' {
-            #$TestResult = Invoke-DeleteServiceDeskIntegration -Id "TEST_VALUE"
+    Context 'Remove-ServiceDeskIntegration' {
+        It 'Test Remove-ServiceDeskIntegration' {
+            #$TestResult = Remove-ServiceDeskIntegration -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -62,9 +62,9 @@ Describe -tag 'PSSailpoint' -name 'ServiceDeskIntegrationApi' {
         }
     }
 
-    Context 'Invoke-PatchServiceDeskIntegration' {
-        It 'Test Invoke-PatchServiceDeskIntegration' {
-            #$TestResult = Invoke-PatchServiceDeskIntegration -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
+    Context 'Update-ServiceDeskIntegration' {
+        It 'Test Update-ServiceDeskIntegration' {
+            #$TestResult = Update-ServiceDeskIntegration -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

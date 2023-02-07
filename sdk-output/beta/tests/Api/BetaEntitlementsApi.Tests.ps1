@@ -22,33 +22,33 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
         }
     }
 
-    Context 'Invoke-BetaListEntitlementParents' {
-        It 'Test Invoke-BetaListEntitlementParents' {
-            #$TestResult = Invoke-BetaListEntitlementParents -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaEntitlementParents' {
+        It 'Test Get-BetaEntitlementParents' {
+            #$TestResult = Get-BetaEntitlementParents -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListEntitlementchildren' {
-        It 'Test Invoke-BetaListEntitlementchildren' {
-            #$TestResult = Invoke-BetaListEntitlementchildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaEntitlementchildren' {
+        It 'Test Get-BetaEntitlementchildren' {
+            #$TestResult = Get-BetaEntitlementchildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListEntitlements' {
-        It 'Test Invoke-BetaListEntitlements' {
-            #$TestResult = Invoke-BetaListEntitlements -AccountId "TEST_VALUE" -SegmentedForIdentity "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaEntitlements' {
+        It 'Test Get-BetaEntitlements' {
+            #$TestResult = Get-BetaEntitlements -AccountId "TEST_VALUE" -SegmentedForIdentity "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchEntitlement' {
-        It 'Test Invoke-BetaPatchEntitlement' {
-            #$TestResult = Invoke-BetaPatchEntitlement -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaEntitlement' {
+        It 'Test Update-BetaEntitlement' {
+            #$TestResult = Update-BetaEntitlement -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -14,9 +14,9 @@ Describe -tag 'PSSailpoint' -name 'AccountsApi' {
         }
     }
 
-    Context 'Invoke-DeleteAccount' {
-        It 'Test Invoke-DeleteAccount' {
-            #$TestResult = Invoke-DeleteAccount -Id "TEST_VALUE"
+    Context 'Remove-Account' {
+        It 'Test Remove-Account' {
+            #$TestResult = Remove-Account -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -54,9 +54,9 @@ Describe -tag 'PSSailpoint' -name 'AccountsApi' {
         }
     }
 
-    Context 'Invoke-ListAccounts' {
-        It 'Test Invoke-ListAccounts' {
-            #$TestResult = Invoke-ListAccounts -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-Accounts' {
+        It 'Test Get-Accounts' {
+            #$TestResult = Get-Accounts -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

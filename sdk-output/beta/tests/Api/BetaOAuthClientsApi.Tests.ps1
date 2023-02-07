@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaOAuthClientsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteOauthClient' {
-        It 'Test Invoke-BetaDeleteOauthClient' {
-            #$TestResult = Invoke-BetaDeleteOauthClient -Id "TEST_VALUE"
+    Context 'Remove-BetaOauthClient' {
+        It 'Test Remove-BetaOauthClient' {
+            #$TestResult = Remove-BetaOauthClient -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -30,17 +30,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaOAuthClientsApi' {
         }
     }
 
-    Context 'Invoke-BetaListOauthClients' {
-        It 'Test Invoke-BetaListOauthClients' {
-            #$TestResult = Invoke-BetaListOauthClients
+    Context 'Get-BetaOauthClients' {
+        It 'Test Get-BetaOauthClients' {
+            #$TestResult = Get-BetaOauthClients
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchOauthClient' {
-        It 'Test Invoke-BetaPatchOauthClient' {
-            #$TestResult = Invoke-BetaPatchOauthClient -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaOauthClient' {
+        It 'Test Update-BetaOauthClient' {
+            #$TestResult = Update-BetaOauthClient -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

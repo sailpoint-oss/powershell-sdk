@@ -14,7 +14,7 @@ Perform a Search Query Aggregation
 
 No description available.
 
-.PARAMETER Search1
+.PARAMETER Search
 No description available.
 
 .PARAMETER Offset
@@ -43,7 +43,7 @@ function Search-Aggregate {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Search1},
+        ${Search},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
@@ -99,11 +99,11 @@ function Search-Aggregate {
             $LocalVarQueryParameters['count'] = $Count
         }
 
-        if (!$Search1) {
-            throw "Error! The required parameter `Search1` missing when calling searchAggregate."
+        if (!$Search) {
+            throw "Error! The required parameter `Search` missing when calling searchAggregate."
         }
 
-        $LocalVarBodyParameter = $Search1 | ForEach-Object {
+        $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -143,7 +143,7 @@ Count Documents Satisfying a Query
 
 No description available.
 
-.PARAMETER Search1
+.PARAMETER Search
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -159,7 +159,7 @@ function Search-Count {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Search1},
+        ${Search},
         [Switch]
         $WithHttpInfo
     )
@@ -186,11 +186,11 @@ function Search-Count {
 
         $LocalVarUri = '/search/count'
 
-        if (!$Search1) {
-            throw "Error! The required parameter `Search1` missing when calling searchCount."
+        if (!$Search) {
+            throw "Error! The required parameter `Search` missing when calling searchCount."
         }
 
-        $LocalVarBodyParameter = $Search1 | ForEach-Object {
+        $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -318,7 +318,7 @@ Perform Search
 
 No description available.
 
-.PARAMETER Search1
+.PARAMETER Search
 No description available.
 
 .PARAMETER Offset
@@ -343,7 +343,7 @@ function Search-Post {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Search1},
+        ${Search},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
@@ -391,11 +391,11 @@ function Search-Post {
             $LocalVarQueryParameters['count'] = $Count
         }
 
-        if (!$Search1) {
-            throw "Error! The required parameter `Search1` missing when calling searchPost."
+        if (!$Search) {
+            throw "Error! The required parameter `Search` missing when calling searchPost."
         }
 
-        $LocalVarBodyParameter = $Search1 | ForEach-Object {
+        $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

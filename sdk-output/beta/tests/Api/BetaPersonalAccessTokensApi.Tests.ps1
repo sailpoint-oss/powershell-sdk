@@ -14,25 +14,25 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaPersonalAccessTokensApi' {
         }
     }
 
-    Context 'Invoke-BetaDeletePersonalAccessToken' {
-        It 'Test Invoke-BetaDeletePersonalAccessToken' {
-            #$TestResult = Invoke-BetaDeletePersonalAccessToken -Id "TEST_VALUE"
+    Context 'Remove-BetaPersonalAccessToken' {
+        It 'Test Remove-BetaPersonalAccessToken' {
+            #$TestResult = Remove-BetaPersonalAccessToken -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListPersonalAccessTokens' {
-        It 'Test Invoke-BetaListPersonalAccessTokens' {
-            #$TestResult = Invoke-BetaListPersonalAccessTokens -OwnerId "TEST_VALUE"
+    Context 'Get-BetaPersonalAccessTokens' {
+        It 'Test Get-BetaPersonalAccessTokens' {
+            #$TestResult = Get-BetaPersonalAccessTokens -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaPatchPersonalAccessToken' {
-        It 'Test Invoke-BetaPatchPersonalAccessToken' {
-            #$TestResult = Invoke-BetaPatchPersonalAccessToken -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-BetaPersonalAccessToken' {
+        It 'Test Update-BetaPersonalAccessToken' {
+            #$TestResult = Update-BetaPersonalAccessToken -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

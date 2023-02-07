@@ -14,9 +14,9 @@ Describe -tag 'PSSailpoint' -name 'TransformsApi' {
         }
     }
 
-    Context 'Invoke-DeleteTransform' {
-        It 'Test Invoke-DeleteTransform' {
-            #$TestResult = Invoke-DeleteTransform -Id "TEST_VALUE"
+    Context 'Remove-Transform' {
+        It 'Test Remove-Transform' {
+            #$TestResult = Remove-Transform -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

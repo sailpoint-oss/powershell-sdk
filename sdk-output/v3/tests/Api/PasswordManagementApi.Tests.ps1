@@ -14,9 +14,9 @@ Describe -tag 'PSSailpoint' -name 'PasswordManagementApi' {
         }
     }
 
-    Context 'Invoke-QueryPasswordInfo' {
-        It 'Test Invoke-QueryPasswordInfo' {
-            #$TestResult = Invoke-QueryPasswordInfo -PasswordInfoQueryDTO "TEST_VALUE"
+    Context 'Search-PasswordInfo' {
+        It 'Test Search-PasswordInfo' {
+            #$TestResult = Search-PasswordInfo -PasswordInfoQueryDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

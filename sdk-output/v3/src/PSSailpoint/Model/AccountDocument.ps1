@@ -15,9 +15,9 @@ No summary available.
 Account
 
 .PARAMETER Id
-No description available.
+The unique ID of the referenced object.
 .PARAMETER Name
-No description available.
+The human readable name of the referenced object.
 .PARAMETER Type
 No description available.
 .PARAMETER AccountId

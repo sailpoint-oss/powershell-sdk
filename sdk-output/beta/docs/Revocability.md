@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalSchemes** | [**ApprovalScheme[]**](ApprovalScheme.md) | List describing the steps in approving the revocation request | [optional] 
+**ApprovalSchemes** | [**AccessProfileApprovalScheme[]**](AccessProfileApprovalScheme.md) | List describing the steps in approving the revocation request | [optional] 
 
 ## Examples
 

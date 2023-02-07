@@ -3,30 +3,42 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreateDate** | **String[]** | The creation date for a potential role | [optional] 
+**CreatedBy** | [**EntityCreatedByDTO**](EntityCreatedByDTO.md) |  | [optional] 
+**Density** | **Int32** | The density of a potential role. | [optional] 
+**Description** | **String** | The description of a potential role. | [optional] 
 **EntitlementCount** | **Int32** | The number of entitlements in a potential role. | [optional] 
 **ExcludedEntitlements** | **String[]** | The list of entitlement ids to be excluded. | [optional] 
-**Id** | **String** | Id of the potential role | [optional] 
+**Freshness** | **Int32** | The freshness of a potential role. | [optional] 
 **IdentityCount** | **Int32** | The number of identities in a potential role. | [optional] 
-**IdentityDistribution** | [**RoleMiningIdentityDistribution[]**](RoleMiningIdentityDistribution.md) | Identity attribute distribution | [optional] 
+**IdentityDistribution** | [**RoleMiningIdentityDistribution[]**](RoleMiningIdentityDistribution.md) | Identity attribute distribution. | [optional] 
 **IdentityIds** | **String[]** | The list of ids in a potential role. | [optional] 
-**ModifiedDate** | **String[]** | The modified date for a potential role | [optional] 
-**Name** | **String** | Name of the potential role | [optional] 
+**Name** | **String** | Name of the potential role. | [optional] 
+**ProvisionState** | [**RoleMiningPotentialRoleProvisionState**](RoleMiningPotentialRoleProvisionState.md) |  | [optional] 
+**Quality** | **Int32** | The quality of a potential role. | [optional] 
+**RoleId** | **String** | The roleId of a potential role. | [optional] 
+**Saved** | **Boolean** | The potential role&#39;s saved status. | [optional] 
+**Session** | [**RoleMiningSessionParametersDto**](RoleMiningSessionParametersDto.md) |  | [optional] 
 **Type** | [**RoleMiningRoleType**](RoleMiningRoleType.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRole = Initialize-PSSailpointBetaRoleMiningPotentialRole  -CreateDate null `
+$RoleMiningPotentialRole = Initialize-PSSailpointBetaRoleMiningPotentialRole  -CreatedBy null `
+ -Density 75 `
+ -Description Potential Role for Accounting dept `
  -EntitlementCount 25 `
- -ExcludedEntitlements null `
- -Id null `
+ -ExcludedEntitlements [07a0b4e2, 13b4e2a0] `
+ -Freshness 75 `
  -IdentityCount 25 `
  -IdentityDistribution null `
- -IdentityIds null `
- -ModifiedDate null `
- -Name null `
+ -IdentityIds [07a0b4e2, 13b4e2a0] `
+ -Name Saved Potential Role - 07/10 `
+ -ProvisionState null `
+ -Quality 100 `
+ -RoleId 07a0b4e2-7a76-44fa-bd0b-c64654b66519 `
+ -Saved true `
+ -Session null `
  -Type null
 ```
 

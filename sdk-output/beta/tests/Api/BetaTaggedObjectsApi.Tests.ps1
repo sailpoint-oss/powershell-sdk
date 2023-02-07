@@ -22,9 +22,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
         }
     }
 
-    Context 'Invoke-BetaDeleteTaggedObjectByTypeAndId' {
-        It 'Test Invoke-BetaDeleteTaggedObjectByTypeAndId' {
-            #$TestResult = Invoke-BetaDeleteTaggedObjectByTypeAndId -Type "TEST_VALUE" -Id "TEST_VALUE"
+    Context 'Remove-BetaTaggedObjectByTypeAndId' {
+        It 'Test Remove-BetaTaggedObjectByTypeAndId' {
+            #$TestResult = Remove-BetaTaggedObjectByTypeAndId -Type "TEST_VALUE" -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,17 +38,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
         }
     }
 
-    Context 'Invoke-BetaListTaggedObjects' {
-        It 'Test Invoke-BetaListTaggedObjects' {
-            #$TestResult = Invoke-BetaListTaggedObjects -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaTaggedObjects' {
+        It 'Test Get-BetaTaggedObjects' {
+            #$TestResult = Get-BetaTaggedObjects -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaListTaggedObjectsByType' {
-        It 'Test Invoke-BetaListTaggedObjectsByType' {
-            #$TestResult = Invoke-BetaListTaggedObjectsByType -Type "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaTaggedObjectsByType' {
+        It 'Test Get-BetaTaggedObjectsByType' {
+            #$TestResult = Get-BetaTaggedObjectsByType -Type "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

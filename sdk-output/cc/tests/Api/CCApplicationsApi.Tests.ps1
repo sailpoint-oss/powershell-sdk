@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointCC' -name 'CCCCApplicationsApi' {
         }
     }
 
-    Context 'Invoke-CCDeleteApplication' {
-        It 'Test Invoke-CCDeleteApplication' {
-            #$TestResult = Invoke-CCDeleteApplication -Id "TEST_VALUE"
+    Context 'Remove-CCApplication' {
+        It 'Test Remove-CCApplication' {
+            #$TestResult = Remove-CCApplication -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,9 +38,9 @@ Describe -tag 'PSSailpointCC' -name 'CCCCApplicationsApi' {
         }
     }
 
-    Context 'Invoke-CCListApplications' {
-        It 'Test Invoke-CCListApplications' {
-            #$TestResult = Invoke-CCListApplications
+    Context 'Get-CCApplications' {
+        It 'Test Get-CCApplications' {
+            #$TestResult = Get-CCApplications
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

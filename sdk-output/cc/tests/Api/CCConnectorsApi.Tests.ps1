@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointCC' -name 'CCCCConnectorsApi' {
         }
     }
 
-    Context 'Invoke-CCDeleteConnector' {
-        It 'Test Invoke-CCDeleteConnector' {
-            #$TestResult = Invoke-CCDeleteConnector -Id "TEST_VALUE"
+    Context 'Remove-CCConnector' {
+        It 'Test Remove-CCConnector' {
+            #$TestResult = Remove-CCConnector -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,9 +38,9 @@ Describe -tag 'PSSailpointCC' -name 'CCCCConnectorsApi' {
         }
     }
 
-    Context 'Invoke-CCListConnectors' {
-        It 'Test Invoke-CCListConnectors' {
-            #$TestResult = Invoke-CCListConnectors
+    Context 'Get-CCConnectors' {
+        It 'Test Get-CCConnectors' {
+            #$TestResult = Get-CCConnectors
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

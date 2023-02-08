@@ -22,9 +22,9 @@ Describe -tag 'PSSailpointV2' -name 'V2V2GovernanceGroupsApi' {
         }
     }
 
-    Context 'Invoke-V2DeleteWorkgroup' {
-        It 'Test Invoke-V2DeleteWorkgroup' {
-            #$TestResult = Invoke-V2DeleteWorkgroup -WorkgroupId "TEST_VALUE"
+    Context 'Remove-V2Workgroup' {
+        It 'Test Remove-V2Workgroup' {
+            #$TestResult = Remove-V2Workgroup -WorkgroupId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,25 +38,25 @@ Describe -tag 'PSSailpointV2' -name 'V2V2GovernanceGroupsApi' {
         }
     }
 
-    Context 'Invoke-V2ListWorkgroupConnections' {
-        It 'Test Invoke-V2ListWorkgroupConnections' {
-            #$TestResult = Invoke-V2ListWorkgroupConnections -WorkgroupId "TEST_VALUE"
+    Context 'Get-V2WorkgroupConnections' {
+        It 'Test Get-V2WorkgroupConnections' {
+            #$TestResult = Get-V2WorkgroupConnections -WorkgroupId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-V2ListWorkgroupMembers' {
-        It 'Test Invoke-V2ListWorkgroupMembers' {
-            #$TestResult = Invoke-V2ListWorkgroupMembers -WorkgroupId "TEST_VALUE"
+    Context 'Get-V2WorkgroupMembers' {
+        It 'Test Get-V2WorkgroupMembers' {
+            #$TestResult = Get-V2WorkgroupMembers -WorkgroupId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-V2ListWorkgroups' {
-        It 'Test Invoke-V2ListWorkgroups' {
-            #$TestResult = Invoke-V2ListWorkgroups
+    Context 'Get-V2Workgroups' {
+        It 'Test Get-V2Workgroups' {
+            #$TestResult = Get-V2Workgroups -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

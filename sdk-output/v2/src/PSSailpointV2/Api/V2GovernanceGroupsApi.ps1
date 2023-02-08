@@ -416,6 +416,15 @@ No description available.
 .PARAMETER WorkgroupId
 The workgroup ID
 
+.PARAMETER Limit
+Max number of results to return
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results.
+
+.PARAMETER Filters
+Filter results using the following syntax. [{property:name, value: ""Tyler"", operation: EQ}]
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -430,6 +439,15 @@ function Get-V2WorkgroupMembers {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${WorkgroupId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -456,6 +474,18 @@ function Get-V2WorkgroupMembers {
             throw "Error! The required parameter `WorkgroupId` missing when calling listWorkgroupMembers."
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
 
 
 
@@ -488,6 +518,15 @@ List Work Groups
 
 No description available.
 
+.PARAMETER Limit
+Max number of results to return
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results.
+
+.PARAMETER Filters
+Filter results using the following syntax. [{property:name, value: ""Tyler"", operation: EQ}]
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -499,6 +538,15 @@ ListWorkgroups200ResponseInner[]
 function Get-V2Workgroups {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -521,6 +569,18 @@ function Get-V2Workgroups {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/workgroups'
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
 
 
 

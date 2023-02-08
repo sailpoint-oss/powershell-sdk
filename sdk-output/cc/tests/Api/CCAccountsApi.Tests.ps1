@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpointCC' -name 'CCCCAccountsApi' {
-    Context 'Invoke-CCListAccounts' {
-        It 'Test Invoke-CCListAccounts' {
-            #$TestResult = Invoke-CCListAccounts
+    Context 'Get-CCAccounts' {
+        It 'Test Get-CCAccounts' {
+            #$TestResult = Get-CCAccounts
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

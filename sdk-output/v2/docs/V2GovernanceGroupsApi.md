@@ -275,6 +275,9 @@ Name | Type | Description  | Notes
 # **Get-V2WorkgroupMembers**
 > ListWorkgroupMembers200ResponseInner[] Get-V2WorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 
 List Work Group Members
 
@@ -291,10 +294,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
+$Limit = 250 # Int32 | Max number of results to return (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. (optional) (default to 0)
+$Filters = "MyFilters" # String | Filter results using the following syntax. [{property:name, value: ""Tyler"", operation: EQ}] (optional)
 
 # List Work Group Members
 try {
-    $Result = Get-V2WorkgroupMembers -WorkgroupId $WorkgroupId
+    $Result = Get-V2WorkgroupMembers -WorkgroupId $WorkgroupId -Limit $Limit -Offset $Offset -Filters $Filters
 } catch {
     Write-Host ("Exception occurred when calling Get-V2WorkgroupMembers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -306,6 +312,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **WorkgroupId** | **String**| The workgroup ID | 
+ **Limit** | **Int32**| Max number of results to return | [optional] [default to 250]
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. | [optional] [default to 0]
+ **Filters** | **String**| Filter results using the following syntax. [{property:name, value: &quot;&quot;Tyler&quot;&quot;, operation: EQ}] | [optional] 
 
 ### Return type
 
@@ -325,6 +334,9 @@ Name | Type | Description  | Notes
 <a name="Get-V2Workgroups"></a>
 # **Get-V2Workgroups**
 > ListWorkgroups200ResponseInner[] Get-V2Workgroups<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 
 List Work Groups
 
@@ -340,10 +352,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
+$Limit = 250 # Int32 | Max number of results to return (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. (optional) (default to 0)
+$Filters = "MyFilters" # String | Filter results using the following syntax. [{property:name, value: ""Tyler"", operation: EQ}] (optional)
 
 # List Work Groups
 try {
-    $Result = Get-V2Workgroups
+    $Result = Get-V2Workgroups -Limit $Limit -Offset $Offset -Filters $Filters
 } catch {
     Write-Host ("Exception occurred when calling Get-V2Workgroups: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -351,7 +366,12 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Limit** | **Int32**| Max number of results to return | [optional] [default to 250]
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. | [optional] [default to 0]
+ **Filters** | **String**| Filter results using the following syntax. [{property:name, value: &quot;&quot;Tyler&quot;&quot;, operation: EQ}] | [optional] 
 
 ### Return type
 

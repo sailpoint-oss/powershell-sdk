@@ -36,10 +36,10 @@ Indicates if email generation should not be suppressed if search returns no resu
 Indicates if the generated email should include the query and search results preview (which could include PII). 
 .OUTPUTS
 
-ScheduledSearchCreateRequest<PSCustomObject>
+CreateScheduledSearchRequest<PSCustomObject>
 #>
 
-function Initialize-ScheduledSearchCreateRequest {
+function Initialize-CreateScheduledSearchRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -75,7 +75,7 @@ function Initialize-ScheduledSearchCreateRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => ScheduledSearchCreateRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => CreateScheduledSearchRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $SavedSearchId) {
@@ -112,11 +112,11 @@ function Initialize-ScheduledSearchCreateRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to ScheduledSearchCreateRequest<PSCustomObject>
+Convert from JSON to CreateScheduledSearchRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ScheduledSearchCreateRequest<PSCustomObject>
+Convert from JSON to CreateScheduledSearchRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -124,21 +124,21 @@ Json object
 
 .OUTPUTS
 
-ScheduledSearchCreateRequest<PSCustomObject>
+CreateScheduledSearchRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToScheduledSearchCreateRequest {
+function ConvertFrom-JsonToCreateScheduledSearchRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => ScheduledSearchCreateRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => CreateScheduledSearchRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in ScheduledSearchCreateRequest
+        # check if Json contains properties not defined in CreateScheduledSearchRequest
         $AllProperties = ("name", "description", "savedSearchId", "created", "modified", "schedule", "recipients", "enabled", "emailEmptyResults", "displayQueryDetails")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

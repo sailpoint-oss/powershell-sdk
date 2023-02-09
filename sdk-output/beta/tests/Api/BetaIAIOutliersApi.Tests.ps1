@@ -14,49 +14,49 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIOutliersApi' {
         }
     }
 
-    Context 'Get-BetaLatestOutlierSnapshots' {
-        It 'Test Get-BetaLatestOutlierSnapshots' {
-            #$TestResult = Get-BetaLatestOutlierSnapshots -Type "TEST_VALUE"
+    Context 'Get-BetaIdentityOutlierSnapshots' {
+        It 'Test Get-BetaIdentityOutlierSnapshots' {
+            #$TestResult = Get-BetaIdentityOutlierSnapshots -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Type "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaOutlierSnapshots' {
-        It 'Test Get-BetaOutlierSnapshots' {
-            #$TestResult = Get-BetaOutlierSnapshots -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Type "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaIdentityOutliers' {
+        It 'Test Get-BetaIdentityOutliers' {
+            #$TestResult = Get-BetaIdentityOutliers -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Type "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaOutliers' {
-        It 'Test Get-BetaOutliers' {
-            #$TestResult = Get-BetaOutliers -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Type "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaLatestIdentityOutlierSnapshots' {
+        It 'Test Get-BetaLatestIdentityOutlierSnapshots' {
+            #$TestResult = Get-BetaLatestIdentityOutlierSnapshots -Type "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaOutliersContributingFeatures' {
-        It 'Test Get-BetaOutliersContributingFeatures' {
-            #$TestResult = Get-BetaOutliersContributingFeatures -OutlierId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -IncludeTranslationMessages "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaPeerGroupOutliersContributingFeatures' {
+        It 'Test Get-BetaPeerGroupOutliersContributingFeatures' {
+            #$TestResult = Get-BetaPeerGroupOutliersContributingFeatures -OutlierId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -IncludeTranslationMessages "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaIgnoreOutliers' {
-        It 'Test Invoke-BetaIgnoreOutliers' {
-            #$TestResult = Invoke-BetaIgnoreOutliers -RequestBody "TEST_VALUE"
+    Context 'Invoke-BetaIgnoreIdentityOutliers' {
+        It 'Test Invoke-BetaIgnoreIdentityOutliers' {
+            #$TestResult = Invoke-BetaIgnoreIdentityOutliers -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaUnIgnoreOutliers' {
-        It 'Test Invoke-BetaUnIgnoreOutliers' {
-            #$TestResult = Invoke-BetaUnIgnoreOutliers -RequestBody "TEST_VALUE"
+    Context 'Invoke-BetaUnIgnoreIdentityOutliers' {
+        It 'Test Invoke-BetaUnIgnoreIdentityOutliers' {
+            #$TestResult = Invoke-BetaUnIgnoreIdentityOutliers -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

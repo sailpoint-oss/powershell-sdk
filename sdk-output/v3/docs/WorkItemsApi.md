@@ -5,17 +5,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Approve-ApprovalItem**](WorkItemsApi.md#Approve-ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
-[**Invoke-BulkApproveApprovalItem**](WorkItemsApi.md#Invoke-BulkApproveApprovalItem) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
-[**Invoke-BulkRejectApprovalItem**](WorkItemsApi.md#Invoke-BulkRejectApprovalItem) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
+[**Approve-ApprovalItemsInBulk**](WorkItemsApi.md#Approve-ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 [**Complete-WorkItem**](WorkItemsApi.md#Complete-WorkItem) | **POST** /work-items/{id} | Complete a Work Item
-[**Complete-dWorkItems**](WorkItemsApi.md#Complete-dWorkItems) | **GET** /work-items/completed | Completed Work Items
-[**Invoke-CountCompletedWorkItems**](WorkItemsApi.md#Invoke-CountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
-[**Invoke-CountWorkItems**](WorkItemsApi.md#Invoke-CountWorkItems) | **GET** /work-items/count | Count Work Items
-[**Get-WorkItems**](WorkItemsApi.md#Get-WorkItems) | **GET** /work-items/{id} | Get a Work Item
+[**Get-CompletedWorkItems**](WorkItemsApi.md#Get-CompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
+[**Get-CountCompletedWorkItems**](WorkItemsApi.md#Get-CountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
+[**Get-CountWorkItems**](WorkItemsApi.md#Get-CountWorkItems) | **GET** /work-items/count | Count Work Items
+[**Get-WorkItem**](WorkItemsApi.md#Get-WorkItem) | **GET** /work-items/{id} | Get a Work Item
+[**Get-WorkItemsSummary**](WorkItemsApi.md#Get-WorkItemsSummary) | **GET** /work-items/summary | Work Items Summary
 [**Get-WorkItems**](WorkItemsApi.md#Get-WorkItems) | **GET** /work-items | List Work Items
 [**Deny-ApprovalItem**](WorkItemsApi.md#Deny-ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
+[**Deny-ApprovalItemsInBulk**](WorkItemsApi.md#Deny-ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
 [**Submit-AccountSelection**](WorkItemsApi.md#Submit-AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
-[**Invoke-SummaryWorkItems**](WorkItemsApi.md#Invoke-SummaryWorkItems) | **GET** /work-items/summary | Work Items Summary
 
 
 <a name="Approve-ApprovalItem"></a>
@@ -72,9 +72,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BulkApproveApprovalItem"></a>
-# **Invoke-BulkApproveApprovalItem**
-> WorkItems Invoke-BulkApproveApprovalItem<br>
+<a name="Approve-ApprovalItemsInBulk"></a>
+# **Approve-ApprovalItemsInBulk**
+> WorkItems Approve-ApprovalItemsInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Bulk approve Approval Items
@@ -95,60 +95,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
 # Bulk approve Approval Items
 try {
-    $Result = Invoke-BulkApproveApprovalItem -Id $Id
+    $Result = Approve-ApprovalItemsInBulk -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BulkApproveApprovalItem: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the work item | 
-
-### Return type
-
-[**WorkItems**](WorkItems.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-BulkRejectApprovalItem"></a>
-# **Invoke-BulkRejectApprovalItem**
-> WorkItems Invoke-BulkRejectApprovalItem<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-
-Bulk reject Approval Items
-
-This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-
-# Bulk reject Approval Items
-try {
-    $Result = Invoke-BulkRejectApprovalItem -Id $Id
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BulkRejectApprovalItem: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Approve-ApprovalItemsInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -225,9 +174,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Complete-dWorkItems"></a>
-# **Complete-dWorkItems**
-> WorkItems[] Complete-dWorkItems<br>
+<a name="Get-CompletedWorkItems"></a>
+# **Get-CompletedWorkItems**
+> WorkItems[] Get-CompletedWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -254,9 +203,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 # Completed Work Items
 try {
-    $Result = Complete-dWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count
+    $Result = Get-CompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count
 } catch {
-    Write-Host ("Exception occurred when calling Complete-dWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CompletedWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -285,9 +234,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-CountCompletedWorkItems"></a>
-# **Invoke-CountCompletedWorkItems**
-> WorkItemsCount Invoke-CountCompletedWorkItems<br>
+<a name="Get-CountCompletedWorkItems"></a>
+# **Get-CountCompletedWorkItems**
+> WorkItemsCount Get-CountCompletedWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 
 Count Completed Work Items
@@ -308,9 +257,9 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item own
 
 # Count Completed Work Items
 try {
-    $Result = Invoke-CountCompletedWorkItems -OwnerId $OwnerId
+    $Result = Get-CountCompletedWorkItems -OwnerId $OwnerId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-CountCompletedWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CountCompletedWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -336,9 +285,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-CountWorkItems"></a>
-# **Invoke-CountWorkItems**
-> WorkItemsCount Invoke-CountWorkItems<br>
+<a name="Get-CountWorkItems"></a>
+# **Get-CountWorkItems**
+> WorkItemsCount Get-CountWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 
 Count Work Items
@@ -359,9 +308,9 @@ $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item own
 
 # Count Work Items
 try {
-    $Result = Invoke-CountWorkItems -OwnerId $OwnerId
+    $Result = Get-CountWorkItems -OwnerId $OwnerId
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-CountWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-CountWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -387,9 +336,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-WorkItems"></a>
-# **Get-WorkItems**
-> WorkItems Get-WorkItems<br>
+<a name="Get-WorkItem"></a>
+# **Get-WorkItem**
+> WorkItems Get-WorkItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get a Work Item
@@ -410,9 +359,9 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
 
 # Get a Work Item
 try {
-    $Result = Get-WorkItems -Id $Id
+    $Result = Get-WorkItem -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Get-WorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-WorkItem: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -426,6 +375,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WorkItems**](WorkItems.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-WorkItemsSummary"></a>
+# **Get-WorkItemsSummary**
+> WorkItemsSummary Get-WorkItemsSummary<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
+
+Work Items Summary
+
+This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
+
+# Work Items Summary
+try {
+    $Result = Get-WorkItemsSummary -OwnerId $OwnerId
+} catch {
+    Write-Host ("Exception occurred when calling Get-WorkItemsSummary: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **OwnerId** | **String**| ID of the work item owner. | [optional] 
+
+### Return type
+
+[**WorkItemsSummary**](WorkItemsSummary.md) (PSCustomObject)
 
 ### Authorization
 
@@ -552,6 +552,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Deny-ApprovalItemsInBulk"></a>
+# **Deny-ApprovalItemsInBulk**
+> WorkItems Deny-ApprovalItemsInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Bulk reject Approval Items
+
+This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+
+# Bulk reject Approval Items
+try {
+    $Result = Deny-ApprovalItemsInBulk -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Deny-ApprovalItemsInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the work item | 
+
+### Return type
+
+[**WorkItems**](WorkItems.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Submit-AccountSelection"></a>
 # **Submit-AccountSelection**
 > WorkItems Submit-AccountSelection<br>
@@ -602,57 +653,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-SummaryWorkItems"></a>
-# **Invoke-SummaryWorkItems**
-> WorkItemsSummary Invoke-SummaryWorkItems<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
-
-Work Items Summary
-
-This gets a summary of work items belonging to either the specified user(admin required), or the current user.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
-
-# Work Items Summary
-try {
-    $Result = Invoke-SummaryWorkItems -OwnerId $OwnerId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-SummaryWorkItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **OwnerId** | **String**| ID of the work item owner. | [optional] 
-
-### Return type
-
-[**WorkItemsSummary**](WorkItemsSummary.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

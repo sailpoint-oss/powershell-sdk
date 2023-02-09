@@ -1,4 +1,4 @@
-# SavedSearchCreateRequest
+# CreateSavedSearchRequest
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchCreateRequest = Initialize-PSSailpointSavedSearchCreateRequest  -Name Disabled accounts `
+$CreateSavedSearchRequest = Initialize-PSSailpointCreateSavedSearchRequest  -Name Disabled accounts `
  -Description Disabled accounts `
  -Public false `
  -Created 2018-06-25T20:22:28.104Z `
@@ -34,7 +34,7 @@ $SavedSearchCreateRequest = Initialize-PSSailpointSavedSearchCreateRequest  -Nam
 
 - Convert the resource to JSON
 ```powershell
-$SavedSearchCreateRequest | ConvertTo-JSON
+$CreateSavedSearchRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
-    Context 'Invoke-BetaEntitlementsBulkUpdate' {
-        It 'Test Invoke-BetaEntitlementsBulkUpdate' {
-            #$TestResult = Invoke-BetaEntitlementsBulkUpdate -EntitlementBulkUpdateRequest "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaEntitlement' {
         It 'Test Get-BetaEntitlement' {
             #$TestResult = Get-BetaEntitlement -Id "TEST_VALUE"
@@ -22,17 +14,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
         }
     }
 
-    Context 'Get-BetaEntitlementParents' {
-        It 'Test Get-BetaEntitlementParents' {
-            #$TestResult = Get-BetaEntitlementParents -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaEntitlementChildren' {
+        It 'Test Get-BetaEntitlementChildren' {
+            #$TestResult = Get-BetaEntitlementChildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaEntitlementchildren' {
-        It 'Test Get-BetaEntitlementchildren' {
-            #$TestResult = Get-BetaEntitlementchildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaEntitlementParents' {
+        It 'Test Get-BetaEntitlementParents' {
+            #$TestResult = Get-BetaEntitlementParents -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -49,6 +41,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
     Context 'Update-BetaEntitlement' {
         It 'Test Update-BetaEntitlement' {
             #$TestResult = Update-BetaEntitlement -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaEntitlementsInBulk' {
+        It 'Test Update-BetaEntitlementsInBulk' {
+            #$TestResult = Update-BetaEntitlementsInBulk -EntitlementBulkUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

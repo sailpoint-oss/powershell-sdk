@@ -201,6 +201,7 @@ docs/CreatePersonalAccessTokenResponse.md
 docs/CreateWorkflowRequest.md
 docs/CustomPasswordInstruction.md
 docs/DeleteCampaignsRequest.md
+docs/DeleteNonEmployeeRecordInBulkRequest.md
 docs/DeleteSource202Response.md
 docs/DkimAttributesDto.md
 docs/DomainAddressDto.md
@@ -246,7 +247,7 @@ docs/FullcampaignAllOfSearchCampaignInfo.md
 docs/FullcampaignAllOfSourceOwnerCampaignInfo.md
 docs/FullcampaignAllOfSourcesWithOrphanEntitlements.md
 docs/GetActiveCampaigns200ResponseInner.md
-docs/GetEvents200ResponseInner.md
+docs/GetHistoricalIdentityEvents200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GrantType.md
@@ -288,6 +289,7 @@ docs/IdentitySyncPayload.md
 docs/IdentityWithNewAccess.md
 docs/IdentityWithNewAccessAccessRefsInner.md
 docs/ImportOptions.md
+docs/ImportSpConfigRequest.md
 docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
@@ -335,8 +337,6 @@ docs/NonEmployeeBulkUploadJob.md
 docs/NonEmployeeBulkUploadStatus.md
 docs/NonEmployeeIdnUserRequest.md
 docs/NonEmployeeRecord.md
-docs/NonEmployeeRecordBulkDeleteRequest.md
-docs/NonEmployeeRecordsBulkUploadRequest.md
 docs/NonEmployeeRejectApprovalDecision.md
 docs/NonEmployeeRequest.md
 docs/NonEmployeeRequestAllOf.md
@@ -536,7 +536,6 @@ docs/SourceSyncJob.md
 docs/SourceSyncPayload.md
 docs/SourceUpdated.md
 docs/SpConfigExportResults.md
-docs/SpConfigImportRequest.md
 docs/SpConfigImportResults.md
 docs/SpConfigJob.md
 docs/SpConfigMessage.md
@@ -648,6 +647,7 @@ docs/TriggerOutputAccessRequestDynamicApprover.md
 docs/TriggerOutputAccessRequestPreApproval.md
 docs/TriggerType.md
 docs/UpdatePasswordDictionaryRequest.md
+docs/UploadNonEmployeeRecordsInBulkRequest.md
 docs/UsageType.md
 docs/V3ConnectorDto.md
 docs/VAClusterStatusChangeEvent.md
@@ -880,6 +880,7 @@ src/PSSailpointBeta/Model/CreatePersonalAccessTokenResponse.ps1
 src/PSSailpointBeta/Model/CreateWorkflowRequest.ps1
 src/PSSailpointBeta/Model/CustomPasswordInstruction.ps1
 src/PSSailpointBeta/Model/DeleteCampaignsRequest.ps1
+src/PSSailpointBeta/Model/DeleteNonEmployeeRecordInBulkRequest.ps1
 src/PSSailpointBeta/Model/DeleteSource202Response.ps1
 src/PSSailpointBeta/Model/DkimAttributesDto.ps1
 src/PSSailpointBeta/Model/DomainAddressDto.ps1
@@ -925,7 +926,7 @@ src/PSSailpointBeta/Model/FullcampaignAllOfSearchCampaignInfo.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfSourceOwnerCampaignInfo.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfSourcesWithOrphanEntitlements.ps1
 src/PSSailpointBeta/Model/GetActiveCampaigns200ResponseInner.ps1
-src/PSSailpointBeta/Model/GetEvents200ResponseInner.ps1
+src/PSSailpointBeta/Model/GetHistoricalIdentityEvents200ResponseInner.ps1
 src/PSSailpointBeta/Model/GetOAuthClientResponse.ps1
 src/PSSailpointBeta/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpointBeta/Model/GrantType.ps1
@@ -967,6 +968,7 @@ src/PSSailpointBeta/Model/IdentitySyncPayload.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccess.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpointBeta/Model/ImportOptions.ps1
+src/PSSailpointBeta/Model/ImportSpConfigRequest.ps1
 src/PSSailpointBeta/Model/Invocation.ps1
 src/PSSailpointBeta/Model/InvocationStatus.ps1
 src/PSSailpointBeta/Model/InvocationStatusType.ps1
@@ -1014,8 +1016,6 @@ src/PSSailpointBeta/Model/NonEmployeeBulkUploadJob.ps1
 src/PSSailpointBeta/Model/NonEmployeeBulkUploadStatus.ps1
 src/PSSailpointBeta/Model/NonEmployeeIdnUserRequest.ps1
 src/PSSailpointBeta/Model/NonEmployeeRecord.ps1
-src/PSSailpointBeta/Model/NonEmployeeRecordBulkDeleteRequest.ps1
-src/PSSailpointBeta/Model/NonEmployeeRecordsBulkUploadRequest.ps1
 src/PSSailpointBeta/Model/NonEmployeeRejectApprovalDecision.ps1
 src/PSSailpointBeta/Model/NonEmployeeRequest.ps1
 src/PSSailpointBeta/Model/NonEmployeeRequestAllOf.ps1
@@ -1215,7 +1215,6 @@ src/PSSailpointBeta/Model/SourceSyncJob.ps1
 src/PSSailpointBeta/Model/SourceSyncPayload.ps1
 src/PSSailpointBeta/Model/SourceUpdated.ps1
 src/PSSailpointBeta/Model/SpConfigExportResults.ps1
-src/PSSailpointBeta/Model/SpConfigImportRequest.ps1
 src/PSSailpointBeta/Model/SpConfigImportResults.ps1
 src/PSSailpointBeta/Model/SpConfigJob.ps1
 src/PSSailpointBeta/Model/SpConfigMessage.ps1
@@ -1327,6 +1326,7 @@ src/PSSailpointBeta/Model/TriggerOutputAccessRequestDynamicApprover.ps1
 src/PSSailpointBeta/Model/TriggerOutputAccessRequestPreApproval.ps1
 src/PSSailpointBeta/Model/TriggerType.ps1
 src/PSSailpointBeta/Model/UpdatePasswordDictionaryRequest.ps1
+src/PSSailpointBeta/Model/UploadNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpointBeta/Model/UsageType.ps1
 src/PSSailpointBeta/Model/V3ConnectorDto.ps1
 src/PSSailpointBeta/Model/VAClusterStatusChangeEvent.ps1
@@ -1565,6 +1565,7 @@ tests/Model/CreatePersonalAccessTokenResponse.Tests.ps1
 tests/Model/CreateWorkflowRequest.Tests.ps1
 tests/Model/CustomPasswordInstruction.Tests.ps1
 tests/Model/DeleteCampaignsRequest.Tests.ps1
+tests/Model/DeleteNonEmployeeRecordInBulkRequest.Tests.ps1
 tests/Model/DeleteSource202Response.Tests.ps1
 tests/Model/DkimAttributesDto.Tests.ps1
 tests/Model/DomainAddressDto.Tests.ps1
@@ -1610,7 +1611,7 @@ tests/Model/FullcampaignAllOfSearchCampaignInfo.Tests.ps1
 tests/Model/FullcampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
 tests/Model/FullcampaignAllOfSourcesWithOrphanEntitlements.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
-tests/Model/GetEvents200ResponseInner.Tests.ps1
+tests/Model/GetHistoricalIdentityEvents200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GrantType.Tests.ps1
@@ -1652,6 +1653,7 @@ tests/Model/IdentitySyncPayload.Tests.ps1
 tests/Model/IdentityWithNewAccess.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/ImportOptions.Tests.ps1
+tests/Model/ImportSpConfigRequest.Tests.ps1
 tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
@@ -1699,8 +1701,6 @@ tests/Model/NonEmployeeBulkUploadJob.Tests.ps1
 tests/Model/NonEmployeeBulkUploadStatus.Tests.ps1
 tests/Model/NonEmployeeIdnUserRequest.Tests.ps1
 tests/Model/NonEmployeeRecord.Tests.ps1
-tests/Model/NonEmployeeRecordBulkDeleteRequest.Tests.ps1
-tests/Model/NonEmployeeRecordsBulkUploadRequest.Tests.ps1
 tests/Model/NonEmployeeRejectApprovalDecision.Tests.ps1
 tests/Model/NonEmployeeRequest.Tests.ps1
 tests/Model/NonEmployeeRequestAllOf.Tests.ps1
@@ -1900,7 +1900,6 @@ tests/Model/SourceSyncJob.Tests.ps1
 tests/Model/SourceSyncPayload.Tests.ps1
 tests/Model/SourceUpdated.Tests.ps1
 tests/Model/SpConfigExportResults.Tests.ps1
-tests/Model/SpConfigImportRequest.Tests.ps1
 tests/Model/SpConfigImportResults.Tests.ps1
 tests/Model/SpConfigJob.Tests.ps1
 tests/Model/SpConfigMessage.Tests.ps1
@@ -2012,6 +2011,7 @@ tests/Model/TriggerOutputAccessRequestDynamicApprover.Tests.ps1
 tests/Model/TriggerOutputAccessRequestPreApproval.Tests.ps1
 tests/Model/TriggerType.Tests.ps1
 tests/Model/UpdatePasswordDictionaryRequest.Tests.ps1
+tests/Model/UploadNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1
 tests/Model/VAClusterStatusChangeEvent.Tests.ps1

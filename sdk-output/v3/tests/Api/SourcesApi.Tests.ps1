@@ -6,25 +6,9 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'SourcesApi' {
-    Context 'Invoke-BulkUpdateProvisioningPolicies' {
-        It 'Test Invoke-BulkUpdateProvisioningPolicies' {
-            #$TestResult = Invoke-BulkUpdateProvisioningPolicies -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'New-ProvisioningPolicy' {
         It 'Test New-ProvisioningPolicy' {
             #$TestResult = New-ProvisioningPolicy -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'New-Schema' {
-        It 'Test New-Schema' {
-            #$TestResult = New-Schema -SourceId "TEST_VALUE" -Schema "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,6 +22,14 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
+    Context 'New-SourceSchema' {
+        It 'Test New-SourceSchema' {
+            #$TestResult = New-SourceSchema -SourceId "TEST_VALUE" -Schema "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-ProvisioningPolicy' {
         It 'Test Remove-ProvisioningPolicy' {
             #$TestResult = Remove-ProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
@@ -46,17 +38,17 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Remove-Schema' {
-        It 'Test Remove-Schema' {
-            #$TestResult = Remove-Schema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
+    Context 'Remove-Source' {
+        It 'Test Remove-Source' {
+            #$TestResult = Remove-Source -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Remove-Source' {
-        It 'Test Remove-Source' {
-            #$TestResult = Remove-Source -Id "TEST_VALUE"
+    Context 'Remove-SourceSchema' {
+        It 'Test Remove-SourceSchema' {
+            #$TestResult = Remove-SourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -86,14 +78,6 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Get-Schema' {
-        It 'Test Get-Schema' {
-            #$TestResult = Get-Schema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-Source' {
         It 'Test Get-Source' {
             #$TestResult = Get-Source -Id "TEST_VALUE"
@@ -110,6 +94,14 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
+    Context 'Get-SourceSchema' {
+        It 'Test Get-SourceSchema' {
+            #$TestResult = Get-SourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-ProvisioningPolicies' {
         It 'Test Get-ProvisioningPolicies' {
             #$TestResult = Get-ProvisioningPolicies -SourceId "TEST_VALUE"
@@ -118,9 +110,9 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Get-Schemas' {
-        It 'Test Get-Schemas' {
-            #$TestResult = Get-Schemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
+    Context 'Get-SourceSchemas' {
+        It 'Test Get-SourceSchemas' {
+            #$TestResult = Get-SourceSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -134,25 +126,33 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Invoke-ReplaceProvisioningPolicy' {
-        It 'Test Invoke-ReplaceProvisioningPolicy' {
-            #$TestResult = Invoke-ReplaceProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
+    Context 'Send-ProvisioningPolicy' {
+        It 'Test Send-ProvisioningPolicy' {
+            #$TestResult = Send-ProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ReplaceSchema' {
-        It 'Test Invoke-ReplaceSchema' {
-            #$TestResult = Invoke-ReplaceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -Schema "TEST_VALUE"
+    Context 'Send-Source' {
+        It 'Test Send-Source' {
+            #$TestResult = Send-Source -Id "TEST_VALUE" -Source "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ReplaceSource' {
-        It 'Test Invoke-ReplaceSource' {
-            #$TestResult = Invoke-ReplaceSource -Id "TEST_VALUE" -Source "TEST_VALUE"
+    Context 'Send-SourceSchema' {
+        It 'Test Send-SourceSchema' {
+            #$TestResult = Send-SourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -Schema "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-ProvisioningPoliciesInBulk' {
+        It 'Test Update-ProvisioningPoliciesInBulk' {
+            #$TestResult = Update-ProvisioningPoliciesInBulk -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -166,14 +166,6 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Update-Schema' {
-        It 'Test Update-Schema' {
-            #$TestResult = Update-Schema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Update-Source' {
         It 'Test Update-Source' {
             #$TestResult = Update-Source -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
@@ -182,9 +174,9 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Invoke-UploadConnectorFile' {
-        It 'Test Invoke-UploadConnectorFile' {
-            #$TestResult = Invoke-UploadConnectorFile -SourceId "TEST_VALUE" -File "TEST_VALUE"
+    Context 'Update-SourceSchema' {
+        It 'Test Update-SourceSchema' {
+            #$TestResult = Update-SourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -193,6 +185,14 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
     Context 'Invoke-UploadSourceAccountsSchema' {
         It 'Test Invoke-UploadSourceAccountsSchema' {
             #$TestResult = Invoke-UploadSourceAccountsSchema -Id "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-UploadSourceConnectorFile' {
+        It 'Test Invoke-UploadSourceConnectorFile' {
+            #$TestResult = Invoke-UploadSourceConnectorFile -SourceId "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

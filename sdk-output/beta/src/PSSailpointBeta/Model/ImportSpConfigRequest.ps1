@@ -20,10 +20,10 @@ Name of JSON file containing the objects to be imported.
 No description available.
 .OUTPUTS
 
-SpConfigImportRequest<PSCustomObject>
+ImportSpConfigRequest<PSCustomObject>
 #>
 
-function Initialize-BetaSpConfigImportRequest {
+function Initialize-BetaImportSpConfigRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-BetaSpConfigImportRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaSpConfigImportRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaImportSpConfigRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $VarData) {
@@ -56,11 +56,11 @@ function Initialize-BetaSpConfigImportRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to SpConfigImportRequest<PSCustomObject>
+Convert from JSON to ImportSpConfigRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SpConfigImportRequest<PSCustomObject>
+Convert from JSON to ImportSpConfigRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -68,21 +68,21 @@ Json object
 
 .OUTPUTS
 
-SpConfigImportRequest<PSCustomObject>
+ImportSpConfigRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSpConfigImportRequest {
+function ConvertFrom-BetaJsonToImportSpConfigRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSpConfigImportRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportSpConfigRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSpConfigImportRequest
+        # check if Json contains properties not defined in BetaImportSpConfigRequest
         $AllProperties = ("data", "options")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

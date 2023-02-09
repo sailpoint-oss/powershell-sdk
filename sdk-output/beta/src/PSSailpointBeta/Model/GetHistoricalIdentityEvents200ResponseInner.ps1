@@ -20,9 +20,9 @@ JSON object
 
 .OUTPUTS
 
-GetEvents200ResponseInner<PSCustomObject>
+GetHistoricalIdentityEvents200ResponseInner<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToGetEvents200ResponseInner {
+function ConvertFrom-BetaJsonToGetHistoricalIdentityEvents200ResponseInner {
     [CmdletBinding()]
     Param (
         [AllowEmptyString()]
@@ -48,7 +48,7 @@ function ConvertFrom-BetaJsonToGetEvents200ResponseInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'AccessItemAssociated' defined in anyOf (BetaGetEvents200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AccessItemAssociated' defined in anyOf (BetaGetHistoricalIdentityEvents200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -66,7 +66,7 @@ function ConvertFrom-BetaJsonToGetEvents200ResponseInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'AccessItemRemoved' defined in anyOf (BetaGetEvents200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AccessItemRemoved' defined in anyOf (BetaGetHistoricalIdentityEvents200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -84,7 +84,7 @@ function ConvertFrom-BetaJsonToGetEvents200ResponseInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'AccessRequested' defined in anyOf (BetaGetEvents200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AccessRequested' defined in anyOf (BetaGetHistoricalIdentityEvents200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -102,7 +102,7 @@ function ConvertFrom-BetaJsonToGetEvents200ResponseInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'AccountStatusChanged' defined in anyOf (BetaGetEvents200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AccountStatusChanged' defined in anyOf (BetaGetHistoricalIdentityEvents200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -120,7 +120,7 @@ function ConvertFrom-BetaJsonToGetEvents200ResponseInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'AttributesChanged' defined in anyOf (BetaGetEvents200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'AttributesChanged' defined in anyOf (BetaGetHistoricalIdentityEvents200ResponseInner). Proceeding to the next one if any."
             }
         }
 
@@ -138,7 +138,7 @@ function ConvertFrom-BetaJsonToGetEvents200ResponseInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'IdentityCertified' defined in anyOf (BetaGetEvents200ResponseInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'IdentityCertified' defined in anyOf (BetaGetHistoricalIdentityEvents200ResponseInner). Proceeding to the next one if any."
             }
         }
 

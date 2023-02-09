@@ -25,7 +25,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ViolationPrediction
 #>
-function Invoke-BetaPredictViolations {
+function Invoke-BetaPredictSodViolations {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -36,7 +36,7 @@ function Invoke-BetaPredictViolations {
     )
 
     Process {
-        'Calling method: Invoke-BetaPredictViolations' | Write-Debug
+        'Calling method: Invoke-BetaPredictSodViolations' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -58,7 +58,7 @@ function Invoke-BetaPredictViolations {
         $LocalVarUri = '/sod-violations/predict'
 
         if (!$IdentityWithNewAccess) {
-            throw "Error! The required parameter `IdentityWithNewAccess` missing when calling predictViolations."
+            throw "Error! The required parameter `IdentityWithNewAccess` missing when calling predictSodViolations."
         }
 
         $LocalVarBodyParameter = $IdentityWithNewAccess | ForEach-Object {

@@ -25,7 +25,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SpConfigJob
 #>
-function Invoke-BetaSpConfigExport {
+function Export-BetaSpConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -36,7 +36,7 @@ function Invoke-BetaSpConfigExport {
     )
 
     Process {
-        'Calling method: Invoke-BetaSpConfigExport' | Write-Debug
+        'Calling method: Export-BetaSpConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -58,7 +58,7 @@ function Invoke-BetaSpConfigExport {
         $LocalVarUri = '/sp-config/export'
 
         if (!$ExportPayload) {
-            throw "Error! The required parameter `ExportPayload` missing when calling spConfigExport."
+            throw "Error! The required parameter `ExportPayload` missing when calling exportSpConfig."
         }
 
         $LocalVarBodyParameter = $ExportPayload | ForEach-Object {
@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SpConfigExportResults
 #>
-function Invoke-BetaSpConfigExportDownload {
+function Export-BetaSpConfigDownload {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-BetaSpConfigExportDownload {
     )
 
     Process {
-        'Calling method: Invoke-BetaSpConfigExportDownload' | Write-Debug
+        'Calling method: Export-BetaSpConfigDownload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -141,7 +141,7 @@ function Invoke-BetaSpConfigExportDownload {
 
         $LocalVarUri = '/sp-config/export/{id}/download'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling spConfigExportDownload."
+            throw "Error! The required parameter `Id` missing when calling exportSpConfigDownload."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SpConfigJob
 #>
-function Invoke-BetaSpConfigExportJobStatus {
+function Export-BetaSpConfigJobStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -198,7 +198,7 @@ function Invoke-BetaSpConfigExportJobStatus {
     )
 
     Process {
-        'Calling method: Invoke-BetaSpConfigExportJobStatus' | Write-Debug
+        'Calling method: Export-BetaSpConfigJobStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -216,7 +216,7 @@ function Invoke-BetaSpConfigExportJobStatus {
 
         $LocalVarUri = '/sp-config/export/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling spConfigExportJobStatus."
+            throw "Error! The required parameter `Id` missing when calling exportSpConfigJobStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -268,7 +268,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SpConfigJob
 #>
-function Invoke-BetaSpConfigImport {
+function Import-BetaSpConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -285,7 +285,7 @@ function Invoke-BetaSpConfigImport {
     )
 
     Process {
-        'Calling method: Invoke-BetaSpConfigImport' | Write-Debug
+        'Calling method: Import-BetaSpConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -311,7 +311,7 @@ function Invoke-BetaSpConfigImport {
         }
 
         if (!$Data) {
-            throw "Error! The required parameter `Data` missing when calling spConfigImport."
+            throw "Error! The required parameter `Data` missing when calling importSpConfig."
         }
         $LocalVarFormParameters['data'] = $Data
 
@@ -361,7 +361,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SpConfigImportResults
 #>
-function Invoke-BetaSpConfigImportDownload {
+function Import-BetaSpConfigDownload {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -372,7 +372,7 @@ function Invoke-BetaSpConfigImportDownload {
     )
 
     Process {
-        'Calling method: Invoke-BetaSpConfigImportDownload' | Write-Debug
+        'Calling method: Import-BetaSpConfigDownload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -390,7 +390,7 @@ function Invoke-BetaSpConfigImportDownload {
 
         $LocalVarUri = '/sp-config/import/{id}/download'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling spConfigImportDownload."
+            throw "Error! The required parameter `Id` missing when calling importSpConfigDownload."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -436,7 +436,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SpConfigJob
 #>
-function Invoke-BetaSpConfigImportJobStatus {
+function Import-BetaSpConfigJobStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -447,7 +447,7 @@ function Invoke-BetaSpConfigImportJobStatus {
     )
 
     Process {
-        'Calling method: Invoke-BetaSpConfigImportJobStatus' | Write-Debug
+        'Calling method: Import-BetaSpConfigJobStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -465,7 +465,7 @@ function Invoke-BetaSpConfigImportJobStatus {
 
         $LocalVarUri = '/sp-config/import/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling spConfigImportJobStatus."
+            throw "Error! The required parameter `Id` missing when calling importSpConfigJobStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -508,7 +508,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SpConfigObject[]
 #>
-function Invoke-BetaSpConfigObjects {
+function Get-BetaSpConfigObjects {
     [CmdletBinding()]
     Param (
         [Switch]
@@ -516,7 +516,7 @@ function Invoke-BetaSpConfigObjects {
     )
 
     Process {
-        'Calling method: Invoke-BetaSpConfigObjects' | Write-Debug
+        'Calling method: Get-BetaSpConfigObjects' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

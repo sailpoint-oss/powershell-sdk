@@ -4,85 +4,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaAccessRequestRecommendations**](BetaIAIAccessRequestRecommendationsApi.md#Invoke-BetaAccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity Access Request Recommendations
 [**Add-BetaAccessRequestRecommendationsIgnoredItem**](BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Notification of Ignored Access Request Recommendations
 [**Add-BetaAccessRequestRecommendationsRequestedItem**](BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Notification of Requested Access Request Recommendations
 [**Add-BetaAccessRequestRecommendationsViewedItem**](BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Notification of Viewed Access Request Recommendations
 [**Add-BetaAccessRequestRecommendationsViewedItems**](BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsViewedItems) | **POST** /ai-access-request-recommendations/viewed-items/bulk-create | Notification of Viewed Access Request Recommendations in Bulk
+[**Get-BetaAccessRequestRecommendations**](BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity Access Request Recommendations
 [**Get-BetaAccessRequestRecommendationsIgnoredItems**](BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List of Ignored Access Request Recommendations
 [**Get-BetaAccessRequestRecommendationsRequestedItems**](BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List of Requested Access Request Recommendations
 [**Get-BetaAccessRequestRecommendationsViewedItems**](BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List of Viewed Access Request Recommendations
 [**Get-BetaMessageCatalogs**](BetaIAIAccessRequestRecommendationsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
 
-
-<a name="Invoke-BetaAccessRequestRecommendations"></a>
-# **Invoke-BetaAccessRequestRecommendations**
-> AccessRequestRecommendationItemDetail[] Invoke-BetaAccessRequestRecommendations<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTranslationMessages] <System.Nullable[Boolean]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
-
-Identity Access Request Recommendations
-
-This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$IdentityId = "2c91808570313110017040b06f344ec9" # String | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to "me")
-$Limit = 56 # Int32 | Max number of results to return. (optional) (default to 15)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$IncludeTranslationMessages = $false # Boolean | If *true* it will populate a list of translation messages in the response. (optional) (default to $false)
-$Filters = "MyFilters" # String | Filter recommendations using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co* (optional)
-$Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional)
-
-# Identity Access Request Recommendations
-try {
-    $Result = Invoke-BetaAccessRequestRecommendations -IdentityId $IdentityId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Filters $Filters -Sorters $Sorters
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaAccessRequestRecommendations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **IdentityId** | **String**| Get access request recommendations for an identityId. *me* indicates the current user. | [optional] [default to &quot;me&quot;]
- **Limit** | **Int32**| Max number of results to return. | [optional] [default to 15]
- **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
- **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
- **IncludeTranslationMessages** | **Boolean**| If *true* it will populate a list of translation messages in the response. | [optional] [default to $false]
- **Filters** | **String**| Filter recommendations using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co* | [optional] 
- **Sorters** | **String**| Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. | [optional] 
-
-### Return type
-
-[**AccessRequestRecommendationItemDetail[]**](AccessRequestRecommendationItemDetail.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="Add-BetaAccessRequestRecommendationsIgnoredItem"></a>
 # **Add-BetaAccessRequestRecommendationsIgnoredItem**
@@ -288,6 +219,75 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaAccessRequestRecommendations"></a>
+# **Get-BetaAccessRequestRecommendations**
+> AccessRequestRecommendationItemDetail[] Get-BetaAccessRequestRecommendations<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTranslationMessages] <System.Nullable[Boolean]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
+
+Identity Access Request Recommendations
+
+This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$IdentityId = "2c91808570313110017040b06f344ec9" # String | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to "me")
+$Limit = 56 # Int32 | Max number of results to return. (optional) (default to 15)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$IncludeTranslationMessages = $false # Boolean | If *true* it will populate a list of translation messages in the response. (optional) (default to $false)
+$Filters = "MyFilters" # String | Filter recommendations using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co* (optional)
+$Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional)
+
+# Identity Access Request Recommendations
+try {
+    $Result = Get-BetaAccessRequestRecommendations -IdentityId $IdentityId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Filters $Filters -Sorters $Sorters
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaAccessRequestRecommendations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentityId** | **String**| Get access request recommendations for an identityId. *me* indicates the current user. | [optional] [default to &quot;me&quot;]
+ **Limit** | **Int32**| Max number of results to return. | [optional] [default to 15]
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+ **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
+ **IncludeTranslationMessages** | **Boolean**| If *true* it will populate a list of translation messages in the response. | [optional] [default to $false]
+ **Filters** | **String**| Filter recommendations using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co* | [optional] 
+ **Sorters** | **String**| Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. | [optional] 
+
+### Return type
+
+[**AccessRequestRecommendationItemDetail[]**](AccessRequestRecommendationItemDetail.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

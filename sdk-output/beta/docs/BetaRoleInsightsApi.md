@@ -4,6 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-BetaRoleInsightRequests**](BetaRoleInsightsApi.md#New-BetaRoleInsightRequests) | **POST** /role-insights/requests | A request to generate insights for roles
 [**Invoke-BetaDownloadRoleInsightsEntitlementsChanges**](BetaRoleInsightsApi.md#Invoke-BetaDownloadRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes/download | Download entitlement insights for a role
 [**Get-BetaEntitlementChangesIdentities**](BetaRoleInsightsApi.md#Get-BetaEntitlementChangesIdentities) | **GET** /role-insights/{insightId}/entitlement-changes/{entitlementId}/identities | Get identities for a suggested entitlement (for a role)
 [**Get-BetaRoleInsight**](BetaRoleInsightsApi.md#Get-BetaRoleInsight) | **GET** /role-insights/{insightId} | Get a single role insight
@@ -12,8 +13,53 @@ Method | HTTP request | Description
 [**Get-BetaRoleInsightsEntitlementsChanges**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes | Get entitlement insights for a role
 [**Get-BetaRoleInsightsRequests**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns the metadata for a request in order to generate insights for roles.
 [**Get-BetaRoleInsightsSummary**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
-[**Invoke-BetaRoleInsightsRequests**](BetaRoleInsightsApi.md#Invoke-BetaRoleInsightsRequests) | **POST** /role-insights/requests | A request to generate insights for roles
 
+
+<a name="New-BetaRoleInsightRequests"></a>
+# **New-BetaRoleInsightRequests**
+> RoleInsightsResponse New-BetaRoleInsightRequests<br>
+
+A request to generate insights for roles
+
+This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+
+# A request to generate insights for roles
+try {
+    $Result = New-BetaRoleInsightRequests
+} catch {
+    Write-Host ("Exception occurred when calling New-BetaRoleInsightRequests: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**RoleInsightsResponse**](RoleInsightsResponse.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="Invoke-BetaDownloadRoleInsightsEntitlementsChanges"></a>
 # **Invoke-BetaDownloadRoleInsightsEntitlementsChanges**
@@ -454,52 +500,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**RoleInsightsSummary**](RoleInsightsSummary.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-BetaRoleInsightsRequests"></a>
-# **Invoke-BetaRoleInsightsRequests**
-> RoleInsightsResponse Invoke-BetaRoleInsightsRequests<br>
-
-A request to generate insights for roles
-
-This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-
-# A request to generate insights for roles
-try {
-    $Result = Invoke-BetaRoleInsightsRequests
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaRoleInsightsRequests: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**RoleInsightsResponse**](RoleInsightsResponse.md) (PSCustomObject)
 
 ### Authorization
 

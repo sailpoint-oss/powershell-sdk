@@ -28,7 +28,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ManagedClientStatus
 #>
-function Get-BetaClientStatus {
+function Get-BetaManagedClientStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -42,7 +42,7 @@ function Get-BetaClientStatus {
     )
 
     Process {
-        'Calling method: Get-BetaClientStatus' | Write-Debug
+        'Calling method: Get-BetaManagedClientStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -60,12 +60,12 @@ function Get-BetaClientStatus {
 
         $LocalVarUri = '/managed-clients/{id}/status'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getClientStatus."
+            throw "Error! The required parameter `Id` missing when calling getManagedClientStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$Type) {
-            throw "Error! The required parameter `Type` missing when calling getClientStatus."
+            throw "Error! The required parameter `Type` missing when calling getManagedClientStatus."
         }
         $LocalVarQueryParameters['type'] = $Type
 
@@ -114,7 +114,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ManagedClientStatusAggResponse
 #>
-function Update-BetaStatus {
+function Update-BetaManagedClientStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -128,7 +128,7 @@ function Update-BetaStatus {
     )
 
     Process {
-        'Calling method: Update-BetaStatus' | Write-Debug
+        'Calling method: Update-BetaManagedClientStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -149,12 +149,12 @@ function Update-BetaStatus {
 
         $LocalVarUri = '/managed-clients/{id}/status'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updateStatus."
+            throw "Error! The required parameter `Id` missing when calling updateManagedClientStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$ManagedClientStatus) {
-            throw "Error! The required parameter `ManagedClientStatus` missing when calling updateStatus."
+            throw "Error! The required parameter `ManagedClientStatus` missing when calling updateManagedClientStatus."
         }
 
         $LocalVarBodyParameter = $ManagedClientStatus | ForEach-Object {

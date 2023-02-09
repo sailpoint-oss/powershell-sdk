@@ -14,17 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaWorkItemsApi' {
         }
     }
 
-    Context 'Invoke-BetaBulkApproveApprovalItem' {
-        It 'Test Invoke-BetaBulkApproveApprovalItem' {
-            #$TestResult = Invoke-BetaBulkApproveApprovalItem -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-BetaBulkRejectApprovalItem' {
-        It 'Test Invoke-BetaBulkRejectApprovalItem' {
-            #$TestResult = Invoke-BetaBulkRejectApprovalItem -Id "TEST_VALUE"
+    Context 'Approve-BetaApprovalItemsInBulk' {
+        It 'Test Approve-BetaApprovalItemsInBulk' {
+            #$TestResult = Approve-BetaApprovalItemsInBulk -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,33 +30,41 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaWorkItemsApi' {
         }
     }
 
-    Context 'Complete-BetadWorkItems' {
-        It 'Test Complete-BetadWorkItems' {
-            #$TestResult = Complete-BetadWorkItems -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaCompletedWorkItems' {
+        It 'Test Get-BetaCompletedWorkItems' {
+            #$TestResult = Get-BetaCompletedWorkItems -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaCountCompletedWorkItems' {
-        It 'Test Invoke-BetaCountCompletedWorkItems' {
-            #$TestResult = Invoke-BetaCountCompletedWorkItems -OwnerId "TEST_VALUE"
+    Context 'Get-BetaCountCompletedWorkItems' {
+        It 'Test Get-BetaCountCompletedWorkItems' {
+            #$TestResult = Get-BetaCountCompletedWorkItems -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaCountWorkItems' {
-        It 'Test Invoke-BetaCountWorkItems' {
-            #$TestResult = Invoke-BetaCountWorkItems -OwnerId "TEST_VALUE"
+    Context 'Get-BetaCountWorkItems' {
+        It 'Test Get-BetaCountWorkItems' {
+            #$TestResult = Get-BetaCountWorkItems -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaWorkItems' {
-        It 'Test Get-BetaWorkItems' {
-            #$TestResult = Get-BetaWorkItems -Id "TEST_VALUE" -OwnerId "TEST_VALUE"
+    Context 'Get-BetaWorkItem' {
+        It 'Test Get-BetaWorkItem' {
+            #$TestResult = Get-BetaWorkItem -Id "TEST_VALUE" -OwnerId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaWorkItemsSummary' {
+        It 'Test Get-BetaWorkItemsSummary' {
+            #$TestResult = Get-BetaWorkItemsSummary -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -86,17 +86,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaWorkItemsApi' {
         }
     }
 
-    Context 'Submit-BetaAccountSelection' {
-        It 'Test Submit-BetaAccountSelection' {
-            #$TestResult = Submit-BetaAccountSelection -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+    Context 'Deny-BetaApprovalItemsInBulk' {
+        It 'Test Deny-BetaApprovalItemsInBulk' {
+            #$TestResult = Deny-BetaApprovalItemsInBulk -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaSummaryWorkItems' {
-        It 'Test Invoke-BetaSummaryWorkItems' {
-            #$TestResult = Invoke-BetaSummaryWorkItems -OwnerId "TEST_VALUE"
+    Context 'Submit-BetaAccountSelection' {
+        It 'Test Submit-BetaAccountSelection' {
+            #$TestResult = Submit-BetaAccountSelection -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -52,19 +52,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BetaAccessProfilesApi* | [**Invoke-BetaBulkDeleteAccessProfiles**](docs/BetaAccessProfilesApi.md#Invoke-BetaBulkDeleteAccessProfiles) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
 *BetaAccessProfilesApi* | [**New-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#New-BetaAccessProfile) | **POST** /access-profiles | Create an Access Profile
 *BetaAccessProfilesApi* | [**Remove-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#Remove-BetaAccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
+*BetaAccessProfilesApi* | [**Remove-BetaAccessProfilesInBulk**](docs/BetaAccessProfilesApi.md#Remove-BetaAccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
 *BetaAccessProfilesApi* | [**Get-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#Get-BetaAccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
 *BetaAccessProfilesApi* | [**Get-BetaAccessProfileEntitlements**](docs/BetaAccessProfilesApi.md#Get-BetaAccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile's Entitlements
 *BetaAccessProfilesApi* | [**Get-BetaAccessProfiles**](docs/BetaAccessProfilesApi.md#Get-BetaAccessProfiles) | **GET** /access-profiles | List Access Profiles
 *BetaAccessProfilesApi* | [**Update-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#Update-BetaAccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
-*BetaAccessRequestApprovalsApi* | [**Invoke-BetaApprovalSummary**](docs/BetaAccessRequestApprovalsApi.md#Invoke-BetaApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of pending, approved and rejected access requests approvals
-*BetaAccessRequestApprovalsApi* | [**Approve-BetaRequest**](docs/BetaAccessRequestApprovalsApi.md#Approve-BetaRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
-*BetaAccessRequestApprovalsApi* | [**Invoke-BetaForwardRequest**](docs/BetaAccessRequestApprovalsApi.md#Invoke-BetaForwardRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval to a new owner.
+*BetaAccessRequestApprovalsApi* | [**Approve-BetaAccessRequest**](docs/BetaAccessRequestApprovalsApi.md#Approve-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
+*BetaAccessRequestApprovalsApi* | [**Invoke-BetaForwardAccessRequest**](docs/BetaAccessRequestApprovalsApi.md#Invoke-BetaForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval to a new owner.
+*BetaAccessRequestApprovalsApi* | [**Get-BetaAccessRequestApprovalSummary**](docs/BetaAccessRequestApprovalsApi.md#Get-BetaAccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of pending, approved and rejected access requests approvals
 *BetaAccessRequestApprovalsApi* | [**Get-BetaCompletedApprovals**](docs/BetaAccessRequestApprovalsApi.md#Get-BetaCompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 *BetaAccessRequestApprovalsApi* | [**Get-BetaPendingApprovals**](docs/BetaAccessRequestApprovalsApi.md#Get-BetaPendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
-*BetaAccessRequestApprovalsApi* | [**Deny-BetaRequest**](docs/BetaAccessRequestApprovalsApi.md#Deny-BetaRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
+*BetaAccessRequestApprovalsApi* | [**Deny-BetaAccessRequest**](docs/BetaAccessRequestApprovalsApi.md#Deny-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
 *BetaAccessRequestsApi* | [**Suspend-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#Suspend-BetaAccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 *BetaAccessRequestsApi* | [**Close-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#Close-BetaAccessRequest) | **POST** /access-requests/close | Close Access Request
 *BetaAccessRequestsApi* | [**New-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#New-BetaAccessRequest) | **POST** /access-requests | Submit an Access Request
@@ -86,7 +86,6 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Unlock-BetaAccount**](docs/BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
 *BetaCertificationCampaignsApi* | [**Invoke-BetaActivateCampaign**](docs/BetaCertificationCampaignsApi.md#Invoke-BetaActivateCampaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
-*BetaCertificationCampaignsApi* | [**Invoke-BetaAdminReassign**](docs/BetaCertificationCampaignsApi.md#Invoke-BetaAdminReassign) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *BetaCertificationCampaignsApi* | [**Complete-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Complete-BetaCampaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 *BetaCertificationCampaignsApi* | [**New-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#New-BetaCampaign) | **POST** /campaigns | Create a campaign
 *BetaCertificationCampaignsApi* | [**New-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#New-BetaCampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
@@ -102,6 +101,7 @@ Class | Method | HTTP request | Description
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Gets a Campaign Template's Schedule
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplates**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
 *BetaCertificationCampaignsApi* | [**Update-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#Update-BetaCampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
+*BetaCertificationCampaignsApi* | [**Invoke-BetaReassignCampaign**](docs/BetaCertificationCampaignsApi.md#Invoke-BetaReassignCampaign) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignRemediationScan**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignReport**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
 *BetaCertificationCampaignsApi* | [**Set-BetaCampaignReportsConfig**](docs/BetaCertificationCampaignsApi.md#Set-BetaCampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
@@ -110,7 +110,7 @@ Class | Method | HTTP request | Description
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationItemPermissions**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for Entitlement Certification Item
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationPendingTasks**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationPendingTasks) | **GET** /certifications/{id}/tasks-pending | Pending Certification Tasks
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationTaskStatus**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationTaskStatus) | **GET** /certifications/{id}/tasks/{taskId} | Certification Task Status
-*BetaCertificationsApi* | [**Get-BetaReviewers**](docs/BetaCertificationsApi.md#Get-BetaReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for the certification
+*BetaCertificationsApi* | [**Get-BetaCertificationReviewers**](docs/BetaCertificationsApi.md#Get-BetaCertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for the certification
 *BetaCertificationsApi* | [**Invoke-BetaReassignIdentityCertsAsync**](docs/BetaCertificationsApi.md#Invoke-BetaReassignIdentityCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 *BetaConnectorRuleManagementApi* | [**New-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#New-BetaConnectorRule) | **POST** /connector-rules | Create Connector Rule
 *BetaConnectorRuleManagementApi* | [**Remove-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Remove-BetaConnectorRule) | **DELETE** /connector-rules/{id} | Delete a Connector-Rule
@@ -122,39 +122,39 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**New-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
-*BetaEntitlementsApi* | [**Invoke-BetaEntitlementsBulkUpdate**](docs/BetaEntitlementsApi.md#Invoke-BetaEntitlementsBulkUpdate) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an Entitlement
+*BetaEntitlementsApi* | [**Get-BetaEntitlementChildren**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 *BetaEntitlementsApi* | [**Get-BetaEntitlementParents**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
-*BetaEntitlementsApi* | [**Get-BetaEntitlementchildren**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementchildren) | **GET** /entitlements/{id}/children | List of entitlements children
 *BetaEntitlementsApi* | [**Get-BetaEntitlements**](docs/BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
 *BetaEntitlementsApi* | [**Update-BetaEntitlement**](docs/BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch a specified Entitlement
-*BetaIAIAccessRequestRecommendationsApi* | [**Invoke-BetaAccessRequestRecommendations**](docs/BetaIAIAccessRequestRecommendationsApi.md#Invoke-BetaAccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity Access Request Recommendations
+*BetaEntitlementsApi* | [**Update-BetaEntitlementsInBulk**](docs/BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsIgnoredItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Notification of Ignored Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsRequestedItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Notification of Requested Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsViewedItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Notification of Viewed Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsViewedItems**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsViewedItems) | **POST** /ai-access-request-recommendations/viewed-items/bulk-create | Notification of Viewed Access Request Recommendations in Bulk
+*BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaAccessRequestRecommendations**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaAccessRequestRecommendationsIgnoredItems**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List of Ignored Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaAccessRequestRecommendationsRequestedItems**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List of Requested Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaAccessRequestRecommendationsViewedItems**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List of Viewed Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaMessageCatalogs**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
-*BetaIAICommonAccessApi* | [**Invoke-BetaCommonAccessBulkUpdateStatus**](docs/BetaIAICommonAccessApi.md#Invoke-BetaCommonAccessBulkUpdateStatus) | **POST** /common-access/update-status | Bulk update common access status
 *BetaIAICommonAccessApi* | [**New-BetaCommonAccess**](docs/BetaIAICommonAccessApi.md#New-BetaCommonAccess) | **POST** /common-access | Create common access items
 *BetaIAICommonAccessApi* | [**Get-BetaCommonAccess**](docs/BetaIAICommonAccessApi.md#Get-BetaCommonAccess) | **GET** /common-access | Get a paginated list of common access
+*BetaIAICommonAccessApi* | [**Update-BetaCommonAccessStatusInBulk**](docs/BetaIAICommonAccessApi.md#Update-BetaCommonAccessStatusInBulk) | **POST** /common-access/update-status | Bulk update common access status
 *BetaIAIOutliersApi* | [**Export-BetaOutliersZip**](docs/BetaIAIOutliersApi.md#Export-BetaOutliersZip) | **GET** /outliers/export | IAI Identity Outliers Export
-*BetaIAIOutliersApi* | [**Get-BetaLatestOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaLatestOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
-*BetaIAIOutliersApi* | [**Get-BetaOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
-*BetaIAIOutliersApi* | [**Get-BetaOutliers**](docs/BetaIAIOutliersApi.md#Get-BetaOutliers) | **GET** /outliers | IAI Get Identity Outliers
-*BetaIAIOutliersApi* | [**Get-BetaOutliersContributingFeatures**](docs/BetaIAIOutliersApi.md#Get-BetaOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | IAI Get an Identity Outlier's Contibuting Features
-*BetaIAIOutliersApi* | [**Invoke-BetaIgnoreOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaIgnoreOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
-*BetaIAIOutliersApi* | [**Invoke-BetaUnIgnoreOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
-*BetaIAIPeerGroupStrategiesApi* | [**Get-BetaOutliers**](docs/BetaIAIPeerGroupStrategiesApi.md#Get-BetaOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
+*BetaIAIOutliersApi* | [**Get-BetaIdentityOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaIdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
+*BetaIAIOutliersApi* | [**Get-BetaIdentityOutliers**](docs/BetaIAIOutliersApi.md#Get-BetaIdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
+*BetaIAIOutliersApi* | [**Get-BetaLatestIdentityOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaLatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
+*BetaIAIOutliersApi* | [**Get-BetaPeerGroupOutliersContributingFeatures**](docs/BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | IAI Get an Identity Outlier's Contibuting Features
+*BetaIAIOutliersApi* | [**Invoke-BetaIgnoreIdentityOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaIgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
+*BetaIAIOutliersApi* | [**Invoke-BetaUnIgnoreIdentityOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
+*BetaIAIPeerGroupStrategiesApi* | [**Get-BetaPeerGroupOutliers**](docs/BetaIAIPeerGroupStrategiesApi.md#Get-BetaPeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
 *BetaIAIRecommendationsApi* | [**Get-BetaMessageCatalogs**](docs/BetaIAIRecommendationsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
 *BetaIAIRecommendationsApi* | [**Get-BetaRecommendations**](docs/BetaIAIRecommendationsApi.md#Get-BetaRecommendations) | **POST** /recommendations/request | Returns a Recommendation Based on Object
 *BetaIAIRecommendationsApi* | [**Get-BetaRecommendationsConfig**](docs/BetaIAIRecommendationsApi.md#Get-BetaRecommendationsConfig) | **GET** /recommendations/config | Get certification recommendation config values
 *BetaIAIRecommendationsApi* | [**Update-BetaRecommendationsConfig**](docs/BetaIAIRecommendationsApi.md#Update-BetaRecommendationsConfig) | **PUT** /recommendations/config | Update certification recommendation config values
 *BetaIAIRoleMiningApi* | [**New-BetaPotentialRoleProvisionRequest**](docs/BetaIAIRoleMiningApi.md#New-BetaPotentialRoleProvisionRequest) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision | Create request to provision a potential role into an actual role.
+*BetaIAIRoleMiningApi* | [**New-BetaRoleMiningSessions**](docs/BetaIAIRoleMiningApi.md#New-BetaRoleMiningSessions) | **POST** /role-mining-sessions | Create a role mining session
 *BetaIAIRoleMiningApi* | [**Invoke-BetaDownloadRoleMiningPotentialRoleZip**](docs/BetaIAIRoleMiningApi.md#Invoke-BetaDownloadRoleMiningPotentialRoleZip) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download | Export (download) details for a potential role in a role mining session
-*BetaIAIRoleMiningApi* | [**Edit-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Edit-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 *BetaIAIRoleMiningApi* | [**Export-BetaRoleMiningPotentialRole**](docs/BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export | Export (download) details for a potential role in a role mining session
 *BetaIAIRoleMiningApi* | [**Export-BetaRoleMiningPotentialRoleAsync**](docs/BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRoleAsync) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async | Asynchronously export details for a potential role in a role mining session and upload to S3
 *BetaIAIRoleMiningApi* | [**Export-BetaRoleMiningPotentialRoleStatus**](docs/BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRoleStatus) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId} | Retrieve status of a potential role export job
@@ -170,15 +170,15 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSessions**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
 *BetaIAIRoleMiningApi* | [**Update-BetaPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaPotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role
 *BetaIAIRoleMiningApi* | [**Update-BetaRoleMiningSession**](docs/BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
-*BetaIAIRoleMiningApi* | [**Invoke-BetaRoleMiningSessions**](docs/BetaIAIRoleMiningApi.md#Invoke-BetaRoleMiningSessions) | **POST** /role-mining-sessions | Create a role mining session
+*BetaIAIRoleMiningApi* | [**Update-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshotsAccessType**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
-*BetaIdentityHistoryApi* | [**Get-BetaEvents**](docs/BetaIdentityHistoryApi.md#Get-BetaEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
+*BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentityEvents**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentity**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentity) | **GET** /historical-identities/{id} | Gets the most recent snapshot of a specific identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshot**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshotSummary**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
-*BetaIdentityHistoryApi* | [**Get-BetaStartDate**](docs/BetaIdentityHistoryApi.md#Get-BetaStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
+*BetaIdentityHistoryApi* | [**Get-BetaIdentityStartDate**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentities**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentities) | **GET** /historical-identities | Lists all the identities
 *BetaIdentityHistoryApi* | [**Get-BetaIdentityAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshotAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
@@ -199,47 +199,47 @@ Class | Method | HTTP request | Description
 *BetaMFAConfigurationApi* | [**Get-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAConfig) | **GET** /mfa/{method}/config | Get configuration of a MFA method
 *BetaMFAConfigurationApi* | [**Set-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAConfig) | **PUT** /mfa/{method}/config | Set configuration of a MFA method
 *BetaMFAConfigurationApi* | [**Test-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | Test configuration of a MFA method
-*BetaManagedClientsApi* | [**Get-BetaClientStatus**](docs/BetaManagedClientsApi.md#Get-BetaClientStatus) | **GET** /managed-clients/{id}/status | Get a specified Managed Client Status.
-*BetaManagedClientsApi* | [**Update-BetaStatus**](docs/BetaManagedClientsApi.md#Update-BetaStatus) | **POST** /managed-clients/{id}/status | Handle a status request from a client
+*BetaManagedClientsApi* | [**Get-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Get a specified Managed Client Status.
+*BetaManagedClientsApi* | [**Update-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle a status request from a client
 *BetaManagedClustersApi* | [**Get-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Get-BetaClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | get ManagedCluster Log Configuration for a specified cluster
 *BetaManagedClustersApi* | [**Get-BetaManagedCluster**](docs/BetaManagedClustersApi.md#Get-BetaManagedCluster) | **GET** /managed-clusters/{id} | Get a specified ManagedCluster.
 *BetaManagedClustersApi* | [**Get-BetaManagedClusters**](docs/BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
 *BetaManagedClustersApi* | [**Update-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Update-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update log configuration for a specified cluster.
-*BetaNonEmployeeLifecycleManagementApi* | [**New-BetaSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaSchemaAttribute) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeApprovalGet**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeApprovalGet) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeApprovalList**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeApprovalList) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeApprovalSummary**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get Summary of Non-Employee Approval Requests
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeApproveRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeApproveRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeBulkUploadStatus**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Obtain the status of bulk upload on the source
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeExportSourceSchemaTemplate**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeExportSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports Source Schema Template
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordBulkDelete**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordBulkDelete) | **POST** /non-employee-records/bulk-delete | Delete Multiple Non-Employee Records
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordCreation**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordCreation) | **POST** /non-employee-records | Create Non-Employee Record
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordDelete**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordDelete) | **DELETE** /non-employee-records/{id} | Delete Non-Employee Record
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordGet**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordGet) | **GET** /non-employee-records/{id} | Get a Non-Employee Record
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordList**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordList) | **GET** /non-employee-records | List Non-Employee Records
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordPatch**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordPatch) | **PATCH** /non-employee-records/{id} | Patch Non-Employee Record
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordUpdate**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordUpdate) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordsBulkUpload**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordsBulkUpload) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRecordsExport**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRecordsExport) | **GET** /non-employee-sources/{id}/non-employees/download | Exports Non-Employee Records to CSV
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRejectRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRejectRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRequestCreation**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRequestCreation) | **POST** /non-employee-requests | Create Non-Employee Request
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRequestDeletion**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRequestDeletion) | **DELETE** /non-employee-requests/{id} | Delete Non-Employee Request
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRequestGet**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRequestGet) | **GET** /non-employee-requests/{id} | Get a Non-Employee Request
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRequestList**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRequestList) | **GET** /non-employee-requests | List Non-Employee Requests
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeRequestSummaryGet**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeRequestSummaryGet) | **GET** /non-employee-requests/summary/{requested-for} | Get Summary of Non-Employee Requests
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeSourceDelete**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeSourceDelete) | **DELETE** /non-employee-sources/{sourceId} | Delete Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeSourceGet**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeSourceGet) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeSourcePatch**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeSourcePatch) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeSourcesCreation**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeSourcesCreation) | **POST** /non-employee-sources | Create Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaNonEmployeeSourcesList**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaNonEmployeeSourcesList) | **GET** /non-employee-sources | List Non-Employee Sources
-*BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
-*BetaNotificationsApi* | [**Invoke-BetaBulkDeleteNotificationTemplates**](docs/BetaNotificationsApi.md#Invoke-BetaBulkDeleteNotificationTemplates) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
+*BetaNonEmployeeLifecycleManagementApi* | [**Approve-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Approve-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
+*BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
+*BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
+*BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeSource) | **POST** /non-employee-sources | Create Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeSourceSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRecord) | **DELETE** /non-employee-records/{id} | Delete Non-Employee Record
+*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeRecordInBulk**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRecordInBulk) | **POST** /non-employee-records/bulk-delete | Delete Multiple Non-Employee Records
+*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRequest) | **DELETE** /non-employee-requests/{id} | Delete Non-Employee Request
+*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSource) | **DELETE** /non-employee-sources/{sourceId} | Delete Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeSourceSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Export-BetaNonEmployeeRecords**](docs/BetaNonEmployeeLifecycleManagementApi.md#Export-BetaNonEmployeeRecords) | **GET** /non-employee-sources/{id}/non-employees/download | Exports Non-Employee Records to CSV
+*BetaNonEmployeeLifecycleManagementApi* | [**Export-BetaNonEmployeeSourceSchemaTemplate**](docs/BetaNonEmployeeLifecycleManagementApi.md#Export-BetaNonEmployeeSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports Source Schema Template
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeApproval**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeApproval) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeApprovalSummary**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get Summary of Non-Employee Approval Requests
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeBulkUploadStatus**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Obtain the status of bulk upload on the source
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRecord) | **GET** /non-employee-records/{id} | Get a Non-Employee Record
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequest) | **GET** /non-employee-requests/{id} | Get a Non-Employee Request
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRequestSummary**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequestSummary) | **GET** /non-employee-requests/summary/{requested-for} | Get Summary of Non-Employee Requests
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeSourceSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeApproval**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeApproval) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRecords**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRecords) | **GET** /non-employee-records | List Non-Employee Records
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRequests**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeSources**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSources) | **GET** /non-employee-sources | List Non-Employee Sources
+*BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeRecord) | **PATCH** /non-employee-records/{id} | Patch Non-Employee Record
+*BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Deny-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Deny-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
+*BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
+*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaUploadNonEmployeeRecordsInBulk**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaUploadNonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
 *BetaNotificationsApi* | [**New-BetaNotificationTemplate**](docs/BetaNotificationsApi.md#New-BetaNotificationTemplate) | **POST** /notification-templates | Create Notification Template
 *BetaNotificationsApi* | [**New-BetaVerifiedFromAddress**](docs/BetaNotificationsApi.md#New-BetaVerifiedFromAddress) | **POST** /verified-from-addresses | Create Verified From Address
+*BetaNotificationsApi* | [**Remove-BetaNotificationTemplatesInBulk**](docs/BetaNotificationsApi.md#Remove-BetaNotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 *BetaNotificationsApi* | [**Remove-BetaVerifiedFromAddress**](docs/BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 *BetaNotificationsApi* | [**Get-BetaDkimAttributes**](docs/BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /dkim-attributes/{identities} | Get DKIM Attributes
 *BetaNotificationsApi* | [**Get-BetaNotificationPreference**](docs/BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
@@ -266,9 +266,9 @@ Class | Method | HTTP request | Description
 *BetaPasswordDictionaryApi* | [**Get-BetaPasswordDictionaryFileStatus**](docs/BetaPasswordDictionaryApi.md#Get-BetaPasswordDictionaryFileStatus) | **HEAD** /password-dictionary | Get Password Dictionary Status
 *BetaPasswordDictionaryApi* | [**Update-BetaPasswordDictionary**](docs/BetaPasswordDictionaryApi.md#Update-BetaPasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 *BetaPasswordManagementApi* | [**New-BetaDigitToken**](docs/BetaPasswordManagementApi.md#New-BetaDigitToken) | **POST** /generate-password-reset-token/digit | Generate a digit token
-*BetaPasswordManagementApi* | [**Get-BetaPasswordChangeStatus**](docs/BetaPasswordManagementApi.md#Get-BetaPasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
+*BetaPasswordManagementApi* | [**Get-BetaIdentityPasswordChangeStatus**](docs/BetaPasswordManagementApi.md#Get-BetaIdentityPasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
 *BetaPasswordManagementApi* | [**Search-BetaPasswordInfo**](docs/BetaPasswordManagementApi.md#Search-BetaPasswordInfo) | **POST** /query-password-info | Query Password Info
-*BetaPasswordManagementApi* | [**Set-BetaPassword**](docs/BetaPasswordManagementApi.md#Set-BetaPassword) | **POST** /set-password | Set Identity's Password
+*BetaPasswordManagementApi* | [**Set-BetaIdentityPassword**](docs/BetaPasswordManagementApi.md#Set-BetaIdentityPassword) | **POST** /set-password | Set Identity's Password
 *BetaPasswordSyncGroupsApi* | [**New-BetaPasswordSyncGroup**](docs/BetaPasswordSyncGroupsApi.md#New-BetaPasswordSyncGroup) | **POST** /password-sync-groups | Create Password Sync Group
 *BetaPasswordSyncGroupsApi* | [**Remove-BetaPasswordSyncGroup**](docs/BetaPasswordSyncGroupsApi.md#Remove-BetaPasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete Password Sync Group by ID
 *BetaPasswordSyncGroupsApi* | [**Get-BetaPasswordSyncGroup**](docs/BetaPasswordSyncGroupsApi.md#Get-BetaPasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get Password Sync Group by ID
@@ -281,6 +281,7 @@ Class | Method | HTTP request | Description
 *BetaPublicIdentitiesConfigApi* | [**Get-BetaPublicIdentityConfig**](docs/BetaPublicIdentitiesConfigApi.md#Get-BetaPublicIdentityConfig) | **GET** /public-identities-config | Get Public Identity Config
 *BetaPublicIdentitiesConfigApi* | [**Update-BetaPublicIdentityConfig**](docs/BetaPublicIdentitiesConfigApi.md#Update-BetaPublicIdentityConfig) | **PUT** /public-identities-config | Update Public Identity Config
 *BetaRequestableObjectsApi* | [**Get-BetaRequestableObjects**](docs/BetaRequestableObjectsApi.md#Get-BetaRequestableObjects) | **GET** /requestable-objects | Requestable Objects List
+*BetaRoleInsightsApi* | [**New-BetaRoleInsightRequests**](docs/BetaRoleInsightsApi.md#New-BetaRoleInsightRequests) | **POST** /role-insights/requests | A request to generate insights for roles
 *BetaRoleInsightsApi* | [**Invoke-BetaDownloadRoleInsightsEntitlementsChanges**](docs/BetaRoleInsightsApi.md#Invoke-BetaDownloadRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes/download | Download entitlement insights for a role
 *BetaRoleInsightsApi* | [**Get-BetaEntitlementChangesIdentities**](docs/BetaRoleInsightsApi.md#Get-BetaEntitlementChangesIdentities) | **GET** /role-insights/{insightId}/entitlement-changes/{entitlementId}/identities | Get identities for a suggested entitlement (for a role)
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsight**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsight) | **GET** /role-insights/{insightId} | Get a single role insight
@@ -289,7 +290,6 @@ Class | Method | HTTP request | Description
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsEntitlementsChanges**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes | Get entitlement insights for a role
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsRequests**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns the metadata for a request in order to generate insights for roles.
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsSummary**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
-*BetaRoleInsightsApi* | [**Invoke-BetaRoleInsightsRequests**](docs/BetaRoleInsightsApi.md#Invoke-BetaRoleInsightsRequests) | **POST** /role-insights/requests | A request to generate insights for roles
 *BetaRolesApi* | [**New-BetaRole**](docs/BetaRolesApi.md#New-BetaRole) | **POST** /roles | Create a Role
 *BetaRolesApi* | [**Remove-BetaRole**](docs/BetaRolesApi.md#Remove-BetaRole) | **DELETE** /roles/{id} | Delete a Role
 *BetaRolesApi* | [**Get-BetaRole**](docs/BetaRolesApi.md#Get-BetaRole) | **GET** /roles/{id} | Get a Role
@@ -297,37 +297,37 @@ Class | Method | HTTP request | Description
 *BetaRolesApi* | [**Get-BetaRoles**](docs/BetaRolesApi.md#Get-BetaRoles) | **GET** /roles | List Roles
 *BetaRolesApi* | [**Update-BetaRole**](docs/BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
 *BetaSODPolicyApi* | [**New-BetaSodPolicy**](docs/BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD Policy
-*BetaSODPolicyApi* | [**Remove-BetaSodPolicyById**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicyById) | **DELETE** /sod-policies/{id} | Delete SOD Policy by ID
-*BetaSODPolicyApi* | [**Remove-BetaSodPolicyScheduleById**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicyScheduleById) | **DELETE** /sod-policies/{id}/schedule | Delete SOD Policy Schedule
+*BetaSODPolicyApi* | [**Remove-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD Policy by ID
+*BetaSODPolicyApi* | [**Remove-BetaSodPolicySchedule**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD Policy Schedule
 *BetaSODPolicyApi* | [**Invoke-BetaDownloadCustomViolationReport**](docs/BetaSODPolicyApi.md#Invoke-BetaDownloadCustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 *BetaSODPolicyApi* | [**Invoke-BetaDownloadDefaultViolationReport**](docs/BetaSODPolicyApi.md#Invoke-BetaDownloadDefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 *BetaSODPolicyApi* | [**Get-BetaSodAllReportRunStatus**](docs/BetaSODPolicyApi.md#Get-BetaSodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
-*BetaSODPolicyApi* | [**Get-BetaSodPolicyById**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicyById) | **GET** /sod-policies/{id} | Get SOD Policy By ID
-*BetaSODPolicyApi* | [**Get-BetaSodPolicyScheduleById**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicyScheduleById) | **GET** /sod-policies/{id}/schedule | Get SOD Policy Schedule
+*BetaSODPolicyApi* | [**Get-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicy) | **GET** /sod-policies/{id} | Get SOD Policy By ID
+*BetaSODPolicyApi* | [**Get-BetaSodPolicySchedule**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD Policy Schedule
 *BetaSODPolicyApi* | [**Get-BetaSodViolationReportRunStatus**](docs/BetaSODPolicyApi.md#Get-BetaSodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
 *BetaSODPolicyApi* | [**Get-BetaSodViolationReportStatus**](docs/BetaSODPolicyApi.md#Get-BetaSodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
 *BetaSODPolicyApi* | [**Get-BetaSodPolicies**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicies) | **GET** /sod-policies | List SOD Policies
 *BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PATCH** /sod-policies/{id} | Update a SOD Policy
-*BetaSODPolicyApi* | [**Start-BetaAllPoliciesForOrg**](docs/BetaSODPolicyApi.md#Start-BetaAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for Org.
+*BetaSODPolicyApi* | [**Start-BetaSodAllPoliciesForOrg**](docs/BetaSODPolicyApi.md#Start-BetaSodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for Org.
 *BetaSODPolicyApi* | [**Start-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Start-BetaSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD Policy Violation Report
-*BetaSODPolicyApi* | [**Update-BetaPolicyById**](docs/BetaSODPolicyApi.md#Update-BetaPolicyById) | **PUT** /sod-policies/{id} | Update SOD Policy By ID
-*BetaSODPolicyApi* | [**Update-BetaPolicyScheduleById**](docs/BetaSODPolicyApi.md#Update-BetaPolicyScheduleById) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
-*BetaSODViolationsApi* | [**Invoke-BetaPredictViolations**](docs/BetaSODViolationsApi.md#Invoke-BetaPredictViolations) | **POST** /sod-violations/predict | Predict SOD violations for the given identity if they were granted the given access.
-*BetaSPConfigApi* | [**Invoke-BetaSpConfigExport**](docs/BetaSPConfigApi.md#Invoke-BetaSpConfigExport) | **POST** /sp-config/export | Initiates Configuration Objects Export Job.
-*BetaSPConfigApi* | [**Invoke-BetaSpConfigExportDownload**](docs/BetaSPConfigApi.md#Invoke-BetaSpConfigExportDownload) | **GET** /sp-config/export/{id}/download | Download Result of Export Job
-*BetaSPConfigApi* | [**Invoke-BetaSpConfigExportJobStatus**](docs/BetaSPConfigApi.md#Invoke-BetaSpConfigExportJobStatus) | **GET** /sp-config/export/{id} | Get Status of Export Job
-*BetaSPConfigApi* | [**Invoke-BetaSpConfigImport**](docs/BetaSPConfigApi.md#Invoke-BetaSpConfigImport) | **POST** /sp-config/import | Initiates Configuration Objects Import Job.
-*BetaSPConfigApi* | [**Invoke-BetaSpConfigImportDownload**](docs/BetaSPConfigApi.md#Invoke-BetaSpConfigImportDownload) | **GET** /sp-config/import/{id}/download | Download Result of Import Job
-*BetaSPConfigApi* | [**Invoke-BetaSpConfigImportJobStatus**](docs/BetaSPConfigApi.md#Invoke-BetaSpConfigImportJobStatus) | **GET** /sp-config/import/{id} | Get Status of Import Job
-*BetaSPConfigApi* | [**Invoke-BetaSpConfigObjects**](docs/BetaSPConfigApi.md#Invoke-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get Config Object details
+*BetaSODPolicyApi* | [**Update-BetaPolicySchedule**](docs/BetaSODPolicyApi.md#Update-BetaPolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
+*BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD Policy By ID
+*BetaSODViolationsApi* | [**Invoke-BetaPredictSodViolations**](docs/BetaSODViolationsApi.md#Invoke-BetaPredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for the given identity if they were granted the given access.
+*BetaSPConfigApi* | [**Export-BetaSpConfig**](docs/BetaSPConfigApi.md#Export-BetaSpConfig) | **POST** /sp-config/export | Initiates Configuration Objects Export Job.
+*BetaSPConfigApi* | [**Export-BetaSpConfigDownload**](docs/BetaSPConfigApi.md#Export-BetaSpConfigDownload) | **GET** /sp-config/export/{id}/download | Download Result of Export Job
+*BetaSPConfigApi* | [**Export-BetaSpConfigJobStatus**](docs/BetaSPConfigApi.md#Export-BetaSpConfigJobStatus) | **GET** /sp-config/export/{id} | Get Status of Export Job
+*BetaSPConfigApi* | [**Import-BetaSpConfig**](docs/BetaSPConfigApi.md#Import-BetaSpConfig) | **POST** /sp-config/import | Initiates Configuration Objects Import Job.
+*BetaSPConfigApi* | [**Import-BetaSpConfigDownload**](docs/BetaSPConfigApi.md#Import-BetaSpConfigDownload) | **GET** /sp-config/import/{id}/download | Download Result of Import Job
+*BetaSPConfigApi* | [**Import-BetaSpConfigJobStatus**](docs/BetaSPConfigApi.md#Import-BetaSpConfigJobStatus) | **GET** /sp-config/import/{id} | Get Status of Import Job
+*BetaSPConfigApi* | [**Get-BetaSpConfigObjects**](docs/BetaSPConfigApi.md#Get-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get Config Object details
 *BetaSearchAttributeConfigurationApi* | [**New-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#New-BetaSearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create extended search attributes in IdentityNow.
 *BetaSearchAttributeConfigurationApi* | [**Remove-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Remove-BetaSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete an extended search attribute in IdentityNow.
 *BetaSearchAttributeConfigurationApi* | [**Get-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Get-BetaSearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve a list of extended search attributes in IdentityNow.
 *BetaSearchAttributeConfigurationApi* | [**Get-BetaSingleSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Get-BetaSingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get the details of a specific extended search attribute in IdentityNow.
 *BetaSearchAttributeConfigurationApi* | [**Update-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Update-BetaSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update the details of a specific extended search attribute in IdentityNow.
 *BetaSegmentsApi* | [**New-BetaSegment**](docs/BetaSegmentsApi.md#New-BetaSegment) | **POST** /segments | Create Segment
-*BetaSegmentsApi* | [**Remove-BetaSegmentById**](docs/BetaSegmentsApi.md#Remove-BetaSegmentById) | **DELETE** /segments/{id} | Delete Segment by ID
-*BetaSegmentsApi* | [**Get-BetaSegmentById**](docs/BetaSegmentsApi.md#Get-BetaSegmentById) | **GET** /segments/{id} | Get a Segment by its ID
+*BetaSegmentsApi* | [**Remove-BetaSegment**](docs/BetaSegmentsApi.md#Remove-BetaSegment) | **DELETE** /segments/{id} | Delete Segment by ID
+*BetaSegmentsApi* | [**Get-BetaSegment**](docs/BetaSegmentsApi.md#Get-BetaSegment) | **GET** /segments/{id} | Get a Segment by its ID
 *BetaSegmentsApi* | [**Get-BetaSegments**](docs/BetaSegmentsApi.md#Get-BetaSegments) | **GET** /segments | List Segments
 *BetaSegmentsApi* | [**Update-BetaSegment**](docs/BetaSegmentsApi.md#Update-BetaSegment) | **PATCH** /segments/{id} | Update a Segment
 *BetaServiceDeskIntegrationApi* | [**New-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#New-BetaServiceDeskIntegration) | **POST** /service-desk-integrations | Create a new Service Desk integration
@@ -338,75 +338,75 @@ Class | Method | HTTP request | Description
 *BetaServiceDeskIntegrationApi* | [**Get-BetaServiceDeskIntegrationTypes**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
 *BetaServiceDeskIntegrationApi* | [**Get-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaStatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration of queued SDIM tickets
 *BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
+*BetaServiceDeskIntegrationApi* | [**Update-BetaManagedClientStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaManagedClientStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
 *BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration by ID
-*BetaServiceDeskIntegrationApi* | [**Update-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
-*BetaSourcesApi* | [**Invoke-BetaBulkUpdateProvisioningPolicies**](docs/BetaSourcesApi.md#Invoke-BetaBulkUpdateProvisioningPolicies) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
-*BetaSourcesApi* | [**Invoke-BetaCheckConnection**](docs/BetaSourcesApi.md#Invoke-BetaCheckConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for the source connector.
 *BetaSourcesApi* | [**New-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#New-BetaProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
-*BetaSourcesApi* | [**New-BetaSchema**](docs/BetaSourcesApi.md#New-BetaSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
 *BetaSourcesApi* | [**New-BetaSource**](docs/BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
+*BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
 *BetaSourcesApi* | [**Remove-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
-*BetaSourcesApi* | [**Remove-BetaSchema**](docs/BetaSourcesApi.md#Remove-BetaSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 *BetaSourcesApi* | [**Remove-BetaSource**](docs/BetaSourcesApi.md#Remove-BetaSource) | **DELETE** /sources/{id} | Delete Source by ID
+*BetaSourcesApi* | [**Remove-BetaSourceSchema**](docs/BetaSourcesApi.md#Remove-BetaSourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 *BetaSourcesApi* | [**Invoke-BetaDownloadSourceAccountsSchema**](docs/BetaSourcesApi.md#Invoke-BetaDownloadSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
 *BetaSourcesApi* | [**Invoke-BetaDownloadSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Invoke-BetaDownloadSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
-*BetaSourcesApi* | [**Get-BetaSchema**](docs/BetaSourcesApi.md#Get-BetaSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *BetaSourcesApi* | [**Get-BetaSource**](docs/BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
 *BetaSourcesApi* | [**Get-BetaSourceAttrSyncConfig**](docs/BetaSourcesApi.md#Get-BetaSourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
 *BetaSourcesApi* | [**Get-BetaSourceConfig**](docs/BetaSourcesApi.md#Get-BetaSourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
+*BetaSourcesApi* | [**Get-BetaSourceSchema**](docs/BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicies**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-*BetaSourcesApi* | [**Get-BetaSchemas**](docs/BetaSourcesApi.md#Get-BetaSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
+*BetaSourcesApi* | [**Get-BetaSourceSchemas**](docs/BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
 *BetaSourcesApi* | [**Get-BetaSources**](docs/BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 *BetaSourcesApi* | [**Receive-BetaResourceObjects**](docs/BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek resource objects from the source connector
 *BetaSourcesApi* | [**Ping-BetaCluster**](docs/BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for the source connector
+*BetaSourcesApi* | [**Send-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
+*BetaSourcesApi* | [**Send-BetaSource**](docs/BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
 *BetaSourcesApi* | [**Send-BetaSourceAttrSyncConfig**](docs/BetaSourcesApi.md#Send-BetaSourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
-*BetaSourcesApi* | [**Invoke-BetaReplaceProvisioningPolicy**](docs/BetaSourcesApi.md#Invoke-BetaReplaceProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
-*BetaSourcesApi* | [**Invoke-BetaReplaceSchema**](docs/BetaSourcesApi.md#Invoke-BetaReplaceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
-*BetaSourcesApi* | [**Invoke-BetaReplaceSource**](docs/BetaSourcesApi.md#Invoke-BetaReplaceSource) | **PUT** /sources/{id} | Update Source (Full)
-*BetaSourcesApi* | [**Sync-BetahronizeAttributesForSource**](docs/BetaSourcesApi.md#Sync-BetahronizeAttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
-*BetaSourcesApi* | [**Test-BetaConfiguration**](docs/BetaSourcesApi.md#Test-BetaConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for the source connector
+*BetaSourcesApi* | [**Send-BetaSourceSchema**](docs/BetaSourcesApi.md#Send-BetaSourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
+*BetaSourcesApi* | [**Sync-BetaAttributesForSource**](docs/BetaSourcesApi.md#Sync-BetaAttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
+*BetaSourcesApi* | [**Test-BetaSourceConfiguration**](docs/BetaSourcesApi.md#Test-BetaSourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for the source connector
+*BetaSourcesApi* | [**Test-BetaSourceConnection**](docs/BetaSourcesApi.md#Test-BetaSourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for the source connector.
+*BetaSourcesApi* | [**Update-BetaProvisioningPoliciesInBulk**](docs/BetaSourcesApi.md#Update-BetaProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 *BetaSourcesApi* | [**Update-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Update-BetaProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
-*BetaSourcesApi* | [**Update-BetaSchema**](docs/BetaSourcesApi.md#Update-BetaSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
-*BetaSourcesApi* | [**Invoke-BetaUploadConnectorFile**](docs/BetaSourcesApi.md#Invoke-BetaUploadConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
+*BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 *BetaSourcesApi* | [**Invoke-BetaUploadSourceAccountsSchema**](docs/BetaSourcesApi.md#Invoke-BetaUploadSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
+*BetaSourcesApi* | [**Invoke-BetaUploadSourceConnectorFile**](docs/BetaSourcesApi.md#Invoke-BetaUploadSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *BetaSourcesApi* | [**Invoke-BetaUploadSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Invoke-BetaUploadSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 *BetaTaggedObjectsApi* | [**Add-BetaTagToObject**](docs/BetaTaggedObjectsApi.md#Add-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 *BetaTaggedObjectsApi* | [**Add-BetaTagsToManyObjects**](docs/BetaTaggedObjectsApi.md#Add-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
-*BetaTaggedObjectsApi* | [**Remove-BetaTaggedObjectByTypeAndId**](docs/BetaTaggedObjectsApi.md#Remove-BetaTaggedObjectByTypeAndId) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
-*BetaTaggedObjectsApi* | [**Get-BetaTaggedObjectByTypeAndId**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjectByTypeAndId) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
+*BetaTaggedObjectsApi* | [**Remove-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+*BetaTaggedObjectsApi* | [**Get-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObjects**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObjectsByType**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
 *BetaTaggedObjectsApi* | [**Remove-BetaTagsToManyObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
-*BetaTaggedObjectsApi* | [**Update-BetaTaggedObjectByTypeAndId**](docs/BetaTaggedObjectsApi.md#Update-BetaTaggedObjectByTypeAndId) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
+*BetaTaggedObjectsApi* | [**Update-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Update-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 *BetaTransformsApi* | [**New-BetaTransform**](docs/BetaTransformsApi.md#New-BetaTransform) | **POST** /transforms | Create transform
 *BetaTransformsApi* | [**Remove-BetaTransform**](docs/BetaTransformsApi.md#Remove-BetaTransform) | **DELETE** /transforms/{id} | Delete a transform
 *BetaTransformsApi* | [**Get-BetaTransform**](docs/BetaTransformsApi.md#Get-BetaTransform) | **GET** /transforms/{id} | Transform by ID
-*BetaTransformsApi* | [**Get-BetaTransformsList**](docs/BetaTransformsApi.md#Get-BetaTransformsList) | **GET** /transforms | List transforms
+*BetaTransformsApi* | [**Get-BetaTransforms**](docs/BetaTransformsApi.md#Get-BetaTransforms) | **GET** /transforms | List transforms
 *BetaTransformsApi* | [**Update-BetaTransform**](docs/BetaTransformsApi.md#Update-BetaTransform) | **PUT** /transforms/{id} | Update a transform
-*BetaTriggersApi* | [**Complete-BetaInvocation**](docs/BetaTriggersApi.md#Complete-BetaInvocation) | **POST** /trigger-invocations/{id}/complete | Complete Trigger Invocation
+*BetaTriggersApi* | [**Complete-BetaTriggerInvocation**](docs/BetaTriggersApi.md#Complete-BetaTriggerInvocation) | **POST** /trigger-invocations/{id}/complete | Complete Trigger Invocation
 *BetaTriggersApi* | [**New-BetaSubscription**](docs/BetaTriggersApi.md#New-BetaSubscription) | **POST** /trigger-subscriptions | Create a Subscription
 *BetaTriggersApi* | [**Remove-BetaSubscription**](docs/BetaTriggersApi.md#Remove-BetaSubscription) | **DELETE** /trigger-subscriptions/{id} | Delete a Subscription
-*BetaTriggersApi* | [**Get-BetaInvocationStatus**](docs/BetaTriggersApi.md#Get-BetaInvocationStatus) | **GET** /trigger-invocations/status | List Latest Invocation Statuses
 *BetaTriggersApi* | [**Get-BetaSubscriptions**](docs/BetaTriggersApi.md#Get-BetaSubscriptions) | **GET** /trigger-subscriptions | List Subscriptions
+*BetaTriggersApi* | [**Get-BetaTriggerInvocationStatus**](docs/BetaTriggersApi.md#Get-BetaTriggerInvocationStatus) | **GET** /trigger-invocations/status | List Latest Invocation Statuses
 *BetaTriggersApi* | [**Get-BetaTriggers**](docs/BetaTriggersApi.md#Get-BetaTriggers) | **GET** /triggers | List Triggers
 *BetaTriggersApi* | [**Update-BetaSubscription**](docs/BetaTriggersApi.md#Update-BetaSubscription) | **PATCH** /trigger-subscriptions/{id} | Patch a Subscription
-*BetaTriggersApi* | [**Start-BetaTestInvocation**](docs/BetaTriggersApi.md#Start-BetaTestInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
+*BetaTriggersApi* | [**Start-BetaTestTriggerInvocation**](docs/BetaTriggersApi.md#Start-BetaTestTriggerInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
 *BetaTriggersApi* | [**Update-BetaSubscription**](docs/BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
-*BetaTriggersApi* | [**Confirm-BetaFilter**](docs/BetaTriggersApi.md#Confirm-BetaFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
+*BetaTriggersApi* | [**Confirm-BetaSubscriptionFilter**](docs/BetaTriggersApi.md#Confirm-BetaSubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
-*BetaWorkItemsApi* | [**Invoke-BetaBulkApproveApprovalItem**](docs/BetaWorkItemsApi.md#Invoke-BetaBulkApproveApprovalItem) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
-*BetaWorkItemsApi* | [**Invoke-BetaBulkRejectApprovalItem**](docs/BetaWorkItemsApi.md#Invoke-BetaBulkRejectApprovalItem) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
+*BetaWorkItemsApi* | [**Approve-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item
-*BetaWorkItemsApi* | [**Complete-BetadWorkItems**](docs/BetaWorkItemsApi.md#Complete-BetadWorkItems) | **GET** /work-items/completed | Completed Work Items
-*BetaWorkItemsApi* | [**Invoke-BetaCountCompletedWorkItems**](docs/BetaWorkItemsApi.md#Invoke-BetaCountCompletedWorkItems) | **GET** /work-items/count/completed | Count Completed Work Items
-*BetaWorkItemsApi* | [**Invoke-BetaCountWorkItems**](docs/BetaWorkItemsApi.md#Invoke-BetaCountWorkItems) | **GET** /work-items/count | Count Work Items
-*BetaWorkItemsApi* | [**Get-BetaWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaWorkItems) | **GET** /work-items/{id} | Get a Work Item
+*BetaWorkItemsApi* | [**Get-BetaCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
+*BetaWorkItemsApi* | [**Get-BetaCountCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountCompletedWorkItems) | **GET** /work-items/count/completed | Count Completed Work Items
+*BetaWorkItemsApi* | [**Get-BetaCountWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountWorkItems) | **GET** /work-items/count | Count Work Items
+*BetaWorkItemsApi* | [**Get-BetaWorkItem**](docs/BetaWorkItemsApi.md#Get-BetaWorkItem) | **GET** /work-items/{id} | Get a Work Item
+*BetaWorkItemsApi* | [**Get-BetaWorkItemsSummary**](docs/BetaWorkItemsApi.md#Get-BetaWorkItemsSummary) | **GET** /work-items/summary | Work Items Summary
 *BetaWorkItemsApi* | [**Get-BetaWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaWorkItems) | **GET** /work-items | List Work Items
 *BetaWorkItemsApi* | [**Deny-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Deny-BetaApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
+*BetaWorkItemsApi* | [**Deny-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Deny-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
 *BetaWorkItemsApi* | [**Submit-BetaAccountSelection**](docs/BetaWorkItemsApi.md#Submit-BetaAccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
-*BetaWorkItemsApi* | [**Invoke-BetaSummaryWorkItems**](docs/BetaWorkItemsApi.md#Invoke-BetaSummaryWorkItems) | **GET** /work-items/summary | Work Items Summary
 *BetaWorkflowsApi* | [**Suspend-BetaWorkflowExecution**](docs/BetaWorkflowsApi.md#Suspend-BetaWorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
 *BetaWorkflowsApi* | [**New-BetaWorkflow**](docs/BetaWorkflowsApi.md#New-BetaWorkflow) | **POST** /workflows | Create Workflow
 *BetaWorkflowsApi* | [**Remove-BetaWorkflow**](docs/BetaWorkflowsApi.md#Remove-BetaWorkflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
@@ -578,6 +578,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.CreateWorkflowRequest](docs/CreateWorkflowRequest.md)
  - [PSSailpointBeta/Model.CustomPasswordInstruction](docs/CustomPasswordInstruction.md)
  - [PSSailpointBeta/Model.DeleteCampaignsRequest](docs/DeleteCampaignsRequest.md)
+ - [PSSailpointBeta/Model.DeleteNonEmployeeRecordInBulkRequest](docs/DeleteNonEmployeeRecordInBulkRequest.md)
  - [PSSailpointBeta/Model.DeleteSource202Response](docs/DeleteSource202Response.md)
  - [PSSailpointBeta/Model.DkimAttributesDto](docs/DkimAttributesDto.md)
  - [PSSailpointBeta/Model.DomainAddressDto](docs/DomainAddressDto.md)
@@ -623,7 +624,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.FullcampaignAllOfSourceOwnerCampaignInfo](docs/FullcampaignAllOfSourceOwnerCampaignInfo.md)
  - [PSSailpointBeta/Model.FullcampaignAllOfSourcesWithOrphanEntitlements](docs/FullcampaignAllOfSourcesWithOrphanEntitlements.md)
  - [PSSailpointBeta/Model.GetActiveCampaigns200ResponseInner](docs/GetActiveCampaigns200ResponseInner.md)
- - [PSSailpointBeta/Model.GetEvents200ResponseInner](docs/GetEvents200ResponseInner.md)
+ - [PSSailpointBeta/Model.GetHistoricalIdentityEvents200ResponseInner](docs/GetHistoricalIdentityEvents200ResponseInner.md)
  - [PSSailpointBeta/Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpointBeta/Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
  - [PSSailpointBeta/Model.GrantType](docs/GrantType.md)
@@ -665,6 +666,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpointBeta/Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
  - [PSSailpointBeta/Model.ImportOptions](docs/ImportOptions.md)
+ - [PSSailpointBeta/Model.ImportSpConfigRequest](docs/ImportSpConfigRequest.md)
  - [PSSailpointBeta/Model.Invocation](docs/Invocation.md)
  - [PSSailpointBeta/Model.InvocationStatus](docs/InvocationStatus.md)
  - [PSSailpointBeta/Model.InvocationStatusType](docs/InvocationStatusType.md)
@@ -712,8 +714,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.NonEmployeeBulkUploadStatus](docs/NonEmployeeBulkUploadStatus.md)
  - [PSSailpointBeta/Model.NonEmployeeIdnUserRequest](docs/NonEmployeeIdnUserRequest.md)
  - [PSSailpointBeta/Model.NonEmployeeRecord](docs/NonEmployeeRecord.md)
- - [PSSailpointBeta/Model.NonEmployeeRecordBulkDeleteRequest](docs/NonEmployeeRecordBulkDeleteRequest.md)
- - [PSSailpointBeta/Model.NonEmployeeRecordsBulkUploadRequest](docs/NonEmployeeRecordsBulkUploadRequest.md)
  - [PSSailpointBeta/Model.NonEmployeeRejectApprovalDecision](docs/NonEmployeeRejectApprovalDecision.md)
  - [PSSailpointBeta/Model.NonEmployeeRequest](docs/NonEmployeeRequest.md)
  - [PSSailpointBeta/Model.NonEmployeeRequestAllOf](docs/NonEmployeeRequestAllOf.md)
@@ -913,7 +913,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SourceSyncPayload](docs/SourceSyncPayload.md)
  - [PSSailpointBeta/Model.SourceUpdated](docs/SourceUpdated.md)
  - [PSSailpointBeta/Model.SpConfigExportResults](docs/SpConfigExportResults.md)
- - [PSSailpointBeta/Model.SpConfigImportRequest](docs/SpConfigImportRequest.md)
  - [PSSailpointBeta/Model.SpConfigImportResults](docs/SpConfigImportResults.md)
  - [PSSailpointBeta/Model.SpConfigJob](docs/SpConfigJob.md)
  - [PSSailpointBeta/Model.SpConfigMessage](docs/SpConfigMessage.md)
@@ -1025,6 +1024,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.TriggerOutputAccessRequestPreApproval](docs/TriggerOutputAccessRequestPreApproval.md)
  - [PSSailpointBeta/Model.TriggerType](docs/TriggerType.md)
  - [PSSailpointBeta/Model.UpdatePasswordDictionaryRequest](docs/UpdatePasswordDictionaryRequest.md)
+ - [PSSailpointBeta/Model.UploadNonEmployeeRecordsInBulkRequest](docs/UploadNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpointBeta/Model.UsageType](docs/UsageType.md)
  - [PSSailpointBeta/Model.V3ConnectorDto](docs/V3ConnectorDto.md)
  - [PSSailpointBeta/Model.VAClusterStatusChangeEvent](docs/VAClusterStatusChangeEvent.md)

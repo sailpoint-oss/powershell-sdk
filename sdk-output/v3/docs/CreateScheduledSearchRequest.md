@@ -1,4 +1,4 @@
-# ScheduledSearchCreateRequest
+# CreateScheduledSearchRequest
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledSearchCreateRequest = Initialize-PSSailpointScheduledSearchCreateRequest  -Name Daily disabled accounts `
+$CreateScheduledSearchRequest = Initialize-PSSailpointCreateScheduledSearchRequest  -Name Daily disabled accounts `
  -Description Daily disabled accounts `
  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
  -Created null `
@@ -32,7 +32,7 @@ $ScheduledSearchCreateRequest = Initialize-PSSailpointScheduledSearchCreateReque
 
 - Convert the resource to JSON
 ```powershell
-$ScheduledSearchCreateRequest | ConvertTo-JSON
+$CreateScheduledSearchRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

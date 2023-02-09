@@ -4,12 +4,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaOutliers**](BetaIAIPeerGroupStrategiesApi.md#Get-BetaOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
+[**Get-BetaPeerGroupOutliers**](BetaIAIPeerGroupStrategiesApi.md#Get-BetaPeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
 
 
-<a name="Get-BetaOutliers"></a>
-# **Get-BetaOutliers**
-> PeerGroupMember[] Get-BetaOutliers<br>
+<a name="Get-BetaPeerGroupOutliers"></a>
+# **Get-BetaPeerGroupOutliers**
+> PeerGroupMember[] Get-BetaPeerGroupOutliers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Strategy] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -36,9 +36,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 # Identity Outliers List
 try {
-    $Result = Get-BetaOutliers -Strategy $Strategy -Limit $Limit -Offset $Offset -Count $Count
+    $Result = Get-BetaPeerGroupOutliers -Strategy $Strategy -Limit $Limit -Offset $Offset -Count $Count
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaOutliers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaPeerGroupOutliers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

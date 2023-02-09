@@ -4,9 +4,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaBulkDeleteNotificationTemplates**](BetaNotificationsApi.md#Invoke-BetaBulkDeleteNotificationTemplates) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 [**New-BetaNotificationTemplate**](BetaNotificationsApi.md#New-BetaNotificationTemplate) | **POST** /notification-templates | Create Notification Template
 [**New-BetaVerifiedFromAddress**](BetaNotificationsApi.md#New-BetaVerifiedFromAddress) | **POST** /verified-from-addresses | Create Verified From Address
+[**Remove-BetaNotificationTemplatesInBulk**](BetaNotificationsApi.md#Remove-BetaNotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 [**Remove-BetaVerifiedFromAddress**](BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 [**Get-BetaDkimAttributes**](BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /dkim-attributes/{identities} | Get DKIM Attributes
 [**Get-BetaNotificationPreference**](BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
@@ -19,57 +19,6 @@ Method | HTTP request | Description
 [**Send-BetaTestNotification**](BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
 [**Test-BetaDomainDkim**](BetaNotificationsApi.md#Test-BetaDomainDkim) | **POST** /verify-domain-dkim | Verify domain address via DKIM
 
-
-<a name="Invoke-BetaBulkDeleteNotificationTemplates"></a>
-# **Invoke-BetaBulkDeleteNotificationTemplates**
-> void Invoke-BetaBulkDeleteNotificationTemplates<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TemplateBulkDeleteDto] <PSCustomObject[]><br>
-
-Bulk Delete Notification Templates
-
-This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$TemplateBulkDeleteDto = Initialize-TemplateBulkDeleteDto -Key "cloud_manual_work_item_summary" -Medium "EMAIL" -Locale "en" # TemplateBulkDeleteDto[] | 
-
-# Bulk Delete Notification Templates
-try {
-    $Result = Invoke-BetaBulkDeleteNotificationTemplates -TemplateBulkDeleteDto $TemplateBulkDeleteDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaBulkDeleteNotificationTemplates: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TemplateBulkDeleteDto** | [**TemplateBulkDeleteDto[]**](TemplateBulkDeleteDto.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-BetaNotificationTemplate"></a>
 # **New-BetaNotificationTemplate**
@@ -161,6 +110,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailStatusDto**](EmailStatusDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-BetaNotificationTemplatesInBulk"></a>
+# **Remove-BetaNotificationTemplatesInBulk**
+> void Remove-BetaNotificationTemplatesInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TemplateBulkDeleteDto] <PSCustomObject[]><br>
+
+Bulk Delete Notification Templates
+
+This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$TemplateBulkDeleteDto = Initialize-TemplateBulkDeleteDto -Key "cloud_manual_work_item_summary" -Medium "EMAIL" -Locale "en" # TemplateBulkDeleteDto[] | 
+
+# Bulk Delete Notification Templates
+try {
+    $Result = Remove-BetaNotificationTemplatesInBulk -TemplateBulkDeleteDto $TemplateBulkDeleteDto
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaNotificationTemplatesInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TemplateBulkDeleteDto** | [**TemplateBulkDeleteDto[]**](TemplateBulkDeleteDto.md)|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

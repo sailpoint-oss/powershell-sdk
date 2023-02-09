@@ -34,7 +34,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 PeerGroupMember[]
 #>
-function Get-BetaOutliers {
+function Get-BetaPeerGroupOutliers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -54,7 +54,7 @@ function Get-BetaOutliers {
     )
 
     Process {
-        'Calling method: Get-BetaOutliers' | Write-Debug
+        'Calling method: Get-BetaPeerGroupOutliers' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -72,7 +72,7 @@ function Get-BetaOutliers {
 
         $LocalVarUri = '/peer-group-strategies/{strategy}/identity-outliers'
         if (!$Strategy) {
-            throw "Error! The required parameter `Strategy` missing when calling getOutliers."
+            throw "Error! The required parameter `Strategy` missing when calling getPeerGroupOutliers."
         }
         $LocalVarUri = $LocalVarUri.replace('{strategy}', [System.Web.HTTPUtility]::UrlEncode($Strategy))
 

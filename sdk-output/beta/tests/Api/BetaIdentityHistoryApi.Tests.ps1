@@ -22,9 +22,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityHistoryApi' {
         }
     }
 
-    Context 'Get-BetaEvents' {
-        It 'Test Get-BetaEvents' {
-            #$TestResult = Get-BetaEvents -Id "TEST_VALUE" -From "TEST_VALUE" -EventTypes "TEST_VALUE" -AccessItemTypes "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaHistoricalIdentityEvents' {
+        It 'Test Get-BetaHistoricalIdentityEvents' {
+            #$TestResult = Get-BetaHistoricalIdentityEvents -Id "TEST_VALUE" -From "TEST_VALUE" -EventTypes "TEST_VALUE" -AccessItemTypes "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -54,9 +54,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityHistoryApi' {
         }
     }
 
-    Context 'Get-BetaStartDate' {
-        It 'Test Get-BetaStartDate' {
-            #$TestResult = Get-BetaStartDate -Id "TEST_VALUE"
+    Context 'Get-BetaIdentityStartDate' {
+        It 'Test Get-BetaIdentityStartDate' {
+            #$TestResult = Get-BetaIdentityStartDate -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

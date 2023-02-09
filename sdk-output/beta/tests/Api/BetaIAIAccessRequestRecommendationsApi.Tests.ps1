@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIAccessRequestRecommendationsApi' {
-    Context 'Invoke-BetaAccessRequestRecommendations' {
-        It 'Test Invoke-BetaAccessRequestRecommendations' {
-            #$TestResult = Invoke-BetaAccessRequestRecommendations -IdentityId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -IncludeTranslationMessages "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Add-BetaAccessRequestRecommendationsIgnoredItem' {
         It 'Test Add-BetaAccessRequestRecommendationsIgnoredItem' {
             #$TestResult = Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto "TEST_VALUE"
@@ -41,6 +33,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIAccessRequestRecommendationsAp
     Context 'Add-BetaAccessRequestRecommendationsViewedItems' {
         It 'Test Add-BetaAccessRequestRecommendationsViewedItems' {
             #$TestResult = Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaAccessRequestRecommendations' {
+        It 'Test Get-BetaAccessRequestRecommendations' {
+            #$TestResult = Get-BetaAccessRequestRecommendations -IdentityId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -IncludeTranslationMessages "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

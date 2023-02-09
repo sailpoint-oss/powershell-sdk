@@ -22,17 +22,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
         }
     }
 
-    Context 'Remove-BetaTaggedObjectByTypeAndId' {
-        It 'Test Remove-BetaTaggedObjectByTypeAndId' {
-            #$TestResult = Remove-BetaTaggedObjectByTypeAndId -Type "TEST_VALUE" -Id "TEST_VALUE"
+    Context 'Remove-BetaTaggedObject' {
+        It 'Test Remove-BetaTaggedObject' {
+            #$TestResult = Remove-BetaTaggedObject -Type "TEST_VALUE" -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaTaggedObjectByTypeAndId' {
-        It 'Test Get-BetaTaggedObjectByTypeAndId' {
-            #$TestResult = Get-BetaTaggedObjectByTypeAndId -Type "TEST_VALUE" -Id "TEST_VALUE"
+    Context 'Get-BetaTaggedObject' {
+        It 'Test Get-BetaTaggedObject' {
+            #$TestResult = Get-BetaTaggedObject -Type "TEST_VALUE" -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -62,9 +62,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
         }
     }
 
-    Context 'Update-BetaTaggedObjectByTypeAndId' {
-        It 'Test Update-BetaTaggedObjectByTypeAndId' {
-            #$TestResult = Update-BetaTaggedObjectByTypeAndId -Type "TEST_VALUE" -Id "TEST_VALUE" -TaggedObject "TEST_VALUE"
+    Context 'Update-BetaTaggedObject' {
+        It 'Test Update-BetaTaggedObject' {
+            #$TestResult = Update-BetaTaggedObject -Type "TEST_VALUE" -Id "TEST_VALUE" -TaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

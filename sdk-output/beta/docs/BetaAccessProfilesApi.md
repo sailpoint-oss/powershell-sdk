@@ -4,65 +4,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaBulkDeleteAccessProfiles**](BetaAccessProfilesApi.md#Invoke-BetaBulkDeleteAccessProfiles) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
 [**New-BetaAccessProfile**](BetaAccessProfilesApi.md#New-BetaAccessProfile) | **POST** /access-profiles | Create an Access Profile
 [**Remove-BetaAccessProfile**](BetaAccessProfilesApi.md#Remove-BetaAccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
+[**Remove-BetaAccessProfilesInBulk**](BetaAccessProfilesApi.md#Remove-BetaAccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
 [**Get-BetaAccessProfile**](BetaAccessProfilesApi.md#Get-BetaAccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
 [**Get-BetaAccessProfileEntitlements**](BetaAccessProfilesApi.md#Get-BetaAccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile&#39;s Entitlements
 [**Get-BetaAccessProfiles**](BetaAccessProfilesApi.md#Get-BetaAccessProfiles) | **GET** /access-profiles | List Access Profiles
 [**Update-BetaAccessProfile**](BetaAccessProfilesApi.md#Update-BetaAccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
 
-
-<a name="Invoke-BetaBulkDeleteAccessProfiles"></a>
-# **Invoke-BetaBulkDeleteAccessProfiles**
-> AccessProfileBulkDeleteResponse Invoke-BetaBulkDeleteAccessProfiles<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessProfileBulkDeleteRequest] <PSCustomObject><br>
-
-Delete Access Profile(s)
-
-This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$AccessProfileBulkDeleteRequest = Initialize-AccessProfileBulkDeleteRequest -AccessProfileIds "MyAccessProfileIds" -BestEffortOnly $true # AccessProfileBulkDeleteRequest | 
-
-# Delete Access Profile(s)
-try {
-    $Result = Invoke-BetaBulkDeleteAccessProfiles -AccessProfileBulkDeleteRequest $AccessProfileBulkDeleteRequest
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaBulkDeleteAccessProfiles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **AccessProfileBulkDeleteRequest** | [**AccessProfileBulkDeleteRequest**](AccessProfileBulkDeleteRequest.md)|  | 
-
-### Return type
-
-[**AccessProfileBulkDeleteResponse**](AccessProfileBulkDeleteResponse.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-BetaAccessProfile"></a>
 # **New-BetaAccessProfile**
@@ -176,6 +125,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-BetaAccessProfilesInBulk"></a>
+# **Remove-BetaAccessProfilesInBulk**
+> AccessProfileBulkDeleteResponse Remove-BetaAccessProfilesInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessProfileBulkDeleteRequest] <PSCustomObject><br>
+
+Delete Access Profile(s)
+
+This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$AccessProfileBulkDeleteRequest = Initialize-AccessProfileBulkDeleteRequest -AccessProfileIds "MyAccessProfileIds" -BestEffortOnly $true # AccessProfileBulkDeleteRequest | 
+
+# Delete Access Profile(s)
+try {
+    $Result = Remove-BetaAccessProfilesInBulk -AccessProfileBulkDeleteRequest $AccessProfileBulkDeleteRequest
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaAccessProfilesInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **AccessProfileBulkDeleteRequest** | [**AccessProfileBulkDeleteRequest**](AccessProfileBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**AccessProfileBulkDeleteResponse**](AccessProfileBulkDeleteResponse.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

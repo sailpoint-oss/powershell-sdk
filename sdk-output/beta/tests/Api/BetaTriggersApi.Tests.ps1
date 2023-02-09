@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaTriggersApi' {
-    Context 'Complete-BetaInvocation' {
-        It 'Test Complete-BetaInvocation' {
-            #$TestResult = Complete-BetaInvocation -Id "TEST_VALUE" -CompleteInvocation "TEST_VALUE"
+    Context 'Complete-BetaTriggerInvocation' {
+        It 'Test Complete-BetaTriggerInvocation' {
+            #$TestResult = Complete-BetaTriggerInvocation -Id "TEST_VALUE" -CompleteInvocation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -30,17 +30,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTriggersApi' {
         }
     }
 
-    Context 'Get-BetaInvocationStatus' {
-        It 'Test Get-BetaInvocationStatus' {
-            #$TestResult = Get-BetaInvocationStatus -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaSubscriptions' {
+        It 'Test Get-BetaSubscriptions' {
+            #$TestResult = Get-BetaSubscriptions -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaSubscriptions' {
-        It 'Test Get-BetaSubscriptions' {
-            #$TestResult = Get-BetaSubscriptions -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Get-BetaTriggerInvocationStatus' {
+        It 'Test Get-BetaTriggerInvocationStatus' {
+            #$TestResult = Get-BetaTriggerInvocationStatus -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -62,9 +62,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTriggersApi' {
         }
     }
 
-    Context 'Start-BetaTestInvocation' {
-        It 'Test Start-BetaTestInvocation' {
-            #$TestResult = Start-BetaTestInvocation -TestInvocation "TEST_VALUE"
+    Context 'Start-BetaTestTriggerInvocation' {
+        It 'Test Start-BetaTestTriggerInvocation' {
+            #$TestResult = Start-BetaTestTriggerInvocation -TestInvocation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -78,9 +78,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTriggersApi' {
         }
     }
 
-    Context 'Confirm-BetaFilter' {
-        It 'Test Confirm-BetaFilter' {
-            #$TestResult = Confirm-BetaFilter -ValidateFilterInputDto "TEST_VALUE"
+    Context 'Confirm-BetaSubscriptionFilter' {
+        It 'Test Confirm-BetaSubscriptionFilter' {
+            #$TestResult = Confirm-BetaSubscriptionFilter -ValidateFilterInputDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

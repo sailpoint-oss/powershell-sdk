@@ -6,57 +6,57 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaSPConfigApi' {
-    Context 'Invoke-BetaSpConfigExport' {
-        It 'Test Invoke-BetaSpConfigExport' {
-            #$TestResult = Invoke-BetaSpConfigExport -ExportPayload "TEST_VALUE"
+    Context 'Export-BetaSpConfig' {
+        It 'Test Export-BetaSpConfig' {
+            #$TestResult = Export-BetaSpConfig -ExportPayload "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaSpConfigExportDownload' {
-        It 'Test Invoke-BetaSpConfigExportDownload' {
-            #$TestResult = Invoke-BetaSpConfigExportDownload -Id "TEST_VALUE"
+    Context 'Export-BetaSpConfigDownload' {
+        It 'Test Export-BetaSpConfigDownload' {
+            #$TestResult = Export-BetaSpConfigDownload -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaSpConfigExportJobStatus' {
-        It 'Test Invoke-BetaSpConfigExportJobStatus' {
-            #$TestResult = Invoke-BetaSpConfigExportJobStatus -Id "TEST_VALUE"
+    Context 'Export-BetaSpConfigJobStatus' {
+        It 'Test Export-BetaSpConfigJobStatus' {
+            #$TestResult = Export-BetaSpConfigJobStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaSpConfigImport' {
-        It 'Test Invoke-BetaSpConfigImport' {
-            #$TestResult = Invoke-BetaSpConfigImport -Data "TEST_VALUE" -Preview "TEST_VALUE" -Options "TEST_VALUE"
+    Context 'Import-BetaSpConfig' {
+        It 'Test Import-BetaSpConfig' {
+            #$TestResult = Import-BetaSpConfig -Data "TEST_VALUE" -Preview "TEST_VALUE" -Options "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaSpConfigImportDownload' {
-        It 'Test Invoke-BetaSpConfigImportDownload' {
-            #$TestResult = Invoke-BetaSpConfigImportDownload -Id "TEST_VALUE"
+    Context 'Import-BetaSpConfigDownload' {
+        It 'Test Import-BetaSpConfigDownload' {
+            #$TestResult = Import-BetaSpConfigDownload -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaSpConfigImportJobStatus' {
-        It 'Test Invoke-BetaSpConfigImportJobStatus' {
-            #$TestResult = Invoke-BetaSpConfigImportJobStatus -Id "TEST_VALUE"
+    Context 'Import-BetaSpConfigJobStatus' {
+        It 'Test Import-BetaSpConfigJobStatus' {
+            #$TestResult = Import-BetaSpConfigJobStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaSpConfigObjects' {
-        It 'Test Invoke-BetaSpConfigObjects' {
-            #$TestResult = Invoke-BetaSpConfigObjects
+    Context 'Get-BetaSpConfigObjects' {
+        It 'Test Get-BetaSpConfigObjects' {
+            #$TestResult = Get-BetaSpConfigObjects
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

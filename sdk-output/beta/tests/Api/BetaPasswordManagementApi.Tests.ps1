@@ -14,9 +14,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaPasswordManagementApi' {
         }
     }
 
-    Context 'Get-BetaPasswordChangeStatus' {
-        It 'Test Get-BetaPasswordChangeStatus' {
-            #$TestResult = Get-BetaPasswordChangeStatus -Id "TEST_VALUE"
+    Context 'Get-BetaIdentityPasswordChangeStatus' {
+        It 'Test Get-BetaIdentityPasswordChangeStatus' {
+            #$TestResult = Get-BetaIdentityPasswordChangeStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -30,9 +30,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaPasswordManagementApi' {
         }
     }
 
-    Context 'Set-BetaPassword' {
-        It 'Test Set-BetaPassword' {
-            #$TestResult = Set-BetaPassword -PasswordChangeRequest "TEST_VALUE"
+    Context 'Set-BetaIdentityPassword' {
+        It 'Test Set-BetaIdentityPassword' {
+            #$TestResult = Set-BetaIdentityPassword -PasswordChangeRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

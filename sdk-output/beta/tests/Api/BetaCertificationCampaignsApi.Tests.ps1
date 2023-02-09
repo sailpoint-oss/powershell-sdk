@@ -14,14 +14,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
         }
     }
 
-    Context 'Invoke-BetaAdminReassign' {
-        It 'Test Invoke-BetaAdminReassign' {
-            #$TestResult = Invoke-BetaAdminReassign -Id "TEST_VALUE" -AdminReviewReassign "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Complete-BetaCampaign' {
         It 'Test Complete-BetaCampaign' {
             #$TestResult = Complete-BetaCampaign -Id "TEST_VALUE" -CompleteCampaignOptions "TEST_VALUE"
@@ -137,6 +129,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
     Context 'Update-BetaCampaignTemplate' {
         It 'Test Update-BetaCampaignTemplate' {
             #$TestResult = Update-BetaCampaignTemplate -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-BetaReassignCampaign' {
+        It 'Test Invoke-BetaReassignCampaign' {
+            #$TestResult = Invoke-BetaReassignCampaign -Id "TEST_VALUE" -AdminReviewReassign "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

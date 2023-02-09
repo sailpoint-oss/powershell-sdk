@@ -1,4 +1,4 @@
-# NonEmployeeRecordsBulkUploadRequest
+# UploadNonEmployeeRecordsInBulkRequest
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRecordsBulkUploadRequest = Initialize-PSSailpointBetaNonEmployeeRecordsBulkUploadRequest  -VarData null
+$UploadNonEmployeeRecordsInBulkRequest = Initialize-PSSailpointBetaUploadNonEmployeeRecordsInBulkRequest  -VarData null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$NonEmployeeRecordsBulkUploadRequest | ConvertTo-JSON
+$UploadNonEmployeeRecordsInBulkRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,25 +6,25 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessRequestApprovalsApi' {
-    Context 'Invoke-BetaApprovalSummary' {
-        It 'Test Invoke-BetaApprovalSummary' {
-            #$TestResult = Invoke-BetaApprovalSummary -OwnerId "TEST_VALUE" -FromDate "TEST_VALUE"
+    Context 'Approve-BetaAccessRequest' {
+        It 'Test Approve-BetaAccessRequest' {
+            #$TestResult = Approve-BetaAccessRequest -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Approve-BetaRequest' {
-        It 'Test Approve-BetaRequest' {
-            #$TestResult = Approve-BetaRequest -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
+    Context 'Invoke-BetaForwardAccessRequest' {
+        It 'Test Invoke-BetaForwardAccessRequest' {
+            #$TestResult = Invoke-BetaForwardAccessRequest -ApprovalId "TEST_VALUE" -ForwardApprovalDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaForwardRequest' {
-        It 'Test Invoke-BetaForwardRequest' {
-            #$TestResult = Invoke-BetaForwardRequest -ApprovalId "TEST_VALUE" -ForwardApprovalDto "TEST_VALUE"
+    Context 'Get-BetaAccessRequestApprovalSummary' {
+        It 'Test Get-BetaAccessRequestApprovalSummary' {
+            #$TestResult = Get-BetaAccessRequestApprovalSummary -OwnerId "TEST_VALUE" -FromDate "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -46,9 +46,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessRequestApprovalsApi' {
         }
     }
 
-    Context 'Deny-BetaRequest' {
-        It 'Test Deny-BetaRequest' {
-            #$TestResult = Deny-BetaRequest -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
+    Context 'Deny-BetaAccessRequest' {
+        It 'Test Deny-BetaAccessRequest' {
+            #$TestResult = Deny-BetaAccessRequest -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

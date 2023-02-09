@@ -6,25 +6,25 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'AccessRequestApprovalsApi' {
-    Context 'Invoke-ApprovalSummary' {
-        It 'Test Invoke-ApprovalSummary' {
-            #$TestResult = Invoke-ApprovalSummary -OwnerId "TEST_VALUE" -FromDate "TEST_VALUE"
+    Context 'Approve-AccessRequest' {
+        It 'Test Approve-AccessRequest' {
+            #$TestResult = Approve-AccessRequest -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Approve-Request' {
-        It 'Test Approve-Request' {
-            #$TestResult = Approve-Request -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
+    Context 'Invoke-ForwardAccessRequest' {
+        It 'Test Invoke-ForwardAccessRequest' {
+            #$TestResult = Invoke-ForwardAccessRequest -ApprovalId "TEST_VALUE" -ForwardApprovalDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ForwardRequest' {
-        It 'Test Invoke-ForwardRequest' {
-            #$TestResult = Invoke-ForwardRequest -ApprovalId "TEST_VALUE" -ForwardApprovalDto "TEST_VALUE"
+    Context 'Get-AccessRequestApprovalSummary' {
+        It 'Test Get-AccessRequestApprovalSummary' {
+            #$TestResult = Get-AccessRequestApprovalSummary -OwnerId "TEST_VALUE" -FromDate "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -46,9 +46,9 @@ Describe -tag 'PSSailpoint' -name 'AccessRequestApprovalsApi' {
         }
     }
 
-    Context 'Deny-Request' {
-        It 'Test Deny-Request' {
-            #$TestResult = Deny-Request -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
+    Context 'Deny-AccessRequest' {
+        It 'Test Deny-AccessRequest' {
+            #$TestResult = Deny-AccessRequest -ApprovalId "TEST_VALUE" -CommentDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

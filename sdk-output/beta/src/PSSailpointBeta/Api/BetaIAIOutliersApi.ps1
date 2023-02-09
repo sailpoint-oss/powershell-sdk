@@ -96,82 +96,6 @@ function Export-BetaOutliersZip {
 <#
 .SYNOPSIS
 
-IAI Identity Outliers Latest Summary
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER Type
-Type of the identity outliers snapshot to filter on
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-LatestOutlierSummary[]
-#>
-function Get-BetaLatestOutlierSnapshots {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("LOW_SIMILARITY", "STRUCTURAL")]
-        [String]
-        ${Type},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-BetaLatestOutlierSnapshots' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-BetaConfiguration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/outlier-summaries/latest'
-
-        if ($Type) {
-            $LocalVarQueryParameters['type'] = $Type
-        }
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "LatestOutlierSummary[]" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 IAI Identity Outliers Summary
 
 .DESCRIPTION
@@ -201,7 +125,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 OutlierSummary[]
 #>
-function Get-BetaOutlierSnapshots {
+function Get-BetaIdentityOutlierSnapshots {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -225,7 +149,7 @@ function Get-BetaOutlierSnapshots {
     )
 
     Process {
-        'Calling method: Get-BetaOutlierSnapshots' | Write-Debug
+        'Calling method: Get-BetaIdentityOutlierSnapshots' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -320,7 +244,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Outlier[]
 #>
-function Get-BetaOutliers {
+function Get-BetaIdentityOutliers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -347,7 +271,7 @@ function Get-BetaOutliers {
     )
 
     Process {
-        'Calling method: Get-BetaOutliers' | Write-Debug
+        'Calling method: Get-BetaIdentityOutliers' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -414,6 +338,82 @@ function Get-BetaOutliers {
 <#
 .SYNOPSIS
 
+IAI Identity Outliers Latest Summary
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER Type
+Type of the identity outliers snapshot to filter on
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+LatestOutlierSummary[]
+#>
+function Get-BetaLatestIdentityOutlierSnapshots {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("LOW_SIMILARITY", "STRUCTURAL")]
+        [String]
+        ${Type},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaLatestIdentityOutlierSnapshots' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-BetaConfiguration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/outlier-summaries/latest'
+
+        if ($Type) {
+            $LocalVarQueryParameters['type'] = $Type
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "LatestOutlierSummary[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 IAI Get an Identity Outlier's Contibuting Features
 
 .DESCRIPTION
@@ -446,7 +446,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 OutlierContributingFeature[]
 #>
-function Get-BetaOutliersContributingFeatures {
+function Get-BetaPeerGroupOutliersContributingFeatures {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -472,7 +472,7 @@ function Get-BetaOutliersContributingFeatures {
     )
 
     Process {
-        'Calling method: Get-BetaOutliersContributingFeatures' | Write-Debug
+        'Calling method: Get-BetaPeerGroupOutliersContributingFeatures' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -490,7 +490,7 @@ function Get-BetaOutliersContributingFeatures {
 
         $LocalVarUri = '/outliers/{outlierId}/contributing-features'
         if (!$OutlierId) {
-            throw "Error! The required parameter `OutlierId` missing when calling getOutliersContributingFeatures."
+            throw "Error! The required parameter `OutlierId` missing when calling getPeerGroupOutliersContributingFeatures."
         }
         $LocalVarUri = $LocalVarUri.replace('{outlierId}', [System.Web.HTTPUtility]::UrlEncode($OutlierId))
 
@@ -556,7 +556,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaIgnoreOutliers {
+function Invoke-BetaIgnoreIdentityOutliers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -567,7 +567,7 @@ function Invoke-BetaIgnoreOutliers {
     )
 
     Process {
-        'Calling method: Invoke-BetaIgnoreOutliers' | Write-Debug
+        'Calling method: Invoke-BetaIgnoreIdentityOutliers' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -589,7 +589,7 @@ function Invoke-BetaIgnoreOutliers {
         $LocalVarUri = '/outliers/ignore'
 
         if (!$RequestBody) {
-            throw "Error! The required parameter `RequestBody` missing when calling ignoreOutliers."
+            throw "Error! The required parameter `RequestBody` missing when calling ignoreIdentityOutliers."
         }
 
         $LocalVarBodyParameter = $RequestBody | ForEach-Object {
@@ -643,7 +643,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-BetaUnIgnoreOutliers {
+function Invoke-BetaUnIgnoreIdentityOutliers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -654,7 +654,7 @@ function Invoke-BetaUnIgnoreOutliers {
     )
 
     Process {
-        'Calling method: Invoke-BetaUnIgnoreOutliers' | Write-Debug
+        'Calling method: Invoke-BetaUnIgnoreIdentityOutliers' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -676,7 +676,7 @@ function Invoke-BetaUnIgnoreOutliers {
         $LocalVarUri = '/outliers/unignore'
 
         if (!$RequestBody) {
-            throw "Error! The required parameter `RequestBody` missing when calling unIgnoreOutliers."
+            throw "Error! The required parameter `RequestBody` missing when calling unIgnoreIdentityOutliers."
         }
 
         $LocalVarBodyParameter = $RequestBody | ForEach-Object {

@@ -4,13 +4,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaClientStatus**](BetaManagedClientsApi.md#Get-BetaClientStatus) | **GET** /managed-clients/{id}/status | Get a specified Managed Client Status.
-[**Update-BetaStatus**](BetaManagedClientsApi.md#Update-BetaStatus) | **POST** /managed-clients/{id}/status | Handle a status request from a client
+[**Get-BetaManagedClientStatus**](BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Get a specified Managed Client Status.
+[**Update-BetaManagedClientStatus**](BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle a status request from a client
 
 
-<a name="Get-BetaClientStatus"></a>
-# **Get-BetaClientStatus**
-> ManagedClientStatus Get-BetaClientStatus<br>
+<a name="Get-BetaManagedClientStatus"></a>
+# **Get-BetaManagedClientStatus**
+> ManagedClientStatus Get-BetaManagedClientStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <PSCustomObject><br>
 
@@ -33,9 +33,9 @@ $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
 
 # Get a specified Managed Client Status.
 try {
-    $Result = Get-BetaClientStatus -Id $Id -Type $Type
+    $Result = Get-BetaManagedClientStatus -Id $Id -Type $Type
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaClientStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaManagedClientStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaStatus"></a>
-# **Update-BetaStatus**
-> ManagedClientStatusAggResponse Update-BetaStatus<br>
+<a name="Update-BetaManagedClientStatus"></a>
+# **Update-BetaManagedClientStatus**
+> ManagedClientStatusAggResponse Update-BetaManagedClientStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ManagedClientStatus] <PSCustomObject><br>
 
@@ -87,9 +87,9 @@ $ManagedClientStatus = Initialize-ManagedClientStatus -Body  -Status "NORMAL" -T
 
 # Handle a status request from a client
 try {
-    $Result = Update-BetaStatus -Id $Id -ManagedClientStatus $ManagedClientStatus
+    $Result = Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $ManagedClientStatus
 } catch {
-    Write-Host ("Exception occurred when calling Update-BetaStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaManagedClientStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -1,4 +1,4 @@
-# GetEvents200ResponseInner
+# GetHistoricalIdentityEvents200ResponseInner
 ## Properties
 
 Name | Type | Description | Notes
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetEvents200ResponseInner = Initialize-PSSailpointBetaGetEvents200ResponseInner  -AccessItem null `
+$GetHistoricalIdentityEvents200ResponseInner = Initialize-PSSailpointBetaGetHistoricalIdentityEvents200ResponseInner  -AccessItem null `
  -IdentityId null `
  -EventType null `
  -Dt null `
@@ -42,7 +42,7 @@ $GetEvents200ResponseInner = Initialize-PSSailpointBetaGetEvents200ResponseInner
 
 - Convert the resource to JSON
 ```powershell
-$GetEvents200ResponseInner | ConvertTo-JSON
+$GetHistoricalIdentityEvents200ResponseInner | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

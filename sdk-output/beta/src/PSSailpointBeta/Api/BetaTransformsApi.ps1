@@ -274,7 +274,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Transform[]
 #>
-function Get-BetaTransformsList {
+function Get-BetaTransforms {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -297,7 +297,7 @@ function Get-BetaTransformsList {
     )
 
     Process {
-        'Calling method: Get-BetaTransformsList' | Write-Debug
+        'Calling method: Get-BetaTransforms' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

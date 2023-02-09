@@ -5,12 +5,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Export-BetaOutliersZip**](BetaIAIOutliersApi.md#Export-BetaOutliersZip) | **GET** /outliers/export | IAI Identity Outliers Export
-[**Get-BetaLatestOutlierSnapshots**](BetaIAIOutliersApi.md#Get-BetaLatestOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
-[**Get-BetaOutlierSnapshots**](BetaIAIOutliersApi.md#Get-BetaOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
-[**Get-BetaOutliers**](BetaIAIOutliersApi.md#Get-BetaOutliers) | **GET** /outliers | IAI Get Identity Outliers
-[**Get-BetaOutliersContributingFeatures**](BetaIAIOutliersApi.md#Get-BetaOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | IAI Get an Identity Outlier&#39;s Contibuting Features
-[**Invoke-BetaIgnoreOutliers**](BetaIAIOutliersApi.md#Invoke-BetaIgnoreOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
-[**Invoke-BetaUnIgnoreOutliers**](BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
+[**Get-BetaIdentityOutlierSnapshots**](BetaIAIOutliersApi.md#Get-BetaIdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
+[**Get-BetaIdentityOutliers**](BetaIAIOutliersApi.md#Get-BetaIdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
+[**Get-BetaLatestIdentityOutlierSnapshots**](BetaIAIOutliersApi.md#Get-BetaLatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
+[**Get-BetaPeerGroupOutliersContributingFeatures**](BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | IAI Get an Identity Outlier&#39;s Contibuting Features
+[**Invoke-BetaIgnoreIdentityOutliers**](BetaIAIOutliersApi.md#Invoke-BetaIgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
+[**Invoke-BetaUnIgnoreIdentityOutliers**](BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
 
 
 <a name="Export-BetaOutliersZip"></a>
@@ -64,60 +64,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaLatestOutlierSnapshots"></a>
-# **Get-BetaLatestOutlierSnapshots**
-> LatestOutlierSummary[] Get-BetaLatestOutlierSnapshots<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
-
-IAI Identity Outliers Latest Summary
-
-This API returns a most recent snapshot of each outlier type, each containing: the number of identities that customer has, the number of outliers, and the type of outlier Requires authorization scope of 'iai:outliers-management:read'
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
-
-# IAI Identity Outliers Latest Summary
-try {
-    $Result = Get-BetaLatestOutlierSnapshots -Type $Type
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaLatestOutlierSnapshots: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Type** | **String**| Type of the identity outliers snapshot to filter on | [optional] 
-
-### Return type
-
-[**LatestOutlierSummary[]**](LatestOutlierSummary.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Get-BetaOutlierSnapshots"></a>
-# **Get-BetaOutlierSnapshots**
-> OutlierSummary[] Get-BetaOutlierSnapshots<br>
+<a name="Get-BetaIdentityOutlierSnapshots"></a>
+# **Get-BetaIdentityOutlierSnapshots**
+> OutlierSummary[] Get-BetaIdentityOutlierSnapshots<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -146,9 +95,9 @@ $Sorters = "snapshotDate" # String | Sort results using the standard syntax desc
 
 # IAI Identity Outliers Summary
 try {
-    $Result = Get-BetaOutlierSnapshots -Limit $Limit -Offset $Offset -Type $Type -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaIdentityOutlierSnapshots -Limit $Limit -Offset $Offset -Type $Type -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaOutlierSnapshots: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentityOutlierSnapshots: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -178,9 +127,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaOutliers"></a>
-# **Get-BetaOutliers**
-> Outlier[] Get-BetaOutliers<br>
+<a name="Get-BetaIdentityOutliers"></a>
+# **Get-BetaIdentityOutliers**
+> Outlier[] Get-BetaIdentityOutliers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -211,9 +160,9 @@ $Sorters = "attributes.displayName,firstDetectionDate,-score" # String | Sort re
 
 # IAI Get Identity Outliers
 try {
-    $Result = Get-BetaOutliers -Limit $Limit -Offset $Offset -Count $Count -Type $Type -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaIdentityOutliers -Limit $Limit -Offset $Offset -Count $Count -Type $Type -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaOutliers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentityOutliers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -244,9 +193,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaOutliersContributingFeatures"></a>
-# **Get-BetaOutliersContributingFeatures**
-> OutlierContributingFeature[] Get-BetaOutliersContributingFeatures<br>
+<a name="Get-BetaLatestIdentityOutlierSnapshots"></a>
+# **Get-BetaLatestIdentityOutlierSnapshots**
+> LatestOutlierSummary[] Get-BetaLatestIdentityOutlierSnapshots<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
+
+IAI Identity Outliers Latest Summary
+
+This API returns a most recent snapshot of each outlier type, each containing: the number of identities that customer has, the number of outliers, and the type of outlier Requires authorization scope of 'iai:outliers-management:read'
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
+
+# IAI Identity Outliers Latest Summary
+try {
+    $Result = Get-BetaLatestIdentityOutlierSnapshots -Type $Type
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaLatestIdentityOutlierSnapshots: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Type** | **String**| Type of the identity outliers snapshot to filter on | [optional] 
+
+### Return type
+
+[**LatestOutlierSummary[]**](LatestOutlierSummary.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaPeerGroupOutliersContributingFeatures"></a>
+# **Get-BetaPeerGroupOutliersContributingFeatures**
+> OutlierContributingFeature[] Get-BetaPeerGroupOutliersContributingFeatures<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OutlierId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -277,9 +277,9 @@ $Sorters = "importance" # String | Sort results using the standard syntax descri
 
 # IAI Get an Identity Outlier's Contibuting Features
 try {
-    $Result = Get-BetaOutliersContributingFeatures -OutlierId $OutlierId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Sorters $Sorters
+    $Result = Get-BetaPeerGroupOutliersContributingFeatures -OutlierId $OutlierId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaOutliersContributingFeatures: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaPeerGroupOutliersContributingFeatures: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -310,9 +310,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaIgnoreOutliers"></a>
-# **Invoke-BetaIgnoreOutliers**
-> void Invoke-BetaIgnoreOutliers<br>
+<a name="Invoke-BetaIgnoreIdentityOutliers"></a>
+# **Invoke-BetaIgnoreIdentityOutliers**
+> void Invoke-BetaIgnoreIdentityOutliers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 
 IAI Identity Outliers Ignore
@@ -333,9 +333,9 @@ $RequestBody = "MyRequestBody" # String[] |
 
 # IAI Identity Outliers Ignore
 try {
-    $Result = Invoke-BetaIgnoreOutliers -RequestBody $RequestBody
+    $Result = Invoke-BetaIgnoreIdentityOutliers -RequestBody $RequestBody
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaIgnoreOutliers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-BetaIgnoreIdentityOutliers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -361,9 +361,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaUnIgnoreOutliers"></a>
-# **Invoke-BetaUnIgnoreOutliers**
-> void Invoke-BetaUnIgnoreOutliers<br>
+<a name="Invoke-BetaUnIgnoreIdentityOutliers"></a>
+# **Invoke-BetaUnIgnoreIdentityOutliers**
+> void Invoke-BetaUnIgnoreIdentityOutliers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 
 IAI Identity Outliers Unignore
@@ -384,9 +384,9 @@ $RequestBody = "MyRequestBody" # String[] |
 
 # IAI Identity Outliers Unignore
 try {
-    $Result = Invoke-BetaUnIgnoreOutliers -RequestBody $RequestBody
+    $Result = Invoke-BetaUnIgnoreIdentityOutliers -RequestBody $RequestBody
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaUnIgnoreOutliers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-BetaUnIgnoreIdentityOutliers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

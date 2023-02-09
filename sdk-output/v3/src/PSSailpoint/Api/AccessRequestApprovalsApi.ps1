@@ -8,91 +8,6 @@
 <#
 .SYNOPSIS
 
-Get the number of access-requests-approvals
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER OwnerId
-The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-
-.PARAMETER FromDate
-From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-ApprovalSummary
-#>
-function Invoke-ApprovalSummary {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${OwnerId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${FromDate},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Invoke-ApprovalSummary' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/access-request-approvals/approval-summary'
-
-        if ($OwnerId) {
-            $LocalVarQueryParameters['owner-id'] = $OwnerId
-        }
-
-        if ($FromDate) {
-            $LocalVarQueryParameters['from-date'] = $FromDate
-        }
-
-
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ApprovalSummary" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 Approves an access request approval.
 
 .DESCRIPTION
@@ -113,7 +28,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Approve-Request {
+function Approve-AccessRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -127,7 +42,7 @@ function Approve-Request {
     )
 
     Process {
-        'Calling method: Approve-Request' | Write-Debug
+        'Calling method: Approve-AccessRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -148,7 +63,7 @@ function Approve-Request {
 
         $LocalVarUri = '/access-request-approvals/{approvalId}/approve'
         if (!$ApprovalId) {
-            throw "Error! The required parameter `ApprovalId` missing when calling approveRequest."
+            throw "Error! The required parameter `ApprovalId` missing when calling approveAccessRequest."
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
@@ -206,7 +121,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Invoke-ForwardRequest {
+function Invoke-ForwardAccessRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -220,7 +135,7 @@ function Invoke-ForwardRequest {
     )
 
     Process {
-        'Calling method: Invoke-ForwardRequest' | Write-Debug
+        'Calling method: Invoke-ForwardAccessRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -241,12 +156,12 @@ function Invoke-ForwardRequest {
 
         $LocalVarUri = '/access-request-approvals/{approvalId}/forward'
         if (!$ApprovalId) {
-            throw "Error! The required parameter `ApprovalId` missing when calling forwardRequest."
+            throw "Error! The required parameter `ApprovalId` missing when calling forwardAccessRequest."
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
         if (!$ForwardApprovalDto) {
-            throw "Error! The required parameter `ForwardApprovalDto` missing when calling forwardRequest."
+            throw "Error! The required parameter `ForwardApprovalDto` missing when calling forwardAccessRequest."
         }
 
         $LocalVarBodyParameter = $ForwardApprovalDto | ForEach-Object {
@@ -270,6 +185,91 @@ function Invoke-ForwardRequest {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "SystemCollectionsHashtable" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get the number of access-requests-approvals
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER OwnerId
+The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+
+.PARAMETER FromDate
+From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ApprovalSummary
+#>
+function Get-AccessRequestApprovalSummary {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${OwnerId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${FromDate},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-AccessRequestApprovalSummary' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/access-request-approvals/approval-summary'
+
+        if ($OwnerId) {
+            $LocalVarQueryParameters['owner-id'] = $OwnerId
+        }
+
+        if ($FromDate) {
+            $LocalVarQueryParameters['from-date'] = $FromDate
+        }
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ApprovalSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -553,7 +553,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Deny-Request {
+function Deny-AccessRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -567,7 +567,7 @@ function Deny-Request {
     )
 
     Process {
-        'Calling method: Deny-Request' | Write-Debug
+        'Calling method: Deny-AccessRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -588,7 +588,7 @@ function Deny-Request {
 
         $LocalVarUri = '/access-request-approvals/{approvalId}/reject'
         if (!$ApprovalId) {
-            throw "Error! The required parameter `ApprovalId` missing when calling rejectRequest."
+            throw "Error! The required parameter `ApprovalId` missing when calling rejectAccessRequest."
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 

@@ -4,18 +4,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Save-dSearchCreate**](SavedSearchApi.md#Save-dSearchCreate) | **POST** /saved-searches | Create a saved search
-[**Save-dSearchDelete**](SavedSearchApi.md#Save-dSearchDelete) | **DELETE** /saved-searches/{id} | Delete a document by ID
-[**Save-dSearchExecute**](SavedSearchApi.md#Save-dSearchExecute) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
-[**Save-dSearchGet**](SavedSearchApi.md#Save-dSearchGet) | **GET** /saved-searches/{id} | Return a saved search by ID
-[**Save-dSearchList**](SavedSearchApi.md#Save-dSearchList) | **GET** /saved-searches | Return a list of Saved Searches
-[**Save-dSearchUpdate**](SavedSearchApi.md#Save-dSearchUpdate) | **PUT** /saved-searches/{id} | Updates an existing saved search 
+[**New-SavedSearch**](SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
+[**Remove-SavedSearch**](SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
+[**Invoke-ExecuteSavedSearch**](SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
+[**Get-SavedSearch**](SavedSearchApi.md#Get-SavedSearch) | **GET** /saved-searches/{id} | Return a saved search by ID
+[**Get-SavedSearches**](SavedSearchApi.md#Get-SavedSearches) | **GET** /saved-searches | Return a list of Saved Searches
+[**Update-SavedSearch**](SavedSearchApi.md#Update-SavedSearch) | **PUT** /saved-searches/{id} | Updates an existing saved search 
 
 
-<a name="Save-dSearchCreate"></a>
-# **Save-dSearchCreate**
-> SavedSearch Save-dSearchCreate<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SavedSearchCreateRequest] <PSCustomObject><br>
+<a name="New-SavedSearch"></a>
+# **New-SavedSearch**
+> SavedSearch New-SavedSearch<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateSavedSearchRequest] <PSCustomObject><br>
 
 Create a saved search
 
@@ -36,13 +36,13 @@ $Range = Initialize-Range -Lower $Bound -Upper $Bound
 
 $SavedSearchDetailFilters = Initialize-SavedSearchDetailFilters -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
-$SavedSearchCreateRequest = Initialize-SavedSearchCreateRequest -Name "Disabled accounts" -Description "Disabled accounts" -Public $false -Created (Get-Date) -Modified (Get-Date) -Indices "accessprofiles" -Columns @{ key_example = $Column = Initialize-Column -Field "email" -Header "Work Email" } -Query "@accounts(disabled:true)" -Fields "MyFields" -Sort "MySort" -Filters $SavedSearchDetailFilters # SavedSearchCreateRequest | The saved search to persist.
+$CreateSavedSearchRequest = Initialize-CreateSavedSearchRequest -Name "Disabled accounts" -Description "Disabled accounts" -Public $false -Created (Get-Date) -Modified (Get-Date) -Indices "accessprofiles" -Columns @{ key_example = $Column = Initialize-Column -Field "email" -Header "Work Email" } -Query "@accounts(disabled:true)" -Fields "MyFields" -Sort "MySort" -Filters $SavedSearchDetailFilters # CreateSavedSearchRequest | The saved search to persist.
 
 # Create a saved search
 try {
-    $Result = Save-dSearchCreate -SavedSearchCreateRequest $SavedSearchCreateRequest
+    $Result = New-SavedSearch -CreateSavedSearchRequest $CreateSavedSearchRequest
 } catch {
-    Write-Host ("Exception occurred when calling Save-dSearchCreate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-SavedSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -51,7 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **SavedSearchCreateRequest** | [**SavedSearchCreateRequest**](SavedSearchCreateRequest.md)| The saved search to persist. | 
+ **CreateSavedSearchRequest** | [**CreateSavedSearchRequest**](CreateSavedSearchRequest.md)| The saved search to persist. | 
 
 ### Return type
 
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Save-dSearchDelete"></a>
-# **Save-dSearchDelete**
-> void Save-dSearchDelete<br>
+<a name="Remove-SavedSearch"></a>
+# **Remove-SavedSearch**
+> void Remove-SavedSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a document by ID
@@ -91,9 +91,9 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 
 # Delete a document by ID
 try {
-    $Result = Save-dSearchDelete -Id $Id
+    $Result = Remove-SavedSearch -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Save-dSearchDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-SavedSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -119,9 +119,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Save-dSearchExecute"></a>
-# **Save-dSearchExecute**
-> void Save-dSearchExecute<br>
+<a name="Invoke-ExecuteSavedSearch"></a>
+# **Invoke-ExecuteSavedSearch**
+> void Invoke-ExecuteSavedSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SearchArguments] <PSCustomObject><br>
 
@@ -146,9 +146,9 @@ $SearchArguments = Initialize-SearchArguments -ScheduleId "7a724640-0c17-4ce9-a8
 
 # Execute a saved search by ID
 try {
-    $Result = Save-dSearchExecute -Id $Id -SearchArguments $SearchArguments
+    $Result = Invoke-ExecuteSavedSearch -Id $Id -SearchArguments $SearchArguments
 } catch {
-    Write-Host ("Exception occurred when calling Save-dSearchExecute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-ExecuteSavedSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -175,9 +175,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Save-dSearchGet"></a>
-# **Save-dSearchGet**
-> SavedSearch Save-dSearchGet<br>
+<a name="Get-SavedSearch"></a>
+# **Get-SavedSearch**
+> SavedSearch Get-SavedSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Return a saved search by ID
@@ -198,9 +198,9 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 
 # Return a saved search by ID
 try {
-    $Result = Save-dSearchGet -Id $Id
+    $Result = Get-SavedSearch -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Save-dSearchGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-SavedSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -226,9 +226,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Save-dSearchList"></a>
-# **Save-dSearchList**
-> SavedSearch[] Save-dSearchList<br>
+<a name="Get-SavedSearches"></a>
+# **Get-SavedSearches**
+> SavedSearch[] Get-SavedSearches<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -255,9 +255,9 @@ $Filters = "public eq true" # String | An expression used to constrain the resul
 
 # Return a list of Saved Searches
 try {
-    $Result = Save-dSearchList -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters
+    $Result = Get-SavedSearches -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Save-dSearchList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-SavedSearches: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -286,9 +286,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Save-dSearchUpdate"></a>
-# **Save-dSearchUpdate**
-> SavedSearch Save-dSearchUpdate<br>
+<a name="Update-SavedSearch"></a>
+# **Update-SavedSearch**
+> SavedSearch Update-SavedSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SavedSearch] <PSCustomObject><br>
 
@@ -318,9 +318,9 @@ $SavedSearch = Initialize-SavedSearch -Id "0de46054-fe90-434a-b84e-c6b3359d0c64"
 
 # Updates an existing saved search 
 try {
-    $Result = Save-dSearchUpdate -Id $Id -SavedSearch $SavedSearch
+    $Result = Update-SavedSearch -Id $Id -SavedSearch $SavedSearch
 } catch {
-    Write-Host ("Exception occurred when calling Save-dSearchUpdate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-SavedSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -6,11 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Compare-BetaIdentitySnapshots**](BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 [**Compare-BetaIdentitySnapshotsAccessType**](BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
-[**Get-BetaEvents**](BetaIdentityHistoryApi.md#Get-BetaEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
+[**Get-BetaHistoricalIdentityEvents**](BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
 [**Get-BetaIdentity**](BetaIdentityHistoryApi.md#Get-BetaIdentity) | **GET** /historical-identities/{id} | Gets the most recent snapshot of a specific identity
 [**Get-BetaIdentitySnapshot**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 [**Get-BetaIdentitySnapshotSummary**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
-[**Get-BetaStartDate**](BetaIdentityHistoryApi.md#Get-BetaStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
+[**Get-BetaIdentityStartDate**](BetaIdentityHistoryApi.md#Get-BetaIdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 [**Get-BetaIdentities**](BetaIdentityHistoryApi.md#Get-BetaIdentities) | **GET** /historical-identities | Lists all the identities
 [**Get-BetaIdentityAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
 [**Get-BetaIdentitySnapshotAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
@@ -158,9 +158,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaEvents"></a>
-# **Get-BetaEvents**
-> GetEvents200ResponseInner[] Get-BetaEvents<br>
+<a name="Get-BetaHistoricalIdentityEvents"></a>
+# **Get-BetaHistoricalIdentityEvents**
+> GetHistoricalIdentityEvents200ResponseInner[] Get-BetaHistoricalIdentityEvents<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-From] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EventTypes] <String[]><br>
@@ -193,9 +193,9 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 # Lists all events for the given identity
 try {
-    $Result = Get-BetaEvents -Id $Id -From $From -EventTypes $EventTypes -AccessItemTypes $AccessItemTypes -Limit $Limit -Offset $Offset -Count $Count
+    $Result = Get-BetaHistoricalIdentityEvents -Id $Id -From $From -EventTypes $EventTypes -AccessItemTypes $AccessItemTypes -Limit $Limit -Offset $Offset -Count $Count
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaEvents: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaHistoricalIdentityEvents: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEvents200ResponseInner[]**](GetEvents200ResponseInner.md) (PSCustomObject)
+[**GetHistoricalIdentityEvents200ResponseInner[]**](GetHistoricalIdentityEvents200ResponseInner.md) (PSCustomObject)
 
 ### Authorization
 
@@ -401,9 +401,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaStartDate"></a>
-# **Get-BetaStartDate**
-> String Get-BetaStartDate<br>
+<a name="Get-BetaIdentityStartDate"></a>
+# **Get-BetaIdentityStartDate**
+> String Get-BetaIdentityStartDate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Gets the start date of the identity
@@ -424,9 +424,9 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 
 # Gets the start date of the identity
 try {
-    $Result = Get-BetaStartDate -Id $Id
+    $Result = Get-BetaIdentityStartDate -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaStartDate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentityStartDate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

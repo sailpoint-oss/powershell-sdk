@@ -52,12 +52,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccessRequestApprovalsApi* | [**Invoke-ApprovalSummary**](docs/AccessRequestApprovalsApi.md#Invoke-ApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of access-requests-approvals
-*AccessRequestApprovalsApi* | [**Approve-Request**](docs/AccessRequestApprovalsApi.md#Approve-Request) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
-*AccessRequestApprovalsApi* | [**Invoke-ForwardRequest**](docs/AccessRequestApprovalsApi.md#Invoke-ForwardRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval.
+*AccessRequestApprovalsApi* | [**Approve-AccessRequest**](docs/AccessRequestApprovalsApi.md#Approve-AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
+*AccessRequestApprovalsApi* | [**Invoke-ForwardAccessRequest**](docs/AccessRequestApprovalsApi.md#Invoke-ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval.
+*AccessRequestApprovalsApi* | [**Get-AccessRequestApprovalSummary**](docs/AccessRequestApprovalsApi.md#Get-AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of access-requests-approvals
 *AccessRequestApprovalsApi* | [**Get-CompletedApprovals**](docs/AccessRequestApprovalsApi.md#Get-CompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 *AccessRequestApprovalsApi* | [**Get-PendingApprovals**](docs/AccessRequestApprovalsApi.md#Get-PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
-*AccessRequestApprovalsApi* | [**Deny-Request**](docs/AccessRequestApprovalsApi.md#Deny-Request) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
+*AccessRequestApprovalsApi* | [**Deny-AccessRequest**](docs/AccessRequestApprovalsApi.md#Deny-AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
 *AccessRequestsApi* | [**Suspend-AccessRequest**](docs/AccessRequestsApi.md#Suspend-AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 *AccessRequestsApi* | [**New-AccessRequest**](docs/AccessRequestsApi.md#New-AccessRequest) | **POST** /access-requests | Submit an Access Request
 *AccessRequestsApi* | [**Get-AccessRequestConfig**](docs/AccessRequestsApi.md#Get-AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
@@ -97,38 +97,38 @@ Class | Method | HTTP request | Description
 *LifecycleStatesApi* | [**Get-LifecycleStates**](docs/LifecycleStatesApi.md#Get-LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
 *LifecycleStatesApi* | [**Set-LifecycleState**](docs/LifecycleStatesApi.md#Set-LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set Lifecycle State
 *LifecycleStatesApi* | [**Update-LifecycleStates**](docs/LifecycleStatesApi.md#Update-LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
-*NonEmployeeLifecycleManagementApi* | [**New-SchemaAttribute**](docs/NonEmployeeLifecycleManagementApi.md#New-SchemaAttribute) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Remove-SchemaAttribute**](docs/NonEmployeeLifecycleManagementApi.md#Remove-SchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Remove-SchemaAttributes**](docs/NonEmployeeLifecycleManagementApi.md#Remove-SchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Get-SchemaAttribute**](docs/NonEmployeeLifecycleManagementApi.md#Get-SchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Get-SchemaAttributes**](docs/NonEmployeeLifecycleManagementApi.md#Get-SchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeApprovalGet**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeApprovalGet) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeApprovalList**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeApprovalList) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeApprovalSummary**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get Summary of Non-Employee Approval Requests
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeApproveRequest**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeApproveRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeBulkUploadStatus**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Obtain the status of bulk upload on the source
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeExportSourceSchemaTemplate**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeExportSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports Source Schema Template
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordBulkDelete**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordBulkDelete) | **POST** /non-employee-records/bulk-delete | Delete Multiple Non-Employee Records
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordCreation**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordCreation) | **POST** /non-employee-records | Create Non-Employee Record
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordDelete**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordDelete) | **DELETE** /non-employee-records/{id} | Delete Non-Employee Record
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordGet**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordGet) | **GET** /non-employee-records/{id} | Get a Non-Employee Record
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordList**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordList) | **GET** /non-employee-records | List Non-Employee Records
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordPatch**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordPatch) | **PATCH** /non-employee-records/{id} | Patch Non-Employee Record
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordUpdate**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordUpdate) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordsBulkUpload**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordsBulkUpload) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRecordsExport**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRecordsExport) | **GET** /non-employee-sources/{id}/non-employees/download | Exports Non-Employee Records to CSV
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRejectRequest**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRejectRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRequestCreation**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRequestCreation) | **POST** /non-employee-requests | Create Non-Employee Request
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRequestDeletion**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRequestDeletion) | **DELETE** /non-employee-requests/{id} | Delete Non-Employee Request
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRequestGet**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRequestGet) | **GET** /non-employee-requests/{id} | Get a Non-Employee Request
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRequestList**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRequestList) | **GET** /non-employee-requests | List Non-Employee Requests
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeRequestSummaryGet**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeRequestSummaryGet) | **GET** /non-employee-requests/summary/{requested-for} | Get Summary of Non-Employee Requests
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeSourceDelete**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeSourceDelete) | **DELETE** /non-employee-sources/{sourceId} | Delete Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeSourceGet**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeSourceGet) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeSourcePatch**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeSourcePatch) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeSourcesCreation**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeSourcesCreation) | **POST** /non-employee-sources | Create Non-Employee Source
-*NonEmployeeLifecycleManagementApi* | [**Invoke-NonEmployeeSourcesList**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-NonEmployeeSourcesList) | **GET** /non-employee-sources | List Non-Employee Sources
-*NonEmployeeLifecycleManagementApi* | [**Update-SchemaAttribute**](docs/NonEmployeeLifecycleManagementApi.md#Update-SchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Approve-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Approve-NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
+*NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
+*NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
+*NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeSource**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeSource) | **POST** /non-employee-sources | Create Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeSourceSchemaAttributes**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Remove-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#Remove-NonEmployeeRecord) | **DELETE** /non-employee-records/{id} | Delete Non-Employee Record
+*NonEmployeeLifecycleManagementApi* | [**Remove-NonEmployeeRecordsInBulk**](docs/NonEmployeeLifecycleManagementApi.md#Remove-NonEmployeeRecordsInBulk) | **POST** /non-employee-records/bulk-delete | Delete Multiple Non-Employee Records
+*NonEmployeeLifecycleManagementApi* | [**Remove-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Remove-NonEmployeeRequest) | **DELETE** /non-employee-requests/{id} | Delete Non-Employee Request
+*NonEmployeeLifecycleManagementApi* | [**Remove-NonEmployeeSchemaAttribute**](docs/NonEmployeeLifecycleManagementApi.md#Remove-NonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Remove-NonEmployeeSource**](docs/NonEmployeeLifecycleManagementApi.md#Remove-NonEmployeeSource) | **DELETE** /non-employee-sources/{sourceId} | Delete Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Remove-NonEmployeeSourceSchemaAttributes**](docs/NonEmployeeLifecycleManagementApi.md#Remove-NonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Export-NonEmployeeRecords**](docs/NonEmployeeLifecycleManagementApi.md#Export-NonEmployeeRecords) | **GET** /non-employee-sources/{id}/non-employees/download | Exports Non-Employee Records to CSV
+*NonEmployeeLifecycleManagementApi* | [**Export-NonEmployeeSourceSchemaTemplate**](docs/NonEmployeeLifecycleManagementApi.md#Export-NonEmployeeSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports Source Schema Template
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeApproval**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeApproval) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeApprovalSummary**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get Summary of Non-Employee Approval Requests
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeBulkUploadStatus**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Obtain the status of bulk upload on the source
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRecord) | **GET** /non-employee-records/{id} | Get a Non-Employee Record
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRequest) | **GET** /non-employee-requests/{id} | Get a Non-Employee Request
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeRequestSummary**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRequestSummary) | **GET** /non-employee-requests/summary/{requested-for} | Get Summary of Non-Employee Requests
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeSchemaAttribute**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeSource**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeSourceSchemaAttributes**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeApprovals**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeApprovals) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeRecords**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRecords) | **GET** /non-employee-records | List Non-Employee Records
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeRequests**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
+*NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeSources**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSources) | **GET** /non-employee-sources | List Non-Employee Sources
+*NonEmployeeLifecycleManagementApi* | [**Update-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#Update-NonEmployeeRecord) | **PATCH** /non-employee-records/{id} | Patch Non-Employee Record
+*NonEmployeeLifecycleManagementApi* | [**Update-NonEmployeeSchemaAttribute**](docs/NonEmployeeLifecycleManagementApi.md#Update-NonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Update-NonEmployeeSource**](docs/NonEmployeeLifecycleManagementApi.md#Update-NonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Deny-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Deny-NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
+*NonEmployeeLifecycleManagementApi* | [**Update-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#Update-NonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
+*NonEmployeeLifecycleManagementApi* | [**Invoke-UploadNonEmployeeRecordsInBulk**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-UploadNonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
 *OAuthClientsApi* | [**New-OauthClient**](docs/OAuthClientsApi.md#New-OauthClient) | **POST** /oauth-clients | Create OAuth Client
 *OAuthClientsApi* | [**Remove-OauthClient**](docs/OAuthClientsApi.md#Remove-OauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
 *OAuthClientsApi* | [**Get-OauthClient**](docs/OAuthClientsApi.md#Get-OauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
@@ -145,18 +145,18 @@ Class | Method | HTTP request | Description
 *PublicIdentitiesConfigApi* | [**Get-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Get-PublicIdentityConfig) | **GET** /public-identities-config | Get the Public Identities Configuration
 *PublicIdentitiesConfigApi* | [**Update-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Update-PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
 *RequestableObjectsApi* | [**Get-RequestableObjects**](docs/RequestableObjectsApi.md#Get-RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
-*SavedSearchApi* | [**Save-dSearchCreate**](docs/SavedSearchApi.md#Save-dSearchCreate) | **POST** /saved-searches | Create a saved search
-*SavedSearchApi* | [**Save-dSearchDelete**](docs/SavedSearchApi.md#Save-dSearchDelete) | **DELETE** /saved-searches/{id} | Delete a document by ID
-*SavedSearchApi* | [**Save-dSearchExecute**](docs/SavedSearchApi.md#Save-dSearchExecute) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
-*SavedSearchApi* | [**Save-dSearchGet**](docs/SavedSearchApi.md#Save-dSearchGet) | **GET** /saved-searches/{id} | Return a saved search by ID
-*SavedSearchApi* | [**Save-dSearchList**](docs/SavedSearchApi.md#Save-dSearchList) | **GET** /saved-searches | Return a list of Saved Searches
-*SavedSearchApi* | [**Save-dSearchUpdate**](docs/SavedSearchApi.md#Save-dSearchUpdate) | **PUT** /saved-searches/{id} | Updates an existing saved search 
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchCreate**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchCreate) | **POST** /scheduled-searches | Create a new scheduled search
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchDelete**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchDelete) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchGet**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchGet) | **GET** /scheduled-searches/{id} | Get a Scheduled Search
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchList**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchList) | **GET** /scheduled-searches | List scheduled searches
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchUnsubscribe**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchUnsubscribe) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from Scheduled Search
-*ScheduledSearchApi* | [**Invoke-ScheduledSearchUpdate**](docs/ScheduledSearchApi.md#Invoke-ScheduledSearchUpdate) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
+*SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
+*SavedSearchApi* | [**Remove-SavedSearch**](docs/SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
+*SavedSearchApi* | [**Invoke-ExecuteSavedSearch**](docs/SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
+*SavedSearchApi* | [**Get-SavedSearch**](docs/SavedSearchApi.md#Get-SavedSearch) | **GET** /saved-searches/{id} | Return a saved search by ID
+*SavedSearchApi* | [**Get-SavedSearches**](docs/SavedSearchApi.md#Get-SavedSearches) | **GET** /saved-searches | Return a list of Saved Searches
+*SavedSearchApi* | [**Update-SavedSearch**](docs/SavedSearchApi.md#Update-SavedSearch) | **PUT** /saved-searches/{id} | Updates an existing saved search 
+*ScheduledSearchApi* | [**New-ScheduledSearch**](docs/ScheduledSearchApi.md#New-ScheduledSearch) | **POST** /scheduled-searches | Create a new scheduled search
+*ScheduledSearchApi* | [**Remove-ScheduledSearch**](docs/ScheduledSearchApi.md#Remove-ScheduledSearch) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search
+*ScheduledSearchApi* | [**Get-ScheduledSearch**](docs/ScheduledSearchApi.md#Get-ScheduledSearch) | **GET** /scheduled-searches/{id} | Get a Scheduled Search
+*ScheduledSearchApi* | [**Get-ScheduledSearch**](docs/ScheduledSearchApi.md#Get-ScheduledSearch) | **GET** /scheduled-searches | List scheduled searches
+*ScheduledSearchApi* | [**Invoke-UnsubscribeScheduledSearch**](docs/ScheduledSearchApi.md#Invoke-UnsubscribeScheduledSearch) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from Scheduled Search
+*ScheduledSearchApi* | [**Update-ScheduledSearch**](docs/ScheduledSearchApi.md#Update-ScheduledSearch) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
 *SearchApi* | [**Search-Aggregate**](docs/SearchApi.md#Search-Aggregate) | **POST** /search/aggregate | Perform a Search Query Aggregation
 *SearchApi* | [**Search-Count**](docs/SearchApi.md#Search-Count) | **POST** /search/count | Count Documents Satisfying a Query
 *SearchApi* | [**Search-Get**](docs/SearchApi.md#Search-Get) | **GET** /search/{index}/{id} | Get a Document by ID
@@ -164,55 +164,55 @@ Class | Method | HTTP request | Description
 *ServiceDeskIntegrationApi* | [**New-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#New-ServiceDeskIntegration) | **POST** /service-desk-integrations | Create a new Service Desk integration
 *ServiceDeskIntegrationApi* | [**Remove-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Remove-ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration by ID
 *ServiceDeskIntegrationApi* | [**Get-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration by ID
-*ServiceDeskIntegrationApi* | [**Get-ServiceDeskIntegrationList**](docs/ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrationList) | **GET** /service-desk-integrations | List existing Service Desk Integrations
 *ServiceDeskIntegrationApi* | [**Get-ServiceDeskIntegrationTemplate**](docs/ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName.
 *ServiceDeskIntegrationApi* | [**Get-ServiceDeskIntegrationTypes**](docs/ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
+*ServiceDeskIntegrationApi* | [**Get-ServiceDeskIntegrations**](docs/ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing Service Desk Integrations
 *ServiceDeskIntegrationApi* | [**Get-StatusCheckDetails**](docs/ServiceDeskIntegrationApi.md#Get-StatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration of queued SDIM tickets
 *ServiceDeskIntegrationApi* | [**Update-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
 *ServiceDeskIntegrationApi* | [**Update-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration by ID
 *ServiceDeskIntegrationApi* | [**Update-StatusCheckDetails**](docs/ServiceDeskIntegrationApi.md#Update-StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
-*SourcesApi* | [**Invoke-BulkUpdateProvisioningPolicies**](docs/SourcesApi.md#Invoke-BulkUpdateProvisioningPolicies) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 *SourcesApi* | [**New-ProvisioningPolicy**](docs/SourcesApi.md#New-ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
-*SourcesApi* | [**New-Schema**](docs/SourcesApi.md#New-Schema) | **POST** /sources/{sourceId}/schemas | Create Schema on a Source
 *SourcesApi* | [**New-Source**](docs/SourcesApi.md#New-Source) | **POST** /sources | Creates a source in IdentityNow.
+*SourcesApi* | [**New-SourceSchema**](docs/SourcesApi.md#New-SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on a Source
 *SourcesApi* | [**Remove-ProvisioningPolicy**](docs/SourcesApi.md#Remove-ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
-*SourcesApi* | [**Remove-Schema**](docs/SourcesApi.md#Remove-Schema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 *SourcesApi* | [**Remove-Source**](docs/SourcesApi.md#Remove-Source) | **DELETE** /sources/{id} | Delete Source by ID
+*SourcesApi* | [**Remove-SourceSchema**](docs/SourcesApi.md#Remove-SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 *SourcesApi* | [**Invoke-DownloadSourceAccountsSchema**](docs/SourcesApi.md#Invoke-DownloadSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
 *SourcesApi* | [**Invoke-DownloadSourceEntitlementsSchema**](docs/SourcesApi.md#Invoke-DownloadSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 *SourcesApi* | [**Get-ProvisioningPolicy**](docs/SourcesApi.md#Get-ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
-*SourcesApi* | [**Get-Schema**](docs/SourcesApi.md#Get-Schema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *SourcesApi* | [**Get-Source**](docs/SourcesApi.md#Get-Source) | **GET** /sources/{id} | Get Source by ID
 *SourcesApi* | [**Get-SourceHealth**](docs/SourcesApi.md#Get-SourceHealth) | **GET** /sources/{sourceId}/source-health | This API fetches source health by source's id
+*SourcesApi* | [**Get-SourceSchema**](docs/SourcesApi.md#Get-SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *SourcesApi* | [**Get-ProvisioningPolicies**](docs/SourcesApi.md#Get-ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-*SourcesApi* | [**Get-Schemas**](docs/SourcesApi.md#Get-Schemas) | **GET** /sources/{sourceId}/schemas | List Schemas on a Source
+*SourcesApi* | [**Get-SourceSchemas**](docs/SourcesApi.md#Get-SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on a Source
 *SourcesApi* | [**Get-Sources**](docs/SourcesApi.md#Get-Sources) | **GET** /sources | Lists all sources in IdentityNow.
-*SourcesApi* | [**Invoke-ReplaceProvisioningPolicy**](docs/SourcesApi.md#Invoke-ReplaceProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
-*SourcesApi* | [**Invoke-ReplaceSchema**](docs/SourcesApi.md#Invoke-ReplaceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
-*SourcesApi* | [**Invoke-ReplaceSource**](docs/SourcesApi.md#Invoke-ReplaceSource) | **PUT** /sources/{id} | Update Source (Full)
+*SourcesApi* | [**Send-ProvisioningPolicy**](docs/SourcesApi.md#Send-ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
+*SourcesApi* | [**Send-Source**](docs/SourcesApi.md#Send-Source) | **PUT** /sources/{id} | Update Source (Full)
+*SourcesApi* | [**Send-SourceSchema**](docs/SourcesApi.md#Send-SourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
+*SourcesApi* | [**Update-ProvisioningPoliciesInBulk**](docs/SourcesApi.md#Update-ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 *SourcesApi* | [**Update-ProvisioningPolicy**](docs/SourcesApi.md#Update-ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
-*SourcesApi* | [**Update-Schema**](docs/SourcesApi.md#Update-Schema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 *SourcesApi* | [**Update-Source**](docs/SourcesApi.md#Update-Source) | **PATCH** /sources/{id} | Update Source (Partial)
-*SourcesApi* | [**Invoke-UploadConnectorFile**](docs/SourcesApi.md#Invoke-UploadConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
+*SourcesApi* | [**Update-SourceSchema**](docs/SourcesApi.md#Update-SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 *SourcesApi* | [**Invoke-UploadSourceAccountsSchema**](docs/SourcesApi.md#Invoke-UploadSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
+*SourcesApi* | [**Invoke-UploadSourceConnectorFile**](docs/SourcesApi.md#Invoke-UploadSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *SourcesApi* | [**Invoke-UploadSourceEntitlementsSchema**](docs/SourcesApi.md#Invoke-UploadSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 *TransformsApi* | [**New-Transform**](docs/TransformsApi.md#New-Transform) | **POST** /transforms | Create transform
 *TransformsApi* | [**Remove-Transform**](docs/TransformsApi.md#Remove-Transform) | **DELETE** /transforms/{id} | Delete a transform
 *TransformsApi* | [**Get-Transform**](docs/TransformsApi.md#Get-Transform) | **GET** /transforms/{id} | Transform by ID
-*TransformsApi* | [**Get-TransformsList**](docs/TransformsApi.md#Get-TransformsList) | **GET** /transforms | List transforms
+*TransformsApi* | [**Get-Transforms**](docs/TransformsApi.md#Get-Transforms) | **GET** /transforms | List transforms
 *TransformsApi* | [**Update-Transform**](docs/TransformsApi.md#Update-Transform) | **PUT** /transforms/{id} | Update a transform
 *WorkItemsApi* | [**Approve-ApprovalItem**](docs/WorkItemsApi.md#Approve-ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
-*WorkItemsApi* | [**Invoke-BulkApproveApprovalItem**](docs/WorkItemsApi.md#Invoke-BulkApproveApprovalItem) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
-*WorkItemsApi* | [**Invoke-BulkRejectApprovalItem**](docs/WorkItemsApi.md#Invoke-BulkRejectApprovalItem) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
+*WorkItemsApi* | [**Approve-ApprovalItemsInBulk**](docs/WorkItemsApi.md#Approve-ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *WorkItemsApi* | [**Complete-WorkItem**](docs/WorkItemsApi.md#Complete-WorkItem) | **POST** /work-items/{id} | Complete a Work Item
-*WorkItemsApi* | [**Complete-dWorkItems**](docs/WorkItemsApi.md#Complete-dWorkItems) | **GET** /work-items/completed | Completed Work Items
-*WorkItemsApi* | [**Invoke-CountCompletedWorkItems**](docs/WorkItemsApi.md#Invoke-CountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
-*WorkItemsApi* | [**Invoke-CountWorkItems**](docs/WorkItemsApi.md#Invoke-CountWorkItems) | **GET** /work-items/count | Count Work Items
-*WorkItemsApi* | [**Get-WorkItems**](docs/WorkItemsApi.md#Get-WorkItems) | **GET** /work-items/{id} | Get a Work Item
+*WorkItemsApi* | [**Get-CompletedWorkItems**](docs/WorkItemsApi.md#Get-CompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
+*WorkItemsApi* | [**Get-CountCompletedWorkItems**](docs/WorkItemsApi.md#Get-CountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
+*WorkItemsApi* | [**Get-CountWorkItems**](docs/WorkItemsApi.md#Get-CountWorkItems) | **GET** /work-items/count | Count Work Items
+*WorkItemsApi* | [**Get-WorkItem**](docs/WorkItemsApi.md#Get-WorkItem) | **GET** /work-items/{id} | Get a Work Item
+*WorkItemsApi* | [**Get-WorkItemsSummary**](docs/WorkItemsApi.md#Get-WorkItemsSummary) | **GET** /work-items/summary | Work Items Summary
 *WorkItemsApi* | [**Get-WorkItems**](docs/WorkItemsApi.md#Get-WorkItems) | **GET** /work-items | List Work Items
 *WorkItemsApi* | [**Deny-ApprovalItem**](docs/WorkItemsApi.md#Deny-ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
+*WorkItemsApi* | [**Deny-ApprovalItemsInBulk**](docs/WorkItemsApi.md#Deny-ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
 *WorkItemsApi* | [**Submit-AccountSelection**](docs/WorkItemsApi.md#Submit-AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
-*WorkItemsApi* | [**Invoke-SummaryWorkItems**](docs/WorkItemsApi.md#Invoke-SummaryWorkItems) | **GET** /work-items/summary | Work Items Summary
 
 
 ## Documentation for Models
@@ -320,6 +320,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CreateOAuthClientResponse](docs/CreateOAuthClientResponse.md)
  - [PSSailpoint/Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
  - [PSSailpoint/Model.CreatePersonalAccessTokenResponse](docs/CreatePersonalAccessTokenResponse.md)
+ - [PSSailpoint/Model.CreateSavedSearchRequest](docs/CreateSavedSearchRequest.md)
+ - [PSSailpoint/Model.CreateScheduledSearchRequest](docs/CreateScheduledSearchRequest.md)
  - [PSSailpoint/Model.DateCompare](docs/DateCompare.md)
  - [PSSailpoint/Model.DateCompareFirstDate](docs/DateCompareFirstDate.md)
  - [PSSailpoint/Model.DateCompareSecondDate](docs/DateCompareSecondDate.md)
@@ -328,6 +330,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.DateFormatOutputFormat](docs/DateFormatOutputFormat.md)
  - [PSSailpoint/Model.DateMath](docs/DateMath.md)
  - [PSSailpoint/Model.DecomposeDiacriticalMarks](docs/DecomposeDiacriticalMarks.md)
+ - [PSSailpoint/Model.DeleteNonEmployeeRecordsInBulkRequest](docs/DeleteNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint/Model.DeleteSource202Response](docs/DeleteSource202Response.md)
  - [PSSailpoint/Model.DisplayReference](docs/DisplayReference.md)
  - [PSSailpoint/Model.DisplayReferenceAllOf](docs/DisplayReferenceAllOf.md)
@@ -417,8 +420,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.NonEmployeeIdentityReferenceWithId](docs/NonEmployeeIdentityReferenceWithId.md)
  - [PSSailpoint/Model.NonEmployeeIdnUserRequest](docs/NonEmployeeIdnUserRequest.md)
  - [PSSailpoint/Model.NonEmployeeRecord](docs/NonEmployeeRecord.md)
- - [PSSailpoint/Model.NonEmployeeRecordBulkDeleteRequest](docs/NonEmployeeRecordBulkDeleteRequest.md)
- - [PSSailpoint/Model.NonEmployeeRecordsBulkUploadRequest](docs/NonEmployeeRecordsBulkUploadRequest.md)
  - [PSSailpoint/Model.NonEmployeeRejectApprovalDecision](docs/NonEmployeeRejectApprovalDecision.md)
  - [PSSailpoint/Model.NonEmployeeRequest](docs/NonEmployeeRequest.md)
  - [PSSailpoint/Model.NonEmployeeRequestAllOf](docs/NonEmployeeRequestAllOf.md)
@@ -504,7 +505,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.Rule](docs/Rule.md)
  - [PSSailpoint/Model.SavedSearch](docs/SavedSearch.md)
  - [PSSailpoint/Model.SavedSearchAllOf](docs/SavedSearchAllOf.md)
- - [PSSailpoint/Model.SavedSearchCreateRequest](docs/SavedSearchCreateRequest.md)
  - [PSSailpoint/Model.SavedSearchDetail](docs/SavedSearchDetail.md)
  - [PSSailpoint/Model.SavedSearchDetailFilters](docs/SavedSearchDetailFilters.md)
  - [PSSailpoint/Model.SavedSearchName](docs/SavedSearchName.md)
@@ -515,7 +515,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ScheduledSearch](docs/ScheduledSearch.md)
  - [PSSailpoint/Model.ScheduledSearchAllOf](docs/ScheduledSearchAllOf.md)
  - [PSSailpoint/Model.ScheduledSearchAllOfOwner](docs/ScheduledSearchAllOfOwner.md)
- - [PSSailpoint/Model.ScheduledSearchCreateRequest](docs/ScheduledSearchCreateRequest.md)
  - [PSSailpoint/Model.ScheduledSearchName](docs/ScheduledSearchName.md)
  - [PSSailpoint/Model.Schema](docs/Schema.md)
  - [PSSailpoint/Model.Search](docs/Search.md)
@@ -575,6 +574,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.TypeAheadQuery](docs/TypeAheadQuery.md)
  - [PSSailpoint/Model.TypedReference](docs/TypedReference.md)
  - [PSSailpoint/Model.UUIDGenerator](docs/UUIDGenerator.md)
+ - [PSSailpoint/Model.UploadNonEmployeeRecordsInBulkRequest](docs/UploadNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint/Model.UploadSourceAccountsSchemaRequest](docs/UploadSourceAccountsSchemaRequest.md)
  - [PSSailpoint/Model.Upper](docs/Upper.md)
  - [PSSailpoint/Model.UsageType](docs/UsageType.md)

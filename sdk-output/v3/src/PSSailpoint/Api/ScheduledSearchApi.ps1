@@ -14,7 +14,7 @@ Create a new scheduled search
 
 No description available.
 
-.PARAMETER ScheduledSearchCreateRequest
+.PARAMETER CreateScheduledSearchRequest
 The scheduled search to persist.
 
 .PARAMETER WithHttpInfo
@@ -25,18 +25,18 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ScheduledSearch
 #>
-function Invoke-ScheduledSearchCreate {
+function New-ScheduledSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${ScheduledSearchCreateRequest},
+        ${CreateScheduledSearchRequest},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Invoke-ScheduledSearchCreate' | Write-Debug
+        'Calling method: New-ScheduledSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -57,11 +57,11 @@ function Invoke-ScheduledSearchCreate {
 
         $LocalVarUri = '/scheduled-searches'
 
-        if (!$ScheduledSearchCreateRequest) {
-            throw "Error! The required parameter `ScheduledSearchCreateRequest` missing when calling scheduledSearchCreate."
+        if (!$CreateScheduledSearchRequest) {
+            throw "Error! The required parameter `CreateScheduledSearchRequest` missing when calling createScheduledSearch."
         }
 
-        $LocalVarBodyParameter = $ScheduledSearchCreateRequest | ForEach-Object {
+        $LocalVarBodyParameter = $CreateScheduledSearchRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-ScheduledSearchDelete {
+function Remove-ScheduledSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Invoke-ScheduledSearchDelete {
     )
 
     Process {
-        'Calling method: Invoke-ScheduledSearchDelete' | Write-Debug
+        'Calling method: Remove-ScheduledSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -141,7 +141,7 @@ function Invoke-ScheduledSearchDelete {
 
         $LocalVarUri = '/scheduled-searches/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling scheduledSearchDelete."
+            throw "Error! The required parameter `Id` missing when calling deleteScheduledSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ScheduledSearch
 #>
-function Invoke-ScheduledSearchGet {
+function Get-ScheduledSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -198,7 +198,7 @@ function Invoke-ScheduledSearchGet {
     )
 
     Process {
-        'Calling method: Invoke-ScheduledSearchGet' | Write-Debug
+        'Calling method: Get-ScheduledSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -216,7 +216,7 @@ function Invoke-ScheduledSearchGet {
 
         $LocalVarUri = '/scheduled-searches/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling scheduledSearchGet."
+            throw "Error! The required parameter `Id` missing when calling getScheduledSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -271,7 +271,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ScheduledSearch[]
 #>
-function Invoke-ScheduledSearchList {
+function Get-ScheduledSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -291,7 +291,7 @@ function Invoke-ScheduledSearchList {
     )
 
     Process {
-        'Calling method: Invoke-ScheduledSearchList' | Write-Debug
+        'Calling method: Get-ScheduledSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -370,7 +370,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Invoke-ScheduledSearchUnsubscribe {
+function Invoke-UnsubscribeScheduledSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -384,7 +384,7 @@ function Invoke-ScheduledSearchUnsubscribe {
     )
 
     Process {
-        'Calling method: Invoke-ScheduledSearchUnsubscribe' | Write-Debug
+        'Calling method: Invoke-UnsubscribeScheduledSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -405,12 +405,12 @@ function Invoke-ScheduledSearchUnsubscribe {
 
         $LocalVarUri = '/scheduled-searches/{id}/unsubscribe'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling scheduledSearchUnsubscribe."
+            throw "Error! The required parameter `Id` missing when calling unsubscribeScheduledSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$TypedReference) {
-            throw "Error! The required parameter `TypedReference` missing when calling scheduledSearchUnsubscribe."
+            throw "Error! The required parameter `TypedReference` missing when calling unsubscribeScheduledSearch."
         }
 
         $LocalVarBodyParameter = $TypedReference | ForEach-Object {
@@ -467,7 +467,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ScheduledSearch
 #>
-function Invoke-ScheduledSearchUpdate {
+function Update-ScheduledSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -481,7 +481,7 @@ function Invoke-ScheduledSearchUpdate {
     )
 
     Process {
-        'Calling method: Invoke-ScheduledSearchUpdate' | Write-Debug
+        'Calling method: Update-ScheduledSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -502,12 +502,12 @@ function Invoke-ScheduledSearchUpdate {
 
         $LocalVarUri = '/scheduled-searches/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling scheduledSearchUpdate."
+            throw "Error! The required parameter `Id` missing when calling updateScheduledSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$ScheduledSearch) {
-            throw "Error! The required parameter `ScheduledSearch` missing when calling scheduledSearchUpdate."
+            throw "Error! The required parameter `ScheduledSearch` missing when calling updateScheduledSearch."
         }
 
         $LocalVarBodyParameter = $ScheduledSearch | ForEach-Object {

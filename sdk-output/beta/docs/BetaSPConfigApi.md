@@ -4,18 +4,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaSpConfigExport**](BetaSPConfigApi.md#Invoke-BetaSpConfigExport) | **POST** /sp-config/export | Initiates Configuration Objects Export Job.
-[**Invoke-BetaSpConfigExportDownload**](BetaSPConfigApi.md#Invoke-BetaSpConfigExportDownload) | **GET** /sp-config/export/{id}/download | Download Result of Export Job
-[**Invoke-BetaSpConfigExportJobStatus**](BetaSPConfigApi.md#Invoke-BetaSpConfigExportJobStatus) | **GET** /sp-config/export/{id} | Get Status of Export Job
-[**Invoke-BetaSpConfigImport**](BetaSPConfigApi.md#Invoke-BetaSpConfigImport) | **POST** /sp-config/import | Initiates Configuration Objects Import Job.
-[**Invoke-BetaSpConfigImportDownload**](BetaSPConfigApi.md#Invoke-BetaSpConfigImportDownload) | **GET** /sp-config/import/{id}/download | Download Result of Import Job
-[**Invoke-BetaSpConfigImportJobStatus**](BetaSPConfigApi.md#Invoke-BetaSpConfigImportJobStatus) | **GET** /sp-config/import/{id} | Get Status of Import Job
-[**Invoke-BetaSpConfigObjects**](BetaSPConfigApi.md#Invoke-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get Config Object details
+[**Export-BetaSpConfig**](BetaSPConfigApi.md#Export-BetaSpConfig) | **POST** /sp-config/export | Initiates Configuration Objects Export Job.
+[**Export-BetaSpConfigDownload**](BetaSPConfigApi.md#Export-BetaSpConfigDownload) | **GET** /sp-config/export/{id}/download | Download Result of Export Job
+[**Export-BetaSpConfigJobStatus**](BetaSPConfigApi.md#Export-BetaSpConfigJobStatus) | **GET** /sp-config/export/{id} | Get Status of Export Job
+[**Import-BetaSpConfig**](BetaSPConfigApi.md#Import-BetaSpConfig) | **POST** /sp-config/import | Initiates Configuration Objects Import Job.
+[**Import-BetaSpConfigDownload**](BetaSPConfigApi.md#Import-BetaSpConfigDownload) | **GET** /sp-config/import/{id}/download | Download Result of Import Job
+[**Import-BetaSpConfigJobStatus**](BetaSPConfigApi.md#Import-BetaSpConfigJobStatus) | **GET** /sp-config/import/{id} | Get Status of Import Job
+[**Get-BetaSpConfigObjects**](BetaSPConfigApi.md#Get-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get Config Object details
 
 
-<a name="Invoke-BetaSpConfigExport"></a>
-# **Invoke-BetaSpConfigExport**
-> SpConfigJob Invoke-BetaSpConfigExport<br>
+<a name="Export-BetaSpConfig"></a>
+# **Export-BetaSpConfig**
+> SpConfigJob Export-BetaSpConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExportPayload] <PSCustomObject><br>
 
 Initiates Configuration Objects Export Job.
@@ -38,9 +38,9 @@ $ExportPayload = Initialize-ExportPayload -Description "Export Job 1 Test" -Excl
 
 # Initiates Configuration Objects Export Job.
 try {
-    $Result = Invoke-BetaSpConfigExport -ExportPayload $ExportPayload
+    $Result = Export-BetaSpConfig -ExportPayload $ExportPayload
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaSpConfigExport: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Export-BetaSpConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -66,9 +66,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaSpConfigExportDownload"></a>
-# **Invoke-BetaSpConfigExportDownload**
-> SpConfigExportResults Invoke-BetaSpConfigExportDownload<br>
+<a name="Export-BetaSpConfigDownload"></a>
+# **Export-BetaSpConfigDownload**
+> SpConfigExportResults Export-BetaSpConfigDownload<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Download Result of Export Job
@@ -89,9 +89,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job for
 
 # Download Result of Export Job
 try {
-    $Result = Invoke-BetaSpConfigExportDownload -Id $Id
+    $Result = Export-BetaSpConfigDownload -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaSpConfigExportDownload: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Export-BetaSpConfigDownload: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -117,9 +117,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaSpConfigExportJobStatus"></a>
-# **Invoke-BetaSpConfigExportJobStatus**
-> SpConfigJob Invoke-BetaSpConfigExportJobStatus<br>
+<a name="Export-BetaSpConfigJobStatus"></a>
+# **Export-BetaSpConfigJobStatus**
+> SpConfigJob Export-BetaSpConfigJobStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Status of Export Job
@@ -140,9 +140,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job for
 
 # Get Status of Export Job
 try {
-    $Result = Invoke-BetaSpConfigExportJobStatus -Id $Id
+    $Result = Export-BetaSpConfigJobStatus -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaSpConfigExportJobStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Export-BetaSpConfigJobStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -168,9 +168,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaSpConfigImport"></a>
-# **Invoke-BetaSpConfigImport**
-> SpConfigJob Invoke-BetaSpConfigImport<br>
+<a name="Import-BetaSpConfig"></a>
+# **Import-BetaSpConfig**
+> SpConfigJob Import-BetaSpConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Data] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Preview] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Options] <PSCustomObject><br>
@@ -197,9 +197,9 @@ $ImportOptions = Initialize-ImportOptions -ExcludeTypes "SOURCE" -IncludeTypes "
 
 # Initiates Configuration Objects Import Job.
 try {
-    $Result = Invoke-BetaSpConfigImport -Data $Data -Preview $Preview -Options $Options
+    $Result = Import-BetaSpConfig -Data $Data -Preview $Preview -Options $Options
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaSpConfigImport: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Import-BetaSpConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -227,9 +227,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaSpConfigImportDownload"></a>
-# **Invoke-BetaSpConfigImportDownload**
-> SpConfigImportResults Invoke-BetaSpConfigImportDownload<br>
+<a name="Import-BetaSpConfigDownload"></a>
+# **Import-BetaSpConfigDownload**
+> SpConfigImportResults Import-BetaSpConfigDownload<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Download Result of Import Job
@@ -250,9 +250,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job for
 
 # Download Result of Import Job
 try {
-    $Result = Invoke-BetaSpConfigImportDownload -Id $Id
+    $Result = Import-BetaSpConfigDownload -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaSpConfigImportDownload: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Import-BetaSpConfigDownload: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -278,9 +278,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaSpConfigImportJobStatus"></a>
-# **Invoke-BetaSpConfigImportJobStatus**
-> SpConfigJob Invoke-BetaSpConfigImportJobStatus<br>
+<a name="Import-BetaSpConfigJobStatus"></a>
+# **Import-BetaSpConfigJobStatus**
+> SpConfigJob Import-BetaSpConfigJobStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Status of Import Job
@@ -301,9 +301,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job for
 
 # Get Status of Import Job
 try {
-    $Result = Invoke-BetaSpConfigImportJobStatus -Id $Id
+    $Result = Import-BetaSpConfigJobStatus -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaSpConfigImportJobStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Import-BetaSpConfigJobStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -329,9 +329,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaSpConfigObjects"></a>
-# **Invoke-BetaSpConfigObjects**
-> SpConfigObject[] Invoke-BetaSpConfigObjects<br>
+<a name="Get-BetaSpConfigObjects"></a>
+# **Get-BetaSpConfigObjects**
+> SpConfigObject[] Get-BetaSpConfigObjects<br>
 
 Get Config Object details
 
@@ -350,9 +350,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Get Config Object details
 try {
-    $Result = Invoke-BetaSpConfigObjects
+    $Result = Get-BetaSpConfigObjects
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaSpConfigObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSpConfigObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -4,12 +4,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaPredictViolations**](BetaSODViolationsApi.md#Invoke-BetaPredictViolations) | **POST** /sod-violations/predict | Predict SOD violations for the given identity if they were granted the given access.
+[**Invoke-BetaPredictSodViolations**](BetaSODViolationsApi.md#Invoke-BetaPredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for the given identity if they were granted the given access.
 
 
-<a name="Invoke-BetaPredictViolations"></a>
-# **Invoke-BetaPredictViolations**
-> ViolationPrediction Invoke-BetaPredictViolations<br>
+<a name="Invoke-BetaPredictSodViolations"></a>
+# **Invoke-BetaPredictSodViolations**
+> ViolationPrediction Invoke-BetaPredictSodViolations<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityWithNewAccess] <PSCustomObject><br>
 
 Predict SOD violations for the given identity if they were granted the given access.
@@ -31,9 +31,9 @@ $IdentityWithNewAccess = Initialize-IdentityWithNewAccess -IdentityId "2c9180856
 
 # Predict SOD violations for the given identity if they were granted the given access.
 try {
-    $Result = Invoke-BetaPredictViolations -IdentityWithNewAccess $IdentityWithNewAccess
+    $Result = Invoke-BetaPredictSodViolations -IdentityWithNewAccess $IdentityWithNewAccess
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaPredictViolations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-BetaPredictSodViolations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -4,61 +4,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaCommonAccessBulkUpdateStatus**](BetaIAICommonAccessApi.md#Invoke-BetaCommonAccessBulkUpdateStatus) | **POST** /common-access/update-status | Bulk update common access status
 [**New-BetaCommonAccess**](BetaIAICommonAccessApi.md#New-BetaCommonAccess) | **POST** /common-access | Create common access items
 [**Get-BetaCommonAccess**](BetaIAICommonAccessApi.md#Get-BetaCommonAccess) | **GET** /common-access | Get a paginated list of common access
+[**Update-BetaCommonAccessStatusInBulk**](BetaIAICommonAccessApi.md#Update-BetaCommonAccessStatusInBulk) | **POST** /common-access/update-status | Bulk update common access status
 
-
-<a name="Invoke-BetaCommonAccessBulkUpdateStatus"></a>
-# **Invoke-BetaCommonAccessBulkUpdateStatus**
-> SystemCollectionsHashtable Invoke-BetaCommonAccessBulkUpdateStatus<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommonAccessIDStatus] <PSCustomObject[]><br>
-
-Bulk update common access status
-
-This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$CommonAccessIDStatus = Initialize-CommonAccessIDStatus -ConfirmedIds "MyConfirmedIds" -DeniedIds "MyDeniedIds" # CommonAccessIDStatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
-
-# Bulk update common access status
-try {
-    $Result = Invoke-BetaCommonAccessBulkUpdateStatus -CommonAccessIDStatus $CommonAccessIDStatus
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaCommonAccessBulkUpdateStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **CommonAccessIDStatus** | [**CommonAccessIDStatus[]**](CommonAccessIDStatus.md)| Confirm or deny in bulk the common access ids that are (or aren&#39;t) common access | 
-
-### Return type
-
-[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-BetaCommonAccess"></a>
 # **New-BetaCommonAccess**
@@ -171,6 +120,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Update-BetaCommonAccessStatusInBulk"></a>
+# **Update-BetaCommonAccessStatusInBulk**
+> SystemCollectionsHashtable Update-BetaCommonAccessStatusInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommonAccessIDStatus] <PSCustomObject[]><br>
+
+Bulk update common access status
+
+This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$CommonAccessIDStatus = Initialize-CommonAccessIDStatus -ConfirmedIds "MyConfirmedIds" -DeniedIds "MyDeniedIds" # CommonAccessIDStatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
+
+# Bulk update common access status
+try {
+    $Result = Update-BetaCommonAccessStatusInBulk -CommonAccessIDStatus $CommonAccessIDStatus
+} catch {
+    Write-Host ("Exception occurred when calling Update-BetaCommonAccessStatusInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **CommonAccessIDStatus** | [**CommonAccessIDStatus[]**](CommonAccessIDStatus.md)| Confirm or deny in bulk the common access ids that are (or aren&#39;t) common access | 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

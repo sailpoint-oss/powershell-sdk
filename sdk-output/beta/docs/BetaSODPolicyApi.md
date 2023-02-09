@@ -5,21 +5,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSodPolicy**](BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD Policy
-[**Remove-BetaSodPolicyById**](BetaSODPolicyApi.md#Remove-BetaSodPolicyById) | **DELETE** /sod-policies/{id} | Delete SOD Policy by ID
-[**Remove-BetaSodPolicyScheduleById**](BetaSODPolicyApi.md#Remove-BetaSodPolicyScheduleById) | **DELETE** /sod-policies/{id}/schedule | Delete SOD Policy Schedule
+[**Remove-BetaSodPolicy**](BetaSODPolicyApi.md#Remove-BetaSodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD Policy by ID
+[**Remove-BetaSodPolicySchedule**](BetaSODPolicyApi.md#Remove-BetaSodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD Policy Schedule
 [**Invoke-BetaDownloadCustomViolationReport**](BetaSODPolicyApi.md#Invoke-BetaDownloadCustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 [**Invoke-BetaDownloadDefaultViolationReport**](BetaSODPolicyApi.md#Invoke-BetaDownloadDefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 [**Get-BetaSodAllReportRunStatus**](BetaSODPolicyApi.md#Get-BetaSodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
-[**Get-BetaSodPolicyById**](BetaSODPolicyApi.md#Get-BetaSodPolicyById) | **GET** /sod-policies/{id} | Get SOD Policy By ID
-[**Get-BetaSodPolicyScheduleById**](BetaSODPolicyApi.md#Get-BetaSodPolicyScheduleById) | **GET** /sod-policies/{id}/schedule | Get SOD Policy Schedule
+[**Get-BetaSodPolicy**](BetaSODPolicyApi.md#Get-BetaSodPolicy) | **GET** /sod-policies/{id} | Get SOD Policy By ID
+[**Get-BetaSodPolicySchedule**](BetaSODPolicyApi.md#Get-BetaSodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD Policy Schedule
 [**Get-BetaSodViolationReportRunStatus**](BetaSODPolicyApi.md#Get-BetaSodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
 [**Get-BetaSodViolationReportStatus**](BetaSODPolicyApi.md#Get-BetaSodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
 [**Get-BetaSodPolicies**](BetaSODPolicyApi.md#Get-BetaSodPolicies) | **GET** /sod-policies | List SOD Policies
 [**Update-BetaSodPolicy**](BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PATCH** /sod-policies/{id} | Update a SOD Policy
-[**Start-BetaAllPoliciesForOrg**](BetaSODPolicyApi.md#Start-BetaAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for Org.
+[**Start-BetaSodAllPoliciesForOrg**](BetaSODPolicyApi.md#Start-BetaSodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for Org.
 [**Start-BetaSodPolicy**](BetaSODPolicyApi.md#Start-BetaSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD Policy Violation Report
-[**Update-BetaPolicyById**](BetaSODPolicyApi.md#Update-BetaPolicyById) | **PUT** /sod-policies/{id} | Update SOD Policy By ID
-[**Update-BetaPolicyScheduleById**](BetaSODPolicyApi.md#Update-BetaPolicyScheduleById) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
+[**Update-BetaPolicySchedule**](BetaSODPolicyApi.md#Update-BetaPolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
+[**Update-BetaSodPolicy**](BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD Policy By ID
 
 
 <a name="New-BetaSodPolicy"></a>
@@ -82,9 +82,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaSodPolicyById"></a>
-# **Remove-BetaSodPolicyById**
-> void Remove-BetaSodPolicyById<br>
+<a name="Remove-BetaSodPolicy"></a>
+# **Remove-BetaSodPolicy**
+> void Remove-BetaSodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Logical] <System.Nullable[Boolean]><br>
 
@@ -107,9 +107,9 @@ $Logical = $true # Boolean | whether this is soft delete i.e. logical true or ha
 
 # Delete SOD Policy by ID
 try {
-    $Result = Remove-BetaSodPolicyById -Id $Id -Logical $Logical
+    $Result = Remove-BetaSodPolicy -Id $Id -Logical $Logical
 } catch {
-    Write-Host ("Exception occurred when calling Remove-BetaSodPolicyById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -136,9 +136,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaSodPolicyScheduleById"></a>
-# **Remove-BetaSodPolicyScheduleById**
-> void Remove-BetaSodPolicyScheduleById<br>
+<a name="Remove-BetaSodPolicySchedule"></a>
+# **Remove-BetaSodPolicySchedule**
+> void Remove-BetaSodPolicySchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete SOD Policy Schedule
@@ -159,9 +159,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD Policy for
 
 # Delete SOD Policy Schedule
 try {
-    $Result = Remove-BetaSodPolicyScheduleById -Id $Id
+    $Result = Remove-BetaSodPolicySchedule -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Remove-BetaSodPolicyScheduleById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSodPolicySchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -338,9 +338,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSodPolicyById"></a>
-# **Get-BetaSodPolicyById**
-> SodPolicy Get-BetaSodPolicyById<br>
+<a name="Get-BetaSodPolicy"></a>
+# **Get-BetaSodPolicy**
+> SodPolicy Get-BetaSodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get SOD Policy By ID
@@ -361,9 +361,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 
 # Get SOD Policy By ID
 try {
-    $Result = Get-BetaSodPolicyById -Id $Id
+    $Result = Get-BetaSodPolicy -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaSodPolicyById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -389,9 +389,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSodPolicyScheduleById"></a>
-# **Get-BetaSodPolicyScheduleById**
-> SodPolicySchedule Get-BetaSodPolicyScheduleById<br>
+<a name="Get-BetaSodPolicySchedule"></a>
+# **Get-BetaSodPolicySchedule**
+> SodPolicySchedule Get-BetaSodPolicySchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get SOD Policy Schedule
@@ -412,9 +412,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 
 # Get SOD Policy Schedule
 try {
-    $Result = Get-BetaSodPolicyScheduleById -Id $Id
+    $Result = Get-BetaSodPolicySchedule -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaSodPolicyScheduleById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSodPolicySchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -656,9 +656,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-BetaAllPoliciesForOrg"></a>
-# **Start-BetaAllPoliciesForOrg**
-> ReportResultReference Start-BetaAllPoliciesForOrg<br>
+<a name="Start-BetaSodAllPoliciesForOrg"></a>
+# **Start-BetaSodAllPoliciesForOrg**
+> ReportResultReference Start-BetaSodAllPoliciesForOrg<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MultiPolicyRequest] <PSCustomObject><br>
 
 Runs all policies for Org.
@@ -679,9 +679,9 @@ $MultiPolicyRequest = Initialize-MultiPolicyRequest -FilteredPolicyList "MyFilte
 
 # Runs all policies for Org.
 try {
-    $Result = Start-BetaAllPoliciesForOrg -MultiPolicyRequest $MultiPolicyRequest
+    $Result = Start-BetaSodAllPoliciesForOrg -MultiPolicyRequest $MultiPolicyRequest
 } catch {
-    Write-Host ("Exception occurred when calling Start-BetaAllPoliciesForOrg: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Start-BetaSodAllPoliciesForOrg: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -758,9 +758,68 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaPolicyById"></a>
-# **Update-BetaPolicyById**
-> SodPolicy Update-BetaPolicyById<br>
+<a name="Update-BetaPolicySchedule"></a>
+# **Update-BetaPolicySchedule**
+> SodPolicySchedule Update-BetaPolicySchedule<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SodPolicySchedule] <PSCustomObject><br>
+
+Update SOD Policy schedule
+
+This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy to update its schedule.
+$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
+
+$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$SodPolicySchedule = Initialize-SodPolicySchedule -Name "SCH-1584312283015" -Created (Get-Date) -Modified (Get-Date) -Description "Schedule for policy xyz" -Schedule $Schedule1 -Recipients $BaseReferenceDto -EmailEmptyResults $false -CreatorId "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -ModifierId "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # SodPolicySchedule | 
+
+# Update SOD Policy schedule
+try {
+    $Result = Update-BetaPolicySchedule -Id $Id -SodPolicySchedule $SodPolicySchedule
+} catch {
+    Write-Host ("Exception occurred when calling Update-BetaPolicySchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the SOD policy to update its schedule. | 
+ **SodPolicySchedule** | [**SodPolicySchedule**](SodPolicySchedule.md)|  | 
+
+### Return type
+
+[**SodPolicySchedule**](SodPolicySchedule.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Update-BetaSodPolicy"></a>
+# **Update-BetaSodPolicy**
+> SodPolicy Update-BetaSodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SodPolicy] <PSCustomObject><br>
 
@@ -792,9 +851,9 @@ $SodPolicy = Initialize-SodPolicy -Id "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -Na
 
 # Update SOD Policy By ID
 try {
-    $Result = Update-BetaPolicyById -Id $Id -SodPolicy $SodPolicy
+    $Result = Update-BetaSodPolicy -Id $Id -SodPolicy $SodPolicy
 } catch {
-    Write-Host ("Exception occurred when calling Update-BetaPolicyById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaSodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -809,65 +868,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SodPolicy**](SodPolicy.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Update-BetaPolicyScheduleById"></a>
-# **Update-BetaPolicyScheduleById**
-> SodPolicySchedule Update-BetaPolicyScheduleById<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SodPolicySchedule] <PSCustomObject><br>
-
-Update SOD Policy schedule
-
-This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy to update its schedule.
-$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
-
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$SodPolicySchedule = Initialize-SodPolicySchedule -Name "SCH-1584312283015" -Created (Get-Date) -Modified (Get-Date) -Description "Schedule for policy xyz" -Schedule $Schedule1 -Recipients $BaseReferenceDto -EmailEmptyResults $false -CreatorId "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -ModifierId "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # SodPolicySchedule | 
-
-# Update SOD Policy schedule
-try {
-    $Result = Update-BetaPolicyScheduleById -Id $Id -SodPolicySchedule $SodPolicySchedule
-} catch {
-    Write-Host ("Exception occurred when calling Update-BetaPolicyScheduleById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the SOD policy to update its schedule. | 
- **SodPolicySchedule** | [**SodPolicySchedule**](SodPolicySchedule.md)|  | 
-
-### Return type
-
-[**SodPolicySchedule**](SodPolicySchedule.md) (PSCustomObject)
 
 ### Authorization
 

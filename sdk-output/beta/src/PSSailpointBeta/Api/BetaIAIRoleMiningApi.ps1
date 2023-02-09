@@ -131,6 +131,93 @@ function New-BetaPotentialRoleProvisionRequest {
 <#
 .SYNOPSIS
 
+Create a role mining session
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER RoleMiningSessionDto
+Role mining session parameters
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+RoleMiningSessionResponse
+#>
+function New-BetaRoleMiningSessions {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${RoleMiningSessionDto},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-BetaRoleMiningSessions' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-BetaConfiguration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/role-mining-sessions'
+
+        if (!$RoleMiningSessionDto) {
+            throw "Error! The required parameter `RoleMiningSessionDto` missing when calling createRoleMiningSessions."
+        }
+
+        $LocalVarBodyParameter = $RoleMiningSessionDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "RoleMiningSessionResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Export (download) details for a potential role in a role mining session
 
 .DESCRIPTION
@@ -225,113 +312,6 @@ function Invoke-BetaDownloadRoleMiningPotentialRoleZip {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "System.IO.FileInfo" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Edit entitlements for a potential role to exclude some entitlements
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER SessionId
-The role mining session id
-
-.PARAMETER PotentialRoleId
-A potential role id in a role mining session
-
-.PARAMETER RoleMiningPotentialRoleEditEntitlements
-Role mining session parameters
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-RoleMiningPotentialRole
-#>
-function Edit-BetaEntitlementsPotentialRole {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${SessionId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${PotentialRoleId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${RoleMiningPotentialRoleEditEntitlements},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Edit-BetaEntitlementsPotentialRole' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-BetaConfiguration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements'
-        if (!$SessionId) {
-            throw "Error! The required parameter `SessionId` missing when calling editEntitlementsPotentialRole."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
-        if (!$PotentialRoleId) {
-            throw "Error! The required parameter `PotentialRoleId` missing when calling editEntitlementsPotentialRole."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
-
-        if (!$RoleMiningPotentialRoleEditEntitlements) {
-            throw "Error! The required parameter `RoleMiningPotentialRoleEditEntitlements` missing when calling editEntitlementsPotentialRole."
-        }
-
-        $LocalVarBodyParameter = $RoleMiningPotentialRoleEditEntitlements | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-        }
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RoleMiningPotentialRole" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1944,13 +1924,19 @@ function Update-BetaRoleMiningSession {
 <#
 .SYNOPSIS
 
-Create a role mining session
+Edit entitlements for a potential role to exclude some entitlements
 
 .DESCRIPTION
 
 No description available.
 
-.PARAMETER RoleMiningSessionDto
+.PARAMETER SessionId
+The role mining session id
+
+.PARAMETER PotentialRoleId
+A potential role id in a role mining session
+
+.PARAMETER RoleMiningPotentialRoleEditEntitlements
 Role mining session parameters
 
 .PARAMETER WithHttpInfo
@@ -1959,20 +1945,26 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-RoleMiningSessionResponse
+RoleMiningPotentialRole
 #>
-function Invoke-BetaRoleMiningSessions {
+function Update-BetaEntitlementsPotentialRole {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SessionId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${PotentialRoleId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${RoleMiningSessionDto},
+        ${RoleMiningPotentialRoleEditEntitlements},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Invoke-BetaRoleMiningSessions' | Write-Debug
+        'Calling method: Update-BetaEntitlementsPotentialRole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1991,13 +1983,21 @@ function Invoke-BetaRoleMiningSessions {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/role-mining-sessions'
+        $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements'
+        if (!$SessionId) {
+            throw "Error! The required parameter `SessionId` missing when calling updateEntitlementsPotentialRole."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
+        if (!$PotentialRoleId) {
+            throw "Error! The required parameter `PotentialRoleId` missing when calling updateEntitlementsPotentialRole."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
-        if (!$RoleMiningSessionDto) {
-            throw "Error! The required parameter `RoleMiningSessionDto` missing when calling roleMiningSessions."
+        if (!$RoleMiningPotentialRoleEditEntitlements) {
+            throw "Error! The required parameter `RoleMiningPotentialRoleEditEntitlements` missing when calling updateEntitlementsPotentialRole."
         }
 
-        $LocalVarBodyParameter = $RoleMiningSessionDto | ForEach-Object {
+        $LocalVarBodyParameter = $RoleMiningPotentialRoleEditEntitlements | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2017,7 +2017,7 @@ function Invoke-BetaRoleMiningSessions {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RoleMiningSessionResponse" `
+                                -ReturnType "RoleMiningPotentialRole" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

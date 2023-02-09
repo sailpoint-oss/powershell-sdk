@@ -14,17 +14,9 @@ Describe -tag 'PSSailpoint' -name 'WorkItemsApi' {
         }
     }
 
-    Context 'Invoke-BulkApproveApprovalItem' {
-        It 'Test Invoke-BulkApproveApprovalItem' {
-            #$TestResult = Invoke-BulkApproveApprovalItem -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-BulkRejectApprovalItem' {
-        It 'Test Invoke-BulkRejectApprovalItem' {
-            #$TestResult = Invoke-BulkRejectApprovalItem -Id "TEST_VALUE"
+    Context 'Approve-ApprovalItemsInBulk' {
+        It 'Test Approve-ApprovalItemsInBulk' {
+            #$TestResult = Approve-ApprovalItemsInBulk -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -38,33 +30,41 @@ Describe -tag 'PSSailpoint' -name 'WorkItemsApi' {
         }
     }
 
-    Context 'Complete-dWorkItems' {
-        It 'Test Complete-dWorkItems' {
-            #$TestResult = Complete-dWorkItems -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-CompletedWorkItems' {
+        It 'Test Get-CompletedWorkItems' {
+            #$TestResult = Get-CompletedWorkItems -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-CountCompletedWorkItems' {
-        It 'Test Invoke-CountCompletedWorkItems' {
-            #$TestResult = Invoke-CountCompletedWorkItems -OwnerId "TEST_VALUE"
+    Context 'Get-CountCompletedWorkItems' {
+        It 'Test Get-CountCompletedWorkItems' {
+            #$TestResult = Get-CountCompletedWorkItems -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-CountWorkItems' {
-        It 'Test Invoke-CountWorkItems' {
-            #$TestResult = Invoke-CountWorkItems -OwnerId "TEST_VALUE"
+    Context 'Get-CountWorkItems' {
+        It 'Test Get-CountWorkItems' {
+            #$TestResult = Get-CountWorkItems -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-WorkItems' {
-        It 'Test Get-WorkItems' {
-            #$TestResult = Get-WorkItems -Id "TEST_VALUE"
+    Context 'Get-WorkItem' {
+        It 'Test Get-WorkItem' {
+            #$TestResult = Get-WorkItem -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-WorkItemsSummary' {
+        It 'Test Get-WorkItemsSummary' {
+            #$TestResult = Get-WorkItemsSummary -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -86,17 +86,17 @@ Describe -tag 'PSSailpoint' -name 'WorkItemsApi' {
         }
     }
 
-    Context 'Submit-AccountSelection' {
-        It 'Test Submit-AccountSelection' {
-            #$TestResult = Submit-AccountSelection -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+    Context 'Deny-ApprovalItemsInBulk' {
+        It 'Test Deny-ApprovalItemsInBulk' {
+            #$TestResult = Deny-ApprovalItemsInBulk -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-SummaryWorkItems' {
-        It 'Test Invoke-SummaryWorkItems' {
-            #$TestResult = Invoke-SummaryWorkItems -OwnerId "TEST_VALUE"
+    Context 'Submit-AccountSelection' {
+        It 'Test Submit-AccountSelection' {
+            #$TestResult = Submit-AccountSelection -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

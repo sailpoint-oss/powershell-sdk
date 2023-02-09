@@ -14,7 +14,7 @@ Create a saved search
 
 No description available.
 
-.PARAMETER SavedSearchCreateRequest
+.PARAMETER CreateSavedSearchRequest
 The saved search to persist.
 
 .PARAMETER WithHttpInfo
@@ -25,18 +25,18 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SavedSearch
 #>
-function Save-dSearchCreate {
+function New-SavedSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${SavedSearchCreateRequest},
+        ${CreateSavedSearchRequest},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Save-dSearchCreate' | Write-Debug
+        'Calling method: New-SavedSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -57,11 +57,11 @@ function Save-dSearchCreate {
 
         $LocalVarUri = '/saved-searches'
 
-        if (!$SavedSearchCreateRequest) {
-            throw "Error! The required parameter `SavedSearchCreateRequest` missing when calling savedSearchCreate."
+        if (!$CreateSavedSearchRequest) {
+            throw "Error! The required parameter `CreateSavedSearchRequest` missing when calling createSavedSearch."
         }
 
-        $LocalVarBodyParameter = $SavedSearchCreateRequest | ForEach-Object {
+        $LocalVarBodyParameter = $CreateSavedSearchRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Save-dSearchDelete {
+function Remove-SavedSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Save-dSearchDelete {
     )
 
     Process {
-        'Calling method: Save-dSearchDelete' | Write-Debug
+        'Calling method: Remove-SavedSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -141,7 +141,7 @@ function Save-dSearchDelete {
 
         $LocalVarUri = '/saved-searches/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling savedSearchDelete."
+            throw "Error! The required parameter `Id` missing when calling deleteSavedSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -190,7 +190,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Save-dSearchExecute {
+function Invoke-ExecuteSavedSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -204,7 +204,7 @@ function Save-dSearchExecute {
     )
 
     Process {
-        'Calling method: Save-dSearchExecute' | Write-Debug
+        'Calling method: Invoke-ExecuteSavedSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -225,12 +225,12 @@ function Save-dSearchExecute {
 
         $LocalVarUri = '/saved-searches/{id}/execute'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling savedSearchExecute."
+            throw "Error! The required parameter `Id` missing when calling executeSavedSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$SearchArguments) {
-            throw "Error! The required parameter `SearchArguments` missing when calling savedSearchExecute."
+            throw "Error! The required parameter `SearchArguments` missing when calling executeSavedSearch."
         }
 
         $LocalVarBodyParameter = $SearchArguments | ForEach-Object {
@@ -284,7 +284,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SavedSearch
 #>
-function Save-dSearchGet {
+function Get-SavedSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -295,7 +295,7 @@ function Save-dSearchGet {
     )
 
     Process {
-        'Calling method: Save-dSearchGet' | Write-Debug
+        'Calling method: Get-SavedSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -313,7 +313,7 @@ function Save-dSearchGet {
 
         $LocalVarUri = '/saved-searches/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling savedSearchGet."
+            throw "Error! The required parameter `Id` missing when calling getSavedSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -368,7 +368,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SavedSearch[]
 #>
-function Save-dSearchList {
+function Get-SavedSearches {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -388,7 +388,7 @@ function Save-dSearchList {
     )
 
     Process {
-        'Calling method: Save-dSearchList' | Write-Debug
+        'Calling method: Get-SavedSearches' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -467,7 +467,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SavedSearch
 #>
-function Save-dSearchUpdate {
+function Update-SavedSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -481,7 +481,7 @@ function Save-dSearchUpdate {
     )
 
     Process {
-        'Calling method: Save-dSearchUpdate' | Write-Debug
+        'Calling method: Update-SavedSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -502,12 +502,12 @@ function Save-dSearchUpdate {
 
         $LocalVarUri = '/saved-searches/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling savedSearchUpdate."
+            throw "Error! The required parameter `Id` missing when calling updateSavedSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$SavedSearch) {
-            throw "Error! The required parameter `SavedSearch` missing when calling savedSearchUpdate."
+            throw "Error! The required parameter `SavedSearch` missing when calling updateSavedSearch."
         }
 
         $LocalVarBodyParameter = $SavedSearch | ForEach-Object {

@@ -5,8 +5,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSegment**](BetaSegmentsApi.md#New-BetaSegment) | **POST** /segments | Create Segment
-[**Remove-BetaSegmentById**](BetaSegmentsApi.md#Remove-BetaSegmentById) | **DELETE** /segments/{id} | Delete Segment by ID
-[**Get-BetaSegmentById**](BetaSegmentsApi.md#Get-BetaSegmentById) | **GET** /segments/{id} | Get a Segment by its ID
+[**Remove-BetaSegment**](BetaSegmentsApi.md#Remove-BetaSegment) | **DELETE** /segments/{id} | Delete Segment by ID
+[**Get-BetaSegment**](BetaSegmentsApi.md#Get-BetaSegment) | **GET** /segments/{id} | Get a Segment by its ID
 [**Get-BetaSegments**](BetaSegmentsApi.md#Get-BetaSegments) | **GET** /segments | List Segments
 [**Update-BetaSegment**](BetaSegmentsApi.md#Update-BetaSegment) | **PATCH** /segments/{id} | Update a Segment
 
@@ -69,9 +69,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaSegmentById"></a>
-# **Remove-BetaSegmentById**
-> void Remove-BetaSegmentById<br>
+<a name="Remove-BetaSegment"></a>
+# **Remove-BetaSegment**
+> void Remove-BetaSegment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete Segment by ID
@@ -92,9 +92,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the Segment to del
 
 # Delete Segment by ID
 try {
-    $Result = Remove-BetaSegmentById -Id $Id
+    $Result = Remove-BetaSegment -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Remove-BetaSegmentById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaSegment: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -120,9 +120,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSegmentById"></a>
-# **Get-BetaSegmentById**
-> Segment Get-BetaSegmentById<br>
+<a name="Get-BetaSegment"></a>
+# **Get-BetaSegment**
+> Segment Get-BetaSegment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get a Segment by its ID
@@ -143,9 +143,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the Segment to ret
 
 # Get a Segment by its ID
 try {
-    $Result = Get-BetaSegmentById -Id $Id
+    $Result = Get-BetaSegment -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaSegmentById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSegment: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

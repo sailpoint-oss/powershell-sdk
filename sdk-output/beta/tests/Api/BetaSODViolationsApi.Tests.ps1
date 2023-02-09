@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODViolationsApi' {
-    Context 'Invoke-BetaPredictViolations' {
-        It 'Test Invoke-BetaPredictViolations' {
-            #$TestResult = Invoke-BetaPredictViolations -IdentityWithNewAccess "TEST_VALUE"
+    Context 'Invoke-BetaPredictSodViolations' {
+        It 'Test Invoke-BetaPredictSodViolations' {
+            #$TestResult = Invoke-BetaPredictSodViolations -IdentityWithNewAccess "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

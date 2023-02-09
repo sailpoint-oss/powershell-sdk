@@ -1,22 +1,20 @@
-# SpConfigImportRequest
+# DeleteNonEmployeeRecordInBulkRequest
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarData** | **String** | Name of JSON file containing the objects to be imported. | 
-**Options** | [**ImportOptions**](ImportOptions.md) |  | [optional] 
+**Ids** | **String[]** | List of non-employee ids. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SpConfigImportRequest = Initialize-PSSailpointBetaSpConfigImportRequest  -VarData null `
- -Options null
+$DeleteNonEmployeeRecordInBulkRequest = Initialize-PSSailpointBetaDeleteNonEmployeeRecordInBulkRequest  -Ids null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$SpConfigImportRequest | ConvertTo-JSON
+$DeleteNonEmployeeRecordInBulkRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

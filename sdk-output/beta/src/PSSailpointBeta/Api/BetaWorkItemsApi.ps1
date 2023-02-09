@@ -110,7 +110,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItems
 #>
-function Invoke-BetaBulkApproveApprovalItem {
+function Approve-BetaApprovalItemsInBulk {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -121,7 +121,7 @@ function Invoke-BetaBulkApproveApprovalItem {
     )
 
     Process {
-        'Calling method: Invoke-BetaBulkApproveApprovalItem' | Write-Debug
+        'Calling method: Approve-BetaApprovalItemsInBulk' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -139,82 +139,7 @@ function Invoke-BetaBulkApproveApprovalItem {
 
         $LocalVarUri = '/work-items/bulk-approve/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling bulkApproveApprovalItem."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItems" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Bulk reject Approval Items
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER Id
-The ID of the work item
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-WorkItems
-#>
-function Invoke-BetaBulkRejectApprovalItem {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Invoke-BetaBulkRejectApprovalItem' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-BetaConfiguration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/work-items/bulk-reject/{id}'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling bulkRejectApprovalItem."
+            throw "Error! The required parameter `Id` missing when calling approveApprovalItemsInBulk."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -344,7 +269,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItems[]
 #>
-function Complete-BetadWorkItems {
+function Get-BetaCompletedWorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -364,7 +289,7 @@ function Complete-BetadWorkItems {
     )
 
     Process {
-        'Calling method: Complete-BetadWorkItems' | Write-Debug
+        'Calling method: Get-BetaCompletedWorkItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -440,7 +365,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItemsCount[]
 #>
-function Invoke-BetaCountCompletedWorkItems {
+function Get-BetaCountCompletedWorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -451,7 +376,7 @@ function Invoke-BetaCountCompletedWorkItems {
     )
 
     Process {
-        'Calling method: Invoke-BetaCountCompletedWorkItems' | Write-Debug
+        'Calling method: Get-BetaCountCompletedWorkItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -515,7 +440,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItemsCount[]
 #>
-function Invoke-BetaCountWorkItems {
+function Get-BetaCountWorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -526,7 +451,7 @@ function Invoke-BetaCountWorkItems {
     )
 
     Process {
-        'Calling method: Invoke-BetaCountWorkItems' | Write-Debug
+        'Calling method: Get-BetaCountWorkItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -593,7 +518,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItems[]
 #>
-function Get-BetaWorkItems {
+function Get-BetaWorkItem {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -607,7 +532,7 @@ function Get-BetaWorkItems {
     )
 
     Process {
-        'Calling method: Get-BetaWorkItems' | Write-Debug
+        'Calling method: Get-BetaWorkItem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -625,7 +550,7 @@ function Get-BetaWorkItems {
 
         $LocalVarUri = '/work-items/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getWorkItems."
+            throw "Error! The required parameter `Id` missing when calling getWorkItem."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -645,6 +570,81 @@ function Get-BetaWorkItems {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "WorkItems[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Work Items Summary
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER OwnerId
+ID of the work item owner.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+WorkItemsSummary[]
+#>
+function Get-BetaWorkItemsSummary {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${OwnerId},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaWorkItemsSummary' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-BetaConfiguration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/work-items/summary'
+
+        if ($OwnerId) {
+            $LocalVarQueryParameters['ownerId'] = $OwnerId
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "WorkItemsSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -848,6 +848,81 @@ function Deny-BetaApprovalItem {
 <#
 .SYNOPSIS
 
+Bulk reject Approval Items
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER Id
+The ID of the work item
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+WorkItems
+#>
+function Deny-BetaApprovalItemsInBulk {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Deny-BetaApprovalItemsInBulk' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-BetaConfiguration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/work-items/bulk-reject/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling rejectApprovalItemsInBulk."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "WorkItems" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Submit Account Selections
 
 .DESCRIPTION
@@ -932,81 +1007,6 @@ function Submit-BetaAccountSelection {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "WorkItems" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Work Items Summary
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER OwnerId
-ID of the work item owner.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-WorkItemsSummary[]
-#>
-function Invoke-BetaSummaryWorkItems {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${OwnerId},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Invoke-BetaSummaryWorkItems' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-BetaConfiguration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/work-items/summary'
-
-        if ($OwnerId) {
-            $LocalVarQueryParameters['ownerId'] = $OwnerId
-        }
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItemsSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

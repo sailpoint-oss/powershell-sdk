@@ -6,12 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Add-BetaTagToObject**](BetaTaggedObjectsApi.md#Add-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 [**Add-BetaTagsToManyObjects**](BetaTaggedObjectsApi.md#Add-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
-[**Remove-BetaTaggedObjectByTypeAndId**](BetaTaggedObjectsApi.md#Remove-BetaTaggedObjectByTypeAndId) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
-[**Get-BetaTaggedObjectByTypeAndId**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjectByTypeAndId) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
+[**Remove-BetaTaggedObject**](BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+[**Get-BetaTaggedObject**](BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 [**Get-BetaTaggedObjects**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
 [**Get-BetaTaggedObjectsByType**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
 [**Remove-BetaTagsToManyObject**](BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
-[**Update-BetaTaggedObjectByTypeAndId**](BetaTaggedObjectsApi.md#Update-BetaTaggedObjectByTypeAndId) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
+[**Update-BetaTaggedObject**](BetaTaggedObjectsApi.md#Update-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 
 
 <a name="Add-BetaTagToObject"></a>
@@ -118,9 +118,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaTaggedObjectByTypeAndId"></a>
-# **Remove-BetaTaggedObjectByTypeAndId**
-> void Remove-BetaTaggedObjectByTypeAndId<br>
+<a name="Remove-BetaTaggedObject"></a>
+# **Remove-BetaTaggedObject**
+> void Remove-BetaTaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
@@ -143,9 +143,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 
 # Delete Tagged Object
 try {
-    $Result = Remove-BetaTaggedObjectByTypeAndId -Type $Type -Id $Id
+    $Result = Remove-BetaTaggedObject -Type $Type -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Remove-BetaTaggedObjectByTypeAndId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-BetaTaggedObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -172,9 +172,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTaggedObjectByTypeAndId"></a>
-# **Get-BetaTaggedObjectByTypeAndId**
-> TaggedObject Get-BetaTaggedObjectByTypeAndId<br>
+<a name="Get-BetaTaggedObject"></a>
+# **Get-BetaTaggedObject**
+> TaggedObject Get-BetaTaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
@@ -197,9 +197,9 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 
 # Get Tagged Object
 try {
-    $Result = Get-BetaTaggedObjectByTypeAndId -Type $Type -Id $Id
+    $Result = Get-BetaTaggedObject -Type $Type -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaTaggedObjectByTypeAndId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaTaggedObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -401,9 +401,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaTaggedObjectByTypeAndId"></a>
-# **Update-BetaTaggedObjectByTypeAndId**
-> TaggedObject Update-BetaTaggedObjectByTypeAndId<br>
+<a name="Update-BetaTaggedObject"></a>
+# **Update-BetaTaggedObject**
+> TaggedObject Update-BetaTaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaggedObject] <PSCustomObject><br>
@@ -429,9 +429,9 @@ $TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto -Tags "MyTa
 
 # Update Tagged Object
 try {
-    $Result = Update-BetaTaggedObjectByTypeAndId -Type $Type -Id $Id -TaggedObject $TaggedObject
+    $Result = Update-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $TaggedObject
 } catch {
-    Write-Host ("Exception occurred when calling Update-BetaTaggedObjectByTypeAndId: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaTaggedObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

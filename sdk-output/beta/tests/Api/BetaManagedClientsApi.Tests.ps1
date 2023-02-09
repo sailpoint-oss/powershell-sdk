@@ -6,17 +6,17 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaManagedClientsApi' {
-    Context 'Get-BetaClientStatus' {
-        It 'Test Get-BetaClientStatus' {
-            #$TestResult = Get-BetaClientStatus -Id "TEST_VALUE" -Type "TEST_VALUE"
+    Context 'Get-BetaManagedClientStatus' {
+        It 'Test Get-BetaManagedClientStatus' {
+            #$TestResult = Get-BetaManagedClientStatus -Id "TEST_VALUE" -Type "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Update-BetaStatus' {
-        It 'Test Update-BetaStatus' {
-            #$TestResult = Update-BetaStatus -Id "TEST_VALUE" -ManagedClientStatus "TEST_VALUE"
+    Context 'Update-BetaManagedClientStatus' {
+        It 'Test Update-BetaManagedClientStatus' {
+            #$TestResult = Update-BetaManagedClientStatus -Id "TEST_VALUE" -ManagedClientStatus "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

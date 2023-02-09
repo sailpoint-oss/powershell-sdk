@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**New-BetaTransform**](BetaTransformsApi.md#New-BetaTransform) | **POST** /transforms | Create transform
 [**Remove-BetaTransform**](BetaTransformsApi.md#Remove-BetaTransform) | **DELETE** /transforms/{id} | Delete a transform
 [**Get-BetaTransform**](BetaTransformsApi.md#Get-BetaTransform) | **GET** /transforms/{id} | Transform by ID
-[**Get-BetaTransformsList**](BetaTransformsApi.md#Get-BetaTransformsList) | **GET** /transforms | List transforms
+[**Get-BetaTransforms**](BetaTransformsApi.md#Get-BetaTransforms) | **GET** /transforms | List transforms
 [**Update-BetaTransform**](BetaTransformsApi.md#Update-BetaTransform) | **PUT** /transforms/{id} | Update a transform
 
 
@@ -164,9 +164,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTransformsList"></a>
-# **Get-BetaTransformsList**
-> Transform[] Get-BetaTransformsList<br>
+<a name="Get-BetaTransforms"></a>
+# **Get-BetaTransforms**
+> Transform[] Get-BetaTransforms<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -195,9 +195,9 @@ $Filters = "MyFilters" # String | Filter results using the standard syntax descr
 
 # List transforms
 try {
-    $Result = Get-BetaTransformsList -Offset $Offset -Limit $Limit -Count $Count -Name $Name -Filters $Filters
+    $Result = Get-BetaTransforms -Offset $Offset -Limit $Limit -Count $Count -Name $Name -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaTransformsList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaTransforms: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

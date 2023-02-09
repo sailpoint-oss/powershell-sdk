@@ -30,9 +30,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTransformsApi' {
         }
     }
 
-    Context 'Get-BetaTransformsList' {
-        It 'Test Get-BetaTransformsList' {
-            #$TestResult = Get-BetaTransformsList -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Name "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaTransforms' {
+        It 'Test Get-BetaTransforms' {
+            #$TestResult = Get-BetaTransforms -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Name "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

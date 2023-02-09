@@ -325,7 +325,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 IdentityReferenceWithNameAndEmail[]
 #>
-function Get-BetaReviewers {
+function Get-BetaCertificationReviewers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -351,7 +351,7 @@ function Get-BetaReviewers {
     )
 
     Process {
-        'Calling method: Get-BetaReviewers' | Write-Debug
+        'Calling method: Get-BetaCertificationReviewers' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -369,7 +369,7 @@ function Get-BetaReviewers {
 
         $LocalVarUri = '/certifications/{id}/reviewers'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling listReviewers."
+            throw "Error! The required parameter `Id` missing when calling listCertificationReviewers."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 

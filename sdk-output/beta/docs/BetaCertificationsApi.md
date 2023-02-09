@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-BetaIdentityCertificationItemPermissions**](BetaCertificationsApi.md#Get-BetaIdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for Entitlement Certification Item
 [**Get-BetaIdentityCertificationPendingTasks**](BetaCertificationsApi.md#Get-BetaIdentityCertificationPendingTasks) | **GET** /certifications/{id}/tasks-pending | Pending Certification Tasks
 [**Get-BetaIdentityCertificationTaskStatus**](BetaCertificationsApi.md#Get-BetaIdentityCertificationTaskStatus) | **GET** /certifications/{id}/tasks/{taskId} | Certification Task Status
-[**Get-BetaReviewers**](BetaCertificationsApi.md#Get-BetaReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for the certification
+[**Get-BetaCertificationReviewers**](BetaCertificationsApi.md#Get-BetaCertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for the certification
 [**Invoke-BetaReassignIdentityCertsAsync**](BetaCertificationsApi.md#Invoke-BetaReassignIdentityCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 
 
@@ -182,9 +182,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaReviewers"></a>
-# **Get-BetaReviewers**
-> IdentityReferenceWithNameAndEmail[] Get-BetaReviewers<br>
+<a name="Get-BetaCertificationReviewers"></a>
+# **Get-BetaCertificationReviewers**
+> IdentityReferenceWithNameAndEmail[] Get-BetaCertificationReviewers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -215,9 +215,9 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 
 # List of Reviewers for the certification
 try {
-    $Result = Get-BetaReviewers -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+    $Result = Get-BetaCertificationReviewers -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaReviewers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaCertificationReviewers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

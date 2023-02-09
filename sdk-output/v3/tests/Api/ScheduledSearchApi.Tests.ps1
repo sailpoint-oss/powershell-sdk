@@ -6,49 +6,49 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'ScheduledSearchApi' {
-    Context 'Invoke-ScheduledSearchCreate' {
-        It 'Test Invoke-ScheduledSearchCreate' {
-            #$TestResult = Invoke-ScheduledSearchCreate -ScheduledSearchCreateRequest "TEST_VALUE"
+    Context 'New-ScheduledSearch' {
+        It 'Test New-ScheduledSearch' {
+            #$TestResult = New-ScheduledSearch -CreateScheduledSearchRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ScheduledSearchDelete' {
-        It 'Test Invoke-ScheduledSearchDelete' {
-            #$TestResult = Invoke-ScheduledSearchDelete -Id "TEST_VALUE"
+    Context 'Remove-ScheduledSearch' {
+        It 'Test Remove-ScheduledSearch' {
+            #$TestResult = Remove-ScheduledSearch -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ScheduledSearchGet' {
-        It 'Test Invoke-ScheduledSearchGet' {
-            #$TestResult = Invoke-ScheduledSearchGet -Id "TEST_VALUE"
+    Context 'Get-ScheduledSearch' {
+        It 'Test Get-ScheduledSearch' {
+            #$TestResult = Get-ScheduledSearch -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ScheduledSearchList' {
-        It 'Test Invoke-ScheduledSearchList' {
-            #$TestResult = Invoke-ScheduledSearchList -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-ScheduledSearch' {
+        It 'Test Get-ScheduledSearch' {
+            #$TestResult = Get-ScheduledSearch -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ScheduledSearchUnsubscribe' {
-        It 'Test Invoke-ScheduledSearchUnsubscribe' {
-            #$TestResult = Invoke-ScheduledSearchUnsubscribe -Id "TEST_VALUE" -TypedReference "TEST_VALUE"
+    Context 'Invoke-UnsubscribeScheduledSearch' {
+        It 'Test Invoke-UnsubscribeScheduledSearch' {
+            #$TestResult = Invoke-UnsubscribeScheduledSearch -Id "TEST_VALUE" -TypedReference "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-ScheduledSearchUpdate' {
-        It 'Test Invoke-ScheduledSearchUpdate' {
-            #$TestResult = Invoke-ScheduledSearchUpdate -Id "TEST_VALUE" -ScheduledSearch "TEST_VALUE"
+    Context 'Update-ScheduledSearch' {
+        It 'Test Update-ScheduledSearch' {
+            #$TestResult = Update-ScheduledSearch -Id "TEST_VALUE" -ScheduledSearch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

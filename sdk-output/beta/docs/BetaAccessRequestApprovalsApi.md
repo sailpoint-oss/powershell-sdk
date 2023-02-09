@@ -4,71 +4,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaApprovalSummary**](BetaAccessRequestApprovalsApi.md#Invoke-BetaApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of pending, approved and rejected access requests approvals
-[**Approve-BetaRequest**](BetaAccessRequestApprovalsApi.md#Approve-BetaRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
-[**Invoke-BetaForwardRequest**](BetaAccessRequestApprovalsApi.md#Invoke-BetaForwardRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval to a new owner.
+[**Approve-BetaAccessRequest**](BetaAccessRequestApprovalsApi.md#Approve-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
+[**Invoke-BetaForwardAccessRequest**](BetaAccessRequestApprovalsApi.md#Invoke-BetaForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval to a new owner.
+[**Get-BetaAccessRequestApprovalSummary**](BetaAccessRequestApprovalsApi.md#Get-BetaAccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of pending, approved and rejected access requests approvals
 [**Get-BetaCompletedApprovals**](BetaAccessRequestApprovalsApi.md#Get-BetaCompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 [**Get-BetaPendingApprovals**](BetaAccessRequestApprovalsApi.md#Get-BetaPendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
-[**Deny-BetaRequest**](BetaAccessRequestApprovalsApi.md#Deny-BetaRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
+[**Deny-BetaAccessRequest**](BetaAccessRequestApprovalsApi.md#Deny-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
 
 
-<a name="Invoke-BetaApprovalSummary"></a>
-# **Invoke-BetaApprovalSummary**
-> ApprovalSummary Invoke-BetaApprovalSummary<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FromDate] <String><br>
-
-Get the number of pending, approved and rejected access requests approvals
-
-This endpoint returns the number of pending, approved and rejected access requests approvals. See ""owner-id"" query parameter below for authorization info.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$OwnerId = "MyOwnerId" # String | The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
-$FromDate = "MyFromDate" # String | From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format  example: from-date=2020-03-19T19:59:11Z (optional)
-
-# Get the number of pending, approved and rejected access requests approvals
-try {
-    $Result = Invoke-BetaApprovalSummary -OwnerId $OwnerId -FromDate $FromDate
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaApprovalSummary: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **OwnerId** | **String**| The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. | [optional] 
- **FromDate** | **String**| From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format  example: from-date&#x3D;2020-03-19T19:59:11Z | [optional] 
-
-### Return type
-
-[**ApprovalSummary**](ApprovalSummary.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Approve-BetaRequest"></a>
-# **Approve-BetaRequest**
-> SystemCollectionsHashtable Approve-BetaRequest<br>
+<a name="Approve-BetaAccessRequest"></a>
+# **Approve-BetaAccessRequest**
+> SystemCollectionsHashtable Approve-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentDto] <PSCustomObject><br>
 
@@ -91,9 +37,9 @@ $CommentDto = Initialize-CommentDto -Comment "MyComment" # CommentDto | Reviewer
 
 # Approves an access request approval.
 try {
-    $Result = Approve-BetaRequest -ApprovalId $ApprovalId -CommentDto $CommentDto
+    $Result = Approve-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $CommentDto
 } catch {
-    Write-Host ("Exception occurred when calling Approve-BetaRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Approve-BetaAccessRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -120,9 +66,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaForwardRequest"></a>
-# **Invoke-BetaForwardRequest**
-> SystemCollectionsHashtable Invoke-BetaForwardRequest<br>
+<a name="Invoke-BetaForwardAccessRequest"></a>
+# **Invoke-BetaForwardAccessRequest**
+> SystemCollectionsHashtable Invoke-BetaForwardAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForwardApprovalDto] <PSCustomObject><br>
 
@@ -145,9 +91,9 @@ $ForwardApprovalDto = Initialize-ForwardApprovalDto -NewOwnerId "MyNewOwnerId" -
 
 # Forwards an access request approval to a new owner.
 try {
-    $Result = Invoke-BetaForwardRequest -ApprovalId $ApprovalId -ForwardApprovalDto $ForwardApprovalDto
+    $Result = Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $ForwardApprovalDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaForwardRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-BetaForwardAccessRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -170,6 +116,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaAccessRequestApprovalSummary"></a>
+# **Get-BetaAccessRequestApprovalSummary**
+> ApprovalSummary Get-BetaAccessRequestApprovalSummary<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FromDate] <String><br>
+
+Get the number of pending, approved and rejected access requests approvals
+
+This endpoint returns the number of pending, approved and rejected access requests approvals. See ""owner-id"" query parameter below for authorization info.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$OwnerId = "MyOwnerId" # String | The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
+$FromDate = "MyFromDate" # String | From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format  example: from-date=2020-03-19T19:59:11Z (optional)
+
+# Get the number of pending, approved and rejected access requests approvals
+try {
+    $Result = Get-BetaAccessRequestApprovalSummary -OwnerId $OwnerId -FromDate $FromDate
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaAccessRequestApprovalSummary: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **OwnerId** | **String**| The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. | [optional] 
+ **FromDate** | **String**| From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format  example: from-date&#x3D;2020-03-19T19:59:11Z | [optional] 
+
+### Return type
+
+[**ApprovalSummary**](ApprovalSummary.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -306,9 +306,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Deny-BetaRequest"></a>
-# **Deny-BetaRequest**
-> SystemCollectionsHashtable Deny-BetaRequest<br>
+<a name="Deny-BetaAccessRequest"></a>
+# **Deny-BetaAccessRequest**
+> SystemCollectionsHashtable Deny-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentDto] <PSCustomObject><br>
 
@@ -331,9 +331,9 @@ $CommentDto = Initialize-CommentDto -Comment "MyComment" # CommentDto | Reviewer
 
 # Rejects an access request approval.
 try {
-    $Result = Deny-BetaRequest -ApprovalId $ApprovalId -CommentDto $CommentDto
+    $Result = Deny-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $CommentDto
 } catch {
-    Write-Host ("Exception occurred when calling Deny-BetaRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Deny-BetaAccessRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

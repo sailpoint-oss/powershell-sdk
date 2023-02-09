@@ -6,257 +6,257 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'NonEmployeeLifecycleManagementApi' {
-    Context 'New-SchemaAttribute' {
-        It 'Test New-SchemaAttribute' {
-            #$TestResult = New-SchemaAttribute -SourceId "TEST_VALUE" -NonEmployeeSchemaAttributeBody "TEST_VALUE"
+    Context 'Approve-NonEmployeeRequest' {
+        It 'Test Approve-NonEmployeeRequest' {
+            #$TestResult = Approve-NonEmployeeRequest -Id "TEST_VALUE" -NonEmployeeApprovalDecision "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Remove-SchemaAttribute' {
-        It 'Test Remove-SchemaAttribute' {
-            #$TestResult = Remove-SchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE"
+    Context 'New-NonEmployeeRecord' {
+        It 'Test New-NonEmployeeRecord' {
+            #$TestResult = New-NonEmployeeRecord -NonEmployeeRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Remove-SchemaAttributes' {
-        It 'Test Remove-SchemaAttributes' {
-            #$TestResult = Remove-SchemaAttributes -SourceId "TEST_VALUE"
+    Context 'New-NonEmployeeRequest' {
+        It 'Test New-NonEmployeeRequest' {
+            #$TestResult = New-NonEmployeeRequest -NonEmployeeRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-SchemaAttribute' {
-        It 'Test Get-SchemaAttribute' {
-            #$TestResult = Get-SchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE"
+    Context 'New-NonEmployeeSource' {
+        It 'Test New-NonEmployeeSource' {
+            #$TestResult = New-NonEmployeeSource -NonEmployeeSourceRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-SchemaAttributes' {
-        It 'Test Get-SchemaAttributes' {
-            #$TestResult = Get-SchemaAttributes -SourceId "TEST_VALUE"
+    Context 'New-NonEmployeeSourceSchemaAttributes' {
+        It 'Test New-NonEmployeeSourceSchemaAttributes' {
+            #$TestResult = New-NonEmployeeSourceSchemaAttributes -SourceId "TEST_VALUE" -NonEmployeeSchemaAttributeBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeApprovalGet' {
-        It 'Test Invoke-NonEmployeeApprovalGet' {
-            #$TestResult = Invoke-NonEmployeeApprovalGet -Id "TEST_VALUE" -IncludeDetail "TEST_VALUE"
+    Context 'Remove-NonEmployeeRecord' {
+        It 'Test Remove-NonEmployeeRecord' {
+            #$TestResult = Remove-NonEmployeeRecord -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeApprovalList' {
-        It 'Test Invoke-NonEmployeeApprovalList' {
-            #$TestResult = Invoke-NonEmployeeApprovalList -RequestedFor "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Remove-NonEmployeeRecordsInBulk' {
+        It 'Test Remove-NonEmployeeRecordsInBulk' {
+            #$TestResult = Remove-NonEmployeeRecordsInBulk -DeleteNonEmployeeRecordsInBulkRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeApprovalSummary' {
-        It 'Test Invoke-NonEmployeeApprovalSummary' {
-            #$TestResult = Invoke-NonEmployeeApprovalSummary -RequestedFor "TEST_VALUE"
+    Context 'Remove-NonEmployeeRequest' {
+        It 'Test Remove-NonEmployeeRequest' {
+            #$TestResult = Remove-NonEmployeeRequest -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeApproveRequest' {
-        It 'Test Invoke-NonEmployeeApproveRequest' {
-            #$TestResult = Invoke-NonEmployeeApproveRequest -Id "TEST_VALUE" -NonEmployeeApprovalDecision "TEST_VALUE"
+    Context 'Remove-NonEmployeeSchemaAttribute' {
+        It 'Test Remove-NonEmployeeSchemaAttribute' {
+            #$TestResult = Remove-NonEmployeeSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeBulkUploadStatus' {
-        It 'Test Invoke-NonEmployeeBulkUploadStatus' {
-            #$TestResult = Invoke-NonEmployeeBulkUploadStatus -Id "TEST_VALUE"
+    Context 'Remove-NonEmployeeSource' {
+        It 'Test Remove-NonEmployeeSource' {
+            #$TestResult = Remove-NonEmployeeSource -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeExportSourceSchemaTemplate' {
-        It 'Test Invoke-NonEmployeeExportSourceSchemaTemplate' {
-            #$TestResult = Invoke-NonEmployeeExportSourceSchemaTemplate -Id "TEST_VALUE"
+    Context 'Remove-NonEmployeeSourceSchemaAttributes' {
+        It 'Test Remove-NonEmployeeSourceSchemaAttributes' {
+            #$TestResult = Remove-NonEmployeeSourceSchemaAttributes -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordBulkDelete' {
-        It 'Test Invoke-NonEmployeeRecordBulkDelete' {
-            #$TestResult = Invoke-NonEmployeeRecordBulkDelete -NonEmployeeRecordBulkDeleteRequest "TEST_VALUE"
+    Context 'Export-NonEmployeeRecords' {
+        It 'Test Export-NonEmployeeRecords' {
+            #$TestResult = Export-NonEmployeeRecords -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordCreation' {
-        It 'Test Invoke-NonEmployeeRecordCreation' {
-            #$TestResult = Invoke-NonEmployeeRecordCreation -NonEmployeeRequestBody "TEST_VALUE"
+    Context 'Export-NonEmployeeSourceSchemaTemplate' {
+        It 'Test Export-NonEmployeeSourceSchemaTemplate' {
+            #$TestResult = Export-NonEmployeeSourceSchemaTemplate -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordDelete' {
-        It 'Test Invoke-NonEmployeeRecordDelete' {
-            #$TestResult = Invoke-NonEmployeeRecordDelete -Id "TEST_VALUE"
+    Context 'Get-NonEmployeeApproval' {
+        It 'Test Get-NonEmployeeApproval' {
+            #$TestResult = Get-NonEmployeeApproval -Id "TEST_VALUE" -IncludeDetail "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordGet' {
-        It 'Test Invoke-NonEmployeeRecordGet' {
-            #$TestResult = Invoke-NonEmployeeRecordGet -Id "TEST_VALUE"
+    Context 'Get-NonEmployeeApprovalSummary' {
+        It 'Test Get-NonEmployeeApprovalSummary' {
+            #$TestResult = Get-NonEmployeeApprovalSummary -RequestedFor "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordList' {
-        It 'Test Invoke-NonEmployeeRecordList' {
-            #$TestResult = Invoke-NonEmployeeRecordList -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-NonEmployeeBulkUploadStatus' {
+        It 'Test Get-NonEmployeeBulkUploadStatus' {
+            #$TestResult = Get-NonEmployeeBulkUploadStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordPatch' {
-        It 'Test Invoke-NonEmployeeRecordPatch' {
-            #$TestResult = Invoke-NonEmployeeRecordPatch -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Get-NonEmployeeRecord' {
+        It 'Test Get-NonEmployeeRecord' {
+            #$TestResult = Get-NonEmployeeRecord -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordUpdate' {
-        It 'Test Invoke-NonEmployeeRecordUpdate' {
-            #$TestResult = Invoke-NonEmployeeRecordUpdate -Id "TEST_VALUE" -NonEmployeeRequestBody "TEST_VALUE"
+    Context 'Get-NonEmployeeRequest' {
+        It 'Test Get-NonEmployeeRequest' {
+            #$TestResult = Get-NonEmployeeRequest -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordsBulkUpload' {
-        It 'Test Invoke-NonEmployeeRecordsBulkUpload' {
-            #$TestResult = Invoke-NonEmployeeRecordsBulkUpload -Id "TEST_VALUE" -Data "TEST_VALUE"
+    Context 'Get-NonEmployeeRequestSummary' {
+        It 'Test Get-NonEmployeeRequestSummary' {
+            #$TestResult = Get-NonEmployeeRequestSummary -RequestedFor "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRecordsExport' {
-        It 'Test Invoke-NonEmployeeRecordsExport' {
-            #$TestResult = Invoke-NonEmployeeRecordsExport -Id "TEST_VALUE"
+    Context 'Get-NonEmployeeSchemaAttribute' {
+        It 'Test Get-NonEmployeeSchemaAttribute' {
+            #$TestResult = Get-NonEmployeeSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRejectRequest' {
-        It 'Test Invoke-NonEmployeeRejectRequest' {
-            #$TestResult = Invoke-NonEmployeeRejectRequest -Id "TEST_VALUE" -NonEmployeeRejectApprovalDecision "TEST_VALUE"
+    Context 'Get-NonEmployeeSource' {
+        It 'Test Get-NonEmployeeSource' {
+            #$TestResult = Get-NonEmployeeSource -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRequestCreation' {
-        It 'Test Invoke-NonEmployeeRequestCreation' {
-            #$TestResult = Invoke-NonEmployeeRequestCreation -NonEmployeeRequestBody "TEST_VALUE"
+    Context 'Get-NonEmployeeSourceSchemaAttributes' {
+        It 'Test Get-NonEmployeeSourceSchemaAttributes' {
+            #$TestResult = Get-NonEmployeeSourceSchemaAttributes -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRequestDeletion' {
-        It 'Test Invoke-NonEmployeeRequestDeletion' {
-            #$TestResult = Invoke-NonEmployeeRequestDeletion -Id "TEST_VALUE"
+    Context 'Get-NonEmployeeApprovals' {
+        It 'Test Get-NonEmployeeApprovals' {
+            #$TestResult = Get-NonEmployeeApprovals -RequestedFor "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRequestGet' {
-        It 'Test Invoke-NonEmployeeRequestGet' {
-            #$TestResult = Invoke-NonEmployeeRequestGet -Id "TEST_VALUE"
+    Context 'Get-NonEmployeeRecords' {
+        It 'Test Get-NonEmployeeRecords' {
+            #$TestResult = Get-NonEmployeeRecords -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRequestList' {
-        It 'Test Invoke-NonEmployeeRequestList' {
-            #$TestResult = Invoke-NonEmployeeRequestList -RequestedFor "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-NonEmployeeRequests' {
+        It 'Test Get-NonEmployeeRequests' {
+            #$TestResult = Get-NonEmployeeRequests -RequestedFor "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeRequestSummaryGet' {
-        It 'Test Invoke-NonEmployeeRequestSummaryGet' {
-            #$TestResult = Invoke-NonEmployeeRequestSummaryGet -RequestedFor "TEST_VALUE"
+    Context 'Get-NonEmployeeSources' {
+        It 'Test Get-NonEmployeeSources' {
+            #$TestResult = Get-NonEmployeeSources -RequestedFor "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -NonEmployeeCount "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeSourceDelete' {
-        It 'Test Invoke-NonEmployeeSourceDelete' {
-            #$TestResult = Invoke-NonEmployeeSourceDelete -SourceId "TEST_VALUE"
+    Context 'Update-NonEmployeeRecord' {
+        It 'Test Update-NonEmployeeRecord' {
+            #$TestResult = Update-NonEmployeeRecord -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeSourceGet' {
-        It 'Test Invoke-NonEmployeeSourceGet' {
-            #$TestResult = Invoke-NonEmployeeSourceGet -SourceId "TEST_VALUE"
+    Context 'Update-NonEmployeeSchemaAttribute' {
+        It 'Test Update-NonEmployeeSchemaAttribute' {
+            #$TestResult = Update-NonEmployeeSchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeSourcePatch' {
-        It 'Test Invoke-NonEmployeeSourcePatch' {
-            #$TestResult = Invoke-NonEmployeeSourcePatch -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Update-NonEmployeeSource' {
+        It 'Test Update-NonEmployeeSource' {
+            #$TestResult = Update-NonEmployeeSource -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeSourcesCreation' {
-        It 'Test Invoke-NonEmployeeSourcesCreation' {
-            #$TestResult = Invoke-NonEmployeeSourcesCreation -NonEmployeeSourceRequestBody "TEST_VALUE"
+    Context 'Deny-NonEmployeeRequest' {
+        It 'Test Deny-NonEmployeeRequest' {
+            #$TestResult = Deny-NonEmployeeRequest -Id "TEST_VALUE" -NonEmployeeRejectApprovalDecision "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-NonEmployeeSourcesList' {
-        It 'Test Invoke-NonEmployeeSourcesList' {
-            #$TestResult = Invoke-NonEmployeeSourcesList -RequestedFor "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -NonEmployeeCount "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'Update-NonEmployeeRecord' {
+        It 'Test Update-NonEmployeeRecord' {
+            #$TestResult = Update-NonEmployeeRecord -Id "TEST_VALUE" -NonEmployeeRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Update-SchemaAttribute' {
-        It 'Test Update-SchemaAttribute' {
-            #$TestResult = Update-SchemaAttribute -AttributeId "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Invoke-UploadNonEmployeeRecordsInBulk' {
+        It 'Test Invoke-UploadNonEmployeeRecordsInBulk' {
+            #$TestResult = Invoke-UploadNonEmployeeRecordsInBulk -Id "TEST_VALUE" -Data "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

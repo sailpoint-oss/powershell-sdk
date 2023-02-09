@@ -4,87 +4,32 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BulkUpdateProvisioningPolicies**](SourcesApi.md#Invoke-BulkUpdateProvisioningPolicies) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 [**New-ProvisioningPolicy**](SourcesApi.md#New-ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
-[**New-Schema**](SourcesApi.md#New-Schema) | **POST** /sources/{sourceId}/schemas | Create Schema on a Source
 [**New-Source**](SourcesApi.md#New-Source) | **POST** /sources | Creates a source in IdentityNow.
+[**New-SourceSchema**](SourcesApi.md#New-SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on a Source
 [**Remove-ProvisioningPolicy**](SourcesApi.md#Remove-ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
-[**Remove-Schema**](SourcesApi.md#Remove-Schema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 [**Remove-Source**](SourcesApi.md#Remove-Source) | **DELETE** /sources/{id} | Delete Source by ID
+[**Remove-SourceSchema**](SourcesApi.md#Remove-SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 [**Invoke-DownloadSourceAccountsSchema**](SourcesApi.md#Invoke-DownloadSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
 [**Invoke-DownloadSourceEntitlementsSchema**](SourcesApi.md#Invoke-DownloadSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 [**Get-ProvisioningPolicy**](SourcesApi.md#Get-ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
-[**Get-Schema**](SourcesApi.md#Get-Schema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 [**Get-Source**](SourcesApi.md#Get-Source) | **GET** /sources/{id} | Get Source by ID
 [**Get-SourceHealth**](SourcesApi.md#Get-SourceHealth) | **GET** /sources/{sourceId}/source-health | This API fetches source health by source&#39;s id
+[**Get-SourceSchema**](SourcesApi.md#Get-SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 [**Get-ProvisioningPolicies**](SourcesApi.md#Get-ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-[**Get-Schemas**](SourcesApi.md#Get-Schemas) | **GET** /sources/{sourceId}/schemas | List Schemas on a Source
+[**Get-SourceSchemas**](SourcesApi.md#Get-SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on a Source
 [**Get-Sources**](SourcesApi.md#Get-Sources) | **GET** /sources | Lists all sources in IdentityNow.
-[**Invoke-ReplaceProvisioningPolicy**](SourcesApi.md#Invoke-ReplaceProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
-[**Invoke-ReplaceSchema**](SourcesApi.md#Invoke-ReplaceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
-[**Invoke-ReplaceSource**](SourcesApi.md#Invoke-ReplaceSource) | **PUT** /sources/{id} | Update Source (Full)
+[**Send-ProvisioningPolicy**](SourcesApi.md#Send-ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
+[**Send-Source**](SourcesApi.md#Send-Source) | **PUT** /sources/{id} | Update Source (Full)
+[**Send-SourceSchema**](SourcesApi.md#Send-SourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
+[**Update-ProvisioningPoliciesInBulk**](SourcesApi.md#Update-ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 [**Update-ProvisioningPolicy**](SourcesApi.md#Update-ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
-[**Update-Schema**](SourcesApi.md#Update-Schema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 [**Update-Source**](SourcesApi.md#Update-Source) | **PATCH** /sources/{id} | Update Source (Partial)
-[**Invoke-UploadConnectorFile**](SourcesApi.md#Invoke-UploadConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
+[**Update-SourceSchema**](SourcesApi.md#Update-SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 [**Invoke-UploadSourceAccountsSchema**](SourcesApi.md#Invoke-UploadSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
+[**Invoke-UploadSourceConnectorFile**](SourcesApi.md#Invoke-UploadSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 [**Invoke-UploadSourceEntitlementsSchema**](SourcesApi.md#Invoke-UploadSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 
-
-<a name="Invoke-BulkUpdateProvisioningPolicies"></a>
-# **Invoke-BulkUpdateProvisioningPolicies**
-> ProvisioningPolicyDto[] Invoke-BulkUpdateProvisioningPolicies<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProvisioningPolicyDto] <PSCustomObject[]><br>
-
-Bulk Update Provisioning Policies
-
-This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$FieldDetailsDto = Initialize-FieldDetailsDto -Name "userName" -Transform  -Attributes  -IsRequired $false -Type "string" -IsMultiValued $false
-$ProvisioningPolicyDto = Initialize-ProvisioningPolicyDto -Name "example provisioning policy for inactive identities" -Description "this provisioning policy creates access based on an identity going inactive" -UsageType "CREATE" -Fields $FieldDetailsDto # ProvisioningPolicyDto[] | 
-
-# Bulk Update Provisioning Policies
-try {
-    $Result = Invoke-BulkUpdateProvisioningPolicies -SourceId $SourceId -ProvisioningPolicyDto $ProvisioningPolicyDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BulkUpdateProvisioningPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **ProvisioningPolicyDto** | [**ProvisioningPolicyDto[]**](ProvisioningPolicyDto.md)|  | 
-
-### Return type
-
-[**ProvisioningPolicyDto[]**](ProvisioningPolicyDto.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-ProvisioningPolicy"></a>
 # **New-ProvisioningPolicy**
@@ -129,63 +74,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ProvisioningPolicyDto**](ProvisioningPolicyDto.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="New-Schema"></a>
-# **New-Schema**
-> Schema New-Schema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schema] <PSCustomObject><br>
-
-Create Schema on a Source
-
-Creates a new Schema on the specified Source in IdentityNow. 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$AttributeDefinitionSchema = Initialize-AttributeDefinitionSchema -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1313" -Name "group"
-$AttributeDefinition = Initialize-AttributeDefinition -Name "sAMAccountName" -Type "STRING" -Schema $AttributeDefinitionSchema -Description "SAM Account Name" -IsMultiValued $false -IsEntitlement $false -IsGroup $false
-
-$Schema = Initialize-Schema -Id "2c9180835d191a86015d28455b4a2329" -Name "account" -NativeObjectType "User" -IdentityAttribute "sAMAccountName" -DisplayAttribute "distinguishedName" -HierarchyAttribute "memberOf" -IncludePermissions $false -Features "AUTHENTICATE" -Configuration  -Attributes $AttributeDefinition -Created (Get-Date) -Modified (Get-Date) # Schema | 
-
-# Create Schema on a Source
-try {
-    $Result = New-Schema -SourceId $SourceId -Schema $Schema
-} catch {
-    Write-Host ("Exception occurred when calling New-Schema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **Schema** | [**Schema**](Schema.md)|  | 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
 
 ### Authorization
 
@@ -262,6 +150,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="New-SourceSchema"></a>
+# **New-SourceSchema**
+> Schema New-SourceSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schema] <PSCustomObject><br>
+
+Create Schema on a Source
+
+Creates a new Schema on the specified Source in IdentityNow. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$AttributeDefinitionSchema = Initialize-AttributeDefinitionSchema -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1313" -Name "group"
+$AttributeDefinition = Initialize-AttributeDefinition -Name "sAMAccountName" -Type "STRING" -Schema $AttributeDefinitionSchema -Description "SAM Account Name" -IsMultiValued $false -IsEntitlement $false -IsGroup $false
+
+$Schema = Initialize-Schema -Id "2c9180835d191a86015d28455b4a2329" -Name "account" -NativeObjectType "User" -IdentityAttribute "sAMAccountName" -DisplayAttribute "distinguishedName" -HierarchyAttribute "memberOf" -IncludePermissions $false -Features "AUTHENTICATE" -Configuration  -Attributes $AttributeDefinition -Created (Get-Date) -Modified (Get-Date) # Schema | 
+
+# Create Schema on a Source
+try {
+    $Result = New-SourceSchema -SourceId $SourceId -Schema $Schema
+} catch {
+    Write-Host ("Exception occurred when calling New-SourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **Schema** | [**Schema**](Schema.md)|  | 
+
+### Return type
+
+[**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Remove-ProvisioningPolicy"></a>
 # **Remove-ProvisioningPolicy**
 > void Remove-ProvisioningPolicy<br>
@@ -300,58 +245,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| The Source ID. | 
  **UsageType** | [**UsageType**](UsageType.md)| The type of ProvisioningPolicy usage. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Remove-Schema"></a>
-# **Remove-Schema**
-> void Remove-Schema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
-
-Delete Source Schema by ID
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
-
-# Delete Source Schema by ID
-try {
-    $Result = Remove-Schema -SourceId $SourceId -SchemaId $SchemaId
-} catch {
-    Write-Host ("Exception occurred when calling Remove-Schema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **SchemaId** | **String**| The Schema id. | 
 
 ### Return type
 
@@ -407,6 +300,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteSource202Response**](DeleteSource202Response.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-SourceSchema"></a>
+# **Remove-SourceSchema**
+> void Remove-SourceSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
+
+Delete Source Schema by ID
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+
+# Delete Source Schema by ID
+try {
+    $Result = Remove-SourceSchema -SourceId $SourceId -SchemaId $SchemaId
+} catch {
+    Write-Host ("Exception occurred when calling Remove-SourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **SchemaId** | **String**| The Schema id. | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -578,60 +523,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Schema"></a>
-# **Get-Schema**
-> Schema Get-Schema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
-
-Get Source Schema by ID
-
-Get the Source Schema by ID in IdentityNow. 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
-
-# Get Source Schema by ID
-try {
-    $Result = Get-Schema -SourceId $SourceId -SchemaId $SchemaId
-} catch {
-    Write-Host ("Exception occurred when calling Get-Schema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **SchemaId** | **String**| The Schema id. | 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="Get-Source"></a>
 # **Get-Source**
 > Source Get-Source<br>
@@ -734,6 +625,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Get-SourceSchema"></a>
+# **Get-SourceSchema**
+> Schema Get-SourceSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
+
+Get Source Schema by ID
+
+Get the Source Schema by ID in IdentityNow. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+
+# Get Source Schema by ID
+try {
+    $Result = Get-SourceSchema -SourceId $SourceId -SchemaId $SchemaId
+} catch {
+    Write-Host ("Exception occurred when calling Get-SourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **SchemaId** | **String**| The Schema id. | 
+
+### Return type
+
+[**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Get-ProvisioningPolicies"></a>
 # **Get-ProvisioningPolicies**
 > ProvisioningPolicyDto[] Get-ProvisioningPolicies<br>
@@ -785,9 +730,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Schemas"></a>
-# **Get-Schemas**
-> Schema[] Get-Schemas<br>
+<a name="Get-SourceSchemas"></a>
+# **Get-SourceSchemas**
+> Schema[] Get-SourceSchemas<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTypes] <String><br>
 
@@ -810,9 +755,9 @@ $IncludeTypes = "group" # String | If set to 'group', then the account schema is
 
 # List Schemas on a Source
 try {
-    $Result = Get-Schemas -SourceId $SourceId -IncludeTypes $IncludeTypes
+    $Result = Get-SourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
 } catch {
-    Write-Host ("Exception occurred when calling Get-Schemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-SourceSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -905,9 +850,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ReplaceProvisioningPolicy"></a>
-# **Invoke-ReplaceProvisioningPolicy**
-> ProvisioningPolicyDto Invoke-ReplaceProvisioningPolicy<br>
+<a name="Send-ProvisioningPolicy"></a>
+# **Send-ProvisioningPolicy**
+> ProvisioningPolicyDto Send-ProvisioningPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UsageType] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProvisioningPolicyDto] <PSCustomObject><br>
@@ -933,9 +878,9 @@ $ProvisioningPolicyDto = Initialize-ProvisioningPolicyDto -Name "example provisi
 
 # Update Provisioning Policy by UsageType
 try {
-    $Result = Invoke-ReplaceProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $ProvisioningPolicyDto
+    $Result = Send-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $ProvisioningPolicyDto
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ReplaceProvisioningPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-ProvisioningPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -963,69 +908,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ReplaceSchema"></a>
-# **Invoke-ReplaceSchema**
-> Schema Invoke-ReplaceSchema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schema] <PSCustomObject><br>
-
-Update Source Schema (Full)
-
-This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
-$AttributeDefinitionSchema = Initialize-AttributeDefinitionSchema -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1313" -Name "group"
-$AttributeDefinition = Initialize-AttributeDefinition -Name "sAMAccountName" -Type "STRING" -Schema $AttributeDefinitionSchema -Description "SAM Account Name" -IsMultiValued $false -IsEntitlement $false -IsGroup $false
-
-$Schema = Initialize-Schema -Id "2c9180835d191a86015d28455b4a2329" -Name "account" -NativeObjectType "User" -IdentityAttribute "sAMAccountName" -DisplayAttribute "distinguishedName" -HierarchyAttribute "memberOf" -IncludePermissions $false -Features "AUTHENTICATE" -Configuration  -Attributes $AttributeDefinition -Created (Get-Date) -Modified (Get-Date) # Schema | 
-
-# Update Source Schema (Full)
-try {
-    $Result = Invoke-ReplaceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Schema
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-ReplaceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **SchemaId** | **String**| The Schema id. | 
- **Schema** | [**Schema**](Schema.md)|  | 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-ReplaceSource"></a>
-# **Invoke-ReplaceSource**
-> Source Invoke-ReplaceSource<br>
+<a name="Send-Source"></a>
+# **Send-Source**
+> Source Send-Source<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Source] <PSCustomObject><br>
 
@@ -1058,9 +943,9 @@ $Source = Initialize-Source -Id "2c91808568c529c60168cca6f90c1324" -Description 
 
 # Update Source (Full)
 try {
-    $Result = Invoke-ReplaceSource -Id $Id -Source $Source
+    $Result = Send-Source -Id $Id -Source $Source
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ReplaceSource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-Source: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1075,6 +960,121 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Source**](Source.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Send-SourceSchema"></a>
+# **Send-SourceSchema**
+> Schema Send-SourceSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schema] <PSCustomObject><br>
+
+Update Source Schema (Full)
+
+This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+$AttributeDefinitionSchema = Initialize-AttributeDefinitionSchema -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1313" -Name "group"
+$AttributeDefinition = Initialize-AttributeDefinition -Name "sAMAccountName" -Type "STRING" -Schema $AttributeDefinitionSchema -Description "SAM Account Name" -IsMultiValued $false -IsEntitlement $false -IsGroup $false
+
+$Schema = Initialize-Schema -Id "2c9180835d191a86015d28455b4a2329" -Name "account" -NativeObjectType "User" -IdentityAttribute "sAMAccountName" -DisplayAttribute "distinguishedName" -HierarchyAttribute "memberOf" -IncludePermissions $false -Features "AUTHENTICATE" -Configuration  -Attributes $AttributeDefinition -Created (Get-Date) -Modified (Get-Date) # Schema | 
+
+# Update Source Schema (Full)
+try {
+    $Result = Send-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Schema
+} catch {
+    Write-Host ("Exception occurred when calling Send-SourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **SchemaId** | **String**| The Schema id. | 
+ **Schema** | [**Schema**](Schema.md)|  | 
+
+### Return type
+
+[**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Update-ProvisioningPoliciesInBulk"></a>
+# **Update-ProvisioningPoliciesInBulk**
+> ProvisioningPolicyDto[] Update-ProvisioningPoliciesInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProvisioningPolicyDto] <PSCustomObject[]><br>
+
+Bulk Update Provisioning Policies
+
+This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$FieldDetailsDto = Initialize-FieldDetailsDto -Name "userName" -Transform  -Attributes  -IsRequired $false -Type "string" -IsMultiValued $false
+$ProvisioningPolicyDto = Initialize-ProvisioningPolicyDto -Name "example provisioning policy for inactive identities" -Description "this provisioning policy creates access based on an identity going inactive" -UsageType "CREATE" -Fields $FieldDetailsDto # ProvisioningPolicyDto[] | 
+
+# Bulk Update Provisioning Policies
+try {
+    $Result = Update-ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $ProvisioningPolicyDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-ProvisioningPoliciesInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **ProvisioningPolicyDto** | [**ProvisioningPolicyDto[]**](ProvisioningPolicyDto.md)|  | 
+
+### Return type
+
+[**ProvisioningPolicyDto[]**](ProvisioningPolicyDto.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1145,64 +1145,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-Schema"></a>
-# **Update-Schema**
-> Schema Update-Schema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
-
-Update Source Schema (Partial)
-
-Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     ""name"": ""groups"",     ""type"": ""STRING"",     ""schema"": {         ""type"": ""CONNECTOR_SCHEMA"",         ""id"": ""2c9180887671ff8c01767b4671fc7d60"",         ""name"": ""group""     },     ""description"": ""The groups, roles etc. that reference account group objects"",     ""isMulti"": true,     ""isEntitlement"": true,     ""isGroup"": true } ``` 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
-
-# Update Source Schema (Partial)
-try {
-    $Result = Update-Schema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $JsonPatchOperation
-} catch {
-    Write-Host ("Exception occurred when calling Update-Schema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **SchemaId** | **String**| The Schema id. | 
- **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the schema. | 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="Update-Source"></a>
 # **Update-Source**
 > Source Update-Source<br>
@@ -1258,15 +1200,16 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-UploadConnectorFile"></a>
-# **Invoke-UploadConnectorFile**
-> Source Invoke-UploadConnectorFile<br>
+<a name="Update-SourceSchema"></a>
+# **Update-SourceSchema**
+> Schema Update-SourceSchema<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Upload connector file to source
+Update Source Schema (Partial)
 
-This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     ""name"": ""groups"",     ""type"": ""STRING"",     ""schema"": {         ""type"": ""CONNECTOR_SCHEMA"",         ""id"": ""2c9180887671ff8c01767b4671fc7d60"",         ""name"": ""group""     },     ""description"": ""The groups, roles etc. that reference account group objects"",     ""isMulti"": true,     ""isEntitlement"": true,     ""isGroup"": true } ``` 
 
 ### Example
 ```powershell
@@ -1279,13 +1222,15 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$File =  # System.IO.FileInfo |  (optional)
+$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
 
-# Upload connector file to source
+# Update Source Schema (Partial)
 try {
-    $Result = Invoke-UploadConnectorFile -SourceId $SourceId -File $File
+    $Result = Update-SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-UploadConnectorFile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-SourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1295,11 +1240,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| The Source id. | 
- **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+ **SchemaId** | **String**| The Schema id. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the schema. | 
 
 ### Return type
 
-[**Source**](Source.md) (PSCustomObject)
+[**Schema**](Schema.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1307,7 +1253,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json-patch+json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1354,6 +1300,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Invoke-UploadSourceConnectorFile"></a>
+# **Invoke-UploadSourceConnectorFile**
+> Source Invoke-UploadSourceConnectorFile<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+
+Upload connector file to source
+
+This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$File =  # System.IO.FileInfo |  (optional)
+
+# Upload connector file to source
+try {
+    $Result = Invoke-UploadSourceConnectorFile -SourceId $SourceId -File $File
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-UploadSourceConnectorFile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+
+### Return type
+
+[**Source**](Source.md) (PSCustomObject)
 
 ### Authorization
 

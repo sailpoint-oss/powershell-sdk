@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**New-Transform**](TransformsApi.md#New-Transform) | **POST** /transforms | Create transform
 [**Remove-Transform**](TransformsApi.md#Remove-Transform) | **DELETE** /transforms/{id} | Delete a transform
 [**Get-Transform**](TransformsApi.md#Get-Transform) | **GET** /transforms/{id} | Transform by ID
-[**Get-TransformsList**](TransformsApi.md#Get-TransformsList) | **GET** /transforms | List transforms
+[**Get-Transforms**](TransformsApi.md#Get-Transforms) | **GET** /transforms | List transforms
 [**Update-Transform**](TransformsApi.md#Update-Transform) | **PUT** /transforms/{id} | Update a transform
 
 
@@ -172,9 +172,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-TransformsList"></a>
-# **Get-TransformsList**
-> Transform[] Get-TransformsList<br>
+<a name="Get-Transforms"></a>
+# **Get-Transforms**
+> Transform[] Get-Transforms<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -203,9 +203,9 @@ $Filters = "name eq "Uppercase"" # String | Filter results using the standard sy
 
 # List transforms
 try {
-    $Result = Get-TransformsList -Offset $Offset -Limit $Limit -Count $Count -Name $Name -Filters $Filters
+    $Result = Get-Transforms -Offset $Offset -Limit $Limit -Count $Count -Name $Name -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Get-TransformsList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-Transforms: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

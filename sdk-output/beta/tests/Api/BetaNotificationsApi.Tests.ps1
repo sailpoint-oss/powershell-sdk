@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
-    Context 'Invoke-BetaBulkDeleteNotificationTemplates' {
-        It 'Test Invoke-BetaBulkDeleteNotificationTemplates' {
-            #$TestResult = Invoke-BetaBulkDeleteNotificationTemplates -TemplateBulkDeleteDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'New-BetaNotificationTemplate' {
         It 'Test New-BetaNotificationTemplate' {
             #$TestResult = New-BetaNotificationTemplate -TemplateDto "TEST_VALUE"
@@ -25,6 +17,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
     Context 'New-BetaVerifiedFromAddress' {
         It 'Test New-BetaVerifiedFromAddress' {
             #$TestResult = New-BetaVerifiedFromAddress -EmailStatusDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BetaNotificationTemplatesInBulk' {
+        It 'Test Remove-BetaNotificationTemplatesInBulk' {
+            #$TestResult = Remove-BetaNotificationTemplatesInBulk -TemplateBulkDeleteDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

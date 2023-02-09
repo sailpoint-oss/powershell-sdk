@@ -4,18 +4,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-ScheduledSearchCreate**](ScheduledSearchApi.md#Invoke-ScheduledSearchCreate) | **POST** /scheduled-searches | Create a new scheduled search
-[**Invoke-ScheduledSearchDelete**](ScheduledSearchApi.md#Invoke-ScheduledSearchDelete) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search
-[**Invoke-ScheduledSearchGet**](ScheduledSearchApi.md#Invoke-ScheduledSearchGet) | **GET** /scheduled-searches/{id} | Get a Scheduled Search
-[**Invoke-ScheduledSearchList**](ScheduledSearchApi.md#Invoke-ScheduledSearchList) | **GET** /scheduled-searches | List scheduled searches
-[**Invoke-ScheduledSearchUnsubscribe**](ScheduledSearchApi.md#Invoke-ScheduledSearchUnsubscribe) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from Scheduled Search
-[**Invoke-ScheduledSearchUpdate**](ScheduledSearchApi.md#Invoke-ScheduledSearchUpdate) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
+[**New-ScheduledSearch**](ScheduledSearchApi.md#New-ScheduledSearch) | **POST** /scheduled-searches | Create a new scheduled search
+[**Remove-ScheduledSearch**](ScheduledSearchApi.md#Remove-ScheduledSearch) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search
+[**Get-ScheduledSearch**](ScheduledSearchApi.md#Get-ScheduledSearch) | **GET** /scheduled-searches/{id} | Get a Scheduled Search
+[**Get-ScheduledSearch**](ScheduledSearchApi.md#Get-ScheduledSearch) | **GET** /scheduled-searches | List scheduled searches
+[**Invoke-UnsubscribeScheduledSearch**](ScheduledSearchApi.md#Invoke-UnsubscribeScheduledSearch) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from Scheduled Search
+[**Update-ScheduledSearch**](ScheduledSearchApi.md#Update-ScheduledSearch) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
 
 
-<a name="Invoke-ScheduledSearchCreate"></a>
-# **Invoke-ScheduledSearchCreate**
-> ScheduledSearch Invoke-ScheduledSearchCreate<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScheduledSearchCreateRequest] <PSCustomObject><br>
+<a name="New-ScheduledSearch"></a>
+# **New-ScheduledSearch**
+> ScheduledSearch New-ScheduledSearch<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateScheduledSearchRequest] <PSCustomObject><br>
 
 Create a new scheduled search
 
@@ -36,13 +36,13 @@ $ScheduleHours = Initialize-ScheduleHours -Type "LIST" -Values "MyValues" -Inter
 $Schedule = Initialize-Schedule -Type "DAILY" -Days $ScheduleDays -Hours $ScheduleHours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
-$ScheduledSearchCreateRequest = Initialize-ScheduledSearchCreateRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # ScheduledSearchCreateRequest | The scheduled search to persist.
+$CreateScheduledSearchRequest = Initialize-CreateScheduledSearchRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # CreateScheduledSearchRequest | The scheduled search to persist.
 
 # Create a new scheduled search
 try {
-    $Result = Invoke-ScheduledSearchCreate -ScheduledSearchCreateRequest $ScheduledSearchCreateRequest
+    $Result = New-ScheduledSearch -CreateScheduledSearchRequest $CreateScheduledSearchRequest
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ScheduledSearchCreate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-ScheduledSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -51,7 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ScheduledSearchCreateRequest** | [**ScheduledSearchCreateRequest**](ScheduledSearchCreateRequest.md)| The scheduled search to persist. | 
+ **CreateScheduledSearchRequest** | [**CreateScheduledSearchRequest**](CreateScheduledSearchRequest.md)| The scheduled search to persist. | 
 
 ### Return type
 
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ScheduledSearchDelete"></a>
-# **Invoke-ScheduledSearchDelete**
-> void Invoke-ScheduledSearchDelete<br>
+<a name="Remove-ScheduledSearch"></a>
+# **Remove-ScheduledSearch**
+> void Remove-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a Scheduled Search
@@ -91,9 +91,9 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 
 # Delete a Scheduled Search
 try {
-    $Result = Invoke-ScheduledSearchDelete -Id $Id
+    $Result = Remove-ScheduledSearch -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ScheduledSearchDelete: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-ScheduledSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -119,9 +119,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ScheduledSearchGet"></a>
-# **Invoke-ScheduledSearchGet**
-> ScheduledSearch Invoke-ScheduledSearchGet<br>
+<a name="Get-ScheduledSearch"></a>
+# **Get-ScheduledSearch**
+> ScheduledSearch Get-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get a Scheduled Search
@@ -142,9 +142,9 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 
 # Get a Scheduled Search
 try {
-    $Result = Invoke-ScheduledSearchGet -Id $Id
+    $Result = Get-ScheduledSearch -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ScheduledSearchGet: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-ScheduledSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -170,9 +170,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ScheduledSearchList"></a>
-# **Invoke-ScheduledSearchList**
-> ScheduledSearch[] Invoke-ScheduledSearchList<br>
+<a name="Get-ScheduledSearch"></a>
+# **Get-ScheduledSearch**
+> ScheduledSearch[] Get-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -199,9 +199,9 @@ $Filters = "savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"" # String | 
 
 # List scheduled searches
 try {
-    $Result = Invoke-ScheduledSearchList -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters
+    $Result = Get-ScheduledSearch -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ScheduledSearchList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-ScheduledSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -230,9 +230,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ScheduledSearchUnsubscribe"></a>
-# **Invoke-ScheduledSearchUnsubscribe**
-> void Invoke-ScheduledSearchUnsubscribe<br>
+<a name="Invoke-UnsubscribeScheduledSearch"></a>
+# **Invoke-UnsubscribeScheduledSearch**
+> void Invoke-UnsubscribeScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TypedReference] <PSCustomObject><br>
 
@@ -255,9 +255,9 @@ $TypedReference = Initialize-TypedReference -Type "ACCOUNT_CORRELATION_CONFIG" -
 
 # Unsubscribe a recipient from Scheduled Search
 try {
-    $Result = Invoke-ScheduledSearchUnsubscribe -Id $Id -TypedReference $TypedReference
+    $Result = Invoke-UnsubscribeScheduledSearch -Id $Id -TypedReference $TypedReference
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ScheduledSearchUnsubscribe: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Invoke-UnsubscribeScheduledSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -284,9 +284,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ScheduledSearchUpdate"></a>
-# **Invoke-ScheduledSearchUpdate**
-> ScheduledSearch Invoke-ScheduledSearchUpdate<br>
+<a name="Update-ScheduledSearch"></a>
+# **Update-ScheduledSearch**
+> ScheduledSearch Update-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScheduledSearch] <PSCustomObject><br>
 
@@ -316,9 +316,9 @@ $ScheduledSearch = Initialize-ScheduledSearch -Id "0de46054-fe90-434a-b84e-c6b33
 
 # Update an existing Scheduled Search
 try {
-    $Result = Invoke-ScheduledSearchUpdate -Id $Id -ScheduledSearch $ScheduledSearch
+    $Result = Update-ScheduledSearch -Id $Id -ScheduledSearch $ScheduledSearch
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-ScheduledSearchUpdate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-ScheduledSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

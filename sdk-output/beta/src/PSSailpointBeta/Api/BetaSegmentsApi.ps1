@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Remove-BetaSegmentById {
+function Remove-BetaSegment {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Remove-BetaSegmentById {
     )
 
     Process {
-        'Calling method: Remove-BetaSegmentById' | Write-Debug
+        'Calling method: Remove-BetaSegment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -141,7 +141,7 @@ function Remove-BetaSegmentById {
 
         $LocalVarUri = '/segments/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling deleteSegmentById."
+            throw "Error! The required parameter `Id` missing when calling deleteSegment."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 Segment
 #>
-function Get-BetaSegmentById {
+function Get-BetaSegment {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -198,7 +198,7 @@ function Get-BetaSegmentById {
     )
 
     Process {
-        'Calling method: Get-BetaSegmentById' | Write-Debug
+        'Calling method: Get-BetaSegment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -216,7 +216,7 @@ function Get-BetaSegmentById {
 
         $LocalVarUri = '/segments/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getSegmentById."
+            throw "Error! The required parameter `Id` missing when calling getSegment."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 

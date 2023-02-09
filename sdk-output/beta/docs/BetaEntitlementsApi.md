@@ -4,67 +4,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaEntitlementsBulkUpdate**](BetaEntitlementsApi.md#Invoke-BetaEntitlementsBulkUpdate) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 [**Get-BetaEntitlement**](BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an Entitlement
+[**Get-BetaEntitlementChildren**](BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 [**Get-BetaEntitlementParents**](BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
-[**Get-BetaEntitlementchildren**](BetaEntitlementsApi.md#Get-BetaEntitlementchildren) | **GET** /entitlements/{id}/children | List of entitlements children
 [**Get-BetaEntitlements**](BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
 [**Update-BetaEntitlement**](BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch a specified Entitlement
+[**Update-BetaEntitlementsInBulk**](BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 
-
-<a name="Invoke-BetaEntitlementsBulkUpdate"></a>
-# **Invoke-BetaEntitlementsBulkUpdate**
-> void Invoke-BetaEntitlementsBulkUpdate<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntitlementBulkUpdateRequest] <PSCustomObject><br>
-
-Bulk update an entitlement list
-
-This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ ""op"": ""replace"", ""path"": ""/privileged"", ""value"": boolean }**  **{ ""op"": ""replace"", ""path"": ""/requestable"",""value"": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue
-
-$EntitlementBulkUpdateRequest = Initialize-EntitlementBulkUpdateRequest -EntitlementIds "MyEntitlementIds" -JsonPatch $JsonPatchOperation # EntitlementBulkUpdateRequest | 
-
-# Bulk update an entitlement list
-try {
-    $Result = Invoke-BetaEntitlementsBulkUpdate -EntitlementBulkUpdateRequest $EntitlementBulkUpdateRequest
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaEntitlementsBulkUpdate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **EntitlementBulkUpdateRequest** | [**EntitlementBulkUpdateRequest**](EntitlementBulkUpdateRequest.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="Get-BetaEntitlement"></a>
 # **Get-BetaEntitlement**
@@ -117,6 +63,66 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Get-BetaEntitlementChildren"></a>
+# **Get-BetaEntitlementChildren**
+> Entitlement[] Get-BetaEntitlementChildren<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+
+List of entitlements children
+
+This API returns a list of all child entitlements of a given entitlement.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
+# List of entitlements children
+try {
+    $Result = Get-BetaEntitlementChildren -Id $Id -Limit $Limit -Offset $Offset -Count $Count
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaEntitlementChildren: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| Entitlement Id | 
+ **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+ **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
+
+### Return type
+
+[**Entitlement[]**](Entitlement.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Get-BetaEntitlementParents"></a>
 # **Get-BetaEntitlementParents**
 > Entitlement[] Get-BetaEntitlementParents<br>
@@ -149,66 +155,6 @@ try {
     $Result = Get-BetaEntitlementParents -Id $Id -Limit $Limit -Offset $Offset -Count $Count
 } catch {
     Write-Host ("Exception occurred when calling Get-BetaEntitlementParents: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| Entitlement Id | 
- **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
- **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
- **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
-
-### Return type
-
-[**Entitlement[]**](Entitlement.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Get-BetaEntitlementchildren"></a>
-# **Get-BetaEntitlementchildren**
-> Entitlement[] Get-BetaEntitlementchildren<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
-
-List of entitlements children
-
-This API returns a list of all child entitlements of a given entitlement.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-
-# List of entitlements children
-try {
-    $Result = Get-BetaEntitlementchildren -Id $Id -Limit $Limit -Offset $Offset -Count $Count
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaEntitlementchildren: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -363,6 +309,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Update-BetaEntitlementsInBulk"></a>
+# **Update-BetaEntitlementsInBulk**
+> void Update-BetaEntitlementsInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntitlementBulkUpdateRequest] <PSCustomObject><br>
+
+Bulk update an entitlement list
+
+This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ ""op"": ""replace"", ""path"": ""/privileged"", ""value"": boolean }**  **{ ""op"": ""replace"", ""path"": ""/requestable"",""value"": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue
+
+$EntitlementBulkUpdateRequest = Initialize-EntitlementBulkUpdateRequest -EntitlementIds "MyEntitlementIds" -JsonPatch $JsonPatchOperation # EntitlementBulkUpdateRequest | 
+
+# Bulk update an entitlement list
+try {
+    $Result = Update-BetaEntitlementsInBulk -EntitlementBulkUpdateRequest $EntitlementBulkUpdateRequest
+} catch {
+    Write-Host ("Exception occurred when calling Update-BetaEntitlementsInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **EntitlementBulkUpdateRequest** | [**EntitlementBulkUpdateRequest**](EntitlementBulkUpdateRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

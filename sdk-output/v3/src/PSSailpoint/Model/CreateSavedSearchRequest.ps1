@@ -38,10 +38,10 @@ The fields to be used to sort the search results.
 No description available.
 .OUTPUTS
 
-SavedSearchCreateRequest<PSCustomObject>
+CreateSavedSearchRequest<PSCustomObject>
 #>
 
-function Initialize-SavedSearchCreateRequest {
+function Initialize-CreateSavedSearchRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -80,7 +80,7 @@ function Initialize-SavedSearchCreateRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => SavedSearchCreateRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => CreateSavedSearchRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $Indices) {
@@ -114,11 +114,11 @@ function Initialize-SavedSearchCreateRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to SavedSearchCreateRequest<PSCustomObject>
+Convert from JSON to CreateSavedSearchRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SavedSearchCreateRequest<PSCustomObject>
+Convert from JSON to CreateSavedSearchRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -126,21 +126,21 @@ Json object
 
 .OUTPUTS
 
-SavedSearchCreateRequest<PSCustomObject>
+CreateSavedSearchRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToSavedSearchCreateRequest {
+function ConvertFrom-JsonToCreateSavedSearchRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => SavedSearchCreateRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => CreateSavedSearchRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in SavedSearchCreateRequest
+        # check if Json contains properties not defined in CreateSavedSearchRequest
         $AllProperties = ("name", "description", "public", "created", "modified", "indices", "columns", "query", "fields", "sort", "filters")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

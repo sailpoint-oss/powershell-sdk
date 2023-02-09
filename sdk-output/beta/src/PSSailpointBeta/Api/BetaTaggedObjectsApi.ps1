@@ -202,7 +202,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Remove-BetaTaggedObjectByTypeAndId {
+function Remove-BetaTaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -217,7 +217,7 @@ function Remove-BetaTaggedObjectByTypeAndId {
     )
 
     Process {
-        'Calling method: Remove-BetaTaggedObjectByTypeAndId' | Write-Debug
+        'Calling method: Remove-BetaTaggedObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -235,11 +235,11 @@ function Remove-BetaTaggedObjectByTypeAndId {
 
         $LocalVarUri = '/tagged-objects/{type}/{id}'
         if (!$Type) {
-            throw "Error! The required parameter `Type` missing when calling deleteTaggedObjectByTypeAndId."
+            throw "Error! The required parameter `Type` missing when calling deleteTaggedObject."
         }
         $LocalVarUri = $LocalVarUri.replace('{type}', [System.Web.HTTPUtility]::UrlEncode($Type))
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling deleteTaggedObjectByTypeAndId."
+            throw "Error! The required parameter `Id` missing when calling deleteTaggedObject."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -288,7 +288,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 TaggedObject
 #>
-function Get-BetaTaggedObjectByTypeAndId {
+function Get-BetaTaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -303,7 +303,7 @@ function Get-BetaTaggedObjectByTypeAndId {
     )
 
     Process {
-        'Calling method: Get-BetaTaggedObjectByTypeAndId' | Write-Debug
+        'Calling method: Get-BetaTaggedObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -321,11 +321,11 @@ function Get-BetaTaggedObjectByTypeAndId {
 
         $LocalVarUri = '/tagged-objects/{type}/{id}'
         if (!$Type) {
-            throw "Error! The required parameter `Type` missing when calling getTaggedObjectByTypeAndId."
+            throw "Error! The required parameter `Type` missing when calling getTaggedObject."
         }
         $LocalVarUri = $LocalVarUri.replace('{type}', [System.Web.HTTPUtility]::UrlEncode($Type))
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getTaggedObjectByTypeAndId."
+            throw "Error! The required parameter `Id` missing when calling getTaggedObject."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -685,7 +685,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 TaggedObject
 #>
-function Update-BetaTaggedObjectByTypeAndId {
+function Update-BetaTaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -703,7 +703,7 @@ function Update-BetaTaggedObjectByTypeAndId {
     )
 
     Process {
-        'Calling method: Update-BetaTaggedObjectByTypeAndId' | Write-Debug
+        'Calling method: Update-BetaTaggedObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -724,16 +724,16 @@ function Update-BetaTaggedObjectByTypeAndId {
 
         $LocalVarUri = '/tagged-objects/{type}/{id}'
         if (!$Type) {
-            throw "Error! The required parameter `Type` missing when calling updateTaggedObjectByTypeAndId."
+            throw "Error! The required parameter `Type` missing when calling updateTaggedObject."
         }
         $LocalVarUri = $LocalVarUri.replace('{type}', [System.Web.HTTPUtility]::UrlEncode($Type))
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updateTaggedObjectByTypeAndId."
+            throw "Error! The required parameter `Id` missing when calling updateTaggedObject."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$TaggedObject) {
-            throw "Error! The required parameter `TaggedObject` missing when calling updateTaggedObjectByTypeAndId."
+            throw "Error! The required parameter `TaggedObject` missing when calling updateTaggedObject."
         }
 
         $LocalVarBodyParameter = $TaggedObject | ForEach-Object {

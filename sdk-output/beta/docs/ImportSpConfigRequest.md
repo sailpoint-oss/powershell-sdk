@@ -1,20 +1,22 @@
-# NonEmployeeRecordsBulkUploadRequest
+# ImportSpConfigRequest
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarData** | **String** |  | 
+**VarData** | **String** | Name of JSON file containing the objects to be imported. | 
+**Options** | [**ImportOptions**](ImportOptions.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRecordsBulkUploadRequest = Initialize-PSSailpointNonEmployeeRecordsBulkUploadRequest  -VarData null
+$ImportSpConfigRequest = Initialize-PSSailpointBetaImportSpConfigRequest  -VarData null `
+ -Options null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$NonEmployeeRecordsBulkUploadRequest | ConvertTo-JSON
+$ImportSpConfigRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

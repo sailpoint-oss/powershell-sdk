@@ -6,9 +6,9 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIPeerGroupStrategiesApi' {
-    Context 'Get-BetaOutliers' {
-        It 'Test Get-BetaOutliers' {
-            #$TestResult = Get-BetaOutliers -Strategy "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaPeerGroupOutliers' {
+        It 'Test Get-BetaPeerGroupOutliers' {
+            #$TestResult = Get-BetaPeerGroupOutliers -Strategy "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

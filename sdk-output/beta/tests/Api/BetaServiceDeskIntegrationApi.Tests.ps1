@@ -70,17 +70,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaServiceDeskIntegrationApi' {
         }
     }
 
-    Context 'Update-BetaServiceDeskIntegration' {
-        It 'Test Update-BetaServiceDeskIntegration' {
-            #$TestResult = Update-BetaServiceDeskIntegration -Id "TEST_VALUE" -ServiceDeskIntegrationDto "TEST_VALUE"
+    Context 'Update-BetaManagedClientStatusCheckDetails' {
+        It 'Test Update-BetaManagedClientStatusCheckDetails' {
+            #$TestResult = Update-BetaManagedClientStatusCheckDetails -QueuedCheckConfigDetails "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Update-BetaStatusCheckDetails' {
-        It 'Test Update-BetaStatusCheckDetails' {
-            #$TestResult = Update-BetaStatusCheckDetails -QueuedCheckConfigDetails "TEST_VALUE"
+    Context 'Update-BetaServiceDeskIntegration' {
+        It 'Test Update-BetaServiceDeskIntegration' {
+            #$TestResult = Update-BetaServiceDeskIntegration -Id "TEST_VALUE" -ServiceDeskIntegrationDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

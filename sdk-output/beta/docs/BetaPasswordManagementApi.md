@@ -5,9 +5,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaDigitToken**](BetaPasswordManagementApi.md#New-BetaDigitToken) | **POST** /generate-password-reset-token/digit | Generate a digit token
-[**Get-BetaPasswordChangeStatus**](BetaPasswordManagementApi.md#Get-BetaPasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
+[**Get-BetaIdentityPasswordChangeStatus**](BetaPasswordManagementApi.md#Get-BetaIdentityPasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
 [**Search-BetaPasswordInfo**](BetaPasswordManagementApi.md#Search-BetaPasswordInfo) | **POST** /query-password-info | Query Password Info
-[**Set-BetaPassword**](BetaPasswordManagementApi.md#Set-BetaPassword) | **POST** /set-password | Set Identity&#39;s Password
+[**Set-BetaIdentityPassword**](BetaPasswordManagementApi.md#Set-BetaIdentityPassword) | **POST** /set-password | Set Identity&#39;s Password
 
 
 <a name="New-BetaDigitToken"></a>
@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPasswordChangeStatus"></a>
-# **Get-BetaPasswordChangeStatus**
-> PasswordStatus Get-BetaPasswordChangeStatus<br>
+<a name="Get-BetaIdentityPasswordChangeStatus"></a>
+# **Get-BetaIdentityPasswordChangeStatus**
+> PasswordStatus Get-BetaIdentityPasswordChangeStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Password Change Request Status
@@ -84,9 +84,9 @@ $Id = "MyId" # String |
 
 # Get Password Change Request Status
 try {
-    $Result = Get-BetaPasswordChangeStatus -Id $Id
+    $Result = Get-BetaIdentityPasswordChangeStatus -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaPasswordChangeStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaIdentityPasswordChangeStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -163,9 +163,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaPassword"></a>
-# **Set-BetaPassword**
-> PasswordChangeResponse Set-BetaPassword<br>
+<a name="Set-BetaIdentityPassword"></a>
+# **Set-BetaIdentityPassword**
+> PasswordChangeResponse Set-BetaIdentityPassword<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordChangeRequest] <PSCustomObject><br>
 
 Set Identity's Password
@@ -186,9 +186,9 @@ $PasswordChangeRequest = Initialize-PasswordChangeRequest -IdentityId "8a807d4c7
 
 # Set Identity's Password
 try {
-    $Result = Set-BetaPassword -PasswordChangeRequest $PasswordChangeRequest
+    $Result = Set-BetaIdentityPassword -PasswordChangeRequest $PasswordChangeRequest
 } catch {
-    Write-Host ("Exception occurred when calling Set-BetaPassword: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Set-BetaIdentityPassword: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

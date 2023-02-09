@@ -30,14 +30,6 @@ Describe -tag 'PSSailpoint' -name 'ServiceDeskIntegrationApi' {
         }
     }
 
-    Context 'Get-ServiceDeskIntegrationList' {
-        It 'Test Get-ServiceDeskIntegrationList' {
-            #$TestResult = Get-ServiceDeskIntegrationList -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE" -Count "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-ServiceDeskIntegrationTemplate' {
         It 'Test Get-ServiceDeskIntegrationTemplate' {
             #$TestResult = Get-ServiceDeskIntegrationTemplate -ScriptName "TEST_VALUE"
@@ -49,6 +41,14 @@ Describe -tag 'PSSailpoint' -name 'ServiceDeskIntegrationApi' {
     Context 'Get-ServiceDeskIntegrationTypes' {
         It 'Test Get-ServiceDeskIntegrationTypes' {
             #$TestResult = Get-ServiceDeskIntegrationTypes
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-ServiceDeskIntegrations' {
+        It 'Test Get-ServiceDeskIntegrations' {
+            #$TestResult = Get-ServiceDeskIntegrations -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

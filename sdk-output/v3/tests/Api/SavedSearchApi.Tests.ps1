@@ -6,49 +6,49 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'SavedSearchApi' {
-    Context 'Save-dSearchCreate' {
-        It 'Test Save-dSearchCreate' {
-            #$TestResult = Save-dSearchCreate -SavedSearchCreateRequest "TEST_VALUE"
+    Context 'New-SavedSearch' {
+        It 'Test New-SavedSearch' {
+            #$TestResult = New-SavedSearch -CreateSavedSearchRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Save-dSearchDelete' {
-        It 'Test Save-dSearchDelete' {
-            #$TestResult = Save-dSearchDelete -Id "TEST_VALUE"
+    Context 'Remove-SavedSearch' {
+        It 'Test Remove-SavedSearch' {
+            #$TestResult = Remove-SavedSearch -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Save-dSearchExecute' {
-        It 'Test Save-dSearchExecute' {
-            #$TestResult = Save-dSearchExecute -Id "TEST_VALUE" -SearchArguments "TEST_VALUE"
+    Context 'Invoke-ExecuteSavedSearch' {
+        It 'Test Invoke-ExecuteSavedSearch' {
+            #$TestResult = Invoke-ExecuteSavedSearch -Id "TEST_VALUE" -SearchArguments "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Save-dSearchGet' {
-        It 'Test Save-dSearchGet' {
-            #$TestResult = Save-dSearchGet -Id "TEST_VALUE"
+    Context 'Get-SavedSearch' {
+        It 'Test Get-SavedSearch' {
+            #$TestResult = Get-SavedSearch -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Save-dSearchList' {
-        It 'Test Save-dSearchList' {
-            #$TestResult = Save-dSearchList -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-SavedSearches' {
+        It 'Test Get-SavedSearches' {
+            #$TestResult = Get-SavedSearches -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Save-dSearchUpdate' {
-        It 'Test Save-dSearchUpdate' {
-            #$TestResult = Save-dSearchUpdate -Id "TEST_VALUE" -SavedSearch "TEST_VALUE"
+    Context 'Update-SavedSearch' {
+        It 'Test Update-SavedSearch' {
+            #$TestResult = Update-SavedSearch -Id "TEST_VALUE" -SavedSearch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

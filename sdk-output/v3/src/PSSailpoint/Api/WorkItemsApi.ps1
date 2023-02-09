@@ -110,7 +110,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItems
 #>
-function Invoke-BulkApproveApprovalItem {
+function Approve-ApprovalItemsInBulk {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -121,7 +121,7 @@ function Invoke-BulkApproveApprovalItem {
     )
 
     Process {
-        'Calling method: Invoke-BulkApproveApprovalItem' | Write-Debug
+        'Calling method: Approve-ApprovalItemsInBulk' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -139,82 +139,7 @@ function Invoke-BulkApproveApprovalItem {
 
         $LocalVarUri = '/work-items/bulk-approve/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling bulkApproveApprovalItem."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-
-
-        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItems" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Bulk reject Approval Items
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER Id
-The ID of the work item
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-WorkItems
-#>
-function Invoke-BulkRejectApprovalItem {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Invoke-BulkRejectApprovalItem' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/work-items/bulk-reject/{id}'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling bulkRejectApprovalItem."
+            throw "Error! The required parameter `Id` missing when calling approveApprovalItemsInBulk."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -344,7 +269,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItems[]
 #>
-function Complete-dWorkItems {
+function Get-CompletedWorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -364,7 +289,7 @@ function Complete-dWorkItems {
     )
 
     Process {
-        'Calling method: Complete-dWorkItems' | Write-Debug
+        'Calling method: Get-CompletedWorkItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -440,7 +365,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItemsCount
 #>
-function Invoke-CountCompletedWorkItems {
+function Get-CountCompletedWorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -451,7 +376,7 @@ function Invoke-CountCompletedWorkItems {
     )
 
     Process {
-        'Calling method: Invoke-CountCompletedWorkItems' | Write-Debug
+        'Calling method: Get-CountCompletedWorkItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -515,7 +440,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItemsCount
 #>
-function Invoke-CountWorkItems {
+function Get-CountWorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -526,7 +451,7 @@ function Invoke-CountWorkItems {
     )
 
     Process {
-        'Calling method: Invoke-CountWorkItems' | Write-Debug
+        'Calling method: Get-CountWorkItems' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -590,7 +515,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 WorkItems
 #>
-function Get-WorkItems {
+function Get-WorkItem {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -601,7 +526,7 @@ function Get-WorkItems {
     )
 
     Process {
-        'Calling method: Get-WorkItems' | Write-Debug
+        'Calling method: Get-WorkItem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -619,7 +544,7 @@ function Get-WorkItems {
 
         $LocalVarUri = '/work-items/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getWorkItems."
+            throw "Error! The required parameter `Id` missing when calling getWorkItem."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -635,6 +560,81 @@ function Get-WorkItems {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "WorkItems" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Work Items Summary
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER OwnerId
+ID of the work item owner.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+WorkItemsSummary
+#>
+function Get-WorkItemsSummary {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${OwnerId},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-WorkItemsSummary' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/work-items/summary'
+
+        if ($OwnerId) {
+            $LocalVarQueryParameters['ownerId'] = $OwnerId
+        }
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "WorkItemsSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -838,6 +838,81 @@ function Deny-ApprovalItem {
 <#
 .SYNOPSIS
 
+Bulk reject Approval Items
+
+.DESCRIPTION
+
+No description available.
+
+.PARAMETER Id
+The ID of the work item
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+WorkItems
+#>
+function Deny-ApprovalItemsInBulk {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Deny-ApprovalItemsInBulk' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/work-items/bulk-reject/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling rejectApprovalItemsInBulk."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "WorkItems" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Submit Account Selections
 
 .DESCRIPTION
@@ -922,81 +997,6 @@ function Submit-AccountSelection {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "WorkItems" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Work Items Summary
-
-.DESCRIPTION
-
-No description available.
-
-.PARAMETER OwnerId
-ID of the work item owner.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-WorkItemsSummary
-#>
-function Invoke-SummaryWorkItems {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${OwnerId},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Invoke-SummaryWorkItems' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-Configuration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/work-items/summary'
-
-        if ($OwnerId) {
-            $LocalVarQueryParameters['ownerId'] = $OwnerId
-        }
-
-
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItemsSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

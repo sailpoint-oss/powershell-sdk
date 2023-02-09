@@ -18,10 +18,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-NonEmployeeRecordsBulkUploadRequest<PSCustomObject>
+UploadNonEmployeeRecordsInBulkRequest<PSCustomObject>
 #>
 
-function Initialize-BetaNonEmployeeRecordsBulkUploadRequest {
+function Initialize-BetaUploadNonEmployeeRecordsInBulkRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-BetaNonEmployeeRecordsBulkUploadRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaNonEmployeeRecordsBulkUploadRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaUploadNonEmployeeRecordsInBulkRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $VarData) {
@@ -50,11 +50,11 @@ function Initialize-BetaNonEmployeeRecordsBulkUploadRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to NonEmployeeRecordsBulkUploadRequest<PSCustomObject>
+Convert from JSON to UploadNonEmployeeRecordsInBulkRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to NonEmployeeRecordsBulkUploadRequest<PSCustomObject>
+Convert from JSON to UploadNonEmployeeRecordsInBulkRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -62,21 +62,21 @@ Json object
 
 .OUTPUTS
 
-NonEmployeeRecordsBulkUploadRequest<PSCustomObject>
+UploadNonEmployeeRecordsInBulkRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToNonEmployeeRecordsBulkUploadRequest {
+function ConvertFrom-BetaJsonToUploadNonEmployeeRecordsInBulkRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaNonEmployeeRecordsBulkUploadRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaUploadNonEmployeeRecordsInBulkRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaNonEmployeeRecordsBulkUploadRequest
+        # check if Json contains properties not defined in BetaUploadNonEmployeeRecordsInBulkRequest
         $AllProperties = ("data")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

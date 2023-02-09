@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaRoleInsightsApi' {
+    Context 'New-BetaRoleInsightRequests' {
+        It 'Test New-BetaRoleInsightRequests' {
+            #$TestResult = New-BetaRoleInsightRequests
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Invoke-BetaDownloadRoleInsightsEntitlementsChanges' {
         It 'Test Invoke-BetaDownloadRoleInsightsEntitlementsChanges' {
             #$TestResult = Invoke-BetaDownloadRoleInsightsEntitlementsChanges -InsightId "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
@@ -65,14 +73,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaRoleInsightsApi' {
     Context 'Get-BetaRoleInsightsSummary' {
         It 'Test Get-BetaRoleInsightsSummary' {
             #$TestResult = Get-BetaRoleInsightsSummary
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-BetaRoleInsightsRequests' {
-        It 'Test Invoke-BetaRoleInsightsRequests' {
-            #$TestResult = Invoke-BetaRoleInsightsRequests
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -321,9 +321,9 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-GetEvents200ResponseInner[]
+GetHistoricalIdentityEvents200ResponseInner[]
 #>
-function Get-BetaEvents {
+function Get-BetaHistoricalIdentityEvents {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -352,7 +352,7 @@ function Get-BetaEvents {
     )
 
     Process {
-        'Calling method: Get-BetaEvents' | Write-Debug
+        'Calling method: Get-BetaHistoricalIdentityEvents' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -370,7 +370,7 @@ function Get-BetaEvents {
 
         $LocalVarUri = '/historical-identities/{id}/events'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getEvents."
+            throw "Error! The required parameter `Id` missing when calling getHistoricalIdentityEvents."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -409,7 +409,7 @@ function Get-BetaEvents {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "GetEvents200ResponseInner[]" `
+                                -ReturnType "GetHistoricalIdentityEvents200ResponseInner[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -736,7 +736,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 String
 #>
-function Get-BetaStartDate {
+function Get-BetaIdentityStartDate {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -747,7 +747,7 @@ function Get-BetaStartDate {
     )
 
     Process {
-        'Calling method: Get-BetaStartDate' | Write-Debug
+        'Calling method: Get-BetaIdentityStartDate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -765,7 +765,7 @@ function Get-BetaStartDate {
 
         $LocalVarUri = '/historical-identities/{id}/start-date'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getStartDate."
+            throw "Error! The required parameter `Id` missing when calling getIdentityStartDate."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 

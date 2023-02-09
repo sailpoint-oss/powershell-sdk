@@ -4,145 +4,39 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaBulkUpdateProvisioningPolicies**](BetaSourcesApi.md#Invoke-BetaBulkUpdateProvisioningPolicies) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
-[**Invoke-BetaCheckConnection**](BetaSourcesApi.md#Invoke-BetaCheckConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for the source connector.
 [**New-BetaProvisioningPolicy**](BetaSourcesApi.md#New-BetaProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
-[**New-BetaSchema**](BetaSourcesApi.md#New-BetaSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
 [**New-BetaSource**](BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
+[**New-BetaSourceSchema**](BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
 [**Remove-BetaProvisioningPolicy**](BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
-[**Remove-BetaSchema**](BetaSourcesApi.md#Remove-BetaSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 [**Remove-BetaSource**](BetaSourcesApi.md#Remove-BetaSource) | **DELETE** /sources/{id} | Delete Source by ID
+[**Remove-BetaSourceSchema**](BetaSourcesApi.md#Remove-BetaSourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 [**Invoke-BetaDownloadSourceAccountsSchema**](BetaSourcesApi.md#Invoke-BetaDownloadSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
 [**Invoke-BetaDownloadSourceEntitlementsSchema**](BetaSourcesApi.md#Invoke-BetaDownloadSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 [**Get-BetaProvisioningPolicy**](BetaSourcesApi.md#Get-BetaProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
-[**Get-BetaSchema**](BetaSourcesApi.md#Get-BetaSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 [**Get-BetaSource**](BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
 [**Get-BetaSourceAttrSyncConfig**](BetaSourcesApi.md#Get-BetaSourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
 [**Get-BetaSourceConfig**](BetaSourcesApi.md#Get-BetaSourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
+[**Get-BetaSourceSchema**](BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 [**Get-BetaProvisioningPolicies**](BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-[**Get-BetaSchemas**](BetaSourcesApi.md#Get-BetaSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
+[**Get-BetaSourceSchemas**](BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
 [**Get-BetaSources**](BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 [**Receive-BetaResourceObjects**](BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek resource objects from the source connector
 [**Ping-BetaCluster**](BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for the source connector
+[**Send-BetaProvisioningPolicy**](BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
+[**Send-BetaSource**](BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
 [**Send-BetaSourceAttrSyncConfig**](BetaSourcesApi.md#Send-BetaSourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
-[**Invoke-BetaReplaceProvisioningPolicy**](BetaSourcesApi.md#Invoke-BetaReplaceProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
-[**Invoke-BetaReplaceSchema**](BetaSourcesApi.md#Invoke-BetaReplaceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
-[**Invoke-BetaReplaceSource**](BetaSourcesApi.md#Invoke-BetaReplaceSource) | **PUT** /sources/{id} | Update Source (Full)
-[**Sync-BetahronizeAttributesForSource**](BetaSourcesApi.md#Sync-BetahronizeAttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
-[**Test-BetaConfiguration**](BetaSourcesApi.md#Test-BetaConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for the source connector
+[**Send-BetaSourceSchema**](BetaSourcesApi.md#Send-BetaSourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
+[**Sync-BetaAttributesForSource**](BetaSourcesApi.md#Sync-BetaAttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
+[**Test-BetaSourceConfiguration**](BetaSourcesApi.md#Test-BetaSourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for the source connector
+[**Test-BetaSourceConnection**](BetaSourcesApi.md#Test-BetaSourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for the source connector.
+[**Update-BetaProvisioningPoliciesInBulk**](BetaSourcesApi.md#Update-BetaProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 [**Update-BetaProvisioningPolicy**](BetaSourcesApi.md#Update-BetaProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
-[**Update-BetaSchema**](BetaSourcesApi.md#Update-BetaSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 [**Update-BetaSource**](BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
-[**Invoke-BetaUploadConnectorFile**](BetaSourcesApi.md#Invoke-BetaUploadConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
+[**Update-BetaSourceSchema**](BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 [**Invoke-BetaUploadSourceAccountsSchema**](BetaSourcesApi.md#Invoke-BetaUploadSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
+[**Invoke-BetaUploadSourceConnectorFile**](BetaSourcesApi.md#Invoke-BetaUploadSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 [**Invoke-BetaUploadSourceEntitlementsSchema**](BetaSourcesApi.md#Invoke-BetaUploadSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 
-
-<a name="Invoke-BetaBulkUpdateProvisioningPolicies"></a>
-# **Invoke-BetaBulkUpdateProvisioningPolicies**
-> ProvisioningPolicyDto[] Invoke-BetaBulkUpdateProvisioningPolicies<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProvisioningPolicyDto] <PSCustomObject[]><br>
-
-Bulk Update Provisioning Policies
-
-This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$FieldDetailsDto = Initialize-FieldDetailsDto -Name "userName" -Transform  -Attributes  -IsRequired $false -Type "string" -IsMultiValued $false
-$ProvisioningPolicyDto = Initialize-ProvisioningPolicyDto -Name "example provisioning policy for inactive identities" -Description "this provisioning policy creates access based on an identity going inactive" -UsageType "CREATE" -Fields $FieldDetailsDto # ProvisioningPolicyDto[] | 
-
-# Bulk Update Provisioning Policies
-try {
-    $Result = Invoke-BetaBulkUpdateProvisioningPolicies -SourceId $SourceId -ProvisioningPolicyDto $ProvisioningPolicyDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaBulkUpdateProvisioningPolicies: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **ProvisioningPolicyDto** | [**ProvisioningPolicyDto[]**](ProvisioningPolicyDto.md)|  | 
-
-### Return type
-
-[**ProvisioningPolicyDto[]**](ProvisioningPolicyDto.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-BetaCheckConnection"></a>
-# **Invoke-BetaCheckConnection**
-> StatusResponse Invoke-BetaCheckConnection<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-
-Check connection for the source connector.
-
-This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter. A token with ORG_ADMIN authority is required to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
-
-# Check connection for the source connector.
-try {
-    $Result = Invoke-BetaCheckConnection -SourceId $SourceId
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaCheckConnection: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The ID of the Source. | 
-
-### Return type
-
-[**StatusResponse**](StatusResponse.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-BetaProvisioningPolicy"></a>
 # **New-BetaProvisioningPolicy**
@@ -187,61 +81,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ProvisioningPolicyDto**](ProvisioningPolicyDto.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="New-BetaSchema"></a>
-# **New-BetaSchema**
-> Schema New-BetaSchema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schema] <PSCustomObject><br>
-
-Creates a new Schema on the specified Source in IdentityNow.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$AttributeDefinitionSchema = Initialize-AttributeDefinitionSchema -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1313" -Name "group"
-$AttributeDefinition = Initialize-AttributeDefinition -Name "sAMAccountName" -Type "STRING" -Schema $AttributeDefinitionSchema -Description "The sAMAccountName attribute" -IsMulti $false -IsEntitlement $false -IsGroup $false
-
-$Schema = Initialize-Schema -Id "2c9180835d191a86015d28455b4a2329" -Name "account" -NativeObjectType "User" -IdentityAttribute "sAMAccountName" -DisplayAttribute "distinguishedName" -HierarchyAttribute "memberOf" -IncludePermissions $false -Features "AUTHENTICATE" -Configuration  -Attributes $AttributeDefinition -Created (Get-Date) -Modified (Get-Date) # Schema | 
-
-# Creates a new Schema on the specified Source in IdentityNow.
-try {
-    $Result = New-BetaSchema -SourceId $SourceId -Schema $Schema
-} catch {
-    Write-Host ("Exception occurred when calling New-BetaSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **Schema** | [**Schema**](Schema.md)|  | 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
 
 ### Authorization
 
@@ -318,6 +157,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="New-BetaSourceSchema"></a>
+# **New-BetaSourceSchema**
+> Schema New-BetaSourceSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schema] <PSCustomObject><br>
+
+Creates a new Schema on the specified Source in IdentityNow.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$AttributeDefinitionSchema = Initialize-AttributeDefinitionSchema -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1313" -Name "group"
+$AttributeDefinition = Initialize-AttributeDefinition -Name "sAMAccountName" -Type "STRING" -Schema $AttributeDefinitionSchema -Description "The sAMAccountName attribute" -IsMulti $false -IsEntitlement $false -IsGroup $false
+
+$Schema = Initialize-Schema -Id "2c9180835d191a86015d28455b4a2329" -Name "account" -NativeObjectType "User" -IdentityAttribute "sAMAccountName" -DisplayAttribute "distinguishedName" -HierarchyAttribute "memberOf" -IncludePermissions $false -Features "AUTHENTICATE" -Configuration  -Attributes $AttributeDefinition -Created (Get-Date) -Modified (Get-Date) # Schema | 
+
+# Creates a new Schema on the specified Source in IdentityNow.
+try {
+    $Result = New-BetaSourceSchema -SourceId $SourceId -Schema $Schema
+} catch {
+    Write-Host ("Exception occurred when calling New-BetaSourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **Schema** | [**Schema**](Schema.md)|  | 
+
+### Return type
+
+[**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Remove-BetaProvisioningPolicy"></a>
 # **Remove-BetaProvisioningPolicy**
 > void Remove-BetaProvisioningPolicy<br>
@@ -356,58 +250,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| The Source ID. | 
  **UsageType** | [**UsageType**](UsageType.md)| The type of ProvisioningPolicy usage. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Remove-BetaSchema"></a>
-# **Remove-BetaSchema**
-> void Remove-BetaSchema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
-
-Delete Source Schema by ID
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
-$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
-
-# Delete Source Schema by ID
-try {
-    $Result = Remove-BetaSchema -SourceId $SourceId -SchemaId $SchemaId
-} catch {
-    Write-Host ("Exception occurred when calling Remove-BetaSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source ID. | 
- **SchemaId** | **String**| The Schema ID. | 
 
 ### Return type
 
@@ -463,6 +305,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteSource202Response**](DeleteSource202Response.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-BetaSourceSchema"></a>
+# **Remove-BetaSourceSchema**
+> void Remove-BetaSourceSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
+
+Delete Source Schema by ID
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
+
+# Delete Source Schema by ID
+try {
+    $Result = Remove-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaSourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source ID. | 
+ **SchemaId** | **String**| The Schema ID. | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -618,60 +512,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ProvisioningPolicyDto**](ProvisioningPolicyDto.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Get-BetaSchema"></a>
-# **Get-BetaSchema**
-> Schema Get-BetaSchema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
-
-Get Source Schema by ID
-
-Get the Source Schema by ID in IdentityNow. 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
-$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
-
-# Get Source Schema by ID
-try {
-    $Result = Get-BetaSchema -SourceId $SourceId -SchemaId $SchemaId
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source ID. | 
- **SchemaId** | **String**| The Schema ID. | 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
 
 ### Authorization
 
@@ -840,6 +680,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Get-BetaSourceSchema"></a>
+# **Get-BetaSourceSchema**
+> Schema Get-BetaSourceSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
+
+Get Source Schema by ID
+
+Get the Source Schema by ID in IdentityNow. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
+
+# Get Source Schema by ID
+try {
+    $Result = Get-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaSourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source ID. | 
+ **SchemaId** | **String**| The Schema ID. | 
+
+### Return type
+
+[**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Get-BetaProvisioningPolicies"></a>
 # **Get-BetaProvisioningPolicies**
 > ProvisioningPolicyDto[] Get-BetaProvisioningPolicies<br>
@@ -891,9 +785,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSchemas"></a>
-# **Get-BetaSchemas**
-> Schema[] Get-BetaSchemas<br>
+<a name="Get-BetaSourceSchemas"></a>
+# **Get-BetaSourceSchemas**
+> Schema[] Get-BetaSourceSchemas<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTypes] <String><br>
 
@@ -914,9 +808,9 @@ $IncludeTypes = "group" # String | If set to 'group', then the account schema is
 
 # Lists the Schemas that exist on the specified Source in IdentityNow.
 try {
-    $Result = Get-BetaSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
+    $Result = Get-BetaSourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaSourceSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1114,6 +1008,128 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Send-BetaProvisioningPolicy"></a>
+# **Send-BetaProvisioningPolicy**
+> ProvisioningPolicyDto Send-BetaProvisioningPolicy<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UsageType] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProvisioningPolicyDto] <PSCustomObject><br>
+
+Update Provisioning Policy by UsageType
+
+This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+$UsageType = "CREATE" # UsageType | The type of ProvisioningPolicy usage.
+$FieldDetailsDto = Initialize-FieldDetailsDto -Name "userName" -Transform  -Attributes  -IsRequired $false -Type "string" -IsMultiValued $false
+$ProvisioningPolicyDto = Initialize-ProvisioningPolicyDto -Name "example provisioning policy for inactive identities" -Description "this provisioning policy creates access based on an identity going inactive" -UsageType "CREATE" -Fields $FieldDetailsDto # ProvisioningPolicyDto | 
+
+# Update Provisioning Policy by UsageType
+try {
+    $Result = Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $ProvisioningPolicyDto
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaProvisioningPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source ID. | 
+ **UsageType** | [**UsageType**](UsageType.md)| The type of ProvisioningPolicy usage. | 
+ **ProvisioningPolicyDto** | [**ProvisioningPolicyDto**](ProvisioningPolicyDto.md)|  | 
+
+### Return type
+
+[**ProvisioningPolicyDto**](ProvisioningPolicyDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Send-BetaSource"></a>
+# **Send-BetaSource**
+> Source Send-BetaSource<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Source] <PSCustomObject><br>
+
+Update Source (Full)
+
+This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "MyId" # String | The Source id
+$SourceOwner = Initialize-SourceOwner -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "MyName"
+$SourceCluster = Initialize-SourceCluster -Type "CLUSTER" -Id "2c9180866166b5b0016167c32ef31a66" -Name "Corporate Cluster"
+$SourceAccountCorrelationConfig = Initialize-SourceAccountCorrelationConfig -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c9180855d191c59015d28583727245a" -Name "Directory [source-62867] Account Correlation"
+$SourceAccountCorrelationRule = Initialize-SourceAccountCorrelationRule -Type "RULE" -Id "2c918085708c274401708c2a8a760001" -Name "Example Rule"
+$ManagerCorrelationMapping = Initialize-ManagerCorrelationMapping -AccountAttribute "manager" -IdentityAttribute "manager"
+$SourceManagerCorrelationRule = Initialize-SourceManagerCorrelationRule -Type "RULE" -Id "2c918085708c274401708c2a8a760001" -Name "Example Rule"
+$SourceBeforeProvisioningRule = Initialize-SourceBeforeProvisioningRule -Type "RULE" -Id "2c918085708c274401708c2a8a760001" -Name "Example Rule"
+$SourceSchemasInner = Initialize-SourceSchemasInner -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1777" -Name "MySchema"
+$SourcePasswordPoliciesInner = Initialize-SourcePasswordPoliciesInner -Type "PASSWORD_POLICY" -Id "2c91808568c529c60168cca6f90c1777" -Name "My Password Policy"
+$SourceManagementWorkgroup = Initialize-SourceManagementWorkgroup -Type "GOVERNANCE_GROUP" -Id "2c91808568c529c60168cca6f90c2222" -Name "My Management Workgroup"
+$Source = Initialize-Source -Id "2c91808568c529c60168cca6f90c1324" -Description "This is the corporate directory." -Owner $SourceOwner -Cluster $SourceCluster -AccountCorrelationConfig $SourceAccountCorrelationConfig -AccountCorrelationRule $SourceAccountCorrelationRule -ManagerCorrelationMapping $ManagerCorrelationMapping -ManagerCorrelationRule $SourceManagerCorrelationRule -BeforeProvisioningRule $SourceBeforeProvisioningRule -Schemas $SourceSchemasInner -PasswordPolicies $SourcePasswordPoliciesInner -Features "AUTHENTICATE" -Type "OpenLDAP - Direct" -Connector "active-directory" -ConnectorClass "sailpoint.connector.LDAPConnector" -ConnectorAttributes  -DeleteThreshold 10 -Authoritative $false -ManagementWorkgroup $SourceManagementWorkgroup -Healthy $true -Status "SOURCE_STATE_HEALTHY" -Since "2021-09-28T15:48:29.3801666300Z" -ConnectorId "active-directory" -ConnectorName "Active Directory" -ConnectionType "file" -ConnectorImplementstionId "delimited-file" # Source | 
+
+# Update Source (Full)
+try {
+    $Result = Send-BetaSource -Id $Id -Source $Source
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaSource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The Source id | 
+ **Source** | [**Source**](Source.md)|  | 
+
+### Return type
+
+[**Source**](Source.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Send-BetaSourceAttrSyncConfig"></a>
 # **Send-BetaSourceAttrSyncConfig**
 > AttrSyncSourceConfig Send-BetaSourceAttrSyncConfig<br>
@@ -1170,67 +1186,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaReplaceProvisioningPolicy"></a>
-# **Invoke-BetaReplaceProvisioningPolicy**
-> ProvisioningPolicyDto Invoke-BetaReplaceProvisioningPolicy<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UsageType] <PSCustomObject><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProvisioningPolicyDto] <PSCustomObject><br>
-
-Update Provisioning Policy by UsageType
-
-This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
-$UsageType = "CREATE" # UsageType | The type of ProvisioningPolicy usage.
-$FieldDetailsDto = Initialize-FieldDetailsDto -Name "userName" -Transform  -Attributes  -IsRequired $false -Type "string" -IsMultiValued $false
-$ProvisioningPolicyDto = Initialize-ProvisioningPolicyDto -Name "example provisioning policy for inactive identities" -Description "this provisioning policy creates access based on an identity going inactive" -UsageType "CREATE" -Fields $FieldDetailsDto # ProvisioningPolicyDto | 
-
-# Update Provisioning Policy by UsageType
-try {
-    $Result = Invoke-BetaReplaceProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $ProvisioningPolicyDto
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaReplaceProvisioningPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source ID. | 
- **UsageType** | [**UsageType**](UsageType.md)| The type of ProvisioningPolicy usage. | 
- **ProvisioningPolicyDto** | [**ProvisioningPolicyDto**](ProvisioningPolicyDto.md)|  | 
-
-### Return type
-
-[**ProvisioningPolicyDto**](ProvisioningPolicyDto.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-BetaReplaceSchema"></a>
-# **Invoke-BetaReplaceSchema**
-> Schema Invoke-BetaReplaceSchema<br>
+<a name="Send-BetaSourceSchema"></a>
+# **Send-BetaSourceSchema**
+> Schema Send-BetaSourceSchema<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schema] <PSCustomObject><br>
@@ -1258,9 +1216,9 @@ $Schema = Initialize-Schema -Id "2c9180835d191a86015d28455b4a2329" -Name "accoun
 
 # Update Source Schema (Full)
 try {
-    $Result = Invoke-BetaReplaceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Schema
+    $Result = Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Schema
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaReplaceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-BetaSourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1288,73 +1246,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaReplaceSource"></a>
-# **Invoke-BetaReplaceSource**
-> Source Invoke-BetaReplaceSource<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Source] <PSCustomObject><br>
-
-Update Source (Full)
-
-This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "MyId" # String | The Source id
-$SourceOwner = Initialize-SourceOwner -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "MyName"
-$SourceCluster = Initialize-SourceCluster -Type "CLUSTER" -Id "2c9180866166b5b0016167c32ef31a66" -Name "Corporate Cluster"
-$SourceAccountCorrelationConfig = Initialize-SourceAccountCorrelationConfig -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c9180855d191c59015d28583727245a" -Name "Directory [source-62867] Account Correlation"
-$SourceAccountCorrelationRule = Initialize-SourceAccountCorrelationRule -Type "RULE" -Id "2c918085708c274401708c2a8a760001" -Name "Example Rule"
-$ManagerCorrelationMapping = Initialize-ManagerCorrelationMapping -AccountAttribute "manager" -IdentityAttribute "manager"
-$SourceManagerCorrelationRule = Initialize-SourceManagerCorrelationRule -Type "RULE" -Id "2c918085708c274401708c2a8a760001" -Name "Example Rule"
-$SourceBeforeProvisioningRule = Initialize-SourceBeforeProvisioningRule -Type "RULE" -Id "2c918085708c274401708c2a8a760001" -Name "Example Rule"
-$SourceSchemasInner = Initialize-SourceSchemasInner -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1777" -Name "MySchema"
-$SourcePasswordPoliciesInner = Initialize-SourcePasswordPoliciesInner -Type "PASSWORD_POLICY" -Id "2c91808568c529c60168cca6f90c1777" -Name "My Password Policy"
-$SourceManagementWorkgroup = Initialize-SourceManagementWorkgroup -Type "GOVERNANCE_GROUP" -Id "2c91808568c529c60168cca6f90c2222" -Name "My Management Workgroup"
-$Source = Initialize-Source -Id "2c91808568c529c60168cca6f90c1324" -Description "This is the corporate directory." -Owner $SourceOwner -Cluster $SourceCluster -AccountCorrelationConfig $SourceAccountCorrelationConfig -AccountCorrelationRule $SourceAccountCorrelationRule -ManagerCorrelationMapping $ManagerCorrelationMapping -ManagerCorrelationRule $SourceManagerCorrelationRule -BeforeProvisioningRule $SourceBeforeProvisioningRule -Schemas $SourceSchemasInner -PasswordPolicies $SourcePasswordPoliciesInner -Features "AUTHENTICATE" -Type "OpenLDAP - Direct" -Connector "active-directory" -ConnectorClass "sailpoint.connector.LDAPConnector" -ConnectorAttributes  -DeleteThreshold 10 -Authoritative $false -ManagementWorkgroup $SourceManagementWorkgroup -Healthy $true -Status "SOURCE_STATE_HEALTHY" -Since "2021-09-28T15:48:29.3801666300Z" -ConnectorId "active-directory" -ConnectorName "Active Directory" -ConnectionType "file" -ConnectorImplementstionId "delimited-file" # Source | 
-
-# Update Source (Full)
-try {
-    $Result = Invoke-BetaReplaceSource -Id $Id -Source $Source
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaReplaceSource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Source id | 
- **Source** | [**Source**](Source.md)|  | 
-
-### Return type
-
-[**Source**](Source.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Sync-BetahronizeAttributesForSource"></a>
-# **Sync-BetahronizeAttributesForSource**
-> SourceSyncJob Sync-BetahronizeAttributesForSource<br>
+<a name="Sync-BetaAttributesForSource"></a>
+# **Sync-BetaAttributesForSource**
+> SourceSyncJob Sync-BetaAttributesForSource<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Synchronize single source attributes.
@@ -1375,9 +1269,9 @@ $Id = "MyId" # String | The Source id
 
 # Synchronize single source attributes.
 try {
-    $Result = Sync-BetahronizeAttributesForSource -Id $Id
+    $Result = Sync-BetaAttributesForSource -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Sync-BetahronizeAttributesForSource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Sync-BetaAttributesForSource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1403,9 +1297,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Test-BetaConfiguration"></a>
-# **Test-BetaConfiguration**
-> StatusResponse Test-BetaConfiguration<br>
+<a name="Test-BetaSourceConfiguration"></a>
+# **Test-BetaSourceConfiguration**
+> StatusResponse Test-BetaSourceConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
 Test configuration for the source connector
@@ -1426,9 +1320,9 @@ $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 
 # Test configuration for the source connector
 try {
-    $Result = Test-BetaConfiguration -SourceId $SourceId
+    $Result = Test-BetaSourceConfiguration -SourceId $SourceId
 } catch {
-    Write-Host ("Exception occurred when calling Test-BetaConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Test-BetaSourceConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1450,6 +1344,112 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Test-BetaSourceConnection"></a>
+# **Test-BetaSourceConnection**
+> StatusResponse Test-BetaSourceConnection<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+
+Check connection for the source connector.
+
+This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter. A token with ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
+
+# Check connection for the source connector.
+try {
+    $Result = Test-BetaSourceConnection -SourceId $SourceId
+} catch {
+    Write-Host ("Exception occurred when calling Test-BetaSourceConnection: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The ID of the Source. | 
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Update-BetaProvisioningPoliciesInBulk"></a>
+# **Update-BetaProvisioningPoliciesInBulk**
+> ProvisioningPolicyDto[] Update-BetaProvisioningPoliciesInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProvisioningPolicyDto] <PSCustomObject[]><br>
+
+Bulk Update Provisioning Policies
+
+This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$FieldDetailsDto = Initialize-FieldDetailsDto -Name "userName" -Transform  -Attributes  -IsRequired $false -Type "string" -IsMultiValued $false
+$ProvisioningPolicyDto = Initialize-ProvisioningPolicyDto -Name "example provisioning policy for inactive identities" -Description "this provisioning policy creates access based on an identity going inactive" -UsageType "CREATE" -Fields $FieldDetailsDto # ProvisioningPolicyDto[] | 
+
+# Bulk Update Provisioning Policies
+try {
+    $Result = Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $ProvisioningPolicyDto
+} catch {
+    Write-Host ("Exception occurred when calling Update-BetaProvisioningPoliciesInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **ProvisioningPolicyDto** | [**ProvisioningPolicyDto[]**](ProvisioningPolicyDto.md)|  | 
+
+### Return type
+
+[**ProvisioningPolicyDto[]**](ProvisioningPolicyDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1500,64 +1500,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ProvisioningPolicyDto**](ProvisioningPolicyDto.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Update-BetaSchema"></a>
-# **Update-BetaSchema**
-> Schema Update-BetaSchema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
-
-Update Source Schema (Partial)
-
-Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     ""name"": ""groups"",     ""type"": ""STRING"",     ""schema"": {         ""type"": ""CONNECTOR_SCHEMA"",         ""id"": ""2c9180887671ff8c01767b4671fc7d60"",         ""name"": ""group""     },     ""description"": ""The groups, roles etc. that reference account group objects"",     ""isMulti"": true,     ""isEntitlement"": true,     ""isGroup"": true } ``` 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
-
-# Update Source Schema (Partial)
-try {
-    $Result = Update-BetaSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $JsonPatchOperation
-} catch {
-    Write-Host ("Exception occurred when calling Update-BetaSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **SchemaId** | **String**| The Schema id. | 
- **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the schema. | 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1625,15 +1567,16 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaUploadConnectorFile"></a>
-# **Invoke-BetaUploadConnectorFile**
-> Source Invoke-BetaUploadConnectorFile<br>
+<a name="Update-BetaSourceSchema"></a>
+# **Update-BetaSourceSchema**
+> Schema Update-BetaSourceSchema<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Upload connector file to source
+Update Source Schema (Partial)
 
-This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     ""name"": ""groups"",     ""type"": ""STRING"",     ""schema"": {         ""type"": ""CONNECTOR_SCHEMA"",         ""id"": ""2c9180887671ff8c01767b4671fc7d60"",         ""name"": ""group""     },     ""description"": ""The groups, roles etc. that reference account group objects"",     ""isMulti"": true,     ""isEntitlement"": true,     ""isGroup"": true } ``` 
 
 ### Example
 ```powershell
@@ -1645,14 +1588,16 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
-$File =  # System.IO.FileInfo |  (optional)
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
+$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
 
-# Upload connector file to source
+# Update Source Schema (Partial)
 try {
-    $Result = Invoke-BetaUploadConnectorFile -SourceId $SourceId -File $File
+    $Result = Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $JsonPatchOperation
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaUploadConnectorFile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaSourceSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1661,12 +1606,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id | 
- **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+ **SourceId** | **String**| The Source id. | 
+ **SchemaId** | **String**| The Schema id. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the schema. | 
 
 ### Return type
 
-[**Source**](Source.md) (PSCustomObject)
+[**Schema**](Schema.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1674,7 +1620,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json-patch+json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1721,6 +1667,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Invoke-BetaUploadSourceConnectorFile"></a>
+# **Invoke-BetaUploadSourceConnectorFile**
+> Source Invoke-BetaUploadSourceConnectorFile<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+
+Upload connector file to source
+
+This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+$File =  # System.IO.FileInfo |  (optional)
+
+# Upload connector file to source
+try {
+    $Result = Invoke-BetaUploadSourceConnectorFile -SourceId $SourceId -File $File
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-BetaUploadSourceConnectorFile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id | 
+ **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+
+### Return type
+
+[**Source**](Source.md) (PSCustomObject)
 
 ### Authorization
 

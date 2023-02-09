@@ -14,17 +14,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSegmentsApi' {
         }
     }
 
-    Context 'Remove-BetaSegmentById' {
-        It 'Test Remove-BetaSegmentById' {
-            #$TestResult = Remove-BetaSegmentById -Id "TEST_VALUE"
+    Context 'Remove-BetaSegment' {
+        It 'Test Remove-BetaSegment' {
+            #$TestResult = Remove-BetaSegment -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaSegmentById' {
-        It 'Test Get-BetaSegmentById' {
-            #$TestResult = Get-BetaSegmentById -Id "TEST_VALUE"
+    Context 'Get-BetaSegment' {
+        It 'Test Get-BetaSegment' {
+            #$TestResult = Get-BetaSegment -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

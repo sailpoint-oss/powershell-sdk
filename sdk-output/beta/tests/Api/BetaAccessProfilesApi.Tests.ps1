@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessProfilesApi' {
-    Context 'Invoke-BetaBulkDeleteAccessProfiles' {
-        It 'Test Invoke-BetaBulkDeleteAccessProfiles' {
-            #$TestResult = Invoke-BetaBulkDeleteAccessProfiles -AccessProfileBulkDeleteRequest "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'New-BetaAccessProfile' {
         It 'Test New-BetaAccessProfile' {
             #$TestResult = New-BetaAccessProfile -AccessProfile "TEST_VALUE"
@@ -25,6 +17,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessProfilesApi' {
     Context 'Remove-BetaAccessProfile' {
         It 'Test Remove-BetaAccessProfile' {
             #$TestResult = Remove-BetaAccessProfile -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BetaAccessProfilesInBulk' {
+        It 'Test Remove-BetaAccessProfilesInBulk' {
+            #$TestResult = Remove-BetaAccessProfilesInBulk -AccessProfileBulkDeleteRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

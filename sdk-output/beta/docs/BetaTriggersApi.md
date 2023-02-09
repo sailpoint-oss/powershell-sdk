@@ -4,21 +4,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Complete-BetaInvocation**](BetaTriggersApi.md#Complete-BetaInvocation) | **POST** /trigger-invocations/{id}/complete | Complete Trigger Invocation
+[**Complete-BetaTriggerInvocation**](BetaTriggersApi.md#Complete-BetaTriggerInvocation) | **POST** /trigger-invocations/{id}/complete | Complete Trigger Invocation
 [**New-BetaSubscription**](BetaTriggersApi.md#New-BetaSubscription) | **POST** /trigger-subscriptions | Create a Subscription
 [**Remove-BetaSubscription**](BetaTriggersApi.md#Remove-BetaSubscription) | **DELETE** /trigger-subscriptions/{id} | Delete a Subscription
-[**Get-BetaInvocationStatus**](BetaTriggersApi.md#Get-BetaInvocationStatus) | **GET** /trigger-invocations/status | List Latest Invocation Statuses
 [**Get-BetaSubscriptions**](BetaTriggersApi.md#Get-BetaSubscriptions) | **GET** /trigger-subscriptions | List Subscriptions
+[**Get-BetaTriggerInvocationStatus**](BetaTriggersApi.md#Get-BetaTriggerInvocationStatus) | **GET** /trigger-invocations/status | List Latest Invocation Statuses
 [**Get-BetaTriggers**](BetaTriggersApi.md#Get-BetaTriggers) | **GET** /triggers | List Triggers
 [**Update-BetaSubscription**](BetaTriggersApi.md#Update-BetaSubscription) | **PATCH** /trigger-subscriptions/{id} | Patch a Subscription
-[**Start-BetaTestInvocation**](BetaTriggersApi.md#Start-BetaTestInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
+[**Start-BetaTestTriggerInvocation**](BetaTriggersApi.md#Start-BetaTestTriggerInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
 [**Update-BetaSubscription**](BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
-[**Confirm-BetaFilter**](BetaTriggersApi.md#Confirm-BetaFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
+[**Confirm-BetaSubscriptionFilter**](BetaTriggersApi.md#Confirm-BetaSubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
 
 
-<a name="Complete-BetaInvocation"></a>
-# **Complete-BetaInvocation**
-> void Complete-BetaInvocation<br>
+<a name="Complete-BetaTriggerInvocation"></a>
+# **Complete-BetaTriggerInvocation**
+> void Complete-BetaTriggerInvocation<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CompleteInvocation] <PSCustomObject><br>
 
@@ -41,9 +41,9 @@ $CompleteInvocation = Initialize-CompleteInvocation -Secret "0f11f2a4-7c94-4bf3-
 
 # Complete Trigger Invocation
 try {
-    $Result = Complete-BetaInvocation -Id $Id -CompleteInvocation $CompleteInvocation
+    $Result = Complete-BetaTriggerInvocation -Id $Id -CompleteInvocation $CompleteInvocation
 } catch {
-    Write-Host ("Exception occurred when calling Complete-BetaInvocation: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Complete-BetaTriggerInvocation: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -177,69 +177,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaInvocationStatus"></a>
-# **Get-BetaInvocationStatus**
-> InvocationStatus[] Get-BetaInvocationStatus<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
-
-List Latest Invocation Statuses
-
-Gets a list of latest invocation statuses. Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours. This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "triggerId eq "idn:access-request-dynamic-approver"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq* **subscriptionId**: *eq* (optional)
-$Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields:  **triggerId** **subscriptionName** **created** **completed** (optional)
-
-# List Latest Invocation Statuses
-try {
-    $Result = Get-BetaInvocationStatus -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaInvocationStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
- **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
- **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
- **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq* **subscriptionId**: *eq* | [optional] 
- **Sorters** | **String**| Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields:  **triggerId** **subscriptionName** **created** **completed** | [optional] 
-
-### Return type
-
-[**InvocationStatus[]**](InvocationStatus.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="Get-BetaSubscriptions"></a>
 # **Get-BetaSubscriptions**
 > Subscription[] Get-BetaSubscriptions<br>
@@ -291,6 +228,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Subscription[]**](Subscription.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaTriggerInvocationStatus"></a>
+# **Get-BetaTriggerInvocationStatus**
+> InvocationStatus[] Get-BetaTriggerInvocationStatus<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
+
+List Latest Invocation Statuses
+
+Gets a list of latest invocation statuses. Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours. This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Filters = "triggerId eq "idn:access-request-dynamic-approver"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq* **subscriptionId**: *eq* (optional)
+$Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields:  **triggerId** **subscriptionName** **created** **completed** (optional)
+
+# List Latest Invocation Statuses
+try {
+    $Result = Get-BetaTriggerInvocationStatus -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaTriggerInvocationStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+ **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
+ **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq* **subscriptionId**: *eq* | [optional] 
+ **Sorters** | **String**| Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields:  **triggerId** **subscriptionName** **created** **completed** | [optional] 
+
+### Return type
+
+[**InvocationStatus[]**](InvocationStatus.md) (PSCustomObject)
 
 ### Authorization
 
@@ -421,9 +421,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-BetaTestInvocation"></a>
-# **Start-BetaTestInvocation**
-> Invocation[] Start-BetaTestInvocation<br>
+<a name="Start-BetaTestTriggerInvocation"></a>
+# **Start-BetaTestTriggerInvocation**
+> Invocation[] Start-BetaTestTriggerInvocation<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TestInvocation] <PSCustomObject><br>
 
 Start a Test Invocation
@@ -444,9 +444,9 @@ $TestInvocation = Initialize-TestInvocation -TriggerId "idn:access-request-post-
 
 # Start a Test Invocation
 try {
-    $Result = Start-BetaTestInvocation -TestInvocation $TestInvocation
+    $Result = Start-BetaTestTriggerInvocation -TestInvocation $TestInvocation
 } catch {
-    Write-Host ("Exception occurred when calling Start-BetaTestInvocation: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Start-BetaTestTriggerInvocation: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -531,9 +531,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Confirm-BetaFilter"></a>
-# **Confirm-BetaFilter**
-> ValidateFilterOutputDto Confirm-BetaFilter<br>
+<a name="Confirm-BetaSubscriptionFilter"></a>
+# **Confirm-BetaSubscriptionFilter**
+> ValidateFilterOutputDto Confirm-BetaSubscriptionFilter<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ValidateFilterInputDto] <PSCustomObject><br>
 
 Validate a Subscription Filter
@@ -554,9 +554,9 @@ $ValidateFilterInputDto = Initialize-ValidateFilterInputDto -VarInput  -VarFilte
 
 # Validate a Subscription Filter
 try {
-    $Result = Confirm-BetaFilter -ValidateFilterInputDto $ValidateFilterInputDto
+    $Result = Confirm-BetaSubscriptionFilter -ValidateFilterInputDto $ValidateFilterInputDto
 } catch {
-    Write-Host ("Exception occurred when calling Confirm-BetaFilter: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Confirm-BetaSubscriptionFilter: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

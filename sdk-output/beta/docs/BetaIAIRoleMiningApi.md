@@ -5,8 +5,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaPotentialRoleProvisionRequest**](BetaIAIRoleMiningApi.md#New-BetaPotentialRoleProvisionRequest) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision | Create request to provision a potential role into an actual role.
+[**New-BetaRoleMiningSessions**](BetaIAIRoleMiningApi.md#New-BetaRoleMiningSessions) | **POST** /role-mining-sessions | Create a role mining session
 [**Invoke-BetaDownloadRoleMiningPotentialRoleZip**](BetaIAIRoleMiningApi.md#Invoke-BetaDownloadRoleMiningPotentialRoleZip) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download | Export (download) details for a potential role in a role mining session
-[**Edit-BetaEntitlementsPotentialRole**](BetaIAIRoleMiningApi.md#Edit-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 [**Export-BetaRoleMiningPotentialRole**](BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export | Export (download) details for a potential role in a role mining session
 [**Export-BetaRoleMiningPotentialRoleAsync**](BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRoleAsync) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async | Asynchronously export details for a potential role in a role mining session and upload to S3
 [**Export-BetaRoleMiningPotentialRoleStatus**](BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRoleStatus) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId} | Retrieve status of a potential role export job
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**Get-BetaRoleMiningSessions**](BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
 [**Update-BetaPotentialRole**](BetaIAIRoleMiningApi.md#Update-BetaPotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role
 [**Update-BetaRoleMiningSession**](BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
-[**Invoke-BetaRoleMiningSessions**](BetaIAIRoleMiningApi.md#Invoke-BetaRoleMiningSessions) | **POST** /role-mining-sessions | Create a role mining session
+[**Update-BetaEntitlementsPotentialRole**](BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 
 
 <a name="New-BetaPotentialRoleProvisionRequest"></a>
@@ -76,6 +76,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RoleMiningPotentialRoleSummary**](RoleMiningPotentialRoleSummary.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="New-BetaRoleMiningSessions"></a>
+# **New-BetaRoleMiningSessions**
+> RoleMiningSessionResponse New-BetaRoleMiningSessions<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleMiningSessionDto] <PSCustomObject><br>
+
+Create a role mining session
+
+This submits a create role mining session request to the role mining application.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$RoleMiningSessionScope = Initialize-RoleMiningSessionScope -IdentityIds "MyIdentityIds" -Criteria "source.name:DataScienceDataset" -AttributeFilterCriteria 
+$RoleMiningSessionStatus = Initialize-RoleMiningSessionStatus -State "CREATED"
+$EntityCreatedByDTO = Initialize-EntityCreatedByDTO -Id "2c918090761a5aac0176215c46a62d58" -DisplayName "Ashley.Pierce"
+$RoleMiningSessionDto = Initialize-RoleMiningSessionDto -Scope $RoleMiningSessionScope -PruneThreshold 5 -PrescribedPruneThreshold 10 -MinNumIdentitiesInPotentialRole 20 -PotentialRoleCount 0 -PotentialRolesReadyCount 0 -Status $RoleMiningSessionStatus -Type "SPECIALIZED" -EmailRecipientId "2c918090761a5aac0176215c46a62d58" -CreatedBy $EntityCreatedByDTO -IdentityCount 0 -Saved $true -Name "Saved RM Session - 07/10" # RoleMiningSessionDto | Role mining session parameters
+
+# Create a role mining session
+try {
+    $Result = New-BetaRoleMiningSessions -RoleMiningSessionDto $RoleMiningSessionDto
+} catch {
+    Write-Host ("Exception occurred when calling New-BetaRoleMiningSessions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RoleMiningSessionDto** | [**RoleMiningSessionDto**](RoleMiningSessionDto.md)| Role mining session parameters | 
+
+### Return type
+
+[**RoleMiningSessionResponse**](RoleMiningSessionResponse.md) (PSCustomObject)
 
 ### Authorization
 
@@ -142,63 +196,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/zip, application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Edit-BetaEntitlementsPotentialRole"></a>
-# **Edit-BetaEntitlementsPotentialRole**
-> RoleMiningPotentialRole Edit-BetaEntitlementsPotentialRole<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleMiningPotentialRoleEditEntitlements] <PSCustomObject><br>
-
-Edit entitlements for a potential role to exclude some entitlements
-
-This endpoint adds or removes entitlements from an exclusion list for a potential role.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
-$PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
-$RoleMiningPotentialRoleEditEntitlements = Initialize-RoleMiningPotentialRoleEditEntitlements -Ids "MyIds" -Exclude $false # RoleMiningPotentialRoleEditEntitlements | Role mining session parameters
-
-# Edit entitlements for a potential role to exclude some entitlements
-try {
-    $Result = Edit-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleEditEntitlements $RoleMiningPotentialRoleEditEntitlements
-} catch {
-    Write-Host ("Exception occurred when calling Edit-BetaEntitlementsPotentialRole: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SessionId** | **String**| The role mining session id | 
- **PotentialRoleId** | **String**| A potential role id in a role mining session | 
- **RoleMiningPotentialRoleEditEntitlements** | [**RoleMiningPotentialRoleEditEntitlements**](RoleMiningPotentialRoleEditEntitlements.md)| Role mining session parameters | 
-
-### Return type
-
-[**RoleMiningPotentialRole**](RoleMiningPotentialRole.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1098,14 +1095,16 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaRoleMiningSessions"></a>
-# **Invoke-BetaRoleMiningSessions**
-> RoleMiningSessionResponse Invoke-BetaRoleMiningSessions<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleMiningSessionDto] <PSCustomObject><br>
+<a name="Update-BetaEntitlementsPotentialRole"></a>
+# **Update-BetaEntitlementsPotentialRole**
+> RoleMiningPotentialRole Update-BetaEntitlementsPotentialRole<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleMiningPotentialRoleEditEntitlements] <PSCustomObject><br>
 
-Create a role mining session
+Edit entitlements for a potential role to exclude some entitlements
 
-This submits a create role mining session request to the role mining application.
+This endpoint adds or removes entitlements from an exclusion list for a potential role.
 
 ### Example
 ```powershell
@@ -1117,16 +1116,15 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$RoleMiningSessionScope = Initialize-RoleMiningSessionScope -IdentityIds "MyIdentityIds" -Criteria "source.name:DataScienceDataset" -AttributeFilterCriteria 
-$RoleMiningSessionStatus = Initialize-RoleMiningSessionStatus -State "CREATED"
-$EntityCreatedByDTO = Initialize-EntityCreatedByDTO -Id "2c918090761a5aac0176215c46a62d58" -DisplayName "Ashley.Pierce"
-$RoleMiningSessionDto = Initialize-RoleMiningSessionDto -Scope $RoleMiningSessionScope -PruneThreshold 5 -PrescribedPruneThreshold 10 -MinNumIdentitiesInPotentialRole 20 -PotentialRoleCount 0 -PotentialRolesReadyCount 0 -Status $RoleMiningSessionStatus -Type "SPECIALIZED" -EmailRecipientId "2c918090761a5aac0176215c46a62d58" -CreatedBy $EntityCreatedByDTO -IdentityCount 0 -Saved $true -Name "Saved RM Session - 07/10" # RoleMiningSessionDto | Role mining session parameters
+$SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
+$PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
+$RoleMiningPotentialRoleEditEntitlements = Initialize-RoleMiningPotentialRoleEditEntitlements -Ids "MyIds" -Exclude $false # RoleMiningPotentialRoleEditEntitlements | Role mining session parameters
 
-# Create a role mining session
+# Edit entitlements for a potential role to exclude some entitlements
 try {
-    $Result = Invoke-BetaRoleMiningSessions -RoleMiningSessionDto $RoleMiningSessionDto
+    $Result = Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleEditEntitlements $RoleMiningPotentialRoleEditEntitlements
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaRoleMiningSessions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-BetaEntitlementsPotentialRole: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -1135,11 +1133,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RoleMiningSessionDto** | [**RoleMiningSessionDto**](RoleMiningSessionDto.md)| Role mining session parameters | 
+ **SessionId** | **String**| The role mining session id | 
+ **PotentialRoleId** | **String**| A potential role id in a role mining session | 
+ **RoleMiningPotentialRoleEditEntitlements** | [**RoleMiningPotentialRoleEditEntitlements**](RoleMiningPotentialRoleEditEntitlements.md)| Role mining session parameters | 
 
 ### Return type
 
-[**RoleMiningSessionResponse**](RoleMiningSessionResponse.md) (PSCustomObject)
+[**RoleMiningPotentialRole**](RoleMiningPotentialRole.md) (PSCustomObject)
 
 ### Authorization
 

@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAICommonAccessApi' {
-    Context 'Invoke-BetaCommonAccessBulkUpdateStatus' {
-        It 'Test Invoke-BetaCommonAccessBulkUpdateStatus' {
-            #$TestResult = Invoke-BetaCommonAccessBulkUpdateStatus -CommonAccessIDStatus "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'New-BetaCommonAccess' {
         It 'Test New-BetaCommonAccess' {
             #$TestResult = New-BetaCommonAccess -CommonAccessItemRequest "TEST_VALUE"
@@ -25,6 +17,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAICommonAccessApi' {
     Context 'Get-BetaCommonAccess' {
         It 'Test Get-BetaCommonAccess' {
             #$TestResult = Get-BetaCommonAccess -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaCommonAccessStatusInBulk' {
+        It 'Test Update-BetaCommonAccessStatusInBulk' {
+            #$TestResult = Update-BetaCommonAccessStatusInBulk -CommonAccessIDStatus "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

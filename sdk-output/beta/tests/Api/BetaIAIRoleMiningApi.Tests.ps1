@@ -14,17 +14,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIRoleMiningApi' {
         }
     }
 
-    Context 'Invoke-BetaDownloadRoleMiningPotentialRoleZip' {
-        It 'Test Invoke-BetaDownloadRoleMiningPotentialRoleZip' {
-            #$TestResult = Invoke-BetaDownloadRoleMiningPotentialRoleZip -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -ExportId "TEST_VALUE"
+    Context 'New-BetaRoleMiningSessions' {
+        It 'Test New-BetaRoleMiningSessions' {
+            #$TestResult = New-BetaRoleMiningSessions -RoleMiningSessionDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Edit-BetaEntitlementsPotentialRole' {
-        It 'Test Edit-BetaEntitlementsPotentialRole' {
-            #$TestResult = Edit-BetaEntitlementsPotentialRole -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -RoleMiningPotentialRoleEditEntitlements "TEST_VALUE"
+    Context 'Invoke-BetaDownloadRoleMiningPotentialRoleZip' {
+        It 'Test Invoke-BetaDownloadRoleMiningPotentialRoleZip' {
+            #$TestResult = Invoke-BetaDownloadRoleMiningPotentialRoleZip -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -ExportId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -150,9 +150,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIRoleMiningApi' {
         }
     }
 
-    Context 'Invoke-BetaRoleMiningSessions' {
-        It 'Test Invoke-BetaRoleMiningSessions' {
-            #$TestResult = Invoke-BetaRoleMiningSessions -RoleMiningSessionDto "TEST_VALUE"
+    Context 'Update-BetaEntitlementsPotentialRole' {
+        It 'Test Update-BetaEntitlementsPotentialRole' {
+            #$TestResult = Update-BetaEntitlementsPotentialRole -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -RoleMiningPotentialRoleEditEntitlements "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

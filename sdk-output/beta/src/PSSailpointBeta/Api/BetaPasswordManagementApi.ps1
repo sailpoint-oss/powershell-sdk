@@ -112,7 +112,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 PasswordStatus
 #>
-function Get-BetaPasswordChangeStatus {
+function Get-BetaIdentityPasswordChangeStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -123,7 +123,7 @@ function Get-BetaPasswordChangeStatus {
     )
 
     Process {
-        'Calling method: Get-BetaPasswordChangeStatus' | Write-Debug
+        'Calling method: Get-BetaIdentityPasswordChangeStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -141,7 +141,7 @@ function Get-BetaPasswordChangeStatus {
 
         $LocalVarUri = '/password-change-status/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getPasswordChangeStatus."
+            throw "Error! The required parameter `Id` missing when calling getIdentityPasswordChangeStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -274,7 +274,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 PasswordChangeResponse
 #>
-function Set-BetaPassword {
+function Set-BetaIdentityPassword {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -285,7 +285,7 @@ function Set-BetaPassword {
     )
 
     Process {
-        'Calling method: Set-BetaPassword' | Write-Debug
+        'Calling method: Set-BetaIdentityPassword' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -307,7 +307,7 @@ function Set-BetaPassword {
         $LocalVarUri = '/set-password'
 
         if (!$PasswordChangeRequest) {
-            throw "Error! The required parameter `PasswordChangeRequest` missing when calling setPassword."
+            throw "Error! The required parameter `PasswordChangeRequest` missing when calling setIdentityPassword."
         }
 
         $LocalVarBodyParameter = $PasswordChangeRequest | ForEach-Object {

@@ -6,33 +6,9 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
-    Context 'Invoke-BetaBulkUpdateProvisioningPolicies' {
-        It 'Test Invoke-BetaBulkUpdateProvisioningPolicies' {
-            #$TestResult = Invoke-BetaBulkUpdateProvisioningPolicies -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-BetaCheckConnection' {
-        It 'Test Invoke-BetaCheckConnection' {
-            #$TestResult = Invoke-BetaCheckConnection -SourceId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'New-BetaProvisioningPolicy' {
         It 'Test New-BetaProvisioningPolicy' {
             #$TestResult = New-BetaProvisioningPolicy -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'New-BetaSchema' {
-        It 'Test New-BetaSchema' {
-            #$TestResult = New-BetaSchema -SourceId "TEST_VALUE" -Schema "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -46,6 +22,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'New-BetaSourceSchema' {
+        It 'Test New-BetaSourceSchema' {
+            #$TestResult = New-BetaSourceSchema -SourceId "TEST_VALUE" -Schema "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-BetaProvisioningPolicy' {
         It 'Test Remove-BetaProvisioningPolicy' {
             #$TestResult = Remove-BetaProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
@@ -54,17 +38,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
-    Context 'Remove-BetaSchema' {
-        It 'Test Remove-BetaSchema' {
-            #$TestResult = Remove-BetaSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
+    Context 'Remove-BetaSource' {
+        It 'Test Remove-BetaSource' {
+            #$TestResult = Remove-BetaSource -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Remove-BetaSource' {
-        It 'Test Remove-BetaSource' {
-            #$TestResult = Remove-BetaSource -Id "TEST_VALUE"
+    Context 'Remove-BetaSourceSchema' {
+        It 'Test Remove-BetaSourceSchema' {
+            #$TestResult = Remove-BetaSourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -94,14 +78,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
-    Context 'Get-BetaSchema' {
-        It 'Test Get-BetaSchema' {
-            #$TestResult = Get-BetaSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaSource' {
         It 'Test Get-BetaSource' {
             #$TestResult = Get-BetaSource -Id "TEST_VALUE"
@@ -126,6 +102,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'Get-BetaSourceSchema' {
+        It 'Test Get-BetaSourceSchema' {
+            #$TestResult = Get-BetaSourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaProvisioningPolicies' {
         It 'Test Get-BetaProvisioningPolicies' {
             #$TestResult = Get-BetaProvisioningPolicies -SourceId "TEST_VALUE"
@@ -134,9 +118,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
-    Context 'Get-BetaSchemas' {
-        It 'Test Get-BetaSchemas' {
-            #$TestResult = Get-BetaSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
+    Context 'Get-BetaSourceSchemas' {
+        It 'Test Get-BetaSourceSchemas' {
+            #$TestResult = Get-BetaSourceSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -166,6 +150,22 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'Send-BetaProvisioningPolicy' {
+        It 'Test Send-BetaProvisioningPolicy' {
+            #$TestResult = Send-BetaProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-BetaSource' {
+        It 'Test Send-BetaSource' {
+            #$TestResult = Send-BetaSource -Id "TEST_VALUE" -Source "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Send-BetaSourceAttrSyncConfig' {
         It 'Test Send-BetaSourceAttrSyncConfig' {
             #$TestResult = Send-BetaSourceAttrSyncConfig -Id "TEST_VALUE" -AttrSyncSourceConfig "TEST_VALUE"
@@ -174,41 +174,41 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
-    Context 'Invoke-BetaReplaceProvisioningPolicy' {
-        It 'Test Invoke-BetaReplaceProvisioningPolicy' {
-            #$TestResult = Invoke-BetaReplaceProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
+    Context 'Send-BetaSourceSchema' {
+        It 'Test Send-BetaSourceSchema' {
+            #$TestResult = Send-BetaSourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -Schema "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaReplaceSchema' {
-        It 'Test Invoke-BetaReplaceSchema' {
-            #$TestResult = Invoke-BetaReplaceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -Schema "TEST_VALUE"
+    Context 'Sync-BetaAttributesForSource' {
+        It 'Test Sync-BetaAttributesForSource' {
+            #$TestResult = Sync-BetaAttributesForSource -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaReplaceSource' {
-        It 'Test Invoke-BetaReplaceSource' {
-            #$TestResult = Invoke-BetaReplaceSource -Id "TEST_VALUE" -Source "TEST_VALUE"
+    Context 'Test-BetaSourceConfiguration' {
+        It 'Test Test-BetaSourceConfiguration' {
+            #$TestResult = Test-BetaSourceConfiguration -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Sync-BetahronizeAttributesForSource' {
-        It 'Test Sync-BetahronizeAttributesForSource' {
-            #$TestResult = Sync-BetahronizeAttributesForSource -Id "TEST_VALUE"
+    Context 'Test-BetaSourceConnection' {
+        It 'Test Test-BetaSourceConnection' {
+            #$TestResult = Test-BetaSourceConnection -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Test-BetaConfiguration' {
-        It 'Test Test-BetaConfiguration' {
-            #$TestResult = Test-BetaConfiguration -SourceId "TEST_VALUE"
+    Context 'Update-BetaProvisioningPoliciesInBulk' {
+        It 'Test Update-BetaProvisioningPoliciesInBulk' {
+            #$TestResult = Update-BetaProvisioningPoliciesInBulk -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -222,14 +222,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
-    Context 'Update-BetaSchema' {
-        It 'Test Update-BetaSchema' {
-            #$TestResult = Update-BetaSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Update-BetaSource' {
         It 'Test Update-BetaSource' {
             #$TestResult = Update-BetaSource -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
@@ -238,9 +230,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
-    Context 'Invoke-BetaUploadConnectorFile' {
-        It 'Test Invoke-BetaUploadConnectorFile' {
-            #$TestResult = Invoke-BetaUploadConnectorFile -SourceId "TEST_VALUE" -File "TEST_VALUE"
+    Context 'Update-BetaSourceSchema' {
+        It 'Test Update-BetaSourceSchema' {
+            #$TestResult = Update-BetaSourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -249,6 +241,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
     Context 'Invoke-BetaUploadSourceAccountsSchema' {
         It 'Test Invoke-BetaUploadSourceAccountsSchema' {
             #$TestResult = Invoke-BetaUploadSourceAccountsSchema -Id "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-BetaUploadSourceConnectorFile' {
+        It 'Test Invoke-BetaUploadSourceConnectorFile' {
+            #$TestResult = Invoke-BetaUploadSourceConnectorFile -SourceId "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

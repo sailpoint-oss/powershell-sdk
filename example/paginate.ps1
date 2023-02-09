@@ -22,7 +22,7 @@ $Parameters = @{
 # Accounts List
 try {
 
-    Paginate -Function "Search-Post" -Increment 5 -Limit 5 -initialOffset 0 -Parameters $Parameters
+    Paginate -Function "Search-Post" -Increment 5 -Limit 5 -InitialOffset 0 -Parameters $Parameters
 
 } catch {
     Write-Host $_

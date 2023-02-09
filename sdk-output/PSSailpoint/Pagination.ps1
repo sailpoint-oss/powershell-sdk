@@ -4,7 +4,7 @@ function Paginate {
     Param(
         [Parameter(Position = 0, Mandatory = $true)]
         [string]$Function,
-        [System.Nullable[Int32]]$initialOffset,
+        [System.Nullable[Int32]]$InitialOffset,
         [System.Nullable[Int32]]$Increment,
         [System.Nullable[Int32]]$Limit,
         [hashtable]$Parameters
@@ -15,8 +15,8 @@ function Paginate {
     
     $Results = $null;
 
-    if($null -eq $initialOffset) {
-        $initialOffset = 0
+    if($null -eq $InitialOffset) {
+        $InitialOffset = 0
     }
 
     if($null -eq $Limit) {
@@ -28,10 +28,10 @@ function Paginate {
     }
 
     try {
-        while($initialOffset -lt $Limit) {
-            $Command = "$Function -Limit $Increment -Offset $initialOffset @Parameters"
+        while($InitialOffset -lt $Limit) {
+            $Command = "$Function -Limit $Increment -Offset $InitialOffset @Parameters"
             $Results += Invoke-Expression $Command
-            $initialOffset += $Increment;
+            $InitialOffset += $Increment;
         }
 
         return $Results

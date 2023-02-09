@@ -13,16 +13,16 @@ $JSON = @"
 	}
 "@
 
-$Search1 = ConvertFrom-JsonToSearch1 -Json $JSON
+$Search = ConvertFrom-JsonToSearch -Json $JSON
 
 $Parameters = @{
-    "Search1" = $Search1
+    "Search" = $Search
 }
 
 # Accounts List
 try {
 
-    Paginate -Function "Search-Post" -Increment 5 -Limit 5 -Offset 0 -Parameters $Parameters
+    Paginate -Function "Search-Post" -Increment 5 -Limit 5 -initialOffset 0 -Parameters $Parameters
 
 } catch {
     Write-Host $_

@@ -5,8 +5,8 @@ $Filters = 'sourceId eq "f4e73766efdf4dc6acdeed179606d694"' # String | Filter re
 
 # Accounts List
 try {
-
-    Invoke-ListAccounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
+    
+    Get-Accounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 
 } catch {
     Write-Host $_

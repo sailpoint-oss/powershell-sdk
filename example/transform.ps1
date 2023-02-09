@@ -1,16 +1,20 @@
 # Create transform
-$Transform = @{
-    "name" = "New Transform"
-    "type" = "lookup"
-    "attributes" = @{
-        "table" = @{
-            "USA" = "Americas"
-            "FRA" = "EMEA"
-            "AUS" = "APAC"
-            "default" = "Unknown Region"
+$JSON = @"
+{
+    "name": "New Transform",
+    "type": "lookup",
+    "attributes" : {
+        "table" : {
+            "USA": "Americas",
+            "FRA": "EMEA",
+            "AUS": "APAC",
+            "default": "Unknown Region"
         }
     }
 }
+"@
+
+$Transform = ConvertFrom-JsonToTransform -Json $JSON
 
  try {
     New-Transform -Transform $Transform

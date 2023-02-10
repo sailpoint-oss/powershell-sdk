@@ -5,27 +5,25 @@ $JSON = @"
 		"identities"
 	],
 	"query": {
-		"query": "\"philip.ellis\"",
+		"query": "*",
 		"fields": [
 		"name"
 		]
-	}
+	},
+	"sort": [
+		"-displayName"
+	]
 	}
 "@
 
 $Search = ConvertFrom-JsonToSearch -Json $JSON
 
-$Parameters = @{
-    "Search" = $Search
-}
-
-# Accounts List
 try {
 
-    Paginate -Function "Search-Post" -Increment 5 -Limit 5 -InitialOffset 0 -Parameters $Parameters
+    Paginate-Search -Increment 50 -Limit 10000 -Search $Search
 
 } catch {
     Write-Host $_
-    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Search-Post")
+    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Paginate-Search")
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }

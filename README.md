@@ -113,3 +113,38 @@ try {
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
+
+---
+
+### Get a list of Identities using search with pagination
+
+```powershell
+$JSON = @"
+{
+	"indices": [
+		"identities"
+	],
+	"query": {
+		"query": "*",
+		"fields": [
+		"name"
+		]
+	},
+	"sort": [
+		"-displayName"
+	]
+	}
+"@
+
+$Search = ConvertFrom-JsonToSearch -Json $JSON
+
+try {
+
+    Paginate-Search -Increment 50 -Limit 10000 -Search $Search
+
+} catch {
+    Write-Host $_
+    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Paginate-Search")
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```

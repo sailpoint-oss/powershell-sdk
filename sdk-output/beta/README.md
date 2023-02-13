@@ -77,7 +77,11 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**New-BetaAccount**](docs/BetaAccountsApi.md#New-BetaAccount) | **POST** /accounts | Create Account
 *BetaAccountsApi* | [**Remove-BetaAccount**](docs/BetaAccountsApi.md#Remove-BetaAccount) | **DELETE** /accounts/{id} | Delete Account
 *BetaAccountsApi* | [**Disable-BetaAccount**](docs/BetaAccountsApi.md#Disable-BetaAccount) | **POST** /accounts/{id}/disable | Disable Account
+*BetaAccountsApi* | [**Disable-BetaAccountForIdentity**](docs/BetaAccountsApi.md#Disable-BetaAccountForIdentity) | **POST** /identities-accounts/{id}/disable | Disable IDN Account for Identity
+*BetaAccountsApi* | [**Disable-BetaAccountsForIdentities**](docs/BetaAccountsApi.md#Disable-BetaAccountsForIdentities) | **POST** /identities-accounts/disable | Disable IDN Accounts for Identities
 *BetaAccountsApi* | [**Enable-BetaAccount**](docs/BetaAccountsApi.md#Enable-BetaAccount) | **POST** /accounts/{id}/enable | Enable Account
+*BetaAccountsApi* | [**Enable-BetaAccountForIdentity**](docs/BetaAccountsApi.md#Enable-BetaAccountForIdentity) | **POST** /identities-accounts/{id}/enable | Enable IDN Account for Identity
+*BetaAccountsApi* | [**Enable-BetaAccountsForIdentities**](docs/BetaAccountsApi.md#Enable-BetaAccountsForIdentities) | **POST** /identities-accounts/enable | Enable IDN Accounts for Identities
 *BetaAccountsApi* | [**Get-BetaAccount**](docs/BetaAccountsApi.md#Get-BetaAccount) | **GET** /accounts/{id} | Account Details
 *BetaAccountsApi* | [**Get-BetaAccountEntitlements**](docs/BetaAccountsApi.md#Get-BetaAccountEntitlements) | **GET** /accounts/{id}/entitlements | Account Entitlements
 *BetaAccountsApi* | [**Get-BetaAccounts**](docs/BetaAccountsApi.md#Get-BetaAccounts) | **GET** /accounts | Accounts List
@@ -517,6 +521,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.BaseReferenceDto1](docs/BaseReferenceDto1.md)
  - [PSSailpointBeta/Model.BasicAuthConfig](docs/BasicAuthConfig.md)
  - [PSSailpointBeta/Model.BearerTokenAuthConfig](docs/BearerTokenAuthConfig.md)
+ - [PSSailpointBeta/Model.BulkIdentitiesAccountsResponse](docs/BulkIdentitiesAccountsResponse.md)
  - [PSSailpointBeta/Model.BulkTaggedObject](docs/BulkTaggedObject.md)
  - [PSSailpointBeta/Model.Campaign](docs/Campaign.md)
  - [PSSailpointBeta/Model.CampaignActivated](docs/CampaignActivated.md)
@@ -631,6 +636,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.HttpAuthenticationType](docs/HttpAuthenticationType.md)
  - [PSSailpointBeta/Model.HttpConfig](docs/HttpConfig.md)
  - [PSSailpointBeta/Model.HttpDispatchMode](docs/HttpDispatchMode.md)
+ - [PSSailpointBeta/Model.IdentitiesAccountsBulkRequest](docs/IdentitiesAccountsBulkRequest.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig](docs/IdentityAttributeConfig.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig1](docs/IdentityAttributeConfig1.md)
  - [PSSailpointBeta/Model.IdentityAttributePreview](docs/IdentityAttributePreview.md)

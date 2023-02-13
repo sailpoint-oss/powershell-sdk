@@ -30,9 +30,41 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccountsApi' {
         }
     }
 
+    Context 'Disable-BetaAccountForIdentity' {
+        It 'Test Disable-BetaAccountForIdentity' {
+            #$TestResult = Disable-BetaAccountForIdentity -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Disable-BetaAccountsForIdentities' {
+        It 'Test Disable-BetaAccountsForIdentities' {
+            #$TestResult = Disable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Enable-BetaAccount' {
         It 'Test Enable-BetaAccount' {
             #$TestResult = Enable-BetaAccount -Id "TEST_VALUE" -AccountToggleRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Enable-BetaAccountForIdentity' {
+        It 'Test Enable-BetaAccountForIdentity' {
+            #$TestResult = Enable-BetaAccountForIdentity -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Enable-BetaAccountsForIdentities' {
+        It 'Test Enable-BetaAccountsForIdentities' {
+            #$TestResult = Enable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

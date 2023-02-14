@@ -65,6 +65,10 @@ function Get-DefaultConfiguration {
         $Configuration["Token"] = ""
     }
 
+    if (!$Configuration.containsKey("TokenExpiration")) {
+        $Configuration["TokenExpiration"] = ""
+    }
+
     if (!$Configuration.containsKey("SkipCertificateCheck")) {
         $Configuration["SkipCertificateCheck"] = $false
     }
@@ -140,9 +144,11 @@ function Set-DefaultConfiguration {
     Param(
         [string]$BaseUrl,
         [string]$Token,
+        [AllowNull()]
+        [Nullable[DateTime]]$TokenExpiration,
         [string]$TokenUrl,
         [string]$ClientId,
-        [string]$CleintSecret,
+        [string]$ClientSecret,
         [System.Object]$Proxy,
         [switch]$PassThru
     )
@@ -160,6 +166,10 @@ function Set-DefaultConfiguration {
 
         If ($Token) {
             $Script:Configuration['Token'] = $Token
+        }
+
+        If ($TokenExpiration) {
+            $Script:Configuration['TokenExpiration'] = $TokenExpiration
         }
 
         If ($TokenUrl) {
@@ -189,3 +199,92 @@ function Set-DefaultConfiguration {
     }
 }
 
+function Get-AccessToken {
+    Write-Debug "Getting Access Token"
+
+    if ($null -eq $Script:Configuration["ClientId"] -or $null -eq $Script:Configuration["ClientSecret"] -or $null -eq $Script:Configuration["TokenUrl"]) {
+        throw "ClientId, ClientSecret or TokenUrl Missing. Please provide values in the environment or in ~/.sailpoint/config.yaml"
+    } else {
+        Write-Debug $Script:Configuration["TokenUrl"]
+        Write-Debug $Script:Configuration["ClientId"]
+        Write-Debug $Script:Configuration["ClientSecret"]
+
+        if ("" -eq $Script:Configuration['Token']){    
+            $HttpValues = [System.Web.HttpUtility]::ParseQueryString([String]::Empty)
+            $HttpValues.Add("grant_type","client_credentials")
+            $HttpValues.Add("client_id", $Script:Configuration["ClientId"])
+            $HttpValues.Add("client_secret",$Script:Configuration["ClientSecret"])
+        
+            # Build the request and load it with the query string.
+            $UriBuilder = [System.UriBuilder]($Script:Configuration["TokenUrl"])
+            $UriBuilder.Query = $HttpValues.ToString()
+        
+            Write-Debug $UriBuilder.Uri
+        
+            try {
+                $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
+                                              -Method "POST" `
+                                              -ErrorAction Stop `
+                                              -UseBasicParsing                
+
+                if ($Response.statuscode -eq '200'){
+                    $Data = ConvertFrom-Json $Response.Content
+                    $Token = $Data.access_token
+                    $TokenExpiration = (Get-Date).AddSeconds($Data.expires_in)
+                    Set-DefaultConfiguration -Token $Token -TokenExpiration $TokenExpiration
+                    return $Token
+                } 
+
+            } catch {
+                return $null
+                Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+                Write-Debug ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+            }
+        } else {
+            if ($null -ne $Script:Configuration["TokenExpiration"]) {
+                # Check Token Expiration
+                $TokenExp = $Script:Configuration["TokenExpiration"]
+                Write-Debug "Token Exp: $TokenExp"
+                if ((Get-Date) -gt $Script:Configuration["TokenExpiration"]) {
+                    Write-Debug "Token is expired, reset token and expiration"
+                    $HttpValues = [System.Web.HttpUtility]::ParseQueryString([String]::Empty)
+                    $HttpValues.Add("grant_type","client_credentials")
+                    $HttpValues.Add("client_id", $Script:Configuration["ClientId"])
+                    $HttpValues.Add("client_secret",$Script:Configuration["ClientSecret"])
+                
+                    # Build the request and load it with the query string.
+                    $UriBuilder = [System.UriBuilder]($Script:Configuration["TokenUrl"])
+                    $UriBuilder.Query = $HttpValues.ToString()
+                
+                    Write-Debug $UriBuilder.Uri
+                
+                    try {
+                        $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
+                                                      -Method "POST" `
+                                                      -ErrorAction Stop `
+                                                      -UseBasicParsing                
+                    
+                        if ($Response.statuscode -eq '200'){
+                            $Data = ConvertFrom-Json $Response.Content
+                            $Token = $Data.access_token
+                            $TokenExpiration = (Get-Date).AddSeconds($Data.expires_in)
+                            Set-DefaultConfiguration -Token $Token -TokenExpiration $TokenExpiration
+                            return $Token
+                        } 
+                    
+                    } catch {
+                        return $null
+                        Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+                        Write-Debug ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+                    }
+                } else {
+                    Write-Debug "Token is valid"
+                    return $Script:Configuration["Token"]
+                }
+
+            } else {
+                return $Script:Configuration["Token"]
+            }
+        }
+    }
+}

@@ -7,7 +7,11 @@ Method | HTTP request | Description
 [**New-BetaAccount**](BetaAccountsApi.md#New-BetaAccount) | **POST** /accounts | Create Account
 [**Remove-BetaAccount**](BetaAccountsApi.md#Remove-BetaAccount) | **DELETE** /accounts/{id} | Delete Account
 [**Disable-BetaAccount**](BetaAccountsApi.md#Disable-BetaAccount) | **POST** /accounts/{id}/disable | Disable Account
+[**Disable-BetaAccountForIdentity**](BetaAccountsApi.md#Disable-BetaAccountForIdentity) | **POST** /identities-accounts/{id}/disable | Disable IDN Account for Identity
+[**Disable-BetaAccountsForIdentities**](BetaAccountsApi.md#Disable-BetaAccountsForIdentities) | **POST** /identities-accounts/disable | Disable IDN Accounts for Identities
 [**Enable-BetaAccount**](BetaAccountsApi.md#Enable-BetaAccount) | **POST** /accounts/{id}/enable | Enable Account
+[**Enable-BetaAccountForIdentity**](BetaAccountsApi.md#Enable-BetaAccountForIdentity) | **POST** /identities-accounts/{id}/enable | Enable IDN Account for Identity
+[**Enable-BetaAccountsForIdentities**](BetaAccountsApi.md#Enable-BetaAccountsForIdentities) | **POST** /identities-accounts/enable | Enable IDN Accounts for Identities
 [**Get-BetaAccount**](BetaAccountsApi.md#Get-BetaAccount) | **GET** /accounts/{id} | Account Details
 [**Get-BetaAccountEntitlements**](BetaAccountsApi.md#Get-BetaAccountEntitlements) | **GET** /accounts/{id}/entitlements | Account Entitlements
 [**Get-BetaAccounts**](BetaAccountsApi.md#Get-BetaAccounts) | **GET** /accounts | Accounts List
@@ -173,6 +177,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Disable-BetaAccountForIdentity"></a>
+# **Disable-BetaAccountForIdentity**
+> SystemCollectionsHashtable Disable-BetaAccountForIdentity<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Disable IDN Account for Identity
+
+This API submits a task to disable IDN account for a single identity.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c91808384203c2d018437e631158309" # String | The identity id.
+
+# Disable IDN Account for Identity
+try {
+    $Result = Disable-BetaAccountForIdentity -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Disable-BetaAccountForIdentity: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The identity id. | 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Disable-BetaAccountsForIdentities"></a>
+# **Disable-BetaAccountsForIdentities**
+> BulkIdentitiesAccountsResponse[] Disable-BetaAccountsForIdentities<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentitiesAccountsBulkRequest] <PSCustomObject><br>
+
+Disable IDN Accounts for Identities
+
+This API submits tasks to disable IDN account for each identity provided in the request body.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$IdentitiesAccountsBulkRequest = Initialize-IdentitiesAccountsBulkRequest -IdentityIds "MyIdentityIds" # IdentitiesAccountsBulkRequest | 
+
+# Disable IDN Accounts for Identities
+try {
+    $Result = Disable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest $IdentitiesAccountsBulkRequest
+} catch {
+    Write-Host ("Exception occurred when calling Disable-BetaAccountsForIdentities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentitiesAccountsBulkRequest** | [**IdentitiesAccountsBulkRequest**](IdentitiesAccountsBulkRequest.md)|  | 
+
+### Return type
+
+[**BulkIdentitiesAccountsResponse[]**](BulkIdentitiesAccountsResponse.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Enable-BetaAccount"></a>
 # **Enable-BetaAccount**
 > AccountsAsyncResult Enable-BetaAccount<br>
@@ -215,6 +321,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AccountsAsyncResult**](AccountsAsyncResult.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Enable-BetaAccountForIdentity"></a>
+# **Enable-BetaAccountForIdentity**
+> SystemCollectionsHashtable Enable-BetaAccountForIdentity<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Enable IDN Account for Identity
+
+This API submits a task to enable IDN account for a single identity.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c91808384203c2d018437e631158309" # String | The identity id.
+
+# Enable IDN Account for Identity
+try {
+    $Result = Enable-BetaAccountForIdentity -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Enable-BetaAccountForIdentity: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The identity id. | 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Enable-BetaAccountsForIdentities"></a>
+# **Enable-BetaAccountsForIdentities**
+> BulkIdentitiesAccountsResponse[] Enable-BetaAccountsForIdentities<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentitiesAccountsBulkRequest] <PSCustomObject><br>
+
+Enable IDN Accounts for Identities
+
+This API submits tasks to enable IDN account for each identity provided in the request body.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$IdentitiesAccountsBulkRequest = Initialize-IdentitiesAccountsBulkRequest -IdentityIds "MyIdentityIds" # IdentitiesAccountsBulkRequest | 
+
+# Enable IDN Accounts for Identities
+try {
+    $Result = Enable-BetaAccountsForIdentities -IdentitiesAccountsBulkRequest $IdentitiesAccountsBulkRequest
+} catch {
+    Write-Host ("Exception occurred when calling Enable-BetaAccountsForIdentities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentitiesAccountsBulkRequest** | [**IdentitiesAccountsBulkRequest**](IdentitiesAccountsBulkRequest.md)|  | 
+
+### Return type
+
+[**BulkIdentitiesAccountsResponse[]**](BulkIdentitiesAccountsResponse.md) (PSCustomObject)
 
 ### Authorization
 

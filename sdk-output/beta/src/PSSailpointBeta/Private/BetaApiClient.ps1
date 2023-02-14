@@ -64,22 +64,12 @@ function Invoke-BetaApiClient {
         $HeaderParameters['Accept'] = $Accept
     }
 
-    if("" -eq $Configuration["Token"] -and $null -ne $Configuration["TokenUrl"] -and $null -ne $Configuration["ClientId"] -and $null -ne $Configuration["ClientSecret"]) {
-        $Result = GetAccessToken -TokenUrl $Configuration["TokenUrl"] -ClientId $Configuration["ClientId"] -ClientSecret $Configuration["ClientSecret"]
-        
-        if ($Result.statuscode -eq '200') {
-            $Data = ConvertFrom-Json $Result.Content
-            $Token = $Data.access_token
-            Set-DefaultConfiguration -Token $Token
-            $HeaderParameters['Authorization'] = "Bearer $Token"
-        }
-    } else {
-        if ($null -eq $Configuration["ClientId"] -and $null -eq $Configuration["ClientSecret"] -and $null -eq $Configuration["TokenUrl"]) {
-            Write-Host "ClientId, ClientSecret or TokenUrl Missing. Please provide values in the environment or in ~/.sailpoint/config.yaml" -ForegroundColor Red
-        } else {
-            $Token = $Configuration["Token"]
-            $HeaderParameters['Authorization'] = "Bearer $Token"
-        }
+    try {
+        $Token = Get-AccessToken
+        $HeaderParameters['Authorization'] = "Bearer $Token"
+    } catch {
+        Write-Host $_ -ForegroundColor Red
+        break
     }
 
     # Add Custom Header
@@ -243,44 +233,6 @@ function IsJsonMIME {
         return $true
     } else {
         return $false
-    }
-}
-
-function GetAccessToken {
-    Param(
-        [Parameter(Mandatory)]
-        [string]$TokenUrl,
-        [Parameter(Mandatory)]
-        [string]$ClientId,
-        [Parameter(Mandatory)]
-        [string]$ClientSecret
-    )
-
-    Write-Debug "Getting Access Token"
-    Write-Debug $TokenUrl
-    Write-Debug $ClientId
-    Write-Debug $ClientSecret
-
-    $HttpValues = [System.Web.HttpUtility]::ParseQueryString([String]::Empty)
-    $HttpValues.Add("grant_type","client_credentials")
-    $HttpValues.Add("client_id", $ClientId)
-    $HttpValues.Add("client_secret",$ClientSecret)
-
-    # Build the request and load it with the query string.
-    $UriBuilder = [System.UriBuilder]($TokenUrl)
-    $UriBuilder.Query = $HttpValues.ToString()
-
-    Write-Debug $UriBuilder.Uri
-
-    try {
-        $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
-                                      -Method "POST" `
-                                      -ErrorAction Stop `
-                                      -UseBasicParsing                
-        return $Response
-    } catch {
-        Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-        Write-Debug ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
     }
 }
 

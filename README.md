@@ -10,6 +10,15 @@ A PowerShell Module for accessing the SailPoint IdentityNow REST API's.
 Install-Module -Name PSSailpoint
 ```
 
+## Create a configuration file or save your configuration as environment variables
+
+You can create a local configuration file using the [CLI tool](https://github.com/sailpoint-oss/sailpoint-cli#configuration) or you can store your configuration in environment variables
+
+* BASE_URL
+* TOKEN_URL
+* CLIENT_ID
+* CLIENT_SECRET
+
 ## Examples
 
 ### List Accounts with sourceId `f4e73766efdf4dc6acdeed179606d694`

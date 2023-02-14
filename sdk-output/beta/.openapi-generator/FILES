@@ -140,6 +140,7 @@ docs/BetaTransformsApi.md
 docs/BetaTriggersApi.md
 docs/BetaWorkItemsApi.md
 docs/BetaWorkflowsApi.md
+docs/BulkIdentitiesAccountsResponse.md
 docs/BulkTaggedObject.md
 docs/Campaign.md
 docs/CampaignActivated.md
@@ -254,6 +255,7 @@ docs/GrantType.md
 docs/HttpAuthenticationType.md
 docs/HttpConfig.md
 docs/HttpDispatchMode.md
+docs/IdentitiesAccountsBulkRequest.md
 docs/IdentityAttributeConfig.md
 docs/IdentityAttributeConfig1.md
 docs/IdentityAttributePreview.md
@@ -819,6 +821,7 @@ src/PSSailpointBeta/Model/BaseReferenceDto.ps1
 src/PSSailpointBeta/Model/BaseReferenceDto1.ps1
 src/PSSailpointBeta/Model/BasicAuthConfig.ps1
 src/PSSailpointBeta/Model/BearerTokenAuthConfig.ps1
+src/PSSailpointBeta/Model/BulkIdentitiesAccountsResponse.ps1
 src/PSSailpointBeta/Model/BulkTaggedObject.ps1
 src/PSSailpointBeta/Model/Campaign.ps1
 src/PSSailpointBeta/Model/CampaignActivated.ps1
@@ -933,6 +936,7 @@ src/PSSailpointBeta/Model/GrantType.ps1
 src/PSSailpointBeta/Model/HttpAuthenticationType.ps1
 src/PSSailpointBeta/Model/HttpConfig.ps1
 src/PSSailpointBeta/Model/HttpDispatchMode.ps1
+src/PSSailpointBeta/Model/IdentitiesAccountsBulkRequest.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig1.ps1
 src/PSSailpointBeta/Model/IdentityAttributePreview.ps1
@@ -1504,6 +1508,7 @@ tests/Model/BaseReferenceDto.Tests.ps1
 tests/Model/BaseReferenceDto1.Tests.ps1
 tests/Model/BasicAuthConfig.Tests.ps1
 tests/Model/BearerTokenAuthConfig.Tests.ps1
+tests/Model/BulkIdentitiesAccountsResponse.Tests.ps1
 tests/Model/BulkTaggedObject.Tests.ps1
 tests/Model/Campaign.Tests.ps1
 tests/Model/CampaignActivated.Tests.ps1
@@ -1618,6 +1623,7 @@ tests/Model/GrantType.Tests.ps1
 tests/Model/HttpAuthenticationType.Tests.ps1
 tests/Model/HttpConfig.Tests.ps1
 tests/Model/HttpDispatchMode.Tests.ps1
+tests/Model/IdentitiesAccountsBulkRequest.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
 tests/Model/IdentityAttributeConfig1.Tests.ps1
 tests/Model/IdentityAttributePreview.Tests.ps1

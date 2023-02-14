@@ -45,20 +45,20 @@ function Get-DefaultConfiguration {
         }
     }
 
-    if ($null -ne $ENV:BaseUrl) {
-        $Configuration["BaseUrl"] = $ENV:BaseUrl + "/"
+    if ($null -ne $ENV:BASE_URL) {
+        $Configuration["BaseUrl"] = $ENV:BASE_URL + "/"
     }
 
-    if ($null -ne $ENV:TokenUrl) {
-        $Configuration["TokenUrl"] = $ENV:TokenUrl
+    if ($null -ne $ENV:TOKEN_URL) {
+        $Configuration["TokenUrl"] = $ENV:TOKEN_URL
     }
 
-    if ($null -ne $ENV:ClientId) {
-        $Configuration["ClientId"] = $ENV:ClientId
+    if ($null -ne $ENV:CLIENT_ID) {
+        $Configuration["ClientId"] = $ENV:CLIENT_ID
     }
 
-    if ($null -ne $ENV:ClientSecret) {
-        $Configuration["ClientSecret"] = $ENV:ClientSecret
+    if ($null -ne $ENV:CLIENT_SECRET) {
+        $Configuration["ClientSecret"] = $ENV:CLIENT_SECRET
     }
 
     if (!$Configuration.containsKey("Token")) {

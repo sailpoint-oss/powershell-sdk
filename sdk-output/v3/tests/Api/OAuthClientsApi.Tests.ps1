@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint' -name 'OAuthClientsApi' {
 
     Context 'Get-OauthClients' {
         It 'Test Get-OauthClients' {
-            #$TestResult = Get-OauthClients
+            #$TestResult = Get-OauthClients -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

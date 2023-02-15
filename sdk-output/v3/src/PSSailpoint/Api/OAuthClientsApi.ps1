@@ -251,6 +251,9 @@ List OAuth Clients
 
 No description available.
 
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -262,6 +265,9 @@ GetOAuthClientResponse[]
 function Get-OauthClients {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -284,6 +290,10 @@ function Get-OauthClients {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/oauth-clients'
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
 
 
 

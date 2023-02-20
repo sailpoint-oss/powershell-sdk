@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | Date the Role was created | [optional] [readonly] 
 **Modified** | **System.DateTime** | Date the Role was last modified. | [optional] [readonly] 
 **Description** | **String** | A human-readable description of the Role | [optional] 
-**Owner** | [**OwnerReference**](OwnerReference.md) |  | [optional] 
+**Owner** | [**OwnerReference**](OwnerReference.md) |  | 
 **AccessProfiles** | [**AccessProfileRef[]**](AccessProfileRef.md) |  | [optional] 
 **Membership** | [**RoleMembershipSelector**](RoleMembershipSelector.md) |  | [optional] 
 **LegacyMembershipInfo** | [**System.Collections.Hashtable**](AnyType.md) | This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration. | [optional] 

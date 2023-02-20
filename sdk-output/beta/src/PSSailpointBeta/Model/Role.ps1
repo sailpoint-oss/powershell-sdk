@@ -106,6 +106,10 @@ function Initialize-BetaRole {
             throw "invalid value for 'Name', the character length must be smaller than or equal to 128."
         }
 
+        if ($null -eq $Owner) {
+            throw "invalid value for 'Owner', 'Owner' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -176,6 +180,12 @@ function ConvertFrom-BetaJsonToRole {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'owner' missing."
+        } else {
+            $Owner = $JsonParameters.PSobject.Properties["owner"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
             $Id = $null
         } else {
@@ -198,12 +208,6 @@ function ConvertFrom-BetaJsonToRole {
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
-            $Owner = $null
-        } else {
-            $Owner = $JsonParameters.PSobject.Properties["owner"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessProfiles"))) { #optional property not found

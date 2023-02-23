@@ -35,7 +35,7 @@ function Paginate {
             $Count = $Result.Length
             Write-Debug "Retrieved $Count Results"
 
-            if($Result.Length -eq 0) {
+            if($Result.Length -lt $Increment) {
                 break
             }
 
@@ -114,7 +114,7 @@ function Paginate-Search {
             $Count = $Result.Length
             Write-Debug "Retrieved $Count Results"
 
-            if($Result.Length -eq 0) {
+            if($Result.Length -lt $Increment) {
                 break
             }
 

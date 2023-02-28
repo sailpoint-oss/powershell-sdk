@@ -28,37 +28,56 @@ function Get-DefaultConfiguration {
 
         $ConfigObject = ConvertFrom-YAML $ConfigFileContents
 
-        if ($null -ne $ConfigObject.pat.baseurl) {
-            $Configuration["BaseUrl"] = $ConfigObject.pat.baseurl + "/"
-        }
+        if ($null -ne $ConfigObject.environments) {
+            $Environments = $ConfigObject.environments
+            $ActiveEnvironment = $ConfigObject.activeenvironment
+            if (![string]::IsNullOrEmpty($ActiveEnvironment)) {
+                if ($null -ne $Environments.Item($ActiveEnvironment).baseurl) {
+                    $Configuration["BaseUrl"] = $Environments.Item($ActiveEnvironment).baseurl + "/"
+                    $Configuration["TokenUrl"] = $Environments.Item($ActiveEnvironment).baseurl + "/oauth/token"
+                } else {
+                    Write-Host "No baseurl set for environment: $ActiveEnvironment" -ForegroundColor Red
+                }
 
-        if ($null -ne $ConfigObject.pat.tokenurl) {
-            $Configuration["TokenUrl"] = $ConfigObject.pat.tokenurl
-        }
+                if ($null -ne $Environments.Item($ActiveEnvironment).pat.clientid) {
+                    $Configuration["ClientId"] = $Environments.Item($ActiveEnvironment).pat.clientid
+                } else {
+                    Write-Host "No clientid set for environment: $ActiveEnvironment" -ForegroundColor Red
+                }
 
-        if ($null -ne $ConfigObject.pat.clientid) {
-            $Configuration["ClientId"] = $ConfigObject.pat.clientid
-        }
+                if ($null -ne $Environments.Item($ActiveEnvironment).pat.clientsecret) {
+                    $Configuration["ClientSecret"] = $Environments.Item($ActiveEnvironment).pat.clientsecret
+                } else {
+                    Write-Host "No clientsecret set for environment: $ActiveEnvironment" -ForegroundColor Red
+                }
 
-        if ($null -ne $ConfigObject.pat.clientsecret) {
-            $Configuration["ClientSecret"] = $ConfigObject.pat.clientsecret
+                if($null -ne $Configuration["Environment"]) {
+                    if ($Configuration["Environment"] -ne $ActiveEnvironment) {
+                        Write-Debug "Environment has switched, resetting token."
+                        $Configuration["Token"] = ""
+                    }
+                }
+
+                $Configuration["Environment"] = $ActiveEnvironment
+            } else {
+                Write-Host "No active environment is set" -ForegroundColor Red
+            }
+        } else {
+            Write-Host "No environments specified in config file" -ForegroundColor Red
         }
     }
 
-    if ($null -ne $ENV:BASE_URL) {
-        $Configuration["BaseUrl"] = $ENV:BASE_URL + "/"
+    if ($null -ne $ENV:SAIL_BASE_URL) {
+        $Configuration["BaseUrl"] = $ENV:SAIL_BASE_URL + "/"
+        $Configuration["TokenUrl"] = $ENV:SAIl_BASE_URL + "/oauth/token"
     }
 
-    if ($null -ne $ENV:TOKEN_URL) {
-        $Configuration["TokenUrl"] = $ENV:TOKEN_URL
+    if ($null -ne $ENV:SAIL_CLIENT_ID) {
+        $Configuration["ClientId"] = $ENV:SAIL_CLIENT_ID
     }
 
-    if ($null -ne $ENV:CLIENT_ID) {
-        $Configuration["ClientId"] = $ENV:CLIENT_ID
-    }
-
-    if ($null -ne $ENV:CLIENT_SECRET) {
-        $Configuration["ClientSecret"] = $ENV:CLIENT_SECRET
+    if ($null -ne $ENV:SAIL_CLIENT_SECRET) {
+        $Configuration["ClientSecret"] = $ENV:SAIL_CLIENT_SECRET
     }
 
     if (!$Configuration.containsKey("Token")) {

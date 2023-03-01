@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint' -name 'PersonalAccessTokensApi' {
 
     Context 'Get-PersonalAccessTokens' {
         It 'Test Get-PersonalAccessTokens' {
-            #$TestResult = Get-PersonalAccessTokens -OwnerId "TEST_VALUE"
+            #$TestResult = Get-PersonalAccessTokens -OwnerId "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

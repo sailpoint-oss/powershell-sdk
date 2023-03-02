@@ -52,6 +52,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccessProfilesApi* | [**New-AccessProfile**](docs/AccessProfilesApi.md#New-AccessProfile) | **POST** /access-profiles | Create an Access Profile
+*AccessProfilesApi* | [**Remove-AccessProfilesInBulk**](docs/AccessProfilesApi.md#Remove-AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
+*AccessProfilesApi* | [**Get-AccessProfile**](docs/AccessProfilesApi.md#Get-AccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
+*AccessProfilesApi* | [**Get-AccessProfileEntitlements**](docs/AccessProfilesApi.md#Get-AccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile's Entitlements
+*AccessProfilesApi* | [**Get-AccessProfiles**](docs/AccessProfilesApi.md#Get-AccessProfiles) | **GET** /access-profiles | List Access Profiles
+*AccessProfilesApi* | [**Update-AccessProfile**](docs/AccessProfilesApi.md#Update-AccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
 *AccessRequestApprovalsApi* | [**Approve-AccessRequest**](docs/AccessRequestApprovalsApi.md#Approve-AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
 *AccessRequestApprovalsApi* | [**Invoke-ForwardAccessRequest**](docs/AccessRequestApprovalsApi.md#Invoke-ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval.
 *AccessRequestApprovalsApi* | [**Get-AccessRequestApprovalSummary**](docs/AccessRequestApprovalsApi.md#Get-AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of access-requests-approvals
@@ -145,6 +151,11 @@ Class | Method | HTTP request | Description
 *PublicIdentitiesConfigApi* | [**Get-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Get-PublicIdentityConfig) | **GET** /public-identities-config | Get the Public Identities Configuration
 *PublicIdentitiesConfigApi* | [**Update-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Update-PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
 *RequestableObjectsApi* | [**Get-RequestableObjects**](docs/RequestableObjectsApi.md#Get-RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
+*RolesApi* | [**New-Role**](docs/RolesApi.md#New-Role) | **POST** /roles | Create a Role
+*RolesApi* | [**Get-Role**](docs/RolesApi.md#Get-Role) | **GET** /roles/{id} | Get a Role
+*RolesApi* | [**Get-RoleAssignedIdentities**](docs/RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
+*RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles
+*RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
 *SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
 *SavedSearchApi* | [**Remove-SavedSearch**](docs/SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
 *SavedSearchApi* | [**Invoke-ExecuteSavedSearch**](docs/SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
@@ -219,12 +230,19 @@ Class | Method | HTTP request | Description
 
  - [PSSailpoint/Model.Access](docs/Access.md)
  - [PSSailpoint/Model.AccessAllOf](docs/AccessAllOf.md)
+ - [PSSailpoint/Model.AccessProfile](docs/AccessProfile.md)
+ - [PSSailpoint/Model.AccessProfileApprovalScheme](docs/AccessProfileApprovalScheme.md)
+ - [PSSailpoint/Model.AccessProfileBulkDeleteRequest](docs/AccessProfileBulkDeleteRequest.md)
+ - [PSSailpoint/Model.AccessProfileBulkDeleteResponse](docs/AccessProfileBulkDeleteResponse.md)
  - [PSSailpoint/Model.AccessProfileDocument](docs/AccessProfileDocument.md)
  - [PSSailpoint/Model.AccessProfileDocumentAllOf](docs/AccessProfileDocumentAllOf.md)
  - [PSSailpoint/Model.AccessProfileEntitlement](docs/AccessProfileEntitlement.md)
+ - [PSSailpoint/Model.AccessProfileRef](docs/AccessProfileRef.md)
  - [PSSailpoint/Model.AccessProfileRole](docs/AccessProfileRole.md)
+ - [PSSailpoint/Model.AccessProfileSourceRef](docs/AccessProfileSourceRef.md)
  - [PSSailpoint/Model.AccessProfileSummary](docs/AccessProfileSummary.md)
  - [PSSailpoint/Model.AccessProfileSummaryAllOf](docs/AccessProfileSummaryAllOf.md)
+ - [PSSailpoint/Model.AccessProfileUsage](docs/AccessProfileUsage.md)
  - [PSSailpoint/Model.AccessRequest](docs/AccessRequest.md)
  - [PSSailpoint/Model.AccessRequestConfig](docs/AccessRequestConfig.md)
  - [PSSailpoint/Model.AccessRequestItem](docs/AccessRequestItem.md)
@@ -274,6 +292,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ApprovalItems](docs/ApprovalItems.md)
  - [PSSailpoint/Model.ApprovalReminderAndEscalationConfig](docs/ApprovalReminderAndEscalationConfig.md)
  - [PSSailpoint/Model.ApprovalScheme](docs/ApprovalScheme.md)
+ - [PSSailpoint/Model.ApprovalSchemeForRole](docs/ApprovalSchemeForRole.md)
  - [PSSailpoint/Model.ApprovalStatus](docs/ApprovalStatus.md)
  - [PSSailpoint/Model.ApprovalStatusDto](docs/ApprovalStatusDto.md)
  - [PSSailpoint/Model.ApprovalSummary](docs/ApprovalSummary.md)
@@ -314,8 +333,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CompletionStatus](docs/CompletionStatus.md)
  - [PSSailpoint/Model.Concatenation](docs/Concatenation.md)
  - [PSSailpoint/Model.Conditional](docs/Conditional.md)
- - [PSSailpoint/Model.CreateAccessRequest401Response](docs/CreateAccessRequest401Response.md)
- - [PSSailpoint/Model.CreateAccessRequest429Response](docs/CreateAccessRequest429Response.md)
  - [PSSailpoint/Model.CreateOAuthClientRequest](docs/CreateOAuthClientRequest.md)
  - [PSSailpoint/Model.CreateOAuthClientResponse](docs/CreateOAuthClientResponse.md)
  - [PSSailpoint/Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
@@ -338,11 +355,14 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.DtoType](docs/DtoType.md)
  - [PSSailpoint/Model.E164phone](docs/E164phone.md)
  - [PSSailpoint/Model.EmailNotificationOption](docs/EmailNotificationOption.md)
+ - [PSSailpoint/Model.Entitlement](docs/Entitlement.md)
  - [PSSailpoint/Model.EntitlementDocument](docs/EntitlementDocument.md)
  - [PSSailpoint/Model.EntitlementDocumentAllOf](docs/EntitlementDocumentAllOf.md)
  - [PSSailpoint/Model.EntitlementDto](docs/EntitlementDto.md)
  - [PSSailpoint/Model.EntitlementDtoAllOf](docs/EntitlementDtoAllOf.md)
+ - [PSSailpoint/Model.EntitlementRef](docs/EntitlementRef.md)
  - [PSSailpoint/Model.EntitlementRequestConfig](docs/EntitlementRequestConfig.md)
+ - [PSSailpoint/Model.EntitlementSource](docs/EntitlementSource.md)
  - [PSSailpoint/Model.EntitlementSummary](docs/EntitlementSummary.md)
  - [PSSailpoint/Model.EntitlementSummaryAllOf](docs/EntitlementSummaryAllOf.md)
  - [PSSailpoint/Model.ErrorMessageDto](docs/ErrorMessageDto.md)
@@ -393,6 +413,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.LeftPad](docs/LeftPad.md)
  - [PSSailpoint/Model.LifecycleState](docs/LifecycleState.md)
  - [PSSailpoint/Model.LifecycleStateAllOf](docs/LifecycleStateAllOf.md)
+ - [PSSailpoint/Model.ListAccessProfiles401Response](docs/ListAccessProfiles401Response.md)
+ - [PSSailpoint/Model.ListAccessProfiles429Response](docs/ListAccessProfiles429Response.md)
  - [PSSailpoint/Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpoint/Model.Lookup](docs/Lookup.md)
  - [PSSailpoint/Model.Lower](docs/Lower.md)
@@ -445,6 +467,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.OriginalRequest](docs/OriginalRequest.md)
  - [PSSailpoint/Model.Owner](docs/Owner.md)
  - [PSSailpoint/Model.OwnerAllOf](docs/OwnerAllOf.md)
+ - [PSSailpoint/Model.OwnerReference](docs/OwnerReference.md)
  - [PSSailpoint/Model.Owns](docs/Owns.md)
  - [PSSailpoint/Model.PasswordChangeRequest](docs/PasswordChangeRequest.md)
  - [PSSailpoint/Model.PasswordChangeResponse](docs/PasswordChangeResponse.md)
@@ -454,11 +477,16 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpoint/Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpoint/Model.PendingApprovalAction](docs/PendingApprovalAction.md)
+ - [PSSailpoint/Model.PermissionDto](docs/PermissionDto.md)
  - [PSSailpoint/Model.PreApprovalTriggerDetails](docs/PreApprovalTriggerDetails.md)
  - [PSSailpoint/Model.ProcessingDetails](docs/ProcessingDetails.md)
  - [PSSailpoint/Model.ProvisioningConfig](docs/ProvisioningConfig.md)
  - [PSSailpoint/Model.ProvisioningConfigManagedResourceRefsInner](docs/ProvisioningConfigManagedResourceRefsInner.md)
  - [PSSailpoint/Model.ProvisioningConfigPlanInitializerScript](docs/ProvisioningConfigPlanInitializerScript.md)
+ - [PSSailpoint/Model.ProvisioningCriteriaLevel1](docs/ProvisioningCriteriaLevel1.md)
+ - [PSSailpoint/Model.ProvisioningCriteriaLevel2](docs/ProvisioningCriteriaLevel2.md)
+ - [PSSailpoint/Model.ProvisioningCriteriaLevel3](docs/ProvisioningCriteriaLevel3.md)
+ - [PSSailpoint/Model.ProvisioningCriteriaOperation](docs/ProvisioningCriteriaOperation.md)
  - [PSSailpoint/Model.ProvisioningDetails](docs/ProvisioningDetails.md)
  - [PSSailpoint/Model.ProvisioningPolicy](docs/ProvisioningPolicy.md)
  - [PSSailpoint/Model.ProvisioningPolicyDto](docs/ProvisioningPolicyDto.md)
@@ -483,6 +511,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.Replace](docs/Replace.md)
  - [PSSailpoint/Model.ReplaceAll](docs/ReplaceAll.md)
  - [PSSailpoint/Model.RequestOnBehalfOfConfig](docs/RequestOnBehalfOfConfig.md)
+ - [PSSailpoint/Model.Requestability](docs/Requestability.md)
+ - [PSSailpoint/Model.RequestabilityForRole](docs/RequestabilityForRole.md)
  - [PSSailpoint/Model.RequestableObject](docs/RequestableObject.md)
  - [PSSailpoint/Model.RequestableObjectReference](docs/RequestableObjectReference.md)
  - [PSSailpoint/Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
@@ -497,9 +527,22 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ReviewableEntitlementAccount](docs/ReviewableEntitlementAccount.md)
  - [PSSailpoint/Model.ReviewableRole](docs/ReviewableRole.md)
  - [PSSailpoint/Model.Reviewer](docs/Reviewer.md)
+ - [PSSailpoint/Model.Revocability](docs/Revocability.md)
  - [PSSailpoint/Model.RightPad](docs/RightPad.md)
+ - [PSSailpoint/Model.Role](docs/Role.md)
+ - [PSSailpoint/Model.RoleAssignmentSourceType](docs/RoleAssignmentSourceType.md)
+ - [PSSailpoint/Model.RoleCriteriaKey](docs/RoleCriteriaKey.md)
+ - [PSSailpoint/Model.RoleCriteriaKeyType](docs/RoleCriteriaKeyType.md)
+ - [PSSailpoint/Model.RoleCriteriaLevel1](docs/RoleCriteriaLevel1.md)
+ - [PSSailpoint/Model.RoleCriteriaLevel2](docs/RoleCriteriaLevel2.md)
+ - [PSSailpoint/Model.RoleCriteriaLevel3](docs/RoleCriteriaLevel3.md)
+ - [PSSailpoint/Model.RoleCriteriaOperation](docs/RoleCriteriaOperation.md)
  - [PSSailpoint/Model.RoleDocument](docs/RoleDocument.md)
  - [PSSailpoint/Model.RoleDocumentAllOf](docs/RoleDocumentAllOf.md)
+ - [PSSailpoint/Model.RoleIdentity](docs/RoleIdentity.md)
+ - [PSSailpoint/Model.RoleMembershipIdentity](docs/RoleMembershipIdentity.md)
+ - [PSSailpoint/Model.RoleMembershipSelector](docs/RoleMembershipSelector.md)
+ - [PSSailpoint/Model.RoleMembershipSelectorType](docs/RoleMembershipSelectorType.md)
  - [PSSailpoint/Model.RoleSummary](docs/RoleSummary.md)
  - [PSSailpoint/Model.RoleSummaryAllOf](docs/RoleSummaryAllOf.md)
  - [PSSailpoint/Model.Rule](docs/Rule.md)

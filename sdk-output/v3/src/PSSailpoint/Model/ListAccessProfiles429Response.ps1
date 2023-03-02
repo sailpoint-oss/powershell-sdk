@@ -18,10 +18,10 @@ No description available.
 A message describing the error
 .OUTPUTS
 
-CreateAccessRequest429Response<PSCustomObject>
+ListAccessProfiles429Response<PSCustomObject>
 #>
 
-function Initialize-CreateAccessRequest429Response {
+function Initialize-ListAccessProfiles429Response {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-CreateAccessRequest429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => CreateAccessRequest429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => ListAccessProfiles429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -46,11 +46,11 @@ function Initialize-CreateAccessRequest429Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to CreateAccessRequest429Response<PSCustomObject>
+Convert from JSON to ListAccessProfiles429Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to CreateAccessRequest429Response<PSCustomObject>
+Convert from JSON to ListAccessProfiles429Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -58,21 +58,21 @@ Json object
 
 .OUTPUTS
 
-CreateAccessRequest429Response<PSCustomObject>
+ListAccessProfiles429Response<PSCustomObject>
 #>
-function ConvertFrom-JsonToCreateAccessRequest429Response {
+function ConvertFrom-JsonToListAccessProfiles429Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => CreateAccessRequest429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => ListAccessProfiles429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in CreateAccessRequest429Response
+        # check if Json contains properties not defined in ListAccessProfiles429Response
         $AllProperties = ("message")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

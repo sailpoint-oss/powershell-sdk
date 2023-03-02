@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/v2-resources
 packageName: PSSailpointV2
-packageVersion: 0.0.1
+packageVersion: 1.0.0
 apiNamePrefix: V2
 companyName: SailPoint Technologies
 packageGuid: 576AB9F7-C3C5-4012-A4D6-2D4A6149FEDF

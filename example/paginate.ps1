@@ -20,7 +20,7 @@ $Search = ConvertFrom-JsonToSearch -Json $JSON
 
 try {
 
-    Paginate-Search -Increment 50 -Limit 10000 -Search $Search
+    Invoke-PaginateSearch -Increment 50 -Limit 10000 -Search $Search
 
 } catch {
     Write-Host $_

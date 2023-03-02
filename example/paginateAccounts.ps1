@@ -6,7 +6,7 @@ $Parameters = @{
 # Accounts List
 try {
 
-    Paginate -Function "Get-Accounts" -Increment 250 -Limit 1000 -InitialOffset 0 -Parameters $Parameters
+    Invoke-Paginate -Function "Get-Accounts" -Increment 250 -Limit 1000 -InitialOffset 0 -Parameters $Parameters
 
 } catch {
     Write-Host $_

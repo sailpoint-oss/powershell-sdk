@@ -1,4 +1,4 @@
-function Paginate {
+function Invoke-Paginate {
 
     [CmdletBinding()]
     Param(
@@ -52,7 +52,7 @@ function Paginate {
 }
 
 
-function Paginate-Search {
+function Invoke-PaginateSearch {
 
     [CmdletBinding()]
     Param(

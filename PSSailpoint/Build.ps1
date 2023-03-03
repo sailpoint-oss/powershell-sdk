@@ -66,8 +66,7 @@ $Manifest = @{
     VariablesToExport = @()
     AliasesToExport = @()
     CmdletsToExport = @()
-    RequiredModules = @("PSYaml", @{ModuleName="PSYaml"; ModuleVersion="1.0.2"; GUID="56352cea-dba5-4103-b55e-1e33d6cf5806"})
-
+    
 }
 
 New-ModuleManifest @Manifest

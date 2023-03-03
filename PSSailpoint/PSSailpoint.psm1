@@ -57,4 +57,6 @@ Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $B
 . $PSScriptRoot\Configuration.ps1
 . $PSScriptRoot\Pagination.ps1
 
+Install-Module -Name PSYaml -RequiredVersion 1.0.2
+
 #endregion

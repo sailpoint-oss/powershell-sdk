@@ -51,8 +51,7 @@ PowerShellVersion = '6.2'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @('PSYaml', 
-               @{ModuleName = 'PSYaml'; GUID = '56352cea-dba5-4103-b55e-1e33d6cf5806'; ModuleVersion = '1.0.2'; })
+# RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()

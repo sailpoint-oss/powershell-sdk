@@ -65,6 +65,8 @@ function Get-DefaultConfiguration {
         } else {
             Write-Host "No environments specified in config file" -ForegroundColor Red
         }
+    } else {
+        Write-Host "Configuration file not found at $HOME/.sailpoint/config.yaml. Please provide a configuration file or configure using PowerShell environment variables." -ForegroundColor Red
     }
 
     if ($null -ne $ENV:SAIL_BASE_URL) {

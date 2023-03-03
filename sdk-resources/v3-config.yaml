@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/v3-resources
 packageName: PSSailpoint
-packageVersion: 1.0.0
+packageVersion: 1.0.1
 companyName: SailPoint Technologies
 packageGuid: 7A197170-97E8-4DCD-A171-271D4AEC2F36
 commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select

@@ -21,6 +21,6 @@ jobs:
         run: |
           $DebugPreference="Continue"
           Publish-Module `
-              -Path './sdk-output/PSSailpoint' `
+              -Path './PSSailpoint' `
               -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
               -Verbose -Force

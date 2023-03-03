@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/cc-resources
 packageName: PSSailpointCC
-packageVersion: 1.0.0
+packageVersion: 1.0.1
 apiNamePrefix: CC
 companyName: SailPoint Technologies
 packageGuid: DBF29A39-B5FF-407A-AF70-A8B4527E0EB8

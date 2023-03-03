@@ -73,7 +73,7 @@ function Invoke-BetaApiClient {
     }
 
     # Add Custom Header
-    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.0.1"
+    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.0.2"
 
     [string]$MultiPartBoundary = $null
     $ContentType= SelectHeaders -Headers $ContentTypes

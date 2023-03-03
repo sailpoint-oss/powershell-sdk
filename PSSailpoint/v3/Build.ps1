@@ -54,7 +54,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint - the PowerShell module for IdentityNow V3 API'
 
-    ModuleVersion = '1.0.1'
+    ModuleVersion = '1.0.2'
 
     RootModule = 'PSSailpoint.psm1'
     Guid = '7A197170-97E8-4DCD-A171-271D4AEC2F36' # Has to be static, otherwise each new build will be considered different module

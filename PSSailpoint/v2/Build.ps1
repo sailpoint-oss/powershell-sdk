@@ -54,7 +54,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpointV2 - the PowerShell module for SailPoint SaaS API'
 
-    ModuleVersion = '1.0.1'
+    ModuleVersion = '1.0.2'
 
     RootModule = 'PSSailpointV2.psm1'
     Guid = '576AB9F7-C3C5-4012-A4D6-2D4A6149FEDF' # Has to be static, otherwise each new build will be considered different module

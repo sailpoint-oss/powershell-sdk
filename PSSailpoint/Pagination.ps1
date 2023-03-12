@@ -115,6 +115,7 @@ function Invoke-PaginateSearch {
             Write-Debug "Retrieved $Count Results"
 
             if($Result.Length -lt $Increment) {
+                $Results += $Result
                 break
             }
 

@@ -148,7 +148,7 @@ Class | Method | HTTP request | Description
 *BetaIAIOutliersApi* | [**Get-BetaIdentityOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaIdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
 *BetaIAIOutliersApi* | [**Get-BetaIdentityOutliers**](docs/BetaIAIOutliersApi.md#Get-BetaIdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
 *BetaIAIOutliersApi* | [**Get-BetaLatestIdentityOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaLatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
-*BetaIAIOutliersApi* | [**Get-BetaPeerGroupOutliersContributingFeatures**](docs/BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | IAI Get an Identity Outlier's Contibuting Features
+*BetaIAIOutliersApi* | [**Get-BetaPeerGroupOutliersContributingFeatures**](docs/BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | Get identity outlier's contibuting features
 *BetaIAIOutliersApi* | [**Invoke-BetaIgnoreIdentityOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaIgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
 *BetaIAIOutliersApi* | [**Invoke-BetaUnIgnoreIdentityOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
 *BetaIAIPeerGroupStrategiesApi* | [**Get-BetaPeerGroupOutliers**](docs/BetaIAIPeerGroupStrategiesApi.md#Get-BetaPeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List

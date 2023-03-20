@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Get-BetaIdentityOutlierSnapshots**](BetaIAIOutliersApi.md#Get-BetaIdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
 [**Get-BetaIdentityOutliers**](BetaIAIOutliersApi.md#Get-BetaIdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
 [**Get-BetaLatestIdentityOutlierSnapshots**](BetaIAIOutliersApi.md#Get-BetaLatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
-[**Get-BetaPeerGroupOutliersContributingFeatures**](BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | IAI Get an Identity Outlier&#39;s Contibuting Features
+[**Get-BetaPeerGroupOutliersContributingFeatures**](BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | Get identity outlier&#39;s contibuting features
 [**Invoke-BetaIgnoreIdentityOutliers**](BetaIAIOutliersApi.md#Invoke-BetaIgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
 [**Invoke-BetaUnIgnoreIdentityOutliers**](BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTranslationMessages] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
 
-IAI Get an Identity Outlier's Contibuting Features
+Get identity outlier's contibuting features
 
 This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of 'iai:outliers-management:read'
 
@@ -273,9 +273,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $IncludeTranslationMessages = "include-translation-messages=" # String | Whether or not to include translation messages object in returned response (optional)
-$Sorters = "importance" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html) Sorting is supported for the following fields: **importance** (optional)
+$Sorters = "importance" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **importance** (optional)
 
-# IAI Get an Identity Outlier's Contibuting Features
+# Get identity outlier's contibuting features
 try {
     $Result = Get-BetaPeerGroupOutliersContributingFeatures -OutlierId $OutlierId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Sorters $Sorters
 } catch {
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
  **IncludeTranslationMessages** | **String**| Whether or not to include translation messages object in returned response | [optional] 
- **Sorters** | **String**| Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html) Sorting is supported for the following fields: **importance** | [optional] 
+ **Sorters** | **String**| Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **importance** | [optional] 
 
 ### Return type
 

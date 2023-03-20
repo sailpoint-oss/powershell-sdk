@@ -414,7 +414,7 @@ function Get-BetaLatestIdentityOutlierSnapshots {
 <#
 .SYNOPSIS
 
-IAI Get an Identity Outlier's Contibuting Features
+Get identity outlier's contibuting features
 
 .DESCRIPTION
 
@@ -436,7 +436,7 @@ If *true* it will populate the *X-Total-Count* response header with the number o
 Whether or not to include translation messages object in returned response
 
 .PARAMETER Sorters
-Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard_collection_parameters.html) Sorting is supported for the following fields: **importance**
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **importance**
 
 .PARAMETER WithHttpInfo
 

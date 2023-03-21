@@ -35,11 +35,12 @@ function Invoke-Paginate {
             $Count = $Result.Length
             Write-Debug "Retrieved $Count Results"
 
+            $Results += $Result
+            
             if($Result.Length -lt $Increment) {
                 break
             }
 
-            $Results += $Result
             $InitialOffset += $Increment;
         }
 
@@ -114,11 +115,12 @@ function Invoke-PaginateSearch {
             $Count = $Result.Length
             Write-Debug "Retrieved $Count Results"
 
+            $Results += $Result
+
             if($Result.Length -lt $Increment) {
                 break
             }
 
-            $Results += $Result
             $InitialOffset += $Increment;
         }
 

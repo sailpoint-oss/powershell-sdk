@@ -6,6 +6,16 @@ A PowerShell Module for accessing the SailPoint IdentityNow REST API's.
 
 ## Installation
 
+> This module requires PowerShell version 6.2 or greater.
+
+In order to read the yaml configuration file you will need to install the PSYaml Module.
+
+```powershell
+Install-Module -Name PSYaml -RequiredVersion 1.0.2
+```
+
+Install the main module.
+
 ```powershell
 Install-Module -Name PSSailpoint
 ```

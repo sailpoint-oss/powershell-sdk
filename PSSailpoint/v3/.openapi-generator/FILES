@@ -110,6 +110,7 @@ docs/Comment.md
 docs/CommentDto.md
 docs/CommentDtoAuthor.md
 docs/CompletedApproval.md
+docs/CompletedApprovalReviewerComment.md
 docs/CompletedApprovalState.md
 docs/CompletionStatus.md
 docs/Concatenation.md
@@ -550,6 +551,7 @@ src/PSSailpoint/Model/Comment.ps1
 src/PSSailpoint/Model/CommentDto.ps1
 src/PSSailpoint/Model/CommentDtoAuthor.ps1
 src/PSSailpoint/Model/CompletedApproval.ps1
+src/PSSailpoint/Model/CompletedApprovalReviewerComment.ps1
 src/PSSailpoint/Model/CompletedApprovalState.ps1
 src/PSSailpoint/Model/CompletionStatus.ps1
 src/PSSailpoint/Model/Concatenation.ps1
@@ -979,6 +981,7 @@ tests/Model/Comment.Tests.ps1
 tests/Model/CommentDto.Tests.ps1
 tests/Model/CommentDtoAuthor.Tests.ps1
 tests/Model/CompletedApproval.Tests.ps1
+tests/Model/CompletedApprovalReviewerComment.Tests.ps1
 tests/Model/CompletedApprovalState.Tests.ps1
 tests/Model/CompletionStatus.Tests.ps1
 tests/Model/Concatenation.Tests.ps1

@@ -895,7 +895,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ListAccounts200ResponseInner[]
+SystemCollectionsHashtable
 #>
 function Get-BetaAccounts {
     [CmdletBinding()]
@@ -970,7 +970,7 @@ function Get-BetaAccounts {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ListAccounts200ResponseInner[]" `
+                                -ReturnType "SystemCollectionsHashtable" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

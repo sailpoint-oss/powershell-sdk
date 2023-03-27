@@ -783,6 +783,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.QueuedCheckConfigDetails](docs/QueuedCheckConfigDetails.md)
  - [PSSailpointBeta/Model.ReassignReference](docs/ReassignReference.md)
  - [PSSailpointBeta/Model.Reassignment](docs/Reassignment.md)
+ - [PSSailpointBeta/Model.ReassignmentType](docs/ReassignmentType.md)
  - [PSSailpointBeta/Model.RecommendationConfigDto](docs/RecommendationConfigDto.md)
  - [PSSailpointBeta/Model.RecommendationRequest](docs/RecommendationRequest.md)
  - [PSSailpointBeta/Model.RecommendationRequestDto](docs/RecommendationRequestDto.md)

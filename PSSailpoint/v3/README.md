@@ -505,6 +505,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ReassignReference](docs/ReassignReference.md)
  - [PSSailpoint/Model.Reassignment](docs/Reassignment.md)
  - [PSSailpoint/Model.ReassignmentReference](docs/ReassignmentReference.md)
+ - [PSSailpoint/Model.ReassignmentType](docs/ReassignmentType.md)
  - [PSSailpoint/Model.Reference](docs/Reference.md)
  - [PSSailpoint/Model.Reference1](docs/Reference1.md)
  - [PSSailpoint/Model.RemediationItemDetails](docs/RemediationItemDetails.md)

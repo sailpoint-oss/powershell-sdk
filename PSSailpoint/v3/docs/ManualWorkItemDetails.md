@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CurrentOwner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **Modified** | **System.DateTime** | Time at which item was modified. | [optional] 
 **Status** | [**ManualWorkItemState**](ManualWorkItemState.md) |  | [optional] 
+**ForwardHistory** | [**ApprovalForwardHistory[]**](ApprovalForwardHistory.md) | The history of approval forward action. | [optional] 
 
 ## Examples
 
@@ -17,7 +18,8 @@ $ManualWorkItemDetails = Initialize-PSSailpointManualWorkItemDetails  -Forwarded
  -OriginalOwner null `
  -CurrentOwner null `
  -Modified 2019-08-23T18:52:57.398Z `
- -Status null
+ -Status null `
+ -ForwardHistory null
 ```
 
 - Convert the resource to JSON

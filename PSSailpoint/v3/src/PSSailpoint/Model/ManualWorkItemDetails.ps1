@@ -24,6 +24,8 @@ No description available.
 Time at which item was modified.
 .PARAMETER Status
 No description available.
+.PARAMETER ForwardHistory
+The history of approval forward action.
 .OUTPUTS
 
 ManualWorkItemDetails<PSCustomObject>
@@ -46,7 +48,10 @@ function Initialize-ManualWorkItemDetails {
         ${Modified},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Status}
+        ${Status},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${ForwardHistory}
     )
 
     Process {
@@ -60,6 +65,7 @@ function Initialize-ManualWorkItemDetails {
             "currentOwner" = ${CurrentOwner}
             "modified" = ${Modified}
             "status" = ${Status}
+            "forwardHistory" = ${ForwardHistory}
         }
 
 
@@ -97,7 +103,7 @@ function ConvertFrom-JsonToManualWorkItemDetails {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ManualWorkItemDetails
-        $AllProperties = ("forwarded", "originalOwner", "currentOwner", "modified", "status")
+        $AllProperties = ("forwarded", "originalOwner", "currentOwner", "modified", "status", "forwardHistory")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -134,12 +140,19 @@ function ConvertFrom-JsonToManualWorkItemDetails {
             $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forwardHistory"))) { #optional property not found
+            $ForwardHistory = $null
+        } else {
+            $ForwardHistory = $JsonParameters.PSobject.Properties["forwardHistory"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "forwarded" = ${Forwarded}
             "originalOwner" = ${OriginalOwner}
             "currentOwner" = ${CurrentOwner}
             "modified" = ${Modified}
             "status" = ${Status}
+            "forwardHistory" = ${ForwardHistory}
         }
 
         return $PSO

@@ -402,6 +402,7 @@ docs/PublicIdentityConfig.md
 docs/QueuedCheckConfigDetails.md
 docs/ReassignReference.md
 docs/Reassignment.md
+docs/ReassignmentType.md
 docs/RecommendationConfigDto.md
 docs/RecommendationRequest.md
 docs/RecommendationRequestDto.md
@@ -1078,6 +1079,7 @@ src/PSSailpointBeta/Model/PublicIdentityConfig.ps1
 src/PSSailpointBeta/Model/QueuedCheckConfigDetails.ps1
 src/PSSailpointBeta/Model/ReassignReference.ps1
 src/PSSailpointBeta/Model/Reassignment.ps1
+src/PSSailpointBeta/Model/ReassignmentType.ps1
 src/PSSailpointBeta/Model/RecommendationConfigDto.ps1
 src/PSSailpointBeta/Model/RecommendationRequest.ps1
 src/PSSailpointBeta/Model/RecommendationRequestDto.ps1
@@ -1760,6 +1762,7 @@ tests/Model/PublicIdentityConfig.Tests.ps1
 tests/Model/QueuedCheckConfigDetails.Tests.ps1
 tests/Model/ReassignReference.Tests.ps1
 tests/Model/Reassignment.Tests.ps1
+tests/Model/ReassignmentType.Tests.ps1
 tests/Model/RecommendationConfigDto.Tests.ps1
 tests/Model/RecommendationRequest.Tests.ps1
 tests/Model/RecommendationRequestDto.Tests.ps1

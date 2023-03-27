@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaApprovalForwardHistory' {
     Context 'BetaApprovalForwardHistory' {
         It 'Initialize-BetaApprovalForwardHistory' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaApprovalForwardHistory -OldApproverName "TEST_VALUE" -NewApproverName "TEST_VALUE" -Comment "TEST_VALUE" -Modified "TEST_VALUE"
+            #$NewObject = Initialize-BetaApprovalForwardHistory -OldApproverName "TEST_VALUE" -NewApproverName "TEST_VALUE" -Comment "TEST_VALUE" -Modified "TEST_VALUE" -ForwarderName "TEST_VALUE" -ReassignmentType "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalForwardHistory
             #$NewObject.property | Should -Be 0
         }

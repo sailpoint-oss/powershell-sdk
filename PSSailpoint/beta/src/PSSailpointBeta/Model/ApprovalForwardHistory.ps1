@@ -15,13 +15,17 @@ No summary available.
 No description available.
 
 .PARAMETER OldApproverName
-Display name of approver that forwarded the approval.
+Display name of approver from whom the approval was forwarded.
 .PARAMETER NewApproverName
 Display name of approver to whom the approval was forwarded.
 .PARAMETER Comment
-Comment made by old approver when forwarding.
+Comment made while forwarding.
 .PARAMETER Modified
 Time at which approval was forwarded.
+.PARAMETER ForwarderName
+Display name of forwarder who forwarded the approval.
+.PARAMETER ReassignmentType
+No description available.
 .OUTPUTS
 
 ApprovalForwardHistory<PSCustomObject>
@@ -41,7 +45,13 @@ function Initialize-BetaApprovalForwardHistory {
         ${Comment},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${Modified}
+        ${Modified},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ForwarderName},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ReassignmentType}
     )
 
     Process {
@@ -54,6 +64,8 @@ function Initialize-BetaApprovalForwardHistory {
             "newApproverName" = ${NewApproverName}
             "comment" = ${Comment}
             "modified" = ${Modified}
+            "forwarderName" = ${ForwarderName}
+            "reassignmentType" = ${ReassignmentType}
         }
 
 
@@ -91,7 +103,7 @@ function ConvertFrom-BetaJsonToApprovalForwardHistory {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaApprovalForwardHistory
-        $AllProperties = ("oldApproverName", "newApproverName", "comment", "modified")
+        $AllProperties = ("oldApproverName", "newApproverName", "comment", "modified", "forwarderName", "reassignmentType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -122,11 +134,25 @@ function ConvertFrom-BetaJsonToApprovalForwardHistory {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forwarderName"))) { #optional property not found
+            $ForwarderName = $null
+        } else {
+            $ForwarderName = $JsonParameters.PSobject.Properties["forwarderName"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reassignmentType"))) { #optional property not found
+            $ReassignmentType = $null
+        } else {
+            $ReassignmentType = $JsonParameters.PSobject.Properties["reassignmentType"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "oldApproverName" = ${OldApproverName}
             "newApproverName" = ${NewApproverName}
             "comment" = ${Comment}
             "modified" = ${Modified}
+            "forwarderName" = ${ForwarderName}
+            "reassignmentType" = ${ReassignmentType}
         }
 
         return $PSO

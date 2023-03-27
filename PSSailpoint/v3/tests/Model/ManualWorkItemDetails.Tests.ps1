@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'ManualWorkItemDetails' {
     Context 'ManualWorkItemDetails' {
         It 'Initialize-ManualWorkItemDetails' {
             # a simple test to create an object
-            #$NewObject = Initialize-ManualWorkItemDetails -Forwarded "TEST_VALUE" -OriginalOwner "TEST_VALUE" -CurrentOwner "TEST_VALUE" -Modified "TEST_VALUE" -Status "TEST_VALUE"
+            #$NewObject = Initialize-ManualWorkItemDetails -Forwarded "TEST_VALUE" -OriginalOwner "TEST_VALUE" -CurrentOwner "TEST_VALUE" -Modified "TEST_VALUE" -Status "TEST_VALUE" -ForwardHistory "TEST_VALUE"
             #$NewObject | Should -BeOfType ManualWorkItemDetails
             #$NewObject.property | Should -Be 0
         }

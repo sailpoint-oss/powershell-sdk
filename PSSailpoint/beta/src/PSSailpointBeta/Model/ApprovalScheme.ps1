@@ -26,6 +26,8 @@ enum ApprovalScheme {
     ROLE_OWNER
     # enum value: "ACCESS_PROFILE_OWNER"
     ACCESS_PROFILE_OWNER
+    # enum value: "ENTITLEMENT_OWNER"
+    ENTITLEMENT_OWNER
     # enum value: "GOVERNANCE_GROUP"
     GOVERNANCE_GROUP
 }

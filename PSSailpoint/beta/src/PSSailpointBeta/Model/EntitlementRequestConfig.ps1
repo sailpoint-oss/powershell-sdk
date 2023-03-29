@@ -21,7 +21,7 @@ Flag for requiring comments while submitting an entitlement request.
 .PARAMETER DeniedCommentsRequired
 Flag for requiring comments while rejecting an entitlement request.
 .PARAMETER GrantRequestApprovalSchemes
-Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are ""sourceOwner"", ""manager"" and ""workgroup:{id}"". Multiple workgroups (governance groups) can be used. 
+Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are ""entitlementOwner"", ""sourceOwner"", ""manager"" and ""workgroup:{id}"". Multiple workgroups (governance groups) can be used. 
 .OUTPUTS
 
 EntitlementRequestConfig<PSCustomObject>

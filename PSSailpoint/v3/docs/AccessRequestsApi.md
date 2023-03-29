@@ -256,7 +256,7 @@ $RequestOnBehalfOfConfig = Initialize-RequestOnBehalfOfConfig -AllowRequestOnBeh
 $IdentityReferenceWithNameAndEmail = Initialize-IdentityReferenceWithNameAndEmail -Type "IDENTITY" -Id "5168015d32f890ca15812c9180835d2e" -Name "Alison Ferguso" -Email "alison.ferguso@identitysoon.com"
 $ApprovalReminderAndEscalationConfig = Initialize-ApprovalReminderAndEscalationConfig -DaysUntilEscalation 0 -DaysBetweenReminders 0 -MaxReminders 0 -FallbackApproverRef $IdentityReferenceWithNameAndEmail
 
-$EntitlementRequestConfig = Initialize-EntitlementRequestConfig -AllowEntitlementRequest $true -RequestCommentsRequired $false -DeniedCommentsRequired $false -GrantRequestApprovalSchemes "sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
+$EntitlementRequestConfig = Initialize-EntitlementRequestConfig -AllowEntitlementRequest $true -RequestCommentsRequired $false -DeniedCommentsRequired $false -GrantRequestApprovalSchemes "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
 $AccessRequestConfig = Initialize-AccessRequestConfig -ApprovalsMustBeExternal $true -AutoApprovalEnabled $true -RequestOnBehalfOfConfig $RequestOnBehalfOfConfig -ApprovalReminderAndEscalationConfig $ApprovalReminderAndEscalationConfig -EntitlementRequestConfig $EntitlementRequestConfig # AccessRequestConfig | 
 
 # Update Access Request Configuration

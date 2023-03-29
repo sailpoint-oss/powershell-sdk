@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER Id
 the id of the Source
+.PARAMETER Name
+Human-readable name of the source
 .PARAMETER Description
 Human-readable description of the source
 .PARAMETER Owner
@@ -79,77 +81,80 @@ function Initialize-BetaSource {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Owner},
+        [String]
+        ${Description},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Cluster},
+        ${Owner},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${AccountCorrelationConfig},
+        ${Cluster},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${AccountCorrelationRule},
+        ${AccountCorrelationConfig},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${ManagerCorrelationMapping},
+        ${AccountCorrelationRule},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${ManagerCorrelationRule},
+        ${ManagerCorrelationMapping},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${BeforeProvisioningRule},
+        ${ManagerCorrelationRule},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${Schemas},
+        [PSCustomObject]
+        ${BeforeProvisioningRule},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${PasswordPolicies},
+        ${Schemas},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${Features},
+        ${PasswordPolicies},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Type},
+        [PSCustomObject[]]
+        ${Features},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Connector},
+        ${Type},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ConnectorClass},
+        ${Connector},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ConnectorClass},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ConnectorAttributes},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${DeleteThreshold},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Authoritative},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ManagementWorkgroup},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Healthy},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Status},
         [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Since},
+        ${Status},
         [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ConnectorId},
+        ${Since},
         [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ConnectorName},
+        ${ConnectorId},
         [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ConnectionType},
+        ${ConnectorName},
         [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ConnectionType},
+        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ConnectorImplementstionId}
     )
@@ -158,9 +163,22 @@ function Initialize-BetaSource {
         'Creating PSCustomObject: PSSailpointBeta => BetaSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if ($null -eq $Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
+        }
+
+        if ($null -eq $Owner) {
+            throw "invalid value for 'Owner', 'Owner' cannot be null."
+        }
+
+        if ($null -eq $Connector) {
+            throw "invalid value for 'Connector', 'Connector' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "name" = ${Name}
             "description" = ${Description}
             "owner" = ${Owner}
             "cluster" = ${Cluster}
@@ -223,11 +241,33 @@ function ConvertFrom-BetaJsonToSource {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaSource
-        $AllProperties = ("id", "description", "owner", "cluster", "accountCorrelationConfig", "accountCorrelationRule", "managerCorrelationMapping", "managerCorrelationRule", "beforeProvisioningRule", "schemas", "passwordPolicies", "features", "type", "connector", "connectorClass", "connectorAttributes", "deleteThreshold", "authoritative", "managementWorkgroup", "healthy", "status", "since", "connectorId", "connectorName", "connectionType", "connectorImplementstionId")
+        $AllProperties = ("id", "name", "description", "owner", "cluster", "accountCorrelationConfig", "accountCorrelationRule", "managerCorrelationMapping", "managerCorrelationRule", "beforeProvisioningRule", "schemas", "passwordPolicies", "features", "type", "connector", "connectorClass", "connectorAttributes", "deleteThreshold", "authoritative", "managementWorkgroup", "healthy", "status", "since", "connectorId", "connectorName", "connectionType", "connectorImplementstionId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'owner' missing."
+        } else {
+            $Owner = $JsonParameters.PSobject.Properties["owner"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "connector"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'connector' missing."
+        } else {
+            $Connector = $JsonParameters.PSobject.Properties["connector"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -240,12 +280,6 @@ function ConvertFrom-BetaJsonToSource {
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
-            $Owner = $null
-        } else {
-            $Owner = $JsonParameters.PSobject.Properties["owner"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "cluster"))) { #optional property not found
@@ -306,12 +340,6 @@ function ConvertFrom-BetaJsonToSource {
             $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "connector"))) { #optional property not found
-            $Connector = $null
-        } else {
-            $Connector = $JsonParameters.PSobject.Properties["connector"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "connectorClass"))) { #optional property not found
@@ -388,6 +416,7 @@ function ConvertFrom-BetaJsonToSource {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "name" = ${Name}
             "description" = ${Description}
             "owner" = ${Owner}
             "cluster" = ${Cluster}

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | A map of free-form key-value pairs from the source system | [optional] 
 **Segments** | **String[]** | List of IDs of segments, if any, to which this Entitlement is assigned. | [optional] 
 **DirectPermissions** | [**PermissionDto[]**](PermissionDto.md) |  | [optional] 
+**Owner** | [**OwnerReferenceDto**](OwnerReferenceDto.md) |  | [optional] 
 
 ## Examples
 
@@ -35,7 +36,8 @@ $Entitlement = Initialize-PSSailpointBetaEntitlement  -Id 2c91808874ff9155017509
  -Source null `
  -Attributes {fieldName&#x3D;fieldValue} `
  -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a] `
- -DirectPermissions null
+ -DirectPermissions null `
+ -Owner null
 ```
 
 - Convert the resource to JSON

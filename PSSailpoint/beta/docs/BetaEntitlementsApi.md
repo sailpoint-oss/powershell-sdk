@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 Patch a specified Entitlement
 
-This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won't be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell

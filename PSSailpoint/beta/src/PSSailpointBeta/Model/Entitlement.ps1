@@ -42,6 +42,8 @@ A map of free-form key-value pairs from the source system
 List of IDs of segments, if any, to which this Entitlement is assigned.
 .PARAMETER DirectPermissions
 No description available.
+.PARAMETER Owner
+No description available.
 .OUTPUTS
 
 Entitlement<PSCustomObject>
@@ -91,7 +93,10 @@ function Initialize-BetaEntitlement {
         ${Segments},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${DirectPermissions}
+        ${DirectPermissions},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Owner}
     )
 
     Process {
@@ -114,6 +119,7 @@ function Initialize-BetaEntitlement {
             "attributes" = ${Attributes}
             "segments" = ${Segments}
             "directPermissions" = ${DirectPermissions}
+            "owner" = ${Owner}
         }
 
 
@@ -151,7 +157,7 @@ function ConvertFrom-BetaJsonToEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaEntitlement
-        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privileged", "cloudGoverned", "created", "modified", "source", "attributes", "segments", "directPermissions")
+        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privileged", "cloudGoverned", "created", "modified", "source", "attributes", "segments", "directPermissions", "owner")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -242,6 +248,12 @@ function ConvertFrom-BetaJsonToEntitlement {
             $DirectPermissions = $JsonParameters.PSobject.Properties["directPermissions"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
+            $Owner = $null
+        } else {
+            $Owner = $JsonParameters.PSobject.Properties["owner"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -257,6 +269,7 @@ function ConvertFrom-BetaJsonToEntitlement {
             "attributes" = ${Attributes}
             "segments" = ${Segments}
             "directPermissions" = ${DirectPermissions}
+            "owner" = ${Owner}
         }
 
         return $PSO

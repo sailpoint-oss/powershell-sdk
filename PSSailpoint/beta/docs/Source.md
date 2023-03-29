@@ -4,8 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | the id of the Source | [optional] [readonly] 
+**Name** | **String** | Human-readable name of the source | 
 **Description** | **String** | Human-readable description of the source | [optional] 
-**Owner** | [**SourceOwner**](SourceOwner.md) |  | [optional] 
+**Owner** | [**SourceOwner**](SourceOwner.md) |  | 
 **Cluster** | [**SourceCluster**](SourceCluster.md) |  | [optional] 
 **AccountCorrelationConfig** | [**SourceAccountCorrelationConfig**](SourceAccountCorrelationConfig.md) |  | [optional] 
 **AccountCorrelationRule** | [**SourceAccountCorrelationRule**](SourceAccountCorrelationRule.md) |  | [optional] 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 **PasswordPolicies** | [**SourcePasswordPoliciesInner[]**](SourcePasswordPoliciesInner.md) | List of references to the associated PasswordPolicy objects. | [optional] 
 **Features** | [**SourceFeature[]**](SourceFeature.md) | Optional features that can be supported by a source. | [optional] 
 **Type** | **String** | Specifies the type of system being managed e.g. Active Directory, Workday, etc.. | [optional] 
-**Connector** | **String** | Connector script name. | [optional] 
+**Connector** | **String** | Connector script name. | 
 **ConnectorClass** | **String** | The fully qualified name of the Java class that implements the connector interface. | [optional] 
 **ConnectorAttributes** | [**SystemCollectionsHashtable**](.md) | Connector specific configuration; will differ from type to type. | [optional] 
 **DeleteThreshold** | **Int32** | Number from 0 to 100 that specifies when to skip the delete phase. | [optional] 
@@ -35,6 +36,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Source = Initialize-PSSailpointBetaSource  -Id 2c91808568c529c60168cca6f90c1324 `
+ -Name My Source `
  -Description This is the corporate directory. `
  -Owner null `
  -Cluster null `

@@ -367,6 +367,7 @@ docs/OutlierContributingFeatureValue.md
 docs/OutlierFeatureTranslation.md
 docs/OutlierSummary.md
 docs/OwnerReference.md
+docs/OwnerReferenceDto.md
 docs/PasswordChangeRequest.md
 docs/PasswordChangeResponse.md
 docs/PasswordDigitToken.md
@@ -1044,6 +1045,7 @@ src/PSSailpointBeta/Model/OutlierContributingFeatureValue.ps1
 src/PSSailpointBeta/Model/OutlierFeatureTranslation.ps1
 src/PSSailpointBeta/Model/OutlierSummary.ps1
 src/PSSailpointBeta/Model/OwnerReference.ps1
+src/PSSailpointBeta/Model/OwnerReferenceDto.ps1
 src/PSSailpointBeta/Model/PasswordChangeRequest.ps1
 src/PSSailpointBeta/Model/PasswordChangeResponse.ps1
 src/PSSailpointBeta/Model/PasswordDigitToken.ps1
@@ -1727,6 +1729,7 @@ tests/Model/OutlierContributingFeatureValue.Tests.ps1
 tests/Model/OutlierFeatureTranslation.Tests.ps1
 tests/Model/OutlierSummary.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
+tests/Model/OwnerReferenceDto.Tests.ps1
 tests/Model/PasswordChangeRequest.Tests.ps1
 tests/Model/PasswordChangeResponse.Tests.ps1
 tests/Model/PasswordDigitToken.Tests.ps1

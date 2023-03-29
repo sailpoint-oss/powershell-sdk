@@ -748,6 +748,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.OutlierFeatureTranslation](docs/OutlierFeatureTranslation.md)
  - [PSSailpointBeta/Model.OutlierSummary](docs/OutlierSummary.md)
  - [PSSailpointBeta/Model.OwnerReference](docs/OwnerReference.md)
+ - [PSSailpointBeta/Model.OwnerReferenceDto](docs/OwnerReferenceDto.md)
  - [PSSailpointBeta/Model.PasswordChangeRequest](docs/PasswordChangeRequest.md)
  - [PSSailpointBeta/Model.PasswordChangeResponse](docs/PasswordChangeResponse.md)
  - [PSSailpointBeta/Model.PasswordDigitToken](docs/PasswordDigitToken.md)

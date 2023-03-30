@@ -12,16 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Entitlement Request Configuration
 
 .PARAMETER AccessRequestConfig
 No description available.
 .OUTPUTS
 
-EntitlementRequestConfig<PSCustomObject>
+SourceEntitlementRequestConfig<PSCustomObject>
 #>
 
-function Initialize-BetaEntitlementRequestConfig {
+function Initialize-BetaSourceEntitlementRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-BetaEntitlementRequestConfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaEntitlementRequestConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaSourceEntitlementRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -46,11 +46,11 @@ function Initialize-BetaEntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Convert from JSON to EntitlementRequestConfig<PSCustomObject>
+Convert from JSON to SourceEntitlementRequestConfig<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to EntitlementRequestConfig<PSCustomObject>
+Convert from JSON to SourceEntitlementRequestConfig<PSCustomObject>
 
 .PARAMETER Json
 
@@ -58,21 +58,21 @@ Json object
 
 .OUTPUTS
 
-EntitlementRequestConfig<PSCustomObject>
+SourceEntitlementRequestConfig<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToEntitlementRequestConfig {
+function ConvertFrom-BetaJsonToSourceEntitlementRequestConfig {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaEntitlementRequestConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSourceEntitlementRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaEntitlementRequestConfig
+        # check if Json contains properties not defined in BetaSourceEntitlementRequestConfig
         $AllProperties = ("accessRequestConfig")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

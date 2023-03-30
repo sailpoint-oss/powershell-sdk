@@ -102,6 +102,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'Get-BetaSourceEntitlementRequestConfig' {
+        It 'Test Get-BetaSourceEntitlementRequestConfig' {
+            #$TestResult = Get-BetaSourceEntitlementRequestConfig
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaSourceSchema' {
         It 'Test Get-BetaSourceSchema' {
             #$TestResult = Get-BetaSourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
@@ -225,6 +233,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
     Context 'Update-BetaSource' {
         It 'Test Update-BetaSource' {
             #$TestResult = Update-BetaSource -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaSourceEntitlementRequestConfig' {
+        It 'Test Update-BetaSourceEntitlementRequestConfig' {
+            #$TestResult = Update-BetaSourceEntitlementRequestConfig -SourceEntitlementRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

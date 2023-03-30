@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AutoApprovalEnabled** | **Boolean** | If true and requester and reviewer are the same, then automatically approve the approval. | [optional] 
 **RequestOnBehalfOfConfig** | [**RequestOnBehalfOfConfig**](RequestOnBehalfOfConfig.md) |  | [optional] 
 **ApprovalReminderAndEscalationConfig** | [**ApprovalReminderAndEscalationConfig**](ApprovalReminderAndEscalationConfig.md) |  | [optional] 
-**EntitlementRequestConfig** | [**EntitlementRequestConfig**](EntitlementRequestConfig.md) |  | [optional] 
+**EntitlementRequestConfig** | [**EntitlementRequestConfig1**](EntitlementRequestConfig1.md) |  | [optional] 
 
 ## Examples
 

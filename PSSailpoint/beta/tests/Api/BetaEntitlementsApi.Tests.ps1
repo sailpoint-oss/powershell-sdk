@@ -14,6 +14,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
         }
     }
 
+    Context 'Get-BetaEntitlementRequestConfig' {
+        It 'Test Get-BetaEntitlementRequestConfig' {
+            #$TestResult = Get-BetaEntitlementRequestConfig -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaEntitlementChildren' {
         It 'Test Get-BetaEntitlementChildren' {
             #$TestResult = Get-BetaEntitlementChildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
@@ -41,6 +49,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
     Context 'Update-BetaEntitlement' {
         It 'Test Update-BetaEntitlement' {
             #$TestResult = Update-BetaEntitlement -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-BetaEntitlementRequestConfig' {
+        It 'Test Send-BetaEntitlementRequestConfig' {
+            #$TestResult = Send-BetaEntitlementRequestConfig -Id "TEST_VALUE" -EntitlementRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -127,10 +127,12 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an Entitlement
+*BetaEntitlementsApi* | [**Get-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
 *BetaEntitlementsApi* | [**Get-BetaEntitlementChildren**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 *BetaEntitlementsApi* | [**Get-BetaEntitlementParents**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 *BetaEntitlementsApi* | [**Get-BetaEntitlements**](docs/BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
 *BetaEntitlementsApi* | [**Update-BetaEntitlement**](docs/BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch a specified Entitlement
+*BetaEntitlementsApi* | [**Send-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
 *BetaEntitlementsApi* | [**Update-BetaEntitlementsInBulk**](docs/BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsIgnoredItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Notification of Ignored Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsRequestedItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Notification of Requested Access Request Recommendations
@@ -356,6 +358,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Get-BetaSource**](docs/BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
 *BetaSourcesApi* | [**Get-BetaSourceAttrSyncConfig**](docs/BetaSourcesApi.md#Get-BetaSourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
 *BetaSourcesApi* | [**Get-BetaSourceConfig**](docs/BetaSourcesApi.md#Get-BetaSourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
+*BetaSourcesApi* | [**Get-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Get-BetaSourceSchema**](docs/BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicies**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
 *BetaSourcesApi* | [**Get-BetaSourceSchemas**](docs/BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
@@ -372,6 +375,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Update-BetaProvisioningPoliciesInBulk**](docs/BetaSourcesApi.md#Update-BetaProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 *BetaSourcesApi* | [**Update-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Update-BetaProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
+*BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 *BetaSourcesApi* | [**Invoke-BetaUploadSourceAccountsSchema**](docs/BetaSourcesApi.md#Invoke-BetaUploadSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *BetaSourcesApi* | [**Invoke-BetaUploadSourceConnectorFile**](docs/BetaSourcesApi.md#Invoke-BetaUploadSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
@@ -591,9 +595,12 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.EmailNotificationOption](docs/EmailNotificationOption.md)
  - [PSSailpointBeta/Model.EmailStatusDto](docs/EmailStatusDto.md)
  - [PSSailpointBeta/Model.Entitlement](docs/Entitlement.md)
+ - [PSSailpointBeta/Model.EntitlementAccessRequestConfig](docs/EntitlementAccessRequestConfig.md)
+ - [PSSailpointBeta/Model.EntitlementApprovalScheme](docs/EntitlementApprovalScheme.md)
  - [PSSailpointBeta/Model.EntitlementBulkUpdateRequest](docs/EntitlementBulkUpdateRequest.md)
  - [PSSailpointBeta/Model.EntitlementRef](docs/EntitlementRef.md)
  - [PSSailpointBeta/Model.EntitlementRequestConfig](docs/EntitlementRequestConfig.md)
+ - [PSSailpointBeta/Model.EntitlementRequestConfig1](docs/EntitlementRequestConfig1.md)
  - [PSSailpointBeta/Model.EntitlementSource](docs/EntitlementSource.md)
  - [PSSailpointBeta/Model.EntityCreatedByDTO](docs/EntityCreatedByDTO.md)
  - [PSSailpointBeta/Model.ErrorMessageDto](docs/ErrorMessageDto.md)
@@ -906,6 +913,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SourceCode](docs/SourceCode.md)
  - [PSSailpointBeta/Model.SourceCreated](docs/SourceCreated.md)
  - [PSSailpointBeta/Model.SourceDeleted](docs/SourceDeleted.md)
+ - [PSSailpointBeta/Model.SourceEntitlementRequestConfig](docs/SourceEntitlementRequestConfig.md)
  - [PSSailpointBeta/Model.SourceFeature](docs/SourceFeature.md)
  - [PSSailpointBeta/Model.SourceManagementWorkgroup](docs/SourceManagementWorkgroup.md)
  - [PSSailpointBeta/Model.SourceManagerCorrelationRule](docs/SourceManagerCorrelationRule.md)

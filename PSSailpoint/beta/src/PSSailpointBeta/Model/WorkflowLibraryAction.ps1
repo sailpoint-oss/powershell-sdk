@@ -22,6 +22,8 @@ Action Name
 Action Description
 .PARAMETER FormFields
 One or more inputs that the action accepts
+.PARAMETER IsDynamicSchema
+Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
 .PARAMETER OutputSchema
 Defines the output schema, if any, that this action produces.
 .OUTPUTS
@@ -45,6 +47,9 @@ function Initialize-BetaWorkflowLibraryAction {
         [PSCustomObject[]]
         ${FormFields},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsDynamicSchema},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OutputSchema}
     )
@@ -59,6 +64,7 @@ function Initialize-BetaWorkflowLibraryAction {
             "name" = ${Name}
             "description" = ${Description}
             "formFields" = ${FormFields}
+            "isDynamicSchema" = ${IsDynamicSchema}
             "outputSchema" = ${OutputSchema}
         }
 
@@ -97,7 +103,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflowLibraryAction
-        $AllProperties = ("id", "name", "description", "formFields", "outputSchema")
+        $AllProperties = ("id", "name", "description", "formFields", "isDynamicSchema", "outputSchema")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -128,6 +134,12 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
             $FormFields = $JsonParameters.PSobject.Properties["formFields"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isDynamicSchema"))) { #optional property not found
+            $IsDynamicSchema = $null
+        } else {
+            $IsDynamicSchema = $JsonParameters.PSobject.Properties["isDynamicSchema"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "outputSchema"))) { #optional property not found
             $OutputSchema = $null
         } else {
@@ -139,6 +151,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
             "name" = ${Name}
             "description" = ${Description}
             "formFields" = ${FormFields}
+            "isDynamicSchema" = ${IsDynamicSchema}
             "outputSchema" = ${OutputSchema}
         }
 

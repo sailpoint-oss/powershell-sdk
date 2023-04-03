@@ -45,7 +45,7 @@ function Initialize-BetaWorkflowLibraryFormFields {
         [System.Nullable[Boolean]]
         ${Required},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("text", "textarea", "boolean", "email", "url", "number", "json", "checkbox")]
+        [ValidateSet("text", "textarea", "boolean", "email", "url", "number", "json", "checkbox", "jsonpath", "select", "multiType", "duration", "toggle", "identityPicker", "governanceGroupPicker", "string", "number", "object", "array", "secret", "url", "keyValuePairs")]
         [PSCustomObject]
         ${Type}
     )

@@ -22,6 +22,8 @@ Trigger type
 Trigger Name
 .PARAMETER Description
 Trigger Description
+.PARAMETER IsDynamicSchema
+Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
 .PARAMETER InputExample
 Example trigger payload if applicable
 .PARAMETER FormFields
@@ -48,9 +50,12 @@ function Initialize-BetaWorkflowLibraryTrigger {
         [String]
         ${Description},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsDynamicSchema},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${InputExample},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${FormFields}
     )
@@ -65,6 +70,7 @@ function Initialize-BetaWorkflowLibraryTrigger {
             "type" = ${Type}
             "name" = ${Name}
             "description" = ${Description}
+            "isDynamicSchema" = ${IsDynamicSchema}
             "inputExample" = ${InputExample}
             "formFields" = ${FormFields}
         }
@@ -104,7 +110,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryTrigger {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflowLibraryTrigger
-        $AllProperties = ("id", "type", "name", "description", "inputExample", "formFields")
+        $AllProperties = ("id", "type", "name", "description", "isDynamicSchema", "inputExample", "formFields")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,6 +141,12 @@ function ConvertFrom-BetaJsonToWorkflowLibraryTrigger {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isDynamicSchema"))) { #optional property not found
+            $IsDynamicSchema = $null
+        } else {
+            $IsDynamicSchema = $JsonParameters.PSobject.Properties["isDynamicSchema"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "inputExample"))) { #optional property not found
             $InputExample = $null
         } else {
@@ -152,6 +164,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryTrigger {
             "type" = ${Type}
             "name" = ${Name}
             "description" = ${Description}
+            "isDynamicSchema" = ${IsDynamicSchema}
             "inputExample" = ${InputExample}
             "formFields" = ${FormFields}
         }

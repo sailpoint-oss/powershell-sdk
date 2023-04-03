@@ -19,7 +19,7 @@ The owner id for the entitlement
 .PARAMETER Name
 The owner name for the entitlement
 .PARAMETER Type
-The type of the owner
+The type of the owner. Initially only type IDENTITY is supported
 .OUTPUTS
 
 OwnerReferenceDto<PSCustomObject>
@@ -35,7 +35,7 @@ function Initialize-BetaOwnerReferenceDto {
         [String]
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY", "GOVERNANCE_GROUP")]
+        [ValidateSet("IDENTITY")]
         [String]
         ${Type}
     )

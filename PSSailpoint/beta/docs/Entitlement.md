@@ -24,11 +24,11 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Entitlement = Initialize-PSSailpointBetaEntitlement  -Id 2c91808874ff91550175097daaec161c `
- -Name LauncherTestGroup2 `
+ -Name LauncherTest2 `
  -Attribute memberOf `
- -Value CN&#x3D;LauncherTestGroup2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
+ -Value CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
  -SourceSchemaObjectType group `
- -Description CN&#x3D;LauncherTestGroup2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
+ -Description CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
  -Privileged true `
  -CloudGoverned true `
  -Created 2020-10-08T18:33:52.029Z `

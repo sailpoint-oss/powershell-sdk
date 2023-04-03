@@ -5,15 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The owner id for the entitlement | [optional] 
 **Name** | **String** | The owner name for the entitlement | [optional] 
-**Type** | **String** | The type of the owner | [optional] 
+**Type** | **String** | The type of the owner. Initially only type IDENTITY is supported | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$OwnerReferenceDto = Initialize-PSSailpointBetaOwnerReferenceDto  -Id 2a2fdacc-a5e3-45f1-8bf7-970cfbb8fec2 `
- -Name governance group 1 `
- -Type GOVERNANCE_GROUP
+$OwnerReferenceDto = Initialize-PSSailpointBetaOwnerReferenceDto  -Id 2a2fdacca5e345f18bf7970cfbb8fec2 `
+ -Name identity 1 `
+ -Type IDENTITY
 ```
 
 - Convert the resource to JSON

@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 <a name="Remove-BetaAccessProfile"></a>
 # **Remove-BetaAccessProfile**
-> BaseReferenceDto Remove-BetaAccessProfile<br>
+> void Remove-BetaAccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete the specified Access Profile
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
+void (empty response body)
 
 ### Authorization
 

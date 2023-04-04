@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 <a name="Remove-BetaRole"></a>
 # **Remove-BetaRole**
-> BaseReferenceDto Remove-BetaRole<br>
+> void Remove-BetaRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Delete a Role
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
+void (empty response body)
 
 ### Authorization
 

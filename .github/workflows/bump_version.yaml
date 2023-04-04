@@ -1,0 +1,118 @@
+name: "Update Powershell SDK Version"
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version to bump to
+
+jobs:
+  update_powershell_version:
+    name: Update PowerShell Version
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+    
+      - name: Checkout API Specs Repo
+        uses: actions/checkout@v3
+        with:
+          repository: sailpoint-oss/api-specs
+          path: api-specs
+          ref: main
+      
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      # Install yq for working with yaml files
+      - name: Set up yq
+        uses: frenck/action-setup-yq@v1
+
+      # Check input version is greater than the current tag
+      - name: Check valid version
+        run: |
+          function ver { printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
+
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+          echo $LATEST_TAG
+          if [ $(ver $LATEST_TAG) -lt $(ver ${{ github.event.inputs.version}}) ]
+          then
+            echo "Input version ${{ github.event.inputs.version }} valid"
+          else
+            echo "Current tagged version $LATEST_TAG is greater than input version ${{ github.event.inputs.version }}"
+            exit 1
+          fi
+
+      ## Update configuration files to new version
+      - name: Update config files with new version
+        id: updateVersion
+        run: |
+          yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/cc-config.yaml
+          yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2-config.yaml
+          yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/beta-config.yaml
+          yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v3-config.yaml
+
+
+
+      ## Update Build.ps1 file with new version
+      - name: Update Build.ps1 ModuleVersion
+        id: updateModuleVersion
+        if: steps.updateVersion.outcome == 'success'
+        run: |
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+          cd PSSailpoint
+          sed -e "s/ModuleVersion = '$LATEST_TAG'/ModuleVersion = '${{ github.event.inputs.version }}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
+
+      - name: Build V3 SDK
+        id: buildV3
+        if: steps.updateModuleVersion.outcome == 'success'
+        run: |
+          rm -rf ./PSSailpoint/v3
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g powershell -o PSSailpoint/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml
+          node sdk-resources/postscript.js ./PSSailpoint/v3
+      
+      - name: Build Beta SDK
+        id: buildBeta
+        if: steps.buildV3.outcome == 'success'
+        run: |
+          rm -rf ./PSSailpoint/beta
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g powershell -o PSSailpoint/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml
+          node sdk-resources/postscript.js ./PSSailpoint/beta
+      
+      - name: Build V2 SDK
+        id: buildV2
+        if: steps.buildBeta.outcome == 'success'
+        run: |
+          rm -rf ./PSSailpoint/v2
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2.yaml -g powershell -o PSSailpoint/v2 --global-property skipFormModel=false --config sdk-resources/v2-config.yaml
+
+      - name: Build CC SDK
+        id: buildCC
+        if: steps.buildV2.outcome == 'success'
+        run: |
+          rm -rf ./PSSailpoint/cc
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.cc.yaml -g powershell -o PSSailpoint/cc --global-property skipFormModel=false --config sdk-resources/cc-config.yaml
+
+      - name: After SDK Build
+        id: buildSDK
+        if: steps.buildCC.outcome == 'success'
+        shell: pwsh
+        run: |
+          $DebugPreference="Continue"
+          ./PSSailpoint/Build.ps1
+          Import-Module -Name '.\PSSailpoint' -Verbose
+        
+      - name: Commit changes and create new version tag
+        if: steps.buildSDK.outcome == 'success'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Bump version to ${{ github.event.inputs.version }}
+          tagging_message: ${{ github.event.inputs.version }}

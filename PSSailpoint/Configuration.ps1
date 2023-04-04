@@ -65,13 +65,16 @@ function Get-DefaultConfiguration {
         } else {
             Write-Host "No environments specified in config file" -ForegroundColor Red
         }
+    } elseif ($null -ne $ENV:SAIL_BASE_URL -and $null -ne $ENV:SAIL_CLIENT_ID -and $null -ne $ENV:SAIL_CLIENT_SECRET) {
+        # Environment variables are set, use environment variables for configuration
+        Write-Debug "Environment variables set, using environment variables for configuration."
     } else {
         Write-Host "Configuration file not found at $HOME/.sailpoint/config.yaml. Please provide a configuration file or configure using PowerShell environment variables." -ForegroundColor Red
     }
 
     if ($null -ne $ENV:SAIL_BASE_URL) {
         $Configuration["BaseUrl"] = $ENV:SAIL_BASE_URL + "/"
-        $Configuration["TokenUrl"] = $ENV:SAIl_BASE_URL + "/oauth/token"
+        $Configuration["TokenUrl"] = $ENV:SAIL_BASE_URL + "/oauth/token"
     }
 
     if ($null -ne $ENV:SAIL_CLIENT_ID) {

@@ -257,6 +257,7 @@ docs/OwnerReference.md
 docs/Owns.md
 docs/PasswordChangeRequest.md
 docs/PasswordChangeResponse.md
+docs/PasswordDictionaryApi.md
 docs/PasswordInfo.md
 docs/PasswordInfoAccount.md
 docs/PasswordInfoQueryDTO.md
@@ -437,6 +438,7 @@ src/PSSailpoint/Api/IdentityProfilesApi.ps1
 src/PSSailpoint/Api/LifecycleStatesApi.ps1
 src/PSSailpoint/Api/NonEmployeeLifecycleManagementApi.ps1
 src/PSSailpoint/Api/OAuthClientsApi.ps1
+src/PSSailpoint/Api/PasswordDictionaryApi.ps1
 src/PSSailpoint/Api/PasswordManagementApi.ps1
 src/PSSailpoint/Api/PersonalAccessTokensApi.ps1
 src/PSSailpoint/Api/PublicIdentitiesApi.ps1
@@ -869,6 +871,7 @@ tests/Api/IdentityProfilesApi.Tests.ps1
 tests/Api/LifecycleStatesApi.Tests.ps1
 tests/Api/NonEmployeeLifecycleManagementApi.Tests.ps1
 tests/Api/OAuthClientsApi.Tests.ps1
+tests/Api/PasswordDictionaryApi.Tests.ps1
 tests/Api/PasswordManagementApi.Tests.ps1
 tests/Api/PersonalAccessTokensApi.Tests.ps1
 tests/Api/PublicIdentitiesApi.Tests.ps1

@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Action ID. This is a static namespaced ID for the action | [optional] 
 **Name** | **String** | Action Name | [optional] 
+**Type** | **String** | Action type | [optional] 
 **Description** | **String** | Action Description | [optional] 
 **FormFields** | [**WorkflowLibraryFormFields[]**](WorkflowLibraryFormFields.md) | One or more inputs that the action accepts | [optional] 
 **IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action&#39;s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 ```powershell
 $WorkflowLibraryAction = Initialize-PSSailpointBetaWorkflowLibraryAction  -Id sp:create-campaign `
  -Name Create Certification Campaign `
+ -Type ACTION `
  -Description Generates a certification campaign. `
  -FormFields null `
  -IsDynamicSchema false `

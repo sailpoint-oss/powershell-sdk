@@ -18,6 +18,8 @@ No description available.
 Operator ID.
 .PARAMETER Name
 Operator friendly name
+.PARAMETER Type
+Operator type
 .PARAMETER Description
 Description of the operator
 .PARAMETER FormFields
@@ -38,8 +40,11 @@ function Initialize-BetaWorkflowLibraryOperator {
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${FormFields}
     )
@@ -52,6 +57,7 @@ function Initialize-BetaWorkflowLibraryOperator {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
+            "type" = ${Type}
             "description" = ${Description}
             "formFields" = ${FormFields}
         }
@@ -91,7 +97,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryOperator {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflowLibraryOperator
-        $AllProperties = ("id", "name", "description", "formFields")
+        $AllProperties = ("id", "name", "type", "description", "formFields")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -110,6 +116,12 @@ function ConvertFrom-BetaJsonToWorkflowLibraryOperator {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
@@ -125,6 +137,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryOperator {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
+            "type" = ${Type}
             "description" = ${Description}
             "formFields" = ${FormFields}
         }

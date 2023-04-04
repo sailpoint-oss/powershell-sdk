@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $WorkflowDefinition = Initialize-PSSailpointBetaWorkflowDefinition  -Start Send Email Test `
- -Steps {Send Email&#x3D;{actionId&#x3D;sp:send-email, attributes&#x3D;{body&#x3D;This is a test, from&#x3D;sailpoint@sailpoint.com, recipientId.$&#x3D;$.identity.id, subject&#x3D;test}, nextStep&#x3D;success, selectResult&#x3D;null, type&#x3D;action}, success&#x3D;{type&#x3D;success}}
+ -Steps {Send Email&#x3D;{actionId&#x3D;sp:send-email, attributes&#x3D;{body&#x3D;This is a test, from&#x3D;sailpoint@sailpoint.com, recipientId.$&#x3D;$.identity.id, subject&#x3D;test}, nextStep&#x3D;success, selectResult&#x3D;null, type&#x3D;ACTION}, success&#x3D;{type&#x3D;success}}
 ```
 
 - Convert the resource to JSON

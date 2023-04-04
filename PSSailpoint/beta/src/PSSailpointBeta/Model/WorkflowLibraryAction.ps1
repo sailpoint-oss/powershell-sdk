@@ -18,6 +18,8 @@ No description available.
 Action ID. This is a static namespaced ID for the action
 .PARAMETER Name
 Action Name
+.PARAMETER Type
+Action type
 .PARAMETER Description
 Action Description
 .PARAMETER FormFields
@@ -42,14 +44,17 @@ function Initialize-BetaWorkflowLibraryAction {
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${FormFields},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsDynamicSchema},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OutputSchema}
     )
@@ -62,6 +67,7 @@ function Initialize-BetaWorkflowLibraryAction {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
+            "type" = ${Type}
             "description" = ${Description}
             "formFields" = ${FormFields}
             "isDynamicSchema" = ${IsDynamicSchema}
@@ -103,7 +109,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflowLibraryAction
-        $AllProperties = ("id", "name", "description", "formFields", "isDynamicSchema", "outputSchema")
+        $AllProperties = ("id", "name", "type", "description", "formFields", "isDynamicSchema", "outputSchema")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -120,6 +126,12 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
             $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -149,6 +161,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
+            "type" = ${Type}
             "description" = ${Description}
             "formFields" = ${FormFields}
             "isDynamicSchema" = ${IsDynamicSchema}

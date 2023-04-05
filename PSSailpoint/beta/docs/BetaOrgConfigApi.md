@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Get Org configuration settings
 
-Get org configuration with only external (org admin) accessible properties for the current org.  Request will require the following security scope: - 'idn:org-config:read' - 'idn:org-config-internal:read'
+Get org configuration with only external (org admin) accessible properties for the current org.
 
 ### Example
 ```powershell
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 Get list of time zones
 
-Get a list of valid time zones that can be set in org configurations. Request will require the following security scope: - 'idn:org-config-user:read' - 'idn:org-config:read' - 'idn:org-config-internal:read'
+Get a list of valid time zones that can be set in org configurations.
 
 ### Example
 ```powershell
@@ -108,7 +108,7 @@ This endpoint does not need any parameter.
 
 Patch an Org configuration property
 
-Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org. Request will require a security scope of: - 'idn:org-config:write' - 'idn:org-config-internal:write'
+Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
 
 ### Example
 ```powershell

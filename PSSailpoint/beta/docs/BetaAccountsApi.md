@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 
 <a name="Get-BetaAccounts"></a>
 # **Get-BetaAccounts**
-> SystemCollectionsHashtable Get-BetaAccounts<br>
+> ListAccounts200ResponseInner[] Get-BetaAccounts<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DetailLevel] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+[**ListAccounts200ResponseInner[]**](ListAccounts200ResponseInner.md) (PSCustomObject)
 
 ### Authorization
 

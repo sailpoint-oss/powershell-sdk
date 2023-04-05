@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 <a name="Get-BetaTaggedObjects"></a>
 # **Get-BetaTaggedObjects**
-> TaggedObject Get-BetaTaggedObjects<br>
+> TaggedObject[] Get-BetaTaggedObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaggedObject**](TaggedObject.md) (PSCustomObject)
+[**TaggedObject[]**](TaggedObject.md) (PSCustomObject)
 
 ### Authorization
 

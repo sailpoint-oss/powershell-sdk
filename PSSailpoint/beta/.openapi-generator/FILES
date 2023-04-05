@@ -240,6 +240,8 @@ docs/FormDetails.md
 docs/FormItem.md
 docs/FormItemDetails.md
 docs/ForwardApprovalDto.md
+docs/FullAccount.md
+docs/FullAccountAllOf.md
 docs/Fullcampaign.md
 docs/FullcampaignAllOf.md
 docs/FullcampaignAllOfFilter.md
@@ -304,6 +306,7 @@ docs/LatestOutlierSummary.md
 docs/LifecycleState.md
 docs/ListAccessProfiles401Response.md
 docs/ListAccessProfiles429Response.md
+docs/ListAccounts200ResponseInner.md
 docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/ListIdentityAccessItems200ResponseInner.md
 docs/LocaleOrigin.md
@@ -504,6 +507,8 @@ docs/ServiceDeskIntegrationDtoAllOfOwnerRef.md
 docs/ServiceDeskIntegrationTemplateDto.md
 docs/ServiceDeskIntegrationTemplateDtoAllOf.md
 docs/ServiceDeskIntegrationTemplateType.md
+docs/SlimAccount.md
+docs/SlimAccountAllOf.md
 docs/Slimcampaign.md
 docs/SodExemptCriteria.md
 docs/SodExemptCriteria1.md
@@ -922,6 +927,8 @@ src/PSSailpointBeta/Model/FormDetails.ps1
 src/PSSailpointBeta/Model/FormItem.ps1
 src/PSSailpointBeta/Model/FormItemDetails.ps1
 src/PSSailpointBeta/Model/ForwardApprovalDto.ps1
+src/PSSailpointBeta/Model/FullAccount.ps1
+src/PSSailpointBeta/Model/FullAccountAllOf.ps1
 src/PSSailpointBeta/Model/Fullcampaign.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOf.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfFilter.ps1
@@ -986,6 +993,7 @@ src/PSSailpointBeta/Model/LatestOutlierSummary.ps1
 src/PSSailpointBeta/Model/LifecycleState.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles401Response.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles429Response.ps1
+src/PSSailpointBeta/Model/ListAccounts200ResponseInner.ps1
 src/PSSailpointBeta/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpointBeta/Model/ListIdentityAccessItems200ResponseInner.ps1
 src/PSSailpointBeta/Model/LocaleOrigin.ps1
@@ -1186,6 +1194,8 @@ src/PSSailpointBeta/Model/ServiceDeskIntegrationDtoAllOfOwnerRef.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateDtoAllOf.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateType.ps1
+src/PSSailpointBeta/Model/SlimAccount.ps1
+src/PSSailpointBeta/Model/SlimAccountAllOf.ps1
 src/PSSailpointBeta/Model/Slimcampaign.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria1.ps1
@@ -1610,6 +1620,8 @@ tests/Model/FormDetails.Tests.ps1
 tests/Model/FormItem.Tests.ps1
 tests/Model/FormItemDetails.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
+tests/Model/FullAccount.Tests.ps1
+tests/Model/FullAccountAllOf.Tests.ps1
 tests/Model/Fullcampaign.Tests.ps1
 tests/Model/FullcampaignAllOf.Tests.ps1
 tests/Model/FullcampaignAllOfFilter.Tests.ps1
@@ -1674,6 +1686,7 @@ tests/Model/LatestOutlierSummary.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
 tests/Model/ListAccessProfiles401Response.Tests.ps1
 tests/Model/ListAccessProfiles429Response.Tests.ps1
+tests/Model/ListAccounts200ResponseInner.Tests.ps1
 tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/ListIdentityAccessItems200ResponseInner.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
@@ -1874,6 +1887,8 @@ tests/Model/ServiceDeskIntegrationDtoAllOfOwnerRef.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDtoAllOf.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
+tests/Model/SlimAccount.Tests.ps1
+tests/Model/SlimAccountAllOf.Tests.ps1
 tests/Model/Slimcampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodExemptCriteria1.Tests.ps1

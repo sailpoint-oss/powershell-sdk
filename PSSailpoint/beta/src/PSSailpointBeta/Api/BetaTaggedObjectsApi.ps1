@@ -378,7 +378,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-TaggedObject
+TaggedObject[]
 #>
 function Get-BetaTaggedObjects {
     [CmdletBinding()]
@@ -445,7 +445,7 @@ function Get-BetaTaggedObjects {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "TaggedObject" `
+                                -ReturnType "TaggedObject[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

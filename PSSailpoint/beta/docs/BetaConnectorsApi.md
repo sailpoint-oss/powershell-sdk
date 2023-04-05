@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="Get-BetaConnectorList"></a>
 # **Get-BetaConnectorList**
-> V3ConnectorDto Get-BetaConnectorList<br>
+> V3ConnectorDto[] Get-BetaConnectorList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V3ConnectorDto**](V3ConnectorDto.md) (PSCustomObject)
+[**V3ConnectorDto[]**](V3ConnectorDto.md) (PSCustomObject)
 
 ### Authorization
 

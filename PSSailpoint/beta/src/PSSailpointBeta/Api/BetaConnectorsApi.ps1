@@ -35,7 +35,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-V3ConnectorDto
+V3ConnectorDto[]
 #>
 function Get-BetaConnectorList {
     [CmdletBinding()]
@@ -110,7 +110,7 @@ function Get-BetaConnectorList {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "V3ConnectorDto" `
+                                -ReturnType "V3ConnectorDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

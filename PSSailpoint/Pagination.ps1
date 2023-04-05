@@ -7,13 +7,18 @@ function Invoke-Paginate {
         [System.Nullable[Int32]]$InitialOffset,
         [System.Nullable[Int32]]$Increment,
         [System.Nullable[Int32]]$Limit,
-        [hashtable]$Parameters
+        [hashtable]$Parameters,
+        [Switch]$WithHttpInfo
 
     )
 
     Write-Debug ($Parameters | Out-String) 
     
-    $Results = $null;
+    $Results = @{
+        Response = @()
+        StatusCode = $null
+        Headers = $null
+    };
 
     if($null -eq $InitialOffset) {
         $InitialOffset = 0
@@ -29,22 +34,28 @@ function Invoke-Paginate {
 
     try {
         while($InitialOffset -lt $Limit) {
-            $Command = "$Function -Limit $Increment -Offset $InitialOffset @Parameters"
+            $Command = "$Function -Limit $Increment -Offset $InitialOffset -WithHttpInfo @Parameters"
             $Result = Invoke-Expression $Command
 
-            $Count = $Result.Length
+            $Count = $Result.Response.Length
             Write-Debug "Retrieved $Count Results"
 
-            $Results += $Result
+            $Results.Response += $Result.Response
+            $Results.StatusCode = $Result.StatusCode
+            $Results.Headers = $Result.Headers
             
-            if($Result.Length -lt $Increment) {
+            if($Result.Response.Length -lt $Increment) {
                 break
             }
 
             $InitialOffset += $Increment;
         }
 
-        return $Results
+        if ($WithHttpInfo.IsPresent) {
+            return $Results
+        } else {
+            return $Results.Response
+        }
     } catch {
         Write-Host $_
         Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), $Function)
@@ -62,12 +73,17 @@ function Invoke-PaginateSearch {
         ${Search},
         [System.Nullable[Int32]]$InitialOffset,
         [System.Nullable[Int32]]$Increment,
-        [System.Nullable[Int32]]$Limit
+        [System.Nullable[Int32]]$Limit,
+        [Switch]$WithHttpInfo
     )
 
     Write-Debug ($Parameters | Out-String) 
     
-    $Results = $null;
+    $Results = @{
+        Response = @()
+        StatusCode = $null
+        Headers = $null
+    };
 
     if($null -eq $InitialOffset) {
         $InitialOffset = 0
@@ -98,33 +114,39 @@ function Invoke-PaginateSearch {
         while($InitialOffset -lt $Limit) {
             $SearchAfter = $Search.SearchAfter
 
-            if ($Results.Length -gt 0) {
+            if ($Results.Response.Length -gt 0) {
                 $SearchSort = $Search.Sort[0]
                 $Sort = $SearchSort.Trim("+")
                 $SortTrimmed = $Sort.Trim("-")
-                $LastRecord = $Results[-1].psObject.properties[$SortTrimmed].value
+                $LastRecord = $Results.Response[-1].psObject.properties[$SortTrimmed].value
 
 
-                $SearchAfter = $Results[-1].psObject.properties[$SortTrimmed].value
+                $SearchAfter = $Results.Response[-1].psObject.properties[$SortTrimmed].value
 
                 $Search.SearchAfter = @($SearchAfter)
             }
 
-            $Result = Search-Post -Limit $Increment -Search $Search
+            $Result = Search-Post -Limit $Increment -Search $Search -WithHttpInfo
 
-            $Count = $Result.Length
+            $Count = $Result.Response.Length
             Write-Debug "Retrieved $Count Results"
 
-            $Results += $Result
+            $Results.Response += $Result.Response
+            $Results.StatusCode = $Result.StatusCode
+            $Results.Headers = $Result.Headers
 
-            if($Result.Length -lt $Increment) {
+            if($Result.Response.Length -lt $Increment) {
                 break
             }
 
             $InitialOffset += $Increment;
         }
 
-        return $Results
+        if ($WithHttpInfo.IsPresent) {
+            return $Results
+        } else {
+            return $Results.Response
+        }
     } catch {
         Write-Host $_
         Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), $Function)

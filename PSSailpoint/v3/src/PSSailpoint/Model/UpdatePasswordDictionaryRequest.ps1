@@ -18,10 +18,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-UploadSourceAccountsSchemaRequest<PSCustomObject>
+UpdatePasswordDictionaryRequest<PSCustomObject>
 #>
 
-function Initialize-UploadSourceAccountsSchemaRequest {
+function Initialize-UpdatePasswordDictionaryRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-UploadSourceAccountsSchemaRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => UploadSourceAccountsSchemaRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => UpdatePasswordDictionaryRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -46,11 +46,11 @@ function Initialize-UploadSourceAccountsSchemaRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to UploadSourceAccountsSchemaRequest<PSCustomObject>
+Convert from JSON to UpdatePasswordDictionaryRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to UploadSourceAccountsSchemaRequest<PSCustomObject>
+Convert from JSON to UpdatePasswordDictionaryRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -58,21 +58,21 @@ Json object
 
 .OUTPUTS
 
-UploadSourceAccountsSchemaRequest<PSCustomObject>
+UpdatePasswordDictionaryRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToUploadSourceAccountsSchemaRequest {
+function ConvertFrom-JsonToUpdatePasswordDictionaryRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => UploadSourceAccountsSchemaRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => UpdatePasswordDictionaryRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in UploadSourceAccountsSchemaRequest
+        # check if Json contains properties not defined in UpdatePasswordDictionaryRequest
         $AllProperties = ("file")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

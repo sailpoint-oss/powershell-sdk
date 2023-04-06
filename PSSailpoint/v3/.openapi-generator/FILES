@@ -417,8 +417,8 @@ docs/Trim.md
 docs/TypeAheadQuery.md
 docs/TypedReference.md
 docs/UUIDGenerator.md
+docs/UpdatePasswordDictionaryRequest.md
 docs/UploadNonEmployeeRecordsInBulkRequest.md
-docs/UploadSourceAccountsSchemaRequest.md
 docs/Upper.md
 docs/UsageType.md
 docs/WorkItemState.md
@@ -844,8 +844,8 @@ src/PSSailpoint/Model/Trim.ps1
 src/PSSailpoint/Model/TypeAheadQuery.ps1
 src/PSSailpoint/Model/TypedReference.ps1
 src/PSSailpoint/Model/UUIDGenerator.ps1
+src/PSSailpoint/Model/UpdatePasswordDictionaryRequest.ps1
 src/PSSailpoint/Model/UploadNonEmployeeRecordsInBulkRequest.ps1
-src/PSSailpoint/Model/UploadSourceAccountsSchemaRequest.ps1
 src/PSSailpoint/Model/Upper.ps1
 src/PSSailpoint/Model/UsageType.ps1
 src/PSSailpoint/Model/WorkItemState.ps1
@@ -1276,8 +1276,8 @@ tests/Model/Trim.Tests.ps1
 tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
+tests/Model/UpdatePasswordDictionaryRequest.Tests.ps1
 tests/Model/UploadNonEmployeeRecordsInBulkRequest.Tests.ps1
-tests/Model/UploadSourceAccountsSchemaRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/WorkItemState.Tests.ps1

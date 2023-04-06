@@ -269,7 +269,6 @@ Class | Method | HTTP request | Description
 *BetaPasswordConfigurationApi* | [**Get-BetaPasswordOrgConfig**](docs/BetaPasswordConfigurationApi.md#Get-BetaPasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
 *BetaPasswordConfigurationApi* | [**Update-BetaPasswordOrgConfig**](docs/BetaPasswordConfigurationApi.md#Update-BetaPasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
 *BetaPasswordDictionaryApi* | [**Get-BetaPasswordDictionary**](docs/BetaPasswordDictionaryApi.md#Get-BetaPasswordDictionary) | **GET** /password-dictionary | Get Password Dictionary
-*BetaPasswordDictionaryApi* | [**Get-BetaPasswordDictionaryFileStatus**](docs/BetaPasswordDictionaryApi.md#Get-BetaPasswordDictionaryFileStatus) | **HEAD** /password-dictionary | Get Password Dictionary Status
 *BetaPasswordDictionaryApi* | [**Update-BetaPasswordDictionary**](docs/BetaPasswordDictionaryApi.md#Update-BetaPasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 *BetaPasswordManagementApi* | [**New-BetaDigitToken**](docs/BetaPasswordManagementApi.md#New-BetaDigitToken) | **POST** /generate-password-reset-token/digit | Generate a digit token
 *BetaPasswordManagementApi* | [**Get-BetaIdentityPasswordChangeStatus**](docs/BetaPasswordManagementApi.md#Get-BetaIdentityPasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status

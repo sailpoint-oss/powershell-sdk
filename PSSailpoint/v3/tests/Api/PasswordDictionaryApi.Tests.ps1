@@ -14,4 +14,12 @@ Describe -tag 'PSSailpoint' -name 'PasswordDictionaryApi' {
         }
     }
 
+    Context 'Update-PasswordDictionary' {
+        It 'Test Update-PasswordDictionary' {
+            #$TestResult = Update-PasswordDictionary -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

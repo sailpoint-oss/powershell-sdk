@@ -5,7 +5,6 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaPasswordDictionary**](BetaPasswordDictionaryApi.md#Get-BetaPasswordDictionary) | **GET** /password-dictionary | Get Password Dictionary
-[**Get-BetaPasswordDictionaryFileStatus**](BetaPasswordDictionaryApi.md#Get-BetaPasswordDictionaryFileStatus) | **HEAD** /password-dictionary | Get Password Dictionary Status
 [**Update-BetaPasswordDictionary**](BetaPasswordDictionaryApi.md#Update-BetaPasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 
 
@@ -52,52 +51,6 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Get-BetaPasswordDictionaryFileStatus"></a>
-# **Get-BetaPasswordDictionaryFileStatus**
-> void Get-BetaPasswordDictionaryFileStatus<br>
-
-Get Password Dictionary Status
-
-Used to check the status of password dictionary. A token with ORG_ADMIN authority is required to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-
-# Get Password Dictionary Status
-try {
-    $Result = Get-BetaPasswordDictionaryFileStatus
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaPasswordDictionaryFileStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -14,14 +14,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaPasswordDictionaryApi' {
         }
     }
 
-    Context 'Get-BetaPasswordDictionaryFileStatus' {
-        It 'Test Get-BetaPasswordDictionaryFileStatus' {
-            #$TestResult = Get-BetaPasswordDictionaryFileStatus
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Update-BetaPasswordDictionary' {
         It 'Test Update-BetaPasswordDictionary' {
             #$TestResult = Update-BetaPasswordDictionary -File "TEST_VALUE"

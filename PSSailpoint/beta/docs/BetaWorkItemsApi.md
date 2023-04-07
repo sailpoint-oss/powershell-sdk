@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**Approve-BetaApprovalItem**](BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 [**Approve-BetaApprovalItemsInBulk**](BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 [**Complete-BetaWorkItem**](BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item
+[**Invoke-BetaForwardWorkItem**](BetaWorkItemsApi.md#Invoke-BetaForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a Work Item
 [**Get-BetaCompletedWorkItems**](BetaWorkItemsApi.md#Get-BetaCompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
 [**Get-BetaCountCompletedWorkItems**](BetaWorkItemsApi.md#Get-BetaCountCompletedWorkItems) | **GET** /work-items/count/completed | Count Completed Work Items
 [**Get-BetaCountWorkItems**](BetaWorkItemsApi.md#Get-BetaCountWorkItems) | **GET** /work-items/count | Count Work Items
@@ -170,6 +171,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Invoke-BetaForwardWorkItem"></a>
+# **Invoke-BetaForwardWorkItem**
+> void Invoke-BetaForwardWorkItem<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkItemForward] <PSCustomObject><br>
+
+Forward a Work Item
+
+This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+$WorkItemForward = Initialize-WorkItemForward -TargetOwnerId "2c9180835d2e5168015d32f890ca1581" -Comment "I'm going on vacation." -SendNotifications $true # WorkItemForward | 
+
+# Forward a Work Item
+try {
+    $Result = Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $WorkItemForward
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-BetaForwardWorkItem: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the work item | 
+ **WorkItemForward** | [**WorkItemForward**](WorkItemForward.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

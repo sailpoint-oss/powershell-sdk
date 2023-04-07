@@ -405,6 +405,7 @@ Class | Method | HTTP request | Description
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item
+*BetaWorkItemsApi* | [**Invoke-BetaForwardWorkItem**](docs/BetaWorkItemsApi.md#Invoke-BetaForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a Work Item
 *BetaWorkItemsApi* | [**Get-BetaCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
 *BetaWorkItemsApi* | [**Get-BetaCountCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountCompletedWorkItems) | **GET** /work-items/count/completed | Count Completed Work Items
 *BetaWorkItemsApi* | [**Get-BetaCountWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountWorkItems) | **GET** /work-items/count | Count Work Items
@@ -1053,6 +1054,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ViolationOwnerAssignmentConfig](docs/ViolationOwnerAssignmentConfig.md)
  - [PSSailpointBeta/Model.ViolationPrediction](docs/ViolationPrediction.md)
  - [PSSailpointBeta/Model.VisibilityCriteria](docs/VisibilityCriteria.md)
+ - [PSSailpointBeta/Model.WorkItemForward](docs/WorkItemForward.md)
  - [PSSailpointBeta/Model.WorkItemState](docs/WorkItemState.md)
  - [PSSailpointBeta/Model.WorkItemType](docs/WorkItemType.md)
  - [PSSailpointBeta/Model.WorkItems](docs/WorkItems.md)

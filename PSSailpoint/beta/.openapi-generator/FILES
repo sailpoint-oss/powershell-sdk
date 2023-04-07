@@ -669,6 +669,7 @@ docs/ViolationContextPolicyAllOf.md
 docs/ViolationOwnerAssignmentConfig.md
 docs/ViolationPrediction.md
 docs/VisibilityCriteria.md
+docs/WorkItemForward.md
 docs/WorkItemState.md
 docs/WorkItemType.md
 docs/WorkItems.md
@@ -1356,6 +1357,7 @@ src/PSSailpointBeta/Model/ViolationContextPolicyAllOf.ps1
 src/PSSailpointBeta/Model/ViolationOwnerAssignmentConfig.ps1
 src/PSSailpointBeta/Model/ViolationPrediction.ps1
 src/PSSailpointBeta/Model/VisibilityCriteria.ps1
+src/PSSailpointBeta/Model/WorkItemForward.ps1
 src/PSSailpointBeta/Model/WorkItemState.ps1
 src/PSSailpointBeta/Model/WorkItemType.ps1
 src/PSSailpointBeta/Model/WorkItems.ps1
@@ -2049,6 +2051,7 @@ tests/Model/ViolationContextPolicyAllOf.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1
 tests/Model/ViolationPrediction.Tests.ps1
 tests/Model/VisibilityCriteria.Tests.ps1
+tests/Model/WorkItemForward.Tests.ps1
 tests/Model/WorkItemState.Tests.ps1
 tests/Model/WorkItemType.Tests.ps1
 tests/Model/WorkItems.Tests.ps1

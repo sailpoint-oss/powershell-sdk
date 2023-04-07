@@ -45,7 +45,7 @@ function Invoke-ApiClient {
     $SkipCertificateCheck = $Configuration["SkipCertificateCheck"]
 
     Write-Debug "Calling Endpoint: $RequestUri"
-    
+
     # cookie parameters
     foreach ($Parameter in $CookieParameters.GetEnumerator()) {
         if ($Parameter.Name -eq "cookieAuth") {

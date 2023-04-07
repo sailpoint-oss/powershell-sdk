@@ -58,9 +58,11 @@ function Initialize-RequestableObject {
         [String]
         ${Description},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("AVAILABLE", "PENDING", "ASSIGNED")]
         [PSCustomObject]
         ${RequestStatus},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]

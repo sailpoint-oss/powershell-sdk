@@ -29,6 +29,7 @@ function Initialize-ScheduleDays {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("LIST", "RANGE")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

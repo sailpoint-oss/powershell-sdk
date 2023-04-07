@@ -34,6 +34,7 @@ function Initialize-BetaAccessRequest {
         [String[]]
         ${RequestedFor},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS")]
         [PSCustomObject]
         ${RequestType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

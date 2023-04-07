@@ -36,9 +36,11 @@ function Initialize-BetaHttpConfig {
         [String]
         ${Url},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("SYNC", "ASYNC", "DYNAMIC")]
         [PSCustomObject]
         ${HttpDispatchMode},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("NO_AUTH", "BASIC_AUTH", "BEARER_TOKEN")]
         [PSCustomObject]
         ${HttpAuthenticationType},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

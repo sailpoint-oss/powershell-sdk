@@ -29,6 +29,7 @@ function Initialize-BetaRoleCriteriaKey {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("IDENTITY", "ACCOUNT", "ENTITLEMENT")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

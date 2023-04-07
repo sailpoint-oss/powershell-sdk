@@ -33,6 +33,7 @@ function Initialize-Schedule {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("DAILY", "WEEKLY", "MONTHLY", "CALENDAR")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

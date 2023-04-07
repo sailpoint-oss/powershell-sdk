@@ -75,6 +75,7 @@ function Initialize-BetaRoleMiningSessionResponse {
         [System.Nullable[System.DateTime]]
         ${ModifiedDate},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
         ${Type}
     )

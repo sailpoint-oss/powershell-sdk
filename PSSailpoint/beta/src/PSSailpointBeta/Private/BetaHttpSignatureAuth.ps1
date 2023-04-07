@@ -118,7 +118,7 @@ function Get-BetaHttpSignedHeader {
             -HashAlgorithmName $httpSigningConfiguration.HashAlgorithm `
             -KeyPassPhrase $httpSigningConfiguration.KeyPassPhrase
     }
-    #Depricated
+    #Deprecated
     <#$cryptographicScheme = Get-BetaCryptographicScheme -SigningAlgorithm $httpSigningConfiguration.SigningAlgorithm `
                                                  -HashAlgorithm $httpSigningConfiguration.HashAlgorithm
     #>

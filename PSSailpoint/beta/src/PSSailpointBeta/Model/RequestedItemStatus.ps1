@@ -82,6 +82,7 @@ function Initialize-BetaRequestedItemStatus {
         [PSCustomObject[][]]
         ${ErrorMessages},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("EXECUTING", "REQUEST_COMPLETED", "CANCELLED", "TERMINATED", "PROVISIONING_VERIFICATION_PENDING", "REJECTED", "PROVISIONING_FAILED", "NOT_ALL_ITEMS_PROVISIONED", "ERROR")]
         [PSCustomObject]
         ${State},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
@@ -94,6 +95,7 @@ function Initialize-BetaRequestedItemStatus {
         [String]
         ${AccountActivityItemId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS")]
         [PSCustomObject]
         ${RequestType},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]

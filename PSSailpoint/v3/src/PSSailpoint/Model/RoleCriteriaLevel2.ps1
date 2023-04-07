@@ -31,6 +31,7 @@ function Initialize-RoleCriteriaLevel2 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("EQUALS", "NOT_EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH", "AND", "OR")]
         [PSCustomObject]
         ${Operation},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

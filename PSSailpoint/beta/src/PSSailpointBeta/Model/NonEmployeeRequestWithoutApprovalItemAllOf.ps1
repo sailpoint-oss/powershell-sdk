@@ -77,6 +77,7 @@ function Initialize-BetaNonEmployeeRequestWithoutApprovalItemAllOf {
         [System.Collections.Hashtable]
         ${VarData},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APPROVED", "REJECTED", "PENDING", "NOT_READY", "CANCELLED")]
         [PSCustomObject]
         ${ApprovalStatus},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]

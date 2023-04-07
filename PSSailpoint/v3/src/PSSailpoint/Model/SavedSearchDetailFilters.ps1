@@ -31,6 +31,7 @@ function Initialize-SavedSearchDetailFilters {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("EXISTS", "RANGE", "TERMS")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

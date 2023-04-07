@@ -58,9 +58,11 @@ function Initialize-ApprovalStatusDto {
         [System.Nullable[System.DateTime]]
         ${Modified},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("PENDING", "APPROVED", "REJECTED", "EXPIRED", "CANCELLED", "ARCHIVED")]
         [PSCustomObject]
         ${Status},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APP_OWNER", "SOURCE_OWNER", "MANAGER", "ROLE_OWNER", "ACCESS_PROFILE_OWNER", "ENTITLEMENT_OWNER", "GOVERNANCE_GROUP")]
         [PSCustomObject]
         ${Scheme},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]

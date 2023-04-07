@@ -40,6 +40,7 @@ function Initialize-BetaRoleMiningPotentialRoleExportResponse {
         [String]
         ${ExportId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("QUEUED", "IN_PROGRESS", "SUCCESS", "ERROR")]
         [PSCustomObject]
         ${Status}
     )

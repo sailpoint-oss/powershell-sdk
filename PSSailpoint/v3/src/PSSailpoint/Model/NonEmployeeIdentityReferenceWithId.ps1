@@ -27,6 +27,7 @@ function Initialize-NonEmployeeIdentityReferenceWithId {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("GOVERNANCE_GROUP", "IDENTITY")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

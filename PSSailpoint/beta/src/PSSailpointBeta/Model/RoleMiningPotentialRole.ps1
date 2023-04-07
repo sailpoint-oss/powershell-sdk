@@ -85,6 +85,7 @@ function Initialize-BetaRoleMiningPotentialRole {
         [String]
         ${Name},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("POTENTIAL", "PENDING", "COMPLETE", "FAILED")]
         [PSCustomObject]
         ${ProvisionState},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
@@ -100,6 +101,7 @@ function Initialize-BetaRoleMiningPotentialRole {
         [PSCustomObject]
         ${Session},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
         ${Type}
     )

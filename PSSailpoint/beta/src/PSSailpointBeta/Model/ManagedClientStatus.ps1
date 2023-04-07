@@ -34,9 +34,11 @@ function Initialize-BetaManagedClientStatus {
         [PSCustomObject]
         ${Body},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("NORMAL", "UNDEFINED", "NOT_CONFIGURED", "CONFIGURING", "WARNING", "ERROR", "FAILED")]
         [PSCustomObject]
         ${Status},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CCG", "VA", "INTERNAL")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

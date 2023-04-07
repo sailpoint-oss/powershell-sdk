@@ -27,6 +27,7 @@ function Initialize-BetaCampaignReportAllOf {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CAMPAIGN_COMPOSITION_REPORT", "CAMPAIGN_REMEDIATION_STATUS_REPORT", "CAMPAIGN_STATUS_REPORT", "CERTIFICATION_SIGNOFF_REPORT")]
         [PSCustomObject]
         ${ReportType},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

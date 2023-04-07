@@ -40,6 +40,7 @@ function Initialize-BetaAttributeDefinition {
         [String]
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("STRING", "LONG", "INT", "BOOLEAN")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

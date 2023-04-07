@@ -34,6 +34,7 @@ function Initialize-FilterAggregation {
         [String]
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("TERM")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

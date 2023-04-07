@@ -48,6 +48,7 @@ function Initialize-BetaInvocationStatus {
         [String]
         ${SubscriptionId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("TEST", "REAL_TIME")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]

@@ -50,6 +50,7 @@ function Initialize-BetaSubscriptionPostRequest {
         [String]
         ${TriggerId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HTTP", "EVENTBRIDGE")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]

@@ -45,6 +45,7 @@ function Initialize-BetaSubscriptionPutRequest {
         [String]
         ${Description},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("HTTP", "EVENTBRIDGE")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

@@ -69,7 +69,7 @@ function Invoke-V2BulkDeleteWorkGroups {
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
         }
-        
+
 
 
         $LocalVarResult = Invoke-V2ApiClient -Method 'POST' `
@@ -156,7 +156,7 @@ function New-V2Workgroup {
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
         }
-        
+
 
 
         $LocalVarResult = Invoke-V2ApiClient -Method 'POST' `
@@ -678,7 +678,7 @@ function Edit-V2WorkgroupMembers {
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
         }
-        
+
 
 
         $LocalVarResult = Invoke-V2ApiClient -Method 'POST' `
@@ -775,7 +775,7 @@ function Update-V2Workgroup {
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
         }
-        
+
 
 
         $LocalVarResult = Invoke-V2ApiClient -Method 'PATCH' `

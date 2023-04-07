@@ -30,6 +30,7 @@ function Initialize-BetaAccessRequestRecommendationItem {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACCESS_PROFILE", "ROLE")]
         [PSCustomObject]
         ${Type}
     )

@@ -91,9 +91,11 @@ function Initialize-BetaCreateOAuthClientResponse {
         [PSCustomObject[]]
         ${GrantTypes},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ONLINE", "OFFLINE")]
         [PSCustomObject]
         ${AccessType},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CONFIDENTIAL", "PUBLIC")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]

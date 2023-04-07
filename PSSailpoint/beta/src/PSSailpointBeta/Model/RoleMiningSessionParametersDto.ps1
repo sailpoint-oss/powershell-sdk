@@ -50,6 +50,7 @@ function Initialize-BetaRoleMiningSessionParametersDto {
         [PSCustomObject]
         ${Scope},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
         ${Type}
     )

@@ -53,6 +53,7 @@ function Initialize-BetaRoleMiningPotentialRoleSummary {
         [String]
         ${IdentityGroupStatus},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("POTENTIAL", "PENDING", "COMPLETE", "FAILED")]
         [PSCustomObject]
         ${ProvisionState},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]

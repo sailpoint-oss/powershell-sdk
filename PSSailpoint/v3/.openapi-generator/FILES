@@ -263,6 +263,8 @@ docs/PasswordInfoAccount.md
 docs/PasswordInfoQueryDTO.md
 docs/PasswordManagementApi.md
 docs/PasswordStatus.md
+docs/PasswordSyncGroup.md
+docs/PasswordSyncGroupsApi.md
 docs/PendingApproval.md
 docs/PendingApprovalAction.md
 docs/PermissionDto.md
@@ -440,6 +442,7 @@ src/PSSailpoint/Api/NonEmployeeLifecycleManagementApi.ps1
 src/PSSailpoint/Api/OAuthClientsApi.ps1
 src/PSSailpoint/Api/PasswordDictionaryApi.ps1
 src/PSSailpoint/Api/PasswordManagementApi.ps1
+src/PSSailpoint/Api/PasswordSyncGroupsApi.ps1
 src/PSSailpoint/Api/PersonalAccessTokensApi.ps1
 src/PSSailpoint/Api/PublicIdentitiesApi.ps1
 src/PSSailpoint/Api/PublicIdentitiesConfigApi.ps1
@@ -701,6 +704,7 @@ src/PSSailpoint/Model/PasswordInfo.ps1
 src/PSSailpoint/Model/PasswordInfoAccount.ps1
 src/PSSailpoint/Model/PasswordInfoQueryDTO.ps1
 src/PSSailpoint/Model/PasswordStatus.ps1
+src/PSSailpoint/Model/PasswordSyncGroup.ps1
 src/PSSailpoint/Model/PendingApproval.ps1
 src/PSSailpoint/Model/PendingApprovalAction.ps1
 src/PSSailpoint/Model/PermissionDto.ps1
@@ -873,6 +877,7 @@ tests/Api/NonEmployeeLifecycleManagementApi.Tests.ps1
 tests/Api/OAuthClientsApi.Tests.ps1
 tests/Api/PasswordDictionaryApi.Tests.ps1
 tests/Api/PasswordManagementApi.Tests.ps1
+tests/Api/PasswordSyncGroupsApi.Tests.ps1
 tests/Api/PersonalAccessTokensApi.Tests.ps1
 tests/Api/PublicIdentitiesApi.Tests.ps1
 tests/Api/PublicIdentitiesConfigApi.Tests.ps1
@@ -1133,6 +1138,7 @@ tests/Model/PasswordInfo.Tests.ps1
 tests/Model/PasswordInfoAccount.Tests.ps1
 tests/Model/PasswordInfoQueryDTO.Tests.ps1
 tests/Model/PasswordStatus.Tests.ps1
+tests/Model/PasswordSyncGroup.Tests.ps1
 tests/Model/PendingApproval.Tests.ps1
 tests/Model/PendingApprovalAction.Tests.ps1
 tests/Model/PermissionDto.Tests.ps1

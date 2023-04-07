@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
 *PasswordManagementApi* | [**Get-PasswordChangeStatus**](docs/PasswordManagementApi.md#Get-PasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
 *PasswordManagementApi* | [**Search-PasswordInfo**](docs/PasswordManagementApi.md#Search-PasswordInfo) | **POST** /query-password-info | Query Password Info
 *PasswordManagementApi* | [**Set-Password**](docs/PasswordManagementApi.md#Set-Password) | **POST** /set-password | Set Identity's Password
+*PasswordSyncGroupsApi* | [**New-PasswordSyncGroup**](docs/PasswordSyncGroupsApi.md#New-PasswordSyncGroup) | **POST** /password-sync-groups | Create Password Sync Group
 *PersonalAccessTokensApi* | [**New-PersonalAccessToken**](docs/PersonalAccessTokensApi.md#New-PersonalAccessToken) | **POST** /personal-access-tokens | Create Personal Access Token
 *PersonalAccessTokensApi* | [**Remove-PersonalAccessToken**](docs/PersonalAccessTokensApi.md#Remove-PersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
 *PersonalAccessTokensApi* | [**Get-PersonalAccessTokens**](docs/PersonalAccessTokensApi.md#Get-PersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
@@ -478,6 +479,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.PasswordInfoAccount](docs/PasswordInfoAccount.md)
  - [PSSailpoint/Model.PasswordInfoQueryDTO](docs/PasswordInfoQueryDTO.md)
  - [PSSailpoint/Model.PasswordStatus](docs/PasswordStatus.md)
+ - [PSSailpoint/Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
  - [PSSailpoint/Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpoint/Model.PendingApprovalAction](docs/PendingApprovalAction.md)
  - [PSSailpoint/Model.PermissionDto](docs/PermissionDto.md)

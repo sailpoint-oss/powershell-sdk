@@ -173,6 +173,8 @@ function Set-DefaultConfiguration {
         [string]$TokenUrl,
         [string]$ClientId,
         [string]$ClientSecret,
+        [System.Nullable[Int32]]$MaximumRetryCount,
+        [System.Nullable[Int32]]$RetryIntervalSeconds,
         [System.Object]$Proxy,
         [switch]$PassThru
     )
@@ -206,6 +208,14 @@ function Set-DefaultConfiguration {
 
         If ($ClientSecret) {
             $Script:Configuration['ClientSecret'] = $ClientSecret
+        }
+
+        If ($RetryIntervalSeconds) {
+            $Script:Configuration['RetryIntervalSeconds'] = $RetryIntervalSeconds
+        }
+
+        If ($MaximumRetryCount) {
+            $Script:Configuration['MaximumRetryCount'] = $MaximumRetryCount
         }
 
         If ($null -ne $Proxy) {

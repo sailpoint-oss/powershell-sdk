@@ -19,6 +19,6 @@ $Transform = ConvertFrom-JsonToTransform -Json $JSON
  try {
     New-Transform -Transform $Transform
 } catch {
-    Write-Host ("Exception occurred when calling New-Transform: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+    Write-Host ("Exception occurred when calling New-Transform: {0}" -f $_.ErrorDetails)
+    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
 }

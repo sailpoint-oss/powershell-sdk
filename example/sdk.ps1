@@ -9,7 +9,6 @@ try {
     Get-Accounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 
 } catch {
-    Write-Host $_
-    Write-Host ("Exception occurred when calling Invoke-ListAccounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+    Write-Host ("Exception occurred when calling Get-Accounts: {0}" -f $_.ErrorDetails)
+    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
 }

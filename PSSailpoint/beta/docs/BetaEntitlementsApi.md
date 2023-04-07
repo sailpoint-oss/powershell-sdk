@@ -4,12 +4,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaEntitlement**](BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an Entitlement
+[**Get-BetaEntitlement**](BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 [**Get-BetaEntitlementRequestConfig**](BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
 [**Get-BetaEntitlementChildren**](BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 [**Get-BetaEntitlementParents**](BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 [**Get-BetaEntitlements**](BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
-[**Update-BetaEntitlement**](BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch a specified Entitlement
+[**Update-BetaEntitlement**](BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch an entitlement
 [**Send-BetaEntitlementRequestConfig**](BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
 [**Update-BetaEntitlementsInBulk**](BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 
@@ -19,9 +19,9 @@ Method | HTTP request | Description
 > Entitlement Get-BetaEntitlement<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get an Entitlement
+Get an entitlement
 
-This API returns an Entitlement by its ID.
+This API returns an entitlement by its ID.
 
 ### Example
 ```powershell
@@ -33,9 +33,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
+$Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
 
-# Get an Entitlement
+# Get an entitlement
 try {
     $Result = Get-BetaEntitlement -Id $Id
 } catch {
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Entitlement Id | 
+ **Id** | **String**| The entitlement ID | 
 
 ### Return type
 
@@ -317,9 +317,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Patch a specified Entitlement
+Patch an entitlement
 
-This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won't be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -331,11 +331,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c91808a7813090a017814121e121518" # String | ID of the Entitlement to patch
+$Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] |  (optional)
 
-# Patch a specified Entitlement
+# Patch an entitlement
 try {
     $Result = Update-BetaEntitlement -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
@@ -348,7 +348,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of the Entitlement to patch | 
+ **Id** | **String**| ID of the entitlement to patch | 
  **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)|  | [optional] 
 
 ### Return type

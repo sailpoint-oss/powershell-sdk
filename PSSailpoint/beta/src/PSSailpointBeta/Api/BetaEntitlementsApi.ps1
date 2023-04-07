@@ -8,14 +8,14 @@
 <#
 .SYNOPSIS
 
-Get an Entitlement
+Get an entitlement
 
 .DESCRIPTION
 
 No description available.
 
 .PARAMETER Id
-Entitlement Id
+The entitlement ID
 
 .PARAMETER WithHttpInfo
 
@@ -523,14 +523,14 @@ function Get-BetaEntitlements {
 <#
 .SYNOPSIS
 
-Patch a specified Entitlement
+Patch an entitlement
 
 .DESCRIPTION
 
 No description available.
 
 .PARAMETER Id
-ID of the Entitlement to patch
+ID of the entitlement to patch
 
 .PARAMETER JsonPatchOperation
 No description available.

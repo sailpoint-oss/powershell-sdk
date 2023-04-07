@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create SOD Policy
+Create SOD policy
 
 .DESCRIPTION
 
@@ -95,7 +95,7 @@ function New-BetaSodPolicy {
 <#
 .SYNOPSIS
 
-Delete SOD Policy by ID
+Delete SOD policy by ID
 
 .DESCRIPTION
 
@@ -105,7 +105,7 @@ No description available.
 The ID of the SOD Policy to delete.
 
 .PARAMETER Logical
-whether this is soft delete i.e. logical true or hard delete
+Indicates whether this is a soft delete (logical true) or a hard delete.
 
 .PARAMETER WithHttpInfo
 
@@ -180,14 +180,14 @@ function Remove-BetaSodPolicy {
 <#
 .SYNOPSIS
 
-Delete SOD Policy Schedule
+Delete SOD policy schedule
 
 .DESCRIPTION
 
 No description available.
 
 .PARAMETER Id
-The ID of the SOD Policy for which the schedule needs to be deleted.
+The ID of the SOD policy the schedule must be deleted for.
 
 .PARAMETER WithHttpInfo
 
@@ -504,7 +504,7 @@ function Get-BetaSodAllReportRunStatus {
 <#
 .SYNOPSIS
 
-Get SOD Policy By ID
+Get SOD policy by ID
 
 .DESCRIPTION
 
@@ -579,7 +579,7 @@ function Get-BetaSodPolicy {
 <#
 .SYNOPSIS
 
-Get SOD Policy Schedule
+Get SOD policy schedule
 
 .DESCRIPTION
 
@@ -804,7 +804,7 @@ function Get-BetaSodViolationReportStatus {
 <#
 .SYNOPSIS
 
-List SOD Policies
+List SOD policies
 
 .DESCRIPTION
 
@@ -909,14 +909,14 @@ function Get-BetaSodPolicies {
 <#
 .SYNOPSIS
 
-Update a SOD Policy
+Patch a SOD policy
 
 .DESCRIPTION
 
 No description available.
 
 .PARAMETER Id
-The ID of the SOD Policy being modified.
+The ID of the SOD policy being modified.
 
 .PARAMETER RequestBody
 A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
@@ -1006,7 +1006,7 @@ function Update-BetaSodPolicy {
 <#
 .SYNOPSIS
 
-Runs all policies for Org.
+Runs all policies for org
 
 .DESCRIPTION
 
@@ -1089,14 +1089,14 @@ function Start-BetaSodAllPoliciesForOrg {
 <#
 .SYNOPSIS
 
-Runs SOD Policy Violation Report
+Runs SOD policy violation report
 
 .DESCRIPTION
 
 No description available.
 
 .PARAMETER Id
-The ID of the SOD Policy to run.
+The SOD policy ID to run.
 
 .PARAMETER WithHttpInfo
 
@@ -1261,7 +1261,7 @@ function Update-BetaPolicySchedule {
 <#
 .SYNOPSIS
 
-Update SOD Policy By ID
+Update SOD policy by ID
 
 .DESCRIPTION
 

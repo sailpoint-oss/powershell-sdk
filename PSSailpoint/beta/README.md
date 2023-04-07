@@ -126,12 +126,12 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**New-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
-*BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an Entitlement
+*BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 *BetaEntitlementsApi* | [**Get-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
 *BetaEntitlementsApi* | [**Get-BetaEntitlementChildren**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 *BetaEntitlementsApi* | [**Get-BetaEntitlementParents**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 *BetaEntitlementsApi* | [**Get-BetaEntitlements**](docs/BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
-*BetaEntitlementsApi* | [**Update-BetaEntitlement**](docs/BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch a specified Entitlement
+*BetaEntitlementsApi* | [**Update-BetaEntitlement**](docs/BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch an entitlement
 *BetaEntitlementsApi* | [**Send-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
 *BetaEntitlementsApi* | [**Update-BetaEntitlementsInBulk**](docs/BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsIgnoredItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Notification of Ignored Access Request Recommendations
@@ -301,22 +301,22 @@ Class | Method | HTTP request | Description
 *BetaRolesApi* | [**Get-BetaRoleAssignedIdentities**](docs/BetaRolesApi.md#Get-BetaRoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | Get a list of Identities assigned a Role
 *BetaRolesApi* | [**Get-BetaRoles**](docs/BetaRolesApi.md#Get-BetaRoles) | **GET** /roles | List Roles
 *BetaRolesApi* | [**Update-BetaRole**](docs/BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
-*BetaSODPolicyApi* | [**New-BetaSodPolicy**](docs/BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD Policy
-*BetaSODPolicyApi* | [**Remove-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD Policy by ID
-*BetaSODPolicyApi* | [**Remove-BetaSodPolicySchedule**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD Policy Schedule
+*BetaSODPolicyApi* | [**New-BetaSodPolicy**](docs/BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD policy
+*BetaSODPolicyApi* | [**Remove-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
+*BetaSODPolicyApi* | [**Remove-BetaSodPolicySchedule**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
 *BetaSODPolicyApi* | [**Invoke-BetaDownloadCustomViolationReport**](docs/BetaSODPolicyApi.md#Invoke-BetaDownloadCustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 *BetaSODPolicyApi* | [**Invoke-BetaDownloadDefaultViolationReport**](docs/BetaSODPolicyApi.md#Invoke-BetaDownloadDefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 *BetaSODPolicyApi* | [**Get-BetaSodAllReportRunStatus**](docs/BetaSODPolicyApi.md#Get-BetaSodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
-*BetaSODPolicyApi* | [**Get-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicy) | **GET** /sod-policies/{id} | Get SOD Policy By ID
-*BetaSODPolicyApi* | [**Get-BetaSodPolicySchedule**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD Policy Schedule
+*BetaSODPolicyApi* | [**Get-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
+*BetaSODPolicyApi* | [**Get-BetaSodPolicySchedule**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
 *BetaSODPolicyApi* | [**Get-BetaSodViolationReportRunStatus**](docs/BetaSODPolicyApi.md#Get-BetaSodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
 *BetaSODPolicyApi* | [**Get-BetaSodViolationReportStatus**](docs/BetaSODPolicyApi.md#Get-BetaSodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
-*BetaSODPolicyApi* | [**Get-BetaSodPolicies**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicies) | **GET** /sod-policies | List SOD Policies
-*BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PATCH** /sod-policies/{id} | Update a SOD Policy
-*BetaSODPolicyApi* | [**Start-BetaSodAllPoliciesForOrg**](docs/BetaSODPolicyApi.md#Start-BetaSodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for Org.
-*BetaSODPolicyApi* | [**Start-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Start-BetaSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD Policy Violation Report
+*BetaSODPolicyApi* | [**Get-BetaSodPolicies**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicies) | **GET** /sod-policies | List SOD policies
+*BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PATCH** /sod-policies/{id} | Patch a SOD policy
+*BetaSODPolicyApi* | [**Start-BetaSodAllPoliciesForOrg**](docs/BetaSODPolicyApi.md#Start-BetaSodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
+*BetaSODPolicyApi* | [**Start-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Start-BetaSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
 *BetaSODPolicyApi* | [**Update-BetaPolicySchedule**](docs/BetaSODPolicyApi.md#Update-BetaPolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
-*BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD Policy By ID
+*BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 *BetaSODViolationsApi* | [**Invoke-BetaPredictSodViolations**](docs/BetaSODViolationsApi.md#Invoke-BetaPredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for the given identity if they were granted the given access.
 *BetaSPConfigApi* | [**Export-BetaSpConfig**](docs/BetaSPConfigApi.md#Export-BetaSpConfig) | **POST** /sp-config/export | Initiates Configuration Objects Export Job.
 *BetaSPConfigApi* | [**Export-BetaSpConfigDownload**](docs/BetaSPConfigApi.md#Export-BetaSpConfigDownload) | **GET** /sp-config/export/{id}/download | Download Result of Export Job

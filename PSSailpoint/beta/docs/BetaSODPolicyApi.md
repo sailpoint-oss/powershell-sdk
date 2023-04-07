@@ -4,22 +4,22 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaSodPolicy**](BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD Policy
-[**Remove-BetaSodPolicy**](BetaSODPolicyApi.md#Remove-BetaSodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD Policy by ID
-[**Remove-BetaSodPolicySchedule**](BetaSODPolicyApi.md#Remove-BetaSodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD Policy Schedule
+[**New-BetaSodPolicy**](BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD policy
+[**Remove-BetaSodPolicy**](BetaSODPolicyApi.md#Remove-BetaSodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
+[**Remove-BetaSodPolicySchedule**](BetaSODPolicyApi.md#Remove-BetaSodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
 [**Invoke-BetaDownloadCustomViolationReport**](BetaSODPolicyApi.md#Invoke-BetaDownloadCustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 [**Invoke-BetaDownloadDefaultViolationReport**](BetaSODPolicyApi.md#Invoke-BetaDownloadDefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 [**Get-BetaSodAllReportRunStatus**](BetaSODPolicyApi.md#Get-BetaSodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
-[**Get-BetaSodPolicy**](BetaSODPolicyApi.md#Get-BetaSodPolicy) | **GET** /sod-policies/{id} | Get SOD Policy By ID
-[**Get-BetaSodPolicySchedule**](BetaSODPolicyApi.md#Get-BetaSodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD Policy Schedule
+[**Get-BetaSodPolicy**](BetaSODPolicyApi.md#Get-BetaSodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
+[**Get-BetaSodPolicySchedule**](BetaSODPolicyApi.md#Get-BetaSodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
 [**Get-BetaSodViolationReportRunStatus**](BetaSODPolicyApi.md#Get-BetaSodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
 [**Get-BetaSodViolationReportStatus**](BetaSODPolicyApi.md#Get-BetaSodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
-[**Get-BetaSodPolicies**](BetaSODPolicyApi.md#Get-BetaSodPolicies) | **GET** /sod-policies | List SOD Policies
-[**Update-BetaSodPolicy**](BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PATCH** /sod-policies/{id} | Update a SOD Policy
-[**Start-BetaSodAllPoliciesForOrg**](BetaSODPolicyApi.md#Start-BetaSodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for Org.
-[**Start-BetaSodPolicy**](BetaSODPolicyApi.md#Start-BetaSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD Policy Violation Report
+[**Get-BetaSodPolicies**](BetaSODPolicyApi.md#Get-BetaSodPolicies) | **GET** /sod-policies | List SOD policies
+[**Update-BetaSodPolicy**](BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PATCH** /sod-policies/{id} | Patch a SOD policy
+[**Start-BetaSodAllPoliciesForOrg**](BetaSODPolicyApi.md#Start-BetaSodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
+[**Start-BetaSodPolicy**](BetaSODPolicyApi.md#Start-BetaSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
 [**Update-BetaPolicySchedule**](BetaSODPolicyApi.md#Update-BetaPolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
-[**Update-BetaSodPolicy**](BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD Policy By ID
+[**Update-BetaSodPolicy**](BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 
 
 <a name="New-BetaSodPolicy"></a>
@@ -27,9 +27,9 @@ Method | HTTP request | Description
 > SodPolicy New-BetaSodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SodPolicy] <PSCustomObject><br>
 
-Create SOD Policy
+Create SOD policy
 
-This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy Requires role of ORG_ADMIN
+This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -52,7 +52,7 @@ $ConflictingAccessCriteria = Initialize-ConflictingAccessCriteria -LeftCriteria 
 
 $SodPolicy = Initialize-SodPolicy -Id "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -Name "policy-xyz" -Created (Get-Date) -Modified (Get-Date) -Description "This policy ensures compliance of xyz" -OwnerRef $BaseReferenceDto -ExternalPolicyReference "XYZ policy" -PolicyQuery "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)" -CompensatingControls "Have a manager review the transaction decisions for their "out of compliance" employee" -CorrectionAdvice "Based on the role of the employee, managers should remove access that is not required for their job function." -State "ENFORCED" -Tags "MyTags" -CreatorId "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -ModifierId "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -ViolationOwnerAssignmentConfig $ViolationOwnerAssignmentConfig -Scheduled $true -Type "GENERAL" -ConflictingAccessCriteria $ConflictingAccessCriteria # SodPolicy | 
 
-# Create SOD Policy
+# Create SOD policy
 try {
     $Result = New-BetaSodPolicy -SodPolicy $SodPolicy
 } catch {
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Logical] <System.Nullable[Boolean]><br>
 
-Delete SOD Policy by ID
+Delete SOD policy by ID
 
 This deletes a specified SOD policy. Requires role of ORG_ADMIN.
 
@@ -103,9 +103,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD Policy to delete.
-$Logical = $true # Boolean | whether this is soft delete i.e. logical true or hard delete (optional) (default to $true)
+$Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete. (optional) (default to $true)
 
-# Delete SOD Policy by ID
+# Delete SOD policy by ID
 try {
     $Result = Remove-BetaSodPolicy -Id $Id -Logical $Logical
 } catch {
@@ -119,7 +119,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| The ID of the SOD Policy to delete. | 
- **Logical** | **Boolean**| whether this is soft delete i.e. logical true or hard delete | [optional] [default to $true]
+ **Logical** | **Boolean**| Indicates whether this is a soft delete (logical true) or a hard delete. | [optional] [default to $true]
 
 ### Return type
 
@@ -141,7 +141,7 @@ void (empty response body)
 > void Remove-BetaSodPolicySchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Delete SOD Policy Schedule
+Delete SOD policy schedule
 
 This deletes schedule for a specified SOD policy. Requires role of ORG_ADMIN.
 
@@ -155,9 +155,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD Policy for which the schedule needs to be deleted.
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
 
-# Delete SOD Policy Schedule
+# Delete SOD policy schedule
 try {
     $Result = Remove-BetaSodPolicySchedule -Id $Id
 } catch {
@@ -170,7 +170,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the SOD Policy for which the schedule needs to be deleted. | 
+ **Id** | **String**| The ID of the SOD policy the schedule must be deleted for. | 
 
 ### Return type
 
@@ -195,7 +195,7 @@ void (empty response body)
 
 Download custom violation report
 
-This allows to download a specified named violation report  for given report reference. Requires role of ORG_ADMIN.
+This allows to download a specified named violation report for a given report reference. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 Download violation report
 
-This allows to download a violation report for given report reference. Requires role of ORG_ADMIN.
+This allows to download a violation report for a given report reference. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 Get multi-report run task status
 
-This gets status for a violation report for all policy run. Requires role of ORG_ADMIN.
+This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -343,7 +343,7 @@ This endpoint does not need any parameter.
 > SodPolicy Get-BetaSodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get SOD Policy By ID
+Get SOD policy by ID
 
 This gets specified SOD policy. Requires role of ORG_ADMIN.
 
@@ -359,7 +359,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
-# Get SOD Policy By ID
+# Get SOD policy by ID
 try {
     $Result = Get-BetaSodPolicy -Id $Id
 } catch {
@@ -394,9 +394,9 @@ Name | Type | Description  | Notes
 > SodPolicySchedule Get-BetaSodPolicySchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get SOD Policy Schedule
+Get SOD policy schedule
 
-This gets schedule for a specified SOD policy. Requires a role of ORG_ADMIN
+This endpoint gets a specified SOD policy's schedule. Requires the role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -410,7 +410,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
-# Get SOD Policy Schedule
+# Get SOD policy schedule
 try {
     $Result = Get-BetaSodPolicySchedule -Id $Id
 } catch {
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
 
 Get violation report run status
 
-This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 Get SOD violation report status
 
-This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -550,9 +550,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 
-List SOD Policies
+List SOD policies
 
-This gets list of all SOD Policies. Requires role of ORG_ADMIN
+This gets list of all SOD policies. Requires role of ORG_ADMIN
 
 ### Example
 ```powershell
@@ -569,7 +569,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = "id eq "bc693f07e7b645539626c25954c58554"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq* (optional)
 
-# List SOD Policies
+# List SOD policies
 try {
     $Result = Get-BetaSodPolicies -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 } catch {
@@ -608,9 +608,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <PSCustomObject[]><br>
 
-Update a SOD Policy
+Patch a SOD policy
 
-Allows updating SOD Policy fields other than [""id"",""created"",""creatorId"",""policyQuery"",""type""] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN.
+Allows updating SOD Policy fields other than [""id"",""created"",""creatorId"",""policyQuery"",""type""] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
 
 ### Example
 ```powershell
@@ -622,10 +622,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the SOD Policy being modified.
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the SOD policy being modified.
 $RequestBody =  # SystemCollectionsHashtable[] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
-# Update a SOD Policy
+# Patch a SOD policy
 try {
     $Result = Update-BetaSodPolicy -Id $Id -RequestBody $RequestBody
 } catch {
@@ -638,7 +638,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the SOD Policy being modified. | 
+ **Id** | **String**| The ID of the SOD policy being modified. | 
  **RequestBody** | [**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md)| A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria  | 
 
 ### Return type
@@ -661,9 +661,9 @@ Name | Type | Description  | Notes
 > ReportResultReference Start-BetaSodAllPoliciesForOrg<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MultiPolicyRequest] <PSCustomObject><br>
 
-Runs all policies for Org.
+Runs all policies for org
 
-Runs multi policy report for the Org. If a policy reports more than 5000 violation, the report mentions Violation limit exceeded for that policy. If the request is empty, report will run for all policies. Otherwise, report will run only for the filtered policy list provided. Requires role of ORG_ADMIN.
+Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -677,7 +677,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $MultiPolicyRequest = Initialize-MultiPolicyRequest -FilteredPolicyList "MyFilteredPolicyList" # MultiPolicyRequest |  (optional)
 
-# Runs all policies for Org.
+# Runs all policies for org
 try {
     $Result = Start-BetaSodAllPoliciesForOrg -MultiPolicyRequest $MultiPolicyRequest
 } catch {
@@ -712,9 +712,9 @@ Name | Type | Description  | Notes
 > ReportResultReference Start-BetaSodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Runs SOD Policy Violation Report
+Runs SOD policy violation report
 
-This invokes processing of violation report for given SOD Policy. If policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -726,9 +726,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD Policy to run.
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The SOD policy ID to run.
 
-# Runs SOD Policy Violation Report
+# Runs SOD policy violation report
 try {
     $Result = Start-BetaSodPolicy -Id $Id
 } catch {
@@ -741,7 +741,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the SOD Policy to run. | 
+ **Id** | **String**| The SOD policy ID to run. | 
 
 ### Return type
 
@@ -766,7 +766,7 @@ Name | Type | Description  | Notes
 
 Update SOD Policy schedule
 
-This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN
+This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -823,7 +823,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SodPolicy] <PSCustomObject><br>
 
-Update SOD Policy By ID
+Update SOD policy by ID
 
 This updates a specified SOD policy. Requires role of ORG_ADMIN.
 
@@ -849,7 +849,7 @@ $ConflictingAccessCriteria = Initialize-ConflictingAccessCriteria -LeftCriteria 
 
 $SodPolicy = Initialize-SodPolicy -Id "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -Name "policy-xyz" -Created (Get-Date) -Modified (Get-Date) -Description "This policy ensures compliance of xyz" -OwnerRef $BaseReferenceDto -ExternalPolicyReference "XYZ policy" -PolicyQuery "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)" -CompensatingControls "Have a manager review the transaction decisions for their "out of compliance" employee" -CorrectionAdvice "Based on the role of the employee, managers should remove access that is not required for their job function." -State "ENFORCED" -Tags "MyTags" -CreatorId "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -ModifierId "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -ViolationOwnerAssignmentConfig $ViolationOwnerAssignmentConfig -Scheduled $true -Type "GENERAL" -ConflictingAccessCriteria $ConflictingAccessCriteria # SodPolicy | 
 
-# Update SOD Policy By ID
+# Update SOD policy by ID
 try {
     $Result = Update-BetaSodPolicy -Id $Id -SodPolicy $SodPolicy
 } catch {

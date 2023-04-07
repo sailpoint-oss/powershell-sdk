@@ -102,6 +102,7 @@ function Initialize-BetaNonEmployeeRequest {
         [PSCustomObject[]]
         ${ApprovalItems},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APPROVED", "REJECTED", "PENDING", "NOT_READY", "CANCELLED")]
         [PSCustomObject]
         ${ApprovalStatus},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]

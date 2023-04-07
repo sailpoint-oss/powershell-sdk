@@ -50,6 +50,7 @@ function Initialize-ApprovalForwardHistory {
         [String]
         ${ForwarderName},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("MANUAL_REASSIGNMENT", "AUTOMATIC_REASSIGNMENT", "AUTO_ESCALATION", "SELF_REVIEW_DELEGATION")]
         [PSCustomObject]
         ${ReassignmentType}
     )

@@ -38,6 +38,7 @@ function Initialize-ReviewDecision {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APPROVE", "REVOKE")]
         [PSCustomObject]
         ${Decision},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

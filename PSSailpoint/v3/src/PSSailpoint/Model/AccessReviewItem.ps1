@@ -52,6 +52,7 @@ function Initialize-AccessReviewItem {
         [System.Nullable[Boolean]]
         ${NewAccess},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APPROVE", "REVOKE")]
         [PSCustomObject]
         ${Decision},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]

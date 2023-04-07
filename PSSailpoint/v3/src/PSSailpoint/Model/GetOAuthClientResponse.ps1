@@ -88,9 +88,11 @@ function Initialize-GetOAuthClientResponse {
         [PSCustomObject[]]
         ${GrantTypes},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ONLINE", "OFFLINE")]
         [PSCustomObject]
         ${AccessType},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CONFIDENTIAL", "PUBLIC")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]

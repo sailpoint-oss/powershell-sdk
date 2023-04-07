@@ -47,6 +47,7 @@ function Initialize-ManualWorkItemDetails {
         [System.Nullable[System.DateTime]]
         ${Modified},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("PENDING", "APPROVED", "REJECTED", "EXPIRED", "CANCELLED", "ARCHIVED")]
         [PSCustomObject]
         ${Status},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]

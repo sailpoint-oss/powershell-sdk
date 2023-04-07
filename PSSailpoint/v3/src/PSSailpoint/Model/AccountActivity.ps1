@@ -66,6 +66,7 @@ function Initialize-AccountActivity {
         [System.Nullable[System.DateTime]]
         ${Completed},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("SUCCESS", "FAILURE", "INCOMPLETE", "PENDING")]
         [PSCustomObject]
         ${CompletionStatus},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
@@ -87,6 +88,7 @@ function Initialize-AccountActivity {
         [PSCustomObject[]]
         ${Items},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("EXECUTING", "VERIFYING", "TERMINATED", "COMPLETED")]
         [PSCustomObject]
         ${ExecutionStatus},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]

@@ -45,7 +45,7 @@ function Invoke-V2ApiClient {
     $SkipCertificateCheck = $Configuration["SkipCertificateCheck"]
 
     Write-Debug "Calling Endpoint: $RequestUri"
-    
+
     # cookie parameters
     foreach ($Parameter in $CookieParameters.GetEnumerator()) {
         if ($Parameter.Name -eq "cookieAuth") {
@@ -74,7 +74,7 @@ function Invoke-V2ApiClient {
 
     # Add Custom Header
     $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.0.2"
-    
+
     [string]$MultiPartBoundary = $null
     $ContentType= SelectHeaders -Headers $ContentTypes
     if ($ContentType) {

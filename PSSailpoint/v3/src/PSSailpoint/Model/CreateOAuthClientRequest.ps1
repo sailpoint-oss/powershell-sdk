@@ -77,9 +77,11 @@ function Initialize-CreateOAuthClientRequest {
         [PSCustomObject[]]
         ${GrantTypes},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ONLINE", "OFFLINE")]
         [PSCustomObject]
         ${AccessType},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CONFIDENTIAL", "PUBLIC")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]

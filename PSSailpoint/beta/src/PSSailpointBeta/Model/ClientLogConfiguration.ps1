@@ -42,6 +42,7 @@ function Initialize-BetaClientLogConfiguration {
         [System.Nullable[System.DateTime]]
         ${Expiration},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("false", "FATAL", "ERROR", "WARN", "INFO", "DEBUG", "TRACE")]
         [PSCustomObject]
         ${RootLevel},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]

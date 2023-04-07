@@ -1,4 +1,4 @@
-templateDir: ./sdk-resources/cc-resources
+templateDir: ./sdk-resources/resources
 packageName: PSSailpointCC
 packageVersion: 1.0.2
 apiNamePrefix: CC

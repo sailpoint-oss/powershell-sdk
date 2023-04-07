@@ -132,7 +132,7 @@ function Update-V2OrgSettings {
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
         }
-        
+
         $LocalVarResult = Invoke-V2ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `

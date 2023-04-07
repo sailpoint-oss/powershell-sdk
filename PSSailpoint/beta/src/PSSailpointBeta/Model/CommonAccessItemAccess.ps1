@@ -38,6 +38,7 @@ function Initialize-BetaCommonAccessItemAccess {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACCESS_PROFILE", "ROLE")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

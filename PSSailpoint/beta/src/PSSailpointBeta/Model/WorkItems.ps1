@@ -79,9 +79,11 @@ function Initialize-BetaWorkItems {
         [String]
         ${Description},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED")]
         [PSCustomObject]
         ${State},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("UNKNOWN", "GENERIC", "CERTIFICATION", "REMEDIATION", "DELEGATION", "APPROVAL", "VIOLATIONREVIEW", "FORM", "POLICYVIOLATION", "CHALLENGE", "IMPACTANALYSIS", "SIGNOFF", "EVENT", "MANUALACTION", "TEST")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]

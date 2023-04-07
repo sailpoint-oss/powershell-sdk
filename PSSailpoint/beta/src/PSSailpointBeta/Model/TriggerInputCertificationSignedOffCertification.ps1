@@ -72,6 +72,7 @@ function Initialize-BetaTriggerInputCertificationSignedOffCertification {
         [PSCustomObject]
         ${CampaignRef},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("STAGED", "ACTIVE", "SIGNED")]
         [PSCustomObject]
         ${Phase},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]

@@ -29,6 +29,7 @@ function Initialize-BetaRoleMembershipSelector {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("STANDARD", "IDENTITY_LIST")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

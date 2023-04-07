@@ -105,6 +105,7 @@ function Initialize-IdentityCertificationDto {
         [String]
         ${ErrorMessage},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("STAGED", "ACTIVE", "SIGNED")]
         [PSCustomObject]
         ${Phase}
     )

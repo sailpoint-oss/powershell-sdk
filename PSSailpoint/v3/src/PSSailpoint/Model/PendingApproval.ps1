@@ -76,6 +76,7 @@ function Initialize-PendingApproval {
         [System.Nullable[System.DateTime]]
         ${RequestCreated},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS")]
         [PSCustomObject]
         ${RequestType},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
@@ -103,6 +104,7 @@ function Initialize-PendingApproval {
         [System.Nullable[Boolean]]
         ${CommentRequiredWhenRejected},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APPROVED", "REJECTED", "FORWARDED")]
         [PSCustomObject]
         ${ActionInProcess},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]

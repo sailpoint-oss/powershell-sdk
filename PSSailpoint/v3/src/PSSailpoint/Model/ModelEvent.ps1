@@ -65,6 +65,7 @@ function Initialize-ModelEvent {
         [String]
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
         [PSCustomObject]
         ${DocumentType},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

@@ -36,6 +36,7 @@ function Initialize-BucketAggregation {
         [String]
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("TERMS")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

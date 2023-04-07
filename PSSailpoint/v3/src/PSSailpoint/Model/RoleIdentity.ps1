@@ -45,6 +45,7 @@ function Initialize-RoleIdentity {
         [String]
         ${Email},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACCESS_REQUEST", "ROLE_MEMBERSHIP")]
         [PSCustomObject]
         ${RoleAssignmentSource}
     )

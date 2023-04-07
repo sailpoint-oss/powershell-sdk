@@ -52,6 +52,7 @@ function Initialize-BetaCertificationDto {
         [PSCustomObject]
         ${CampaignRef},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("STAGED", "ACTIVE", "SIGNED")]
         [PSCustomObject]
         ${Phase},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

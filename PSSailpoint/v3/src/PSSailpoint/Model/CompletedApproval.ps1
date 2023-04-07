@@ -80,6 +80,7 @@ function Initialize-CompletedApproval {
         [System.Nullable[System.DateTime]]
         ${RequestCreated},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS")]
         [PSCustomObject]
         ${RequestType},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
@@ -113,6 +114,7 @@ function Initialize-CompletedApproval {
         [System.Nullable[Boolean]]
         ${CommentRequiredWhenRejected},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APPROVED", "REJECTED")]
         [PSCustomObject]
         ${State},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]

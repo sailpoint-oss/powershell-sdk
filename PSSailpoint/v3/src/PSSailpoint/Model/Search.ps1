@@ -56,6 +56,7 @@ function Initialize-Search {
         [PSCustomObject[]]
         ${Indices},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("DSL", "SAILPOINT", "TYPEAHEAD")]
         [PSCustomObject]
         ${QueryType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
@@ -77,6 +78,7 @@ function Initialize-Search {
         [PSCustomObject]
         ${QueryResultFilter},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("DSL", "SAILPOINT")]
         [PSCustomObject]
         ${AggregationType},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]

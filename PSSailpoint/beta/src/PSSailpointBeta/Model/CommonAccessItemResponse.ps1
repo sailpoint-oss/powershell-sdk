@@ -43,6 +43,7 @@ function Initialize-BetaCommonAccessItemResponse {
         [PSCustomObject]
         ${Access},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CONFIRMED", "DENIED")]
         [PSCustomObject]
         ${Status},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

@@ -67,6 +67,7 @@ function Initialize-AccountActivityDocument {
         [String]
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

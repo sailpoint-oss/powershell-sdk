@@ -48,6 +48,7 @@ function Initialize-NonEmployeeApprovalItemBase {
         [String]
         ${AccountName},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APPROVED", "REJECTED", "PENDING", "NOT_READY", "CANCELLED")]
         [PSCustomObject]
         ${ApprovalStatus},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordDigitToken = Initialize-PSSailpointBetaPasswordDigitToken  -DigitToken 9087713.0 `
+$PasswordDigitToken = Initialize-PSSailpointBetaPasswordDigitToken  -DigitToken 09087713 `
  -RequestId e1267ecd-fcd9-4c73-9c55-12555efad136
 ```
 

@@ -32,6 +32,7 @@ function Initialize-MetricAggregation {
         [String]
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("COUNT", "UNIQUE_COUNT", "AVG", "SUM", "MEDIAN", "MIN", "MAX")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

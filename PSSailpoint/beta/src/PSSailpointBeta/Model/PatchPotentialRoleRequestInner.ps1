@@ -98,13 +98,7 @@ function ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'op' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "op"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'op' missing."
-        } else {
-            $Op = $JsonParameters.PSobject.Properties["op"].value
+            throw "Error! Empty JSON cannot be serialized due to the required property 'path' missing."
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "path"))) {

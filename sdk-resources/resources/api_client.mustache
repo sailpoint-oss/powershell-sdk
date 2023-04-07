@@ -35,11 +35,16 @@ function Invoke-{{{apiNamePrefix}}}ApiClient {
     $PSBoundParameters | Out-DebugParameter | Write-Debug
 
     $Configuration = Get-DefaultConfiguration
-    $RequestUri = $Configuration["BaseUrl"] + "beta" + $Uri
+    {{#apiVersion}}
+    $RequestUri = $Configuration["BaseUrl"] + "{{{apiVersion}}}" + $Uri
+    {{/apiVersion}}
+    {{^apiVersion}}
+    $RequestUri = $Configuration["BaseUrl"] + $Uri
+    {{/apiVersion}}
     $SkipCertificateCheck = $Configuration["SkipCertificateCheck"]
 
     Write-Debug "Calling Endpoint: $RequestUri"
-    
+
     # cookie parameters
     foreach ($Parameter in $CookieParameters.GetEnumerator()) {
         if ($Parameter.Name -eq "cookieAuth") {

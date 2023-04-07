@@ -64,9 +64,11 @@ function Initialize-BetaAccountActivityItem {
         [System.Nullable[System.DateTime]]
         ${Requested},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED")]
         [PSCustomObject]
         ${ApprovalStatus},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("PENDING", "FINISHED", "UNVERIFIABLE", "COMMITED", "FAILED", "RETRY")]
         [PSCustomObject]
         ${ProvisioningStatus},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
@@ -79,6 +81,7 @@ function Initialize-BetaAccountActivityItem {
         [PSCustomObject]
         ${ReviewerComment},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ADD", "CREATE", "MODIFY", "DELETE", "DISABLE", "ENABLE", "UNLOCK", "LOCK", "REMOVE")]
         [PSCustomObject]
         ${Operation},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]

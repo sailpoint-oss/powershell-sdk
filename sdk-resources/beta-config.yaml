@@ -1,7 +1,8 @@
-templateDir: ./sdk-resources/beta-resources
+templateDir: ./sdk-resources/resources
 packageName: PSSailpointBeta
 packageVersion: 1.0.2
 apiNamePrefix: Beta
+apiVersion: beta
 companyName: SailPoint Technologies
 packageGuid: 61785CF2-2EB2-4FB6-9F7C-C5BD5B1733EB
 commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select

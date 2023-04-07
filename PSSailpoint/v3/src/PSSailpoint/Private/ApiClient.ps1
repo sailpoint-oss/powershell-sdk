@@ -143,6 +143,10 @@ function Invoke-ApiClient {
         }
     }
 
+    
+    Write-Verbose ("Request Headers: {0}" -f ($HeaderParameters | Out-String))
+    Write-Verbose "Request Body: $RequestBody"
+    
     if ($SkipCertificateCheck -eq $true) {
         if ($null -eq $Configuration["Proxy"]) {
             # skip certification check, no proxy

@@ -14,4 +14,12 @@ Describe -tag 'PSSailpoint' -name 'PasswordSyncGroupsApi' {
         }
     }
 
+    Context 'Get-PasswordSyncGroups' {
+        It 'Test Get-PasswordSyncGroups' {
+            #$TestResult = Get-PasswordSyncGroups -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

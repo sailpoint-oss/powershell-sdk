@@ -40,7 +40,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaPasswordSyncGroupsApi' {
 
     Context 'Update-BetaPasswordSyncGroup' {
         It 'Test Update-BetaPasswordSyncGroup' {
-            #$TestResult = Update-BetaPasswordSyncGroup -Id "TEST_VALUE" -PasswordSyncGroup "TEST_VALUE"
+            #$TestResult = Update-BetaPasswordSyncGroup -Id "TEST_VALUE" -PasswordSyncGroup1 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

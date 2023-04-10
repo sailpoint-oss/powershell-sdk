@@ -19,15 +19,15 @@ ID of the sync group
 .PARAMETER Name
 Name of the sync group
 .PARAMETER PasswordPolicyId
-ID of the password policy
+No description available.
 .PARAMETER SourceIds
 List of password managed sources IDs
 .OUTPUTS
 
-PasswordSyncGroup<PSCustomObject>
+PasswordSyncGroup1<PSCustomObject>
 #>
 
-function Initialize-BetaPasswordSyncGroup {
+function Initialize-BetaPasswordSyncGroup1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -45,7 +45,7 @@ function Initialize-BetaPasswordSyncGroup {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaPasswordSyncGroup' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaPasswordSyncGroup1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -64,11 +64,11 @@ function Initialize-BetaPasswordSyncGroup {
 <#
 .SYNOPSIS
 
-Convert from JSON to PasswordSyncGroup<PSCustomObject>
+Convert from JSON to PasswordSyncGroup1<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to PasswordSyncGroup<PSCustomObject>
+Convert from JSON to PasswordSyncGroup1<PSCustomObject>
 
 .PARAMETER Json
 
@@ -76,21 +76,21 @@ Json object
 
 .OUTPUTS
 
-PasswordSyncGroup<PSCustomObject>
+PasswordSyncGroup1<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToPasswordSyncGroup {
+function ConvertFrom-BetaJsonToPasswordSyncGroup1 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaPasswordSyncGroup' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaPasswordSyncGroup1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaPasswordSyncGroup
+        # check if Json contains properties not defined in BetaPasswordSyncGroup1
         $AllProperties = ("id", "name", "passwordPolicyId", "sourceIds")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

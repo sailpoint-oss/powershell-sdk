@@ -115,7 +115,7 @@ void (empty response body)
 
 <a name="Get-BetaPasswordSyncGroup"></a>
 # **Get-BetaPasswordSyncGroup**
-> PasswordSyncGroup Get-BetaPasswordSyncGroup<br>
+> PasswordSyncGroup1 Get-BetaPasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Password Sync Group by ID
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PasswordSyncGroup**](PasswordSyncGroup.md) (PSCustomObject)
+[**PasswordSyncGroup1**](PasswordSyncGroup1.md) (PSCustomObject)
 
 ### Authorization
 
@@ -223,9 +223,9 @@ Name | Type | Description  | Notes
 
 <a name="Update-BetaPasswordSyncGroup"></a>
 # **Update-BetaPasswordSyncGroup**
-> PasswordSyncGroup Update-BetaPasswordSyncGroup<br>
+> PasswordSyncGroup1 Update-BetaPasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordSyncGroup] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordSyncGroup1] <PSCustomObject><br>
 
 Update Password Sync Group by ID
 
@@ -242,11 +242,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to update.
-$PasswordSyncGroup = Initialize-PasswordSyncGroup -Id "6881f631-3bd5-4213-9c75-8e05cc3e35dd" -Name "Password Sync Group 1" -PasswordPolicyId "2c91808d744ba0ce01746f93b6204501" -SourceIds "MySourceIds" # PasswordSyncGroup | 
+$PasswordSyncGroup1 = Initialize-PasswordSyncGroup1 -Id "6881f631-3bd5-4213-9c75-8e05cc3e35dd" -Name "Password Sync Group 1" -PasswordPolicyId "2c91808d744ba0ce01746f93b6204501" -SourceIds "MySourceIds" # PasswordSyncGroup1 | 
 
 # Update Password Sync Group by ID
 try {
-    $Result = Update-BetaPasswordSyncGroup -Id $Id -PasswordSyncGroup $PasswordSyncGroup
+    $Result = Update-BetaPasswordSyncGroup -Id $Id -PasswordSyncGroup1 $PasswordSyncGroup1
 } catch {
     Write-Host ("Exception occurred when calling Update-BetaPasswordSyncGroup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -258,11 +258,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| The ID of password sync group to update. | 
- **PasswordSyncGroup** | [**PasswordSyncGroup**](PasswordSyncGroup.md)|  | 
+ **PasswordSyncGroup1** | [**PasswordSyncGroup1**](PasswordSyncGroup1.md)|  | 
 
 ### Return type
 
-[**PasswordSyncGroup**](PasswordSyncGroup.md) (PSCustomObject)
+[**PasswordSyncGroup1**](PasswordSyncGroup1.md) (PSCustomObject)
 
 ### Authorization
 

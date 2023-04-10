@@ -769,6 +769,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.PasswordOrgConfig](docs/PasswordOrgConfig.md)
  - [PSSailpointBeta/Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpointBeta/Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
+ - [PSSailpointBeta/Model.PasswordSyncGroup1](docs/PasswordSyncGroup1.md)
  - [PSSailpointBeta/Model.PatchPotentialRoleRequestInner](docs/PatchPotentialRoleRequestInner.md)
  - [PSSailpointBeta/Model.PeerGroupMember](docs/PeerGroupMember.md)
  - [PSSailpointBeta/Model.PendingApproval](docs/PendingApproval.md)

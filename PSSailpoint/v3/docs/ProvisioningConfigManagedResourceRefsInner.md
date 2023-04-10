@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the source | [optional] 
-**Name** | **String** | Human-readable display name of the source | [optional] 
+**Type** | [**SystemCollectionsHashtable**](.md) | The type of object being referenced | [optional] 
+**Id** | [**SystemCollectionsHashtable**](.md) | ID of the source | [optional] 
+**Name** | [**SystemCollectionsHashtable**](.md) | Human-readable display name of the source | [optional] 
 
 ## Examples
 

@@ -35,16 +35,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ServiceDeskIntegrationDtoAllOfOwnerRef = Initialize-ServiceDeskIntegrationDtoAllOfOwnerRef -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "MyName"
-$ServiceDeskIntegrationDtoAllOfClusterRef = Initialize-ServiceDeskIntegrationDtoAllOfClusterRef -Type "CLUSTER" -Id "2c9180866166b5b0016167c32ef31a66" -Name "Corporate Cluster"
+$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 
-$ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id "2c91808568c529c60168cca6f90c1313" -Name "My Source"
+$ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id  -Name 
 $ProvisioningConfigPlanInitializerScript = Initialize-ProvisioningConfigPlanInitializerScript -Source "<?xml version='1.0' encoding='UTF-8'?>\r\n<!DOCTYPE Rule PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">\r\n<Rule name=\"Example Rule\" type=\"BeforeProvisioning\">\r\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\r\n  <Source><![CDATA[\r\nimport sailpoint.object.*;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\r\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\r\nimport sailpoint.object.ProvisioningPlan;\r\nimport sailpoint.object.ProvisioningPlan.Operation;\r\n\r\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n}\r\n\r\n  ]]></Source>
 "
-$ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript
+$ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript -NoProvisioningRequests $true -ProvisioningRequestExpiration 7
 
-$ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule = Initialize-ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule -Type "RULE" -Id "2c91808568c529c60168cca6f90c1333" -Name "Example Rule"
-$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $ServiceDeskIntegrationDtoAllOfOwnerRef -ClusterRef $ServiceDeskIntegrationDtoAllOfClusterRef -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule # ServiceDeskIntegrationDto | The specifics of a new integration to create
+$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto -ClusterRef $BaseReferenceDto -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto # ServiceDeskIntegrationDto | The specifics of a new integration to create
 
 # Create a new Service Desk integration
 try {
@@ -462,16 +460,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "anId" # String | ID of the Service Desk integration to update
-$ServiceDeskIntegrationDtoAllOfOwnerRef = Initialize-ServiceDeskIntegrationDtoAllOfOwnerRef -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "MyName"
-$ServiceDeskIntegrationDtoAllOfClusterRef = Initialize-ServiceDeskIntegrationDtoAllOfClusterRef -Type "CLUSTER" -Id "2c9180866166b5b0016167c32ef31a66" -Name "Corporate Cluster"
+$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 
-$ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id "2c91808568c529c60168cca6f90c1313" -Name "My Source"
+$ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id  -Name 
 $ProvisioningConfigPlanInitializerScript = Initialize-ProvisioningConfigPlanInitializerScript -Source "<?xml version='1.0' encoding='UTF-8'?>\r\n<!DOCTYPE Rule PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">\r\n<Rule name=\"Example Rule\" type=\"BeforeProvisioning\">\r\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\r\n  <Source><![CDATA[\r\nimport sailpoint.object.*;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\r\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\r\nimport sailpoint.object.ProvisioningPlan;\r\nimport sailpoint.object.ProvisioningPlan.Operation;\r\n\r\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n}\r\n\r\n  ]]></Source>
 "
-$ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript
+$ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript -NoProvisioningRequests $true -ProvisioningRequestExpiration 7
 
-$ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule = Initialize-ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule -Type "RULE" -Id "2c91808568c529c60168cca6f90c1333" -Name "Example Rule"
-$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $ServiceDeskIntegrationDtoAllOfOwnerRef -ClusterRef $ServiceDeskIntegrationDtoAllOfClusterRef -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule # ServiceDeskIntegrationDto | The specifics of the integration to update
+$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto -ClusterRef $BaseReferenceDto -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto # ServiceDeskIntegrationDto | The specifics of the integration to update
 
 # Update a Service Desk integration by ID
 try {

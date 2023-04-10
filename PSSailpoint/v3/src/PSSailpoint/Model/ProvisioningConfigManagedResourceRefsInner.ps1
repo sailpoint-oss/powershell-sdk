@@ -30,13 +30,13 @@ function Initialize-ProvisioningConfigManagedResourceRefsInner {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE")]
-        [String]
+        [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${Name}
     )
 

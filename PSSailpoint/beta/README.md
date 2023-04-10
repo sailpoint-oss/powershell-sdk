@@ -343,8 +343,8 @@ Class | Method | HTTP request | Description
 *BetaServiceDeskIntegrationApi* | [**Get-BetaServiceDeskIntegrationTypes**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
 *BetaServiceDeskIntegrationApi* | [**Get-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaStatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration of queued SDIM tickets
 *BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
-*BetaServiceDeskIntegrationApi* | [**Update-BetaManagedClientStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaManagedClientStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
 *BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration by ID
+*BetaServiceDeskIntegrationApi* | [**Update-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
 *BetaSourcesApi* | [**New-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#New-BetaProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 *BetaSourcesApi* | [**New-BetaSource**](docs/BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
 *BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
@@ -887,9 +887,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpointBeta/Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
  - [PSSailpointBeta/Model.ServiceDeskIntegrationDtoAllOf](docs/ServiceDeskIntegrationDtoAllOf.md)
- - [PSSailpointBeta/Model.ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule](docs/ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule.md)
- - [PSSailpointBeta/Model.ServiceDeskIntegrationDtoAllOfClusterRef](docs/ServiceDeskIntegrationDtoAllOfClusterRef.md)
- - [PSSailpointBeta/Model.ServiceDeskIntegrationDtoAllOfOwnerRef](docs/ServiceDeskIntegrationDtoAllOfOwnerRef.md)
  - [PSSailpointBeta/Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)
  - [PSSailpointBeta/Model.ServiceDeskIntegrationTemplateDtoAllOf](docs/ServiceDeskIntegrationTemplateDtoAllOf.md)
  - [PSSailpointBeta/Model.ServiceDeskIntegrationTemplateType](docs/ServiceDeskIntegrationTemplateType.md)

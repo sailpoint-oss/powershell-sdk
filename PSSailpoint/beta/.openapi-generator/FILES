@@ -502,9 +502,6 @@ docs/SelectorType.md
 docs/SendTestNotificationRequestDto.md
 docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationDtoAllOf.md
-docs/ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule.md
-docs/ServiceDeskIntegrationDtoAllOfClusterRef.md
-docs/ServiceDeskIntegrationDtoAllOfOwnerRef.md
 docs/ServiceDeskIntegrationTemplateDto.md
 docs/ServiceDeskIntegrationTemplateDtoAllOf.md
 docs/ServiceDeskIntegrationTemplateType.md
@@ -1191,9 +1188,6 @@ src/PSSailpointBeta/Model/SelectorType.ps1
 src/PSSailpointBeta/Model/SendTestNotificationRequestDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationDtoAllOf.ps1
-src/PSSailpointBeta/Model/ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule.ps1
-src/PSSailpointBeta/Model/ServiceDeskIntegrationDtoAllOfClusterRef.ps1
-src/PSSailpointBeta/Model/ServiceDeskIntegrationDtoAllOfOwnerRef.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateDtoAllOf.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateType.ps1
@@ -1886,9 +1880,6 @@ tests/Model/SelectorType.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDtoAllOf.Tests.ps1
-tests/Model/ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule.Tests.ps1
-tests/Model/ServiceDeskIntegrationDtoAllOfClusterRef.Tests.ps1
-tests/Model/ServiceDeskIntegrationDtoAllOfOwnerRef.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDtoAllOf.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1

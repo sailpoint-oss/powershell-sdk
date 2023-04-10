@@ -12,8 +12,8 @@ Method | HTTP request | Description
 [**Get-BetaServiceDeskIntegrationTypes**](BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
 [**Get-BetaStatusCheckDetails**](BetaServiceDeskIntegrationApi.md#Get-BetaStatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration of queued SDIM tickets
 [**Update-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
-[**Update-BetaManagedClientStatusCheckDetails**](BetaServiceDeskIntegrationApi.md#Update-BetaManagedClientStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
 [**Update-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration by ID
+[**Update-BetaStatusCheckDetails**](BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
 
 
 <a name="New-BetaServiceDeskIntegration"></a>
@@ -35,16 +35,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ServiceDeskIntegrationDtoAllOfOwnerRef = Initialize-ServiceDeskIntegrationDtoAllOfOwnerRef -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "MyName"
-$ServiceDeskIntegrationDtoAllOfClusterRef = Initialize-ServiceDeskIntegrationDtoAllOfClusterRef -Type "CLUSTER" -Id "2c9180866166b5b0016167c32ef31a66" -Name "Corporate Cluster"
+$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 
-$ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id "2c91808568c529c60168cca6f90c1313" -Name "My Source"
+$ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id  -Name 
 $ProvisioningConfigPlanInitializerScript = Initialize-ProvisioningConfigPlanInitializerScript -Source "<?xml version='1.0' encoding='UTF-8'?>\r\n<!DOCTYPE Rule PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">\r\n<Rule name=\"Example Rule\" type=\"BeforeProvisioning\">\r\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\r\n  <Source><![CDATA[\r\nimport sailpoint.object.*;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\r\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\r\nimport sailpoint.object.ProvisioningPlan;\r\nimport sailpoint.object.ProvisioningPlan.Operation;\r\n\r\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n}\r\n\r\n  ]]></Source>
 "
-$ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript
+$ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript -NoProvisioningRequests $true -ProvisioningRequestExpiration 7
 
-$ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule = Initialize-ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule -Type "RULE" -Id "2c91808568c529c60168cca6f90c1333" -Name "Example Rule"
-$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $ServiceDeskIntegrationDtoAllOfOwnerRef -ClusterRef $ServiceDeskIntegrationDtoAllOfClusterRef -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule # ServiceDeskIntegrationDto | The specifics of a new integration to create
+$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto -ClusterRef $BaseReferenceDto -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto # ServiceDeskIntegrationDto | The specifics of a new integration to create
 
 # Create a new Service Desk integration
 try {
@@ -441,57 +439,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaManagedClientStatusCheckDetails"></a>
-# **Update-BetaManagedClientStatusCheckDetails**
-> QueuedCheckConfigDetails Update-BetaManagedClientStatusCheckDetails<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-QueuedCheckConfigDetails] <PSCustomObject><br>
-
-Update the time check configuration of queued SDIM tickets
-
-Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$QueuedCheckConfigDetails = Initialize-QueuedCheckConfigDetails -ProvisioningStatusCheckIntervalMinutes "30" -ProvisioningMaxStatusCheckDays "2" # QueuedCheckConfigDetails | the modified time check configuration
-
-# Update the time check configuration of queued SDIM tickets
-try {
-    $Result = Update-BetaManagedClientStatusCheckDetails -QueuedCheckConfigDetails $QueuedCheckConfigDetails
-} catch {
-    Write-Host ("Exception occurred when calling Update-BetaManagedClientStatusCheckDetails: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **QueuedCheckConfigDetails** | [**QueuedCheckConfigDetails**](QueuedCheckConfigDetails.md)| the modified time check configuration | 
-
-### Return type
-
-[**QueuedCheckConfigDetails**](QueuedCheckConfigDetails.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="Update-BetaServiceDeskIntegration"></a>
 # **Update-BetaServiceDeskIntegration**
 > ServiceDeskIntegrationDto Update-BetaServiceDeskIntegration<br>
@@ -513,16 +460,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "anId" # String | ID of the Service Desk integration to update
-$ServiceDeskIntegrationDtoAllOfOwnerRef = Initialize-ServiceDeskIntegrationDtoAllOfOwnerRef -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "MyName"
-$ServiceDeskIntegrationDtoAllOfClusterRef = Initialize-ServiceDeskIntegrationDtoAllOfClusterRef -Type "CLUSTER" -Id "2c9180866166b5b0016167c32ef31a66" -Name "Corporate Cluster"
+$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 
-$ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id "2c91808568c529c60168cca6f90c1313" -Name "My Source"
+$ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id  -Name 
 $ProvisioningConfigPlanInitializerScript = Initialize-ProvisioningConfigPlanInitializerScript -Source "<?xml version='1.0' encoding='UTF-8'?>\r\n<!DOCTYPE Rule PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">\r\n<Rule name=\"Example Rule\" type=\"BeforeProvisioning\">\r\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\r\n  <Source><![CDATA[\r\nimport sailpoint.object.*;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\r\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\r\nimport sailpoint.object.ProvisioningPlan;\r\nimport sailpoint.object.ProvisioningPlan.Operation;\r\n\r\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n}\r\n\r\n  ]]></Source>
 "
-$ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript
+$ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript -NoProvisioningRequests $true -ProvisioningRequestExpiration 7
 
-$ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule = Initialize-ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule -Type "RULE" -Id "2c91808568c529c60168cca6f90c1333" -Name "Example Rule"
-$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $ServiceDeskIntegrationDtoAllOfOwnerRef -ClusterRef $ServiceDeskIntegrationDtoAllOfClusterRef -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule # ServiceDeskIntegrationDto | The specifics of the integration to update
+$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto -ClusterRef $BaseReferenceDto -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto # ServiceDeskIntegrationDto | The specifics of the integration to update
 
 # Update a Service Desk integration by ID
 try {
@@ -543,6 +488,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ServiceDeskIntegrationDto**](ServiceDeskIntegrationDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Update-BetaStatusCheckDetails"></a>
+# **Update-BetaStatusCheckDetails**
+> QueuedCheckConfigDetails Update-BetaStatusCheckDetails<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-QueuedCheckConfigDetails] <PSCustomObject><br>
+
+Update the time check configuration of queued SDIM tickets
+
+Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$QueuedCheckConfigDetails = Initialize-QueuedCheckConfigDetails -ProvisioningStatusCheckIntervalMinutes "30" -ProvisioningMaxStatusCheckDays "2" # QueuedCheckConfigDetails | the modified time check configuration
+
+# Update the time check configuration of queued SDIM tickets
+try {
+    $Result = Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $QueuedCheckConfigDetails
+} catch {
+    Write-Host ("Exception occurred when calling Update-BetaStatusCheckDetails: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **QueuedCheckConfigDetails** | [**QueuedCheckConfigDetails**](QueuedCheckConfigDetails.md)| the modified time check configuration | 
+
+### Return type
+
+[**QueuedCheckConfigDetails**](QueuedCheckConfigDetails.md) (PSCustomObject)
 
 ### Authorization
 

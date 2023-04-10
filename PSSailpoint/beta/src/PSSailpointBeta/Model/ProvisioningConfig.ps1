@@ -20,6 +20,10 @@ Specifies whether this configuration is used to manage provisioning requests for
 References to sources for the Service Desk integration template.  May only be specified if universalManager is false.
 .PARAMETER PlanInitializerScript
 No description available.
+.PARAMETER NoProvisioningRequests
+Name of an attribute that when true disables the saving of ProvisioningRequest objects whenever plans are sent through this integration.
+.PARAMETER ProvisioningRequestExpiration
+When saving pending requests is enabled, this defines the number of hours the request is allowed to live before it is considered expired and no longer affects plan compilation.
 .OUTPUTS
 
 ProvisioningConfig<PSCustomObject>
@@ -36,7 +40,13 @@ function Initialize-BetaProvisioningConfig {
         ${ManagedResourceRefs},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${PlanInitializerScript}
+        ${PlanInitializerScript},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${NoProvisioningRequests},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ProvisioningRequestExpiration}
     )
 
     Process {
@@ -48,6 +58,8 @@ function Initialize-BetaProvisioningConfig {
             "universalManager" = ${UniversalManager}
             "managedResourceRefs" = ${ManagedResourceRefs}
             "planInitializerScript" = ${PlanInitializerScript}
+            "noProvisioningRequests" = ${NoProvisioningRequests}
+            "provisioningRequestExpiration" = ${ProvisioningRequestExpiration}
         }
 
 
@@ -85,7 +97,7 @@ function ConvertFrom-BetaJsonToProvisioningConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaProvisioningConfig
-        $AllProperties = ("universalManager", "managedResourceRefs", "planInitializerScript")
+        $AllProperties = ("universalManager", "managedResourceRefs", "planInitializerScript", "noProvisioningRequests", "provisioningRequestExpiration")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -110,10 +122,24 @@ function ConvertFrom-BetaJsonToProvisioningConfig {
             $PlanInitializerScript = $JsonParameters.PSobject.Properties["planInitializerScript"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "noProvisioningRequests"))) { #optional property not found
+            $NoProvisioningRequests = $null
+        } else {
+            $NoProvisioningRequests = $JsonParameters.PSobject.Properties["noProvisioningRequests"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisioningRequestExpiration"))) { #optional property not found
+            $ProvisioningRequestExpiration = $null
+        } else {
+            $ProvisioningRequestExpiration = $JsonParameters.PSobject.Properties["provisioningRequestExpiration"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "universalManager" = ${UniversalManager}
             "managedResourceRefs" = ${ManagedResourceRefs}
             "planInitializerScript" = ${PlanInitializerScript}
+            "noProvisioningRequests" = ${NoProvisioningRequests}
+            "provisioningRequestExpiration" = ${ProvisioningRequestExpiration}
         }
 
         return $PSO

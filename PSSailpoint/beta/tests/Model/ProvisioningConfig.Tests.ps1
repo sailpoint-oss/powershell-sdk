@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaProvisioningConfig' {
     Context 'BetaProvisioningConfig' {
         It 'Initialize-BetaProvisioningConfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaProvisioningConfig -UniversalManager "TEST_VALUE" -ManagedResourceRefs "TEST_VALUE" -PlanInitializerScript "TEST_VALUE"
+            #$NewObject = Initialize-BetaProvisioningConfig -UniversalManager "TEST_VALUE" -ManagedResourceRefs "TEST_VALUE" -PlanInitializerScript "TEST_VALUE" -NoProvisioningRequests "TEST_VALUE" -ProvisioningRequestExpiration "TEST_VALUE"
             #$NewObject | Should -BeOfType ProvisioningConfig
             #$NewObject.property | Should -Be 0
         }

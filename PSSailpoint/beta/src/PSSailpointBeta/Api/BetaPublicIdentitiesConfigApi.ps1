@@ -12,7 +12,7 @@ Get Public Identity Config
 
 .DESCRIPTION
 
-No description available.
+This gets details of public identity config.
 
 .PARAMETER WithHttpInfo
 
@@ -77,7 +77,7 @@ Update Public Identity Config
 
 .DESCRIPTION
 
-No description available.
+This updates the details of public identity config.
 
 .PARAMETER PublicIdentityConfig
 No description available.

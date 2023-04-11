@@ -12,7 +12,7 @@ Update User Permissions
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER UpdateUserPermissionsRequest
 No description available.

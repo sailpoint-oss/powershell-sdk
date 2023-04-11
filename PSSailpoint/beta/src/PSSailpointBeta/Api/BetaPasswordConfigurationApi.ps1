@@ -12,7 +12,7 @@ Create Password Org Config
 
 .DESCRIPTION
 
-No description available.
+This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
 
 .PARAMETER PasswordOrgConfig
 No description available.
@@ -99,7 +99,7 @@ Get Password Org Config
 
 .DESCRIPTION
 
-No description available.
+This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:read'
 
 .PARAMETER WithHttpInfo
 
@@ -164,7 +164,7 @@ Update Password Org Config
 
 .DESCRIPTION
 
-No description available.
+This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
 
 .PARAMETER PasswordOrgConfig
 No description available.

@@ -12,7 +12,7 @@ Create Account
 
 .DESCRIPTION
 
-No description available.
+This API submits an account creation task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER AccountAttributesCreate
 No description available.
@@ -99,7 +99,7 @@ Delete Account
 
 .DESCRIPTION
 
-No description available.
+This API submits an account delete task and returns the task ID. This operation can only be used on Flat File Sources. Any attempt to execute this request on the source of other type will result in an error response with a status code of 400. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account ID
@@ -174,7 +174,7 @@ Disable Account
 
 .DESCRIPTION
 
-No description available.
+This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -271,7 +271,7 @@ Enable Account
 
 .DESCRIPTION
 
-No description available.
+This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -368,7 +368,7 @@ Account Details
 
 .DESCRIPTION
 
-No description available.
+This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account ID
@@ -443,7 +443,7 @@ Account Entitlements
 
 .DESCRIPTION
 
-No description available.
+This API returns entitlements of the account.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -548,7 +548,7 @@ Accounts List
 
 .DESCRIPTION
 
-No description available.
+This returns a list of accounts.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -653,7 +653,7 @@ Update Account
 
 .DESCRIPTION
 
-No description available.
+This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: The PUT Account API is designated only for Delimited File sources.**
 
 .PARAMETER Id
 The account ID
@@ -750,7 +750,7 @@ Reload Account
 
 .DESCRIPTION
 
-No description available.
+This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -825,7 +825,7 @@ Unlock Account
 
 .DESCRIPTION
 
-No description available.
+This API submits a task to unlock an account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -922,7 +922,7 @@ Update Account
 
 .DESCRIPTION
 
-No description available.
+Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields can not be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account ID

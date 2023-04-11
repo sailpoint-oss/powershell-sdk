@@ -12,7 +12,7 @@ Create Custom Password Instructions
 
 .DESCRIPTION
 
-No description available.
+This API creates the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER CustomPasswordInstruction
 No description available.
@@ -99,7 +99,7 @@ Delete Custom Password Instructions by page ID
 
 .DESCRIPTION
 
-No description available.
+This API delete the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER PageId
 The page ID of custom password instructions to delete.
@@ -185,7 +185,7 @@ Get Custom Password Instructions by Page ID
 
 .DESCRIPTION
 
-No description available.
+This API returns the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER PageId
 The page ID of custom password instructions to query.

@@ -12,7 +12,7 @@ Export Identity Profiles
 
 .DESCRIPTION
 
-No description available.
+This exports existing identity profiles in the format specified by the sp-config service.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -127,7 +127,7 @@ Get default Identity Attribute Config
 
 .DESCRIPTION
 
-No description available.
+This returns the default identity attribute config. A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID.
@@ -202,7 +202,7 @@ Get single Identity Profile
 
 .DESCRIPTION
 
-No description available.
+This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID.
@@ -277,7 +277,7 @@ Import Identity Profiles
 
 .DESCRIPTION
 
-No description available.
+This imports previously exported identity profiles.
 
 .PARAMETER IdentityProfileExportedObject
 Previously exported Identity Profiles.
@@ -364,7 +364,7 @@ Identity Profiles List
 
 .DESCRIPTION
 
-No description available.
+This returns a list of Identity Profiles based on the specified query parameters. A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

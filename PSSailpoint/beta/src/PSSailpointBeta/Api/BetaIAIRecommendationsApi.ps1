@@ -12,7 +12,7 @@ Get Message catalogs
 
 .DESCRIPTION
 
-No description available.
+The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
 
 .PARAMETER CatalogId
 The ID of the message catalog.
@@ -88,7 +88,7 @@ Returns a Recommendation Based on Object
 
 .DESCRIPTION
 
-No description available.
+The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
 .PARAMETER RecommendationRequestDto
 No description available.
@@ -175,7 +175,7 @@ Get certification recommendation config values
 
 .DESCRIPTION
 
-No description available.
+Retrieves configuration attributes used by certification recommendations.
 
 .PARAMETER WithHttpInfo
 
@@ -240,7 +240,7 @@ Update certification recommendation config values
 
 .DESCRIPTION
 
-No description available.
+Updates configuration attributes used by certification recommendations.
 
 .PARAMETER RecommendationConfigDto
 No description available.

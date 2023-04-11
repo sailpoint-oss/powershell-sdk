@@ -12,7 +12,7 @@ Notification of Ignored Access Request Recommendations
 
 .DESCRIPTION
 
-No description available.
+This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
 
 .PARAMETER AccessRequestRecommendationActionItemDto
 The recommended access item to ignore for an identity.
@@ -99,7 +99,7 @@ Notification of Requested Access Request Recommendations
 
 .DESCRIPTION
 
-No description available.
+This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
 
 .PARAMETER AccessRequestRecommendationActionItemDto
 The recommended access item that was requested for an identity.
@@ -186,7 +186,7 @@ Notification of Viewed Access Request Recommendations
 
 .DESCRIPTION
 
-No description available.
+This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 .PARAMETER AccessRequestRecommendationActionItemDto
 The recommended access that was viewed for an identity.
@@ -273,7 +273,7 @@ Notification of Viewed Access Request Recommendations in Bulk
 
 .DESCRIPTION
 
-No description available.
+This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 .PARAMETER AccessRequestRecommendationActionItemDto
 The recommended access items that were viewed for an identity.
@@ -360,7 +360,7 @@ Identity Access Request Recommendations
 
 .DESCRIPTION
 
-No description available.
+This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
 
 .PARAMETER IdentityId
 Get access request recommendations for an identityId. *me* indicates the current user.
@@ -495,7 +495,7 @@ List of Ignored Access Request Recommendations
 
 .DESCRIPTION
 
-No description available.
+This API returns the list of ignored access request recommendations.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -610,7 +610,7 @@ List of Requested Access Request Recommendations
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of requested access request recommendations.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -725,7 +725,7 @@ List of Viewed Access Request Recommendations
 
 .DESCRIPTION
 
-No description available.
+This API returns the list of viewed access request recommendations.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -840,7 +840,7 @@ Get Message catalogs
 
 .DESCRIPTION
 
-No description available.
+The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
 
 .PARAMETER CatalogId
 The ID of the message catalog.

@@ -12,7 +12,7 @@ Create SOD policy
 
 .DESCRIPTION
 
-No description available.
+This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
 
 .PARAMETER SodPolicy
 No description available.
@@ -99,7 +99,7 @@ Delete SOD policy by ID
 
 .DESCRIPTION
 
-No description available.
+This deletes a specified SOD policy. Requires role of ORG_ADMIN.
 
 .PARAMETER Id
 The ID of the SOD Policy to delete.
@@ -184,7 +184,7 @@ Delete SOD policy schedule
 
 .DESCRIPTION
 
-No description available.
+This deletes schedule for a specified SOD policy. Requires role of ORG_ADMIN.
 
 .PARAMETER Id
 The ID of the SOD policy the schedule must be deleted for.
@@ -259,7 +259,7 @@ Download custom violation report
 
 .DESCRIPTION
 
-No description available.
+This allows to download a specified named violation report for a given report reference. Requires role of ORG_ADMIN.
 
 .PARAMETER ReportResultId
 The ID of the report reference to download.
@@ -356,7 +356,7 @@ Download violation report
 
 .DESCRIPTION
 
-No description available.
+This allows to download a violation report for a given report reference. Requires role of ORG_ADMIN.
 
 .PARAMETER ReportResultId
 The ID of the report reference to download.
@@ -443,7 +443,7 @@ Get multi-report run task status
 
 .DESCRIPTION
 
-No description available.
+This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
 
 .PARAMETER WithHttpInfo
 
@@ -508,7 +508,7 @@ Get SOD policy by ID
 
 .DESCRIPTION
 
-No description available.
+This gets specified SOD policy. Requires role of ORG_ADMIN.
 
 .PARAMETER Id
 The ID of the object reference to retrieve.
@@ -583,7 +583,7 @@ Get SOD policy schedule
 
 .DESCRIPTION
 
-No description available.
+This endpoint gets a specified SOD policy's schedule. Requires the role of ORG_ADMIN.
 
 .PARAMETER Id
 The ID of the object reference to retrieve.
@@ -658,7 +658,7 @@ Get violation report run status
 
 .DESCRIPTION
 
-No description available.
+This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
 
 .PARAMETER ReportResultId
 The ID of the report reference to retrieve.
@@ -733,7 +733,7 @@ Get SOD violation report status
 
 .DESCRIPTION
 
-No description available.
+This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
 
 .PARAMETER Id
 The ID of the object reference to retrieve.
@@ -808,7 +808,7 @@ List SOD policies
 
 .DESCRIPTION
 
-No description available.
+This gets list of all SOD policies. Requires role of ORG_ADMIN
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -913,7 +913,7 @@ Patch a SOD policy
 
 .DESCRIPTION
 
-No description available.
+Allows updating SOD Policy fields other than [""id"",""created"",""creatorId"",""policyQuery"",""type""] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
 
 .PARAMETER Id
 The ID of the SOD policy being modified.
@@ -1010,7 +1010,7 @@ Runs all policies for org
 
 .DESCRIPTION
 
-No description available.
+Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
 
 .PARAMETER MultiPolicyRequest
 No description available.
@@ -1093,7 +1093,7 @@ Runs SOD policy violation report
 
 .DESCRIPTION
 
-No description available.
+This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
 
 .PARAMETER Id
 The SOD policy ID to run.
@@ -1168,7 +1168,7 @@ Update SOD Policy schedule
 
 .DESCRIPTION
 
-No description available.
+This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
 
 .PARAMETER Id
 The ID of the SOD policy to update its schedule.
@@ -1265,7 +1265,7 @@ Update SOD policy by ID
 
 .DESCRIPTION
 
-No description available.
+This updates a specified SOD policy. Requires role of ORG_ADMIN.
 
 .PARAMETER Id
 The ID of the SOD policy to update.

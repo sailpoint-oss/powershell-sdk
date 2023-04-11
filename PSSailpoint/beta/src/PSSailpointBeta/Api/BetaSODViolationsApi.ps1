@@ -12,7 +12,7 @@ Predict SOD violations for the given identity if they were granted the given acc
 
 .DESCRIPTION
 
-No description available.
+This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityWithNewAccess
 No description available.

@@ -12,7 +12,7 @@ Complete Trigger Invocation
 
 .DESCRIPTION
 
-No description available.
+Completes an invocation to a REQUEST_RESPONSE type trigger.
 
 .PARAMETER Id
 The ID of the invocation to complete.
@@ -109,7 +109,7 @@ Create a Subscription
 
 .DESCRIPTION
 
-No description available.
+This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
 
 .PARAMETER SubscriptionPostRequest
 No description available.
@@ -196,7 +196,7 @@ Delete a Subscription
 
 .DESCRIPTION
 
-No description available.
+Deletes an existing subscription to a trigger.
 
 .PARAMETER Id
 Subscription ID
@@ -271,7 +271,7 @@ List Subscriptions
 
 .DESCRIPTION
 
-No description available.
+Gets a list of all trigger subscriptions.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -386,7 +386,7 @@ List Latest Invocation Statuses
 
 .DESCRIPTION
 
-No description available.
+Gets a list of latest invocation statuses. Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours. This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -501,7 +501,7 @@ List Triggers
 
 .DESCRIPTION
 
-No description available.
+Gets a list of triggers that are available in the tenant.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -616,7 +616,7 @@ Patch a Subscription
 
 .DESCRIPTION
 
-No description available.
+This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:  **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
 
 .PARAMETER Id
 ID of the Subscription to patch
@@ -713,7 +713,7 @@ Start a Test Invocation
 
 .DESCRIPTION
 
-No description available.
+Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
 .PARAMETER TestInvocation
 No description available.
@@ -800,7 +800,7 @@ Update a Subscription
 
 .DESCRIPTION
 
-No description available.
+This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
 
 .PARAMETER Id
 Subscription ID
@@ -897,7 +897,7 @@ Validate a Subscription Filter
 
 .DESCRIPTION
 
-No description available.
+Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
 
 .PARAMETER ValidateFilterInputDto
 No description available.

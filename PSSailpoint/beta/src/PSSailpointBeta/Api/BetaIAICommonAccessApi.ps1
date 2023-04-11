@@ -12,7 +12,7 @@ Create common access items
 
 .DESCRIPTION
 
-No description available.
+This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
 
 .PARAMETER CommonAccessItemRequest
 No description available.
@@ -99,7 +99,7 @@ Get a paginated list of common access
 
 .DESCRIPTION
 
-No description available.
+This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -214,7 +214,7 @@ Bulk update common access status
 
 .DESCRIPTION
 
-No description available.
+This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
 
 .PARAMETER CommonAccessIDStatus
 Confirm or deny in bulk the common access ids that are (or aren't) common access

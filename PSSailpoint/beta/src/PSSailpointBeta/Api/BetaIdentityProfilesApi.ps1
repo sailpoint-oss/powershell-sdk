@@ -12,7 +12,7 @@ Create an Identity Profile
 
 .DESCRIPTION
 
-No description available.
+This creates an Identity Profile A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
 
 .PARAMETER IdentityProfile
 No description available.
@@ -99,7 +99,7 @@ Delete an Identity Profile
 
 .DESCRIPTION
 
-No description available.
+This deletes an Identity Profile based on ID. A token with ORG_ADMIN authority is required to call this API to delete an Identity Profile.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID.
@@ -174,7 +174,7 @@ Delete Identity Profiles
 
 .DESCRIPTION
 
-No description available.
+This deletes multiple Identity Profiles via a list of supplied IDs. On success, this endpoint will return a reference to the bulk delete task result. A token with ORG_ADMIN authority is required to call this API to delete a list of Identity Profiles.
 
 .PARAMETER RequestBody
 Identity Profile bulk delete request body.
@@ -261,7 +261,7 @@ Export Identity Profiles
 
 .DESCRIPTION
 
-No description available.
+This exports existing identity profiles in the format specified by the sp-config service.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -376,7 +376,7 @@ Generate Identity Profile Preview
 
 .DESCRIPTION
 
-No description available.
+This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy's attribute config is applied. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
 
 .PARAMETER IdentityPreviewRequest
 Identity Preview request body.
@@ -463,7 +463,7 @@ Gets the default identity attribute config
 
 .DESCRIPTION
 
-No description available.
+This returns the default identity attribute config A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID
@@ -538,7 +538,7 @@ Gets a single Identity Profile
 
 .DESCRIPTION
 
-No description available.
+This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID
@@ -613,7 +613,7 @@ Import Identity Profiles
 
 .DESCRIPTION
 
-No description available.
+This imports previously exported identity profiles.
 
 .PARAMETER IdentityProfileExportedObject
 Previously exported Identity Profiles.
@@ -700,7 +700,7 @@ Identity Profiles list
 
 .DESCRIPTION
 
-No description available.
+This returns a list of Identity Profiles based on the specified query parameters. A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -815,7 +815,7 @@ Refreshes all the identities under this profile
 
 .DESCRIPTION
 
-No description available.
+This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID to be refreshed
@@ -890,7 +890,7 @@ Update the Identity Profile
 
 .DESCRIPTION
 
-No description available.
+This updates the specified Identity Profile. A token with ORG_ADMIN authority is required to call this API to update the Identity Profile. Some fields of the Schema cannot be updated. These fields are listed below. * id * name * created * modified
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID

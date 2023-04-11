@@ -12,7 +12,7 @@ Cancel Workflow Execution by ID
 
 .DESCRIPTION
 
-No description available.
+Use this API to cancel a running workflow execution.
 
 .PARAMETER Id
 The workflow execution ID
@@ -87,7 +87,7 @@ Create Workflow
 
 .DESCRIPTION
 
-No description available.
+Create a new workflow with the desired trigger and steps specified in the request body.
 
 .PARAMETER CreateWorkflowRequest
 No description available.
@@ -174,7 +174,7 @@ Delete Workflow By Id
 
 .DESCRIPTION
 
-No description available.
+Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
 
 .PARAMETER Id
 Id of the Workflow
@@ -249,7 +249,7 @@ Get Workflow By Id
 
 .DESCRIPTION
 
-No description available.
+Get a single workflow by id.
 
 .PARAMETER Id
 Id of the workflow
@@ -324,7 +324,7 @@ Get a Workflow Execution
 
 .DESCRIPTION
 
-No description available.
+Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
 .PARAMETER Id
 Id of the workflow execution
@@ -399,7 +399,7 @@ Get Workflow Execution History
 
 .DESCRIPTION
 
-No description available.
+Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
 .PARAMETER Id
 Id of the workflow execution
@@ -474,7 +474,7 @@ List Complete Workflow Library
 
 .DESCRIPTION
 
-No description available.
+This lists all triggers, actions, and operators in the library
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -559,7 +559,7 @@ List Workflow Executions
 
 .DESCRIPTION
 
-No description available.
+This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions.  To get executions past the first 250 records, you can do the following:  1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.  2. Get your workflow ID from the response.  3. You can then do either of the following:     - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq ""Failed""`    - You can paginate through results with the `offset` parameter.    For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.    Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
 
 .PARAMETER Id
 Id of the workflow
@@ -674,7 +674,7 @@ List Workflow Library Actions
 
 .DESCRIPTION
 
-No description available.
+This lists the workflow actions available to you.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -769,7 +769,7 @@ List Workflow Library Operators
 
 .DESCRIPTION
 
-No description available.
+This lists the workflow operators available to you
 
 .PARAMETER WithHttpInfo
 
@@ -834,7 +834,7 @@ List Workflow Library Triggers
 
 .DESCRIPTION
 
-No description available.
+This lists the workflow triggers available to you
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -929,7 +929,7 @@ List Workflows
 
 .DESCRIPTION
 
-No description available.
+List all workflows in the tenant.
 
 .PARAMETER WithHttpInfo
 
@@ -994,7 +994,7 @@ Patch Workflow
 
 .DESCRIPTION
 
-No description available.
+Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 .PARAMETER Id
 Id of the Workflow
@@ -1091,7 +1091,7 @@ Execute Workflow via External Trigger
 
 .DESCRIPTION
 
-No description available.
+This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the ""External Trigger"" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
 
 .PARAMETER Id
 Id of the workflow
@@ -1184,7 +1184,7 @@ Generate External Trigger OAuth Client
 
 .DESCRIPTION
 
-No description available.
+Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
 
 .PARAMETER Id
 Id of the workflow
@@ -1259,7 +1259,7 @@ Test Workflow via External Trigger
 
 .DESCRIPTION
 
-No description available.
+Validate a workflow with an ""External Trigger"" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
 
 .PARAMETER Id
 Id of the workflow
@@ -1352,7 +1352,7 @@ Test Workflow By Id
 
 .DESCRIPTION
 
-No description available.
+Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow. This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint. **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
 
 .PARAMETER Id
 Id of the workflow
@@ -1449,7 +1449,7 @@ Update Workflow
 
 .DESCRIPTION
 
-No description available.
+Perform a full update of a workflow.  The updated workflow object is returned in the response.
 
 .PARAMETER Id
 Id of the Workflow

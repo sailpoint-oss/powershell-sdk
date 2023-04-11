@@ -12,7 +12,7 @@ Perform a Search Query Aggregation
 
 .DESCRIPTION
 
-No description available.
+Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
 
 .PARAMETER Search
 No description available.
@@ -141,7 +141,7 @@ Count Documents Satisfying a Query
 
 .DESCRIPTION
 
-No description available.
+Performs a search with a provided query and returns the count of results in the X-Total-Count header.
 
 .PARAMETER Search
 No description available.
@@ -228,7 +228,7 @@ Get a Document by ID
 
 .DESCRIPTION
 
-No description available.
+Fetches a single document from the specified index, using the specified document ID.
 
 .PARAMETER Index
 The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
@@ -316,7 +316,7 @@ Perform Search
 
 .DESCRIPTION
 
-No description available.
+Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
 
 .PARAMETER Search
 No description available.

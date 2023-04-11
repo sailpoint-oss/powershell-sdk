@@ -12,7 +12,7 @@ Create a new scheduled search
 
 .DESCRIPTION
 
-No description available.
+Creates a new scheduled search. 
 
 .PARAMETER CreateScheduledSearchRequest
 The scheduled search to persist.
@@ -99,7 +99,7 @@ Delete a Scheduled Search
 
 .DESCRIPTION
 
-No description available.
+Deletes the specified scheduled search. 
 
 .PARAMETER Id
 ID of the requested document.
@@ -174,7 +174,7 @@ Get a Scheduled Search
 
 .DESCRIPTION
 
-No description available.
+Returns the specified scheduled search.
 
 .PARAMETER Id
 ID of the requested document.
@@ -249,7 +249,7 @@ List scheduled searches
 
 .DESCRIPTION
 
-No description available.
+Returns a list of scheduled searches. 
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -354,7 +354,7 @@ Unsubscribe a recipient from Scheduled Search
 
 .DESCRIPTION
 
-No description available.
+Unsubscribes a recipient from the specified scheduled search. 
 
 .PARAMETER Id
 ID of the requested document.
@@ -451,7 +451,7 @@ Update an existing Scheduled Search
 
 .DESCRIPTION
 
-No description available.
+Updates an existing scheduled search. 
 
 .PARAMETER Id
 ID of the requested document.

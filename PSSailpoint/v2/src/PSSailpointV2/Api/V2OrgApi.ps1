@@ -12,7 +12,7 @@ Retrieves your org settings.
 
 .DESCRIPTION
 
-No description available.
+Retrieves information and operational settings for your org (as determined by the URL domain).
 
 .PARAMETER WithHttpInfo
 
@@ -75,7 +75,7 @@ Updates one or more org attributes.
 
 .DESCRIPTION
 
-No description available.
+Updates one or more attributes for your org.
 
 .PARAMETER UpdateOrgSettingsRequest
 Org settings to update.

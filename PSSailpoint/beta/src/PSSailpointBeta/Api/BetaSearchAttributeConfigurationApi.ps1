@@ -12,7 +12,7 @@ Configure/create extended search attributes in IdentityNow.
 
 .DESCRIPTION
 
-No description available.
+This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER SearchAttributeConfig
 No description available.
@@ -99,7 +99,7 @@ Delete an extended search attribute in IdentityNow.
 
 .DESCRIPTION
 
-No description available.
+This API accepts an extended attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Name
 Name of the extended search attribute configuration to delete.
@@ -174,7 +174,7 @@ Retrieve a list of extended search attributes in IdentityNow.
 
 .DESCRIPTION
 
-No description available.
+This API retrieves a list of attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER WithHttpInfo
 
@@ -239,7 +239,7 @@ Get the details of a specific extended search attribute in IdentityNow.
 
 .DESCRIPTION
 
-No description available.
+This API accepts an extended attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Name
 Name of the extended search attribute configuration to delete.
@@ -314,7 +314,7 @@ Update the details of a specific extended search attribute in IdentityNow.
 
 .DESCRIPTION
 
-No description available.
+This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Name
 Name of the Search Attribute Configuration to patch.

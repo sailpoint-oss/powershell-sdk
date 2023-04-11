@@ -12,7 +12,7 @@ Get Org configuration settings
 
 .DESCRIPTION
 
-No description available.
+Get org configuration with only external (org admin) accessible properties for the current org.
 
 .PARAMETER WithHttpInfo
 
@@ -77,7 +77,7 @@ Get list of time zones
 
 .DESCRIPTION
 
-No description available.
+Get a list of valid time zones that can be set in org configurations.
 
 .PARAMETER WithHttpInfo
 
@@ -142,7 +142,7 @@ Patch an Org configuration property
 
 .DESCRIPTION
 
-No description available.
+Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
 
 .PARAMETER JsonPatchOperation
 A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.

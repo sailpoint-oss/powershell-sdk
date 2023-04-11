@@ -12,7 +12,7 @@ Get an Account Activity
 
 .DESCRIPTION
 
-No description available.
+This gets a single account activity by its id.
 
 .PARAMETER Id
 The account activity id
@@ -87,7 +87,7 @@ List Account Activities
 
 .DESCRIPTION
 
-No description available.
+This gets a collection of account activities that satisfy the given query parameters.
 
 .PARAMETER RequestedFor
 The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.

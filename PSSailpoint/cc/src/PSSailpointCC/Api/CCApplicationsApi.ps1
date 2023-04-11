@@ -12,7 +12,7 @@ Create Application
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER CreateApplicationRequest
 No description available.
@@ -95,7 +95,7 @@ Delete Application
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Id
 No description available.
@@ -170,7 +170,7 @@ Get Single Application
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Id
 No description available.
@@ -245,7 +245,7 @@ Get Access Profiles for Application
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Id
 No description available.
@@ -318,7 +318,7 @@ List Applications
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER WithHttpInfo
 
@@ -383,7 +383,7 @@ Update Application
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Id
 No description available.

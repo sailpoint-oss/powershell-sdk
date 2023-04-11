@@ -12,7 +12,7 @@ A request to generate insights for roles
 
 .DESCRIPTION
 
-No description available.
+This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
 
 .PARAMETER WithHttpInfo
 
@@ -77,7 +77,7 @@ Download entitlement insights for a role
 
 .DESCRIPTION
 
-No description available.
+This endpoint returns the entitlement insights for a role.
 
 .PARAMETER InsightId
 The role insight id
@@ -184,7 +184,7 @@ Get identities for a suggested entitlement (for a role)
 
 .DESCRIPTION
 
-No description available.
+Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
 
 .PARAMETER InsightId
 The role insight id
@@ -329,7 +329,7 @@ Get a single role insight
 
 .DESCRIPTION
 
-No description available.
+This endpoint gets role insights information for a role.
 
 .PARAMETER InsightId
 The role insight id
@@ -404,7 +404,7 @@ Get role insights
 
 .DESCRIPTION
 
-No description available.
+This method returns detailed role insights for each role.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -519,7 +519,7 @@ Get current entitlement for a role
 
 .DESCRIPTION
 
-No description available.
+This endpoint gets the entitlements for a role. The term ""current"" is to distinguish from the entitlement(s) an insight might recommend adding.
 
 .PARAMETER InsightId
 The role insight id
@@ -604,7 +604,7 @@ Get entitlement insights for a role
 
 .DESCRIPTION
 
-No description available.
+This endpoint returns entitlement insights for a role.
 
 .PARAMETER InsightId
 The role insight id
@@ -699,7 +699,7 @@ Returns the metadata for a request in order to generate insights for roles.
 
 .DESCRIPTION
 
-No description available.
+This endpoint returns details of a prior request.
 
 .PARAMETER Id
 The role insights request id
@@ -774,7 +774,7 @@ Get role insights summary information
 
 .DESCRIPTION
 
-No description available.
+This method returns high level summary information for role insights for a customer.
 
 .PARAMETER WithHttpInfo
 

@@ -12,7 +12,7 @@ Activate a Campaign
 
 .DESCRIPTION
 
-No description available.
+Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
 
 .PARAMETER Id
 The campaign id
@@ -105,7 +105,7 @@ Complete a Campaign
 
 .DESCRIPTION
 
-No description available.
+:::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
 
 .PARAMETER Id
 The campaign id
@@ -198,7 +198,7 @@ Create a campaign
 
 .DESCRIPTION
 
-No description available.
+Creates a new Certification Campaign with the information provided in the request body.
 
 .PARAMETER Campaign
 No description available.
@@ -285,7 +285,7 @@ Create a Campaign Template
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER CampaignTemplate
 No description available.
@@ -372,7 +372,7 @@ Delete a Campaign Template
 
 .DESCRIPTION
 
-No description available.
+Deletes a campaign template by ID.
 
 .PARAMETER Id
 The ID of the campaign template being deleted.
@@ -447,7 +447,7 @@ Deletes a Campaign Template's Schedule
 
 .DESCRIPTION
 
-No description available.
+Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
 
 .PARAMETER Id
 The ID of the campaign template whose schedule is being deleted.
@@ -522,7 +522,7 @@ Deletes Campaigns
 
 .DESCRIPTION
 
-No description available.
+Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
 
 .PARAMETER DeleteCampaignsRequest
 The ids of the campaigns to delete.
@@ -609,7 +609,7 @@ Generate a Campaign from Template
 
 .DESCRIPTION
 
-No description available.
+Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, ""%Y"" will insert the current year; a campaign template named ""Campaign for %y"" would generate a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
 
 .PARAMETER Id
 The ID of the campaign template to use for generation.
@@ -684,7 +684,7 @@ List Campaigns
 
 .DESCRIPTION
 
-No description available.
+Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided the correct query.
 
 .PARAMETER Detail
 Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -810,7 +810,7 @@ Get a campaign
 
 .DESCRIPTION
 
-No description available.
+Retrieves information for an existing campaign using the campaign's ID. Authorized callers must be a reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
 
 .PARAMETER Id
 The ID of the campaign to be retrieved
@@ -885,7 +885,7 @@ Get Campaign Reports
 
 .DESCRIPTION
 
-No description available.
+Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
 
 .PARAMETER Id
 The ID of the campaign for which reports are being fetched.
@@ -960,7 +960,7 @@ Get Campaign Reports Configuration
 
 .DESCRIPTION
 
-No description available.
+Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
 
 .PARAMETER WithHttpInfo
 
@@ -1025,7 +1025,7 @@ Get a Campaign Template
 
 .DESCRIPTION
 
-No description available.
+Fetches a campaign template by ID.
 
 .PARAMETER Id
 The desired campaign template's ID.
@@ -1100,7 +1100,7 @@ Gets a Campaign Template's Schedule
 
 .DESCRIPTION
 
-No description available.
+Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
 
 .PARAMETER Id
 The ID of the campaign template whose schedule is being fetched.
@@ -1175,7 +1175,7 @@ List Campaign Templates
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1290,7 +1290,7 @@ Update a Campaign Template
 
 .DESCRIPTION
 
-No description available.
+Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER Id
 The ID of the campaign template being modified.
@@ -1387,7 +1387,7 @@ Reassign Certifications
 
 .DESCRIPTION
 
-No description available.
+This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The certification campaign ID
@@ -1484,7 +1484,7 @@ Run Campaign Remediation Scan
 
 .DESCRIPTION
 
-No description available.
+Kicks off remediation scan task for a certification campaign. Requires roles of CERT_ADMIN and ORG_ADMIN
 
 .PARAMETER Id
 The ID of the campaign for which remediation scan is being run.
@@ -1559,7 +1559,7 @@ Run Campaign Report
 
 .DESCRIPTION
 
-No description available.
+Runs a report for a certification campaign. Requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
 
 .PARAMETER Id
 The ID of the campaign for which report is being run.
@@ -1644,7 +1644,7 @@ Set Campaign Reports Configuration
 
 .DESCRIPTION
 
-No description available.
+Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
 
 .PARAMETER CampaignReportsConfig
 Campaign Report Configuration
@@ -1731,7 +1731,7 @@ Sets a Campaign Template's Schedule
 
 .DESCRIPTION
 
-No description available.
+Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with the new one.
 
 .PARAMETER Id
 The ID of the campaign template being scheduled.
@@ -1824,7 +1824,7 @@ Update a Campaign
 
 .DESCRIPTION
 
-No description available.
+Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER Id
 The ID of the campaign template being modified.

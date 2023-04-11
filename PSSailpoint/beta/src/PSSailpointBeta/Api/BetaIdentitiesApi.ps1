@@ -12,7 +12,7 @@ Attribute synchronization for single identity.
 
 .DESCRIPTION
 
-No description available.
+This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityId
 The Identity id

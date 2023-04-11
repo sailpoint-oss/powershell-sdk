@@ -12,7 +12,7 @@ Create Connector Rule
 
 .DESCRIPTION
 
-No description available.
+Creates a new connector rule. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER ConnectorRuleCreateRequest
 The connector rule to create
@@ -99,7 +99,7 @@ Delete a Connector-Rule
 
 .DESCRIPTION
 
-No description available.
+Deletes the connector rule specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 ID of the connector rule to delete
@@ -174,7 +174,7 @@ Connector-Rule by ID
 
 .DESCRIPTION
 
-No description available.
+Returns the connector rule specified by ID. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 ID of the connector rule to retrieve
@@ -249,7 +249,7 @@ List Connector Rules
 
 .DESCRIPTION
 
-No description available.
+Returns the list of connector rules. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER WithHttpInfo
 
@@ -314,7 +314,7 @@ Update a Connector Rule
 
 .DESCRIPTION
 
-No description available.
+Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 ID of the connector rule to update
@@ -407,7 +407,7 @@ Validate Connector Rule
 
 .DESCRIPTION
 
-No description available.
+Returns a list of issues within the code to fix, if any. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER SourceCode
 The code to validate

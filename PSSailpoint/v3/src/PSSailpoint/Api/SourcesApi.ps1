@@ -12,7 +12,7 @@ Create Provisioning Policy
 
 .DESCRIPTION
 
-No description available.
+This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER SourceId
 The Source id
@@ -109,7 +109,7 @@ Creates a source in IdentityNow.
 
 .DESCRIPTION
 
-No description available.
+This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER Source
 No description available.
@@ -206,7 +206,7 @@ Create Schema on a Source
 
 .DESCRIPTION
 
-No description available.
+Creates a new Schema on the specified Source in IdentityNow. 
 
 .PARAMETER SourceId
 The Source id.
@@ -303,7 +303,7 @@ Delete Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-No description available.
+Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER SourceId
 The Source ID.
@@ -388,7 +388,7 @@ Delete Source by ID
 
 .DESCRIPTION
 
-No description available.
+This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
 
 .PARAMETER Id
 The Source id
@@ -463,7 +463,7 @@ Delete Source Schema by ID
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER SourceId
 The Source id.
@@ -548,7 +548,7 @@ Downloads source accounts schema template
 
 .DESCRIPTION
 
-No description available.
+This API downloads the CSV schema that defines the account attributes on a source. >**NOTE: This API is designated only for Delimited File sources.**
 
 .PARAMETER Id
 The Source id
@@ -635,7 +635,7 @@ Downloads source entitlements schema template
 
 .DESCRIPTION
 
-No description available.
+This API downloads the CSV schema that defines the entitlement attributes on a source.  >**NOTE: This API is designated only for Delimited File sources.**
 
 .PARAMETER Id
 The Source id
@@ -732,7 +732,7 @@ Get Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-No description available.
+This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER SourceId
 The Source ID.
@@ -817,7 +817,7 @@ Get Source by ID
 
 .DESCRIPTION
 
-No description available.
+This end-point gets a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER Id
 The Source id
@@ -892,7 +892,7 @@ This API fetches source health by source's id
 
 .DESCRIPTION
 
-No description available.
+This endpoint fetches source health by source's id
 
 .PARAMETER SourceId
 The Source id.
@@ -967,7 +967,7 @@ Get Source Schema by ID
 
 .DESCRIPTION
 
-No description available.
+Get the Source Schema by ID in IdentityNow. 
 
 .PARAMETER SourceId
 The Source id.
@@ -1052,7 +1052,7 @@ Lists ProvisioningPolicies
 
 .DESCRIPTION
 
-No description available.
+This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER SourceId
 The Source id
@@ -1127,7 +1127,7 @@ List Schemas on a Source
 
 .DESCRIPTION
 
-No description available.
+Lists the Schemas that exist on the specified Source in IdentityNow. 
 
 .PARAMETER SourceId
 The Source ID.
@@ -1212,7 +1212,7 @@ Lists all sources in IdentityNow.
 
 .DESCRIPTION
 
-No description available.
+This end-point lists all the sources in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1337,7 +1337,7 @@ Update Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-No description available.
+This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER SourceId
 The Source ID.
@@ -1444,7 +1444,7 @@ Update Source (Full)
 
 .DESCRIPTION
 
-No description available.
+This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
 
 .PARAMETER Id
 The Source id
@@ -1541,7 +1541,7 @@ Update Source Schema (Full)
 
 .DESCRIPTION
 
-No description available.
+This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
 
 .PARAMETER SourceId
 The Source id.
@@ -1648,7 +1648,7 @@ Bulk Update Provisioning Policies
 
 .DESCRIPTION
 
-No description available.
+This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER SourceId
 The Source id.
@@ -1745,7 +1745,7 @@ Partial update of Provisioning Policy
 
 .DESCRIPTION
 
-No description available.
+This API selectively updates an existing Provisioning Policy using a JSONPatch payload. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER SourceId
 The Source id.
@@ -1852,7 +1852,7 @@ Update Source (Partial)
 
 .DESCRIPTION
 
-No description available.
+This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
 
 .PARAMETER Id
 The Source id
@@ -1949,7 +1949,7 @@ Update Source Schema (Partial)
 
 .DESCRIPTION
 
-No description available.
+Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-source-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     ""name"": ""groups"",     ""type"": ""STRING"",     ""schema"": {         ""type"": ""CONNECTOR_SCHEMA"",         ""id"": ""2c9180887671ff8c01767b4671fc7d60"",         ""name"": ""group""     },     ""description"": ""The groups, roles etc. that reference account group objects"",     ""isMulti"": true,     ""isEntitlement"": true,     ""isGroup"": true } ``` 
 
 .PARAMETER SourceId
 The Source id.
@@ -2056,7 +2056,7 @@ Uploads source accounts schema template
 
 .DESCRIPTION
 
-No description available.
+This API uploads a source schema template file to configure a source's account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
 
 .PARAMETER Id
 The Source id
@@ -2144,7 +2144,7 @@ Upload connector file to source
 
 .DESCRIPTION
 
-No description available.
+This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER SourceId
 The Source id.
@@ -2232,7 +2232,7 @@ Uploads source entitlements schema template
 
 .DESCRIPTION
 
-No description available.
+This API uploads a source schema template file to configure a source's entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
 
 .PARAMETER Id
 The Source id

@@ -12,7 +12,7 @@ Approve an Approval Item
 
 .DESCRIPTION
 
-No description available.
+This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
 .PARAMETER Id
 The ID of the work item
@@ -97,7 +97,7 @@ Bulk approve Approval Items
 
 .DESCRIPTION
 
-No description available.
+This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
 
 .PARAMETER Id
 The ID of the work item
@@ -172,7 +172,7 @@ Complete a Work Item
 
 .DESCRIPTION
 
-No description available.
+This API completes a work item. Either an admin, or the owning/current user must make this request.
 
 .PARAMETER Id
 The ID of the work item
@@ -247,7 +247,7 @@ Completed Work Items
 
 .DESCRIPTION
 
-No description available.
+This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
 
 .PARAMETER OwnerId
 The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
@@ -352,7 +352,7 @@ Count Completed Work Items
 
 .DESCRIPTION
 
-No description available.
+This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
 .PARAMETER OwnerId
 ID of the work item owner.
@@ -427,7 +427,7 @@ Count Work Items
 
 .DESCRIPTION
 
-No description available.
+This gets a count of work items belonging to either the specified user(admin required), or the current user.
 
 .PARAMETER OwnerId
 ID of the work item owner.
@@ -502,7 +502,7 @@ Get a Work Item
 
 .DESCRIPTION
 
-No description available.
+This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
 
 .PARAMETER Id
 ID of the work item.
@@ -577,7 +577,7 @@ Work Items Summary
 
 .DESCRIPTION
 
-No description available.
+This gets a summary of work items belonging to either the specified user(admin required), or the current user.
 
 .PARAMETER OwnerId
 ID of the work item owner.
@@ -652,7 +652,7 @@ List Work Items
 
 .DESCRIPTION
 
-No description available.
+This gets a collection of work items belonging to either the specified user(admin required), or the current user.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -757,7 +757,7 @@ Reject an Approval Item
 
 .DESCRIPTION
 
-No description available.
+This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
 
 .PARAMETER Id
 The ID of the work item
@@ -842,7 +842,7 @@ Bulk reject Approval Items
 
 .DESCRIPTION
 
-No description available.
+This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
 
 .PARAMETER Id
 The ID of the work item
@@ -917,7 +917,7 @@ Submit Account Selections
 
 .DESCRIPTION
 
-No description available.
+This API submits account selections. Either an admin, or the owning/current user must make this request.
 
 .PARAMETER Id
 The ID of the work item

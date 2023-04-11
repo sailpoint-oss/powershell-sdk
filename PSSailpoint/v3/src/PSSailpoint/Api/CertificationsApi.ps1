@@ -12,7 +12,7 @@ Identity Certification by ID
 
 .DESCRIPTION
 
-No description available.
+This API returns a single identity campaign certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The certification id
@@ -87,7 +87,7 @@ List of Access Review Items
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of access review items for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The identity campaign certification ID
@@ -242,7 +242,7 @@ Identity Campaign Certifications by IDs
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of identity campaign certifications that satisfy the given query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER ReviewerIdentity
 The ID of reviewer identity. *me* indicates the current user.
@@ -367,7 +367,7 @@ Decide on a Certification Item
 
 .DESCRIPTION
 
-No description available.
+The API makes a decision to approve or revoke one or more identity campaign certification items. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The ID of the identity campaign certification on which to make decisions
@@ -464,7 +464,7 @@ Reassign Identities or Items
 
 .DESCRIPTION
 
-No description available.
+This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The identity campaign certification ID
@@ -561,7 +561,7 @@ Finalize Identity Certification Decisions
 
 .DESCRIPTION
 
-No description available.
+This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The identity campaign certification ID

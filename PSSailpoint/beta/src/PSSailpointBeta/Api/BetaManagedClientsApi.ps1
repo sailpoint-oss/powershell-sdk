@@ -12,7 +12,7 @@ Get a specified Managed Client Status.
 
 .DESCRIPTION
 
-No description available.
+Retrieve Managed Client Status by ID.
 
 .PARAMETER Id
 ID of the Managed Client Status to get
@@ -98,7 +98,7 @@ Handle a status request from a client
 
 .DESCRIPTION
 
-No description available.
+Update a status detail passed in from the client
 
 .PARAMETER Id
 ID of the Managed Client Status to update

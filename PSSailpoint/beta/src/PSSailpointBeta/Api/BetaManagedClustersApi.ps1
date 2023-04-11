@@ -12,7 +12,7 @@ get ManagedCluster Log Configuration for a specified cluster
 
 .DESCRIPTION
 
-No description available.
+Get log configuration for a managed cluster.
 
 .PARAMETER Id
 ID of the ManagedCluster to get log configuration for
@@ -87,7 +87,7 @@ Get a specified ManagedCluster.
 
 .DESCRIPTION
 
-No description available.
+Retrieve a ManagedCluster by ID.
 
 .PARAMETER Id
 ID of the ManagedCluster to get
@@ -162,7 +162,7 @@ Retrieve all Managed Clusters.
 
 .DESCRIPTION
 
-No description available.
+Retrieve all Managed Clusters for the current Org, based on request context.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -267,7 +267,7 @@ Update log configuration for a specified cluster.
 
 .DESCRIPTION
 
-No description available.
+Update log configuration for a managed cluster.
 
 .PARAMETER Id
 ID of the ManagedCluster to update log configuration for

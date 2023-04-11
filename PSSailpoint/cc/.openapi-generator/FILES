@@ -4,6 +4,7 @@ README.md
 appveyor.yml
 docs/CCAccountsApi.md
 docs/CCApplicationsApi.md
+docs/CCClusterApi.md
 docs/CCConnectorsApi.md
 docs/CCSourcesAccountsApi.md
 docs/CCSourcesAggregationApi.md
@@ -14,9 +15,11 @@ docs/CreateConnectorRequest.md
 docs/ImportConnectorConfigRequest.md
 docs/LoadAccountsRequest.md
 docs/UpdateApplicationRequest.md
+docs/UpdateClusterRequest.md
 docs/UpdateUserPermissionsRequest.md
 src/PSSailpointCC/Api/CCAccountsApi.ps1
 src/PSSailpointCC/Api/CCApplicationsApi.ps1
+src/PSSailpointCC/Api/CCClusterApi.ps1
 src/PSSailpointCC/Api/CCConnectorsApi.ps1
 src/PSSailpointCC/Api/CCSourcesAccountsApi.ps1
 src/PSSailpointCC/Api/CCSourcesAggregationApi.ps1
@@ -28,6 +31,7 @@ src/PSSailpointCC/Model/CreateConnectorRequest.ps1
 src/PSSailpointCC/Model/ImportConnectorConfigRequest.ps1
 src/PSSailpointCC/Model/LoadAccountsRequest.ps1
 src/PSSailpointCC/Model/UpdateApplicationRequest.ps1
+src/PSSailpointCC/Model/UpdateClusterRequest.ps1
 src/PSSailpointCC/Model/UpdateUserPermissionsRequest.ps1
 src/PSSailpointCC/PSSailpointCC.psm1
 src/PSSailpointCC/Private/CCApiClient.ps1
@@ -38,6 +42,7 @@ src/PSSailpointCC/Private/Out-DebugParameter.ps1
 src/PSSailpointCC/en-US/about_PSSailpointCC.help.txt
 tests/Api/CCAccountsApi.Tests.ps1
 tests/Api/CCApplicationsApi.Tests.ps1
+tests/Api/CCClusterApi.Tests.ps1
 tests/Api/CCConnectorsApi.Tests.ps1
 tests/Api/CCSourcesAccountsApi.Tests.ps1
 tests/Api/CCSourcesAggregationApi.Tests.ps1
@@ -48,4 +53,5 @@ tests/Model/CreateConnectorRequest.Tests.ps1
 tests/Model/ImportConnectorConfigRequest.Tests.ps1
 tests/Model/LoadAccountsRequest.Tests.ps1
 tests/Model/UpdateApplicationRequest.Tests.ps1
+tests/Model/UpdateClusterRequest.Tests.ps1
 tests/Model/UpdateUserPermissionsRequest.Tests.ps1

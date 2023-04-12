@@ -59,7 +59,6 @@ Class | Method | HTTP request | Description
 *CCApplicationsApi* | [**Get-CCApplicationAccessProfiles**](docs/CCApplicationsApi.md#Get-CCApplicationAccessProfiles) | **GET** /cc/api/app/getAccessProfiles/:id | Get Access Profiles for Application
 *CCApplicationsApi* | [**Get-CCApplications**](docs/CCApplicationsApi.md#Get-CCApplications) | **GET** /cc/api/app | List Applications
 *CCApplicationsApi* | [**Update-CCApplication**](docs/CCApplicationsApi.md#Update-CCApplication) | **POST** /cc/api/app/update/:id | Update Application
-*CCClusterApi* | [**Update-CCCluster**](docs/CCClusterApi.md#Update-CCCluster) | **POST** /cc/api/cluster/update/ | Update Cluster
 *CCConnectorsApi* | [**New-CCConnector**](docs/CCConnectorsApi.md#New-CCConnector) | **POST** /cc/api/connector/create | Create Connector
 *CCConnectorsApi* | [**Remove-CCConnector**](docs/CCConnectorsApi.md#Remove-CCConnector) | **POST** /cc/api/connector/delete/{id} | Delete Connector
 *CCConnectorsApi* | [**Export-CCConnectorConfig**](docs/CCConnectorsApi.md#Export-CCConnectorConfig) | **GET** /cc/api/connector/export/{id} | Export Connector Config
@@ -78,7 +77,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointCC/Model.ImportConnectorConfigRequest](docs/ImportConnectorConfigRequest.md)
  - [PSSailpointCC/Model.LoadAccountsRequest](docs/LoadAccountsRequest.md)
  - [PSSailpointCC/Model.UpdateApplicationRequest](docs/UpdateApplicationRequest.md)
- - [PSSailpointCC/Model.UpdateClusterRequest](docs/UpdateClusterRequest.md)
  - [PSSailpointCC/Model.UpdateUserPermissionsRequest](docs/UpdateUserPermissionsRequest.md)
 
 

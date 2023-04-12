@@ -74,6 +74,8 @@ function Invoke-ApiClient {
 
     # Add Custom Header
     $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.0.2"
+    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.0.2/ps"
+
 
     [string]$MultiPartBoundary = $null
     $ContentType= SelectHeaders -Headers $ContentTypes
@@ -156,6 +158,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
+                                      -SkipHeaderValidation `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -SkipCertificateCheck
@@ -167,6 +170,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
+                                      -SkipHeaderValidation `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -SkipCertificateCheck `
@@ -182,6 +186,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
+                                      -SkipHeaderValidation `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -RetryIntervalSec $Configuration["RetryIntervalSeconds"]
         } else {
@@ -192,6 +197,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
+                                      -SkipHeaderValidation `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -Proxy $Configuration["Proxy"].GetProxy($UriBuilder.Uri) `

@@ -12,7 +12,7 @@ Update Cluster
 
 .DESCRIPTION
 
-No description available.
+Updates a Managed Cluster.
 
 .PARAMETER UpdateClusterRequest
 body to update the managed cluster with

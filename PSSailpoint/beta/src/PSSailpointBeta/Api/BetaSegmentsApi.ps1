@@ -12,7 +12,7 @@ Create Segment
 
 .DESCRIPTION
 
-No description available.
+This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Segment
 No description available.
@@ -99,7 +99,7 @@ Delete Segment by ID
 
 .DESCRIPTION
 
-No description available.
+This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Id
 The ID of the Segment to delete.
@@ -174,7 +174,7 @@ Get a Segment by its ID
 
 .DESCRIPTION
 
-No description available.
+This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Id
 The ID of the Segment to retrieve.
@@ -249,7 +249,7 @@ List Segments
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of all segments. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -344,7 +344,7 @@ Update a Segment
 
 .DESCRIPTION
 
-No description available.
+Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Id
 The ID of the Segment being modified.

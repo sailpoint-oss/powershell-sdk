@@ -12,7 +12,7 @@ Gets a difference of count for each access item types for the given identity bet
 
 .DESCRIPTION
 
-No description available.
+This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -147,7 +147,7 @@ Gets a list of differences of specific accessType for the given identity between
 
 .DESCRIPTION
 
-No description available.
+This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -292,7 +292,7 @@ Lists all events for the given identity
 
 .DESCRIPTION
 
-No description available.
+This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -427,7 +427,7 @@ Gets the most recent snapshot of a specific identity
 
 .DESCRIPTION
 
-No description available.
+This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -502,7 +502,7 @@ Gets an identity snapshot at a given date
 
 .DESCRIPTION
 
-No description available.
+This method retrieves a specified identity snapshot at a given date Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -587,7 +587,7 @@ Gets the summary for the event count for a specific identity
 
 .DESCRIPTION
 
-No description available.
+This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -723,7 +723,7 @@ Gets the start date of the identity
 
 .DESCRIPTION
 
-No description available.
+This method retrieves start date of the identity Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -798,7 +798,7 @@ Lists all the identities
 
 .DESCRIPTION
 
-No description available.
+This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER StartsWithQuery
 This param is used for starts-with search for first, last and display name of the identity
@@ -913,7 +913,7 @@ Gets a list of access items for the identity filtered by item type
 
 .DESCRIPTION
 
-No description available.
+This method retrieves a list of access item for the identity filtered by the access item type Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -998,7 +998,7 @@ Gets the list of identity access items at a given date filterd by item type
 
 .DESCRIPTION
 
-No description available.
+This method retrieves the list of identity access items at a given date filterd by item type Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id
@@ -1093,7 +1093,7 @@ Lists all the snapshots for the identity
 
 .DESCRIPTION
 
-No description available.
+This method retrieves all the snapshots for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 .PARAMETER Id
 The identity id

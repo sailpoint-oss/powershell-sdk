@@ -12,7 +12,7 @@ Get configuration of a MFA method
 
 .DESCRIPTION
 
-No description available.
+This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Method
 The name of the MFA method. The currently supported method name is okta-verify.
@@ -87,7 +87,7 @@ Set configuration of a MFA method
 
 .DESCRIPTION
 
-No description available.
+This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Method
 The name of the MFA method. The currently supported method name is okta-verify.
@@ -184,7 +184,7 @@ Test configuration of a MFA method
 
 .DESCRIPTION
 
-No description available.
+This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Method
 The name of the MFA method. The currently supported method name is okta-verify.

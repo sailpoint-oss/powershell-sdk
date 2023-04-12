@@ -12,7 +12,7 @@ Create Account
 
 .DESCRIPTION
 
-No description available.
+This API submits an account creation task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER AccountAttributes
 No description available.
@@ -99,7 +99,7 @@ Delete Account
 
 .DESCRIPTION
 
-No description available.
+This API submits an account delete task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account ID
@@ -174,7 +174,7 @@ Disable Account
 
 .DESCRIPTION
 
-No description available.
+This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -271,7 +271,7 @@ Disable IDN Account for Identity
 
 .DESCRIPTION
 
-No description available.
+This API submits a task to disable IDN account for a single identity.
 
 .PARAMETER Id
 The identity id.
@@ -346,7 +346,7 @@ Disable IDN Accounts for Identities
 
 .DESCRIPTION
 
-No description available.
+This API submits tasks to disable IDN account for each identity provided in the request body.
 
 .PARAMETER IdentitiesAccountsBulkRequest
 No description available.
@@ -433,7 +433,7 @@ Enable Account
 
 .DESCRIPTION
 
-No description available.
+This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -530,7 +530,7 @@ Enable IDN Account for Identity
 
 .DESCRIPTION
 
-No description available.
+This API submits a task to enable IDN account for a single identity.
 
 .PARAMETER Id
 The identity id.
@@ -605,7 +605,7 @@ Enable IDN Accounts for Identities
 
 .DESCRIPTION
 
-No description available.
+This API submits tasks to enable IDN account for each identity provided in the request body.
 
 .PARAMETER IdentitiesAccountsBulkRequest
 No description available.
@@ -692,7 +692,7 @@ Account Details
 
 .DESCRIPTION
 
-No description available.
+This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account ID
@@ -767,7 +767,7 @@ Account Entitlements
 
 .DESCRIPTION
 
-No description available.
+This API returns entitlements of the account.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -872,7 +872,7 @@ Accounts List
 
 .DESCRIPTION
 
-No description available.
+This returns a list of accounts.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER DetailLevel
 Determines whether Slim, or increased level of detail is provided for each account in the returned list. FULL is the default behavior.
@@ -988,7 +988,7 @@ Update Account
 
 .DESCRIPTION
 
-No description available.
+This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account ID
@@ -1085,7 +1085,7 @@ Reload Account
 
 .DESCRIPTION
 
-No description available.
+This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -1160,7 +1160,7 @@ Unlock Account
 
 .DESCRIPTION
 
-No description available.
+This API submits a task to unlock an account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account id
@@ -1257,7 +1257,7 @@ Update Account
 
 .DESCRIPTION
 
-No description available.
+This updates account details.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The account ID

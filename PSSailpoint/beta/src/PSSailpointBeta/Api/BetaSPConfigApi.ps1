@@ -12,7 +12,7 @@ Initiates Configuration Objects Export Job.
 
 .DESCRIPTION
 
-No description available.
+This post will export objects from the tenant to a JSON configuration file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
 
 .PARAMETER ExportPayload
 Export options control what will be included in the export.
@@ -99,7 +99,7 @@ Download Result of Export Job
 
 .DESCRIPTION
 
-No description available.
+This gets export file resulting from the export job with the requested id and downloads it to a file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
 
 .PARAMETER Id
 The ID of the export job for which the results will be downloaded.
@@ -174,7 +174,7 @@ Get Status of Export Job
 
 .DESCRIPTION
 
-No description available.
+This gets the status of the export job identified by the id parameter. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
 
 .PARAMETER Id
 The ID of the export job for which status will be returned.
@@ -249,7 +249,7 @@ Initiates Configuration Objects Import Job.
 
 .DESCRIPTION
 
-No description available.
+This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting ""excludeBackup"" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the ""exportJobId"". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. Request will need the following security scope: - sp:config:manage
 
 .PARAMETER Data
 Name of JSON file containing the objects to be imported.
@@ -348,7 +348,7 @@ Download Result of Import Job
 
 .DESCRIPTION
 
-No description available.
+This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. Request will need the following security scope: - sp:config:manage
 
 .PARAMETER Id
 The ID of the import job for which the results will be downloaded.
@@ -423,7 +423,7 @@ Get Status of Import Job
 
 .DESCRIPTION
 
-No description available.
+This gets the status of the import job identified by the id parameter. Request will need the following security scope: - sp:config:manage
 
 .PARAMETER Id
 The ID of the import job for which status will be returned.
@@ -498,7 +498,7 @@ Get Config Object details
 
 .DESCRIPTION
 
-No description available.
+This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain ""importUrl"" and ""exportUrl"" are available for export/import. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
 
 .PARAMETER WithHttpInfo
 

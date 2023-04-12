@@ -12,7 +12,7 @@ Export Account Feed
 
 .DESCRIPTION
 
-No description available.
+Exports a CSV of the accounts for a particular source.
 
 .PARAMETER Id
 No description available.

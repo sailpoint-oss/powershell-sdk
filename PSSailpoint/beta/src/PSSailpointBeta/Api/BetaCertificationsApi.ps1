@@ -12,7 +12,7 @@ Permissions for Entitlement Certification Item
 
 .DESCRIPTION
 
-No description available.
+This API returns the permissions associated with an entitlement certification item based on the certification item's ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 .PARAMETER CertificationId
 The certification ID
@@ -137,7 +137,7 @@ Pending Certification Tasks
 
 .DESCRIPTION
 
-No description available.
+This API returns the status of all pending (`QUEUED` or `IN_PROGRESS`) tasks for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The identity campaign certification ID
@@ -212,7 +212,7 @@ Certification Task Status
 
 .DESCRIPTION
 
-No description available.
+This API returns the status of a certification task. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The identity campaign certification ID
@@ -297,7 +297,7 @@ List of Reviewers for the certification
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The certification ID
@@ -422,7 +422,7 @@ Reassign Certifications Asynchronously
 
 .DESCRIPTION
 
-No description available.
+This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The identity campaign certification ID

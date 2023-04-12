@@ -12,7 +12,7 @@ Create Password Sync Group
 
 .DESCRIPTION
 
-No description available.
+This API creates a password sync group based on the specifications provided. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER PasswordSyncGroup
 No description available.
@@ -99,7 +99,7 @@ Delete Password Sync Group by ID
 
 .DESCRIPTION
 
-No description available.
+This API deletes the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The ID of password sync group to delete.
@@ -174,7 +174,7 @@ Get Password Sync Group by ID
 
 .DESCRIPTION
 
-No description available.
+This API returns the sync group for the specified ID. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The ID of password sync group to retrieve.
@@ -249,7 +249,7 @@ Get Password Sync Group List
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -344,7 +344,7 @@ Update Password Sync Group by ID
 
 .DESCRIPTION
 
-No description available.
+This API updates the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 The ID of password sync group to update.

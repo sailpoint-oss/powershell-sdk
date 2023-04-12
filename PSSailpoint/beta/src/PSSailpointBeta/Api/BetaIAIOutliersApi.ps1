@@ -12,7 +12,7 @@ IAI Identity Outliers Export
 
 .DESCRIPTION
 
-No description available.
+This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported Columns will include: identityID, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes) Requires authorization scope of 'iai:outliers-management:read'
 
 .PARAMETER Type
 Type of the identity outliers snapshot to filter on
@@ -100,7 +100,7 @@ IAI Identity Outliers Summary
 
 .DESCRIPTION
 
-No description available.
+This API receives a summary containing: the number of identities that customer has, the number of outliers, and the type of outlier Requires authorization scope of 'iai:outliers-management:read'
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -216,7 +216,7 @@ IAI Get Identity Outliers
 
 .DESCRIPTION
 
-No description available.
+This API receives a list of outliers, containing data such as: identityId, outlier type, detection dates, identity attributes, if identity is ignore, and certification information Requires authorization scope of 'iai:outliers-management:read'
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -342,7 +342,7 @@ IAI Identity Outliers Latest Summary
 
 .DESCRIPTION
 
-No description available.
+This API returns a most recent snapshot of each outlier type, each containing: the number of identities that customer has, the number of outliers, and the type of outlier Requires authorization scope of 'iai:outliers-management:read'
 
 .PARAMETER Type
 Type of the identity outliers snapshot to filter on
@@ -418,7 +418,7 @@ Get identity outlier's contibuting features
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of 'iai:outliers-management:read'
 
 .PARAMETER OutlierId
 The outlier id
@@ -543,7 +543,7 @@ IAI Identity Outliers Ignore
 
 .DESCRIPTION
 
-No description available.
+This API receives a list of IdentityIDs in the request, changes the outliers to be ignored--returning a 204 if successful. Requires authorization scope of 'iai:outliers-management:update'
 
 .PARAMETER RequestBody
 No description available.
@@ -630,7 +630,7 @@ IAI Identity Outliers Unignore
 
 .DESCRIPTION
 
-No description available.
+This API receives a list of IdentityIDs in the request, changes the outliers to be un-ignored--returning a 204 if successful. Requires authorization scope of 'iai:outliers-management:update'
 
 .PARAMETER RequestBody
 No description available.

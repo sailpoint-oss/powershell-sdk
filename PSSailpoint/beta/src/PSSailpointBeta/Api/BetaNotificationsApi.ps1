@@ -12,7 +12,7 @@ Create Notification Template
 
 .DESCRIPTION
 
-No description available.
+This creates a template for your site.   You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
 
 .PARAMETER TemplateDto
 No description available.
@@ -99,7 +99,7 @@ Create Verified From Address
 
 .DESCRIPTION
 
-No description available.
+Create a new sender email address and initiate verification process.
 
 .PARAMETER EmailStatusDto
 No description available.
@@ -186,7 +186,7 @@ Bulk Delete Notification Templates
 
 .DESCRIPTION
 
-No description available.
+This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
 
 .PARAMETER TemplateBulkDeleteDto
 No description available.
@@ -273,7 +273,7 @@ Delete Verified From Address
 
 .DESCRIPTION
 
-No description available.
+Delete a verified sender email address
 
 .PARAMETER Id
 No description available.
@@ -348,7 +348,7 @@ Get DKIM Attributes
 
 .DESCRIPTION
 
-No description available.
+Retrieve DKIM (DomainKeys Identified Mail) attributes from a list of identities. Limit retrieval of 100 identities per call
 
 .PARAMETER Identities
 Returns the DKIM attributes for each of the given identities
@@ -424,7 +424,7 @@ Get Notification Preferences for tenant.
 
 .DESCRIPTION
 
-No description available.
+Returns the notification preferences for tenant.  Note that if the key doesn't exist, then a 404 will be returned. Request will require the following legacy roles:  ORG_ADMIN and API
 
 .PARAMETER Key
 The notification key.
@@ -499,7 +499,7 @@ Get Notification Template By Id
 
 .DESCRIPTION
 
-No description available.
+This gets a template that you have modified for your site by Id.
 
 .PARAMETER Id
 Id of the Notification Template
@@ -574,7 +574,7 @@ Get Notification Template Context
 
 .DESCRIPTION
 
-No description available.
+The notification service (Hermes) maintains metadata to construct the notification templates or supply any information during the event propagation.  The data-store where this information is retrieved is  called ""Global Context"" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).  Regarding authorization, the access token contains the tenant and will grant access to the one requested. Requires the following security scope:  idn:notification-templates:read
 
 .PARAMETER WithHttpInfo
 
@@ -639,7 +639,7 @@ List From Addresses
 
 .DESCRIPTION
 
-No description available.
+Retrieve a list of sender email addresses and their verification statuses
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -754,7 +754,7 @@ List Notification Template Defaults
 
 .DESCRIPTION
 
-No description available.
+This lists the default templates used for notifications, such as emails from IdentityNow. Since this is a beta feature, it doesn't include all the templates.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -849,7 +849,7 @@ List Notification Templates
 
 .DESCRIPTION
 
-No description available.
+This lists the templates that you have modified for your site. Since this is a beta feature, it doesn't include all your modified templates.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -944,7 +944,7 @@ Overwrite the preferences for the given notification key.
 
 .DESCRIPTION
 
-No description available.
+In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
 
 .PARAMETER Key
 The notification key.
@@ -1041,7 +1041,7 @@ Send Test Notification
 
 .DESCRIPTION
 
-No description available.
+Send a Test Notification
 
 .PARAMETER SendTestNotificationRequestDto
 No description available.
@@ -1128,7 +1128,7 @@ Verify domain address via DKIM
 
 .DESCRIPTION
 
-No description available.
+Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
 .PARAMETER DomainAddressDto
 No description available.

@@ -12,7 +12,7 @@ Lifecycle State
 
 .DESCRIPTION
 
-No description available.
+This endpoint returns a lifecycle state.  A token with ORG_ADMIN or API authority is required to call this API. 
 
 .PARAMETER IdentityProfileId
 Identity Profile ID
@@ -97,7 +97,7 @@ Update Lifecycle State
 
 .DESCRIPTION
 
-No description available.
+This API updates individual lifecycle state fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or API authority is required to call this API. 
 
 .PARAMETER IdentityProfileId
 Identity Profile ID

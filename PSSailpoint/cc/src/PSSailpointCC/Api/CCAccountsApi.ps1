@@ -12,7 +12,7 @@ List Accounts
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER WithHttpInfo
 
@@ -77,7 +77,7 @@ Remove Account
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Id
 No description available.

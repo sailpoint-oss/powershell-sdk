@@ -12,7 +12,7 @@ Account Aggregation (File)
 
 .DESCRIPTION
 
-No description available.
+Aggregates a delimited file for the given source.  This only works for file-based sources.
 
 .PARAMETER Id
 No description available.

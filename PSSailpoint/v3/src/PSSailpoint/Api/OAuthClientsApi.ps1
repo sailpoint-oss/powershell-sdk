@@ -12,7 +12,7 @@ Create OAuth Client
 
 .DESCRIPTION
 
-No description available.
+This creates an OAuth client.
 
 .PARAMETER CreateOAuthClientRequest
 No description available.
@@ -99,7 +99,7 @@ Delete OAuth Client
 
 .DESCRIPTION
 
-No description available.
+This deletes an OAuth client.
 
 .PARAMETER Id
 The OAuth client id
@@ -174,7 +174,7 @@ Get OAuth Client
 
 .DESCRIPTION
 
-No description available.
+This gets details of an OAuth client.
 
 .PARAMETER Id
 The OAuth client id
@@ -249,7 +249,7 @@ List OAuth Clients
 
 .DESCRIPTION
 
-No description available.
+This gets a list of OAuth clients.
 
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
@@ -324,7 +324,7 @@ Patch OAuth Client
 
 .DESCRIPTION
 
-No description available.
+This performs a targeted update to the field(s) of an OAuth client.
 
 .PARAMETER Id
 The OAuth client id

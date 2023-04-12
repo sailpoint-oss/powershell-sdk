@@ -12,7 +12,7 @@ Get the Public Identities Configuration
 
 .DESCRIPTION
 
-No description available.
+Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns. A token with ORG ADMIN authority is required to call this API.
 
 .PARAMETER WithHttpInfo
 
@@ -77,7 +77,7 @@ Update the Public Identities Configuration
 
 .DESCRIPTION
 
-No description available.
+Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns. A token with ORG ADMIN authority is required to call this API.
 
 .PARAMETER PublicIdentityConfig
 No description available.

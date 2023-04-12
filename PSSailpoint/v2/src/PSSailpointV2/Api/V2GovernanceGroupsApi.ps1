@@ -12,7 +12,7 @@ Bulk delete work groups
 
 .DESCRIPTION
 
-No description available.
+This API allows you to bulk-delete work groups
 
 .PARAMETER BulkDeleteWorkGroupsRequest
 Work group ids to delete
@@ -99,7 +99,7 @@ Create Work Group
 
 .DESCRIPTION
 
-No description available.
+This API allows you to create a work group
 
 .PARAMETER CreateWorkgroupRequest
 Work group to create.
@@ -186,7 +186,7 @@ Delete Work Group By Id
 
 .DESCRIPTION
 
-No description available.
+This API deletes a single workgroup based on the ID
 
 .PARAMETER WorkgroupId
 The workgroup ID
@@ -261,7 +261,7 @@ Get Work Group By Id
 
 .DESCRIPTION
 
-No description available.
+This API returns the details for a single workgroup based on the ID
 
 .PARAMETER WorkgroupId
 The workgroup ID
@@ -336,7 +336,7 @@ List Work Group Connections
 
 .DESCRIPTION
 
-No description available.
+This API returns the connections of a work group
 
 .PARAMETER WorkgroupId
 The workgroup ID
@@ -411,7 +411,7 @@ List Work Group Members
 
 .DESCRIPTION
 
-No description available.
+This API returns the members of a work group
 
 .PARAMETER WorkgroupId
 The workgroup ID
@@ -516,7 +516,7 @@ List Work Groups
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of work groups
 
 .PARAMETER Limit
 Max number of results to return
@@ -611,7 +611,7 @@ Modify Work Group Members
 
 .DESCRIPTION
 
-No description available.
+This API allows you to modify the members of a work group
 
 .PARAMETER WorkgroupId
 The workgroup ID
@@ -708,7 +708,7 @@ Update Work Group By Id
 
 .DESCRIPTION
 
-No description available.
+This API updates and returns the details for a single workgroup based on the ID
 
 .PARAMETER WorkgroupId
 The workgroup ID

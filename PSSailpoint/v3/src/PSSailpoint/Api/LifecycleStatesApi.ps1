@@ -12,7 +12,7 @@ Create Lifecycle State
 
 .DESCRIPTION
 
-No description available.
+This API creates a new Lifecycle State. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 Identity Profile ID
@@ -109,7 +109,7 @@ Delete Lifecycle State by ID
 
 .DESCRIPTION
 
-No description available.
+This endpoint deletes the Lifecycle State using it's ID. A token with API, or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 Identity Profile ID
@@ -194,7 +194,7 @@ Retrieves Lifecycle State
 
 .DESCRIPTION
 
-No description available.
+This endpoint retrieves a Lifecycle State. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 Identity Profile ID
@@ -279,7 +279,7 @@ Lists LifecycleStates
 
 .DESCRIPTION
 
-No description available.
+This end-point lists all the LifecycleStates associated with IdentityProfiles. A token with API, or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 The IdentityProfile id
@@ -394,7 +394,7 @@ Set Lifecycle State
 
 .DESCRIPTION
 
-No description available.
+This endpoint will set/update an identity's lifecycle state to the one provided and updates the corresponding Identity Profile. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityId
 The ID of the identity to update
@@ -491,7 +491,7 @@ Update Lifecycle State
 
 .DESCRIPTION
 
-No description available.
+This endpoint updates individual Lifecycle State fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 Identity Profile ID

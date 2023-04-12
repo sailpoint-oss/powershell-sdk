@@ -12,7 +12,7 @@ Create Personal Access Token
 
 .DESCRIPTION
 
-No description available.
+This creates a personal access token.
 
 .PARAMETER CreatePersonalAccessTokenRequest
 Name and scope of personal access token.
@@ -99,7 +99,7 @@ Delete Personal Access Token
 
 .DESCRIPTION
 
-No description available.
+This deletes a personal access token.
 
 .PARAMETER Id
 The personal access token id
@@ -174,7 +174,7 @@ List Personal Access Tokens
 
 .DESCRIPTION
 
-No description available.
+This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
 
 .PARAMETER OwnerId
 The identity ID of the owner whose personal access tokens should be listed.  If ""me"", the caller should have the following right: 'idn:my-personal-access-tokens:read' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: 'idn:all-personal-access-tokens:read'.  If the caller has the following right, then managed personal access tokens associated with `owner-id` will be retrieved: 'idn:managed-personal-access-tokens:read'
@@ -259,7 +259,7 @@ Patch Personal Access Token
 
 .DESCRIPTION
 
-No description available.
+This performs a targeted update to the field(s) of a Personal Access Token.
 
 .PARAMETER Id
 The Personal Access Token id

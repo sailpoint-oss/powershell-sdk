@@ -12,7 +12,7 @@ Get an entitlement
 
 .DESCRIPTION
 
-No description available.
+This API returns an entitlement by its ID.
 
 .PARAMETER Id
 The entitlement ID
@@ -87,7 +87,7 @@ Get Entitlement Request Config
 
 .DESCRIPTION
 
-No description available.
+This API returns the entitlement request config for a specified entitlement.
 
 .PARAMETER Id
 Entitlement Id
@@ -162,7 +162,7 @@ List of entitlements children
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of all child entitlements of a given entitlement.
 
 .PARAMETER Id
 Entitlement Id
@@ -267,7 +267,7 @@ List of entitlements parents
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of all parent entitlements of a given entitlement.
 
 .PARAMETER Id
 Entitlement Id
@@ -372,7 +372,7 @@ Gets a list of entitlements.
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of entitlements.  This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).  Any authenticated token can call this API.
 
 .PARAMETER AccountId
 The account ID. If specified, returns only entitlements associated with the given Account. Can not be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s).
@@ -527,7 +527,7 @@ Patch an entitlement
 
 .DESCRIPTION
 
-No description available.
+This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 ID of the entitlement to patch
@@ -620,7 +620,7 @@ Replace Entitlement Request Config
 
 .DESCRIPTION
 
-No description available.
+This API replaces the entitlement request config for a specified entitlement.
 
 .PARAMETER Id
 Entitlement ID
@@ -717,7 +717,7 @@ Bulk update an entitlement list
 
 .DESCRIPTION
 
-No description available.
+This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ ""op"": ""replace"", ""path"": ""/privileged"", ""value"": boolean }**  **{ ""op"": ""replace"", ""path"": ""/requestable"",""value"": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER EntitlementBulkUpdateRequest
 No description available.

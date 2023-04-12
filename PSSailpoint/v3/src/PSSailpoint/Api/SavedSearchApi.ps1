@@ -12,7 +12,7 @@ Create a saved search
 
 .DESCRIPTION
 
-No description available.
+Creates a new saved search. 
 
 .PARAMETER CreateSavedSearchRequest
 The saved search to persist.
@@ -99,7 +99,7 @@ Delete a document by ID
 
 .DESCRIPTION
 
-No description available.
+Deletes the specified saved search. 
 
 .PARAMETER Id
 ID of the requested document.
@@ -174,7 +174,7 @@ Execute a saved search by ID
 
 .DESCRIPTION
 
-No description available.
+Executes the specified saved search. 
 
 .PARAMETER Id
 ID of the requested document.
@@ -271,7 +271,7 @@ Return a saved search by ID
 
 .DESCRIPTION
 
-No description available.
+Returns the specified saved search. 
 
 .PARAMETER Id
 ID of the requested document.
@@ -346,7 +346,7 @@ Return a list of Saved Searches
 
 .DESCRIPTION
 
-No description available.
+Returns a list of saved searches. 
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -451,7 +451,7 @@ Updates an existing saved search
 
 .DESCRIPTION
 
-No description available.
+Updates an existing saved search. 
 
 .PARAMETER Id
 ID of the requested document.

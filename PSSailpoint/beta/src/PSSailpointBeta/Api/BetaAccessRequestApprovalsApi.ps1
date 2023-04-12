@@ -12,7 +12,7 @@ Approves an access request approval.
 
 .DESCRIPTION
 
-No description available.
+This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 .PARAMETER ApprovalId
 The id of the approval.
@@ -105,7 +105,7 @@ Forwards an access request approval to a new owner.
 
 .DESCRIPTION
 
-No description available.
+This endpoint forwards an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 .PARAMETER ApprovalId
 The id of the approval.
@@ -202,7 +202,7 @@ Get the number of pending, approved and rejected access requests approvals
 
 .DESCRIPTION
 
-No description available.
+This endpoint returns the number of pending, approved and rejected access requests approvals. See ""owner-id"" query parameter below for authorization info.
 
 .PARAMETER OwnerId
 The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
@@ -287,7 +287,7 @@ Completed Access Request Approvals List
 
 .DESCRIPTION
 
-No description available.
+This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
 
 .PARAMETER OwnerId
 If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
@@ -412,7 +412,7 @@ Pending Access Request Approvals List
 
 .DESCRIPTION
 
-No description available.
+This endpoint returns a list of pending approvals. See ""owner-id"" query parameter below for authorization info.
 
 .PARAMETER OwnerId
 If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
@@ -537,7 +537,7 @@ Rejects an access request approval.
 
 .DESCRIPTION
 
-No description available.
+This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
 .PARAMETER ApprovalId
 The id of the approval.

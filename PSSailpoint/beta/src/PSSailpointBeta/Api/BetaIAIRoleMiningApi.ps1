@@ -12,7 +12,7 @@ Create request to provision a potential role into an actual role.
 
 .DESCRIPTION
 
-No description available.
+This method starts a job to provision a potential role
 
 .PARAMETER SessionId
 The role mining session id
@@ -135,7 +135,7 @@ Create a role mining session
 
 .DESCRIPTION
 
-No description available.
+This submits a create role mining session request to the role mining application.
 
 .PARAMETER RoleMiningSessionDto
 Role mining session parameters
@@ -222,7 +222,7 @@ Export (download) details for a potential role in a role mining session
 
 .DESCRIPTION
 
-No description available.
+This endpoint downloads a completed export of information for a potential role in a role mining session.
 
 .PARAMETER SessionId
 The role mining session id
@@ -329,7 +329,7 @@ Export (download) details for a potential role in a role mining session
 
 .DESCRIPTION
 
-No description available.
+This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
 
 .PARAMETER SessionId
 The role mining session id
@@ -426,7 +426,7 @@ Asynchronously export details for a potential role in a role mining session and 
 
 .DESCRIPTION
 
-No description available.
+This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
 
 .PARAMETER SessionId
 The role mining session id
@@ -529,7 +529,7 @@ Retrieve status of a potential role export job
 
 .DESCRIPTION
 
-No description available.
+This endpoint retrieves information about the current status of a potential role export.
 
 .PARAMETER SessionId
 The role mining session id
@@ -624,7 +624,7 @@ Retrieves entitlement popularity distribution for a potential role in a role min
 
 .DESCRIPTION
 
-No description available.
+This method returns entitlement popularity distribution for a potential role in a role mining session.
 
 .PARAMETER SessionId
 The role mining session id
@@ -719,7 +719,7 @@ Retrieves entitlements for a potential role in a role mining session
 
 .DESCRIPTION
 
-No description available.
+This method returns entitlements for a potential role in a role mining session.
 
 .PARAMETER SessionId
 The role mining session id
@@ -864,7 +864,7 @@ Retrieves excluded entitlements for a potential role in a role mining session
 
 .DESCRIPTION
 
-No description available.
+This method returns excluded entitlements for a potential role in a role mining session.
 
 .PARAMETER SessionId
 The role mining session id
@@ -999,7 +999,7 @@ Retrieves identities for a potential role in a role mining session
 
 .DESCRIPTION
 
-No description available.
+This method returns identities for a potential role in a role mining session.
 
 .PARAMETER SessionId
 The role mining session id
@@ -1134,7 +1134,7 @@ Retrieves a specific potential role
 
 .DESCRIPTION
 
-No description available.
+This method returns a specific potential role for a role mining session.
 
 .PARAMETER SessionId
 The role mining session id
@@ -1219,7 +1219,7 @@ Retrieves the applications of a potential role for a role mining session
 
 .DESCRIPTION
 
-No description available.
+This method returns the applications of a potential role for a role mining session.
 
 .PARAMETER SessionId
 The role mining session id
@@ -1334,7 +1334,7 @@ Retrieves all potential role summaries
 
 .DESCRIPTION
 
-No description available.
+This method returns the potential role summaries for a role mining session.
 
 .PARAMETER SessionId
 The role mining session id
@@ -1459,7 +1459,7 @@ Get a role mining session
 
 .DESCRIPTION
 
-No description available.
+The method retrieves a role mining session.
 
 .PARAMETER SessionId
 The role mining session id to be retrieved.
@@ -1534,7 +1534,7 @@ Get role mining session status state
 
 .DESCRIPTION
 
-No description available.
+This method returns a role mining session status for a customer.
 
 .PARAMETER SessionId
 The role mining session id
@@ -1609,7 +1609,7 @@ Retrieves all role mining sessions
 
 .DESCRIPTION
 
-No description available.
+Returns all role mining sessions that match the query parameters
 
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **saved**: *eq* ""true"" or ""false"" **name**: *eq, sw*
@@ -1724,7 +1724,7 @@ Update a potential role
 
 .DESCRIPTION
 
-No description available.
+The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields can not be modified.** 
 
 .PARAMETER SessionId
 The role mining session id
@@ -1831,7 +1831,7 @@ Patch a role mining session
 
 .DESCRIPTION
 
-No description available.
+The  method updates an existing role mining session using PATCH. Supports op in {""replace""} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
 
 .PARAMETER SessionId
 The role mining session id to be patched
@@ -1928,7 +1928,7 @@ Edit entitlements for a potential role to exclude some entitlements
 
 .DESCRIPTION
 
-No description available.
+This endpoint adds or removes entitlements from an exclusion list for a potential role.
 
 .PARAMETER SessionId
 The role mining session id

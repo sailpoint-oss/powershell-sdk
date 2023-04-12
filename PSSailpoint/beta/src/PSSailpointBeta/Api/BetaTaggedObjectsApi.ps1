@@ -12,7 +12,7 @@ Add Tag to Object
 
 .DESCRIPTION
 
-No description available.
+This adds a tag to an object.  Any authenticated token may be used to call this API.
 
 .PARAMETER TaggedObject
 No description available.
@@ -99,7 +99,7 @@ Tag Multiple Objects
 
 .DESCRIPTION
 
-No description available.
+This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER BulkTaggedObject
 Supported object types are ROLE, IDENTITY and SOD_POLICY.
@@ -186,7 +186,7 @@ Delete Tagged Object
 
 .DESCRIPTION
 
-No description available.
+This deletes a tagged object for the specified type.
 
 .PARAMETER Type
 The type of tagged object to delete.
@@ -272,7 +272,7 @@ Get Tagged Object
 
 .DESCRIPTION
 
-No description available.
+This gets a tagged object for the specified type.
 
 .PARAMETER Type
 The type of tagged object to retrieve.
@@ -358,7 +358,7 @@ List Tagged Objects
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -463,7 +463,7 @@ List Tagged Objects
 
 .DESCRIPTION
 
-No description available.
+This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
 
 .PARAMETER Type
 The type of tagged object to retrieve.
@@ -579,7 +579,7 @@ Remove Tags from Multiple Objects
 
 .DESCRIPTION
 
-No description available.
+This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER BulkTaggedObject
 Supported object types are ROLE, IDENTITY and SOD_POLICY.
@@ -666,7 +666,7 @@ Update Tagged Object
 
 .DESCRIPTION
 
-No description available.
+This updates a tagged object for the specified type.
 
 .PARAMETER Type
 The type of tagged object to update.

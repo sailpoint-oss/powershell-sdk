@@ -12,7 +12,7 @@ Create Connector
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER ContentType
 No description available.
@@ -140,7 +140,7 @@ Delete Connector
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Id
 No description available.
@@ -215,7 +215,7 @@ Export Connector Config
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Id
 No description available.
@@ -290,7 +290,7 @@ Import Connector Config
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER Id
 No description available.
@@ -378,7 +378,7 @@ List Connectors
 
 .DESCRIPTION
 
-No description available.
+No description or notes available.
 
 .PARAMETER WithHttpInfo
 

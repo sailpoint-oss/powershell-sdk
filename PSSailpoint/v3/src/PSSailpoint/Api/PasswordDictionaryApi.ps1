@@ -12,7 +12,7 @@ Get Password Dictionary
 
 .DESCRIPTION
 
-No description available.
+This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER ReturnType
 
@@ -89,7 +89,7 @@ Update Password Dictionary
 
 .DESCRIPTION
 
-No description available.
+This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER File
 No description available.

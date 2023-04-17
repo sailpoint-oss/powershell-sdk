@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER VarData
-Name of JSON file containing the objects to be imported.
+JSON file containing the objects to be imported.
 .PARAMETER Options
 No description available.
 .OUTPUTS
@@ -27,7 +27,7 @@ function Initialize-BetaImportSpConfigRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.IO.FileInfo]
         ${VarData},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarData** | **String** | Name of JSON file containing the objects to be imported. | 
+**VarData** | **System.IO.FileInfo** | JSON file containing the objects to be imported. | 
 **Options** | [**ImportOptions**](ImportOptions.md) |  | [optional] 
 
 ## Examples

@@ -8,14 +8,14 @@
 <#
 .SYNOPSIS
 
-get ManagedCluster Log Configuration for a specified cluster
+Get managed cluster's log configuration
 
 .DESCRIPTION
 
-Get log configuration for a managed cluster.
+Get managed cluster's log configuration.
 
 .PARAMETER Id
-ID of the ManagedCluster to get log configuration for
+ID of ManagedCluster to get log configuration for
 
 .PARAMETER WithHttpInfo
 
@@ -263,17 +263,17 @@ function Get-BetaManagedClusters {
 <#
 .SYNOPSIS
 
-Update log configuration for a specified cluster.
+Update managed cluster's log configuration
 
 .DESCRIPTION
 
-Update log configuration for a managed cluster.
+Update managed cluster's log configuration
 
 .PARAMETER Id
-ID of the ManagedCluster to update log configuration for
+ID of ManagedCluster to update log configuration for
 
 .PARAMETER ClientLogConfiguration
-ClientLogConfiguration for the given ManagedCluster
+ClientLogConfiguration for given ManagedCluster
 
 .PARAMETER WithHttpInfo
 

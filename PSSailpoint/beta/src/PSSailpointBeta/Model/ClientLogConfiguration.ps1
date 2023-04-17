@@ -15,9 +15,9 @@ No summary available.
 Client Runtime Logging Configuration
 
 .PARAMETER ClientId
-client ID of the Log configuration
+Log configuration's client ID
 .PARAMETER DurationMinutes
-duration in minutes for the log configuration to remain in effect before resetting to defaults
+Duration in minutes for log configuration to remain in effect before resetting to defaults
 .PARAMETER Expiration
 Expiration date-time of the log configuration request
 .PARAMETER RootLevel

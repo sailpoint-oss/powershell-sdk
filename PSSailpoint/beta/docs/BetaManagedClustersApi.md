@@ -4,10 +4,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaClientLogConfiguration**](BetaManagedClustersApi.md#Get-BetaClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | get ManagedCluster Log Configuration for a specified cluster
+[**Get-BetaClientLogConfiguration**](BetaManagedClustersApi.md#Get-BetaClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster&#39;s log configuration
 [**Get-BetaManagedCluster**](BetaManagedClustersApi.md#Get-BetaManagedCluster) | **GET** /managed-clusters/{id} | Get a specified ManagedCluster.
 [**Get-BetaManagedClusters**](BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-[**Update-BetaClientLogConfiguration**](BetaManagedClustersApi.md#Update-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update log configuration for a specified cluster.
+[**Update-BetaClientLogConfiguration**](BetaManagedClustersApi.md#Update-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster&#39;s log configuration
 
 
 <a name="Get-BetaClientLogConfiguration"></a>
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 > ClientLogConfiguration[] Get-BetaClientLogConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-get ManagedCluster Log Configuration for a specified cluster
+Get managed cluster's log configuration
 
-Get log configuration for a managed cluster.
+Get managed cluster's log configuration.
 
 ### Example
 ```powershell
@@ -29,9 +29,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClusterId" # String | ID of the ManagedCluster to get log configuration for
+$Id = "aClusterId" # String | ID of ManagedCluster to get log configuration for
 
-# get ManagedCluster Log Configuration for a specified cluster
+# Get managed cluster's log configuration
 try {
     $Result = Get-BetaClientLogConfiguration -Id $Id
 } catch {
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of the ManagedCluster to get log configuration for | 
+ **Id** | **String**| ID of ManagedCluster to get log configuration for | 
 
 ### Return type
 
@@ -178,9 +178,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ClientLogConfiguration] <PSCustomObject><br>
 
-Update log configuration for a specified cluster.
+Update managed cluster's log configuration
 
-Update log configuration for a managed cluster.
+Update managed cluster's log configuration
 
 ### Example
 ```powershell
@@ -192,10 +192,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClusterId" # String | ID of the ManagedCluster to update log configuration for
-$ClientLogConfiguration = Initialize-ClientLogConfiguration -ClientId "aClientId" -DurationMinutes 120 -Expiration (Get-Date) -RootLevel "false" -LogLevels @{ key_example = "false" } # ClientLogConfiguration | ClientLogConfiguration for the given ManagedCluster
+$Id = "aClusterId" # String | ID of ManagedCluster to update log configuration for
+$ClientLogConfiguration = Initialize-ClientLogConfiguration -ClientId "aClientId" -DurationMinutes 120 -Expiration (Get-Date) -RootLevel "false" -LogLevels @{ key_example = "false" } # ClientLogConfiguration | ClientLogConfiguration for given ManagedCluster
 
-# Update log configuration for a specified cluster.
+# Update managed cluster's log configuration
 try {
     $Result = Update-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $ClientLogConfiguration
 } catch {
@@ -208,8 +208,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of the ManagedCluster to update log configuration for | 
- **ClientLogConfiguration** | [**ClientLogConfiguration**](ClientLogConfiguration.md)| ClientLogConfiguration for the given ManagedCluster | 
+ **Id** | **String**| ID of ManagedCluster to update log configuration for | 
+ **ClientLogConfiguration** | [**ClientLogConfiguration**](ClientLogConfiguration.md)| ClientLogConfiguration for given ManagedCluster | 
 
 ### Return type
 

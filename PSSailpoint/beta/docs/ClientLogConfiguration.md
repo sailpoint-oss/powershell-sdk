@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** | **String** | client ID of the Log configuration | [optional] 
-**DurationMinutes** | **Int32** | duration in minutes for the log configuration to remain in effect before resetting to defaults | 
+**ClientId** | **String** | Log configuration&#39;s client ID | [optional] 
+**DurationMinutes** | **Int32** | Duration in minutes for log configuration to remain in effect before resetting to defaults | 
 **Expiration** | **System.DateTime** | Expiration date-time of the log configuration request | [optional] 
 **RootLevel** | [**StandardLevel**](StandardLevel.md) |  | 
 **LogLevels** | [**System.Collections.Hashtable**](StandardLevel.md) | Mapping of identifiers to Standard Log Level values | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ```powershell
 $ClientLogConfiguration = Initialize-PSSailpointBetaClientLogConfiguration  -ClientId aClientId `
  -DurationMinutes 120 `
- -Expiration null `
+ -Expiration 2020-12-15T19:13:36.079Z `
  -RootLevel null `
  -LogLevels INFO
 ```

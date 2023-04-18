@@ -140,6 +140,9 @@ Class | Method | HTTP request | Description
 *OAuthClientsApi* | [**Get-OauthClient**](docs/OAuthClientsApi.md#Get-OauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
 *OAuthClientsApi* | [**Get-OauthClients**](docs/OAuthClientsApi.md#Get-OauthClients) | **GET** /oauth-clients | List OAuth Clients
 *OAuthClientsApi* | [**Update-OauthClient**](docs/OAuthClientsApi.md#Update-OauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
+*PasswordConfigurationApi* | [**New-PasswordOrgConfig**](docs/PasswordConfigurationApi.md#New-PasswordOrgConfig) | **POST** /password-org-config | Create Password Org Config
+*PasswordConfigurationApi* | [**Get-PasswordOrgConfig**](docs/PasswordConfigurationApi.md#Get-PasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
+*PasswordConfigurationApi* | [**Update-PasswordOrgConfig**](docs/PasswordConfigurationApi.md#Update-PasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
 *PasswordDictionaryApi* | [**Get-PasswordDictionary**](docs/PasswordDictionaryApi.md#Get-PasswordDictionary) | **GET** /password-dictionary | Get Password Dictionary
 *PasswordDictionaryApi* | [**Update-PasswordDictionary**](docs/PasswordDictionaryApi.md#Update-PasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 *PasswordManagementApi* | [**Get-PasswordChangeStatus**](docs/PasswordManagementApi.md#Get-PasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
@@ -482,6 +485,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.PasswordInfo](docs/PasswordInfo.md)
  - [PSSailpoint/Model.PasswordInfoAccount](docs/PasswordInfoAccount.md)
  - [PSSailpoint/Model.PasswordInfoQueryDTO](docs/PasswordInfoQueryDTO.md)
+ - [PSSailpoint/Model.PasswordOrgConfig](docs/PasswordOrgConfig.md)
  - [PSSailpoint/Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpoint/Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
  - [PSSailpoint/Model.PendingApproval](docs/PendingApproval.md)

@@ -1,17 +1,17 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaPasswordConfigurationApi
+# PSSailpoint.PSSailpoint/Api.PasswordConfigurationApi
 
-All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
+All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaPasswordOrgConfig**](BetaPasswordConfigurationApi.md#New-BetaPasswordOrgConfig) | **POST** /password-org-config | Create Password Org Config
-[**Get-BetaPasswordOrgConfig**](BetaPasswordConfigurationApi.md#Get-BetaPasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
-[**Update-BetaPasswordOrgConfig**](BetaPasswordConfigurationApi.md#Update-BetaPasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
+[**New-PasswordOrgConfig**](PasswordConfigurationApi.md#New-PasswordOrgConfig) | **POST** /password-org-config | Create Password Org Config
+[**Get-PasswordOrgConfig**](PasswordConfigurationApi.md#Get-PasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
+[**Update-PasswordOrgConfig**](PasswordConfigurationApi.md#Update-PasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
 
 
-<a name="New-BetaPasswordOrgConfig"></a>
-# **New-BetaPasswordOrgConfig**
-> PasswordOrgConfig New-BetaPasswordOrgConfig<br>
+<a name="New-PasswordOrgConfig"></a>
+# **New-PasswordOrgConfig**
+> PasswordOrgConfig New-PasswordOrgConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordOrgConfig] <PSCustomObject><br>
 
 Create Password Org Config
@@ -32,9 +32,9 @@ $PasswordOrgConfig = Initialize-PasswordOrgConfig -CustomInstructionsEnabled $tr
 
 # Create Password Org Config
 try {
-    $Result = New-BetaPasswordOrgConfig -PasswordOrgConfig $PasswordOrgConfig
+    $Result = New-PasswordOrgConfig -PasswordOrgConfig $PasswordOrgConfig
 } catch {
-    Write-Host ("Exception occurred when calling New-BetaPasswordOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-PasswordOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPasswordOrgConfig"></a>
-# **Get-BetaPasswordOrgConfig**
-> PasswordOrgConfig Get-BetaPasswordOrgConfig<br>
+<a name="Get-PasswordOrgConfig"></a>
+# **Get-PasswordOrgConfig**
+> PasswordOrgConfig Get-PasswordOrgConfig<br>
 
 Get Password Org Config
 
@@ -81,9 +81,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Get Password Org Config
 try {
-    $Result = Get-BetaPasswordOrgConfig
+    $Result = Get-PasswordOrgConfig
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaPasswordOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-PasswordOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -106,9 +106,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaPasswordOrgConfig"></a>
-# **Update-BetaPasswordOrgConfig**
-> PasswordOrgConfig Update-BetaPasswordOrgConfig<br>
+<a name="Update-PasswordOrgConfig"></a>
+# **Update-PasswordOrgConfig**
+> PasswordOrgConfig Update-PasswordOrgConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordOrgConfig] <PSCustomObject><br>
 
 Update Password Org Config
@@ -129,9 +129,9 @@ $PasswordOrgConfig = Initialize-PasswordOrgConfig -CustomInstructionsEnabled $tr
 
 # Update Password Org Config
 try {
-    $Result = Update-BetaPasswordOrgConfig -PasswordOrgConfig $PasswordOrgConfig
+    $Result = Update-PasswordOrgConfig -PasswordOrgConfig $PasswordOrgConfig
 } catch {
-    Write-Host ("Exception occurred when calling Update-BetaPasswordOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Update-PasswordOrgConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

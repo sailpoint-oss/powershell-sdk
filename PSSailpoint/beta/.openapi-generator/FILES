@@ -111,6 +111,7 @@ docs/BetaIAIRoleMiningApi.md
 docs/BetaIdentitiesApi.md
 docs/BetaIdentityHistoryApi.md
 docs/BetaIdentityProfilesApi.md
+docs/BetaInternalUseOnlyApi.md
 docs/BetaLifecycleStatesApi.md
 docs/BetaMFAConfigurationApi.md
 docs/BetaManagedClientsApi.md
@@ -259,6 +260,7 @@ docs/HttpAuthenticationType.md
 docs/HttpConfig.md
 docs/HttpDispatchMode.md
 docs/IdentitiesAccountsBulkRequest.md
+docs/Identity.md
 docs/IdentityAttributeConfig.md
 docs/IdentityAttributeConfig1.md
 docs/IdentityAttributePreview.md
@@ -270,6 +272,7 @@ docs/IdentityCertified.md
 docs/IdentityCompareResponse.md
 docs/IdentityCreated.md
 docs/IdentityDeleted.md
+docs/IdentityDto.md
 docs/IdentityExceptionReportReference.md
 docs/IdentityExceptionReportReference1.md
 docs/IdentityHistoryResponse.md
@@ -295,6 +298,7 @@ docs/IdentityWithNewAccess.md
 docs/IdentityWithNewAccessAccessRefsInner.md
 docs/ImportOptions.md
 docs/ImportSpConfigRequest.md
+docs/InternalIdentityDto.md
 docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
@@ -707,6 +711,7 @@ src/PSSailpointBeta/Api/BetaIAIRoleMiningApi.ps1
 src/PSSailpointBeta/Api/BetaIdentitiesApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityHistoryApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityProfilesApi.ps1
+src/PSSailpointBeta/Api/BetaInternalUseOnlyApi.ps1
 src/PSSailpointBeta/Api/BetaLifecycleStatesApi.ps1
 src/PSSailpointBeta/Api/BetaMFAConfigurationApi.ps1
 src/PSSailpointBeta/Api/BetaManagedClientsApi.ps1
@@ -944,6 +949,7 @@ src/PSSailpointBeta/Model/HttpAuthenticationType.ps1
 src/PSSailpointBeta/Model/HttpConfig.ps1
 src/PSSailpointBeta/Model/HttpDispatchMode.ps1
 src/PSSailpointBeta/Model/IdentitiesAccountsBulkRequest.ps1
+src/PSSailpointBeta/Model/Identity.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig1.ps1
 src/PSSailpointBeta/Model/IdentityAttributePreview.ps1
@@ -955,6 +961,7 @@ src/PSSailpointBeta/Model/IdentityCertified.ps1
 src/PSSailpointBeta/Model/IdentityCompareResponse.ps1
 src/PSSailpointBeta/Model/IdentityCreated.ps1
 src/PSSailpointBeta/Model/IdentityDeleted.ps1
+src/PSSailpointBeta/Model/IdentityDto.ps1
 src/PSSailpointBeta/Model/IdentityExceptionReportReference.ps1
 src/PSSailpointBeta/Model/IdentityExceptionReportReference1.ps1
 src/PSSailpointBeta/Model/IdentityHistoryResponse.ps1
@@ -980,6 +987,7 @@ src/PSSailpointBeta/Model/IdentityWithNewAccess.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpointBeta/Model/ImportOptions.ps1
 src/PSSailpointBeta/Model/ImportSpConfigRequest.ps1
+src/PSSailpointBeta/Model/InternalIdentityDto.ps1
 src/PSSailpointBeta/Model/Invocation.ps1
 src/PSSailpointBeta/Model/InvocationStatus.ps1
 src/PSSailpointBeta/Model/InvocationStatusType.ps1
@@ -1399,6 +1407,7 @@ tests/Api/BetaIAIRoleMiningApi.Tests.ps1
 tests/Api/BetaIdentitiesApi.Tests.ps1
 tests/Api/BetaIdentityHistoryApi.Tests.ps1
 tests/Api/BetaIdentityProfilesApi.Tests.ps1
+tests/Api/BetaInternalUseOnlyApi.Tests.ps1
 tests/Api/BetaLifecycleStatesApi.Tests.ps1
 tests/Api/BetaMFAConfigurationApi.Tests.ps1
 tests/Api/BetaManagedClientsApi.Tests.ps1
@@ -1635,6 +1644,7 @@ tests/Model/HttpAuthenticationType.Tests.ps1
 tests/Model/HttpConfig.Tests.ps1
 tests/Model/HttpDispatchMode.Tests.ps1
 tests/Model/IdentitiesAccountsBulkRequest.Tests.ps1
+tests/Model/Identity.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
 tests/Model/IdentityAttributeConfig1.Tests.ps1
 tests/Model/IdentityAttributePreview.Tests.ps1
@@ -1646,6 +1656,7 @@ tests/Model/IdentityCertified.Tests.ps1
 tests/Model/IdentityCompareResponse.Tests.ps1
 tests/Model/IdentityCreated.Tests.ps1
 tests/Model/IdentityDeleted.Tests.ps1
+tests/Model/IdentityDto.Tests.ps1
 tests/Model/IdentityExceptionReportReference.Tests.ps1
 tests/Model/IdentityExceptionReportReference1.Tests.ps1
 tests/Model/IdentityHistoryResponse.Tests.ps1
@@ -1671,6 +1682,7 @@ tests/Model/IdentityWithNewAccess.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/ImportOptions.Tests.ps1
 tests/Model/ImportSpConfigRequest.Tests.ps1
+tests/Model/InternalIdentityDto.Tests.ps1
 tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1

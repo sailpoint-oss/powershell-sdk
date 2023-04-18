@@ -177,6 +177,10 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Update-BetaPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaPotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role
 *BetaIAIRoleMiningApi* | [**Update-BetaRoleMiningSession**](docs/BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 *BetaIAIRoleMiningApi* | [**Update-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
+*BetaIdentitiesApi* | [**Invoke-BetaCheckIdentityExists**](docs/BetaIdentitiesApi.md#Invoke-BetaCheckIdentityExists) | **HEAD** /identities/{id} | Check if identity exists
+*BetaIdentitiesApi* | [**Remove-BetaIdentity**](docs/BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
+*BetaIdentitiesApi* | [**Get-BetaIdentity**](docs/BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
+*BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshotsAccessType**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
@@ -200,6 +204,7 @@ Class | Method | HTTP request | Description
 *BetaIdentityProfilesApi* | [**Get-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles list
 *BetaIdentityProfilesApi* | [**Invoke-BetaRefreshIdentityProfile**](docs/BetaIdentityProfilesApi.md#Invoke-BetaRefreshIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/refresh-identities | Refreshes all the identities under this profile
 *BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
+*BetaInternalUseOnlyApi* | [**Update-BetaIdentity**](docs/BetaInternalUseOnlyApi.md#Update-BetaIdentity) | **PATCH** /identities/{id} | Update an Identity
 *BetaLifecycleStatesApi* | [**Get-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Lifecycle State
 *BetaLifecycleStatesApi* | [**Update-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 *BetaMFAConfigurationApi* | [**Get-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAConfig) | **GET** /mfa/{method}/config | Get configuration of a MFA method
@@ -644,6 +649,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.HttpConfig](docs/HttpConfig.md)
  - [PSSailpointBeta/Model.HttpDispatchMode](docs/HttpDispatchMode.md)
  - [PSSailpointBeta/Model.IdentitiesAccountsBulkRequest](docs/IdentitiesAccountsBulkRequest.md)
+ - [PSSailpointBeta/Model.Identity](docs/Identity.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig](docs/IdentityAttributeConfig.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig1](docs/IdentityAttributeConfig1.md)
  - [PSSailpointBeta/Model.IdentityAttributePreview](docs/IdentityAttributePreview.md)
@@ -655,6 +661,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.IdentityCompareResponse](docs/IdentityCompareResponse.md)
  - [PSSailpointBeta/Model.IdentityCreated](docs/IdentityCreated.md)
  - [PSSailpointBeta/Model.IdentityDeleted](docs/IdentityDeleted.md)
+ - [PSSailpointBeta/Model.IdentityDto](docs/IdentityDto.md)
  - [PSSailpointBeta/Model.IdentityExceptionReportReference](docs/IdentityExceptionReportReference.md)
  - [PSSailpointBeta/Model.IdentityExceptionReportReference1](docs/IdentityExceptionReportReference1.md)
  - [PSSailpointBeta/Model.IdentityHistoryResponse](docs/IdentityHistoryResponse.md)
@@ -680,6 +687,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
  - [PSSailpointBeta/Model.ImportOptions](docs/ImportOptions.md)
  - [PSSailpointBeta/Model.ImportSpConfigRequest](docs/ImportSpConfigRequest.md)
+ - [PSSailpointBeta/Model.InternalIdentityDto](docs/InternalIdentityDto.md)
  - [PSSailpointBeta/Model.Invocation](docs/Invocation.md)
  - [PSSailpointBeta/Model.InvocationStatus](docs/InvocationStatus.md)
  - [PSSailpointBeta/Model.InvocationStatusType](docs/InvocationStatusType.md)

@@ -6,12 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Compare-BetaIdentitySnapshots**](BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 [**Compare-BetaIdentitySnapshotsAccessType**](BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
+[**Get-BetaHistoricalIdentity**](BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentity) | **GET** /historical-identities/{id} | Get latest snapshot of identity
 [**Get-BetaHistoricalIdentityEvents**](BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
-[**Get-BetaIdentity**](BetaIdentityHistoryApi.md#Get-BetaIdentity) | **GET** /historical-identities/{id} | Gets the most recent snapshot of a specific identity
 [**Get-BetaIdentitySnapshot**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 [**Get-BetaIdentitySnapshotSummary**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 [**Get-BetaIdentityStartDate**](BetaIdentityHistoryApi.md#Get-BetaIdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
-[**Get-BetaIdentities**](BetaIdentityHistoryApi.md#Get-BetaIdentities) | **GET** /historical-identities | Lists all the identities
+[**Get-BetaHistoricalIdentities**](BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentities) | **GET** /historical-identities | Lists all the identities
 [**Get-BetaIdentityAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
 [**Get-BetaIdentitySnapshotAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
 [**Get-BetaIdentitySnapshots**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
@@ -158,6 +158,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Get-BetaHistoricalIdentity"></a>
+# **Get-BetaHistoricalIdentity**
+> IdentityHistoryResponse Get-BetaHistoricalIdentity<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get latest snapshot of identity
+
+This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+
+# Get latest snapshot of identity
+try {
+    $Result = Get-BetaHistoricalIdentity -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaHistoricalIdentity: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The identity id | 
+
+### Return type
+
+[**IdentityHistoryResponse**](IdentityHistoryResponse.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Get-BetaHistoricalIdentityEvents"></a>
 # **Get-BetaHistoricalIdentityEvents**
 > GetHistoricalIdentityEvents200ResponseInner[] Get-BetaHistoricalIdentityEvents<br>
@@ -215,57 +266,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetHistoricalIdentityEvents200ResponseInner[]**](GetHistoricalIdentityEvents200ResponseInner.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Get-BetaIdentity"></a>
-# **Get-BetaIdentity**
-> IdentityHistoryResponse Get-BetaIdentity<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-
-Gets the most recent snapshot of a specific identity
-
-This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read' 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
-
-# Gets the most recent snapshot of a specific identity
-try {
-    $Result = Get-BetaIdentity -Id $Id
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaIdentity: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| The identity id | 
-
-### Return type
-
-[**IdentityHistoryResponse**](IdentityHistoryResponse.md) (PSCustomObject)
 
 ### Authorization
 
@@ -452,9 +452,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentities"></a>
-# **Get-BetaIdentities**
-> IdentityListItem[] Get-BetaIdentities<br>
+<a name="Get-BetaHistoricalIdentities"></a>
+# **Get-BetaHistoricalIdentities**
+> IdentityListItem[] Get-BetaHistoricalIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StartsWithQuery] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IsDeleted] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IsActive] <System.Nullable[Boolean]><br>
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 
 Lists all the identities
 
-This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read' 
+This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
 
 ### Example
 ```powershell
@@ -483,9 +483,9 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 
 # Lists all the identities
 try {
-    $Result = Get-BetaIdentities -StartsWithQuery $StartsWithQuery -IsDeleted $IsDeleted -IsActive $IsActive -Limit $Limit -Offset $Offset
+    $Result = Get-BetaHistoricalIdentities -StartsWithQuery $StartsWithQuery -IsDeleted $IsDeleted -IsActive $IsActive -Limit $Limit -Offset $Offset
 } catch {
-    Write-Host ("Exception occurred when calling Get-BetaIdentities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-BetaHistoricalIdentities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DisplayName** | **String** | the display name of the identity | [optional] 
 **FirstName** | **String** | the first name of the identity | [optional] 
 **LastName** | **String** | the last name of the identity | [optional] 
-**Active** | **Boolean** | indicates if an identity is active or not | [optional] 
+**Active** | **Boolean** | indicates if an identity is active or not | [optional] [default to $true]
 **DeletedDate** | **String** | the date when the identity was deleted | [optional] 
 
 ## Examples

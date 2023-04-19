@@ -22,17 +22,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityHistoryApi' {
         }
     }
 
-    Context 'Get-BetaHistoricalIdentityEvents' {
-        It 'Test Get-BetaHistoricalIdentityEvents' {
-            #$TestResult = Get-BetaHistoricalIdentityEvents -Id "TEST_VALUE" -From "TEST_VALUE" -EventTypes "TEST_VALUE" -AccessItemTypes "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+    Context 'Get-BetaHistoricalIdentity' {
+        It 'Test Get-BetaHistoricalIdentity' {
+            #$TestResult = Get-BetaHistoricalIdentity -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaIdentity' {
-        It 'Test Get-BetaIdentity' {
-            #$TestResult = Get-BetaIdentity -Id "TEST_VALUE"
+    Context 'Get-BetaHistoricalIdentityEvents' {
+        It 'Test Get-BetaHistoricalIdentityEvents' {
+            #$TestResult = Get-BetaHistoricalIdentityEvents -Id "TEST_VALUE" -From "TEST_VALUE" -EventTypes "TEST_VALUE" -AccessItemTypes "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -62,9 +62,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityHistoryApi' {
         }
     }
 
-    Context 'Get-BetaIdentities' {
-        It 'Test Get-BetaIdentities' {
-            #$TestResult = Get-BetaIdentities -StartsWithQuery "TEST_VALUE" -IsDeleted "TEST_VALUE" -IsActive "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+    Context 'Get-BetaHistoricalIdentities' {
+        It 'Test Get-BetaHistoricalIdentities' {
+            #$TestResult = Get-BetaHistoricalIdentities -StartsWithQuery "TEST_VALUE" -IsDeleted "TEST_VALUE" -IsActive "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

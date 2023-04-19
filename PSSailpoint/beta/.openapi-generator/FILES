@@ -111,7 +111,6 @@ docs/BetaIAIRoleMiningApi.md
 docs/BetaIdentitiesApi.md
 docs/BetaIdentityHistoryApi.md
 docs/BetaIdentityProfilesApi.md
-docs/BetaInternalUseOnlyApi.md
 docs/BetaLifecycleStatesApi.md
 docs/BetaMFAConfigurationApi.md
 docs/BetaManagedClientsApi.md
@@ -298,7 +297,6 @@ docs/IdentityWithNewAccess.md
 docs/IdentityWithNewAccessAccessRefsInner.md
 docs/ImportOptions.md
 docs/ImportSpConfigRequest.md
-docs/InternalIdentityDto.md
 docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
@@ -711,7 +709,6 @@ src/PSSailpointBeta/Api/BetaIAIRoleMiningApi.ps1
 src/PSSailpointBeta/Api/BetaIdentitiesApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityHistoryApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityProfilesApi.ps1
-src/PSSailpointBeta/Api/BetaInternalUseOnlyApi.ps1
 src/PSSailpointBeta/Api/BetaLifecycleStatesApi.ps1
 src/PSSailpointBeta/Api/BetaMFAConfigurationApi.ps1
 src/PSSailpointBeta/Api/BetaManagedClientsApi.ps1
@@ -987,7 +984,6 @@ src/PSSailpointBeta/Model/IdentityWithNewAccess.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpointBeta/Model/ImportOptions.ps1
 src/PSSailpointBeta/Model/ImportSpConfigRequest.ps1
-src/PSSailpointBeta/Model/InternalIdentityDto.ps1
 src/PSSailpointBeta/Model/Invocation.ps1
 src/PSSailpointBeta/Model/InvocationStatus.ps1
 src/PSSailpointBeta/Model/InvocationStatusType.ps1
@@ -1407,7 +1403,6 @@ tests/Api/BetaIAIRoleMiningApi.Tests.ps1
 tests/Api/BetaIdentitiesApi.Tests.ps1
 tests/Api/BetaIdentityHistoryApi.Tests.ps1
 tests/Api/BetaIdentityProfilesApi.Tests.ps1
-tests/Api/BetaInternalUseOnlyApi.Tests.ps1
 tests/Api/BetaLifecycleStatesApi.Tests.ps1
 tests/Api/BetaMFAConfigurationApi.Tests.ps1
 tests/Api/BetaManagedClientsApi.Tests.ps1
@@ -1682,7 +1677,6 @@ tests/Model/IdentityWithNewAccess.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/ImportOptions.Tests.ps1
 tests/Model/ImportSpConfigRequest.Tests.ps1
-tests/Model/InternalIdentityDto.Tests.ps1
 tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1

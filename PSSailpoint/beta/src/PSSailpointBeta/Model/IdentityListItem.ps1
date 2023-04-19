@@ -48,7 +48,7 @@ function Initialize-BetaIdentityListItem {
         ${LastName},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Active},
+        ${Active} = $true,
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DeletedDate}

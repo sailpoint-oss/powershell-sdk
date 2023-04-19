@@ -288,6 +288,81 @@ function Compare-BetaIdentitySnapshotsAccessType {
 <#
 .SYNOPSIS
 
+Get latest snapshot of identity
+
+.DESCRIPTION
+
+This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
+
+.PARAMETER Id
+The identity id
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IdentityHistoryResponse
+#>
+function Get-BetaHistoricalIdentity {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaHistoricalIdentity' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-BetaConfiguration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/historical-identities/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getHistoricalIdentity."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IdentityHistoryResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Lists all events for the given identity
 
 .DESCRIPTION
@@ -410,81 +485,6 @@ function Get-BetaHistoricalIdentityEvents {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "GetHistoricalIdentityEvents200ResponseInner[]" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Gets the most recent snapshot of a specific identity
-
-.DESCRIPTION
-
-This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read' 
-
-.PARAMETER Id
-The identity id
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-IdentityHistoryResponse
-#>
-function Get-BetaIdentity {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-BetaIdentity' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        $Configuration = Get-BetaConfiguration
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/historical-identities/{id}'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getIdentity."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "IdentityHistoryResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -798,7 +798,7 @@ Lists all the identities
 
 .DESCRIPTION
 
-This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read' 
+This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
 
 .PARAMETER StartsWithQuery
 This param is used for starts-with search for first, last and display name of the identity
@@ -823,7 +823,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 IdentityListItem[]
 #>
-function Get-BetaIdentities {
+function Get-BetaHistoricalIdentities {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -846,7 +846,7 @@ function Get-BetaIdentities {
     )
 
     Process {
-        'Calling method: Get-BetaIdentities' | Write-Debug
+        'Calling method: Get-BetaHistoricalIdentities' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()

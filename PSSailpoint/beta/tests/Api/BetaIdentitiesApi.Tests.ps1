@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentitiesApi' {
-    Context 'Invoke-BetaCheckIdentityExists' {
-        It 'Test Invoke-BetaCheckIdentityExists' {
-            #$TestResult = Invoke-BetaCheckIdentityExists -IdentityId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Remove-BetaIdentity' {
         It 'Test Remove-BetaIdentity' {
             #$TestResult = Remove-BetaIdentity -IdentityId "TEST_VALUE"

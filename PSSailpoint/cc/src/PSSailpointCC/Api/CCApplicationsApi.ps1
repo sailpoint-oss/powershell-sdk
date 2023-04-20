@@ -139,7 +139,7 @@ function Remove-CCApplication {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/cc/api/app/delete/:id'
+        $LocalVarUri = '/cc/api/app/delete/{id}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling deleteApplication."
         }
@@ -214,7 +214,7 @@ function Get-CCApplication {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/cc/api/app/get/:id'
+        $LocalVarUri = '/cc/api/app/get/{id}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling getApplication."
         }
@@ -289,7 +289,7 @@ function Get-CCApplicationAccessProfiles {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/cc/api/app/getAccessProfiles/:id'
+        $LocalVarUri = '/cc/api/app/getAccessProfiles/{id}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling getApplicationAccessProfiles."
         }
@@ -356,7 +356,7 @@ function Get-CCApplications {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/cc/api/app'
+        $LocalVarUri = '/cc/api/app/list'
 
 
 
@@ -436,7 +436,7 @@ function Update-CCApplication {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/cc/api/app/update/:id'
+        $LocalVarUri = '/cc/api/app/update/{id}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling updateApplication."
         }

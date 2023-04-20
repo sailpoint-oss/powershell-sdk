@@ -5,11 +5,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-CCApplication**](CCApplicationsApi.md#New-CCApplication) | **POST** /cc/api/app/create | Create Application
-[**Remove-CCApplication**](CCApplicationsApi.md#Remove-CCApplication) | **POST** /cc/api/app/delete/:id | Delete Application
-[**Get-CCApplication**](CCApplicationsApi.md#Get-CCApplication) | **GET** /cc/api/app/get/:id | Get Single Application
-[**Get-CCApplicationAccessProfiles**](CCApplicationsApi.md#Get-CCApplicationAccessProfiles) | **GET** /cc/api/app/getAccessProfiles/:id | Get Access Profiles for Application
-[**Get-CCApplications**](CCApplicationsApi.md#Get-CCApplications) | **GET** /cc/api/app | List Applications
-[**Update-CCApplication**](CCApplicationsApi.md#Update-CCApplication) | **POST** /cc/api/app/update/:id | Update Application
+[**Remove-CCApplication**](CCApplicationsApi.md#Remove-CCApplication) | **POST** /cc/api/app/delete/{id} | Delete Application
+[**Get-CCApplication**](CCApplicationsApi.md#Get-CCApplication) | **GET** /cc/api/app/get/{id} | Get Single Application
+[**Get-CCApplicationAccessProfiles**](CCApplicationsApi.md#Get-CCApplicationAccessProfiles) | **GET** /cc/api/app/getAccessProfiles/{id} | Get Access Profiles for Application
+[**Get-CCApplications**](CCApplicationsApi.md#Get-CCApplications) | **GET** /cc/api/app/list | List Applications
+[**Update-CCApplication**](CCApplicationsApi.md#Update-CCApplication) | **POST** /cc/api/app/update/{id} | Update Application
 
 
 <a name="New-CCApplication"></a>
@@ -78,7 +78,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "12345" # String |  (optional)
+$Id = "12345" # String | 
 
 # Delete Application
 try {
@@ -93,7 +93,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**|  | [optional] 
+ **Id** | **String**|  | 
 
 ### Return type
 
@@ -127,7 +127,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "12345" # String |  (optional)
+$Id = "12345" # String | 
 
 # Get Single Application
 try {
@@ -142,7 +142,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**|  | [optional] 
+ **Id** | **String**|  | 
 
 ### Return type
 
@@ -168,7 +168,7 @@ Get Access Profiles for Application
 
 ### Example
 ```powershell
-$Id = "12345" # String |  (optional)
+$Id = "12345" # String | 
 
 # Get Access Profiles for Application
 try {
@@ -183,7 +183,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**|  | [optional] 
+ **Id** | **String**|  | 
 
 ### Return type
 
@@ -262,7 +262,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "12345" # String |  (optional)
+$Id = "12345" # String | 
 $UpdateApplicationRequest = Initialize-UpdateApplicationRequest -Description "MyDescription" # UpdateApplicationRequest |  (optional)
 
 # Update Application
@@ -278,7 +278,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**|  | [optional] 
+ **Id** | **String**|  | 
  **UpdateApplicationRequest** | [**UpdateApplicationRequest**](UpdateApplicationRequest.md)|  | [optional] 
 
 ### Return type

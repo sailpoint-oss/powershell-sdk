@@ -52,13 +52,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CCAccountsApi* | [**Get-CCAccounts**](docs/CCAccountsApi.md#Get-CCAccounts) | **GET** /cc/api/account/list | List Accounts
-*CCAccountsApi* | [**Remove-CCAccount**](docs/CCAccountsApi.md#Remove-CCAccount) | **POST** /cc/api/account/remove/:id | Remove Account
+*CCAccountsApi* | [**Remove-CCAccount**](docs/CCAccountsApi.md#Remove-CCAccount) | **POST** /cc/api/account/remove/{id} | Remove Account
 *CCApplicationsApi* | [**New-CCApplication**](docs/CCApplicationsApi.md#New-CCApplication) | **POST** /cc/api/app/create | Create Application
-*CCApplicationsApi* | [**Remove-CCApplication**](docs/CCApplicationsApi.md#Remove-CCApplication) | **POST** /cc/api/app/delete/:id | Delete Application
-*CCApplicationsApi* | [**Get-CCApplication**](docs/CCApplicationsApi.md#Get-CCApplication) | **GET** /cc/api/app/get/:id | Get Single Application
-*CCApplicationsApi* | [**Get-CCApplicationAccessProfiles**](docs/CCApplicationsApi.md#Get-CCApplicationAccessProfiles) | **GET** /cc/api/app/getAccessProfiles/:id | Get Access Profiles for Application
-*CCApplicationsApi* | [**Get-CCApplications**](docs/CCApplicationsApi.md#Get-CCApplications) | **GET** /cc/api/app | List Applications
-*CCApplicationsApi* | [**Update-CCApplication**](docs/CCApplicationsApi.md#Update-CCApplication) | **POST** /cc/api/app/update/:id | Update Application
+*CCApplicationsApi* | [**Remove-CCApplication**](docs/CCApplicationsApi.md#Remove-CCApplication) | **POST** /cc/api/app/delete/{id} | Delete Application
+*CCApplicationsApi* | [**Get-CCApplication**](docs/CCApplicationsApi.md#Get-CCApplication) | **GET** /cc/api/app/get/{id} | Get Single Application
+*CCApplicationsApi* | [**Get-CCApplicationAccessProfiles**](docs/CCApplicationsApi.md#Get-CCApplicationAccessProfiles) | **GET** /cc/api/app/getAccessProfiles/{id} | Get Access Profiles for Application
+*CCApplicationsApi* | [**Get-CCApplications**](docs/CCApplicationsApi.md#Get-CCApplications) | **GET** /cc/api/app/list | List Applications
+*CCApplicationsApi* | [**Update-CCApplication**](docs/CCApplicationsApi.md#Update-CCApplication) | **POST** /cc/api/app/update/{id} | Update Application
 *CCConnectorsApi* | [**New-CCConnector**](docs/CCConnectorsApi.md#New-CCConnector) | **POST** /cc/api/connector/create | Create Connector
 *CCConnectorsApi* | [**Remove-CCConnector**](docs/CCConnectorsApi.md#Remove-CCConnector) | **POST** /cc/api/connector/delete/{id} | Delete Connector
 *CCConnectorsApi* | [**Export-CCConnectorConfig**](docs/CCConnectorsApi.md#Export-CCConnectorConfig) | **GET** /cc/api/connector/export/{id} | Export Connector Config

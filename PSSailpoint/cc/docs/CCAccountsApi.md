@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-CCAccounts**](CCAccountsApi.md#Get-CCAccounts) | **GET** /cc/api/account/list | List Accounts
-[**Remove-CCAccount**](CCAccountsApi.md#Remove-CCAccount) | **POST** /cc/api/account/remove/:id | Remove Account
+[**Remove-CCAccount**](CCAccountsApi.md#Remove-CCAccount) | **POST** /cc/api/account/remove/{id} | Remove Account
 
 
 <a name="Get-CCAccounts"></a>
@@ -69,7 +69,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "12345" # String |  (optional)
+$Id = "12345" # String | 
 
 # Remove Account
 try {
@@ -84,7 +84,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**|  | [optional] 
+ **Id** | **String**|  | 
 
 ### Return type
 

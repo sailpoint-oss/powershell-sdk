@@ -117,7 +117,7 @@ function Remove-CCAccount {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/cc/api/account/remove/:id'
+        $LocalVarUri = '/cc/api/account/remove/{id}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling removeAccount."
         }

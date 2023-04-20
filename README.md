@@ -40,19 +40,18 @@ $Filters = 'sourceId eq "f4e73766efdf4dc6acdeed179606d694"'
 
 # Accounts List
 try {
-
+    
     Get-Accounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 
 } catch {
-    Write-Host $_
-    Write-Host ("Exception occurred when calling Invoke-ListAccounts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+    Write-Host ("Exception occurred when calling Get-Accounts: {0}" -f $_.ErrorDetails)
+    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
 }
 ```
 
 ---
 
-### Search IdentityNow for Identities with the name `john.doe`
+### Search IdentityNow for all Identities
 
 ```powershell
 $Json = @"
@@ -61,7 +60,7 @@ $Json = @"
 		"identities"
 	],
 	"query": {
-		"query": "\"john.doe\"",
+		"query": "*",
 		"fields": [
 		"name"
 		]
@@ -74,8 +73,8 @@ $Search = ConvertFrom-JsonToSearch -Json $Json
 try {
     Search-Post -Search $Search
 } catch {
-    Write-Host ("Exception occurred when calling Search-Post: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+    Write-Host ("Exception occurred when calling Search-Post: {0}" -f $_.ErrorDetails)
+    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
 }
 ```
 
@@ -105,8 +104,8 @@ $Transform = ConvertFrom-JsonToTransform -Json $JSON
  try {
     New-Transform -Transform $Transform
 } catch {
-    Write-Host ("Exception occurred when calling New-Transform: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+    Write-Host ("Exception occurred when calling New-Transform: {0}" -f $_.ErrorDetails)
+    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
 }
 ```
 
@@ -126,9 +125,8 @@ try {
     Invoke-Paginate -Function "Get-Accounts" -Increment 250 -Limit 1000 -InitialOffset 0 -Parameters $Parameters
 
 } catch {
-    Write-Host $_
-    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Get-Accounts")
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+    Write-Host ("Exception occurred when calling Invoke-Paginate: {0}" -f $_.ErrorDetails)
+    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
 }
 ```
 
@@ -161,8 +159,7 @@ try {
     Invoke-PaginateSearch -Increment 50 -Limit 10000 -Search $Search
 
 } catch {
-    Write-Host $_
-    Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), "Paginate-Search")
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+    Write-Host ("Exception occurred when calling Invoke-PaginateSearch: {0}" -f $_.ErrorDetails)
+    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
 }
 ```

@@ -136,13 +136,17 @@ function Search-PasswordInfo {
             throw "Error! The required parameter `PasswordInfoQueryDTO` missing when calling queryPasswordInfo."
         }
 
-        $LocalVarBodyParameter = $PasswordInfoQueryDTO | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $PasswordInfoQueryDTO | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $PasswordInfoQueryDTO | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -223,13 +227,17 @@ function Set-Password {
             throw "Error! The required parameter `PasswordChangeRequest` missing when calling setPassword."
         }
 
-        $LocalVarBodyParameter = $PasswordChangeRequest | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $PasswordChangeRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $PasswordChangeRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 

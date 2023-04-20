@@ -61,13 +61,17 @@ function New-BetaConnectorRule {
             throw "Error! The required parameter `ConnectorRuleCreateRequest` missing when calling createConnectorRule."
         }
 
-        $LocalVarBodyParameter = $ConnectorRuleCreateRequest | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $ConnectorRuleCreateRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ConnectorRuleCreateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -369,13 +373,17 @@ function Update-BetaConnectorRule {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        $LocalVarBodyParameter = $ConnectorRuleUpdateRequest | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $ConnectorRuleUpdateRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ConnectorRuleUpdateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -456,13 +464,17 @@ function Confirm-BetaConnectorRule {
             throw "Error! The required parameter `SourceCode` missing when calling validateConnectorRule."
         }
 
-        $LocalVarBodyParameter = $SourceCode | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $SourceCode | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $SourceCode | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 

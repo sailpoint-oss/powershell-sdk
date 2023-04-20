@@ -71,13 +71,17 @@ function New-BetaProvisioningPolicy {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling createProvisioningPolicy."
         }
 
-        $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -168,13 +172,17 @@ function New-BetaSource {
             throw "Error! The required parameter `Source` missing when calling createSource."
         }
 
-        $LocalVarBodyParameter = $Source | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $Source | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Source | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -265,13 +273,17 @@ function New-BetaSourceSchema {
             throw "Error! The required parameter `Schema` missing when calling createSourceSchema."
         }
 
-        $LocalVarBodyParameter = $Schema | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $Schema | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Schema | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1547,13 +1559,17 @@ function Receive-BetaResourceObjects {
             throw "Error! The required parameter `ResourceObjectsRequest` missing when calling peekResourceObjects."
         }
 
-        $LocalVarBodyParameter = $ResourceObjectsRequest | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $ResourceObjectsRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ResourceObjectsRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1729,13 +1745,17 @@ function Send-BetaProvisioningPolicy {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling putProvisioningPolicy."
         }
 
-        $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1826,13 +1846,17 @@ function Send-BetaSource {
             throw "Error! The required parameter `Source` missing when calling putSource."
         }
 
-        $LocalVarBodyParameter = $Source | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $Source | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Source | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1923,13 +1947,17 @@ function Send-BetaSourceAttrSyncConfig {
             throw "Error! The required parameter `AttrSyncSourceConfig` missing when calling putSourceAttrSyncConfig."
         }
 
-        $LocalVarBodyParameter = $AttrSyncSourceConfig | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $AttrSyncSourceConfig | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $AttrSyncSourceConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -2030,13 +2058,17 @@ function Send-BetaSourceSchema {
             throw "Error! The required parameter `Schema` missing when calling putSourceSchema."
         }
 
-        $LocalVarBodyParameter = $Schema | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $Schema | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Schema | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -2352,13 +2384,17 @@ function Update-BetaProvisioningPoliciesInBulk {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling updateProvisioningPoliciesInBulk."
         }
 
-        $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -2459,13 +2495,17 @@ function Update-BetaProvisioningPolicy {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateProvisioningPolicy."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -2556,13 +2596,17 @@ function Update-BetaSource {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSource."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -2643,13 +2687,17 @@ function Update-BetaSourceEntitlementRequestConfig {
             throw "Error! The required parameter `SourceEntitlementRequestConfig` missing when calling updateSourceEntitlementRequestConfig."
         }
 
-        $LocalVarBodyParameter = $SourceEntitlementRequestConfig | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $SourceEntitlementRequestConfig | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $SourceEntitlementRequestConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -2750,13 +2798,17 @@ function Update-BetaSourceSchema {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSourceSchema."
         }
 
-        $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 

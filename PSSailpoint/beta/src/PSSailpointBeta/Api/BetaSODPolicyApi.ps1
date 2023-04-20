@@ -61,13 +61,17 @@ function New-BetaSodPolicy {
             throw "Error! The required parameter `SodPolicy` missing when calling createSodPolicy."
         }
 
-        $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -972,13 +976,17 @@ function Update-BetaSodPolicy {
             throw "Error! The required parameter `RequestBody` missing when calling patchSodPolicy."
         }
 
-        $LocalVarBodyParameter = $RequestBody | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $RequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1055,13 +1063,17 @@ function Start-BetaSodAllPoliciesForOrg {
 
         $LocalVarUri = '/sod-violation-report/run'
 
-        $LocalVarBodyParameter = $MultiPolicyRequest | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $MultiPolicyRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $MultiPolicyRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1227,13 +1239,17 @@ function Update-BetaPolicySchedule {
             throw "Error! The required parameter `SodPolicySchedule` missing when calling updatePolicySchedule."
         }
 
-        $LocalVarBodyParameter = $SodPolicySchedule | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $SodPolicySchedule | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $SodPolicySchedule | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1324,13 +1340,17 @@ function Update-BetaSodPolicy {
             throw "Error! The required parameter `SodPolicy` missing when calling updateSodPolicy."
         }
 
-        $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 

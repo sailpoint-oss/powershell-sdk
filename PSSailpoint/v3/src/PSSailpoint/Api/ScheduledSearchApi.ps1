@@ -61,13 +61,17 @@ function New-ScheduledSearch {
             throw "Error! The required parameter `CreateScheduledSearchRequest` missing when calling createScheduledSearch."
         }
 
-        $LocalVarBodyParameter = $CreateScheduledSearchRequest | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $CreateScheduledSearchRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $CreateScheduledSearchRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -413,13 +417,17 @@ function Invoke-UnsubscribeScheduledSearch {
             throw "Error! The required parameter `TypedReference` missing when calling unsubscribeScheduledSearch."
         }
 
-        $LocalVarBodyParameter = $TypedReference | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $TypedReference | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $TypedReference | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -510,13 +518,17 @@ function Update-ScheduledSearch {
             throw "Error! The required parameter `ScheduledSearch` missing when calling updateScheduledSearch."
         }
 
-        $LocalVarBodyParameter = $ScheduledSearch | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $ScheduledSearch | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ScheduledSearch | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 

@@ -61,13 +61,17 @@ function New-BetaNotificationTemplate {
             throw "Error! The required parameter `TemplateDto` missing when calling createNotificationTemplate."
         }
 
-        $LocalVarBodyParameter = $TemplateDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $TemplateDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $TemplateDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -148,13 +152,17 @@ function New-BetaVerifiedFromAddress {
             throw "Error! The required parameter `EmailStatusDto` missing when calling createVerifiedFromAddress."
         }
 
-        $LocalVarBodyParameter = $EmailStatusDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $EmailStatusDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $EmailStatusDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -235,13 +243,17 @@ function Remove-BetaNotificationTemplatesInBulk {
             throw "Error! The required parameter `TemplateBulkDeleteDto` missing when calling deleteNotificationTemplatesInBulk."
         }
 
-        $LocalVarBodyParameter = $TemplateBulkDeleteDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $TemplateBulkDeleteDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $TemplateBulkDeleteDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1003,13 +1015,17 @@ function Send-BetaNotificationPreference {
             throw "Error! The required parameter `PreferencesDto` missing when calling putNotificationPreference."
         }
 
-        $LocalVarBodyParameter = $PreferencesDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $PreferencesDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $PreferencesDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1090,13 +1106,17 @@ function Send-BetaTestNotification {
             throw "Error! The required parameter `SendTestNotificationRequestDto` missing when calling sendTestNotification."
         }
 
-        $LocalVarBodyParameter = $SendTestNotificationRequestDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $SendTestNotificationRequestDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $SendTestNotificationRequestDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -1177,13 +1197,17 @@ function Test-BetaDomainDkim {
             throw "Error! The required parameter `DomainAddressDto` missing when calling verifyDomainDkim."
         }
 
-        $LocalVarBodyParameter = $DomainAddressDto | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $DomainAddressDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $DomainAddressDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 

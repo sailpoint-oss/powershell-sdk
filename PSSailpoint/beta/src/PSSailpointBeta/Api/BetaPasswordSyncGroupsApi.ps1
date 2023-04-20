@@ -61,13 +61,17 @@ function New-BetaPasswordSyncGroup {
             throw "Error! The required parameter `PasswordSyncGroup` missing when calling createPasswordSyncGroup."
         }
 
-        $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $PasswordSyncGroup | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -403,13 +407,17 @@ function Update-BetaPasswordSyncGroup {
             throw "Error! The required parameter `PasswordSyncGroup` missing when calling updatePasswordSyncGroup."
         }
 
-        $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $PasswordSyncGroup | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 

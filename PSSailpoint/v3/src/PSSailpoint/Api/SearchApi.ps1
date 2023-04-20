@@ -103,13 +103,17 @@ function Search-Aggregate {
             throw "Error! The required parameter `Search` missing when calling searchAggregate."
         }
 
-        $LocalVarBodyParameter = $Search | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -190,13 +194,17 @@ function Search-Count {
             throw "Error! The required parameter `Search` missing when calling searchCount."
         }
 
-        $LocalVarBodyParameter = $Search | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 
@@ -395,13 +403,17 @@ function Search-Post {
             throw "Error! The required parameter `Search` missing when calling searchPost."
         }
 
-        $LocalVarBodyParameter = $Search | ForEach-Object {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
         
             # Convert object to JSON with only non-empty properties
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
         }
 
 

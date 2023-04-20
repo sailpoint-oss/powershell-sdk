@@ -75,6 +75,22 @@ Describe 'Beta' {
         $Response.StatusCode | Should -Be 200
     }
 
+    It 'Returns results for Patch-Entitlement' {
+        $ENT = @(
+            @{
+                op = "replace"
+                path = "/privileged"
+                value = $false
+            }
+        )
+
+        $Response = Update-BetaEntitlement -Id "2c9180848366cdc701837b78f5ce58be" -JsonPatchOperation $ENT -WithHttpInfo
+
+        $Response.Response | Should -Not -BeNullOrEmpty
+        $Response.StatusCode | Should -Be 200
+
+    }
+
 }
 
 Describe 'V2' {

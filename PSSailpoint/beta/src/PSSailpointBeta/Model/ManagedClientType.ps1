@@ -22,5 +22,7 @@ enum ManagedClientType {
     VA
     # enum value: "INTERNAL"
     INTERNAL
+    # enum value: "null"
+    null
 }
 

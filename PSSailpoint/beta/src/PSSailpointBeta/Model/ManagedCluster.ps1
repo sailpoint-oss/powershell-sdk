@@ -100,7 +100,7 @@ function Initialize-BetaManagedCluster {
         [PSCustomObject]
         ${Redis},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CCG", "VA", "INTERNAL")]
+        [ValidateSet("CCG", "VA", "INTERNAL", "")]
         [PSCustomObject]
         ${ClientType},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
@@ -147,10 +147,6 @@ function Initialize-BetaManagedCluster {
 
         if ($null -eq $Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
-        if ($null -eq $ClientType) {
-            throw "invalid value for 'ClientType', 'ClientType' cannot be null."
         }
 
         if ($null -eq $CcgVersion) {

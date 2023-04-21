@@ -322,10 +322,6 @@ function Update-BetaClientLogConfiguration {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$ClientLogConfiguration) {
-            throw "Error! The required parameter `ClientLogConfiguration` missing when calling updateClientLogConfiguration."
-        }
-
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $ClientLogConfiguration | ConvertTo-Json -AsArray -Depth 100
         } else {
@@ -351,7 +347,7 @@ function Update-BetaClientLogConfiguration {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "ClientLogConfiguration" `
-                                -IsBodyNullable $false
+                                -IsBodyNullable $true
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult

@@ -38,7 +38,7 @@ function Initialize-BetaManagedClientStatus {
         [PSCustomObject]
         ${Status},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CCG", "VA", "INTERNAL")]
+        [ValidateSet("CCG", "VA", "INTERNAL", "")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
@@ -56,10 +56,6 @@ function Initialize-BetaManagedClientStatus {
 
         if ($null -eq $Status) {
             throw "invalid value for 'Status', 'Status' cannot be null."
-        }
-
-        if ($null -eq $Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
         if ($null -eq $Timestamp) {

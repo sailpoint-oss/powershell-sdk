@@ -13,7 +13,7 @@ Method | HTTP request | Description
 <a name="Remove-BetaIdentity"></a>
 # **Remove-BetaIdentity**
 > void Remove-BetaIdentity<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Deletes an identity.
 
@@ -29,11 +29,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 
 # Deletes an identity.
 try {
-    $Result = Remove-BetaIdentity -IdentityId $IdentityId
+    $Result = Remove-BetaIdentity -Id $Id
 } catch {
     Write-Host ("Exception occurred when calling Remove-BetaIdentity: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityId** | **String**| Identity Id | 
+ **Id** | **String**| Identity Id | 
 
 ### Return type
 
@@ -64,7 +64,7 @@ void (empty response body)
 <a name="Get-BetaIdentity"></a>
 # **Get-BetaIdentity**
 > Identity Get-BetaIdentity<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Identity Details
 
@@ -80,11 +80,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 
 # Identity Details
 try {
-    $Result = Get-BetaIdentity -IdentityId $IdentityId
+    $Result = Get-BetaIdentity -Id $Id
 } catch {
     Write-Host ("Exception occurred when calling Get-BetaIdentity: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -95,7 +95,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityId** | **String**| Identity Id | 
+ **Id** | **String**| Identity Id | 
 
 ### Return type
 

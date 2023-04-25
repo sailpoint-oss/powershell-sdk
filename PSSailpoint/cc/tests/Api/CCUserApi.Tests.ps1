@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpointCC' -name 'CCCCUserApi' {
+    Context 'Get-CCIdentity' {
+        It 'Test Get-CCIdentity' {
+            #$TestResult = Get-CCIdentity -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-CCUserPermissions' {
         It 'Test Update-CCUserPermissions' {
             #$TestResult = Update-CCUserPermissions -UpdateUserPermissionsRequest "TEST_VALUE"

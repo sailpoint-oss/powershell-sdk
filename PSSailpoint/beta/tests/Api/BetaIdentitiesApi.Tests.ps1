@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentitiesApi' {
     Context 'Remove-BetaIdentity' {
         It 'Test Remove-BetaIdentity' {
-            #$TestResult = Remove-BetaIdentity -IdentityId "TEST_VALUE"
+            #$TestResult = Remove-BetaIdentity -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentitiesApi' {
 
     Context 'Get-BetaIdentity' {
         It 'Test Get-BetaIdentity' {
-            #$TestResult = Get-BetaIdentity -IdentityId "TEST_VALUE"
+            #$TestResult = Get-BetaIdentity -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

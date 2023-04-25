@@ -112,7 +112,7 @@ void (empty response body)
 
 <a name="Get-CCApplication"></a>
 # **Get-CCApplication**
-> void Get-CCApplication<br>
+> ListApplications200ResponseInner Get-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Single Application
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ListApplications200ResponseInner**](ListApplications200ResponseInner.md) (PSCustomObject)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ No authorization required
 
 <a name="Get-CCApplications"></a>
 # **Get-CCApplications**
-> void Get-CCApplications<br>
+> ListApplications200ResponseInner[] Get-CCApplications<br>
 
 List Applications
 
@@ -231,7 +231,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**ListApplications200ResponseInner[]**](ListApplications200ResponseInner.md) (PSCustomObject)
 
 ### Authorization
 

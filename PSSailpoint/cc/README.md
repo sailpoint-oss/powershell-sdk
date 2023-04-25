@@ -67,6 +67,7 @@ Class | Method | HTTP request | Description
 *CCSourcesAccountsApi* | [**Export-CCAccountFeed**](docs/CCSourcesAccountsApi.md#Export-CCAccountFeed) | **GET** /cc/api/source/exportAccountFeed/{id} | Export Account Feed
 *CCSourcesAggregationApi* | [**Invoke-CCLoadAccounts**](docs/CCSourcesAggregationApi.md#Invoke-CCLoadAccounts) | **POST** /cc/api/source/loadAccounts/{id} | Account Aggregation (File)
 *CCSystemApi* | [**Invoke-CCRefreshIdentities**](docs/CCSystemApi.md#Invoke-CCRefreshIdentities) | **POST** /cc/api/system/refreshIdentities | Refresh Identities
+*CCUserApi* | [**Get-CCIdentity**](docs/CCUserApi.md#Get-CCIdentity) | **GET** /cc/api/user/get/{id} | Get Single Identity
 *CCUserApi* | [**Update-CCUserPermissions**](docs/CCUserApi.md#Update-CCUserPermissions) | **POST** /cc/api/user/updatePermissions | Update User Permissions
 
 
@@ -74,7 +75,15 @@ Class | Method | HTTP request | Description
 
  - [PSSailpointCC/Model.CreateApplicationRequest](docs/CreateApplicationRequest.md)
  - [PSSailpointCC/Model.CreateConnectorRequest](docs/CreateConnectorRequest.md)
+ - [PSSailpointCC/Model.GetIdentity200Response](docs/GetIdentity200Response.md)
+ - [PSSailpointCC/Model.GetIdentity200ResponseAuth](docs/GetIdentity200ResponseAuth.md)
+ - [PSSailpointCC/Model.GetIdentity200ResponseOrg](docs/GetIdentity200ResponseOrg.md)
  - [PSSailpointCC/Model.ImportConnectorConfigRequest](docs/ImportConnectorConfigRequest.md)
+ - [PSSailpointCC/Model.ListApplications200ResponseInner](docs/ListApplications200ResponseInner.md)
+ - [PSSailpointCC/Model.ListApplications200ResponseInnerAccountServicePoliciesInner](docs/ListApplications200ResponseInnerAccountServicePoliciesInner.md)
+ - [PSSailpointCC/Model.ListApplications200ResponseInnerAppProfilesInner](docs/ListApplications200ResponseInnerAppProfilesInner.md)
+ - [PSSailpointCC/Model.ListApplications200ResponseInnerHealth](docs/ListApplications200ResponseInnerHealth.md)
+ - [PSSailpointCC/Model.ListApplications200ResponseInnerOwner](docs/ListApplications200ResponseInnerOwner.md)
  - [PSSailpointCC/Model.LoadAccountsRequest](docs/LoadAccountsRequest.md)
  - [PSSailpointCC/Model.UpdateApplicationRequest](docs/UpdateApplicationRequest.md)
  - [PSSailpointCC/Model.UpdateUserPermissionsRequest](docs/UpdateUserPermissionsRequest.md)

@@ -14,7 +14,7 @@ Deletes an identity.
 
 The API returns successful response if the requested identity was deleted.
 
-.PARAMETER IdentityId
+.PARAMETER Id
 Identity Id
 
 .PARAMETER WithHttpInfo
@@ -30,7 +30,7 @@ function Remove-BetaIdentity {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${IdentityId},
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -53,10 +53,10 @@ function Remove-BetaIdentity {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/identities/{id}'
-        if (!$IdentityId) {
-            throw "Error! The required parameter `IdentityId` missing when calling deleteIdentity."
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling deleteIdentity."
         }
-        $LocalVarUri = $LocalVarUri.replace('{identityId}', [System.Web.HTTPUtility]::UrlEncode($IdentityId))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
 
 
@@ -89,7 +89,7 @@ Identity Details
 
 This API returns a single identity using the Identity ID.
 
-.PARAMETER IdentityId
+.PARAMETER Id
 Identity Id
 
 .PARAMETER WithHttpInfo
@@ -105,7 +105,7 @@ function Get-BetaIdentity {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${IdentityId},
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -128,10 +128,10 @@ function Get-BetaIdentity {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/identities/{id}'
-        if (!$IdentityId) {
-            throw "Error! The required parameter `IdentityId` missing when calling getIdentity."
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getIdentity."
         }
-        $LocalVarUri = $LocalVarUri.replace('{identityId}', [System.Web.HTTPUtility]::UrlEncode($IdentityId))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
 
 

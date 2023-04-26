@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a new Service Desk integration
+Create new Service Desk integration
 
 .DESCRIPTION
 
@@ -99,7 +99,7 @@ function New-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Delete a Service Desk integration by ID
+Delete a Service Desk integration
 
 .DESCRIPTION
 
@@ -174,7 +174,7 @@ function Remove-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Get a Service Desk integration by ID
+Get a Service Desk integration
 
 .DESCRIPTION
 
@@ -504,7 +504,7 @@ function Get-BetaServiceDeskIntegrationTypes {
 <#
 .SYNOPSIS
 
-Get the time check configuration of queued SDIM tickets
+Get the time check configuration
 
 .DESCRIPTION
 
@@ -569,7 +569,7 @@ function Get-BetaStatusCheckDetails {
 <#
 .SYNOPSIS
 
-Service Desk Integration Update - PATCH
+Service Desk Integration Update PATCH
 
 .DESCRIPTION
 
@@ -670,7 +670,7 @@ function Update-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Update a Service Desk integration by ID
+Update a Service Desk integration
 
 .DESCRIPTION
 
@@ -771,7 +771,7 @@ function Update-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Update the time check configuration of queued SDIM tickets
+Update the time check configuration
 
 .DESCRIPTION
 

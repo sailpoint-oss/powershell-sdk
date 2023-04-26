@@ -8,18 +8,18 @@ Method | HTTP request | Description
 [**New-BetaNonEmployeeRecord**](BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 [**New-BetaNonEmployeeRequest**](BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
 [**New-BetaNonEmployeeSource**](BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeSource) | **POST** /non-employee-sources | Create Non-Employee Source
-[**New-BetaNonEmployeeSourceSchemaAttributes**](BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
+[**New-BetaNonEmployeeSourceSchemaAttributes**](BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create Non-Employee Source Schema Attribute
 [**Remove-BetaNonEmployeeRecord**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRecord) | **DELETE** /non-employee-records/{id} | Delete Non-Employee Record
 [**Remove-BetaNonEmployeeRecordInBulk**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRecordInBulk) | **POST** /non-employee-records/bulk-delete | Delete Multiple Non-Employee Records
 [**Remove-BetaNonEmployeeRequest**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRequest) | **DELETE** /non-employee-requests/{id} | Delete Non-Employee Request
-[**Remove-BetaNonEmployeeSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
+[**Remove-BetaNonEmployeeSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete Non-Employee Source&#39;s Schema Attribute
 [**Remove-BetaNonEmployeeSource**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSource) | **DELETE** /non-employee-sources/{sourceId} | Delete Non-Employee Source
-[**Remove-BetaNonEmployeeSourceSchemaAttributes**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
+[**Remove-BetaNonEmployeeSourceSchemaAttributes**](BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes
 [**Export-BetaNonEmployeeRecords**](BetaNonEmployeeLifecycleManagementApi.md#Export-BetaNonEmployeeRecords) | **GET** /non-employee-sources/{id}/non-employees/download | Exports Non-Employee Records to CSV
 [**Export-BetaNonEmployeeSourceSchemaTemplate**](BetaNonEmployeeLifecycleManagementApi.md#Export-BetaNonEmployeeSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports Source Schema Template
 [**Get-BetaNonEmployeeApproval**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeApproval) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
 [**Get-BetaNonEmployeeApprovalSummary**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get Summary of Non-Employee Approval Requests
-[**Get-BetaNonEmployeeBulkUploadStatus**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Obtain the status of bulk upload on the source
+[**Get-BetaNonEmployeeBulkUploadStatus**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Bulk upload status on source
 [**Get-BetaNonEmployeeRecord**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRecord) | **GET** /non-employee-records/{id} | Get a Non-Employee Record
 [**Get-BetaNonEmployeeRequest**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequest) | **GET** /non-employee-requests/{id} | Get a Non-Employee Request
 [**Get-BetaNonEmployeeRequestSummary**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequestSummary) | **GET** /non-employee-requests/summary/{requested-for} | Get Summary of Non-Employee Requests
@@ -31,7 +31,7 @@ Method | HTTP request | Description
 [**Get-BetaNonEmployeeRequests**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
 [**Get-BetaNonEmployeeSources**](BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSources) | **GET** /non-employee-sources | List Non-Employee Sources
 [**Update-BetaNonEmployeeRecord**](BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeRecord) | **PATCH** /non-employee-records/{id} | Patch Non-Employee Record
-[**Update-BetaNonEmployeeSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
+[**Update-BetaNonEmployeeSchemaAttribute**](BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch Non-Employee Source&#39;s Schema Attribute
 [**Update-BetaNonEmployeeSource**](BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
 [**Deny-BetaNonEmployeeRequest**](BetaNonEmployeeLifecycleManagementApi.md#Deny-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
 [**Update-BetaNonEmployeeRecord**](BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
@@ -252,9 +252,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-NonEmployeeSchemaAttributeBody] <PSCustomObject><br>
 
-Create a new Schema Attribute for Non-Employee Source
+Create Non-Employee Source Schema Attribute
 
-This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a ""400.1.409 Reference conflict"" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a ""400.1.4 Limit violation"" response. Request requires a security scope of: 'idn:nesr:create'
+This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a ""400.1.409 Reference conflict"" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a ""400.1.4 Limit violation"" response.
 
 ### Example
 ```powershell
@@ -266,10 +266,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$SourceId = "MySourceId" # String | The Source id
+$SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 $NonEmployeeSchemaAttributeBody = Initialize-NonEmployeeSchemaAttributeBody -Type "TEXT" -Label "Account Name" -TechnicalName "account.name" -HelpText "The unique identifier for the account" -Placeholder "Enter a unique user name for this account." -Required $true # NonEmployeeSchemaAttributeBody | 
 
-# Create a new Schema Attribute for Non-Employee Source
+# Create Non-Employee Source Schema Attribute
 try {
     $Result = New-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -NonEmployeeSchemaAttributeBody $NonEmployeeSchemaAttributeBody
 } catch {
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 Delete Non-Employee Record
 
-This request will delete a non-employee record. Request will require the following security scope: 'idn:nesr:delete'
+This request will delete a non-employee record.
 
 ### Example
 ```powershell
@@ -319,7 +319,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | Non-Employee record id (UUID)
+$Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID)
 
 # Delete Non-Employee Record
 try {
@@ -409,7 +409,7 @@ void (empty response body)
 
 Delete Non-Employee Request
 
-This request will delete a non-employee request.   Request will require the following scope: 'idn:nesr:delete'
+This request will delete a non-employee request.
 
 ### Example
 ```powershell
@@ -421,7 +421,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "38400000-8cf0-11bd-b23e-10b96e4ef00d" # String | Non-Employee request id in the UUID format
+$Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id in the UUID format
 
 # Delete Non-Employee Request
 try {
@@ -459,9 +459,9 @@ void (empty response body)
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
-Delete a Schema Attribute for Non-Employee Source
+Delete Non-Employee Source's Schema Attribute
 
-This end-point deletes a specific schema attribute for a non-employee source.  Request will require a security scope of:  'idn:nesr:delete' 
+This end-point deletes a specific schema attribute for a non-employee source. 
 
 ### Example
 ```powershell
@@ -473,10 +473,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$AttributeId = "MyAttributeId" # String | The Schema Attribute Id (UUID)
-$SourceId = "MySourceId" # String | The Source id
+$AttributeId = "2c91808b6ef1d43e016efba0ce470904" # String | The Schema Attribute Id (UUID)
+$SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 
-# Delete a Schema Attribute for Non-Employee Source
+# Delete Non-Employee Source's Schema Attribute
 try {
     $Result = Remove-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId
 } catch {
@@ -514,7 +514,7 @@ void (empty response body)
 
 Delete Non-Employee Source
 
-This request will delete a non-employee source. Request will require the following security scope: 'idn:nesr:delete'
+This request will delete a non-employee source.
 
 ### Example
 ```powershell
@@ -526,7 +526,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$SourceId = "MySourceId" # String | Source Id
+$SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 
 # Delete Non-Employee Source
 try {
@@ -563,9 +563,9 @@ void (empty response body)
 > void Remove-BetaNonEmployeeSourceSchemaAttributes<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
-Delete all custom schema attributes for Non-Employee Source
+Delete all custom schema attributes
 
-This end-point deletes all custom schema attributes for a non-employee source. Request requires a security scope of: 'idn:nesr:delete'
+This end-point deletes all custom schema attributes for a non-employee source.
 
 ### Example
 ```powershell
@@ -577,9 +577,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$SourceId = "MySourceId" # String | The Source id
+$SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 
-# Delete all custom schema attributes for Non-Employee Source
+# Delete all custom schema attributes
 try {
     $Result = Remove-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId
 } catch {
@@ -616,7 +616,7 @@ void (empty response body)
 
 Exports Non-Employee Records to CSV
 
-This requests a CSV download for all non-employees from a provided source. Request will need the following security scope: 'idn:nesr:read'
+This requests a CSV download for all non-employees from a provided source.
 
 ### Example
 ```powershell
@@ -821,9 +821,9 @@ Name | Type | Description  | Notes
 > NonEmployeeBulkUploadStatus Get-BetaNonEmployeeBulkUploadStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Obtain the status of bulk upload on the source
+Bulk upload status on source
 
-The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.  Request will need the following scope:  'idn:nesr:read' 
+The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. 
 
 ### Example
 ```powershell
@@ -837,7 +837,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c918085842e69ae018432d22ccb212f" # String | Source ID (UUID)
 
-# Obtain the status of bulk upload on the source
+# Bulk upload status on source
 try {
     $Result = Get-BetaNonEmployeeBulkUploadStatus -Id $Id
 } catch {
@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 
 Get a Non-Employee Record
 
-This gets a non-employee record. Request will require the following scope: 'idn:nesr:read'
+This gets a non-employee record.
 
 ### Example
 ```powershell
@@ -1457,7 +1457,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | Non-employee record id (UUID)
+$Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID)
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
@@ -1499,9 +1499,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Patch a Schema Attribute for Non-Employee Source
+Patch Non-Employee Source's Schema Attribute
 
-This end-point patches a specific schema attribute for a non-employee SourceId.  Request will require a security scope of:  'idn:nesr:update' 
+This end-point patches a specific schema attribute for a non-employee SourceId. 
 
 ### Example
 ```powershell
@@ -1513,12 +1513,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$AttributeId = "MyAttributeId" # String | The Schema Attribute Id (UUID)
-$SourceId = "MySourceId" # String | The Source id
+$AttributeId = "2c91808b6ef1d43e016efba0ce470904" # String | The Schema Attribute Id (UUID)
+$SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
 
-# Patch a Schema Attribute for Non-Employee Source
+# Patch Non-Employee Source's Schema Attribute
 try {
     $Result = Update-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -JsonPatchOperation $JsonPatchOperation
 } catch {
@@ -1558,7 +1558,7 @@ Name | Type | Description  | Notes
 
 Patch a Non-Employee Source
 
-patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers** Request will require the following security scope: 'idn:nesr:update'
+patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
 
 ### Example
 ```powershell
@@ -1570,7 +1570,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$SourceId = "MySourceId" # String | Source Id
+$SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
@@ -1679,7 +1679,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | Non-employee record id (UUID)
+$Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID)
 $NonEmployeeRequestBody = Initialize-NonEmployeeRequestBody -AccountName "william.smith" -FirstName "William" -LastName "Smith" -Email "william.smith@example.com" -Phone "5555555555" -Manager "jane.doe" -SourceId "2c91808568c529c60168cca6f90c1313" -VarData @{ key_example = "MyInner" } -StartDate (Get-Date) -EndDate (Get-Date) # NonEmployeeRequestBody | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
 # Update Non-Employee Record

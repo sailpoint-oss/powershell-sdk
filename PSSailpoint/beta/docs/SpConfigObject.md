@@ -5,15 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjectType** | **String** | The object type this configuration is for. | [optional] 
 **ResolveByIdUrl** | [**SpConfigUrl**](SpConfigUrl.md) |  | [optional] 
-**ResolveByNameUrl** | [**SpConfigUrl**](SpConfigUrl.md) |  | [optional] 
-**ExportUrl** | **String** | Url to export this type of object. | [optional] 
+**ResolveByNameUrl** | [**SpConfigUrl[]**](SpConfigUrl.md) | Url and query parameters to be used to resolve this type of object by name. | [optional] 
+**ExportUrl** | [**SpConfigUrl**](SpConfigUrl.md) |  | [optional] 
 **ExportRight** | **String** | Rights needed by the invoker of sp-config/export in order to export this type of object. | [optional] 
 **ExportLimit** | **Int32** | Pagination limit imposed by the target service for this object type. | [optional] 
-**ImportUrl** | **String** | Url to import this type of object. | [optional] 
+**ImportUrl** | [**SpConfigUrl**](SpConfigUrl.md) |  | [optional] 
 **ImportRight** | **String** | Rights needed by the invoker of sp-config/import in order to import this type of object. | [optional] 
 **ImportLimit** | **Int32** | Pagination limit imposed by the target service for this object type. | [optional] 
 **ReferenceExtractors** | **String[]** | List of json paths within an exported object of this type that represent references that need to be resolved. | [optional] 
-**SignatureRequired** | **Boolean** | If true, this type of object will be JWS signed and cannot be modified before import. | [optional] 
+**SignatureRequired** | **Boolean** | If true, this type of object will be JWS signed and cannot be modified before import. | [optional] [default to $false]
 
 ## Examples
 
@@ -22,10 +22,10 @@ Name | Type | Description | Notes
 $SpConfigObject = Initialize-PSSailpointBetaSpConfigObject  -ObjectType TRIGGER_SUBSCRIPTION `
  -ResolveByIdUrl null `
  -ResolveByNameUrl null `
- -ExportUrl ets://trigger-subscriptions/export `
+ -ExportUrl null `
  -ExportRight idn:trigger-service-subscriptions:read `
  -ExportLimit 10 `
- -ImportUrl ets://trigger-subscriptions/import `
+ -ImportUrl null `
  -ImportRight idn:trigger-service-subscriptions:create `
  -ImportLimit 10 `
  -ReferenceExtractors [$.owner] `

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **Boolean** | If the profile or mapping is enabled | [optional] 
+**Enabled** | **Boolean** | If the profile or mapping is enabled | [optional] [default to $true]
 **AttributeTransforms** | [**IdentityAttributeTransform[]**](IdentityAttributeTransform.md) |  | [optional] 
 
 ## Examples

@@ -30,7 +30,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Transform = Initialize-Transform -Id "2cd78adghjkja34jh2b1hkjhasuecd" -Name "Timestamp To Date" -Type "concat" -Attributes @{ key_example =  } -Internal $false # Transform | The transform to be created.
+$Transform = Initialize-Transform -Id "2cd78adghjkja34jh2b1hkjhasuecd" -Name "Timestamp To Date" -Type "concat" -Attributes  -Internal $false # Transform | The transform to be created.
 
 # Create transform
 try {
@@ -81,7 +81,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | ID of the transform to delete
+$Id = "2c9180835d2e5168015d32f890ca1581" # String | ID of the transform to delete
 
 # Delete a transform
 try {
@@ -132,7 +132,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | ID of the transform to retrieve
+$Id = "2c9180835d2e5168015d32f890ca1581" # String | ID of the transform to retrieve
 
 # Transform by ID
 try {
@@ -191,7 +191,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Name = "ExampleTransformName123" # String | Name of the transform to retrieve from the list. (optional)
-$Filters = "MyFilters" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **internal**: *eq* **name**: *eq*, *sw* (optional)
+$Filters = "name eq ExampleTransformName123" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **internal**: *eq* **name**: *eq*, *sw* (optional)
 
 # List transforms
 try {
@@ -247,8 +247,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | ID of the transform to update
-$Transform = Initialize-Transform -Id "2cd78adghjkja34jh2b1hkjhasuecd" -Name "Timestamp To Date" -Type "concat" -Attributes @{ key_example =  } -Internal $false # Transform | The updated transform object (must include ""name"", ""type"", and ""attributes"" fields). (optional)
+$Id = "2c9180835d2e5168015d32f890ca1581" # String | ID of the transform to update
+$Transform = Initialize-Transform -Id "2cd78adghjkja34jh2b1hkjhasuecd" -Name "Timestamp To Date" -Type "concat" -Attributes  -Internal $false # Transform | The updated transform object (must include ""name"", ""type"", and ""attributes"" fields). (optional)
 
 # Update a transform
 try {

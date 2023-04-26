@@ -1496,7 +1496,7 @@ function Get-BetaSources {
 <#
 .SYNOPSIS
 
-Peek resource objects from the source connector
+Peek source connector's resource objects
 
 .DESCRIPTION
 
@@ -1597,7 +1597,7 @@ function Receive-BetaResourceObjects {
 <#
 .SYNOPSIS
 
-Ping cluster for the source connector
+Ping cluster for source connector
 
 .DESCRIPTION
 
@@ -2171,7 +2171,7 @@ function Sync-BetaAttributesForSource {
 <#
 .SYNOPSIS
 
-Test configuration for the source connector
+Test configuration for source connector
 
 .DESCRIPTION
 
@@ -2246,7 +2246,7 @@ function Test-BetaSourceConfiguration {
 <#
 .SYNOPSIS
 
-Check connection for the source connector.
+Check connection for source connector.
 
 .DESCRIPTION
 

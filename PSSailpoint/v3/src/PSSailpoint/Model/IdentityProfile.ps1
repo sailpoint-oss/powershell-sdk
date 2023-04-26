@@ -74,7 +74,7 @@ function Initialize-IdentityProfile {
         ${AuthoritativeSource},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IdentityRefreshRequired},
+        ${IdentityRefreshRequired} = $false,
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${IdentityCount},
@@ -86,7 +86,7 @@ function Initialize-IdentityProfile {
         ${IdentityExceptionReportReference},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${HasTimeBasedAttr}
+        ${HasTimeBasedAttr} = $false
     )
 
     Process {

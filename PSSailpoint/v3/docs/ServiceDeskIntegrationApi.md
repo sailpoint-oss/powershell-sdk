@@ -4,16 +4,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#New-ServiceDeskIntegration) | **POST** /service-desk-integrations | Create a new Service Desk integration
-[**Remove-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Remove-ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration by ID
-[**Get-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration by ID
+[**New-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#New-ServiceDeskIntegration) | **POST** /service-desk-integrations | Create new Service Desk integration
+[**Remove-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Remove-ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration
+[**Get-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration
 [**Get-ServiceDeskIntegrationTemplate**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName.
 [**Get-ServiceDeskIntegrationTypes**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
 [**Get-ServiceDeskIntegrations**](ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing Service Desk Integrations
-[**Get-StatusCheckDetails**](ServiceDeskIntegrationApi.md#Get-StatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration of queued SDIM tickets
-[**Update-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
-[**Update-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration by ID
-[**Update-StatusCheckDetails**](ServiceDeskIntegrationApi.md#Update-StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
+[**Get-StatusCheckDetails**](ServiceDeskIntegrationApi.md#Get-StatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration
+[**Update-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update PATCH
+[**Update-ServiceDeskIntegration**](ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
+[**Update-StatusCheckDetails**](ServiceDeskIntegrationApi.md#Update-StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
 
 
 <a name="New-ServiceDeskIntegration"></a>
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 > ServiceDeskIntegrationDto New-ServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceDeskIntegrationDto] <PSCustomObject><br>
 
-Create a new Service Desk integration
+Create new Service Desk integration
 
 Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
@@ -44,7 +44,7 @@ $ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -Man
 
 $ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto -ClusterRef $BaseReferenceDto -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto # ServiceDeskIntegrationDto | The specifics of a new integration to create
 
-# Create a new Service Desk integration
+# Create new Service Desk integration
 try {
     $Result = New-ServiceDeskIntegration -ServiceDeskIntegrationDto $ServiceDeskIntegrationDto
 } catch {
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 > void Remove-ServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Delete a Service Desk integration by ID
+Delete a Service Desk integration
 
 Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
@@ -95,7 +95,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "anId" # String | ID of Service Desk integration to delete
 
-# Delete a Service Desk integration by ID
+# Delete a Service Desk integration
 try {
     $Result = Remove-ServiceDeskIntegration -Id $Id
 } catch {
@@ -130,7 +130,7 @@ void (empty response body)
 > ServiceDeskIntegrationDto Get-ServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get a Service Desk integration by ID
+Get a Service Desk integration
 
 Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
@@ -146,7 +146,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "anId" # String | ID of the Service Desk integration to get
 
-# Get a Service Desk integration by ID
+# Get a Service Desk integration
 try {
     $Result = Get-ServiceDeskIntegration -Id $Id
 } catch {
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 # **Get-StatusCheckDetails**
 > QueuedCheckConfigDetails Get-StatusCheckDetails<br>
 
-Get the time check configuration of queued SDIM tickets
+Get the time check configuration
 
 Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
@@ -355,7 +355,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
-# Get the time check configuration of queued SDIM tickets
+# Get the time check configuration
 try {
     $Result = Get-StatusCheckDetails
 } catch {
@@ -388,7 +388,7 @@ This endpoint does not need any parameter.
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatch] <PSCustomObject><br>
 
-Service Desk Integration Update - PATCH
+Service Desk Integration Update PATCH
 
 Update an existing ServiceDeskIntegration by ID with a PATCH request.
 
@@ -408,7 +408,7 @@ $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/descriptio
 
 $JsonPatch = Initialize-JsonPatch -Operations $JsonPatchOperation # JsonPatch | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   ""beforeProvisioningRule""  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
 
-# Service Desk Integration Update - PATCH
+# Service Desk Integration Update PATCH
 try {
     $Result = Update-ServiceDeskIntegration -Id $Id -JsonPatch $JsonPatch
 } catch {
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceDeskIntegrationDto] <PSCustomObject><br>
 
-Update a Service Desk integration by ID
+Update a Service Desk integration
 
 Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
@@ -469,7 +469,7 @@ $ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -Man
 
 $ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto -ClusterRef $BaseReferenceDto -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto # ServiceDeskIntegrationDto | The specifics of the integration to update
 
-# Update a Service Desk integration by ID
+# Update a Service Desk integration
 try {
     $Result = Update-ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $ServiceDeskIntegrationDto
 } catch {
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 > QueuedCheckConfigDetails Update-StatusCheckDetails<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-QueuedCheckConfigDetails] <PSCustomObject><br>
 
-Update the time check configuration of queued SDIM tickets
+Update the time check configuration
 
 Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
@@ -521,7 +521,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $QueuedCheckConfigDetails = Initialize-QueuedCheckConfigDetails -ProvisioningStatusCheckIntervalMinutes "30" -ProvisioningMaxStatusCheckDays "2" # QueuedCheckConfigDetails | the modified time check configuration
 
-# Update the time check configuration of queued SDIM tickets
+# Update the time check configuration
 try {
     $Result = Update-StatusCheckDetails -QueuedCheckConfigDetails $QueuedCheckConfigDetails
 } catch {

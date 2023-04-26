@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 ```powershell
 $ServiceDeskIntegrationDto = Initialize-PSSailpointBetaServiceDeskIntegrationDto  -Id id12345 `
  -Name aName `
- -Created null `
- -Modified null `
+ -Created 2023-01-03T21:16:22.432Z `
+ -Modified 2023-01-03T21:16:22.432Z `
  -Description A very nice Service Desk integration `
  -Type ServiceNowSDIM `
  -OwnerRef null `

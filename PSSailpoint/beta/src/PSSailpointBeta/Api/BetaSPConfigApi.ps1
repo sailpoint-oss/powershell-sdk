@@ -12,7 +12,7 @@ Initiates Configuration Objects Export Job.
 
 .DESCRIPTION
 
-This post will export objects from the tenant to a JSON configuration file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+This post will export objects from the tenant to a JSON configuration file.
 
 .PARAMETER ExportPayload
 Export options control what will be included in the export.
@@ -502,7 +502,7 @@ Get Config Object details
 
 .DESCRIPTION
 
-This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain ""importUrl"" and ""exportUrl"" are available for export/import. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain ""importUrl"" and ""exportUrl"" are available for export/import.
 
 .PARAMETER WithHttpInfo
 

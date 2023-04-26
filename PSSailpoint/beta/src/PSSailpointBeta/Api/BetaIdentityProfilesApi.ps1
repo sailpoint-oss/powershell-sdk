@@ -471,7 +471,7 @@ function New-BetaIdentityPreview {
 <#
 .SYNOPSIS
 
-Gets the default identity attribute config
+Default identity attribute config
 
 .DESCRIPTION
 
@@ -827,7 +827,7 @@ function Get-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
-Refreshes all the identities under this profile
+Refreshes all identities under profile
 
 .DESCRIPTION
 

@@ -4,8 +4,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaManagedClientStatus**](BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Get a specified Managed Client Status.
-[**Update-BetaManagedClientStatus**](BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle a status request from a client
+[**Get-BetaManagedClientStatus**](BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Specified Managed Client Status.
+[**Update-BetaManagedClientStatus**](BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle status request from client
 
 
 <a name="Get-BetaManagedClientStatus"></a>
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <PSCustomObject><br>
 
-Get a specified Managed Client Status.
+Specified Managed Client Status.
 
 Retrieve Managed Client Status by ID.
 
@@ -31,7 +31,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Id = "aClientId" # String | ID of the Managed Client Status to get
 $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
 
-# Get a specified Managed Client Status.
+# Specified Managed Client Status.
 try {
     $Result = Get-BetaManagedClientStatus -Id $Id -Type $Type
 } catch {
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ManagedClientStatus] <PSCustomObject><br>
 
-Handle a status request from a client
+Handle status request from client
 
 Update a status detail passed in from the client
 
@@ -85,7 +85,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Id = "aClientId" # String | ID of the Managed Client Status to update
 $ManagedClientStatus = Initialize-ManagedClientStatus -Body  -Status "NORMAL" -Type "CCG" -Timestamp (Get-Date) # ManagedClientStatus | 
 
-# Handle a status request from a client
+# Handle status request from client
 try {
     $Result = Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $ManagedClientStatus
 } catch {

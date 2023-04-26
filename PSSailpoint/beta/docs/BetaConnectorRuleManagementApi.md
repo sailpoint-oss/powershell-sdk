@@ -86,7 +86,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | ID of the connector rule to delete
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete
 
 # Delete a Connector-Rule
 try {
@@ -137,7 +137,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | ID of the connector rule to retrieve
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to retrieve
 
 # Connector-Rule by ID
 try {
@@ -235,7 +235,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | ID of the connector rule to update
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update
 $Argument = Initialize-Argument -Name "firstName" -Description "the first name of the identity" -Type "String"
 $ConnectorRuleCreateRequestSignature = Initialize-ConnectorRuleCreateRequestSignature -VarInput $Argument -Output $Argument
 

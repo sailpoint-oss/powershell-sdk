@@ -54,7 +54,7 @@ function Initialize-BetaIdentityProfileAllOf {
         ${AuthoritativeSource},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IdentityRefreshRequired},
+        ${IdentityRefreshRequired} = $false,
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${IdentityCount},
@@ -66,7 +66,7 @@ function Initialize-BetaIdentityProfileAllOf {
         ${IdentityExceptionReportReference},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${HasTimeBasedAttr}
+        ${HasTimeBasedAttr} = $true
     )
 
     Process {

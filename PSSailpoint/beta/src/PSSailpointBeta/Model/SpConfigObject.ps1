@@ -19,15 +19,15 @@ The object type this configuration is for.
 .PARAMETER ResolveByIdUrl
 No description available.
 .PARAMETER ResolveByNameUrl
-No description available.
+Url and query parameters to be used to resolve this type of object by name.
 .PARAMETER ExportUrl
-Url to export this type of object.
+No description available.
 .PARAMETER ExportRight
 Rights needed by the invoker of sp-config/export in order to export this type of object.
 .PARAMETER ExportLimit
 Pagination limit imposed by the target service for this object type.
 .PARAMETER ImportUrl
-Url to import this type of object.
+No description available.
 .PARAMETER ImportRight
 Rights needed by the invoker of sp-config/import in order to import this type of object.
 .PARAMETER ImportLimit
@@ -51,10 +51,10 @@ function Initialize-BetaSpConfigObject {
         [PSCustomObject]
         ${ResolveByIdUrl},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${ResolveByNameUrl},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${ExportUrl},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -63,7 +63,7 @@ function Initialize-BetaSpConfigObject {
         [System.Nullable[Int32]]
         ${ExportLimit},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${ImportUrl},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -76,7 +76,7 @@ function Initialize-BetaSpConfigObject {
         ${ReferenceExtractors},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${SignatureRequired}
+        ${SignatureRequired} = $false
     )
 
     Process {

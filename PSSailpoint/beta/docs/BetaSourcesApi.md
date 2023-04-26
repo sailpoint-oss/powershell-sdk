@@ -21,15 +21,15 @@ Method | HTTP request | Description
 [**Get-BetaProvisioningPolicies**](BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
 [**Get-BetaSourceSchemas**](BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
 [**Get-BetaSources**](BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
-[**Receive-BetaResourceObjects**](BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek resource objects from the source connector
-[**Ping-BetaCluster**](BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for the source connector
+[**Receive-BetaResourceObjects**](BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector&#39;s resource objects
+[**Ping-BetaCluster**](BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
 [**Send-BetaProvisioningPolicy**](BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 [**Send-BetaSource**](BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
 [**Send-BetaSourceAttrSyncConfig**](BetaSourcesApi.md#Send-BetaSourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
 [**Send-BetaSourceSchema**](BetaSourcesApi.md#Send-BetaSourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
 [**Sync-BetaAttributesForSource**](BetaSourcesApi.md#Sync-BetaAttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
-[**Test-BetaSourceConfiguration**](BetaSourcesApi.md#Test-BetaSourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for the source connector
-[**Test-BetaSourceConnection**](BetaSourcesApi.md#Test-BetaSourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for the source connector.
+[**Test-BetaSourceConfiguration**](BetaSourcesApi.md#Test-BetaSourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
+[**Test-BetaSourceConnection**](BetaSourcesApi.md#Test-BetaSourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
 [**Update-BetaProvisioningPoliciesInBulk**](BetaSourcesApi.md#Update-BetaProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 [**Update-BetaProvisioningPolicy**](BetaSourcesApi.md#Update-BetaProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 [**Update-BetaSource**](BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
@@ -957,7 +957,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ResourceObjectsRequest] <PSCustomObject><br>
 
-Peek resource objects from the source connector
+Peek source connector's resource objects
 
 Retrieves a sample of data returned from account and group aggregation requests. A token with ORG_ADMIN authority is required to call this API.
 
@@ -974,7 +974,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 $ResourceObjectsRequest = Initialize-ResourceObjectsRequest -ObjectType "group" -MaxCount 100 # ResourceObjectsRequest | 
 
-# Peek resource objects from the source connector
+# Peek source connector's resource objects
 try {
     $Result = Receive-BetaResourceObjects -SourceId $SourceId -ResourceObjectsRequest $ResourceObjectsRequest
 } catch {
@@ -1010,7 +1010,7 @@ Name | Type | Description  | Notes
 > StatusResponse Ping-BetaCluster<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
-Ping cluster for the source connector
+Ping cluster for source connector
 
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow. A token with ORG_ADMIN authority is required to call this API.
 
@@ -1026,7 +1026,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 
-# Ping cluster for the source connector
+# Ping cluster for source connector
 try {
     $Result = Ping-BetaCluster -SourceId $SourceId
 } catch {
@@ -1350,7 +1350,7 @@ Name | Type | Description  | Notes
 > StatusResponse Test-BetaSourceConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
-Test configuration for the source connector
+Test configuration for source connector
 
 This endpoint performs a more detailed validation of the source's configuration that can take longer than the lighter weight credential validation performed by the checkConnection API. A token with ORG_ADMIN authority is required to call this API.
 
@@ -1366,7 +1366,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
 
-# Test configuration for the source connector
+# Test configuration for source connector
 try {
     $Result = Test-BetaSourceConfiguration -SourceId $SourceId
 } catch {
@@ -1401,7 +1401,7 @@ Name | Type | Description  | Notes
 > StatusResponse Test-BetaSourceConnection<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
-Check connection for the source connector.
+Check connection for source connector.
 
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter. A token with ORG_ADMIN authority is required to call this API.
 
@@ -1417,7 +1417,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
 
-# Check connection for the source connector.
+# Check connection for source connector.
 try {
     $Result = Test-BetaSourceConnection -SourceId $SourceId
 } catch {

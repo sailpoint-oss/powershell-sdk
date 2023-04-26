@@ -197,19 +197,19 @@ Class | Method | HTTP request | Description
 *BetaIdentityProfilesApi* | [**Remove-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Remove-BetaIdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 *BetaIdentityProfilesApi* | [**Export-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Export-BetaIdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
 *BetaIdentityProfilesApi* | [**New-BetaIdentityPreview**](docs/BetaIdentityProfilesApi.md#New-BetaIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
-*BetaIdentityProfilesApi* | [**Get-BetaDefaultIdentityAttributeConfig**](docs/BetaIdentityProfilesApi.md#Get-BetaDefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Gets the default identity attribute config
+*BetaIdentityProfilesApi* | [**Get-BetaDefaultIdentityAttributeConfig**](docs/BetaIdentityProfilesApi.md#Get-BetaDefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Default identity attribute config
 *BetaIdentityProfilesApi* | [**Get-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Gets a single Identity Profile
 *BetaIdentityProfilesApi* | [**Import-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Import-BetaIdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
 *BetaIdentityProfilesApi* | [**Get-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles list
-*BetaIdentityProfilesApi* | [**Invoke-BetaRefreshIdentityProfile**](docs/BetaIdentityProfilesApi.md#Invoke-BetaRefreshIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/refresh-identities | Refreshes all the identities under this profile
+*BetaIdentityProfilesApi* | [**Invoke-BetaRefreshIdentityProfile**](docs/BetaIdentityProfilesApi.md#Invoke-BetaRefreshIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/refresh-identities | Refreshes all identities under profile
 *BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
 *BetaLifecycleStatesApi* | [**Get-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Lifecycle State
 *BetaLifecycleStatesApi* | [**Update-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
-*BetaMFAConfigurationApi* | [**Get-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAConfig) | **GET** /mfa/{method}/config | Get configuration of a MFA method
-*BetaMFAConfigurationApi* | [**Set-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAConfig) | **PUT** /mfa/{method}/config | Set configuration of a MFA method
-*BetaMFAConfigurationApi* | [**Test-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | Test configuration of a MFA method
-*BetaManagedClientsApi* | [**Get-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Get a specified Managed Client Status.
-*BetaManagedClientsApi* | [**Update-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle a status request from a client
+*BetaMFAConfigurationApi* | [**Get-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAConfig) | **GET** /mfa/{method}/config | Configuration of a MFA method
+*BetaMFAConfigurationApi* | [**Set-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAConfig) | **PUT** /mfa/{method}/config | Set MFA method configuration
+*BetaMFAConfigurationApi* | [**Test-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
+*BetaManagedClientsApi* | [**Get-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Specified Managed Client Status.
+*BetaManagedClientsApi* | [**Update-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle status request from client
 *BetaManagedClustersApi* | [**Get-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Get-BetaClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster's log configuration
 *BetaManagedClustersApi* | [**Get-BetaManagedCluster**](docs/BetaManagedClustersApi.md#Get-BetaManagedCluster) | **GET** /managed-clusters/{id} | Get a specified ManagedCluster.
 *BetaManagedClustersApi* | [**Get-BetaManagedClusters**](docs/BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
@@ -218,18 +218,18 @@ Class | Method | HTTP request | Description
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeSource) | **POST** /non-employee-sources | Create Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeSourceSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeSourceSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create Non-Employee Source Schema Attribute
 *BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRecord) | **DELETE** /non-employee-records/{id} | Delete Non-Employee Record
 *BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeRecordInBulk**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRecordInBulk) | **POST** /non-employee-records/bulk-delete | Delete Multiple Non-Employee Records
 *BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeRequest) | **DELETE** /non-employee-requests/{id} | Delete Non-Employee Request
-*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete Non-Employee Source's Schema Attribute
 *BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSource) | **DELETE** /non-employee-sources/{sourceId} | Delete Non-Employee Source
-*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeSourceSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Remove-BetaNonEmployeeSourceSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#Remove-BetaNonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes
 *BetaNonEmployeeLifecycleManagementApi* | [**Export-BetaNonEmployeeRecords**](docs/BetaNonEmployeeLifecycleManagementApi.md#Export-BetaNonEmployeeRecords) | **GET** /non-employee-sources/{id}/non-employees/download | Exports Non-Employee Records to CSV
 *BetaNonEmployeeLifecycleManagementApi* | [**Export-BetaNonEmployeeSourceSchemaTemplate**](docs/BetaNonEmployeeLifecycleManagementApi.md#Export-BetaNonEmployeeSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports Source Schema Template
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeApproval**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeApproval) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeApprovalSummary**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get Summary of Non-Employee Approval Requests
-*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeBulkUploadStatus**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Obtain the status of bulk upload on the source
+*BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeBulkUploadStatus**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Bulk upload status on source
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRecord) | **GET** /non-employee-records/{id} | Get a Non-Employee Record
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequest) | **GET** /non-employee-requests/{id} | Get a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRequestSummary**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequestSummary) | **GET** /non-employee-requests/summary/{requested-for} | Get Summary of Non-Employee Requests
@@ -241,7 +241,7 @@ Class | Method | HTTP request | Description
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRequests**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeSources**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSources) | **GET** /non-employee-sources | List Non-Employee Sources
 *BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeRecord) | **PATCH** /non-employee-records/{id} | Patch Non-Employee Record
-*BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch Non-Employee Source's Schema Attribute
 *BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
 *BetaNonEmployeeLifecycleManagementApi* | [**Deny-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Deny-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
@@ -301,7 +301,7 @@ Class | Method | HTTP request | Description
 *BetaRolesApi* | [**New-BetaRole**](docs/BetaRolesApi.md#New-BetaRole) | **POST** /roles | Create a Role
 *BetaRolesApi* | [**Remove-BetaRole**](docs/BetaRolesApi.md#Remove-BetaRole) | **DELETE** /roles/{id} | Delete a Role
 *BetaRolesApi* | [**Get-BetaRole**](docs/BetaRolesApi.md#Get-BetaRole) | **GET** /roles/{id} | Get a Role
-*BetaRolesApi* | [**Get-BetaRoleAssignedIdentities**](docs/BetaRolesApi.md#Get-BetaRoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | Get a list of Identities assigned a Role
+*BetaRolesApi* | [**Get-BetaRoleAssignedIdentities**](docs/BetaRolesApi.md#Get-BetaRoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | Identities assigned a Role
 *BetaRolesApi* | [**Get-BetaRoles**](docs/BetaRolesApi.md#Get-BetaRoles) | **GET** /roles | List Roles
 *BetaRolesApi* | [**Update-BetaRole**](docs/BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
 *BetaSODPolicyApi* | [**New-BetaSodPolicy**](docs/BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD policy
@@ -338,16 +338,16 @@ Class | Method | HTTP request | Description
 *BetaSegmentsApi* | [**Get-BetaSegment**](docs/BetaSegmentsApi.md#Get-BetaSegment) | **GET** /segments/{id} | Get a Segment by its ID
 *BetaSegmentsApi* | [**Get-BetaSegments**](docs/BetaSegmentsApi.md#Get-BetaSegments) | **GET** /segments | List Segments
 *BetaSegmentsApi* | [**Update-BetaSegment**](docs/BetaSegmentsApi.md#Update-BetaSegment) | **PATCH** /segments/{id} | Update a Segment
-*BetaServiceDeskIntegrationApi* | [**New-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#New-BetaServiceDeskIntegration) | **POST** /service-desk-integrations | Create a new Service Desk integration
-*BetaServiceDeskIntegrationApi* | [**Remove-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Remove-BetaServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration by ID
-*BetaServiceDeskIntegrationApi* | [**Get-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration by ID
+*BetaServiceDeskIntegrationApi* | [**New-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#New-BetaServiceDeskIntegration) | **POST** /service-desk-integrations | Create new Service Desk integration
+*BetaServiceDeskIntegrationApi* | [**Remove-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Remove-BetaServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration
+*BetaServiceDeskIntegrationApi* | [**Get-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration
 *BetaServiceDeskIntegrationApi* | [**Get-BetaServiceDeskIntegrationList**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationList) | **GET** /service-desk-integrations | List existing Service Desk Integrations
 *BetaServiceDeskIntegrationApi* | [**Get-BetaServiceDeskIntegrationTemplate**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName.
 *BetaServiceDeskIntegrationApi* | [**Get-BetaServiceDeskIntegrationTypes**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
-*BetaServiceDeskIntegrationApi* | [**Get-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaStatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration of queued SDIM tickets
-*BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update - PATCH
-*BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration by ID
-*BetaServiceDeskIntegrationApi* | [**Update-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration of queued SDIM tickets
+*BetaServiceDeskIntegrationApi* | [**Get-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaStatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration
+*BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update PATCH
+*BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
+*BetaServiceDeskIntegrationApi* | [**Update-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
 *BetaSourcesApi* | [**New-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#New-BetaProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 *BetaSourcesApi* | [**New-BetaSource**](docs/BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
 *BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
@@ -365,15 +365,15 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicies**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
 *BetaSourcesApi* | [**Get-BetaSourceSchemas**](docs/BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
 *BetaSourcesApi* | [**Get-BetaSources**](docs/BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
-*BetaSourcesApi* | [**Receive-BetaResourceObjects**](docs/BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek resource objects from the source connector
-*BetaSourcesApi* | [**Ping-BetaCluster**](docs/BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for the source connector
+*BetaSourcesApi* | [**Receive-BetaResourceObjects**](docs/BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
+*BetaSourcesApi* | [**Ping-BetaCluster**](docs/BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
 *BetaSourcesApi* | [**Send-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Send-BetaSource**](docs/BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
 *BetaSourcesApi* | [**Send-BetaSourceAttrSyncConfig**](docs/BetaSourcesApi.md#Send-BetaSourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
 *BetaSourcesApi* | [**Send-BetaSourceSchema**](docs/BetaSourcesApi.md#Send-BetaSourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
 *BetaSourcesApi* | [**Sync-BetaAttributesForSource**](docs/BetaSourcesApi.md#Sync-BetaAttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
-*BetaSourcesApi* | [**Test-BetaSourceConfiguration**](docs/BetaSourcesApi.md#Test-BetaSourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for the source connector
-*BetaSourcesApi* | [**Test-BetaSourceConnection**](docs/BetaSourcesApi.md#Test-BetaSourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for the source connector.
+*BetaSourcesApi* | [**Test-BetaSourceConfiguration**](docs/BetaSourcesApi.md#Test-BetaSourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
+*BetaSourcesApi* | [**Test-BetaSourceConnection**](docs/BetaSourcesApi.md#Test-BetaSourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
 *BetaSourcesApi* | [**Update-BetaProvisioningPoliciesInBulk**](docs/BetaSourcesApi.md#Update-BetaProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 *BetaSourcesApi* | [**Update-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Update-BetaProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
@@ -696,7 +696,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.LifecycleState](docs/LifecycleState.md)
  - [PSSailpointBeta/Model.ListAccessProfiles401Response](docs/ListAccessProfiles401Response.md)
  - [PSSailpointBeta/Model.ListAccessProfiles429Response](docs/ListAccessProfiles429Response.md)
- - [PSSailpointBeta/Model.ListAccounts200ResponseInner](docs/ListAccounts200ResponseInner.md)
+ - [PSSailpointBeta/Model.ListAccounts200Response](docs/ListAccounts200Response.md)
  - [PSSailpointBeta/Model.ListCompleteWorkflowLibrary200ResponseInner](docs/ListCompleteWorkflowLibrary200ResponseInner.md)
  - [PSSailpointBeta/Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
  - [PSSailpointBeta/Model.LocaleOrigin](docs/LocaleOrigin.md)

@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 ```powershell
 $Identity = Initialize-PSSailpointBetaIdentity  -Id id12345 `
  -Name aName `
- -Created null `
- -Modified null `
+ -Created 2023-01-03T21:16:22.432Z `
+ -Modified 2023-01-03T21:16:22.432Z `
  -Alias walter.white `
  -EmailAddress sender@example.com `
  -ProcessingState ERROR `

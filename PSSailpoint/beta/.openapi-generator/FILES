@@ -308,7 +308,7 @@ docs/LatestOutlierSummary.md
 docs/LifecycleState.md
 docs/ListAccessProfiles401Response.md
 docs/ListAccessProfiles429Response.md
-docs/ListAccounts200ResponseInner.md
+docs/ListAccounts200Response.md
 docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/ListIdentityAccessItems200ResponseInner.md
 docs/LocaleOrigin.md
@@ -995,7 +995,7 @@ src/PSSailpointBeta/Model/LatestOutlierSummary.ps1
 src/PSSailpointBeta/Model/LifecycleState.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles401Response.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles429Response.ps1
-src/PSSailpointBeta/Model/ListAccounts200ResponseInner.ps1
+src/PSSailpointBeta/Model/ListAccounts200Response.ps1
 src/PSSailpointBeta/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpointBeta/Model/ListIdentityAccessItems200ResponseInner.ps1
 src/PSSailpointBeta/Model/LocaleOrigin.ps1
@@ -1688,7 +1688,7 @@ tests/Model/LatestOutlierSummary.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
 tests/Model/ListAccessProfiles401Response.Tests.ps1
 tests/Model/ListAccessProfiles429Response.Tests.ps1
-tests/Model/ListAccounts200ResponseInner.Tests.ps1
+tests/Model/ListAccounts200Response.Tests.ps1
 tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/ListIdentityAccessItems200ResponseInner.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1

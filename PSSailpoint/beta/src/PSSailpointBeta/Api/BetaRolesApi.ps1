@@ -249,7 +249,7 @@ function Get-BetaRole {
 <#
 .SYNOPSIS
 
-Get a list of Identities assigned a Role
+Identities assigned a Role
 
 .DESCRIPTION
 

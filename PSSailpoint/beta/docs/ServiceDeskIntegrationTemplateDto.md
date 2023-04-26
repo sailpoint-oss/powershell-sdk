@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ```powershell
 $ServiceDeskIntegrationTemplateDto = Initialize-PSSailpointBetaServiceDeskIntegrationTemplateDto  -Id id12345 `
  -Name aName `
- -Created null `
- -Modified null `
+ -Created 2023-01-03T21:16:22.432Z `
+ -Modified 2023-01-03T21:16:22.432Z `
  -Type Web Service SDIM `
  -Attributes null `
  -ProvisioningConfig null

@@ -11,11 +11,11 @@ Name | Type | Description | Notes
 **Owner** | [**IdentityProfileAllOfOwner**](IdentityProfileAllOfOwner.md) |  | [optional] 
 **Priority** | **Int64** | The priority for an Identity Profile. | [optional] 
 **AuthoritativeSource** | [**IdentityProfileAllOfAuthoritativeSource**](IdentityProfileAllOfAuthoritativeSource.md) |  | 
-**IdentityRefreshRequired** | **Boolean** | True if a identity refresh is needed. Typically triggered when a change on the source has been made | [optional] 
+**IdentityRefreshRequired** | **Boolean** | True if a identity refresh is needed. Typically triggered when a change on the source has been made | [optional] [default to $false]
 **IdentityCount** | **Int32** | The number of identities that belong to the Identity Profile. | [optional] 
 **IdentityAttributeConfig** | [**IdentityAttributeConfig**](IdentityAttributeConfig.md) |  | [optional] 
 **IdentityExceptionReportReference** | [**IdentityExceptionReportReference**](IdentityExceptionReportReference.md) |  | [optional] 
-**HasTimeBasedAttr** | **Boolean** | Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile. | [optional] 
+**HasTimeBasedAttr** | **Boolean** | Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile. | [optional] [default to $true]
 
 ## Examples
 
@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityProfile = Initialize-PSSailpointBetaIdentityProfile  -Id id12345 `
  -Name aName `
- -Created null `
- -Modified null `
+ -Created 2023-01-03T21:16:22.432Z `
+ -Modified 2023-01-03T21:16:22.432Z `
  -Description My custom flat file profile `
  -Owner null `
  -Priority 10 `

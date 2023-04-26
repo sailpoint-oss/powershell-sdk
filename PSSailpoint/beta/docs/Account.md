@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 ```powershell
 $Account = Initialize-PSSailpointBetaAccount  -Id id12345 `
  -Name aName `
- -Created null `
- -Modified null `
+ -Created 2023-01-03T21:16:22.432Z `
+ -Modified 2023-01-03T21:16:22.432Z `
  -SourceId 2c9180835d2e5168015d32f890ca1581 `
  -IdentityId 2c9180835d2e5168015d32f890ca1581 `
  -Attributes null `

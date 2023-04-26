@@ -4,9 +4,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaMFAConfig**](BetaMFAConfigurationApi.md#Get-BetaMFAConfig) | **GET** /mfa/{method}/config | Get configuration of a MFA method
-[**Set-BetaMFAConfig**](BetaMFAConfigurationApi.md#Set-BetaMFAConfig) | **PUT** /mfa/{method}/config | Set configuration of a MFA method
-[**Test-BetaMFAConfig**](BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | Test configuration of a MFA method
+[**Get-BetaMFAConfig**](BetaMFAConfigurationApi.md#Get-BetaMFAConfig) | **GET** /mfa/{method}/config | Configuration of a MFA method
+[**Set-BetaMFAConfig**](BetaMFAConfigurationApi.md#Set-BetaMFAConfig) | **PUT** /mfa/{method}/config | Set MFA method configuration
+[**Test-BetaMFAConfig**](BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | MFA method&#39;s test configuration
 
 
 <a name="Get-BetaMFAConfig"></a>
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 > MfaConfig Get-BetaMFAConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Method] <String><br>
 
-Get configuration of a MFA method
+Configuration of a MFA method
 
 This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
 
@@ -30,7 +30,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method name is okta-verify.
 
-# Get configuration of a MFA method
+# Configuration of a MFA method
 try {
     $Result = Get-BetaMFAConfig -Method $Method
 } catch {
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Method] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MfaConfig] <PSCustomObject><br>
 
-Set configuration of a MFA method
+Set MFA method configuration
 
 This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
 
@@ -83,7 +83,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method name is okta-verify.
 $MfaConfig = Initialize-MfaConfig -Enabled $false -VarHost "example.com" -AccessKey "MyAccessKey" -IdentityAttribute "email" # MfaConfig | 
 
-# Set configuration of a MFA method
+# Set MFA method configuration
 try {
     $Result = Set-BetaMFAConfig -Method $Method -MfaConfig $MfaConfig
 } catch {
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 > MfaConfigTestResponse Test-BetaMFAConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Method] <String><br>
 
-Test configuration of a MFA method
+MFA method's test configuration
 
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
 
@@ -135,7 +135,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method name is okta-verify.
 
-# Test configuration of a MFA method
+# MFA method's test configuration
 try {
     $Result = Test-BetaMFAConfig -Method $Method
 } catch {

@@ -382,11 +382,11 @@ function New-BetaNonEmployeeSource {
 <#
 .SYNOPSIS
 
-Create a new Schema Attribute for Non-Employee Source
+Create Non-Employee Source Schema Attribute
 
 .DESCRIPTION
 
-This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a ""400.1.409 Reference conflict"" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a ""400.1.4 Limit violation"" response. Request requires a security scope of: 'idn:nesr:create'
+This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a ""400.1.409 Reference conflict"" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a ""400.1.4 Limit violation"" response.
 
 .PARAMETER SourceId
 The Source id
@@ -487,7 +487,7 @@ Delete Non-Employee Record
 
 .DESCRIPTION
 
-This request will delete a non-employee record. Request will require the following security scope: 'idn:nesr:delete'
+This request will delete a non-employee record.
 
 .PARAMETER Id
 Non-Employee record id (UUID)
@@ -653,7 +653,7 @@ Delete Non-Employee Request
 
 .DESCRIPTION
 
-This request will delete a non-employee request.   Request will require the following scope: 'idn:nesr:delete'
+This request will delete a non-employee request.
 
 .PARAMETER Id
 Non-Employee request id in the UUID format
@@ -724,11 +724,11 @@ function Remove-BetaNonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Delete a Schema Attribute for Non-Employee Source
+Delete Non-Employee Source's Schema Attribute
 
 .DESCRIPTION
 
-This end-point deletes a specific schema attribute for a non-employee source.  Request will require a security scope of:  'idn:nesr:delete' 
+This end-point deletes a specific schema attribute for a non-employee source. 
 
 .PARAMETER AttributeId
 The Schema Attribute Id (UUID)
@@ -813,7 +813,7 @@ Delete Non-Employee Source
 
 .DESCRIPTION
 
-This request will delete a non-employee source. Request will require the following security scope: 'idn:nesr:delete'
+This request will delete a non-employee source.
 
 .PARAMETER SourceId
 Source Id
@@ -884,11 +884,11 @@ function Remove-BetaNonEmployeeSource {
 <#
 .SYNOPSIS
 
-Delete all custom schema attributes for Non-Employee Source
+Delete all custom schema attributes
 
 .DESCRIPTION
 
-This end-point deletes all custom schema attributes for a non-employee source. Request requires a security scope of: 'idn:nesr:delete'
+This end-point deletes all custom schema attributes for a non-employee source.
 
 .PARAMETER SourceId
 The Source id
@@ -963,7 +963,7 @@ Exports Non-Employee Records to CSV
 
 .DESCRIPTION
 
-This requests a CSV download for all non-employees from a provided source. Request will need the following security scope: 'idn:nesr:read'
+This requests a CSV download for all non-employees from a provided source.
 
 .PARAMETER Id
 Source Id (UUID)
@@ -1293,11 +1293,11 @@ function Get-BetaNonEmployeeApprovalSummary {
 <#
 .SYNOPSIS
 
-Obtain the status of bulk upload on the source
+Bulk upload status on source
 
 .DESCRIPTION
 
-The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.  Request will need the following scope:  'idn:nesr:read' 
+The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. 
 
 .PARAMETER Id
 Source ID (UUID)
@@ -1372,7 +1372,7 @@ Get a Non-Employee Record
 
 .DESCRIPTION
 
-This gets a non-employee record. Request will require the following scope: 'idn:nesr:read'
+This gets a non-employee record.
 
 .PARAMETER Id
 Non-Employee record id (UUID)
@@ -2422,11 +2422,11 @@ function Update-BetaNonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Patch a Schema Attribute for Non-Employee Source
+Patch Non-Employee Source's Schema Attribute
 
 .DESCRIPTION
 
-This end-point patches a specific schema attribute for a non-employee SourceId.  Request will require a security scope of:  'idn:nesr:update' 
+This end-point patches a specific schema attribute for a non-employee SourceId. 
 
 .PARAMETER AttributeId
 The Schema Attribute Id (UUID)
@@ -2537,7 +2537,7 @@ Patch a Non-Employee Source
 
 .DESCRIPTION
 
-patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers** Request will require the following security scope: 'idn:nesr:update'
+patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
 
 .PARAMETER SourceId
 Source Id

@@ -95,7 +95,7 @@ function Initialize-BetaSlimAccount {
         [String]
         ${IdentityId},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [System.Collections.Hashtable]
         ${Attributes}
     )
 

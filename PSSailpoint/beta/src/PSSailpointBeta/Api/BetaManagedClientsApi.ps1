@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get a specified Managed Client Status.
+Specified Managed Client Status.
 
 .DESCRIPTION
 
@@ -94,7 +94,7 @@ function Get-BetaManagedClientStatus {
 <#
 .SYNOPSIS
 
-Handle a status request from a client
+Handle status request from client
 
 .DESCRIPTION
 

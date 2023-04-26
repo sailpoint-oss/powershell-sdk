@@ -60,7 +60,7 @@ function Initialize-BetaSubscription {
         [String]
         ${TriggerName},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("HTTP", "EVENTBRIDGE")]
+        [ValidateSet("HTTP", "EVENTBRIDGE", "INLINE", "SCRIPT", "WORKFLOW")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]

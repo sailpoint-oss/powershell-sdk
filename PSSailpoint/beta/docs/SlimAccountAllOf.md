@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **SourceId** | **String** | The ID of the source for which this account belongs | [optional] 
 **SourceName** | **String** | The name of the source | [optional] 
 **IdentityId** | **String** | The ID of the identity for which this account is correlated to if not uncorrelated | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](.md) | A map containing attributes associated with the account | [optional] 
+**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | A map containing attributes associated with the account | [optional] 
 
 ## Examples
 
@@ -29,7 +29,7 @@ $SlimAccountAllOf = Initialize-PSSailpointBetaSlimAccountAllOf  -Uuid null `
  -SourceId 2c9180835d2e5168015d32f890ca1581 `
  -SourceName Large Source `
  -IdentityId 4b9163835d2e5168015d32f890ca5936 `
- -Attributes null
+ -Attributes {firstName&#x3D;SailPoint, lastName&#x3D;Support, displayName&#x3D;SailPoint Support}
 ```
 
 - Convert the resource to JSON

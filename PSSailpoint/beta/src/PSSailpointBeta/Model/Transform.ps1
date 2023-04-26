@@ -42,11 +42,11 @@ function Initialize-BetaTransform {
         [String]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable]
+        [PSCustomObject]
         ${Attributes},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Internal}
+        ${Internal} = $false
     )
 
     Process {
@@ -59,10 +59,6 @@ function Initialize-BetaTransform {
 
         if ($null -eq $Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
-        if ($null -eq $Attributes) {
-            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
 

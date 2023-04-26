@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **SourceId** | **String** | The ID of the source for which this account belongs | [optional] 
 **SourceName** | **String** | The name of the source | [optional] 
 **IdentityId** | **String** | The ID of the identity for which this account is correlated to if not uncorrelated | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](.md) | A map containing attributes associated with the account | [optional] 
+**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | A map containing attributes associated with the account | [optional] 
 
 ## Examples
 
@@ -25,8 +25,8 @@ Name | Type | Description | Notes
 ```powershell
 $SlimAccount = Initialize-PSSailpointBetaSlimAccount  -Id id12345 `
  -Name aName `
- -Created null `
- -Modified null `
+ -Created 2023-01-03T21:16:22.432Z `
+ -Modified 2023-01-03T21:16:22.432Z `
  -Uuid null `
  -NativeIdentity brandin.gray `
  -Description Brandin Gray the CEO of Silly Inc. `
@@ -37,7 +37,7 @@ $SlimAccount = Initialize-PSSailpointBetaSlimAccount  -Id id12345 `
  -SourceId 2c9180835d2e5168015d32f890ca1581 `
  -SourceName Large Source `
  -IdentityId 4b9163835d2e5168015d32f890ca5936 `
- -Attributes null
+ -Attributes {firstName&#x3D;SailPoint, lastName&#x3D;Support, displayName&#x3D;SailPoint Support}
 ```
 
 - Convert the resource to JSON

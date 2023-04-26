@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get configuration of a MFA method
+Configuration of a MFA method
 
 .DESCRIPTION
 
@@ -83,7 +83,7 @@ function Get-BetaMFAConfig {
 <#
 .SYNOPSIS
 
-Set configuration of a MFA method
+Set MFA method configuration
 
 .DESCRIPTION
 
@@ -184,7 +184,7 @@ function Set-BetaMFAConfig {
 <#
 .SYNOPSIS
 
-Test configuration of a MFA method
+MFA method's test configuration
 
 .DESCRIPTION
 

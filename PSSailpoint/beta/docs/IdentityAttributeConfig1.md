@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **Boolean** | The backend will only promote values if the profile/mapping is enabled. | [optional] 
+**Enabled** | **Boolean** | The backend will only promote values if the profile/mapping is enabled. | [optional] [default to $false]
 **AttributeTransforms** | [**IdentityAttributeTransform1[]**](IdentityAttributeTransform1.md) |  | [optional] 
 
 ## Examples

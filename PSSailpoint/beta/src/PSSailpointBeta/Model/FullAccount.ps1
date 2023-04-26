@@ -103,7 +103,7 @@ function Initialize-BetaFullAccount {
         [String]
         ${IdentityId},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [System.Collections.Hashtable]
         ${Attributes},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | the id of the Source | [optional] [readonly] 
-**Type** | **String** | Specifies the type of system being managed e.g. Active Directory, Workday, etc.. | [optional] 
+**Type** | **String** | Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the &#x60;provisionasCsv&#x60; query parameter to &#x60;true&#x60;.  | [optional] 
 **Name** | **String** | the name of the source | [optional] 
 **Org** | **String** | source&#39;s org | [optional] 
 **IsAuthoritative** | **Boolean** | Is the source authoritative | [optional] 

@@ -41,7 +41,7 @@ List of references to the associated PasswordPolicy objects.
 .PARAMETER Features
 Optional features that can be supported by a source.
 .PARAMETER Type
-Specifies the type of system being managed e.g. Active Directory, Workday, etc..
+Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
 .PARAMETER Connector
 Connector script name.
 .PARAMETER ConnectorClass

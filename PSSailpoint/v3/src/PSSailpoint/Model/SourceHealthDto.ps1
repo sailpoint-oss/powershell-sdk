@@ -17,7 +17,7 @@ Dto for source health data
 .PARAMETER Id
 the id of the Source
 .PARAMETER Type
-Specifies the type of system being managed e.g. Active Directory, Workday, etc..
+Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
 .PARAMETER Name
 the name of the source
 .PARAMETER Org

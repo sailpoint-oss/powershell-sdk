@@ -119,7 +119,7 @@ This creates a specific source with a full source JSON representation. Any passw
 No description available.
 
 .PARAMETER ProvisionAsCsv
-Configures the source as a DelimitedFile type of source.
+If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.  
 
 .PARAMETER WithHttpInfo
 

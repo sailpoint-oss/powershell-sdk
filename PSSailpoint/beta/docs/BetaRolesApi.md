@@ -4,6 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Invoke-BetaBulkDeleteRoles**](BetaRolesApi.md#Invoke-BetaBulkDeleteRoles) | **POST** /roles/bulk-delete | Delete Role(s)
 [**New-BetaRole**](BetaRolesApi.md#New-BetaRole) | **POST** /roles | Create a Role
 [**Remove-BetaRole**](BetaRolesApi.md#Remove-BetaRole) | **DELETE** /roles/{id} | Delete a Role
 [**Get-BetaRole**](BetaRolesApi.md#Get-BetaRole) | **GET** /roles/{id} | Get a Role
@@ -11,6 +12,57 @@ Method | HTTP request | Description
 [**Get-BetaRoles**](BetaRolesApi.md#Get-BetaRoles) | **GET** /roles | List Roles
 [**Update-BetaRole**](BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
 
+
+<a name="Invoke-BetaBulkDeleteRoles"></a>
+# **Invoke-BetaBulkDeleteRoles**
+> BaseReferenceDto Invoke-BetaBulkDeleteRoles<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleBulkDeleteRequest] <PSCustomObject><br>
+
+Delete Role(s)
+
+This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$RoleBulkDeleteRequest = Initialize-RoleBulkDeleteRequest -RoleIds "MyRoleIds" # RoleBulkDeleteRequest | 
+
+# Delete Role(s)
+try {
+    $Result = Invoke-BetaBulkDeleteRoles -RoleBulkDeleteRequest $RoleBulkDeleteRequest
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-BetaBulkDeleteRoles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RoleBulkDeleteRequest** | [**RoleBulkDeleteRequest**](RoleBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-BetaRole"></a>
 # **New-BetaRole**

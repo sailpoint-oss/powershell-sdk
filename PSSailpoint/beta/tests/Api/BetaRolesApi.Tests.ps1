@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaRolesApi' {
+    Context 'Invoke-BetaBulkDeleteRoles' {
+        It 'Test Invoke-BetaBulkDeleteRoles' {
+            #$TestResult = Invoke-BetaBulkDeleteRoles -RoleBulkDeleteRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-BetaRole' {
         It 'Test New-BetaRole' {
             #$TestResult = New-BetaRole -Role "TEST_VALUE"

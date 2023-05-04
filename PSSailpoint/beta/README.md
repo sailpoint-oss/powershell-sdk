@@ -298,6 +298,7 @@ Class | Method | HTTP request | Description
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsEntitlementsChanges**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes | Get entitlement insights for a role
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsRequests**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns the metadata for a request in order to generate insights for roles.
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsSummary**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
+*BetaRolesApi* | [**Invoke-BetaBulkDeleteRoles**](docs/BetaRolesApi.md#Invoke-BetaBulkDeleteRoles) | **POST** /roles/bulk-delete | Delete Role(s)
 *BetaRolesApi* | [**New-BetaRole**](docs/BetaRolesApi.md#New-BetaRole) | **POST** /roles | Create a Role
 *BetaRolesApi* | [**Remove-BetaRole**](docs/BetaRolesApi.md#Remove-BetaRole) | **DELETE** /roles/{id} | Delete a Role
 *BetaRolesApi* | [**Get-BetaRole**](docs/BetaRolesApi.md#Get-BetaRole) | **GET** /roles/{id} | Get a Role
@@ -831,6 +832,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.Revocability](docs/Revocability.md)
  - [PSSailpointBeta/Model.Role](docs/Role.md)
  - [PSSailpointBeta/Model.RoleAssignmentSourceType](docs/RoleAssignmentSourceType.md)
+ - [PSSailpointBeta/Model.RoleBulkDeleteRequest](docs/RoleBulkDeleteRequest.md)
  - [PSSailpointBeta/Model.RoleCriteriaKey](docs/RoleCriteriaKey.md)
  - [PSSailpointBeta/Model.RoleCriteriaKeyType](docs/RoleCriteriaKeyType.md)
  - [PSSailpointBeta/Model.RoleCriteriaLevel1](docs/RoleCriteriaLevel1.md)

@@ -154,6 +154,7 @@ docs/EventAllOf.md
 docs/EventDocument.md
 docs/ExecutionStatus.md
 docs/ExpansionItem.md
+docs/Expression.md
 docs/FieldDetailsDto.md
 docs/Filter.md
 docs/FilterAggregation.md
@@ -374,6 +375,8 @@ docs/SearchSchedule.md
 docs/SearchScheduleRecipientsInner.md
 docs/SectionDetails.md
 docs/SectionDetailsAllOf.md
+docs/Segment.md
+docs/SegmentsApi.md
 docs/Selector.md
 docs/SelectorType.md
 docs/ServiceDeskIntegrationApi.md
@@ -422,6 +425,8 @@ docs/UpdatePasswordDictionaryRequest.md
 docs/UploadNonEmployeeRecordsInBulkRequest.md
 docs/Upper.md
 docs/UsageType.md
+docs/Value.md
+docs/VisibilityCriteria.md
 docs/WorkItemState.md
 docs/WorkItemType.md
 docs/WorkItems.md
@@ -451,6 +456,7 @@ src/PSSailpoint/Api/RolesApi.ps1
 src/PSSailpoint/Api/SavedSearchApi.ps1
 src/PSSailpoint/Api/ScheduledSearchApi.ps1
 src/PSSailpoint/Api/SearchApi.ps1
+src/PSSailpoint/Api/SegmentsApi.ps1
 src/PSSailpoint/Api/ServiceDeskIntegrationApi.ps1
 src/PSSailpoint/Api/SourcesApi.ps1
 src/PSSailpoint/Api/TransformsApi.ps1
@@ -600,6 +606,7 @@ src/PSSailpoint/Model/EventAllOf.ps1
 src/PSSailpoint/Model/EventDocument.ps1
 src/PSSailpoint/Model/ExecutionStatus.ps1
 src/PSSailpoint/Model/ExpansionItem.ps1
+src/PSSailpoint/Model/Expression.ps1
 src/PSSailpoint/Model/FieldDetailsDto.ps1
 src/PSSailpoint/Model/FilterAggregation.ps1
 src/PSSailpoint/Model/FilterType.ps1
@@ -805,6 +812,7 @@ src/PSSailpoint/Model/SearchSchedule.ps1
 src/PSSailpoint/Model/SearchScheduleRecipientsInner.ps1
 src/PSSailpoint/Model/SectionDetails.ps1
 src/PSSailpoint/Model/SectionDetailsAllOf.ps1
+src/PSSailpoint/Model/Segment.ps1
 src/PSSailpoint/Model/Selector.ps1
 src/PSSailpoint/Model/SelectorType.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationDto.ps1
@@ -850,6 +858,8 @@ src/PSSailpoint/Model/UpdatePasswordDictionaryRequest.ps1
 src/PSSailpoint/Model/UploadNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint/Model/Upper.ps1
 src/PSSailpoint/Model/UsageType.ps1
+src/PSSailpoint/Model/Value.ps1
+src/PSSailpoint/Model/VisibilityCriteria.ps1
 src/PSSailpoint/Model/WorkItemState.ps1
 src/PSSailpoint/Model/WorkItemType.ps1
 src/PSSailpoint/Model/WorkItems.ps1
@@ -885,6 +895,7 @@ tests/Api/RolesApi.Tests.ps1
 tests/Api/SavedSearchApi.Tests.ps1
 tests/Api/ScheduledSearchApi.Tests.ps1
 tests/Api/SearchApi.Tests.ps1
+tests/Api/SegmentsApi.Tests.ps1
 tests/Api/ServiceDeskIntegrationApi.Tests.ps1
 tests/Api/SourcesApi.Tests.ps1
 tests/Api/TransformsApi.Tests.ps1
@@ -1033,6 +1044,7 @@ tests/Model/EventAllOf.Tests.ps1
 tests/Model/EventDocument.Tests.ps1
 tests/Model/ExecutionStatus.Tests.ps1
 tests/Model/ExpansionItem.Tests.ps1
+tests/Model/Expression.Tests.ps1
 tests/Model/FieldDetailsDto.Tests.ps1
 tests/Model/FilterAggregation.Tests.ps1
 tests/Model/FilterType.Tests.ps1
@@ -1238,6 +1250,7 @@ tests/Model/SearchSchedule.Tests.ps1
 tests/Model/SearchScheduleRecipientsInner.Tests.ps1
 tests/Model/SectionDetails.Tests.ps1
 tests/Model/SectionDetailsAllOf.Tests.ps1
+tests/Model/Segment.Tests.ps1
 tests/Model/Selector.Tests.ps1
 tests/Model/SelectorType.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
@@ -1283,6 +1296,8 @@ tests/Model/UpdatePasswordDictionaryRequest.Tests.ps1
 tests/Model/UploadNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
+tests/Model/Value.Tests.ps1
+tests/Model/VisibilityCriteria.Tests.ps1
 tests/Model/WorkItemState.Tests.ps1
 tests/Model/WorkItemType.Tests.ps1
 tests/Model/WorkItems.Tests.ps1

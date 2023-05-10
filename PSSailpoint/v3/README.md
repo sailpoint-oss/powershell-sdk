@@ -182,6 +182,11 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**Search-Count**](docs/SearchApi.md#Search-Count) | **POST** /search/count | Count Documents Satisfying a Query
 *SearchApi* | [**Search-Get**](docs/SearchApi.md#Search-Get) | **GET** /search/{index}/{id} | Get a Document by ID
 *SearchApi* | [**Search-Post**](docs/SearchApi.md#Search-Post) | **POST** /search | Perform Search
+*SegmentsApi* | [**New-Segment**](docs/SegmentsApi.md#New-Segment) | **POST** /segments | Create Segment
+*SegmentsApi* | [**Remove-Segment**](docs/SegmentsApi.md#Remove-Segment) | **DELETE** /segments/{id} | Delete Segment by ID
+*SegmentsApi* | [**Get-Segment**](docs/SegmentsApi.md#Get-Segment) | **GET** /segments/{id} | Get a Segment by ID
+*SegmentsApi* | [**Get-Segments**](docs/SegmentsApi.md#Get-Segments) | **GET** /segments | List Segments
+*SegmentsApi* | [**Update-Segment**](docs/SegmentsApi.md#Update-Segment) | **PATCH** /segments/{id} | Update a Segment
 *ServiceDeskIntegrationApi* | [**New-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#New-ServiceDeskIntegration) | **POST** /service-desk-integrations | Create new Service Desk integration
 *ServiceDeskIntegrationApi* | [**Remove-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Remove-ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration
 *ServiceDeskIntegrationApi* | [**Get-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration
@@ -382,6 +387,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.EventDocument](docs/EventDocument.md)
  - [PSSailpoint/Model.ExecutionStatus](docs/ExecutionStatus.md)
  - [PSSailpoint/Model.ExpansionItem](docs/ExpansionItem.md)
+ - [PSSailpoint/Model.Expression](docs/Expression.md)
  - [PSSailpoint/Model.FieldDetailsDto](docs/FieldDetailsDto.md)
  - [PSSailpoint/Model.FilterAggregation](docs/FilterAggregation.md)
  - [PSSailpoint/Model.FilterType](docs/FilterType.md)
@@ -587,6 +593,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SearchScheduleRecipientsInner](docs/SearchScheduleRecipientsInner.md)
  - [PSSailpoint/Model.SectionDetails](docs/SectionDetails.md)
  - [PSSailpoint/Model.SectionDetailsAllOf](docs/SectionDetailsAllOf.md)
+ - [PSSailpoint/Model.Segment](docs/Segment.md)
  - [PSSailpoint/Model.Selector](docs/Selector.md)
  - [PSSailpoint/Model.SelectorType](docs/SelectorType.md)
  - [PSSailpoint/Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
@@ -632,6 +639,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.UploadNonEmployeeRecordsInBulkRequest](docs/UploadNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint/Model.Upper](docs/Upper.md)
  - [PSSailpoint/Model.UsageType](docs/UsageType.md)
+ - [PSSailpoint/Model.Value](docs/Value.md)
+ - [PSSailpoint/Model.VisibilityCriteria](docs/VisibilityCriteria.md)
  - [PSSailpoint/Model.WorkItemState](docs/WorkItemState.md)
  - [PSSailpoint/Model.WorkItemType](docs/WorkItemType.md)
  - [PSSailpoint/Model.WorkItems](docs/WorkItems.md)

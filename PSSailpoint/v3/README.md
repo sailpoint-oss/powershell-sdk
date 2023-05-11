@@ -166,6 +166,8 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**Get-RoleAssignedIdentities**](docs/RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 *RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles
 *RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
+*SODPolicyApi* | [**New-SodPolicy**](docs/SODPolicyApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
+*SODPolicyApi* | [**Get-SodPolicies**](docs/SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
 *SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
 *SavedSearchApi* | [**Remove-SavedSearch**](docs/SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
 *SavedSearchApi* | [**Invoke-ExecuteSavedSearch**](docs/SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
@@ -245,6 +247,8 @@ Class | Method | HTTP request | Description
 
  - [PSSailpoint/Model.Access](docs/Access.md)
  - [PSSailpoint/Model.AccessAllOf](docs/AccessAllOf.md)
+ - [PSSailpoint/Model.AccessCriteria](docs/AccessCriteria.md)
+ - [PSSailpoint/Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
  - [PSSailpoint/Model.AccessProfile](docs/AccessProfile.md)
  - [PSSailpoint/Model.AccessProfileApprovalScheme](docs/AccessProfileApprovalScheme.md)
  - [PSSailpoint/Model.AccessProfileBulkDeleteRequest](docs/AccessProfileBulkDeleteRequest.md)
@@ -349,6 +353,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CompletionStatus](docs/CompletionStatus.md)
  - [PSSailpoint/Model.Concatenation](docs/Concatenation.md)
  - [PSSailpoint/Model.Conditional](docs/Conditional.md)
+ - [PSSailpoint/Model.ConflictingAccessCriteria](docs/ConflictingAccessCriteria.md)
  - [PSSailpoint/Model.CreateOAuthClientRequest](docs/CreateOAuthClientRequest.md)
  - [PSSailpoint/Model.CreateOAuthClientResponse](docs/CreateOAuthClientResponse.md)
  - [PSSailpoint/Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
@@ -604,6 +609,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SetLifecycleState200Response](docs/SetLifecycleState200Response.md)
  - [PSSailpoint/Model.SetLifecycleStateRequest](docs/SetLifecycleStateRequest.md)
  - [PSSailpoint/Model.SodExemptCriteria](docs/SodExemptCriteria.md)
+ - [PSSailpoint/Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint/Model.SodViolationCheckResult](docs/SodViolationCheckResult.md)
  - [PSSailpoint/Model.SodViolationContext](docs/SodViolationContext.md)
  - [PSSailpoint/Model.SodViolationContextCheckCompleted](docs/SodViolationContextCheckCompleted.md)
@@ -640,6 +646,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.Upper](docs/Upper.md)
  - [PSSailpoint/Model.UsageType](docs/UsageType.md)
  - [PSSailpoint/Model.Value](docs/Value.md)
+ - [PSSailpoint/Model.ViolationOwnerAssignmentConfig](docs/ViolationOwnerAssignmentConfig.md)
  - [PSSailpoint/Model.VisibilityCriteria](docs/VisibilityCriteria.md)
  - [PSSailpoint/Model.WorkItemState](docs/WorkItemState.md)
  - [PSSailpoint/Model.WorkItemType](docs/WorkItemType.md)

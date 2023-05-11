@@ -4,6 +4,8 @@ README.md
 appveyor.yml
 docs/Access.md
 docs/AccessAllOf.md
+docs/AccessCriteria.md
+docs/AccessCriteriaCriteriaListInner.md
 docs/AccessProfile.md
 docs/AccessProfileApprovalScheme.md
 docs/AccessProfileBulkDeleteRequest.md
@@ -115,6 +117,7 @@ docs/CompletedApprovalState.md
 docs/CompletionStatus.md
 docs/Concatenation.md
 docs/Conditional.md
+docs/ConflictingAccessCriteria.md
 docs/CreateOAuthClientRequest.md
 docs/CreateOAuthClientResponse.md
 docs/CreatePersonalAccessTokenRequest.md
@@ -345,6 +348,7 @@ docs/RoleSummary.md
 docs/RoleSummaryAllOf.md
 docs/RolesApi.md
 docs/Rule.md
+docs/SODPolicyApi.md
 docs/SavedSearch.md
 docs/SavedSearchAllOf.md
 docs/SavedSearchApi.md
@@ -388,6 +392,7 @@ docs/ServiceDeskIntegrationTemplateType.md
 docs/SetLifecycleState200Response.md
 docs/SetLifecycleStateRequest.md
 docs/SodExemptCriteria.md
+docs/SodPolicy.md
 docs/SodViolationCheckResult.md
 docs/SodViolationContext.md
 docs/SodViolationContextCheckCompleted.md
@@ -426,6 +431,7 @@ docs/UploadNonEmployeeRecordsInBulkRequest.md
 docs/Upper.md
 docs/UsageType.md
 docs/Value.md
+docs/ViolationOwnerAssignmentConfig.md
 docs/VisibilityCriteria.md
 docs/WorkItemState.md
 docs/WorkItemType.md
@@ -453,6 +459,7 @@ src/PSSailpoint/Api/PublicIdentitiesApi.ps1
 src/PSSailpoint/Api/PublicIdentitiesConfigApi.ps1
 src/PSSailpoint/Api/RequestableObjectsApi.ps1
 src/PSSailpoint/Api/RolesApi.ps1
+src/PSSailpoint/Api/SODPolicyApi.ps1
 src/PSSailpoint/Api/SavedSearchApi.ps1
 src/PSSailpoint/Api/ScheduledSearchApi.ps1
 src/PSSailpoint/Api/SearchApi.ps1
@@ -464,6 +471,8 @@ src/PSSailpoint/Api/WorkItemsApi.ps1
 src/PSSailpoint/Client/Configuration.ps1
 src/PSSailpoint/Model/Access.ps1
 src/PSSailpoint/Model/AccessAllOf.ps1
+src/PSSailpoint/Model/AccessCriteria.ps1
+src/PSSailpoint/Model/AccessCriteriaCriteriaListInner.ps1
 src/PSSailpoint/Model/AccessProfile.ps1
 src/PSSailpoint/Model/AccessProfileApprovalScheme.ps1
 src/PSSailpoint/Model/AccessProfileBulkDeleteRequest.ps1
@@ -568,6 +577,7 @@ src/PSSailpoint/Model/CompletedApprovalState.ps1
 src/PSSailpoint/Model/CompletionStatus.ps1
 src/PSSailpoint/Model/Concatenation.ps1
 src/PSSailpoint/Model/Conditional.ps1
+src/PSSailpoint/Model/ConflictingAccessCriteria.ps1
 src/PSSailpoint/Model/CreateOAuthClientRequest.ps1
 src/PSSailpoint/Model/CreateOAuthClientResponse.ps1
 src/PSSailpoint/Model/CreatePersonalAccessTokenRequest.ps1
@@ -823,6 +833,7 @@ src/PSSailpoint/Model/ServiceDeskIntegrationTemplateType.ps1
 src/PSSailpoint/Model/SetLifecycleState200Response.ps1
 src/PSSailpoint/Model/SetLifecycleStateRequest.ps1
 src/PSSailpoint/Model/SodExemptCriteria.ps1
+src/PSSailpoint/Model/SodPolicy.ps1
 src/PSSailpoint/Model/SodViolationCheckResult.ps1
 src/PSSailpoint/Model/SodViolationContext.ps1
 src/PSSailpoint/Model/SodViolationContextCheckCompleted.ps1
@@ -859,6 +870,7 @@ src/PSSailpoint/Model/UploadNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint/Model/Upper.ps1
 src/PSSailpoint/Model/UsageType.ps1
 src/PSSailpoint/Model/Value.ps1
+src/PSSailpoint/Model/ViolationOwnerAssignmentConfig.ps1
 src/PSSailpoint/Model/VisibilityCriteria.ps1
 src/PSSailpoint/Model/WorkItemState.ps1
 src/PSSailpoint/Model/WorkItemType.ps1
@@ -892,6 +904,7 @@ tests/Api/PublicIdentitiesApi.Tests.ps1
 tests/Api/PublicIdentitiesConfigApi.Tests.ps1
 tests/Api/RequestableObjectsApi.Tests.ps1
 tests/Api/RolesApi.Tests.ps1
+tests/Api/SODPolicyApi.Tests.ps1
 tests/Api/SavedSearchApi.Tests.ps1
 tests/Api/ScheduledSearchApi.Tests.ps1
 tests/Api/SearchApi.Tests.ps1
@@ -902,6 +915,8 @@ tests/Api/TransformsApi.Tests.ps1
 tests/Api/WorkItemsApi.Tests.ps1
 tests/Model/Access.Tests.ps1
 tests/Model/AccessAllOf.Tests.ps1
+tests/Model/AccessCriteria.Tests.ps1
+tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
 tests/Model/AccessProfile.Tests.ps1
 tests/Model/AccessProfileApprovalScheme.Tests.ps1
 tests/Model/AccessProfileBulkDeleteRequest.Tests.ps1
@@ -1006,6 +1021,7 @@ tests/Model/CompletedApprovalState.Tests.ps1
 tests/Model/CompletionStatus.Tests.ps1
 tests/Model/Concatenation.Tests.ps1
 tests/Model/Conditional.Tests.ps1
+tests/Model/ConflictingAccessCriteria.Tests.ps1
 tests/Model/CreateOAuthClientRequest.Tests.ps1
 tests/Model/CreateOAuthClientResponse.Tests.ps1
 tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
@@ -1261,6 +1277,7 @@ tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
 tests/Model/SetLifecycleState200Response.Tests.ps1
 tests/Model/SetLifecycleStateRequest.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
+tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodViolationCheckResult.Tests.ps1
 tests/Model/SodViolationContext.Tests.ps1
 tests/Model/SodViolationContextCheckCompleted.Tests.ps1
@@ -1297,6 +1314,7 @@ tests/Model/UploadNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/Value.Tests.ps1
+tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1
 tests/Model/VisibilityCriteria.Tests.ps1
 tests/Model/WorkItemState.Tests.ps1
 tests/Model/WorkItemType.Tests.ps1

@@ -95,6 +95,7 @@ docs/BaseReferenceDto.md
 docs/Bound.md
 docs/BucketAggregation.md
 docs/BucketType.md
+docs/BulkTaggedObject.md
 docs/Campaign.md
 docs/CampaignReference.md
 docs/CancelAccessRequest.md
@@ -417,6 +418,9 @@ docs/Static.md
 docs/SubSearchAggregationSpecification.md
 docs/SubSearchAggregationSpecificationAllOf.md
 docs/Substring.md
+docs/TaggedObject.md
+docs/TaggedObjectDto.md
+docs/TaggedObjectsApi.md
 docs/Transform.md
 docs/TransformAttributes.md
 docs/TransformDefinition.md
@@ -466,6 +470,7 @@ src/PSSailpoint/Api/SearchApi.ps1
 src/PSSailpoint/Api/SegmentsApi.ps1
 src/PSSailpoint/Api/ServiceDeskIntegrationApi.ps1
 src/PSSailpoint/Api/SourcesApi.ps1
+src/PSSailpoint/Api/TaggedObjectsApi.ps1
 src/PSSailpoint/Api/TransformsApi.ps1
 src/PSSailpoint/Api/WorkItemsApi.ps1
 src/PSSailpoint/Client/Configuration.ps1
@@ -557,6 +562,7 @@ src/PSSailpoint/Model/BaseReferenceDto.ps1
 src/PSSailpoint/Model/Bound.ps1
 src/PSSailpoint/Model/BucketAggregation.ps1
 src/PSSailpoint/Model/BucketType.ps1
+src/PSSailpoint/Model/BulkTaggedObject.ps1
 src/PSSailpoint/Model/Campaign.ps1
 src/PSSailpoint/Model/CampaignReference.ps1
 src/PSSailpoint/Model/CancelAccessRequest.ps1
@@ -857,6 +863,8 @@ src/PSSailpoint/Model/Static.ps1
 src/PSSailpoint/Model/SubSearchAggregationSpecification.ps1
 src/PSSailpoint/Model/SubSearchAggregationSpecificationAllOf.ps1
 src/PSSailpoint/Model/Substring.ps1
+src/PSSailpoint/Model/TaggedObject.ps1
+src/PSSailpoint/Model/TaggedObjectDto.ps1
 src/PSSailpoint/Model/Transform.ps1
 src/PSSailpoint/Model/TransformAttributes.ps1
 src/PSSailpoint/Model/TransformDefinition.ps1
@@ -911,6 +919,7 @@ tests/Api/SearchApi.Tests.ps1
 tests/Api/SegmentsApi.Tests.ps1
 tests/Api/ServiceDeskIntegrationApi.Tests.ps1
 tests/Api/SourcesApi.Tests.ps1
+tests/Api/TaggedObjectsApi.Tests.ps1
 tests/Api/TransformsApi.Tests.ps1
 tests/Api/WorkItemsApi.Tests.ps1
 tests/Model/Access.Tests.ps1
@@ -1001,6 +1010,7 @@ tests/Model/BaseReferenceDto.Tests.ps1
 tests/Model/Bound.Tests.ps1
 tests/Model/BucketAggregation.Tests.ps1
 tests/Model/BucketType.Tests.ps1
+tests/Model/BulkTaggedObject.Tests.ps1
 tests/Model/Campaign.Tests.ps1
 tests/Model/CampaignReference.Tests.ps1
 tests/Model/CancelAccessRequest.Tests.ps1
@@ -1301,6 +1311,8 @@ tests/Model/Static.Tests.ps1
 tests/Model/SubSearchAggregationSpecification.Tests.ps1
 tests/Model/SubSearchAggregationSpecificationAllOf.Tests.ps1
 tests/Model/Substring.Tests.ps1
+tests/Model/TaggedObject.Tests.ps1
+tests/Model/TaggedObjectDto.Tests.ps1
 tests/Model/Transform.Tests.ps1
 tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformDefinition.Tests.ps1

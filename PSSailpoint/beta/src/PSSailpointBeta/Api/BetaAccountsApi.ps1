@@ -915,7 +915,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ListAccounts200Response
+ListAccounts200ResponseInner[]
 #>
 function Get-BetaAccounts {
     [CmdletBinding()]
@@ -990,11 +990,8 @@ function Get-BetaAccounts {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ListAccounts200Response" `
+                                -ReturnType "ListAccounts200ResponseInner[]" `
                                 -IsBodyNullable $false
-
-        # process oneOf response
-        $LocalVarResult["Response"] = ConvertFrom-BetaJsonToListAccounts200Response (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult

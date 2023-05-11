@@ -697,7 +697,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.LifecycleState](docs/LifecycleState.md)
  - [PSSailpointBeta/Model.ListAccessProfiles401Response](docs/ListAccessProfiles401Response.md)
  - [PSSailpointBeta/Model.ListAccessProfiles429Response](docs/ListAccessProfiles429Response.md)
- - [PSSailpointBeta/Model.ListAccounts200Response](docs/ListAccounts200Response.md)
+ - [PSSailpointBeta/Model.ListAccounts200ResponseInner](docs/ListAccounts200ResponseInner.md)
  - [PSSailpointBeta/Model.ListCompleteWorkflowLibrary200ResponseInner](docs/ListCompleteWorkflowLibrary200ResponseInner.md)
  - [PSSailpointBeta/Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
  - [PSSailpointBeta/Model.LocaleOrigin](docs/LocaleOrigin.md)

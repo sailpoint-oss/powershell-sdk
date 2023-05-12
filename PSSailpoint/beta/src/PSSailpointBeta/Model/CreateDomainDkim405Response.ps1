@@ -22,10 +22,10 @@ Description of the error
 Unique tracking id for the error.
 .OUTPUTS
 
-VerifyDomainDkim405Response<PSCustomObject>
+CreateDomainDkim405Response<PSCustomObject>
 #>
 
-function Initialize-BetaVerifyDomainDkim405Response {
+function Initialize-BetaCreateDomainDkim405Response {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -40,7 +40,7 @@ function Initialize-BetaVerifyDomainDkim405Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaVerifyDomainDkim405Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaCreateDomainDkim405Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -58,11 +58,11 @@ function Initialize-BetaVerifyDomainDkim405Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to VerifyDomainDkim405Response<PSCustomObject>
+Convert from JSON to CreateDomainDkim405Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to VerifyDomainDkim405Response<PSCustomObject>
+Convert from JSON to CreateDomainDkim405Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,21 +70,21 @@ Json object
 
 .OUTPUTS
 
-VerifyDomainDkim405Response<PSCustomObject>
+CreateDomainDkim405Response<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToVerifyDomainDkim405Response {
+function ConvertFrom-BetaJsonToCreateDomainDkim405Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaVerifyDomainDkim405Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaCreateDomainDkim405Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaVerifyDomainDkim405Response
+        # check if Json contains properties not defined in BetaCreateDomainDkim405Response
         $AllProperties = ("errorName", "errorMessage", "trackingId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

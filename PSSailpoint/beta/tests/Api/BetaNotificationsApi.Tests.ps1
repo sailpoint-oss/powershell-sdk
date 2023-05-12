@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
+    Context 'New-BetaDomainDkim' {
+        It 'Test New-BetaDomainDkim' {
+            #$TestResult = New-BetaDomainDkim -DomainAddress "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-BetaNotificationTemplate' {
         It 'Test New-BetaNotificationTemplate' {
             #$TestResult = New-BetaNotificationTemplate -TemplateDto "TEST_VALUE"
@@ -40,7 +48,15 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
 
     Context 'Get-BetaDkimAttributes' {
         It 'Test Get-BetaDkimAttributes' {
-            #$TestResult = Get-BetaDkimAttributes -Identities "TEST_VALUE"
+            #$TestResult = Get-BetaDkimAttributes
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaMailFromAttributes' {
+        It 'Test Get-BetaMailFromAttributes' {
+            #$TestResult = Get-BetaMailFromAttributes -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -94,6 +110,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
         }
     }
 
+    Context 'Send-BetaMailFromAttributes' {
+        It 'Test Send-BetaMailFromAttributes' {
+            #$TestResult = Send-BetaMailFromAttributes -MailFromAttributesDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Send-BetaNotificationPreference' {
         It 'Test Send-BetaNotificationPreference' {
             #$TestResult = Send-BetaNotificationPreference -Key "TEST_VALUE" -PreferencesDto "TEST_VALUE"
@@ -105,14 +129,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
     Context 'Send-BetaTestNotification' {
         It 'Test Send-BetaTestNotification' {
             #$TestResult = Send-BetaTestNotification -SendTestNotificationRequestDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Test-BetaDomainDkim' {
-        It 'Test Test-BetaDomainDkim' {
-            #$TestResult = Test-BetaDomainDkim -DomainAddressDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

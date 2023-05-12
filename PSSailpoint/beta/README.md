@@ -246,20 +246,22 @@ Class | Method | HTTP request | Description
 *BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
 *BetaNonEmployeeLifecycleManagementApi* | [**Deny-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Deny-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
+*BetaNotificationsApi* | [**New-BetaDomainDkim**](docs/BetaNotificationsApi.md#New-BetaDomainDkim) | **POST** /verified-domains | Verify domain address via DKIM
 *BetaNotificationsApi* | [**New-BetaNotificationTemplate**](docs/BetaNotificationsApi.md#New-BetaNotificationTemplate) | **POST** /notification-templates | Create Notification Template
 *BetaNotificationsApi* | [**New-BetaVerifiedFromAddress**](docs/BetaNotificationsApi.md#New-BetaVerifiedFromAddress) | **POST** /verified-from-addresses | Create Verified From Address
 *BetaNotificationsApi* | [**Remove-BetaNotificationTemplatesInBulk**](docs/BetaNotificationsApi.md#Remove-BetaNotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 *BetaNotificationsApi* | [**Remove-BetaVerifiedFromAddress**](docs/BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
-*BetaNotificationsApi* | [**Get-BetaDkimAttributes**](docs/BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /dkim-attributes/{identities} | Get DKIM Attributes
+*BetaNotificationsApi* | [**Get-BetaDkimAttributes**](docs/BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
+*BetaNotificationsApi* | [**Get-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attribute/{id} | Get MAIL FROM Attributes
 *BetaNotificationsApi* | [**Get-BetaNotificationPreference**](docs/BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplate**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
 *BetaNotificationsApi* | [**Get-BetaNotificationsTemplateContext**](docs/BetaNotificationsApi.md#Get-BetaNotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context
 *BetaNotificationsApi* | [**Get-BetaFromAddresses**](docs/BetaNotificationsApi.md#Get-BetaFromAddresses) | **GET** /verified-from-addresses | List From Addresses
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplateDefaults**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplates**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplates) | **GET** /notification-templates | List Notification Templates
+*BetaNotificationsApi* | [**Send-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Send-BetaMailFromAttributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
 *BetaNotificationsApi* | [**Send-BetaNotificationPreference**](docs/BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite the preferences for the given notification key.
 *BetaNotificationsApi* | [**Send-BetaTestNotification**](docs/BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
-*BetaNotificationsApi* | [**Test-BetaDomainDkim**](docs/BetaNotificationsApi.md#Test-BetaDomainDkim) | **POST** /verify-domain-dkim | Verify domain address via DKIM
 *BetaOAuthClientsApi* | [**New-BetaOauthClient**](docs/BetaOAuthClientsApi.md#New-BetaOauthClient) | **POST** /oauth-clients | Create OAuth Client
 *BetaOAuthClientsApi* | [**Remove-BetaOauthClient**](docs/BetaOAuthClientsApi.md#Remove-BetaOauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
 *BetaOAuthClientsApi* | [**Get-BetaOauthClient**](docs/BetaOAuthClientsApi.md#Get-BetaOauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
@@ -584,6 +586,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ConnectorRuleValidationResponse](docs/ConnectorRuleValidationResponse.md)
  - [PSSailpointBeta/Model.ConnectorRuleValidationResponseDetailsInner](docs/ConnectorRuleValidationResponseDetailsInner.md)
  - [PSSailpointBeta/Model.CorrelatedGovernanceEvent](docs/CorrelatedGovernanceEvent.md)
+ - [PSSailpointBeta/Model.CreateDomainDkim405Response](docs/CreateDomainDkim405Response.md)
  - [PSSailpointBeta/Model.CreateOAuthClientRequest](docs/CreateOAuthClientRequest.md)
  - [PSSailpointBeta/Model.CreateOAuthClientResponse](docs/CreateOAuthClientResponse.md)
  - [PSSailpointBeta/Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
@@ -593,8 +596,9 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.DeleteCampaignsRequest](docs/DeleteCampaignsRequest.md)
  - [PSSailpointBeta/Model.DeleteNonEmployeeRecordInBulkRequest](docs/DeleteNonEmployeeRecordInBulkRequest.md)
  - [PSSailpointBeta/Model.DeleteSource202Response](docs/DeleteSource202Response.md)
- - [PSSailpointBeta/Model.DkimAttributesDto](docs/DkimAttributesDto.md)
- - [PSSailpointBeta/Model.DomainAddressDto](docs/DomainAddressDto.md)
+ - [PSSailpointBeta/Model.DkimAttributes](docs/DkimAttributes.md)
+ - [PSSailpointBeta/Model.DomainAddress](docs/DomainAddress.md)
+ - [PSSailpointBeta/Model.DomainStatusDto](docs/DomainStatusDto.md)
  - [PSSailpointBeta/Model.DtoType](docs/DtoType.md)
  - [PSSailpointBeta/Model.EmailNotificationOption](docs/EmailNotificationOption.md)
  - [PSSailpointBeta/Model.EmailStatusDto](docs/EmailStatusDto.md)
@@ -703,6 +707,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
  - [PSSailpointBeta/Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpointBeta/Model.LocalizedMessage](docs/LocalizedMessage.md)
+ - [PSSailpointBeta/Model.MailFromAttributes](docs/MailFromAttributes.md)
+ - [PSSailpointBeta/Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
  - [PSSailpointBeta/Model.ManagedClient](docs/ManagedClient.md)
  - [PSSailpointBeta/Model.ManagedClientStatus](docs/ManagedClientStatus.md)
  - [PSSailpointBeta/Model.ManagedClientStatusAggResponse](docs/ManagedClientStatusAggResponse.md)
@@ -1051,7 +1057,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ValidateFilterInputDto](docs/ValidateFilterInputDto.md)
  - [PSSailpointBeta/Model.ValidateFilterOutputDto](docs/ValidateFilterOutputDto.md)
  - [PSSailpointBeta/Model.Value](docs/Value.md)
- - [PSSailpointBeta/Model.VerifyDomainDkim405Response](docs/VerifyDomainDkim405Response.md)
  - [PSSailpointBeta/Model.ViolationContext](docs/ViolationContext.md)
  - [PSSailpointBeta/Model.ViolationContextPolicy](docs/ViolationContextPolicy.md)
  - [PSSailpointBeta/Model.ViolationContextPolicyAllOf](docs/ViolationContextPolicyAllOf.md)

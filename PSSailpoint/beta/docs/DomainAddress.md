@@ -1,4 +1,4 @@
-# DomainAddressDto
+# DomainAddress
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DomainAddressDto = Initialize-PSSailpointBetaDomainAddressDto  -Domain sailpoint.com
+$DomainAddress = Initialize-PSSailpointBetaDomainAddress  -Domain sailpoint.com
 ```
 
 - Convert the resource to JSON
 ```powershell
-$DomainAddressDto | ConvertTo-JSON
+$DomainAddress | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

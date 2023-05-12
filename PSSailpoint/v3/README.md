@@ -171,10 +171,13 @@ Class | Method | HTTP request | Description
 *SODPolicyApi* | [**Remove-SodPolicySchedule**](docs/SODPolicyApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
 *SODPolicyApi* | [**Get-SodPolicy**](docs/SODPolicyApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
 *SODPolicyApi* | [**Get-SodPolicySchedule**](docs/SODPolicyApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
+*SODPolicyApi* | [**Get-SodViolationReportRunStatus**](docs/SODPolicyApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
+*SODPolicyApi* | [**Get-SodViolationReportStatus**](docs/SODPolicyApi.md#Get-SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
 *SODPolicyApi* | [**Get-SodPolicies**](docs/SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
 *SODPolicyApi* | [**Update-SodPolicy**](docs/SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
 *SODPolicyApi* | [**Set-PolicySchedule**](docs/SODPolicyApi.md#Set-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
 *SODPolicyApi* | [**Set-SodPolicy**](docs/SODPolicyApi.md#Set-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
+*SODPolicyApi* | [**Start-SodPolicy**](docs/SODPolicyApi.md#Start-SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
 *SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
 *SavedSearchApi* | [**Remove-SavedSearch**](docs/SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
 *SavedSearchApi* | [**Invoke-ExecuteSavedSearch**](docs/SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
@@ -552,6 +555,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.RemediationItems](docs/RemediationItems.md)
  - [PSSailpoint/Model.Replace](docs/Replace.md)
  - [PSSailpoint/Model.ReplaceAll](docs/ReplaceAll.md)
+ - [PSSailpoint/Model.ReportResultReference](docs/ReportResultReference.md)
+ - [PSSailpoint/Model.ReportResultReferenceAllOf](docs/ReportResultReferenceAllOf.md)
  - [PSSailpoint/Model.RequestOnBehalfOfConfig](docs/RequestOnBehalfOfConfig.md)
  - [PSSailpoint/Model.Requestability](docs/Requestability.md)
  - [PSSailpoint/Model.RequestabilityForRole](docs/RequestabilityForRole.md)

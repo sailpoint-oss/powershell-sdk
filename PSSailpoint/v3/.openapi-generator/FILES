@@ -312,6 +312,8 @@ docs/RemediationItemDetails.md
 docs/RemediationItems.md
 docs/Replace.md
 docs/ReplaceAll.md
+docs/ReportResultReference.md
+docs/ReportResultReferenceAllOf.md
 docs/RequestOnBehalfOfConfig.md
 docs/Requestability.md
 docs/RequestabilityForRole.md
@@ -767,6 +769,8 @@ src/PSSailpoint/Model/RemediationItemDetails.ps1
 src/PSSailpoint/Model/RemediationItems.ps1
 src/PSSailpoint/Model/Replace.ps1
 src/PSSailpoint/Model/ReplaceAll.ps1
+src/PSSailpoint/Model/ReportResultReference.ps1
+src/PSSailpoint/Model/ReportResultReferenceAllOf.ps1
 src/PSSailpoint/Model/RequestOnBehalfOfConfig.ps1
 src/PSSailpoint/Model/Requestability.ps1
 src/PSSailpoint/Model/RequestabilityForRole.ps1
@@ -1216,6 +1220,8 @@ tests/Model/RemediationItemDetails.Tests.ps1
 tests/Model/RemediationItems.Tests.ps1
 tests/Model/Replace.Tests.ps1
 tests/Model/ReplaceAll.Tests.ps1
+tests/Model/ReportResultReference.Tests.ps1
+tests/Model/ReportResultReferenceAllOf.Tests.ps1
 tests/Model/RequestOnBehalfOfConfig.Tests.ps1
 tests/Model/Requestability.Tests.ps1
 tests/Model/RequestabilityForRole.Tests.ps1

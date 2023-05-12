@@ -4,21 +4,74 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-BetaDomainDkim**](BetaNotificationsApi.md#New-BetaDomainDkim) | **POST** /verified-domains | Verify domain address via DKIM
 [**New-BetaNotificationTemplate**](BetaNotificationsApi.md#New-BetaNotificationTemplate) | **POST** /notification-templates | Create Notification Template
 [**New-BetaVerifiedFromAddress**](BetaNotificationsApi.md#New-BetaVerifiedFromAddress) | **POST** /verified-from-addresses | Create Verified From Address
 [**Remove-BetaNotificationTemplatesInBulk**](BetaNotificationsApi.md#Remove-BetaNotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 [**Remove-BetaVerifiedFromAddress**](BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
-[**Get-BetaDkimAttributes**](BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /dkim-attributes/{identities} | Get DKIM Attributes
+[**Get-BetaDkimAttributes**](BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
+[**Get-BetaMailFromAttributes**](BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attribute/{id} | Get MAIL FROM Attributes
 [**Get-BetaNotificationPreference**](BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
 [**Get-BetaNotificationTemplate**](BetaNotificationsApi.md#Get-BetaNotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
 [**Get-BetaNotificationsTemplateContext**](BetaNotificationsApi.md#Get-BetaNotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context
 [**Get-BetaFromAddresses**](BetaNotificationsApi.md#Get-BetaFromAddresses) | **GET** /verified-from-addresses | List From Addresses
 [**Get-BetaNotificationTemplateDefaults**](BetaNotificationsApi.md#Get-BetaNotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
 [**Get-BetaNotificationTemplates**](BetaNotificationsApi.md#Get-BetaNotificationTemplates) | **GET** /notification-templates | List Notification Templates
+[**Send-BetaMailFromAttributes**](BetaNotificationsApi.md#Send-BetaMailFromAttributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
 [**Send-BetaNotificationPreference**](BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite the preferences for the given notification key.
 [**Send-BetaTestNotification**](BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
-[**Test-BetaDomainDkim**](BetaNotificationsApi.md#Test-BetaDomainDkim) | **POST** /verify-domain-dkim | Verify domain address via DKIM
 
+
+<a name="New-BetaDomainDkim"></a>
+# **New-BetaDomainDkim**
+> DomainStatusDto New-BetaDomainDkim<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DomainAddress] <PSCustomObject><br>
+
+Verify domain address via DKIM
+
+Create a domain to be verified via DKIM (DomainKeys Identified Mail)
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$DomainAddress = Initialize-DomainAddress -Domain "sailpoint.com" # DomainAddress | 
+
+# Verify domain address via DKIM
+try {
+    $Result = New-BetaDomainDkim -DomainAddress $DomainAddress
+} catch {
+    Write-Host ("Exception occurred when calling New-BetaDomainDkim: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **DomainAddress** | [**DomainAddress**](DomainAddress.md)|  | 
+
+### Return type
+
+[**DomainStatusDto**](DomainStatusDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-BetaNotificationTemplate"></a>
 # **New-BetaNotificationTemplate**
@@ -226,12 +279,11 @@ void (empty response body)
 
 <a name="Get-BetaDkimAttributes"></a>
 # **Get-BetaDkimAttributes**
-> DkimAttributesDto[] Get-BetaDkimAttributes<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Identities] <String><br>
+> DkimAttributes[] Get-BetaDkimAttributes<br>
 
 Get DKIM Attributes
 
-Retrieve DKIM (DomainKeys Identified Mail) attributes from a list of identities. Limit retrieval of 100 identities per call
+Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
 
 ### Example
 ```powershell
@@ -243,13 +295,60 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Identities = "bobsmith@sailpoint.com,alex.jordan@sailpoint.com" # String | Returns the DKIM attributes for each of the given identities
 
 # Get DKIM Attributes
 try {
-    $Result = Get-BetaDkimAttributes -Identities $Identities
+    $Result = Get-BetaDkimAttributes
 } catch {
     Write-Host ("Exception occurred when calling Get-BetaDkimAttributes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DkimAttributes[]**](DkimAttributes.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaMailFromAttributes"></a>
+# **Get-BetaMailFromAttributes**
+> MailFromAttributes Get-BetaMailFromAttributes<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get MAIL FROM Attributes
+
+Retrieve MAIL FROM attributes for a given AWS SES identity.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+
+# Get MAIL FROM Attributes
+try {
+    $Result = Get-BetaMailFromAttributes -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaMailFromAttributes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -258,11 +357,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Identities** | **String**| Returns the DKIM attributes for each of the given identities | 
+ **Id** | **String**| Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status | 
 
 ### Return type
 
-[**DkimAttributesDto[]**](DkimAttributesDto.md) (PSCustomObject)
+[**MailFromAttributes**](MailFromAttributes.md) (PSCustomObject)
 
 ### Authorization
 
@@ -600,6 +699,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Send-BetaMailFromAttributes"></a>
+# **Send-BetaMailFromAttributes**
+> MailFromAttributes Send-BetaMailFromAttributes<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MailFromAttributesDto] <PSCustomObject><br>
+
+Change MAIL FROM domain
+
+Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$MailFromAttributesDto = Initialize-MailFromAttributesDto -Identity "BobSmith@sailpoint.com" -MailFromDomain "example.sailpoint.com" # MailFromAttributesDto | 
+
+# Change MAIL FROM domain
+try {
+    $Result = Send-BetaMailFromAttributes -MailFromAttributesDto $MailFromAttributesDto
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaMailFromAttributes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **MailFromAttributesDto** | [**MailFromAttributesDto**](MailFromAttributesDto.md)|  | 
+
+### Return type
+
+[**MailFromAttributes**](MailFromAttributes.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Send-BetaNotificationPreference"></a>
 # **Send-BetaNotificationPreference**
 > PreferencesDto Send-BetaNotificationPreference<br>
@@ -693,57 +843,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Test-BetaDomainDkim"></a>
-# **Test-BetaDomainDkim**
-> String[] Test-BetaDomainDkim<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DomainAddressDto] <PSCustomObject><br>
-
-Verify domain address via DKIM
-
-Create a domain to be verified via DKIM (DomainKeys Identified Mail)
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$DomainAddressDto = Initialize-DomainAddressDto -Domain "sailpoint.com" # DomainAddressDto | 
-
-# Verify domain address via DKIM
-try {
-    $Result = Test-BetaDomainDkim -DomainAddressDto $DomainAddressDto
-} catch {
-    Write-Host ("Exception occurred when calling Test-BetaDomainDkim: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **DomainAddressDto** | [**DomainAddressDto**](DomainAddressDto.md)|  | 
-
-### Return type
-
-**String[]**
 
 ### Authorization
 

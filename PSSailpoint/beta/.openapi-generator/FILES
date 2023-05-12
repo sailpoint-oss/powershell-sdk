@@ -195,6 +195,7 @@ docs/ConnectorRuleUpdateRequestAllOf.md
 docs/ConnectorRuleValidationResponse.md
 docs/ConnectorRuleValidationResponseDetailsInner.md
 docs/CorrelatedGovernanceEvent.md
+docs/CreateDomainDkim405Response.md
 docs/CreateOAuthClientRequest.md
 docs/CreateOAuthClientResponse.md
 docs/CreatePersonalAccessTokenRequest.md
@@ -204,8 +205,9 @@ docs/CustomPasswordInstruction.md
 docs/DeleteCampaignsRequest.md
 docs/DeleteNonEmployeeRecordInBulkRequest.md
 docs/DeleteSource202Response.md
-docs/DkimAttributesDto.md
-docs/DomainAddressDto.md
+docs/DkimAttributes.md
+docs/DomainAddress.md
+docs/DomainStatusDto.md
 docs/DtoType.md
 docs/EmailNotificationOption.md
 docs/EmailStatusDto.md
@@ -314,6 +316,8 @@ docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/ListIdentityAccessItems200ResponseInner.md
 docs/LocaleOrigin.md
 docs/LocalizedMessage.md
+docs/MailFromAttributes.md
+docs/MailFromAttributesDto.md
 docs/ManagedClient.md
 docs/ManagedClientStatus.md
 docs/ManagedClientStatusAggResponse.md
@@ -662,7 +666,6 @@ docs/VAClusterStatusChangeEvent.md
 docs/ValidateFilterInputDto.md
 docs/ValidateFilterOutputDto.md
 docs/Value.md
-docs/VerifyDomainDkim405Response.md
 docs/ViolationContext.md
 docs/ViolationContextPolicy.md
 docs/ViolationContextPolicyAllOf.md
@@ -883,6 +886,7 @@ src/PSSailpointBeta/Model/ConnectorRuleUpdateRequestAllOf.ps1
 src/PSSailpointBeta/Model/ConnectorRuleValidationResponse.ps1
 src/PSSailpointBeta/Model/ConnectorRuleValidationResponseDetailsInner.ps1
 src/PSSailpointBeta/Model/CorrelatedGovernanceEvent.ps1
+src/PSSailpointBeta/Model/CreateDomainDkim405Response.ps1
 src/PSSailpointBeta/Model/CreateOAuthClientRequest.ps1
 src/PSSailpointBeta/Model/CreateOAuthClientResponse.ps1
 src/PSSailpointBeta/Model/CreatePersonalAccessTokenRequest.ps1
@@ -892,8 +896,9 @@ src/PSSailpointBeta/Model/CustomPasswordInstruction.ps1
 src/PSSailpointBeta/Model/DeleteCampaignsRequest.ps1
 src/PSSailpointBeta/Model/DeleteNonEmployeeRecordInBulkRequest.ps1
 src/PSSailpointBeta/Model/DeleteSource202Response.ps1
-src/PSSailpointBeta/Model/DkimAttributesDto.ps1
-src/PSSailpointBeta/Model/DomainAddressDto.ps1
+src/PSSailpointBeta/Model/DkimAttributes.ps1
+src/PSSailpointBeta/Model/DomainAddress.ps1
+src/PSSailpointBeta/Model/DomainStatusDto.ps1
 src/PSSailpointBeta/Model/DtoType.ps1
 src/PSSailpointBeta/Model/EmailNotificationOption.ps1
 src/PSSailpointBeta/Model/EmailStatusDto.ps1
@@ -1002,6 +1007,8 @@ src/PSSailpointBeta/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpointBeta/Model/ListIdentityAccessItems200ResponseInner.ps1
 src/PSSailpointBeta/Model/LocaleOrigin.ps1
 src/PSSailpointBeta/Model/LocalizedMessage.ps1
+src/PSSailpointBeta/Model/MailFromAttributes.ps1
+src/PSSailpointBeta/Model/MailFromAttributesDto.ps1
 src/PSSailpointBeta/Model/ManagedClient.ps1
 src/PSSailpointBeta/Model/ManagedClientStatus.ps1
 src/PSSailpointBeta/Model/ManagedClientStatusAggResponse.ps1
@@ -1350,7 +1357,6 @@ src/PSSailpointBeta/Model/VAClusterStatusChangeEvent.ps1
 src/PSSailpointBeta/Model/ValidateFilterInputDto.ps1
 src/PSSailpointBeta/Model/ValidateFilterOutputDto.ps1
 src/PSSailpointBeta/Model/Value.ps1
-src/PSSailpointBeta/Model/VerifyDomainDkim405Response.ps1
 src/PSSailpointBeta/Model/ViolationContext.ps1
 src/PSSailpointBeta/Model/ViolationContextPolicy.ps1
 src/PSSailpointBeta/Model/ViolationContextPolicyAllOf.ps1
@@ -1577,6 +1583,7 @@ tests/Model/ConnectorRuleUpdateRequestAllOf.Tests.ps1
 tests/Model/ConnectorRuleValidationResponse.Tests.ps1
 tests/Model/ConnectorRuleValidationResponseDetailsInner.Tests.ps1
 tests/Model/CorrelatedGovernanceEvent.Tests.ps1
+tests/Model/CreateDomainDkim405Response.Tests.ps1
 tests/Model/CreateOAuthClientRequest.Tests.ps1
 tests/Model/CreateOAuthClientResponse.Tests.ps1
 tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
@@ -1586,8 +1593,9 @@ tests/Model/CustomPasswordInstruction.Tests.ps1
 tests/Model/DeleteCampaignsRequest.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordInBulkRequest.Tests.ps1
 tests/Model/DeleteSource202Response.Tests.ps1
-tests/Model/DkimAttributesDto.Tests.ps1
-tests/Model/DomainAddressDto.Tests.ps1
+tests/Model/DkimAttributes.Tests.ps1
+tests/Model/DomainAddress.Tests.ps1
+tests/Model/DomainStatusDto.Tests.ps1
 tests/Model/DtoType.Tests.ps1
 tests/Model/EmailNotificationOption.Tests.ps1
 tests/Model/EmailStatusDto.Tests.ps1
@@ -1696,6 +1704,8 @@ tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/ListIdentityAccessItems200ResponseInner.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
 tests/Model/LocalizedMessage.Tests.ps1
+tests/Model/MailFromAttributes.Tests.ps1
+tests/Model/MailFromAttributesDto.Tests.ps1
 tests/Model/ManagedClient.Tests.ps1
 tests/Model/ManagedClientStatus.Tests.ps1
 tests/Model/ManagedClientStatusAggResponse.Tests.ps1
@@ -2044,7 +2054,6 @@ tests/Model/VAClusterStatusChangeEvent.Tests.ps1
 tests/Model/ValidateFilterInputDto.Tests.ps1
 tests/Model/ValidateFilterOutputDto.Tests.ps1
 tests/Model/Value.Tests.ps1
-tests/Model/VerifyDomainDkim405Response.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1
 tests/Model/ViolationContextPolicy.Tests.ps1
 tests/Model/ViolationContextPolicyAllOf.Tests.ps1

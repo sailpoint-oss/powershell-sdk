@@ -1,4 +1,4 @@
-# VerifyDomainDkim405Response
+# CreateDomainDkim405Response
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VerifyDomainDkim405Response = Initialize-PSSailpointBetaVerifyDomainDkim405Response  -ErrorName NotSupportedException `
+$CreateDomainDkim405Response = Initialize-PSSailpointBetaCreateDomainDkim405Response  -ErrorName NotSupportedException `
  -ErrorMessage Cannot consume content type `
  -TrackingId e7eab60924f64aa284175b9fa3309599
 ```
 
 - Convert the resource to JSON
 ```powershell
-$VerifyDomainDkim405Response | ConvertTo-JSON
+$CreateDomainDkim405Response | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -18,10 +18,10 @@ No description available.
 A domain address
 .OUTPUTS
 
-DomainAddressDto<PSCustomObject>
+DomainAddress<PSCustomObject>
 #>
 
-function Initialize-BetaDomainAddressDto {
+function Initialize-BetaDomainAddress {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-BetaDomainAddressDto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaDomainAddressDto' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaDomainAddress' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -46,11 +46,11 @@ function Initialize-BetaDomainAddressDto {
 <#
 .SYNOPSIS
 
-Convert from JSON to DomainAddressDto<PSCustomObject>
+Convert from JSON to DomainAddress<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to DomainAddressDto<PSCustomObject>
+Convert from JSON to DomainAddress<PSCustomObject>
 
 .PARAMETER Json
 
@@ -58,21 +58,21 @@ Json object
 
 .OUTPUTS
 
-DomainAddressDto<PSCustomObject>
+DomainAddress<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToDomainAddressDto {
+function ConvertFrom-BetaJsonToDomainAddress {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaDomainAddressDto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaDomainAddress' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaDomainAddressDto
+        # check if Json contains properties not defined in BetaDomainAddress
         $AllProperties = ("domain")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

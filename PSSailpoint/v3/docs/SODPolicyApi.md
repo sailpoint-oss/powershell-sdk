@@ -9,10 +9,13 @@ Method | HTTP request | Description
 [**Remove-SodPolicySchedule**](SODPolicyApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
 [**Get-SodPolicy**](SODPolicyApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
 [**Get-SodPolicySchedule**](SODPolicyApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
+[**Get-SodViolationReportRunStatus**](SODPolicyApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
+[**Get-SodViolationReportStatus**](SODPolicyApi.md#Get-SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
 [**Get-SodPolicies**](SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
 [**Update-SodPolicy**](SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
 [**Set-PolicySchedule**](SODPolicyApi.md#Set-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
 [**Set-SodPolicy**](SODPolicyApi.md#Set-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
+[**Start-SodPolicy**](SODPolicyApi.md#Start-SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
 
 
 <a name="New-SodPolicy"></a>
@@ -282,6 +285,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Get-SodViolationReportRunStatus"></a>
+# **Get-SodViolationReportRunStatus**
+> ReportResultReference Get-SodViolationReportRunStatus<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReportResultId] <String><br>
+
+Get violation report run status
+
+This gets the status for a violation report run task that has already been invoked.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of the report reference to retrieve.
+
+# Get violation report run status
+try {
+    $Result = Get-SodViolationReportRunStatus -ReportResultId $ReportResultId
+} catch {
+    Write-Host ("Exception occurred when calling Get-SodViolationReportRunStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ReportResultId** | **String**| The ID of the report reference to retrieve. | 
+
+### Return type
+
+[**ReportResultReference**](ReportResultReference.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-SodViolationReportStatus"></a>
+# **Get-SodViolationReportStatus**
+> ReportResultReference Get-SodViolationReportStatus<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get SOD violation report status
+
+This gets the status for a violation report run task that has already been invoked.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation report to retrieve status for.
+
+# Get SOD violation report status
+try {
+    $Result = Get-SodViolationReportStatus -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-SodViolationReportStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the violation report to retrieve status for. | 
+
+### Return type
+
+[**ReportResultReference**](ReportResultReference.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Get-SodPolicies"></a>
 # **Get-SodPolicies**
 > SodPolicy[] Get-SodPolicies<br>
@@ -515,6 +620,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Start-SodPolicy"></a>
+# **Start-SodPolicy**
+> ReportResultReference Start-SodPolicy<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Runs SOD policy violation report
+
+This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
+
+# Runs SOD policy violation report
+try {
+    $Result = Start-SodPolicy -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Start-SodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The SOD policy ID to run. | 
+
+### Return type
+
+[**ReportResultReference**](ReportResultReference.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

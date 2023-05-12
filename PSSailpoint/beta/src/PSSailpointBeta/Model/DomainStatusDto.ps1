@@ -12,45 +12,51 @@ No summary available.
 
 .DESCRIPTION
 
-DKIM attributes for a domain / identity
+Domain status DTO containing everything required to verify via DKIM
 
-.PARAMETER Address
-The identity or domain address
+.PARAMETER Id
+New UUID associated with domain to be verified
+.PARAMETER Domain
+A domain address
 .PARAMETER DkimEnabled
-Whether or not DKIM has been enabled for this domain / identity
+DKIM is enabled for this domain
 .PARAMETER DkimTokens
-The tokens to be added to a DNS for verification
+DKIM tokens required for authentication
 .PARAMETER DkimVerificationStatus
-The current status if the domain /identity has been verified. Ie Success, Failed, Pending
+Status of DKIM authentication
 .OUTPUTS
 
-DkimAttributesDto<PSCustomObject>
+DomainStatusDto<PSCustomObject>
 #>
 
-function Initialize-BetaDkimAttributesDto {
+function Initialize-BetaDomainStatusDto {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Address},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${DkimEnabled},
+        [String]
+        ${Domain},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${DkimEnabled},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${DkimTokens},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DkimVerificationStatus}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaDkimAttributesDto' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaDomainStatusDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "address" = ${Address}
+            "id" = ${Id}
+            "domain" = ${Domain}
             "dkimEnabled" = ${DkimEnabled}
             "dkimTokens" = ${DkimTokens}
             "dkimVerificationStatus" = ${DkimVerificationStatus}
@@ -64,11 +70,11 @@ function Initialize-BetaDkimAttributesDto {
 <#
 .SYNOPSIS
 
-Convert from JSON to DkimAttributesDto<PSCustomObject>
+Convert from JSON to DomainStatusDto<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to DkimAttributesDto<PSCustomObject>
+Convert from JSON to DomainStatusDto<PSCustomObject>
 
 .PARAMETER Json
 
@@ -76,32 +82,38 @@ Json object
 
 .OUTPUTS
 
-DkimAttributesDto<PSCustomObject>
+DomainStatusDto<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToDkimAttributesDto {
+function ConvertFrom-BetaJsonToDomainStatusDto {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaDkimAttributesDto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaDomainStatusDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaDkimAttributesDto
-        $AllProperties = ("address", "dkimEnabled", "dkimTokens", "dkimVerificationStatus")
+        # check if Json contains properties not defined in BetaDomainStatusDto
+        $AllProperties = ("id", "domain", "dkimEnabled", "dkimTokens", "dkimVerificationStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "address"))) { #optional property not found
-            $Address = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
-            $Address = $JsonParameters.PSobject.Properties["address"].value
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "domain"))) { #optional property not found
+            $Domain = $null
+        } else {
+            $Domain = $JsonParameters.PSobject.Properties["domain"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "dkimEnabled"))) { #optional property not found
@@ -123,7 +135,8 @@ function ConvertFrom-BetaJsonToDkimAttributesDto {
         }
 
         $PSO = [PSCustomObject]@{
-            "address" = ${Address}
+            "id" = ${Id}
+            "domain" = ${Domain}
             "dkimEnabled" = ${DkimEnabled}
             "dkimTokens" = ${DkimTokens}
             "dkimVerificationStatus" = ${DkimVerificationStatus}

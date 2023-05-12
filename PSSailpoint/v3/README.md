@@ -167,7 +167,11 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles
 *RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
 *SODPolicyApi* | [**New-SodPolicy**](docs/SODPolicyApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
+*SODPolicyApi* | [**Remove-SodPolicy**](docs/SODPolicyApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
+*SODPolicyApi* | [**Get-SodPolicy**](docs/SODPolicyApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
 *SODPolicyApi* | [**Get-SodPolicies**](docs/SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
+*SODPolicyApi* | [**Update-SodPolicy**](docs/SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
+*SODPolicyApi* | [**Set-SodPolicy**](docs/SODPolicyApi.md#Set-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 *SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
 *SavedSearchApi* | [**Remove-SavedSearch**](docs/SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
 *SavedSearchApi* | [**Invoke-ExecuteSavedSearch**](docs/SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID

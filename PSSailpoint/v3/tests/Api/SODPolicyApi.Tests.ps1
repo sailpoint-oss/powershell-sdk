@@ -14,9 +14,41 @@ Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
         }
     }
 
+    Context 'Remove-SodPolicy' {
+        It 'Test Remove-SodPolicy' {
+            #$TestResult = Remove-SodPolicy -Id "TEST_VALUE" -Logical "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SodPolicy' {
+        It 'Test Get-SodPolicy' {
+            #$TestResult = Get-SodPolicy -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SodPolicies' {
         It 'Test Get-SodPolicies' {
             #$TestResult = Get-SodPolicies -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-SodPolicy' {
+        It 'Test Update-SodPolicy' {
+            #$TestResult = Update-SodPolicy -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-SodPolicy' {
+        It 'Test Set-SodPolicy' {
+            #$TestResult = Set-SodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

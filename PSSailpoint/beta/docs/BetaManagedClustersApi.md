@@ -7,12 +7,12 @@ Method | HTTP request | Description
 [**Get-BetaClientLogConfiguration**](BetaManagedClustersApi.md#Get-BetaClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster&#39;s log configuration
 [**Get-BetaManagedCluster**](BetaManagedClustersApi.md#Get-BetaManagedCluster) | **GET** /managed-clusters/{id} | Get a specified ManagedCluster.
 [**Get-BetaManagedClusters**](BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-[**Update-BetaClientLogConfiguration**](BetaManagedClustersApi.md#Update-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster&#39;s log configuration
+[**Send-BetaClientLogConfiguration**](BetaManagedClustersApi.md#Send-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster&#39;s log configuration
 
 
 <a name="Get-BetaClientLogConfiguration"></a>
 # **Get-BetaClientLogConfiguration**
-> ClientLogConfiguration[] Get-BetaClientLogConfiguration<br>
+> ClientLogConfiguration Get-BetaClientLogConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get managed cluster's log configuration
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClientLogConfiguration[]**](ClientLogConfiguration.md) (PSCustomObject)
+[**ClientLogConfiguration**](ClientLogConfiguration.md) (PSCustomObject)
 
 ### Authorization
 
@@ -172,9 +172,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaClientLogConfiguration"></a>
-# **Update-BetaClientLogConfiguration**
-> ClientLogConfiguration Update-BetaClientLogConfiguration<br>
+<a name="Send-BetaClientLogConfiguration"></a>
+# **Send-BetaClientLogConfiguration**
+> ClientLogConfiguration Send-BetaClientLogConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ClientLogConfiguration] <PSCustomObject><br>
 
@@ -197,9 +197,9 @@ $ClientLogConfiguration = Initialize-ClientLogConfiguration -ClientId "aClientId
 
 # Update managed cluster's log configuration
 try {
-    $Result = Update-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $ClientLogConfiguration
+    $Result = Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $ClientLogConfiguration
 } catch {
-    Write-Host ("Exception occurred when calling Update-BetaClientLogConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-BetaClientLogConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

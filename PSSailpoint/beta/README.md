@@ -213,7 +213,7 @@ Class | Method | HTTP request | Description
 *BetaManagedClustersApi* | [**Get-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Get-BetaClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster's log configuration
 *BetaManagedClustersApi* | [**Get-BetaManagedCluster**](docs/BetaManagedClustersApi.md#Get-BetaManagedCluster) | **GET** /managed-clusters/{id} | Get a specified ManagedCluster.
 *BetaManagedClustersApi* | [**Get-BetaManagedClusters**](docs/BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-*BetaManagedClustersApi* | [**Update-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Update-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
+*BetaManagedClustersApi* | [**Send-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Send-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
 *BetaNonEmployeeLifecycleManagementApi* | [**Approve-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Approve-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request

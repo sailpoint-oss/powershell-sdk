@@ -30,9 +30,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaManagedClustersApi' {
         }
     }
 
-    Context 'Update-BetaClientLogConfiguration' {
-        It 'Test Update-BetaClientLogConfiguration' {
-            #$TestResult = Update-BetaClientLogConfiguration -Id "TEST_VALUE" -ClientLogConfiguration "TEST_VALUE"
+    Context 'Send-BetaClientLogConfiguration' {
+        It 'Test Send-BetaClientLogConfiguration' {
+            #$TestResult = Send-BetaClientLogConfiguration -Id "TEST_VALUE" -ClientLogConfiguration "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

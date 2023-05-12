@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ClientLogConfiguration[]
+ClientLogConfiguration
 #>
 function Get-BetaClientLogConfiguration {
     [CmdletBinding()]
@@ -69,7 +69,7 @@ function Get-BetaClientLogConfiguration {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ClientLogConfiguration[]" `
+                                -ReturnType "ClientLogConfiguration" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -283,7 +283,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ClientLogConfiguration
 #>
-function Update-BetaClientLogConfiguration {
+function Send-BetaClientLogConfiguration {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -297,7 +297,7 @@ function Update-BetaClientLogConfiguration {
     )
 
     Process {
-        'Calling method: Update-BetaClientLogConfiguration' | Write-Debug
+        'Calling method: Send-BetaClientLogConfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -318,7 +318,7 @@ function Update-BetaClientLogConfiguration {
 
         $LocalVarUri = '/managed-clusters/{id}/log-config'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updateClientLogConfiguration."
+            throw "Error! The required parameter `Id` missing when calling putClientLogConfiguration."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 

@@ -193,6 +193,7 @@ docs/IdentityProfilesApi.md
 docs/IdentityReference.md
 docs/IdentityReferenceWithNameAndEmail.md
 docs/IdentitySummary.md
+docs/ImportNonEmployeeRecordsInBulkRequest.md
 docs/Index.md
 docs/IndexOf.md
 docs/InnerHit.md
@@ -432,7 +433,6 @@ docs/TypeAheadQuery.md
 docs/TypedReference.md
 docs/UUIDGenerator.md
 docs/UpdatePasswordDictionaryRequest.md
-docs/UploadNonEmployeeRecordsInBulkRequest.md
 docs/Upper.md
 docs/UsageType.md
 docs/Value.md
@@ -656,6 +656,7 @@ src/PSSailpoint/Model/IdentityProfileExportedObject.ps1
 src/PSSailpoint/Model/IdentityReference.ps1
 src/PSSailpoint/Model/IdentityReferenceWithNameAndEmail.ps1
 src/PSSailpoint/Model/IdentitySummary.ps1
+src/PSSailpoint/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint/Model/Index.ps1
 src/PSSailpoint/Model/IndexOf.ps1
 src/PSSailpoint/Model/InnerHit.ps1
@@ -876,7 +877,6 @@ src/PSSailpoint/Model/TypeAheadQuery.ps1
 src/PSSailpoint/Model/TypedReference.ps1
 src/PSSailpoint/Model/UUIDGenerator.ps1
 src/PSSailpoint/Model/UpdatePasswordDictionaryRequest.ps1
-src/PSSailpoint/Model/UploadNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint/Model/Upper.ps1
 src/PSSailpoint/Model/UsageType.ps1
 src/PSSailpoint/Model/Value.ps1
@@ -1105,6 +1105,7 @@ tests/Model/IdentityProfileExportedObject.Tests.ps1
 tests/Model/IdentityReference.Tests.ps1
 tests/Model/IdentityReferenceWithNameAndEmail.Tests.ps1
 tests/Model/IdentitySummary.Tests.ps1
+tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/Index.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
 tests/Model/InnerHit.Tests.ps1
@@ -1325,7 +1326,6 @@ tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
 tests/Model/UpdatePasswordDictionaryRequest.Tests.ps1
-tests/Model/UploadNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/Value.Tests.ps1

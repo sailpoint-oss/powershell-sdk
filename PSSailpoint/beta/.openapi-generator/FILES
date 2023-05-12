@@ -295,6 +295,7 @@ docs/IdentitySyncJob.md
 docs/IdentitySyncPayload.md
 docs/IdentityWithNewAccess.md
 docs/IdentityWithNewAccessAccessRefsInner.md
+docs/ImportNonEmployeeRecordsInBulkRequest.md
 docs/ImportOptions.md
 docs/ImportSpConfigRequest.md
 docs/Invocation.md
@@ -655,7 +656,6 @@ docs/TriggerOutputAccessRequestDynamicApprover.md
 docs/TriggerOutputAccessRequestPreApproval.md
 docs/TriggerType.md
 docs/UpdatePasswordDictionaryRequest.md
-docs/UploadNonEmployeeRecordsInBulkRequest.md
 docs/UsageType.md
 docs/V3ConnectorDto.md
 docs/VAClusterStatusChangeEvent.md
@@ -983,6 +983,7 @@ src/PSSailpointBeta/Model/IdentitySyncJob.ps1
 src/PSSailpointBeta/Model/IdentitySyncPayload.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccess.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccessAccessRefsInner.ps1
+src/PSSailpointBeta/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpointBeta/Model/ImportOptions.ps1
 src/PSSailpointBeta/Model/ImportSpConfigRequest.ps1
 src/PSSailpointBeta/Model/Invocation.ps1
@@ -1343,7 +1344,6 @@ src/PSSailpointBeta/Model/TriggerOutputAccessRequestDynamicApprover.ps1
 src/PSSailpointBeta/Model/TriggerOutputAccessRequestPreApproval.ps1
 src/PSSailpointBeta/Model/TriggerType.ps1
 src/PSSailpointBeta/Model/UpdatePasswordDictionaryRequest.ps1
-src/PSSailpointBeta/Model/UploadNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpointBeta/Model/UsageType.ps1
 src/PSSailpointBeta/Model/V3ConnectorDto.ps1
 src/PSSailpointBeta/Model/VAClusterStatusChangeEvent.ps1
@@ -1677,6 +1677,7 @@ tests/Model/IdentitySyncJob.Tests.ps1
 tests/Model/IdentitySyncPayload.Tests.ps1
 tests/Model/IdentityWithNewAccess.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
+tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/ImportOptions.Tests.ps1
 tests/Model/ImportSpConfigRequest.Tests.ps1
 tests/Model/Invocation.Tests.ps1
@@ -2037,7 +2038,6 @@ tests/Model/TriggerOutputAccessRequestDynamicApprover.Tests.ps1
 tests/Model/TriggerOutputAccessRequestPreApproval.Tests.ps1
 tests/Model/TriggerType.Tests.ps1
 tests/Model/UpdatePasswordDictionaryRequest.Tests.ps1
-tests/Model/UploadNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1
 tests/Model/VAClusterStatusChangeEvent.Tests.ps1

@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
 *NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeSchemaAttribute**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
 *NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeSource**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
 *NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeSourceSchemaAttributes**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
+*NonEmployeeLifecycleManagementApi* | [**Import-NonEmployeeRecordsInBulk**](docs/NonEmployeeLifecycleManagementApi.md#Import-NonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
 *NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeApprovals**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeApprovals) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
 *NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeRecords**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRecords) | **GET** /non-employee-records | List Non-Employee Records
 *NonEmployeeLifecycleManagementApi* | [**Get-NonEmployeeRequests**](docs/NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
@@ -134,7 +135,6 @@ Class | Method | HTTP request | Description
 *NonEmployeeLifecycleManagementApi* | [**Update-NonEmployeeSource**](docs/NonEmployeeLifecycleManagementApi.md#Update-NonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
 *NonEmployeeLifecycleManagementApi* | [**Deny-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Deny-NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
 *NonEmployeeLifecycleManagementApi* | [**Update-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#Update-NonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
-*NonEmployeeLifecycleManagementApi* | [**Invoke-UploadNonEmployeeRecordsInBulk**](docs/NonEmployeeLifecycleManagementApi.md#Invoke-UploadNonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
 *OAuthClientsApi* | [**New-OauthClient**](docs/OAuthClientsApi.md#New-OauthClient) | **POST** /oauth-clients | Create OAuth Client
 *OAuthClientsApi* | [**Remove-OauthClient**](docs/OAuthClientsApi.md#Remove-OauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
 *OAuthClientsApi* | [**Get-OauthClient**](docs/OAuthClientsApi.md#Get-OauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
@@ -441,6 +441,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.IdentityReference](docs/IdentityReference.md)
  - [PSSailpoint/Model.IdentityReferenceWithNameAndEmail](docs/IdentityReferenceWithNameAndEmail.md)
  - [PSSailpoint/Model.IdentitySummary](docs/IdentitySummary.md)
+ - [PSSailpoint/Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint/Model.Index](docs/Index.md)
  - [PSSailpoint/Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint/Model.InnerHit](docs/InnerHit.md)
@@ -661,7 +662,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.TypedReference](docs/TypedReference.md)
  - [PSSailpoint/Model.UUIDGenerator](docs/UUIDGenerator.md)
  - [PSSailpoint/Model.UpdatePasswordDictionaryRequest](docs/UpdatePasswordDictionaryRequest.md)
- - [PSSailpoint/Model.UploadNonEmployeeRecordsInBulkRequest](docs/UploadNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint/Model.Upper](docs/Upper.md)
  - [PSSailpoint/Model.UsageType](docs/UsageType.md)
  - [PSSailpoint/Model.Value](docs/Value.md)

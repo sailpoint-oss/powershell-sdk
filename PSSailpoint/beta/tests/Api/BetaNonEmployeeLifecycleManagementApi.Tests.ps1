@@ -182,6 +182,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNonEmployeeLifecycleManagementApi
         }
     }
 
+    Context 'Import-BetaNonEmployeeRecordsInBulk' {
+        It 'Test Import-BetaNonEmployeeRecordsInBulk' {
+            #$TestResult = Import-BetaNonEmployeeRecordsInBulk -Id "TEST_VALUE" -Data "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaNonEmployeeApproval' {
         It 'Test Get-BetaNonEmployeeApproval' {
             #$TestResult = Get-BetaNonEmployeeApproval -RequestedFor "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
@@ -249,14 +257,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNonEmployeeLifecycleManagementApi
     Context 'Update-BetaNonEmployeeRecord' {
         It 'Test Update-BetaNonEmployeeRecord' {
             #$TestResult = Update-BetaNonEmployeeRecord -Id "TEST_VALUE" -NonEmployeeRequestBody "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-BetaUploadNonEmployeeRecordsInBulk' {
-        It 'Test Invoke-BetaUploadNonEmployeeRecordsInBulk' {
-            #$TestResult = Invoke-BetaUploadNonEmployeeRecordsInBulk -Id "TEST_VALUE" -Data "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

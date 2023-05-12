@@ -1,20 +1,20 @@
-# UploadNonEmployeeRecordsInBulkRequest
+# ImportNonEmployeeRecordsInBulkRequest
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarData** | **String** |  | 
+**VarData** | **System.IO.FileInfo** |  | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$UploadNonEmployeeRecordsInBulkRequest = Initialize-PSSailpointBetaUploadNonEmployeeRecordsInBulkRequest  -VarData null
+$ImportNonEmployeeRecordsInBulkRequest = Initialize-PSSailpointBetaImportNonEmployeeRecordsInBulkRequest  -VarData null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$UploadNonEmployeeRecordsInBulkRequest | ConvertTo-JSON
+$ImportNonEmployeeRecordsInBulkRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -236,6 +236,7 @@ Class | Method | HTTP request | Description
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeSchemaAttribute**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeSourceSchemaAttributes**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
+*BetaNonEmployeeLifecycleManagementApi* | [**Import-BetaNonEmployeeRecordsInBulk**](docs/BetaNonEmployeeLifecycleManagementApi.md#Import-BetaNonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeApproval**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeApproval) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRecords**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRecords) | **GET** /non-employee-records | List Non-Employee Records
 *BetaNonEmployeeLifecycleManagementApi* | [**Get-BetaNonEmployeeRequests**](docs/BetaNonEmployeeLifecycleManagementApi.md#Get-BetaNonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
@@ -245,7 +246,6 @@ Class | Method | HTTP request | Description
 *BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeSource**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
 *BetaNonEmployeeLifecycleManagementApi* | [**Deny-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Deny-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**Update-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#Update-BetaNonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
-*BetaNonEmployeeLifecycleManagementApi* | [**Invoke-BetaUploadNonEmployeeRecordsInBulk**](docs/BetaNonEmployeeLifecycleManagementApi.md#Invoke-BetaUploadNonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
 *BetaNotificationsApi* | [**New-BetaNotificationTemplate**](docs/BetaNotificationsApi.md#New-BetaNotificationTemplate) | **POST** /notification-templates | Create Notification Template
 *BetaNotificationsApi* | [**New-BetaVerifiedFromAddress**](docs/BetaNotificationsApi.md#New-BetaVerifiedFromAddress) | **POST** /verified-from-addresses | Create Verified From Address
 *BetaNotificationsApi* | [**Remove-BetaNotificationTemplatesInBulk**](docs/BetaNotificationsApi.md#Remove-BetaNotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
@@ -684,6 +684,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.IdentitySyncPayload](docs/IdentitySyncPayload.md)
  - [PSSailpointBeta/Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpointBeta/Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
+ - [PSSailpointBeta/Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpointBeta/Model.ImportOptions](docs/ImportOptions.md)
  - [PSSailpointBeta/Model.ImportSpConfigRequest](docs/ImportSpConfigRequest.md)
  - [PSSailpointBeta/Model.Invocation](docs/Invocation.md)
@@ -1044,7 +1045,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.TriggerOutputAccessRequestPreApproval](docs/TriggerOutputAccessRequestPreApproval.md)
  - [PSSailpointBeta/Model.TriggerType](docs/TriggerType.md)
  - [PSSailpointBeta/Model.UpdatePasswordDictionaryRequest](docs/UpdatePasswordDictionaryRequest.md)
- - [PSSailpointBeta/Model.UploadNonEmployeeRecordsInBulkRequest](docs/UploadNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpointBeta/Model.UsageType](docs/UsageType.md)
  - [PSSailpointBeta/Model.V3ConnectorDto](docs/V3ConnectorDto.md)
  - [PSSailpointBeta/Model.VAClusterStatusChangeEvent](docs/VAClusterStatusChangeEvent.md)

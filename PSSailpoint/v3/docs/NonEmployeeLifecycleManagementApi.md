@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**Get-NonEmployeeSchemaAttribute**](NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
 [**Get-NonEmployeeSource**](NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
 [**Get-NonEmployeeSourceSchemaAttributes**](NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
+[**Import-NonEmployeeRecordsInBulk**](NonEmployeeLifecycleManagementApi.md#Import-NonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
 [**Get-NonEmployeeApprovals**](NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeApprovals) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
 [**Get-NonEmployeeRecords**](NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRecords) | **GET** /non-employee-records | List Non-Employee Records
 [**Get-NonEmployeeRequests**](NonEmployeeLifecycleManagementApi.md#Get-NonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
@@ -35,7 +36,6 @@ Method | HTTP request | Description
 [**Update-NonEmployeeSource**](NonEmployeeLifecycleManagementApi.md#Update-NonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
 [**Deny-NonEmployeeRequest**](NonEmployeeLifecycleManagementApi.md#Deny-NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
 [**Update-NonEmployeeRecord**](NonEmployeeLifecycleManagementApi.md#Update-NonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
-[**Invoke-UploadNonEmployeeRecordsInBulk**](NonEmployeeLifecycleManagementApi.md#Invoke-UploadNonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
 
 
 <a name="Approve-NonEmployeeRequest"></a>
@@ -1176,6 +1176,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Import-NonEmployeeRecordsInBulk"></a>
+# **Import-NonEmployeeRecordsInBulk**
+> NonEmployeeBulkUploadJob Import-NonEmployeeRecordsInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Data] <System.IO.FileInfo><br>
+
+Imports, or Updates, Non-Employee Records
+
+This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
+$Data =  # System.IO.FileInfo | 
+
+# Imports, or Updates, Non-Employee Records
+try {
+    $Result = Import-NonEmployeeRecordsInBulk -Id $Id -Data $Data
+} catch {
+    Write-Host ("Exception occurred when calling Import-NonEmployeeRecordsInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| Source Id (UUID) | 
+ **Data** | **System.IO.FileInfo****System.IO.FileInfo**|  | 
+
+### Return type
+
+[**NonEmployeeBulkUploadJob**](NonEmployeeBulkUploadJob.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Get-NonEmployeeApprovals"></a>
 # **Get-NonEmployeeApprovals**
 > NonEmployeeApprovalItem[] Get-NonEmployeeApprovals<br>
@@ -1709,60 +1763,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-UploadNonEmployeeRecordsInBulk"></a>
-# **Invoke-UploadNonEmployeeRecordsInBulk**
-> NonEmployeeBulkUploadJob Invoke-UploadNonEmployeeRecordsInBulk<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Data] <String><br>
-
-Imports, or Updates, Non-Employee Records
-
-This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
-$Data = "MyData" # String | 
-
-# Imports, or Updates, Non-Employee Records
-try {
-    $Result = Invoke-UploadNonEmployeeRecordsInBulk -Id $Id -Data $Data
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-UploadNonEmployeeRecordsInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| Source Id (UUID) | 
- **Data** | **String**|  | 
-
-### Return type
-
-[**NonEmployeeBulkUploadJob**](NonEmployeeBulkUploadJob.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

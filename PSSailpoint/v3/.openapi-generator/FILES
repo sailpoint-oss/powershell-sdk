@@ -394,6 +394,7 @@ docs/SetLifecycleState200Response.md
 docs/SetLifecycleStateRequest.md
 docs/SodExemptCriteria.md
 docs/SodPolicy.md
+docs/SodPolicySchedule.md
 docs/SodViolationCheckResult.md
 docs/SodViolationContext.md
 docs/SodViolationContextCheckCompleted.md
@@ -840,6 +841,7 @@ src/PSSailpoint/Model/SetLifecycleState200Response.ps1
 src/PSSailpoint/Model/SetLifecycleStateRequest.ps1
 src/PSSailpoint/Model/SodExemptCriteria.ps1
 src/PSSailpoint/Model/SodPolicy.ps1
+src/PSSailpoint/Model/SodPolicySchedule.ps1
 src/PSSailpoint/Model/SodViolationCheckResult.ps1
 src/PSSailpoint/Model/SodViolationContext.ps1
 src/PSSailpoint/Model/SodViolationContextCheckCompleted.ps1
@@ -1288,6 +1290,7 @@ tests/Model/SetLifecycleState200Response.Tests.ps1
 tests/Model/SetLifecycleStateRequest.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
+tests/Model/SodPolicySchedule.Tests.ps1
 tests/Model/SodViolationCheckResult.Tests.ps1
 tests/Model/SodViolationContext.Tests.ps1
 tests/Model/SodViolationContextCheckCompleted.Tests.ps1

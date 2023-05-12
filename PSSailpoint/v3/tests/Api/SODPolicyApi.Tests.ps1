@@ -22,9 +22,25 @@ Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
         }
     }
 
+    Context 'Remove-SodPolicySchedule' {
+        It 'Test Remove-SodPolicySchedule' {
+            #$TestResult = Remove-SodPolicySchedule -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SodPolicy' {
         It 'Test Get-SodPolicy' {
             #$TestResult = Get-SodPolicy -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SodPolicySchedule' {
+        It 'Test Get-SodPolicySchedule' {
+            #$TestResult = Get-SodPolicySchedule -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -41,6 +57,14 @@ Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
     Context 'Update-SodPolicy' {
         It 'Test Update-SodPolicy' {
             #$TestResult = Update-SodPolicy -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-PolicySchedule' {
+        It 'Test Set-PolicySchedule' {
+            #$TestResult = Set-PolicySchedule -Id "TEST_VALUE" -SodPolicySchedule "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

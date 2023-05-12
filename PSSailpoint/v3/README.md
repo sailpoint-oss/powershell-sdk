@@ -168,9 +168,12 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
 *SODPolicyApi* | [**New-SodPolicy**](docs/SODPolicyApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
 *SODPolicyApi* | [**Remove-SodPolicy**](docs/SODPolicyApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
+*SODPolicyApi* | [**Remove-SodPolicySchedule**](docs/SODPolicyApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
 *SODPolicyApi* | [**Get-SodPolicy**](docs/SODPolicyApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
+*SODPolicyApi* | [**Get-SodPolicySchedule**](docs/SODPolicyApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
 *SODPolicyApi* | [**Get-SodPolicies**](docs/SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
 *SODPolicyApi* | [**Update-SodPolicy**](docs/SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
+*SODPolicyApi* | [**Set-PolicySchedule**](docs/SODPolicyApi.md#Set-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
 *SODPolicyApi* | [**Set-SodPolicy**](docs/SODPolicyApi.md#Set-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 *SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
 *SavedSearchApi* | [**Remove-SavedSearch**](docs/SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
@@ -623,6 +626,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SetLifecycleStateRequest](docs/SetLifecycleStateRequest.md)
  - [PSSailpoint/Model.SodExemptCriteria](docs/SodExemptCriteria.md)
  - [PSSailpoint/Model.SodPolicy](docs/SodPolicy.md)
+ - [PSSailpoint/Model.SodPolicySchedule](docs/SodPolicySchedule.md)
  - [PSSailpoint/Model.SodViolationCheckResult](docs/SodViolationCheckResult.md)
  - [PSSailpoint/Model.SodViolationContext](docs/SodViolationContext.md)
  - [PSSailpoint/Model.SodViolationContextCheckCompleted](docs/SodViolationContextCheckCompleted.md)

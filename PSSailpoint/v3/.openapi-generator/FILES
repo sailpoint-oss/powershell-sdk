@@ -223,6 +223,7 @@ docs/ManualWorkItemDetails.md
 docs/ManualWorkItemState.md
 docs/MetricAggregation.md
 docs/MetricType.md
+docs/MultiPolicyRequest.md
 docs/NameNormalizer.md
 docs/NameType.md
 docs/NamedConstructs.md
@@ -705,6 +706,7 @@ src/PSSailpoint/Model/MetricAggregation.ps1
 src/PSSailpoint/Model/MetricType.ps1
 src/PSSailpoint/Model/ModelEvent.ps1
 src/PSSailpoint/Model/ModelFilter.ps1
+src/PSSailpoint/Model/MultiPolicyRequest.ps1
 src/PSSailpoint/Model/NameNormalizer.ps1
 src/PSSailpoint/Model/NameType.ps1
 src/PSSailpoint/Model/NamedConstructs.ps1
@@ -1171,6 +1173,7 @@ tests/Model/MetricAggregation.Tests.ps1
 tests/Model/MetricType.Tests.ps1
 tests/Model/ModelEvent.Tests.ps1
 tests/Model/ModelFilter.Tests.ps1
+tests/Model/MultiPolicyRequest.Tests.ps1
 tests/Model/NameNormalizer.Tests.ps1
 tests/Model/NameType.Tests.ps1
 tests/Model/NamedConstructs.Tests.ps1

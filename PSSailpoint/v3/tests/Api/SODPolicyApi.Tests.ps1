@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
         }
     }
 
+    Context 'Get-ArmRiskById' {
+        It 'Test Get-ArmRiskById' {
+            #$TestResult = Get-ArmRiskById -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SodPolicy' {
         It 'Test Get-SodPolicy' {
             #$TestResult = Get-SodPolicy -Id "TEST_VALUE"

@@ -259,6 +259,81 @@ function Remove-SodPolicySchedule {
 <#
 .SYNOPSIS
 
+Gets the specified ARM risk.
+
+.DESCRIPTION
+
+This API gets the specified ARM risk.  Any authenticated token can call this API.
+
+.PARAMETER Id
+The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a ""!""
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ArmRisk
+#>
+function Get-ArmRiskById {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-ArmRiskById' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        $Configuration = Get-Configuration
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/sod-risks/risks/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getArmRiskById."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ArmRisk" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get SOD policy by ID
 
 .DESCRIPTION

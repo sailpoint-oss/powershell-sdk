@@ -77,6 +77,7 @@ docs/ApprovalSchemeForRole.md
 docs/ApprovalStatus.md
 docs/ApprovalStatusDto.md
 docs/ApprovalSummary.md
+docs/ArmRisk.md
 docs/AttributeDefinition.md
 docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
@@ -156,6 +157,10 @@ docs/ErrorResponseDto.md
 docs/Event.md
 docs/EventAllOf.md
 docs/EventDocument.md
+docs/ExceptionAccessCriteria.md
+docs/ExceptionCriteria.md
+docs/ExceptionCriteriaAccess.md
+docs/ExceptionCriteriaCriteriaListInner.md
 docs/ExecutionStatus.md
 docs/ExpansionItem.md
 docs/Expression.md
@@ -193,6 +198,9 @@ docs/IdentityProfilesApi.md
 docs/IdentityReference.md
 docs/IdentityReferenceWithNameAndEmail.md
 docs/IdentitySummary.md
+docs/IdentityWithNewAccess.md
+docs/IdentityWithNewAccess1.md
+docs/IdentityWithNewAccessAccessRefsInner.md
 docs/ImportNonEmployeeRecordsInBulkRequest.md
 docs/Index.md
 docs/IndexOf.md
@@ -295,6 +303,7 @@ docs/PublicIdentitiesConfigApi.md
 docs/PublicIdentity.md
 docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityConfig.md
+docs/PublicOrgConfigArmData.md
 docs/Query.md
 docs/QueryResultFilter.md
 docs/QueryType.md
@@ -353,6 +362,7 @@ docs/RoleSummaryAllOf.md
 docs/RolesApi.md
 docs/Rule.md
 docs/SODPolicyApi.md
+docs/SODViolationsApi.md
 docs/SavedSearch.md
 docs/SavedSearchAllOf.md
 docs/SavedSearchApi.md
@@ -398,6 +408,7 @@ docs/SetLifecycleStateRequest.md
 docs/SodExemptCriteria.md
 docs/SodPolicy.md
 docs/SodPolicySchedule.md
+docs/SodViolationCheck.md
 docs/SodViolationCheckResult.md
 docs/SodViolationContext.md
 docs/SodViolationContextCheckCompleted.md
@@ -438,7 +449,11 @@ docs/UpdatePasswordDictionaryRequest.md
 docs/Upper.md
 docs/UsageType.md
 docs/Value.md
+docs/ViolationContext.md
+docs/ViolationContextPolicy.md
+docs/ViolationContextPolicyAllOf.md
 docs/ViolationOwnerAssignmentConfig.md
+docs/ViolationPrediction.md
 docs/VisibilityCriteria.md
 docs/WorkItemState.md
 docs/WorkItemType.md
@@ -467,6 +482,7 @@ src/PSSailpoint/Api/PublicIdentitiesConfigApi.ps1
 src/PSSailpoint/Api/RequestableObjectsApi.ps1
 src/PSSailpoint/Api/RolesApi.ps1
 src/PSSailpoint/Api/SODPolicyApi.ps1
+src/PSSailpoint/Api/SODViolationsApi.ps1
 src/PSSailpoint/Api/SavedSearchApi.ps1
 src/PSSailpoint/Api/ScheduledSearchApi.ps1
 src/PSSailpoint/Api/SearchApi.ps1
@@ -547,6 +563,7 @@ src/PSSailpoint/Model/ApprovalSchemeForRole.ps1
 src/PSSailpoint/Model/ApprovalStatus.ps1
 src/PSSailpoint/Model/ApprovalStatusDto.ps1
 src/PSSailpoint/Model/ApprovalSummary.ps1
+src/PSSailpoint/Model/ArmRisk.ps1
 src/PSSailpoint/Model/AttributeDefinition.ps1
 src/PSSailpoint/Model/AttributeDefinitionSchema.ps1
 src/PSSailpoint/Model/AttributeDefinitionType.ps1
@@ -623,6 +640,10 @@ src/PSSailpoint/Model/ErrorMessageDto.ps1
 src/PSSailpoint/Model/ErrorResponseDto.ps1
 src/PSSailpoint/Model/EventAllOf.ps1
 src/PSSailpoint/Model/EventDocument.ps1
+src/PSSailpoint/Model/ExceptionAccessCriteria.ps1
+src/PSSailpoint/Model/ExceptionCriteria.ps1
+src/PSSailpoint/Model/ExceptionCriteriaAccess.ps1
+src/PSSailpoint/Model/ExceptionCriteriaCriteriaListInner.ps1
 src/PSSailpoint/Model/ExecutionStatus.ps1
 src/PSSailpoint/Model/ExpansionItem.ps1
 src/PSSailpoint/Model/Expression.ps1
@@ -658,6 +679,9 @@ src/PSSailpoint/Model/IdentityProfileExportedObject.ps1
 src/PSSailpoint/Model/IdentityReference.ps1
 src/PSSailpoint/Model/IdentityReferenceWithNameAndEmail.ps1
 src/PSSailpoint/Model/IdentitySummary.ps1
+src/PSSailpoint/Model/IdentityWithNewAccess.ps1
+src/PSSailpoint/Model/IdentityWithNewAccess1.ps1
+src/PSSailpoint/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpoint/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint/Model/Index.ps1
 src/PSSailpoint/Model/IndexOf.ps1
@@ -752,6 +776,7 @@ src/PSSailpoint/Model/ProvisioningState.ps1
 src/PSSailpoint/Model/PublicIdentity.ps1
 src/PSSailpoint/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpoint/Model/PublicIdentityConfig.ps1
+src/PSSailpoint/Model/PublicOrgConfigArmData.ps1
 src/PSSailpoint/Model/Query.ps1
 src/PSSailpoint/Model/QueryResultFilter.ps1
 src/PSSailpoint/Model/QueryType.ps1
@@ -847,6 +872,7 @@ src/PSSailpoint/Model/SetLifecycleStateRequest.ps1
 src/PSSailpoint/Model/SodExemptCriteria.ps1
 src/PSSailpoint/Model/SodPolicy.ps1
 src/PSSailpoint/Model/SodPolicySchedule.ps1
+src/PSSailpoint/Model/SodViolationCheck.ps1
 src/PSSailpoint/Model/SodViolationCheckResult.ps1
 src/PSSailpoint/Model/SodViolationContext.ps1
 src/PSSailpoint/Model/SodViolationContextCheckCompleted.ps1
@@ -884,7 +910,11 @@ src/PSSailpoint/Model/UpdatePasswordDictionaryRequest.ps1
 src/PSSailpoint/Model/Upper.ps1
 src/PSSailpoint/Model/UsageType.ps1
 src/PSSailpoint/Model/Value.ps1
+src/PSSailpoint/Model/ViolationContext.ps1
+src/PSSailpoint/Model/ViolationContextPolicy.ps1
+src/PSSailpoint/Model/ViolationContextPolicyAllOf.ps1
 src/PSSailpoint/Model/ViolationOwnerAssignmentConfig.ps1
+src/PSSailpoint/Model/ViolationPrediction.ps1
 src/PSSailpoint/Model/VisibilityCriteria.ps1
 src/PSSailpoint/Model/WorkItemState.ps1
 src/PSSailpoint/Model/WorkItemType.ps1
@@ -919,6 +949,7 @@ tests/Api/PublicIdentitiesConfigApi.Tests.ps1
 tests/Api/RequestableObjectsApi.Tests.ps1
 tests/Api/RolesApi.Tests.ps1
 tests/Api/SODPolicyApi.Tests.ps1
+tests/Api/SODViolationsApi.Tests.ps1
 tests/Api/SavedSearchApi.Tests.ps1
 tests/Api/ScheduledSearchApi.Tests.ps1
 tests/Api/SearchApi.Tests.ps1
@@ -998,6 +1029,7 @@ tests/Model/ApprovalSchemeForRole.Tests.ps1
 tests/Model/ApprovalStatus.Tests.ps1
 tests/Model/ApprovalStatusDto.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
+tests/Model/ArmRisk.Tests.ps1
 tests/Model/AttributeDefinition.Tests.ps1
 tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
@@ -1074,6 +1106,10 @@ tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/EventAllOf.Tests.ps1
 tests/Model/EventDocument.Tests.ps1
+tests/Model/ExceptionAccessCriteria.Tests.ps1
+tests/Model/ExceptionCriteria.Tests.ps1
+tests/Model/ExceptionCriteriaAccess.Tests.ps1
+tests/Model/ExceptionCriteriaCriteriaListInner.Tests.ps1
 tests/Model/ExecutionStatus.Tests.ps1
 tests/Model/ExpansionItem.Tests.ps1
 tests/Model/Expression.Tests.ps1
@@ -1109,6 +1145,9 @@ tests/Model/IdentityProfileExportedObject.Tests.ps1
 tests/Model/IdentityReference.Tests.ps1
 tests/Model/IdentityReferenceWithNameAndEmail.Tests.ps1
 tests/Model/IdentitySummary.Tests.ps1
+tests/Model/IdentityWithNewAccess.Tests.ps1
+tests/Model/IdentityWithNewAccess1.Tests.ps1
+tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/Index.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
@@ -1203,6 +1242,7 @@ tests/Model/ProvisioningState.Tests.ps1
 tests/Model/PublicIdentity.Tests.ps1
 tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
+tests/Model/PublicOrgConfigArmData.Tests.ps1
 tests/Model/Query.Tests.ps1
 tests/Model/QueryResultFilter.Tests.ps1
 tests/Model/QueryType.Tests.ps1
@@ -1298,6 +1338,7 @@ tests/Model/SetLifecycleStateRequest.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodPolicySchedule.Tests.ps1
+tests/Model/SodViolationCheck.Tests.ps1
 tests/Model/SodViolationCheckResult.Tests.ps1
 tests/Model/SodViolationContext.Tests.ps1
 tests/Model/SodViolationContextCheckCompleted.Tests.ps1
@@ -1335,7 +1376,11 @@ tests/Model/UpdatePasswordDictionaryRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/Value.Tests.ps1
+tests/Model/ViolationContext.Tests.ps1
+tests/Model/ViolationContextPolicy.Tests.ps1
+tests/Model/ViolationContextPolicyAllOf.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1
+tests/Model/ViolationPrediction.Tests.ps1
 tests/Model/VisibilityCriteria.Tests.ps1
 tests/Model/WorkItemState.Tests.ps1
 tests/Model/WorkItemType.Tests.ps1

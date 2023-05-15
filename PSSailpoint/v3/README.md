@@ -169,6 +169,7 @@ Class | Method | HTTP request | Description
 *SODPolicyApi* | [**New-SodPolicy**](docs/SODPolicyApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
 *SODPolicyApi* | [**Remove-SodPolicy**](docs/SODPolicyApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
 *SODPolicyApi* | [**Remove-SodPolicySchedule**](docs/SODPolicyApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
+*SODPolicyApi* | [**Get-ArmRiskById**](docs/SODPolicyApi.md#Get-ArmRiskById) | **GET** /sod-risks/risks/{id} | Gets the specified ARM risk.
 *SODPolicyApi* | [**Get-SodPolicy**](docs/SODPolicyApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
 *SODPolicyApi* | [**Get-SodPolicySchedule**](docs/SODPolicyApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
 *SODPolicyApi* | [**Get-SodViolationReportRunStatus**](docs/SODPolicyApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
@@ -178,6 +179,9 @@ Class | Method | HTTP request | Description
 *SODPolicyApi* | [**Set-PolicySchedule**](docs/SODPolicyApi.md#Set-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
 *SODPolicyApi* | [**Set-SodPolicy**](docs/SODPolicyApi.md#Set-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 *SODPolicyApi* | [**Start-SodPolicy**](docs/SODPolicyApi.md#Start-SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
+*SODViolationsApi* | [**Get-ArmConfig**](docs/SODViolationsApi.md#Get-ArmConfig) | **GET** /sod-violations/config | Expose just the ARM config
+*SODViolationsApi* | [**Start-PredictSodViolations**](docs/SODViolationsApi.md#Start-PredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for identity.
+*SODViolationsApi* | [**Start-ViolationCheck**](docs/SODViolationsApi.md#Start-ViolationCheck) | **POST** /sod-violations/check | Check SOD violations
 *SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
 *SavedSearchApi* | [**Remove-SavedSearch**](docs/SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
 *SavedSearchApi* | [**Invoke-ExecuteSavedSearch**](docs/SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
@@ -333,6 +337,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ApprovalStatus](docs/ApprovalStatus.md)
  - [PSSailpoint/Model.ApprovalStatusDto](docs/ApprovalStatusDto.md)
  - [PSSailpoint/Model.ApprovalSummary](docs/ApprovalSummary.md)
+ - [PSSailpoint/Model.ArmRisk](docs/ArmRisk.md)
  - [PSSailpoint/Model.AttributeDefinition](docs/AttributeDefinition.md)
  - [PSSailpoint/Model.AttributeDefinitionSchema](docs/AttributeDefinitionSchema.md)
  - [PSSailpoint/Model.AttributeDefinitionType](docs/AttributeDefinitionType.md)
@@ -409,6 +414,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ErrorResponseDto](docs/ErrorResponseDto.md)
  - [PSSailpoint/Model.EventAllOf](docs/EventAllOf.md)
  - [PSSailpoint/Model.EventDocument](docs/EventDocument.md)
+ - [PSSailpoint/Model.ExceptionAccessCriteria](docs/ExceptionAccessCriteria.md)
+ - [PSSailpoint/Model.ExceptionCriteria](docs/ExceptionCriteria.md)
+ - [PSSailpoint/Model.ExceptionCriteriaAccess](docs/ExceptionCriteriaAccess.md)
+ - [PSSailpoint/Model.ExceptionCriteriaCriteriaListInner](docs/ExceptionCriteriaCriteriaListInner.md)
  - [PSSailpoint/Model.ExecutionStatus](docs/ExecutionStatus.md)
  - [PSSailpoint/Model.ExpansionItem](docs/ExpansionItem.md)
  - [PSSailpoint/Model.Expression](docs/Expression.md)
@@ -444,6 +453,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.IdentityReference](docs/IdentityReference.md)
  - [PSSailpoint/Model.IdentityReferenceWithNameAndEmail](docs/IdentityReferenceWithNameAndEmail.md)
  - [PSSailpoint/Model.IdentitySummary](docs/IdentitySummary.md)
+ - [PSSailpoint/Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
+ - [PSSailpoint/Model.IdentityWithNewAccess1](docs/IdentityWithNewAccess1.md)
+ - [PSSailpoint/Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
  - [PSSailpoint/Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint/Model.Index](docs/Index.md)
  - [PSSailpoint/Model.IndexOf](docs/IndexOf.md)
@@ -538,6 +550,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.PublicIdentity](docs/PublicIdentity.md)
  - [PSSailpoint/Model.PublicIdentityAttributeConfig](docs/PublicIdentityAttributeConfig.md)
  - [PSSailpoint/Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
+ - [PSSailpoint/Model.PublicOrgConfigArmData](docs/PublicOrgConfigArmData.md)
  - [PSSailpoint/Model.Query](docs/Query.md)
  - [PSSailpoint/Model.QueryResultFilter](docs/QueryResultFilter.md)
  - [PSSailpoint/Model.QueryType](docs/QueryType.md)
@@ -633,6 +646,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SodExemptCriteria](docs/SodExemptCriteria.md)
  - [PSSailpoint/Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint/Model.SodPolicySchedule](docs/SodPolicySchedule.md)
+ - [PSSailpoint/Model.SodViolationCheck](docs/SodViolationCheck.md)
  - [PSSailpoint/Model.SodViolationCheckResult](docs/SodViolationCheckResult.md)
  - [PSSailpoint/Model.SodViolationContext](docs/SodViolationContext.md)
  - [PSSailpoint/Model.SodViolationContextCheckCompleted](docs/SodViolationContextCheckCompleted.md)
@@ -670,7 +684,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.Upper](docs/Upper.md)
  - [PSSailpoint/Model.UsageType](docs/UsageType.md)
  - [PSSailpoint/Model.Value](docs/Value.md)
+ - [PSSailpoint/Model.ViolationContext](docs/ViolationContext.md)
+ - [PSSailpoint/Model.ViolationContextPolicy](docs/ViolationContextPolicy.md)
+ - [PSSailpoint/Model.ViolationContextPolicyAllOf](docs/ViolationContextPolicyAllOf.md)
  - [PSSailpoint/Model.ViolationOwnerAssignmentConfig](docs/ViolationOwnerAssignmentConfig.md)
+ - [PSSailpoint/Model.ViolationPrediction](docs/ViolationPrediction.md)
  - [PSSailpoint/Model.VisibilityCriteria](docs/VisibilityCriteria.md)
  - [PSSailpoint/Model.WorkItemState](docs/WorkItemState.md)
  - [PSSailpoint/Model.WorkItemType](docs/WorkItemType.md)

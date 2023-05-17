@@ -166,6 +166,11 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**Get-RoleAssignedIdentities**](docs/RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 *RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles
 *RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
+*SODExceptionApi* | [**New-SodException**](docs/SODExceptionApi.md#New-SodException) | **POST** /sod-exceptions | Create SOD exception
+*SODExceptionApi* | [**Remove-SodExceptionById**](docs/SODExceptionApi.md#Remove-SodExceptionById) | **DELETE** /sod-exceptions/{id} | Delete SOD exception by ID
+*SODExceptionApi* | [**Get-SodExceptionById**](docs/SODExceptionApi.md#Get-SodExceptionById) | **GET** /sod-exceptions/{id} | Get SOD exception by ID
+*SODExceptionApi* | [**Get-SodExceptions**](docs/SODExceptionApi.md#Get-SodExceptions) | **GET** /sod-exceptions | List SOD exceptions
+*SODExceptionApi* | [**Update-ExceptionById**](docs/SODExceptionApi.md#Update-ExceptionById) | **PATCH** /sod-exceptions/{id} | Update SOD exception
 *SODPolicyApi* | [**New-SodPolicy**](docs/SODPolicyApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
 *SODPolicyApi* | [**Remove-SodPolicy**](docs/SODPolicyApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
 *SODPolicyApi* | [**Remove-SodPolicySchedule**](docs/SODPolicyApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
@@ -418,6 +423,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ErrorResponseDto](docs/ErrorResponseDto.md)
  - [PSSailpoint/Model.EventAllOf](docs/EventAllOf.md)
  - [PSSailpoint/Model.EventDocument](docs/EventDocument.md)
+ - [PSSailpoint/Model.Exception](docs/Exception.md)
  - [PSSailpoint/Model.ExceptionAccessCriteria](docs/ExceptionAccessCriteria.md)
  - [PSSailpoint/Model.ExceptionCriteria](docs/ExceptionCriteria.md)
  - [PSSailpoint/Model.ExceptionCriteriaAccess](docs/ExceptionCriteriaAccess.md)

@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
         }
     }
 
+    Context 'Get-ArmPublicKey' {
+        It 'Test Get-ArmPublicKey' {
+            #$TestResult = Get-ArmPublicKey -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-ArmRiskById' {
         It 'Test Get-ArmRiskById' {
             #$TestResult = Get-ArmRiskById -Id "TEST_VALUE"
@@ -121,6 +129,14 @@ Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
     Context 'Set-SodPolicy' {
         It 'Test Set-SodPolicy' {
             #$TestResult = Set-SodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-EvaluateSodPolicy' {
+        It 'Test Start-EvaluateSodPolicy' {
+            #$TestResult = Start-EvaluateSodPolicy -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -211,6 +211,7 @@ docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
 docs/JsonPatchOperationValueAnyOfInner.md
+docs/KeyExchangeServiceTarget.md
 docs/LeftPad.md
 docs/LifecycleState.md
 docs/LifecycleStateAllOf.md
@@ -306,6 +307,7 @@ docs/PublicIdentitiesConfigApi.md
 docs/PublicIdentity.md
 docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityConfig.md
+docs/PublicKey.md
 docs/PublicOrgConfigArmData.md
 docs/Query.md
 docs/QueryResultFilter.md
@@ -697,6 +699,7 @@ src/PSSailpoint/Model/JsonPatch.ps1
 src/PSSailpoint/Model/JsonPatchOperation.ps1
 src/PSSailpoint/Model/JsonPatchOperationValue.ps1
 src/PSSailpoint/Model/JsonPatchOperationValueAnyOfInner.ps1
+src/PSSailpoint/Model/KeyExchangeServiceTarget.ps1
 src/PSSailpoint/Model/LeftPad.ps1
 src/PSSailpoint/Model/LifecycleState.ps1
 src/PSSailpoint/Model/LifecycleStateAllOf.ps1
@@ -784,6 +787,7 @@ src/PSSailpoint/Model/ProvisioningState.ps1
 src/PSSailpoint/Model/PublicIdentity.ps1
 src/PSSailpoint/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpoint/Model/PublicIdentityConfig.ps1
+src/PSSailpoint/Model/PublicKey.ps1
 src/PSSailpoint/Model/PublicOrgConfigArmData.ps1
 src/PSSailpoint/Model/Query.ps1
 src/PSSailpoint/Model/QueryResultFilter.ps1
@@ -1167,6 +1171,7 @@ tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
 tests/Model/JsonPatchOperationValueAnyOfInner.Tests.ps1
+tests/Model/KeyExchangeServiceTarget.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
 tests/Model/LifecycleStateAllOf.Tests.ps1
@@ -1254,6 +1259,7 @@ tests/Model/ProvisioningState.Tests.ps1
 tests/Model/PublicIdentity.Tests.ps1
 tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
+tests/Model/PublicKey.Tests.ps1
 tests/Model/PublicOrgConfigArmData.Tests.ps1
 tests/Model/Query.Tests.ps1
 tests/Model/QueryResultFilter.Tests.ps1

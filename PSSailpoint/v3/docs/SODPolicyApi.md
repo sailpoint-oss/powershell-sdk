@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**New-SodPolicy**](SODPolicyApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
 [**Remove-SodPolicy**](SODPolicyApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
 [**Remove-SodPolicySchedule**](SODPolicyApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
+[**Get-ArmPublicKey**](SODPolicyApi.md#Get-ArmPublicKey) | **GET** /sod-config/public-keys/target | Get ARM public key
 [**Get-ArmRiskById**](SODPolicyApi.md#Get-ArmRiskById) | **GET** /sod-risks/risks/{id} | Gets the specified ARM risk.
 [**Get-CustomViolationReport**](SODPolicyApi.md#Get-CustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 [**Get-DefaultViolationReport**](SODPolicyApi.md#Get-DefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
@@ -19,6 +20,7 @@ Method | HTTP request | Description
 [**Update-SodPolicy**](SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
 [**Set-PolicySchedule**](SODPolicyApi.md#Set-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
 [**Set-SodPolicy**](SODPolicyApi.md#Set-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
+[**Start-EvaluateSodPolicy**](SODPolicyApi.md#Start-EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by ID
 [**Start-SodAllPoliciesForOrg**](SODPolicyApi.md#Start-SodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
 [**Start-SodPolicy**](SODPolicyApi.md#Start-SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
 
@@ -176,6 +178,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-ArmPublicKey"></a>
+# **Get-ArmPublicKey**
+> PublicKey Get-ArmPublicKey<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <System.Collections.Hashtable><br>
+
+Get ARM public key
+
+This API returns public key to encrypt ARM auth blob.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = @{ key_example = ... } # KeyExchangeServiceTarget | The target for public key
+
+# Get ARM public key
+try {
+    $Result = Get-ArmPublicKey -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-ArmPublicKey: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | [**KeyExchangeServiceTarget**](KeyExchangeServiceTarget.md)| The target for public key | 
+
+### Return type
+
+[**PublicKey**](PublicKey.md) (PSCustomObject)
 
 ### Authorization
 
@@ -827,6 +880,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Start-EvaluateSodPolicy"></a>
+# **Start-EvaluateSodPolicy**
+> ReportResultReference Start-EvaluateSodPolicy<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Evaluate one policy by ID
+
+Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
+
+# Evaluate one policy by ID
+try {
+    $Result = Start-EvaluateSodPolicy -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Start-EvaluateSodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The SOD policy ID to run. | 
+
+### Return type
+
+[**ReportResultReference**](ReportResultReference.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

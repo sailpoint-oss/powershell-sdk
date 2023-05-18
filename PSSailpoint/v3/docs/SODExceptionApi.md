@@ -4,12 +4,73 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-BulkSodExceptions**](SODExceptionApi.md#New-BulkSodExceptions) | **POST** /sod-exceptions/bulk-create | Create SOD exceptions in bulk
 [**New-SodException**](SODExceptionApi.md#New-SodException) | **POST** /sod-exceptions | Create SOD exception
 [**Remove-SodExceptionById**](SODExceptionApi.md#Remove-SodExceptionById) | **DELETE** /sod-exceptions/{id} | Delete SOD exception by ID
 [**Get-SodExceptionById**](SODExceptionApi.md#Get-SodExceptionById) | **GET** /sod-exceptions/{id} | Get SOD exception by ID
 [**Get-SodExceptions**](SODExceptionApi.md#Get-SodExceptions) | **GET** /sod-exceptions | List SOD exceptions
 [**Update-ExceptionById**](SODExceptionApi.md#Update-ExceptionById) | **PATCH** /sod-exceptions/{id} | Update SOD exception
 
+
+<a name="New-BulkSodExceptions"></a>
+# **New-BulkSodExceptions**
+> SystemCollectionsHashtable New-BulkSodExceptions<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExceptionList] <PSCustomObject><br>
+
+Create SOD exceptions in bulk
+
+This API creates SOD exceptions in bulk.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+
+$ExceptionCriteriaCriteriaListInner = Initialize-ExceptionCriteriaCriteriaListInner -Type "ENTITLEMENT" -Id "2c91808568c529c60168cca6f90c1313" -Name "CN=HelpDesk,OU=test,OU=test-service,DC=TestAD,DC=local" -Existing $true
+$ExceptionCriteria = Initialize-ExceptionCriteria -CriteriaList $ExceptionCriteriaCriteriaListInner
+
+$ExceptionAccessCriteria = Initialize-ExceptionAccessCriteria -LeftCriteria $ExceptionCriteria -RightCriteria $ExceptionCriteria
+
+$Exception = Initialize-Exception -Id "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -Created (Get-Date) -Modified (Get-Date) -SodPolicy $BaseReferenceDto -Identity $BaseReferenceDto -Start (Get-Date) -VarEnd (Get-Date) -BusinessJustification "Bob (the accountant) is on vacation, Bill needs access to accounting data this week." -MitigatingControl "The manager will audit Bill's changes this week." -AccessCriteria $ExceptionAccessCriteria -Origin $BaseReferenceDto
+
+$ExceptionList = Initialize-ExceptionList -Exceptions $Exception # ExceptionList | 
+
+# Create SOD exceptions in bulk
+try {
+    $Result = New-BulkSodExceptions -ExceptionList $ExceptionList
+} catch {
+    Write-Host ("Exception occurred when calling New-BulkSodExceptions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ExceptionList** | [**ExceptionList**](ExceptionList.md)|  | 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-SodException"></a>
 # **New-SodException**

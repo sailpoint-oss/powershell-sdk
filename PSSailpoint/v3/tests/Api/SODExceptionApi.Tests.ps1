@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'SODExceptionApi' {
+    Context 'New-BulkSodExceptions' {
+        It 'Test New-BulkSodExceptions' {
+            #$TestResult = New-BulkSodExceptions -ExceptionList "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-SodException' {
         It 'Test New-SodException' {
             #$TestResult = New-SodException -Exception "TEST_VALUE"

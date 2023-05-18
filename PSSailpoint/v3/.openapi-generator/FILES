@@ -162,6 +162,7 @@ docs/ExceptionAccessCriteria.md
 docs/ExceptionCriteria.md
 docs/ExceptionCriteriaAccess.md
 docs/ExceptionCriteriaCriteriaListInner.md
+docs/ExceptionList.md
 docs/ExecutionStatus.md
 docs/ExpansionItem.md
 docs/Expression.md
@@ -649,6 +650,7 @@ src/PSSailpoint/Model/ExceptionAccessCriteria.ps1
 src/PSSailpoint/Model/ExceptionCriteria.ps1
 src/PSSailpoint/Model/ExceptionCriteriaAccess.ps1
 src/PSSailpoint/Model/ExceptionCriteriaCriteriaListInner.ps1
+src/PSSailpoint/Model/ExceptionList.ps1
 src/PSSailpoint/Model/ExecutionStatus.ps1
 src/PSSailpoint/Model/ExpansionItem.ps1
 src/PSSailpoint/Model/Expression.ps1
@@ -1118,6 +1120,7 @@ tests/Model/ExceptionAccessCriteria.Tests.ps1
 tests/Model/ExceptionCriteria.Tests.ps1
 tests/Model/ExceptionCriteriaAccess.Tests.ps1
 tests/Model/ExceptionCriteriaCriteriaListInner.Tests.ps1
+tests/Model/ExceptionList.Tests.ps1
 tests/Model/ExecutionStatus.Tests.ps1
 tests/Model/ExpansionItem.Tests.ps1
 tests/Model/Expression.Tests.ps1

@@ -166,6 +166,7 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**Get-RoleAssignedIdentities**](docs/RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 *RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles
 *RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
+*SODExceptionApi* | [**New-BulkSodExceptions**](docs/SODExceptionApi.md#New-BulkSodExceptions) | **POST** /sod-exceptions/bulk-create | Create SOD exceptions in bulk
 *SODExceptionApi* | [**New-SodException**](docs/SODExceptionApi.md#New-SodException) | **POST** /sod-exceptions | Create SOD exception
 *SODExceptionApi* | [**Remove-SodExceptionById**](docs/SODExceptionApi.md#Remove-SodExceptionById) | **DELETE** /sod-exceptions/{id} | Delete SOD exception by ID
 *SODExceptionApi* | [**Get-SodExceptionById**](docs/SODExceptionApi.md#Get-SodExceptionById) | **GET** /sod-exceptions/{id} | Get SOD exception by ID
@@ -428,6 +429,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ExceptionCriteria](docs/ExceptionCriteria.md)
  - [PSSailpoint/Model.ExceptionCriteriaAccess](docs/ExceptionCriteriaAccess.md)
  - [PSSailpoint/Model.ExceptionCriteriaCriteriaListInner](docs/ExceptionCriteriaCriteriaListInner.md)
+ - [PSSailpoint/Model.ExceptionList](docs/ExceptionList.md)
  - [PSSailpoint/Model.ExecutionStatus](docs/ExecutionStatus.md)
  - [PSSailpoint/Model.ExpansionItem](docs/ExpansionItem.md)
  - [PSSailpoint/Model.Expression](docs/Expression.md)

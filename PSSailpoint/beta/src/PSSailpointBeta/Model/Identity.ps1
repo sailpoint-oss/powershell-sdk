@@ -38,6 +38,8 @@ Whether this identity is a manager of another identity
 The last time the identity was refreshed by the system
 .PARAMETER Attributes
 A map with the identity attributes for the identity
+.PARAMETER LifecycleState
+No description available.
 .OUTPUTS
 
 Identity<PSCustomObject>
@@ -77,13 +79,16 @@ function Initialize-BetaIdentity {
         ${ManagerRef},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsManager},
+        ${IsManager} = $false,
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${LastRefresh},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Attributes}
+        ${Attributes},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${LifecycleState}
     )
 
     Process {
@@ -108,6 +113,7 @@ function Initialize-BetaIdentity {
             "isManager" = ${IsManager}
             "lastRefresh" = ${LastRefresh}
             "attributes" = ${Attributes}
+            "lifecycleState" = ${LifecycleState}
         }
 
 
@@ -145,7 +151,7 @@ function ConvertFrom-BetaJsonToIdentity {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaIdentity
-        $AllProperties = ("id", "name", "created", "modified", "alias", "emailAddress", "processingState", "identityStatus", "managerRef", "isManager", "lastRefresh", "attributes")
+        $AllProperties = ("id", "name", "created", "modified", "alias", "emailAddress", "processingState", "identityStatus", "managerRef", "isManager", "lastRefresh", "attributes", "lifecycleState")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -228,6 +234,12 @@ function ConvertFrom-BetaJsonToIdentity {
             $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "lifecycleState"))) { #optional property not found
+            $LifecycleState = $null
+        } else {
+            $LifecycleState = $JsonParameters.PSobject.Properties["lifecycleState"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -241,6 +253,7 @@ function ConvertFrom-BetaJsonToIdentity {
             "isManager" = ${IsManager}
             "lastRefresh" = ${LastRefresh}
             "attributes" = ${Attributes}
+            "lifecycleState" = ${LifecycleState}
         }
 
         return $PSO

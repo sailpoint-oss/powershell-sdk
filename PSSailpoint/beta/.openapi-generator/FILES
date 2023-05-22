@@ -309,6 +309,7 @@ docs/JsonPatchOperationValue.md
 docs/JsonPatchOperationValueAnyOfInner.md
 docs/LatestOutlierSummary.md
 docs/LifecycleState.md
+docs/LifecycleStateDto.md
 docs/ListAccessProfiles401Response.md
 docs/ListAccessProfiles429Response.md
 docs/ListAccounts200ResponseInner.md
@@ -1000,6 +1001,7 @@ src/PSSailpointBeta/Model/JsonPatchOperationValue.ps1
 src/PSSailpointBeta/Model/JsonPatchOperationValueAnyOfInner.ps1
 src/PSSailpointBeta/Model/LatestOutlierSummary.ps1
 src/PSSailpointBeta/Model/LifecycleState.ps1
+src/PSSailpointBeta/Model/LifecycleStateDto.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles401Response.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles429Response.ps1
 src/PSSailpointBeta/Model/ListAccounts200ResponseInner.ps1
@@ -1697,6 +1699,7 @@ tests/Model/JsonPatchOperationValue.Tests.ps1
 tests/Model/JsonPatchOperationValueAnyOfInner.Tests.ps1
 tests/Model/LatestOutlierSummary.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
+tests/Model/LifecycleStateDto.Tests.ps1
 tests/Model/ListAccessProfiles401Response.Tests.ps1
 tests/Model/ListAccessProfiles429Response.Tests.ps1
 tests/Model/ListAccounts200ResponseInner.Tests.ps1

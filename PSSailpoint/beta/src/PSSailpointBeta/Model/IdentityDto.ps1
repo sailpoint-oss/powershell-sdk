@@ -30,6 +30,8 @@ Whether this identity is a manager of another identity
 The last time the identity was refreshed by the system
 .PARAMETER Attributes
 A map with the identity attributes for the identity
+.PARAMETER LifecycleState
+No description available.
 .OUTPUTS
 
 IdentityDto<PSCustomObject>
@@ -57,13 +59,16 @@ function Initialize-BetaIdentityDto {
         ${ManagerRef},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsManager},
+        ${IsManager} = $false,
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${LastRefresh},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Attributes}
+        ${Attributes},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${LifecycleState}
     )
 
     Process {
@@ -80,6 +85,7 @@ function Initialize-BetaIdentityDto {
             "isManager" = ${IsManager}
             "lastRefresh" = ${LastRefresh}
             "attributes" = ${Attributes}
+            "lifecycleState" = ${LifecycleState}
         }
 
 
@@ -117,7 +123,7 @@ function ConvertFrom-BetaJsonToIdentityDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaIdentityDto
-        $AllProperties = ("alias", "emailAddress", "processingState", "identityStatus", "managerRef", "isManager", "lastRefresh", "attributes")
+        $AllProperties = ("alias", "emailAddress", "processingState", "identityStatus", "managerRef", "isManager", "lastRefresh", "attributes", "lifecycleState")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -172,6 +178,12 @@ function ConvertFrom-BetaJsonToIdentityDto {
             $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "lifecycleState"))) { #optional property not found
+            $LifecycleState = $null
+        } else {
+            $LifecycleState = $JsonParameters.PSobject.Properties["lifecycleState"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "alias" = ${Alias}
             "emailAddress" = ${EmailAddress}
@@ -181,6 +193,7 @@ function ConvertFrom-BetaJsonToIdentityDto {
             "isManager" = ${IsManager}
             "lastRefresh" = ${LastRefresh}
             "attributes" = ${Attributes}
+            "lifecycleState" = ${LifecycleState}
         }
 
         return $PSO

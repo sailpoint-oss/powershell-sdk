@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaIdentityDto' {
     Context 'BetaIdentityDto' {
         It 'Initialize-BetaIdentityDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaIdentityDto -Alias "TEST_VALUE" -EmailAddress "TEST_VALUE" -ProcessingState "TEST_VALUE" -IdentityStatus "TEST_VALUE" -ManagerRef "TEST_VALUE" -IsManager "TEST_VALUE" -LastRefresh "TEST_VALUE" -Attributes "TEST_VALUE"
+            #$NewObject = Initialize-BetaIdentityDto -Alias "TEST_VALUE" -EmailAddress "TEST_VALUE" -ProcessingState "TEST_VALUE" -IdentityStatus "TEST_VALUE" -ManagerRef "TEST_VALUE" -IsManager "TEST_VALUE" -LastRefresh "TEST_VALUE" -Attributes "TEST_VALUE" -LifecycleState "TEST_VALUE"
             #$NewObject | Should -BeOfType IdentityDto
             #$NewObject.property | Should -Be 0
         }

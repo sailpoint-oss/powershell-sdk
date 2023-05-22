@@ -700,6 +700,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.JsonPatchOperationValueAnyOfInner](docs/JsonPatchOperationValueAnyOfInner.md)
  - [PSSailpointBeta/Model.LatestOutlierSummary](docs/LatestOutlierSummary.md)
  - [PSSailpointBeta/Model.LifecycleState](docs/LifecycleState.md)
+ - [PSSailpointBeta/Model.LifecycleStateDto](docs/LifecycleStateDto.md)
  - [PSSailpointBeta/Model.ListAccessProfiles401Response](docs/ListAccessProfiles401Response.md)
  - [PSSailpointBeta/Model.ListAccessProfiles429Response](docs/ListAccessProfiles429Response.md)
  - [PSSailpointBeta/Model.ListAccounts200ResponseInner](docs/ListAccounts200ResponseInner.md)

@@ -404,7 +404,7 @@ function Get-IdentitySummary {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/certifications/{id}/identity-summary/{identitySummaryId}'
+        $LocalVarUri = '/certifications/{id}/identity-summaries/{identitySummaryId}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling getIdentitySummary."
         }

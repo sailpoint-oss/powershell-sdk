@@ -33,9 +33,9 @@ No description available.
 .PARAMETER LegacyMembershipInfo
 This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration.
 .PARAMETER Enabled
-Whether the Role is enabled or not. This field is false by default.
+Whether the Role is enabled or not.
 .PARAMETER Requestable
-Whether the Role can be the target of Access Requests. This field is false by default.
+Whether the Role can be the target of access requests.
 .PARAMETER AccessRequestConfig
 No description available.
 .PARAMETER RevocationRequestConfig
@@ -79,10 +79,10 @@ function Initialize-BetaRole {
         ${LegacyMembershipInfo},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Enabled},
+        ${Enabled} = $false,
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Requestable},
+        ${Requestable} = $false,
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AccessRequestConfig},

@@ -4,6 +4,7 @@ README.md
 appveyor.yml
 docs/Access.md
 docs/AccessAllOf.md
+docs/AccessConstraint.md
 docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
 docs/AccessProfile.md
@@ -98,10 +99,19 @@ docs/BucketAggregation.md
 docs/BucketType.md
 docs/BulkTaggedObject.md
 docs/Campaign.md
+docs/CampaignAlert.md
+docs/CampaignAllOf.md
+docs/CampaignAllOfFilter.md
+docs/CampaignAllOfRoleCompositionCampaignInfo.md
+docs/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md
+docs/CampaignAllOfSearchCampaignInfo.md
+docs/CampaignAllOfSourceOwnerCampaignInfo.md
+docs/CampaignAllOfSourcesWithOrphanEntitlements.md
 docs/CampaignReference.md
 docs/CancelAccessRequest.md
 docs/CancelledRequestDetails.md
 docs/Certification.md
+docs/CertificationCampaignsApi.md
 docs/CertificationDecision.md
 docs/CertificationIdentitySummary.md
 docs/CertificationPhase.md
@@ -411,6 +421,7 @@ docs/ServiceDeskIntegrationTemplateDtoAllOf.md
 docs/ServiceDeskIntegrationTemplateType.md
 docs/SetLifecycleState200Response.md
 docs/SetLifecycleStateRequest.md
+docs/SlimCampaign.md
 docs/SodExemptCriteria.md
 docs/SodPolicy.md
 docs/SodPolicySchedule.md
@@ -472,6 +483,7 @@ src/PSSailpoint/Api/AccessRequestApprovalsApi.ps1
 src/PSSailpoint/Api/AccessRequestsApi.ps1
 src/PSSailpoint/Api/AccountActivitiesApi.ps1
 src/PSSailpoint/Api/AccountsApi.ps1
+src/PSSailpoint/Api/CertificationCampaignsApi.ps1
 src/PSSailpoint/Api/CertificationSummariesApi.ps1
 src/PSSailpoint/Api/CertificationsApi.ps1
 src/PSSailpoint/Api/IdentityProfilesApi.ps1
@@ -502,6 +514,7 @@ src/PSSailpoint/Api/WorkItemsApi.ps1
 src/PSSailpoint/Client/Configuration.ps1
 src/PSSailpoint/Model/Access.ps1
 src/PSSailpoint/Model/AccessAllOf.ps1
+src/PSSailpoint/Model/AccessConstraint.ps1
 src/PSSailpoint/Model/AccessCriteria.ps1
 src/PSSailpoint/Model/AccessCriteriaCriteriaListInner.ps1
 src/PSSailpoint/Model/AccessProfile.ps1
@@ -591,6 +604,14 @@ src/PSSailpoint/Model/BucketAggregation.ps1
 src/PSSailpoint/Model/BucketType.ps1
 src/PSSailpoint/Model/BulkTaggedObject.ps1
 src/PSSailpoint/Model/Campaign.ps1
+src/PSSailpoint/Model/CampaignAlert.ps1
+src/PSSailpoint/Model/CampaignAllOf.ps1
+src/PSSailpoint/Model/CampaignAllOfFilter.ps1
+src/PSSailpoint/Model/CampaignAllOfRoleCompositionCampaignInfo.ps1
+src/PSSailpoint/Model/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.ps1
+src/PSSailpoint/Model/CampaignAllOfSearchCampaignInfo.ps1
+src/PSSailpoint/Model/CampaignAllOfSourceOwnerCampaignInfo.ps1
+src/PSSailpoint/Model/CampaignAllOfSourcesWithOrphanEntitlements.ps1
 src/PSSailpoint/Model/CampaignReference.ps1
 src/PSSailpoint/Model/CancelAccessRequest.ps1
 src/PSSailpoint/Model/CancelledRequestDetails.ps1
@@ -881,6 +902,7 @@ src/PSSailpoint/Model/ServiceDeskIntegrationTemplateDtoAllOf.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationTemplateType.ps1
 src/PSSailpoint/Model/SetLifecycleState200Response.ps1
 src/PSSailpoint/Model/SetLifecycleStateRequest.ps1
+src/PSSailpoint/Model/SlimCampaign.ps1
 src/PSSailpoint/Model/SodExemptCriteria.ps1
 src/PSSailpoint/Model/SodPolicy.ps1
 src/PSSailpoint/Model/SodPolicySchedule.ps1
@@ -945,6 +967,7 @@ tests/Api/AccessRequestApprovalsApi.Tests.ps1
 tests/Api/AccessRequestsApi.Tests.ps1
 tests/Api/AccountActivitiesApi.Tests.ps1
 tests/Api/AccountsApi.Tests.ps1
+tests/Api/CertificationCampaignsApi.Tests.ps1
 tests/Api/CertificationSummariesApi.Tests.ps1
 tests/Api/CertificationsApi.Tests.ps1
 tests/Api/IdentityProfilesApi.Tests.ps1
@@ -974,6 +997,7 @@ tests/Api/TransformsApi.Tests.ps1
 tests/Api/WorkItemsApi.Tests.ps1
 tests/Model/Access.Tests.ps1
 tests/Model/AccessAllOf.Tests.ps1
+tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
 tests/Model/AccessProfile.Tests.ps1
@@ -1063,6 +1087,14 @@ tests/Model/BucketAggregation.Tests.ps1
 tests/Model/BucketType.Tests.ps1
 tests/Model/BulkTaggedObject.Tests.ps1
 tests/Model/Campaign.Tests.ps1
+tests/Model/CampaignAlert.Tests.ps1
+tests/Model/CampaignAllOf.Tests.ps1
+tests/Model/CampaignAllOfFilter.Tests.ps1
+tests/Model/CampaignAllOfRoleCompositionCampaignInfo.Tests.ps1
+tests/Model/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.Tests.ps1
+tests/Model/CampaignAllOfSearchCampaignInfo.Tests.ps1
+tests/Model/CampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
+tests/Model/CampaignAllOfSourcesWithOrphanEntitlements.Tests.ps1
 tests/Model/CampaignReference.Tests.ps1
 tests/Model/CancelAccessRequest.Tests.ps1
 tests/Model/CancelledRequestDetails.Tests.ps1
@@ -1353,6 +1385,7 @@ tests/Model/ServiceDeskIntegrationTemplateDtoAllOf.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
 tests/Model/SetLifecycleState200Response.Tests.ps1
 tests/Model/SetLifecycleStateRequest.Tests.ps1
+tests/Model/SlimCampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodPolicySchedule.Tests.ps1

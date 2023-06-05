@@ -14,6 +14,10 @@ No summary available.
 
 No description available.
 
+.PARAMETER CommentsRequired
+Whether the requester of the containing object must provide comments justifying the request
+.PARAMETER DenialCommentsRequired
+Whether an approver must provide comments when denying the request
 .PARAMETER ApprovalSchemes
 List describing the steps in approving the revocation request
 .OUTPUTS
@@ -25,6 +29,12 @@ function Initialize-BetaRevocability {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${CommentsRequired} = $false,
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${DenialCommentsRequired} = $false,
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes}
     )
@@ -35,6 +45,8 @@ function Initialize-BetaRevocability {
 
 
         $PSO = [PSCustomObject]@{
+            "commentsRequired" = ${CommentsRequired}
+            "denialCommentsRequired" = ${DenialCommentsRequired}
             "approvalSchemes" = ${ApprovalSchemes}
         }
 
@@ -73,11 +85,23 @@ function ConvertFrom-BetaJsonToRevocability {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRevocability
-        $AllProperties = ("approvalSchemes")
+        $AllProperties = ("commentsRequired", "denialCommentsRequired", "approvalSchemes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "commentsRequired"))) { #optional property not found
+            $CommentsRequired = $null
+        } else {
+            $CommentsRequired = $JsonParameters.PSobject.Properties["commentsRequired"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "denialCommentsRequired"))) { #optional property not found
+            $DenialCommentsRequired = $null
+        } else {
+            $DenialCommentsRequired = $JsonParameters.PSobject.Properties["denialCommentsRequired"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalSchemes"))) { #optional property not found
@@ -87,6 +111,8 @@ function ConvertFrom-BetaJsonToRevocability {
         }
 
         $PSO = [PSCustomObject]@{
+            "commentsRequired" = ${CommentsRequired}
+            "denialCommentsRequired" = ${DenialCommentsRequired}
             "approvalSchemes" = ${ApprovalSchemes}
         }
 

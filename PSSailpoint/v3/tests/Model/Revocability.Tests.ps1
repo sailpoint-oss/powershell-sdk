@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'Revocability' {
     Context 'Revocability' {
         It 'Initialize-Revocability' {
             # a simple test to create an object
-            #$NewObject = Initialize-Revocability -ApprovalSchemes "TEST_VALUE"
+            #$NewObject = Initialize-Revocability -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
             #$NewObject | Should -BeOfType Revocability
             #$NewObject.property | Should -Be 0
         }

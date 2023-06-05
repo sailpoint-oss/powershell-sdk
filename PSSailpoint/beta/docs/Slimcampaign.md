@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Description** | **String** | The campaign description. If this object is part of a template, special formatting applies; see the &#x60;/campaign-templates/{id}/generate&#x60; endpoint documentation for details. | 
 **Deadline** | **System.DateTime** | The campaign&#39;s completion deadline. | [optional] 
 **Type** | **String** | The type of campaign. Could be extended in the future. | 
-**EmailNotificationEnabled** | **Boolean** | Enables email notification for this campaign | [optional] 
-**AutoRevokeAllowed** | **Boolean** | Allows auto revoke for this campaign | [optional] 
-**RecommendationsEnabled** | **Boolean** | Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future. | [optional] 
+**EmailNotificationEnabled** | **Boolean** | Enables email notification for this campaign | [optional] [default to $false]
+**AutoRevokeAllowed** | **Boolean** | Allows auto revoke for this campaign | [optional] [default to $false]
+**RecommendationsEnabled** | **Boolean** | Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future. | [optional] [default to $false]
 **Status** | **String** | The campaign&#39;s current status. | [optional] [readonly] 
 **CorrelatedStatus** | **String** | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source). | [optional] 
 

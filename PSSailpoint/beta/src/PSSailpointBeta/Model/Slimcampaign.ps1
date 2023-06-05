@@ -60,13 +60,13 @@ function Initialize-BetaSlimcampaign {
         ${Type},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${EmailNotificationEnabled},
+        ${EmailNotificationEnabled} = $false,
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AutoRevokeAllowed},
+        ${AutoRevokeAllowed} = $false,
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${RecommendationsEnabled},
+        ${RecommendationsEnabled} = $false,
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PENDING", "STAGED", "CANCELING", "ACTIVATING", "ACTIVE", "COMPLETING", "COMPLETED", "ERROR", "ARCHIVED")]
         [String]

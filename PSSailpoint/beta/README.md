@@ -421,6 +421,15 @@ Class | Method | HTTP request | Description
 *BetaWorkItemsApi* | [**Deny-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Deny-BetaApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
 *BetaWorkItemsApi* | [**Deny-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Deny-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
 *BetaWorkItemsApi* | [**Submit-BetaAccountSelection**](docs/BetaWorkItemsApi.md#Submit-BetaAccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
+*BetaWorkReassignmentApi* | [**New-BetaReassignmentConfiguration**](docs/BetaWorkReassignmentApi.md#New-BetaReassignmentConfiguration) | **POST** /reassignment-configurations | Create a Reassignment Configuration
+*BetaWorkReassignmentApi* | [**Remove-BetaReassignmentConfiguration**](docs/BetaWorkReassignmentApi.md#Remove-BetaReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId} | Delete Reassignment Configuration
+*BetaWorkReassignmentApi* | [**Get-BetaEvaluateReassignmentConfiguration**](docs/BetaWorkReassignmentApi.md#Get-BetaEvaluateReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId}/evaluate/{configType} | Evaluate Reassignment Configuration
+*BetaWorkReassignmentApi* | [**Get-BetaReassignmentConfigTypes**](docs/BetaWorkReassignmentApi.md#Get-BetaReassignmentConfigTypes) | **GET** /reassignment-configurations/types | List Reassignment Config Types
+*BetaWorkReassignmentApi* | [**Get-BetaReassignmentConfiguration**](docs/BetaWorkReassignmentApi.md#Get-BetaReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId} | Get Reassignment Configuration
+*BetaWorkReassignmentApi* | [**Get-BetaTenantConfigConfiguration**](docs/BetaWorkReassignmentApi.md#Get-BetaTenantConfigConfiguration) | **GET** /reassignment-configurations/tenant-config | Get Tenant-wide Reassignment Configuration settings
+*BetaWorkReassignmentApi* | [**Get-BetaReassignmentConfigurations**](docs/BetaWorkReassignmentApi.md#Get-BetaReassignmentConfigurations) | **GET** /reassignment-configurations | List Reassignment Configurations
+*BetaWorkReassignmentApi* | [**Send-BetaReassignmentConfig**](docs/BetaWorkReassignmentApi.md#Send-BetaReassignmentConfig) | **PUT** /reassignment-configurations/{identityId} | Update Reassignment Configuration
+*BetaWorkReassignmentApi* | [**Send-BetaTenantConfiguration**](docs/BetaWorkReassignmentApi.md#Send-BetaTenantConfiguration) | **PUT** /reassignment-configurations/tenant-config | Update Tenant-wide Reassignment Configuration settings
 *BetaWorkflowsApi* | [**Suspend-BetaWorkflowExecution**](docs/BetaWorkflowsApi.md#Suspend-BetaWorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
 *BetaWorkflowsApi* | [**New-BetaWorkflow**](docs/BetaWorkflowsApi.md#New-BetaWorkflow) | **POST** /workflows | Create Workflow
 *BetaWorkflowsApi* | [**Remove-BetaWorkflow**](docs/BetaWorkflowsApi.md#Remove-BetaWorkflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
@@ -525,6 +534,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.AttributeDefinitionSchema](docs/AttributeDefinitionSchema.md)
  - [PSSailpointBeta/Model.AttributeDefinitionType](docs/AttributeDefinitionType.md)
  - [PSSailpointBeta/Model.AttributesChanged](docs/AttributesChanged.md)
+ - [PSSailpointBeta/Model.AuditDetails](docs/AuditDetails.md)
  - [PSSailpointBeta/Model.BaseCommonDto](docs/BaseCommonDto.md)
  - [PSSailpointBeta/Model.BaseCommonDto1](docs/BaseCommonDto1.md)
  - [PSSailpointBeta/Model.BaseReferenceDto](docs/BaseReferenceDto.md)
@@ -575,6 +585,12 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.CompletedApprovalState](docs/CompletedApprovalState.md)
  - [PSSailpointBeta/Model.CompletionStatus](docs/CompletionStatus.md)
  - [PSSailpointBeta/Model.ConfigObject](docs/ConfigObject.md)
+ - [PSSailpointBeta/Model.ConfigType](docs/ConfigType.md)
+ - [PSSailpointBeta/Model.ConfigTypeEnum](docs/ConfigTypeEnum.md)
+ - [PSSailpointBeta/Model.ConfigurationDetailsResponse](docs/ConfigurationDetailsResponse.md)
+ - [PSSailpointBeta/Model.ConfigurationItemRequest](docs/ConfigurationItemRequest.md)
+ - [PSSailpointBeta/Model.ConfigurationItemResponse](docs/ConfigurationItemResponse.md)
+ - [PSSailpointBeta/Model.ConfigurationResponse](docs/ConfigurationResponse.md)
  - [PSSailpointBeta/Model.ConflictingAccessCriteria](docs/ConflictingAccessCriteria.md)
  - [PSSailpointBeta/Model.ConnectorDetail](docs/ConnectorDetail.md)
  - [PSSailpointBeta/Model.ConnectorRuleCreateRequest](docs/ConnectorRuleCreateRequest.md)
@@ -613,6 +629,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.EntityCreatedByDTO](docs/EntityCreatedByDTO.md)
  - [PSSailpointBeta/Model.ErrorMessageDto](docs/ErrorMessageDto.md)
  - [PSSailpointBeta/Model.ErrorResponseDto](docs/ErrorResponseDto.md)
+ - [PSSailpointBeta/Model.EvaluateResponse](docs/EvaluateResponse.md)
  - [PSSailpointBeta/Model.EventAttributes](docs/EventAttributes.md)
  - [PSSailpointBeta/Model.EventBridgeConfig](docs/EventBridgeConfig.md)
  - [PSSailpointBeta/Model.ExceptionAccessCriteria](docs/ExceptionAccessCriteria.md)
@@ -653,6 +670,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.HttpDispatchMode](docs/HttpDispatchMode.md)
  - [PSSailpointBeta/Model.IdentitiesAccountsBulkRequest](docs/IdentitiesAccountsBulkRequest.md)
  - [PSSailpointBeta/Model.Identity](docs/Identity.md)
+ - [PSSailpointBeta/Model.Identity1](docs/Identity1.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig](docs/IdentityAttributeConfig.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig1](docs/IdentityAttributeConfig1.md)
  - [PSSailpointBeta/Model.IdentityAttributePreview](docs/IdentityAttributePreview.md)
@@ -708,6 +726,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
  - [PSSailpointBeta/Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpointBeta/Model.LocalizedMessage](docs/LocalizedMessage.md)
+ - [PSSailpointBeta/Model.LookupStep](docs/LookupStep.md)
  - [PSSailpointBeta/Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpointBeta/Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
  - [PSSailpointBeta/Model.ManagedClient](docs/ManagedClient.md)
@@ -809,6 +828,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ReassignReference](docs/ReassignReference.md)
  - [PSSailpointBeta/Model.Reassignment](docs/Reassignment.md)
  - [PSSailpointBeta/Model.ReassignmentType](docs/ReassignmentType.md)
+ - [PSSailpointBeta/Model.ReassignmentTypeEnum](docs/ReassignmentTypeEnum.md)
  - [PSSailpointBeta/Model.RecommendationConfigDto](docs/RecommendationConfigDto.md)
  - [PSSailpointBeta/Model.RecommendationRequest](docs/RecommendationRequest.md)
  - [PSSailpointBeta/Model.RecommendationRequestDto](docs/RecommendationRequestDto.md)
@@ -958,6 +978,9 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.TemplateBulkDeleteDto](docs/TemplateBulkDeleteDto.md)
  - [PSSailpointBeta/Model.TemplateDto](docs/TemplateDto.md)
  - [PSSailpointBeta/Model.TemplateDtoDefault](docs/TemplateDtoDefault.md)
+ - [PSSailpointBeta/Model.TenantConfigurationDetails](docs/TenantConfigurationDetails.md)
+ - [PSSailpointBeta/Model.TenantConfigurationRequest](docs/TenantConfigurationRequest.md)
+ - [PSSailpointBeta/Model.TenantConfigurationResponse](docs/TenantConfigurationResponse.md)
  - [PSSailpointBeta/Model.TestExternalExecuteWorkflow200Response](docs/TestExternalExecuteWorkflow200Response.md)
  - [PSSailpointBeta/Model.TestExternalExecuteWorkflowRequest](docs/TestExternalExecuteWorkflowRequest.md)
  - [PSSailpointBeta/Model.TestInvocation](docs/TestInvocation.md)
@@ -1070,6 +1093,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.WorkItems](docs/WorkItems.md)
  - [PSSailpointBeta/Model.WorkItemsCount](docs/WorkItemsCount.md)
  - [PSSailpointBeta/Model.WorkItemsSummary](docs/WorkItemsSummary.md)
+ - [PSSailpointBeta/Model.WorkTypeEnum](docs/WorkTypeEnum.md)
  - [PSSailpointBeta/Model.Workflow](docs/Workflow.md)
  - [PSSailpointBeta/Model.WorkflowAllOf](docs/WorkflowAllOf.md)
  - [PSSailpointBeta/Model.WorkflowBody](docs/WorkflowBody.md)

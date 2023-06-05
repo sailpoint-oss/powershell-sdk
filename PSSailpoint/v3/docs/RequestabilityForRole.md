@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CommentsRequired** | **Boolean** | Whether the requester of the containing object must provide comments justifying the request | [optional] 
-**DenialCommentsRequired** | **Boolean** | Whether an approver must provide comments when denying the request | [optional] 
+**CommentsRequired** | **Boolean** | Whether the requester of the containing object must provide comments justifying the request | [optional] [default to $false]
+**DenialCommentsRequired** | **Boolean** | Whether an approver must provide comments when denying the request | [optional] [default to $false]
 **ApprovalSchemes** | [**ApprovalSchemeForRole[]**](ApprovalSchemeForRole.md) | List describing the steps in approving the request | [optional] 
 
 ## Examples

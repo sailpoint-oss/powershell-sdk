@@ -30,10 +30,10 @@ function Initialize-RequestabilityForRole {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${CommentsRequired},
+        ${CommentsRequired} = $false,
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${DenialCommentsRequired},
+        ${DenialCommentsRequired} = $false,
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes}

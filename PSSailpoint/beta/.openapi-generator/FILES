@@ -84,6 +84,7 @@ docs/AttributeDefinition.md
 docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
 docs/AttributesChanged.md
+docs/AuditDetails.md
 docs/BaseCommonDto.md
 docs/BaseCommonDto1.md
 docs/BaseReferenceDto.md
@@ -139,6 +140,7 @@ docs/BetaTaggedObjectsApi.md
 docs/BetaTransformsApi.md
 docs/BetaTriggersApi.md
 docs/BetaWorkItemsApi.md
+docs/BetaWorkReassignmentApi.md
 docs/BetaWorkflowsApi.md
 docs/BulkIdentitiesAccountsResponse.md
 docs/BulkTaggedObject.md
@@ -184,6 +186,12 @@ docs/CompletedApproval.md
 docs/CompletedApprovalState.md
 docs/CompletionStatus.md
 docs/ConfigObject.md
+docs/ConfigType.md
+docs/ConfigTypeEnum.md
+docs/ConfigurationDetailsResponse.md
+docs/ConfigurationItemRequest.md
+docs/ConfigurationItemResponse.md
+docs/ConfigurationResponse.md
 docs/ConflictingAccessCriteria.md
 docs/ConnectorDetail.md
 docs/ConnectorRuleCreateRequest.md
@@ -222,6 +230,7 @@ docs/EntitlementSource.md
 docs/EntityCreatedByDTO.md
 docs/ErrorMessageDto.md
 docs/ErrorResponseDto.md
+docs/EvaluateResponse.md
 docs/EventAttributes.md
 docs/EventBridgeConfig.md
 docs/ExceptionAccessCriteria.md
@@ -262,6 +271,7 @@ docs/HttpConfig.md
 docs/HttpDispatchMode.md
 docs/IdentitiesAccountsBulkRequest.md
 docs/Identity.md
+docs/Identity1.md
 docs/IdentityAttributeConfig.md
 docs/IdentityAttributeConfig1.md
 docs/IdentityAttributePreview.md
@@ -317,6 +327,7 @@ docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/ListIdentityAccessItems200ResponseInner.md
 docs/LocaleOrigin.md
 docs/LocalizedMessage.md
+docs/LookupStep.md
 docs/MailFromAttributes.md
 docs/MailFromAttributesDto.md
 docs/ManagedClient.md
@@ -418,6 +429,7 @@ docs/QueuedCheckConfigDetails.md
 docs/ReassignReference.md
 docs/Reassignment.md
 docs/ReassignmentType.md
+docs/ReassignmentTypeEnum.md
 docs/RecommendationConfigDto.md
 docs/RecommendationRequest.md
 docs/RecommendationRequestDto.md
@@ -567,6 +579,9 @@ docs/TaggedObject.md
 docs/TemplateBulkDeleteDto.md
 docs/TemplateDto.md
 docs/TemplateDtoDefault.md
+docs/TenantConfigurationDetails.md
+docs/TenantConfigurationRequest.md
+docs/TenantConfigurationResponse.md
 docs/TestExternalExecuteWorkflow200Response.md
 docs/TestExternalExecuteWorkflowRequest.md
 docs/TestInvocation.md
@@ -679,6 +694,7 @@ docs/WorkItemType.md
 docs/WorkItems.md
 docs/WorkItemsCount.md
 docs/WorkItemsSummary.md
+docs/WorkTypeEnum.md
 docs/Workflow.md
 docs/WorkflowAllOf.md
 docs/WorkflowBody.md
@@ -742,6 +758,7 @@ src/PSSailpointBeta/Api/BetaTaggedObjectsApi.ps1
 src/PSSailpointBeta/Api/BetaTransformsApi.ps1
 src/PSSailpointBeta/Api/BetaTriggersApi.ps1
 src/PSSailpointBeta/Api/BetaWorkItemsApi.ps1
+src/PSSailpointBeta/Api/BetaWorkReassignmentApi.ps1
 src/PSSailpointBeta/Api/BetaWorkflowsApi.ps1
 src/PSSailpointBeta/Client/BetaConfiguration.ps1
 src/PSSailpointBeta/Model/AccessConstraint.ps1
@@ -826,6 +843,7 @@ src/PSSailpointBeta/Model/AttributeDefinition.ps1
 src/PSSailpointBeta/Model/AttributeDefinitionSchema.ps1
 src/PSSailpointBeta/Model/AttributeDefinitionType.ps1
 src/PSSailpointBeta/Model/AttributesChanged.ps1
+src/PSSailpointBeta/Model/AuditDetails.ps1
 src/PSSailpointBeta/Model/BaseCommonDto.ps1
 src/PSSailpointBeta/Model/BaseCommonDto1.ps1
 src/PSSailpointBeta/Model/BaseReferenceDto.ps1
@@ -876,6 +894,12 @@ src/PSSailpointBeta/Model/CompletedApproval.ps1
 src/PSSailpointBeta/Model/CompletedApprovalState.ps1
 src/PSSailpointBeta/Model/CompletionStatus.ps1
 src/PSSailpointBeta/Model/ConfigObject.ps1
+src/PSSailpointBeta/Model/ConfigType.ps1
+src/PSSailpointBeta/Model/ConfigTypeEnum.ps1
+src/PSSailpointBeta/Model/ConfigurationDetailsResponse.ps1
+src/PSSailpointBeta/Model/ConfigurationItemRequest.ps1
+src/PSSailpointBeta/Model/ConfigurationItemResponse.ps1
+src/PSSailpointBeta/Model/ConfigurationResponse.ps1
 src/PSSailpointBeta/Model/ConflictingAccessCriteria.ps1
 src/PSSailpointBeta/Model/ConnectorDetail.ps1
 src/PSSailpointBeta/Model/ConnectorRuleCreateRequest.ps1
@@ -914,6 +938,7 @@ src/PSSailpointBeta/Model/EntitlementSource.ps1
 src/PSSailpointBeta/Model/EntityCreatedByDTO.ps1
 src/PSSailpointBeta/Model/ErrorMessageDto.ps1
 src/PSSailpointBeta/Model/ErrorResponseDto.ps1
+src/PSSailpointBeta/Model/EvaluateResponse.ps1
 src/PSSailpointBeta/Model/EventAttributes.ps1
 src/PSSailpointBeta/Model/EventBridgeConfig.ps1
 src/PSSailpointBeta/Model/ExceptionAccessCriteria.ps1
@@ -954,6 +979,7 @@ src/PSSailpointBeta/Model/HttpConfig.ps1
 src/PSSailpointBeta/Model/HttpDispatchMode.ps1
 src/PSSailpointBeta/Model/IdentitiesAccountsBulkRequest.ps1
 src/PSSailpointBeta/Model/Identity.ps1
+src/PSSailpointBeta/Model/Identity1.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig1.ps1
 src/PSSailpointBeta/Model/IdentityAttributePreview.ps1
@@ -1009,6 +1035,7 @@ src/PSSailpointBeta/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpointBeta/Model/ListIdentityAccessItems200ResponseInner.ps1
 src/PSSailpointBeta/Model/LocaleOrigin.ps1
 src/PSSailpointBeta/Model/LocalizedMessage.ps1
+src/PSSailpointBeta/Model/LookupStep.ps1
 src/PSSailpointBeta/Model/MailFromAttributes.ps1
 src/PSSailpointBeta/Model/MailFromAttributesDto.ps1
 src/PSSailpointBeta/Model/ManagedClient.ps1
@@ -1110,6 +1137,7 @@ src/PSSailpointBeta/Model/QueuedCheckConfigDetails.ps1
 src/PSSailpointBeta/Model/ReassignReference.ps1
 src/PSSailpointBeta/Model/Reassignment.ps1
 src/PSSailpointBeta/Model/ReassignmentType.ps1
+src/PSSailpointBeta/Model/ReassignmentTypeEnum.ps1
 src/PSSailpointBeta/Model/RecommendationConfigDto.ps1
 src/PSSailpointBeta/Model/RecommendationRequest.ps1
 src/PSSailpointBeta/Model/RecommendationRequestDto.ps1
@@ -1259,6 +1287,9 @@ src/PSSailpointBeta/Model/TaggedObject.ps1
 src/PSSailpointBeta/Model/TemplateBulkDeleteDto.ps1
 src/PSSailpointBeta/Model/TemplateDto.ps1
 src/PSSailpointBeta/Model/TemplateDtoDefault.ps1
+src/PSSailpointBeta/Model/TenantConfigurationDetails.ps1
+src/PSSailpointBeta/Model/TenantConfigurationRequest.ps1
+src/PSSailpointBeta/Model/TenantConfigurationResponse.ps1
 src/PSSailpointBeta/Model/TestExternalExecuteWorkflow200Response.ps1
 src/PSSailpointBeta/Model/TestExternalExecuteWorkflowRequest.ps1
 src/PSSailpointBeta/Model/TestInvocation.ps1
@@ -1371,6 +1402,7 @@ src/PSSailpointBeta/Model/WorkItemType.ps1
 src/PSSailpointBeta/Model/WorkItems.ps1
 src/PSSailpointBeta/Model/WorkItemsCount.ps1
 src/PSSailpointBeta/Model/WorkItemsSummary.ps1
+src/PSSailpointBeta/Model/WorkTypeEnum.ps1
 src/PSSailpointBeta/Model/Workflow.ps1
 src/PSSailpointBeta/Model/WorkflowAllOf.ps1
 src/PSSailpointBeta/Model/WorkflowBody.ps1
@@ -1441,6 +1473,7 @@ tests/Api/BetaTaggedObjectsApi.Tests.ps1
 tests/Api/BetaTransformsApi.Tests.ps1
 tests/Api/BetaTriggersApi.Tests.ps1
 tests/Api/BetaWorkItemsApi.Tests.ps1
+tests/Api/BetaWorkReassignmentApi.Tests.ps1
 tests/Api/BetaWorkflowsApi.Tests.ps1
 tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
@@ -1524,6 +1557,7 @@ tests/Model/AttributeDefinition.Tests.ps1
 tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
 tests/Model/AttributesChanged.Tests.ps1
+tests/Model/AuditDetails.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseCommonDto1.Tests.ps1
 tests/Model/BaseReferenceDto.Tests.ps1
@@ -1574,6 +1608,12 @@ tests/Model/CompletedApproval.Tests.ps1
 tests/Model/CompletedApprovalState.Tests.ps1
 tests/Model/CompletionStatus.Tests.ps1
 tests/Model/ConfigObject.Tests.ps1
+tests/Model/ConfigType.Tests.ps1
+tests/Model/ConfigTypeEnum.Tests.ps1
+tests/Model/ConfigurationDetailsResponse.Tests.ps1
+tests/Model/ConfigurationItemRequest.Tests.ps1
+tests/Model/ConfigurationItemResponse.Tests.ps1
+tests/Model/ConfigurationResponse.Tests.ps1
 tests/Model/ConflictingAccessCriteria.Tests.ps1
 tests/Model/ConnectorDetail.Tests.ps1
 tests/Model/ConnectorRuleCreateRequest.Tests.ps1
@@ -1612,6 +1652,7 @@ tests/Model/EntitlementSource.Tests.ps1
 tests/Model/EntityCreatedByDTO.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
+tests/Model/EvaluateResponse.Tests.ps1
 tests/Model/EventAttributes.Tests.ps1
 tests/Model/EventBridgeConfig.Tests.ps1
 tests/Model/ExceptionAccessCriteria.Tests.ps1
@@ -1652,6 +1693,7 @@ tests/Model/HttpConfig.Tests.ps1
 tests/Model/HttpDispatchMode.Tests.ps1
 tests/Model/IdentitiesAccountsBulkRequest.Tests.ps1
 tests/Model/Identity.Tests.ps1
+tests/Model/Identity1.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
 tests/Model/IdentityAttributeConfig1.Tests.ps1
 tests/Model/IdentityAttributePreview.Tests.ps1
@@ -1707,6 +1749,7 @@ tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/ListIdentityAccessItems200ResponseInner.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
 tests/Model/LocalizedMessage.Tests.ps1
+tests/Model/LookupStep.Tests.ps1
 tests/Model/MailFromAttributes.Tests.ps1
 tests/Model/MailFromAttributesDto.Tests.ps1
 tests/Model/ManagedClient.Tests.ps1
@@ -1808,6 +1851,7 @@ tests/Model/QueuedCheckConfigDetails.Tests.ps1
 tests/Model/ReassignReference.Tests.ps1
 tests/Model/Reassignment.Tests.ps1
 tests/Model/ReassignmentType.Tests.ps1
+tests/Model/ReassignmentTypeEnum.Tests.ps1
 tests/Model/RecommendationConfigDto.Tests.ps1
 tests/Model/RecommendationRequest.Tests.ps1
 tests/Model/RecommendationRequestDto.Tests.ps1
@@ -1957,6 +2001,9 @@ tests/Model/TaggedObject.Tests.ps1
 tests/Model/TemplateBulkDeleteDto.Tests.ps1
 tests/Model/TemplateDto.Tests.ps1
 tests/Model/TemplateDtoDefault.Tests.ps1
+tests/Model/TenantConfigurationDetails.Tests.ps1
+tests/Model/TenantConfigurationRequest.Tests.ps1
+tests/Model/TenantConfigurationResponse.Tests.ps1
 tests/Model/TestExternalExecuteWorkflow200Response.Tests.ps1
 tests/Model/TestExternalExecuteWorkflowRequest.Tests.ps1
 tests/Model/TestInvocation.Tests.ps1
@@ -2069,6 +2116,7 @@ tests/Model/WorkItemType.Tests.ps1
 tests/Model/WorkItems.Tests.ps1
 tests/Model/WorkItemsCount.Tests.ps1
 tests/Model/WorkItemsSummary.Tests.ps1
+tests/Model/WorkTypeEnum.Tests.ps1
 tests/Model/Workflow.Tests.ps1
 tests/Model/WorkflowAllOf.Tests.ps1
 tests/Model/WorkflowBody.Tests.ps1

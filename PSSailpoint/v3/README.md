@@ -82,6 +82,8 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Invoke-ReloadAccount**](docs/AccountsApi.md#Invoke-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *AccountsApi* | [**Unlock-Account**](docs/AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
+*CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
+*CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
 *CertificationSummariesApi* | [**Get-IdentityAccessSummaries**](docs/CertificationSummariesApi.md#Get-IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access Summaries
 *CertificationSummariesApi* | [**Get-IdentityDecisionSummary**](docs/CertificationSummariesApi.md#Get-IdentityDecisionSummary) | **GET** /certifications/{id}/decision-summary | Summary of Certification Decisions
 *CertificationSummariesApi* | [**Get-IdentitySummaries**](docs/CertificationSummariesApi.md#Get-IdentitySummaries) | **GET** /certifications/{id}/identity-summaries | Identity Summaries for Campaign Certification
@@ -281,6 +283,7 @@ Class | Method | HTTP request | Description
 
  - [PSSailpoint/Model.Access](docs/Access.md)
  - [PSSailpoint/Model.AccessAllOf](docs/AccessAllOf.md)
+ - [PSSailpoint/Model.AccessConstraint](docs/AccessConstraint.md)
  - [PSSailpoint/Model.AccessCriteria](docs/AccessCriteria.md)
  - [PSSailpoint/Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
  - [PSSailpoint/Model.AccessProfile](docs/AccessProfile.md)
@@ -370,6 +373,14 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.BucketType](docs/BucketType.md)
  - [PSSailpoint/Model.BulkTaggedObject](docs/BulkTaggedObject.md)
  - [PSSailpoint/Model.Campaign](docs/Campaign.md)
+ - [PSSailpoint/Model.CampaignAlert](docs/CampaignAlert.md)
+ - [PSSailpoint/Model.CampaignAllOf](docs/CampaignAllOf.md)
+ - [PSSailpoint/Model.CampaignAllOfFilter](docs/CampaignAllOfFilter.md)
+ - [PSSailpoint/Model.CampaignAllOfRoleCompositionCampaignInfo](docs/CampaignAllOfRoleCompositionCampaignInfo.md)
+ - [PSSailpoint/Model.CampaignAllOfRoleCompositionCampaignInfoRemediatorRef](docs/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md)
+ - [PSSailpoint/Model.CampaignAllOfSearchCampaignInfo](docs/CampaignAllOfSearchCampaignInfo.md)
+ - [PSSailpoint/Model.CampaignAllOfSourceOwnerCampaignInfo](docs/CampaignAllOfSourceOwnerCampaignInfo.md)
+ - [PSSailpoint/Model.CampaignAllOfSourcesWithOrphanEntitlements](docs/CampaignAllOfSourcesWithOrphanEntitlements.md)
  - [PSSailpoint/Model.CampaignReference](docs/CampaignReference.md)
  - [PSSailpoint/Model.CancelAccessRequest](docs/CancelAccessRequest.md)
  - [PSSailpoint/Model.CancelledRequestDetails](docs/CancelledRequestDetails.md)
@@ -660,6 +671,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ServiceDeskIntegrationTemplateType](docs/ServiceDeskIntegrationTemplateType.md)
  - [PSSailpoint/Model.SetLifecycleState200Response](docs/SetLifecycleState200Response.md)
  - [PSSailpoint/Model.SetLifecycleStateRequest](docs/SetLifecycleStateRequest.md)
+ - [PSSailpoint/Model.SlimCampaign](docs/SlimCampaign.md)
  - [PSSailpoint/Model.SodExemptCriteria](docs/SodExemptCriteria.md)
  - [PSSailpoint/Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint/Model.SodPolicySchedule](docs/SodPolicySchedule.md)

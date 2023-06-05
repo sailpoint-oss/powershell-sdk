@@ -39,7 +39,7 @@ $EntitlementRef = Initialize-EntitlementRef -Id "2c91809773dee32014e13e122092014
 $AccessProfileApprovalScheme = Initialize-AccessProfileApprovalScheme -ApproverType "APP_OWNER" -ApproverId "46c79819-a69f-49a2-becb-12c971ae66c6"
 $Requestability = Initialize-Requestability -CommentsRequired $true -DenialCommentsRequired $true -ApprovalSchemes $AccessProfileApprovalScheme
 
-$Revocability = Initialize-Revocability -ApprovalSchemes $AccessProfileApprovalScheme
+$Revocability = Initialize-Revocability -CommentsRequired $false -DenialCommentsRequired $false -ApprovalSchemes $AccessProfileApprovalScheme
 
 $ProvisioningCriteriaLevel3 = Initialize-ProvisioningCriteriaLevel3 -Operation "EQUALS" -Attribute "email" -Value "carlee.cert1c9f9b6fd@mailinator.com"
 $ProvisioningCriteriaLevel2 = Initialize-ProvisioningCriteriaLevel2 -Operation "EQUALS" -Attribute "email" -Value "carlee.cert1c9f9b6fd@mailinator.com" -Children $ProvisioningCriteriaLevel3

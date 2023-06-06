@@ -70,9 +70,9 @@ Describe -tag 'PSSailpoint' -name 'ServiceDeskIntegrationApi' {
         }
     }
 
-    Context 'Update-ServiceDeskIntegration' {
-        It 'Test Update-ServiceDeskIntegration' {
-            #$TestResult = Update-ServiceDeskIntegration -Id "TEST_VALUE" -ServiceDeskIntegrationDto "TEST_VALUE"
+    Context 'Send-ServiceDeskIntegration' {
+        It 'Test Send-ServiceDeskIntegration' {
+            #$TestResult = Send-ServiceDeskIntegration -Id "TEST_VALUE" -ServiceDeskIntegrationDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

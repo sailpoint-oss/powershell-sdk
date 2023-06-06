@@ -579,7 +579,7 @@ Update an existing ServiceDeskIntegration by ID with a PATCH request.
 ID of the Service Desk integration to update
 
 .PARAMETER JsonPatch
-A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   ""beforeProvisioningRule""  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * `beforeProvisioningRule`   * `description`   * `ownerRef`  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
 
 .PARAMETER WithHttpInfo
 
@@ -690,7 +690,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ServiceDeskIntegrationDto
 #>
-function Update-ServiceDeskIntegration {
+function Send-ServiceDeskIntegration {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -704,7 +704,7 @@ function Update-ServiceDeskIntegration {
     )
 
     Process {
-        'Calling method: Update-ServiceDeskIntegration' | Write-Debug
+        'Calling method: Send-ServiceDeskIntegration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -725,12 +725,12 @@ function Update-ServiceDeskIntegration {
 
         $LocalVarUri = '/service-desk-integrations/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updateServiceDeskIntegration."
+            throw "Error! The required parameter `Id` missing when calling putServiceDeskIntegration."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$ServiceDeskIntegrationDto) {
-            throw "Error! The required parameter `ServiceDeskIntegrationDto` missing when calling updateServiceDeskIntegration."
+            throw "Error! The required parameter `ServiceDeskIntegrationDto` missing when calling putServiceDeskIntegration."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {

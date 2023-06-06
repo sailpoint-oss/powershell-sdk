@@ -32,9 +32,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-"SOURCE""SOURCE"
+"ACCESS_PROFILE""ACCESS_PROFILE"
 $ObjectExportImportOptions = Initialize-ObjectExportImportOptions -IncludedIds "be9e116d-08e1-49fc-ab7f-fa585e96c9e4" -IncludedNames "Test Object"
-$ExportPayload = Initialize-ExportPayload -Description "Export Job 1 Test" -ExcludeTypes "SOURCE" -IncludeTypes "SOURCE""SOURCE" -ObjectOptions @{ key_example = $ObjectExportImportOptions } # ExportPayload | Export options control what will be included in the export.
+$ExportPayload = Initialize-ExportPayload -Description "Export Job 1 Test" -ExcludeTypes "ACCESS_PROFILE" -IncludeTypes "ACCESS_PROFILE""ACCESS_PROFILE" -ObjectOptions @{ key_example = $ObjectExportImportOptions } # ExportPayload | Export options control what will be included in the export.
 
 # Initiates Configuration Objects Export Job.
 try {

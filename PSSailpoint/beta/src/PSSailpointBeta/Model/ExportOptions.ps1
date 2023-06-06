@@ -29,11 +29,11 @@ function Initialize-BetaExportOptions {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SOURCE", "RULE", "TRIGGER_SUBSCRIPTION", "TRANSFORM", "IDENTITY_PROFILE")]
+        [ValidateSet("ACCESS_PROFILE", "AUTH_ORG", "FORM_DEFINITION", "GOVERNANCE_GROUP", "IDENTITY_PROFILE", "NOTIFICATION_TEMPLATE", "PUBLIC_IDENTITIES_CONFIG", "ROLE", "RULE", "SOURCE", "TRANSFORM", "TRIGGER_SUBSCRIPTION")]
         [String[]]
         ${ExcludeTypes},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SOURCE", "RULE", "TRIGGER_SUBSCRIPTION", "TRANSFORM", "IDENTITY_PROFILE")]
+        [ValidateSet("ACCESS_PROFILE", "AUTH_ORG", "FORM_DEFINITION", "GOVERNANCE_GROUP", "IDENTITY_PROFILE", "NOTIFICATION_TEMPLATE", "PUBLIC_IDENTITIES_CONFIG", "ROLE", "RULE", "SOURCE", "TRANSFORM", "TRIGGER_SUBSCRIPTION")]
         [String[]]
         ${IncludeTypes},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

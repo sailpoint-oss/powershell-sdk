@@ -225,7 +225,7 @@ Class | Method | HTTP request | Description
 *ServiceDeskIntegrationApi* | [**Get-ServiceDeskIntegrations**](docs/ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing Service Desk Integrations
 *ServiceDeskIntegrationApi* | [**Get-StatusCheckDetails**](docs/ServiceDeskIntegrationApi.md#Get-StatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration
 *ServiceDeskIntegrationApi* | [**Update-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update PATCH
-*ServiceDeskIntegrationApi* | [**Update-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
+*ServiceDeskIntegrationApi* | [**Send-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Send-ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
 *ServiceDeskIntegrationApi* | [**Update-StatusCheckDetails**](docs/ServiceDeskIntegrationApi.md#Update-StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
 *SourcesApi* | [**New-ProvisioningPolicy**](docs/SourcesApi.md#New-ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 *SourcesApi* | [**New-Source**](docs/SourcesApi.md#New-Source) | **POST** /sources | Creates a source in IdentityNow.

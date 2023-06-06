@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Get-BetaServiceDeskIntegrationTypes**](BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
 [**Get-BetaStatusCheckDetails**](BetaServiceDeskIntegrationApi.md#Get-BetaStatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration
 [**Update-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update PATCH
-[**Update-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
+[**Send-BetaServiceDeskIntegration**](BetaServiceDeskIntegrationApi.md#Send-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
 [**Update-BetaStatusCheckDetails**](BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
 
 
@@ -406,7 +406,7 @@ $Id = "anId" # String | ID of the Service Desk integration to update
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue
 
-$JsonPatch = Initialize-JsonPatch -Operations $JsonPatchOperation # JsonPatch | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   ""beforeProvisioningRule""  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+$JsonPatch = Initialize-JsonPatch -Operations $JsonPatchOperation # JsonPatch | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * `beforeProvisioningRule`   * `description`   * `ownerRef`  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
 
 # Service Desk Integration Update PATCH
 try {
@@ -422,7 +422,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| ID of the Service Desk integration to update | 
- **JsonPatch** | [**JsonPatch**](JsonPatch.md)| A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   &quot;&quot;beforeProvisioningRule&quot;&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed.  | 
+ **JsonPatch** | [**JsonPatch**](JsonPatch.md)| A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed.  | 
 
 ### Return type
 
@@ -439,9 +439,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaServiceDeskIntegration"></a>
-# **Update-BetaServiceDeskIntegration**
-> ServiceDeskIntegrationDto Update-BetaServiceDeskIntegration<br>
+<a name="Send-BetaServiceDeskIntegration"></a>
+# **Send-BetaServiceDeskIntegration**
+> ServiceDeskIntegrationDto Send-BetaServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceDeskIntegrationDto] <PSCustomObject><br>
 
@@ -471,9 +471,9 @@ $ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" 
 
 # Update a Service Desk integration
 try {
-    $Result = Update-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $ServiceDeskIntegrationDto
+    $Result = Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $ServiceDeskIntegrationDto
 } catch {
-    Write-Host ("Exception occurred when calling Update-BetaServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-BetaServiceDeskIntegration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

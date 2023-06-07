@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AssignmentRule** | **String** | Details about the violations owner. MANAGER - identity&#39;s manager STATIC - Governance Group or Identity | [optional] 
-**OwnerRef** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**OwnerRef** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
 
 ## Examples
 

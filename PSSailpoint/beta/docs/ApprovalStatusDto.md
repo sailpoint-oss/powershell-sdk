@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Forwarded** | **Boolean** | True if the request for this item was forwarded from one owner to another. | [optional] 
-**OriginalOwner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
-**CurrentOwner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
-**ReviewedBy** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**OriginalOwner** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
+**CurrentOwner** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
+**ReviewedBy** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
 **Modified** | **System.DateTime** | Time at which item was modified. | [optional] 
 **Status** | [**ManualWorkItemState**](ManualWorkItemState.md) |  | [optional] 
 **Scheme** | [**ApprovalScheme**](ApprovalScheme.md) |  | [optional] 

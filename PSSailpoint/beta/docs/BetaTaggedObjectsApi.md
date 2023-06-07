@@ -33,8 +33,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto -Tags "MyTags" # TaggedObject | 
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto1 -Tags "MyTags" # TaggedObject | 
 
 # Add Tag to Object
 try {
@@ -85,8 +85,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $BaseReferenceDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ROLE, IDENTITY and SOD_POLICY.
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $BaseReferenceDto1 -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ROLE, IDENTITY and SOD_POLICY.
 
 # Tag Multiple Objects
 try {
@@ -368,8 +368,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $BaseReferenceDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ROLE, IDENTITY and SOD_POLICY.
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $BaseReferenceDto1 -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ROLE, IDENTITY and SOD_POLICY.
 
 # Remove Tags from Multiple Objects
 try {
@@ -424,8 +424,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Type = "ROLE" # String | The type of tagged object to update.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto -Tags "MyTags" # TaggedObject | 
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto1 -Tags "MyTags" # TaggedObject | 
 
 # Update Tagged Object
 try {

@@ -412,6 +412,7 @@ docs/PostExternalExecuteWorkflow200Response.md
 docs/PostExternalExecuteWorkflowRequest.md
 docs/PreApprovalTriggerDetails.md
 docs/PreferencesDto.md
+docs/ProcessIdentitiesRequest.md
 docs/ProvisioningCompleted.md
 docs/ProvisioningConfig.md
 docs/ProvisioningConfigManagedResourceRefsInner.md
@@ -1120,6 +1121,7 @@ src/PSSailpointBeta/Model/PostExternalExecuteWorkflow200Response.ps1
 src/PSSailpointBeta/Model/PostExternalExecuteWorkflowRequest.ps1
 src/PSSailpointBeta/Model/PreApprovalTriggerDetails.ps1
 src/PSSailpointBeta/Model/PreferencesDto.ps1
+src/PSSailpointBeta/Model/ProcessIdentitiesRequest.ps1
 src/PSSailpointBeta/Model/ProvisioningCompleted.ps1
 src/PSSailpointBeta/Model/ProvisioningConfig.ps1
 src/PSSailpointBeta/Model/ProvisioningConfigManagedResourceRefsInner.ps1
@@ -1834,6 +1836,7 @@ tests/Model/PostExternalExecuteWorkflow200Response.Tests.ps1
 tests/Model/PostExternalExecuteWorkflowRequest.Tests.ps1
 tests/Model/PreApprovalTriggerDetails.Tests.ps1
 tests/Model/PreferencesDto.Tests.ps1
+tests/Model/ProcessIdentitiesRequest.Tests.ps1
 tests/Model/ProvisioningCompleted.Tests.ps1
 tests/Model/ProvisioningConfig.Tests.ps1
 tests/Model/ProvisioningConfigManagedResourceRefsInner.Tests.ps1

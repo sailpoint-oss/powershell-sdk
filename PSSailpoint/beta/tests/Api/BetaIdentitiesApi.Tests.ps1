@@ -30,6 +30,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentitiesApi' {
         }
     }
 
+    Context 'Start-BetaIdentityProcessing' {
+        It 'Test Start-BetaIdentityProcessing' {
+            #$TestResult = Start-BetaIdentityProcessing -ProcessIdentitiesRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Sync-BetahronizeAttributesForIdentity' {
         It 'Test Sync-BetahronizeAttributesForIdentity' {
             #$TestResult = Sync-BetahronizeAttributesForIdentity -IdentityId "TEST_VALUE"

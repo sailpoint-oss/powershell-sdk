@@ -114,7 +114,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-BaseReferenceDto1
+BaseReferenceDto
 #>
 function Remove-BetaIdentityProfile {
     [CmdletBinding()]
@@ -160,7 +160,7 @@ function Remove-BetaIdentityProfile {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BaseReferenceDto1" `
+                                -ReturnType "BaseReferenceDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -189,7 +189,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-BaseReferenceDto
+BaseReferenceDto1
 #>
 function Remove-BetaIdentityProfiles {
     [CmdletBinding()]
@@ -251,7 +251,7 @@ function Remove-BetaIdentityProfiles {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BaseReferenceDto" `
+                                -ReturnType "BaseReferenceDto1" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

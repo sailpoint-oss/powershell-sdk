@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | **Int32** | Current version of configuration object. | [optional] 
-**Self** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Self** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
 **Object** | [**System.Collections.Hashtable**](AnyType.md) | Object details. Format dependant on the object type. | [optional] 
 
 ## Examples

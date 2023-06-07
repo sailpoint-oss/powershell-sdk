@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**Remove-BetaIdentity**](BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
 [**Get-BetaIdentity**](BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
 [**Get-BetaIdentities**](BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
+[**Start-BetaIdentityProcessing**](BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 [**Sync-BetahronizeAttributesForIdentity**](BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 
 
@@ -174,6 +175,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Start-BetaIdentityProcessing"></a>
+# **Start-BetaIdentityProcessing**
+> BaseReferenceDto Start-BetaIdentityProcessing<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProcessIdentitiesRequest] <PSCustomObject><br>
+
+Process a list of identityIds
+
+You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it's expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven't been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html). 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$ProcessIdentitiesRequest = Initialize-ProcessIdentitiesRequest -IdentityIds "ef38f94347e94562b5bb8424a56397d8" # ProcessIdentitiesRequest | 
+
+# Process a list of identityIds
+try {
+    $Result = Start-BetaIdentityProcessing -ProcessIdentitiesRequest $ProcessIdentitiesRequest
+} catch {
+    Write-Host ("Exception occurred when calling Start-BetaIdentityProcessing: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ProcessIdentitiesRequest** | [**ProcessIdentitiesRequest**](ProcessIdentitiesRequest.md)|  | 
+
+### Return type
+
+[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

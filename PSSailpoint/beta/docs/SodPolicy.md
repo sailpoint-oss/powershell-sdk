@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | The time when this SOD policy is created. | [optional] 
 **Modified** | **System.DateTime** | The time when this SOD policy is modified. | [optional] 
 **Description** | **String** | Optional description of the SOD policy | [optional] 
-**OwnerRef** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**OwnerRef** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
 **ExternalPolicyReference** | **String** | Optional External Policy Reference | [optional] 
 **PolicyQuery** | **String** | Search query of the SOD policy | [optional] 
 **CompensatingControls** | **String** | Optional compensating controls(Mitigating Controls) | [optional] 

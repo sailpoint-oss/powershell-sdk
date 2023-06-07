@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
 **Description** | **String** | Description of the Service Desk integration | 
 **Type** | **String** | Service Desk integration types  - ServiceNowSDIM - ServiceNow  | [default to "ServiceNowSDIM"]
-**OwnerRef** | [**BaseReferenceDto**](BaseReferenceDto.md) | Reference to the identity that is the owner of this Service Desk integration | [optional] 
-**ClusterRef** | [**BaseReferenceDto**](BaseReferenceDto.md) | Reference to the source cluster for this Service Desk integration | [optional] 
+**OwnerRef** | [**BaseReferenceDto1**](BaseReferenceDto1.md) | Reference to the identity that is the owner of this Service Desk integration | [optional] 
+**ClusterRef** | [**BaseReferenceDto1**](BaseReferenceDto1.md) | Reference to the source cluster for this Service Desk integration | [optional] 
 **Cluster** | **String** | ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility) | [optional] 
 **ManagedSources** | **String[]** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility) | [optional] 
 **ProvisioningConfig** | [**ProvisioningConfig**](ProvisioningConfig.md) |  | [optional] 
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | Attributes of the Service Desk integration.  Validation constraints enforced by the implementation. | 
-**BeforeProvisioningRule** | [**BaseReferenceDto**](BaseReferenceDto.md) | Reference to beforeProvisioningRule for this Service Desk integration | [optional] 
+**BeforeProvisioningRule** | [**BaseReferenceDto1**](BaseReferenceDto1.md) | Reference to beforeProvisioningRule for this Service Desk integration | [optional] 
 
 ## Examples
 

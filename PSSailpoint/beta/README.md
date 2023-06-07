@@ -180,6 +180,7 @@ Class | Method | HTTP request | Description
 *BetaIdentitiesApi* | [**Remove-BetaIdentity**](docs/BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
 *BetaIdentitiesApi* | [**Get-BetaIdentity**](docs/BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
+*BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshotsAccessType**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
@@ -811,6 +812,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.PostExternalExecuteWorkflowRequest](docs/PostExternalExecuteWorkflowRequest.md)
  - [PSSailpointBeta/Model.PreApprovalTriggerDetails](docs/PreApprovalTriggerDetails.md)
  - [PSSailpointBeta/Model.PreferencesDto](docs/PreferencesDto.md)
+ - [PSSailpointBeta/Model.ProcessIdentitiesRequest](docs/ProcessIdentitiesRequest.md)
  - [PSSailpointBeta/Model.ProvisioningCompleted](docs/ProvisioningCompleted.md)
  - [PSSailpointBeta/Model.ProvisioningConfig](docs/ProvisioningConfig.md)
  - [PSSailpointBeta/Model.ProvisioningConfigManagedResourceRefsInner](docs/ProvisioningConfigManagedResourceRefsInner.md)

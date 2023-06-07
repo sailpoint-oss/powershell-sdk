@@ -158,12 +158,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $FullcampaignAllOfFilter = Initialize-FullcampaignAllOfFilter -Id "0fbe863c063c4c88a35fd7f17e8a3df5" -Type "CAMPAIGN_FILTER" -Name "Test Filter"
 $FullcampaignAllOfSourceOwnerCampaignInfo = Initialize-FullcampaignAllOfSourceOwnerCampaignInfo -SourceIds "MySourceIds"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $AccessConstraint = Initialize-AccessConstraint -Type "ENTITLEMENT" -Ids "MyIds" -Operator "ALL"
-$FullcampaignAllOfSearchCampaignInfo = Initialize-FullcampaignAllOfSearchCampaignInfo -Type "IDENTITY" -Description "Search Campaign description" -Reviewer $BaseReferenceDto -Query "Search Campaign query description" -IdentityIds "MyIdentityIds" -AccessConstraints $AccessConstraint
+$FullcampaignAllOfSearchCampaignInfo = Initialize-FullcampaignAllOfSearchCampaignInfo -Type "IDENTITY" -Description "Search Campaign description" -Reviewer $BaseReferenceDto1 -Query "Search Campaign query description" -IdentityIds "MyIdentityIds" -AccessConstraints $AccessConstraint
 
 $FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef = Initialize-FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef -Type "IDENTITY" -Id "2c90ad2a70ace7d50170acf22ca90010" -Name "Role Admin"
-$FullcampaignAllOfRoleCompositionCampaignInfo = Initialize-FullcampaignAllOfRoleCompositionCampaignInfo -Reviewer $BaseReferenceDto -RoleIds "MyRoleIds" -RemediatorRef $FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef -Query "Search Query" -Description "Role Composition Description"
+$FullcampaignAllOfRoleCompositionCampaignInfo = Initialize-FullcampaignAllOfRoleCompositionCampaignInfo -Reviewer $BaseReferenceDto1 -RoleIds "MyRoleIds" -RemediatorRef $FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef -Query "Search Query" -Description "Role Composition Description"
 
 $ErrorMessageDto = Initialize-ErrorMessageDto -Locale "en-US" -LocaleOrigin "DEFAULT" -Text "The request was syntactically correct but its content is semantically invalid."
 $CampaignAlert = Initialize-CampaignAlert -Level "ERROR" -Localizations $ErrorMessageDto
@@ -223,12 +223,12 @@ $CampaignTemplateOwnerRef = Initialize-CampaignTemplateOwnerRef -Id "2c918086676
 $FullcampaignAllOfFilter = Initialize-FullcampaignAllOfFilter -Id "0fbe863c063c4c88a35fd7f17e8a3df5" -Type "CAMPAIGN_FILTER" -Name "Test Filter"
 $FullcampaignAllOfSourceOwnerCampaignInfo = Initialize-FullcampaignAllOfSourceOwnerCampaignInfo -SourceIds "MySourceIds"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $AccessConstraint = Initialize-AccessConstraint -Type "ENTITLEMENT" -Ids "MyIds" -Operator "ALL"
-$FullcampaignAllOfSearchCampaignInfo = Initialize-FullcampaignAllOfSearchCampaignInfo -Type "IDENTITY" -Description "Search Campaign description" -Reviewer $BaseReferenceDto -Query "Search Campaign query description" -IdentityIds "MyIdentityIds" -AccessConstraints $AccessConstraint
+$FullcampaignAllOfSearchCampaignInfo = Initialize-FullcampaignAllOfSearchCampaignInfo -Type "IDENTITY" -Description "Search Campaign description" -Reviewer $BaseReferenceDto1 -Query "Search Campaign query description" -IdentityIds "MyIdentityIds" -AccessConstraints $AccessConstraint
 
 $FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef = Initialize-FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef -Type "IDENTITY" -Id "2c90ad2a70ace7d50170acf22ca90010" -Name "Role Admin"
-$FullcampaignAllOfRoleCompositionCampaignInfo = Initialize-FullcampaignAllOfRoleCompositionCampaignInfo -Reviewer $BaseReferenceDto -RoleIds "MyRoleIds" -RemediatorRef $FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef -Query "Search Query" -Description "Role Composition Description"
+$FullcampaignAllOfRoleCompositionCampaignInfo = Initialize-FullcampaignAllOfRoleCompositionCampaignInfo -Reviewer $BaseReferenceDto1 -RoleIds "MyRoleIds" -RemediatorRef $FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef -Query "Search Query" -Description "Role Composition Description"
 
 $ErrorMessageDto = Initialize-ErrorMessageDto -Locale "en-US" -LocaleOrigin "DEFAULT" -Text "The request was syntactically correct but its content is semantically invalid."
 $CampaignAlert = Initialize-CampaignAlert -Level "ERROR" -Localizations $ErrorMessageDto

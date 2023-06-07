@@ -14,34 +14,36 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-the application ID
-.PARAMETER Name
-the application name
+.PARAMETER IdentityIds
+List of up to 250 identity IDs to process.
 .OUTPUTS
 
-BaseReferenceDto<PSCustomObject>
+ProcessIdentitiesRequest<PSCustomObject>
 #>
 
-function Initialize-BetaBaseReferenceDto {
+function Initialize-BetaProcessIdentitiesRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name}
+        [String[]]
+        ${IdentityIds}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaBaseReferenceDto' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaProcessIdentitiesRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$IdentityIds -and $IdentityIds.length -gt 250) {
+            throw "invalid value for 'IdentityIds', number of items must be less than or equal to 250."
+        }
+
+        if (!$IdentityIds -and $IdentityIds.length -lt 1) {
+            throw "invalid value for 'IdentityIds', number of items must be greater than or equal to 1."
+        }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
+            "identityIds" = ${IdentityIds}
         }
 
 
@@ -52,11 +54,11 @@ function Initialize-BetaBaseReferenceDto {
 <#
 .SYNOPSIS
 
-Convert from JSON to BaseReferenceDto<PSCustomObject>
+Convert from JSON to ProcessIdentitiesRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to BaseReferenceDto<PSCustomObject>
+Convert from JSON to ProcessIdentitiesRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -64,43 +66,36 @@ Json object
 
 .OUTPUTS
 
-BaseReferenceDto<PSCustomObject>
+ProcessIdentitiesRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToBaseReferenceDto {
+function ConvertFrom-BetaJsonToProcessIdentitiesRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaBaseReferenceDto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaProcessIdentitiesRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaBaseReferenceDto
-        $AllProperties = ("id", "name")
+        # check if Json contains properties not defined in BetaProcessIdentitiesRequest
+        $AllProperties = ("identityIds")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityIds"))) { #optional property not found
+            $IdentityIds = $null
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $IdentityIds = $JsonParameters.PSobject.Properties["identityIds"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
+            "identityIds" = ${IdentityIds}
         }
 
         return $PSO

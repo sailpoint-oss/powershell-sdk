@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | The type of search campaign represented. | 
 **Description** | **String** | Describes this search campaign. Intended for storing the query used, and possibly the number of identities selected/available. | [optional] 
-**Reviewer** | [**BaseReferenceDto**](BaseReferenceDto.md) | If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP | [optional] 
+**Reviewer** | [**BaseReferenceDto1**](BaseReferenceDto1.md) | If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP | [optional] 
 **Query** | **String** | The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of &#x60;query&#x60; or &#x60;identityIds&#x60; must be set. | [optional] 
 **IdentityIds** | **String[]** | A direct list of identities to include in this campaign. One of &#x60;identityIds&#x60; or &#x60;query&#x60; must be set. | [optional] 
 **AccessConstraints** | [**AccessConstraint[]**](AccessConstraint.md) | Further reduces the scope of the campaign by excluding identities (from &#x60;query&#x60; or &#x60;identityIds&#x60;) that do not have this access. | [optional] 

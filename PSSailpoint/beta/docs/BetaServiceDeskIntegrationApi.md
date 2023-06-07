@@ -35,14 +35,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 
 $ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id  -Name 
 $ProvisioningConfigPlanInitializerScript = Initialize-ProvisioningConfigPlanInitializerScript -Source "<?xml version='1.0' encoding='UTF-8'?>\r\n<!DOCTYPE Rule PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">\r\n<Rule name=\"Example Rule\" type=\"BeforeProvisioning\">\r\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\r\n  <Source><![CDATA[\r\nimport sailpoint.object.*;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\r\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\r\nimport sailpoint.object.ProvisioningPlan;\r\nimport sailpoint.object.ProvisioningPlan.Operation;\r\n\r\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n}\r\n\r\n  ]]></Source>
 "
 $ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript -NoProvisioningRequests $true -ProvisioningRequestExpiration 7
 
-$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto -ClusterRef $BaseReferenceDto -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto # ServiceDeskIntegrationDto | The specifics of a new integration to create
+$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto1 -ClusterRef $BaseReferenceDto1 -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto1 # ServiceDeskIntegrationDto | The specifics of a new integration to create
 
 # Create new Service Desk integration
 try {
@@ -460,14 +460,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "anId" # String | ID of the Service Desk integration to update
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 
 $ProvisioningConfigManagedResourceRefsInner = Initialize-ProvisioningConfigManagedResourceRefsInner -Type "SOURCE" -Id  -Name 
 $ProvisioningConfigPlanInitializerScript = Initialize-ProvisioningConfigPlanInitializerScript -Source "<?xml version='1.0' encoding='UTF-8'?>\r\n<!DOCTYPE Rule PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">\r\n<Rule name=\"Example Rule\" type=\"BeforeProvisioning\">\r\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\r\n  <Source><![CDATA[\r\nimport sailpoint.object.*;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\r\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\r\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\r\nimport sailpoint.object.ProvisioningPlan;\r\nimport sailpoint.object.ProvisioningPlan.Operation;\r\n\r\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\r\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\r\n  }\r\n}\r\n\r\n  ]]></Source>
 "
 $ProvisioningConfig = Initialize-ProvisioningConfig -UniversalManager $true -ManagedResourceRefs $ProvisioningConfigManagedResourceRefsInner -PlanInitializerScript $ProvisioningConfigPlanInitializerScript -NoProvisioningRequests $true -ProvisioningRequestExpiration 7
 
-$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto -ClusterRef $BaseReferenceDto -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto # ServiceDeskIntegrationDto | The specifics of the integration to update
+$ServiceDeskIntegrationDto = Initialize-ServiceDeskIntegrationDto -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "A very nice Service Desk integration" -Type "ServiceNowSDIM" -OwnerRef $BaseReferenceDto1 -ClusterRef $BaseReferenceDto1 -Cluster "xyzzy999" -ManagedSources "MyManagedSources" -ProvisioningConfig $ProvisioningConfig -Attributes @{ key_example =  } -BeforeProvisioningRule $BaseReferenceDto1 # ServiceDeskIntegrationDto | The specifics of the integration to update
 
 # Update a Service Desk integration
 try {

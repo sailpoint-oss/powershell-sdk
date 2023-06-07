@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Reviewer** | [**BaseReferenceDto**](BaseReferenceDto.md) | If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP | [optional] 
+**Reviewer** | [**BaseReferenceDto1**](BaseReferenceDto1.md) | If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP | [optional] 
 **RoleIds** | **String[]** | Optional list of roles to include in this campaign. Only one of &#x60;roleIds&#x60; and &#x60;query&#x60; may be set; if neither are set, all roles are included. | [optional] 
 **RemediatorRef** | [**FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef**](FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md) |  | 
 **Query** | **String** | Optional search query to scope this campaign to a set of roles. Only one of &#x60;roleIds&#x60; and &#x60;query&#x60; may be set; if neither are set, all roles are included. | [optional] 

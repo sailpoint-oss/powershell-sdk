@@ -2,7 +2,7 @@
 
 ## Description
 
-A PowerShell Module for accessing the SailPoint IdentityNow REST API's.
+A PowerShell Module for accessing the SailPoint IdentityNow REST API's. 
 
 ## Installation
 

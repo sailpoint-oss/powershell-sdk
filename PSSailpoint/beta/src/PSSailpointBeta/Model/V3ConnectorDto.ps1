@@ -20,6 +20,8 @@ The connector name
 The connector type
 .PARAMETER ScriptName
 The connector script name
+.PARAMETER Features
+The list of features supported by the connector
 .PARAMETER DirectConnect
 true if the source is a direct connect source
 .PARAMETER ConnectorMetadata
@@ -44,12 +46,15 @@ function Initialize-BetaV3ConnectorDto {
         [String]
         ${ScriptName},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${DirectConnect},
+        [String[]]
+        ${Features},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${DirectConnect} = $false,
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ConnectorMetadata},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status}
     )
@@ -63,6 +68,7 @@ function Initialize-BetaV3ConnectorDto {
             "name" = ${Name}
             "type" = ${Type}
             "scriptName" = ${ScriptName}
+            "features" = ${Features}
             "directConnect" = ${DirectConnect}
             "connectorMetadata" = ${ConnectorMetadata}
             "status" = ${Status}
@@ -103,7 +109,7 @@ function ConvertFrom-BetaJsonToV3ConnectorDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaV3ConnectorDto
-        $AllProperties = ("name", "type", "scriptName", "directConnect", "connectorMetadata", "status")
+        $AllProperties = ("name", "type", "scriptName", "features", "directConnect", "connectorMetadata", "status")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -128,6 +134,12 @@ function ConvertFrom-BetaJsonToV3ConnectorDto {
             $ScriptName = $JsonParameters.PSobject.Properties["scriptName"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "features"))) { #optional property not found
+            $Features = $null
+        } else {
+            $Features = $JsonParameters.PSobject.Properties["features"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "directConnect"))) { #optional property not found
             $DirectConnect = $null
         } else {
@@ -150,6 +162,7 @@ function ConvertFrom-BetaJsonToV3ConnectorDto {
             "name" = ${Name}
             "type" = ${Type}
             "scriptName" = ${ScriptName}
+            "features" = ${Features}
             "directConnect" = ${DirectConnect}
             "connectorMetadata" = ${ConnectorMetadata}
             "status" = ${Status}

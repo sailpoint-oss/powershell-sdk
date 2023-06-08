@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 **Name** | **String** | The connector name | [optional] 
 **Type** | **String** | The connector type | [optional] 
 **ScriptName** | **String** | The connector script name | [optional] 
-**DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] 
+**Features** | **String[]** | The list of features supported by the connector | [optional] 
+**DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
 **ConnectorMetadata** | [**SystemCollectionsHashtable**](.md) | Object containing metadata pertinent to the UI to be used | [optional] 
 **Status** | **String** | The connector status | [optional] 
 
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 $V3ConnectorDto = Initialize-PSSailpointBetaV3ConnectorDto  -Name name `
  -Type ServiceNow `
  -ScriptName servicenow `
+ -Features [PROVISIONING, SYNC_PROVISIONING, SEARCH, UNSTRUCTURED_TARGETS] `
  -DirectConnect true `
  -ConnectorMetadata {supportedUI&#x3D;EXTJS, platform&#x3D;ccg, shortDesc&#x3D;connector description} `
  -Status RELEASED

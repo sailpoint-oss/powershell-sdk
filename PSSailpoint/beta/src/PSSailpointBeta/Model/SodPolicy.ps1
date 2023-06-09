@@ -106,7 +106,7 @@ function Initialize-BetaSodPolicy {
         ${ViolationOwnerAssignmentConfig},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Scheduled},
+        ${Scheduled} = $false,
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("GENERAL", "CONFLICTING_ACCESS_BASED")]
         [String]

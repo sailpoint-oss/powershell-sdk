@@ -534,6 +534,7 @@ docs/Slimcampaign.md
 docs/SodExemptCriteria.md
 docs/SodExemptCriteria1.md
 docs/SodPolicy.md
+docs/SodPolicyConflictingAccessCriteria.md
 docs/SodPolicySchedule.md
 docs/SodViolationCheckResult.md
 docs/SodViolationCheckResult1.md
@@ -689,6 +690,7 @@ docs/ViolationContext.md
 docs/ViolationContextPolicy.md
 docs/ViolationContextPolicyAllOf.md
 docs/ViolationOwnerAssignmentConfig.md
+docs/ViolationOwnerAssignmentConfigOwnerRef.md
 docs/ViolationPrediction.md
 docs/VisibilityCriteria.md
 docs/WorkItemForward.md
@@ -1245,6 +1247,7 @@ src/PSSailpointBeta/Model/Slimcampaign.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria1.ps1
 src/PSSailpointBeta/Model/SodPolicy.ps1
+src/PSSailpointBeta/Model/SodPolicyConflictingAccessCriteria.ps1
 src/PSSailpointBeta/Model/SodPolicySchedule.ps1
 src/PSSailpointBeta/Model/SodViolationCheckResult.ps1
 src/PSSailpointBeta/Model/SodViolationCheckResult1.ps1
@@ -1400,6 +1403,7 @@ src/PSSailpointBeta/Model/ViolationContext.ps1
 src/PSSailpointBeta/Model/ViolationContextPolicy.ps1
 src/PSSailpointBeta/Model/ViolationContextPolicyAllOf.ps1
 src/PSSailpointBeta/Model/ViolationOwnerAssignmentConfig.ps1
+src/PSSailpointBeta/Model/ViolationOwnerAssignmentConfigOwnerRef.ps1
 src/PSSailpointBeta/Model/ViolationPrediction.ps1
 src/PSSailpointBeta/Model/VisibilityCriteria.ps1
 src/PSSailpointBeta/Model/WorkItemForward.ps1
@@ -1962,6 +1966,7 @@ tests/Model/Slimcampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodExemptCriteria1.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
+tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1
 tests/Model/SodPolicySchedule.Tests.ps1
 tests/Model/SodViolationCheckResult.Tests.ps1
 tests/Model/SodViolationCheckResult1.Tests.ps1
@@ -2117,6 +2122,7 @@ tests/Model/ViolationContext.Tests.ps1
 tests/Model/ViolationContextPolicy.Tests.ps1
 tests/Model/ViolationContextPolicyAllOf.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1
+tests/Model/ViolationOwnerAssignmentConfigOwnerRef.Tests.ps1
 tests/Model/ViolationPrediction.Tests.ps1
 tests/Model/VisibilityCriteria.Tests.ps1
 tests/Model/WorkItemForward.Tests.ps1

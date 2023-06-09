@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | Policy id | [optional] 
+**Id** | **String** | Policy id | [optional] [readonly] 
 **Name** | **String** | Policy Business Name | [optional] 
-**Created** | **System.DateTime** | The time when this SOD policy is created. | [optional] 
-**Modified** | **System.DateTime** | The time when this SOD policy is modified. | [optional] 
+**Created** | **System.DateTime** | The time when this SOD policy is created. | [optional] [readonly] 
+**Modified** | **System.DateTime** | The time when this SOD policy is modified. | [optional] [readonly] 
 **Description** | **String** | Optional description of the SOD policy | [optional] 
 **OwnerRef** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
 **ExternalPolicyReference** | **String** | Optional External Policy Reference | [optional] 
@@ -15,12 +15,12 @@ Name | Type | Description | Notes
 **CorrectionAdvice** | **String** | Optional correction advice | [optional] 
 **State** | **String** | whether the policy is enforced or not | [optional] 
 **Tags** | **String[]** | tags for this policy object | [optional] 
-**CreatorId** | **String** | Policy&#39;s creator ID | [optional] 
-**ModifierId** | **String** | Policy&#39;s modifier ID | [optional] 
+**CreatorId** | **String** | Policy&#39;s creator ID | [optional] [readonly] 
+**ModifierId** | **String** | Policy&#39;s modifier ID | [optional] [readonly] 
 **ViolationOwnerAssignmentConfig** | [**ViolationOwnerAssignmentConfig**](ViolationOwnerAssignmentConfig.md) |  | [optional] 
-**Scheduled** | **Boolean** | defines whether a policy has been scheduled or not | [optional] 
+**Scheduled** | **Boolean** | defines whether a policy has been scheduled or not | [optional] [default to $false]
 **Type** | **String** | whether a policy is query based or conflicting access based | [optional] [default to "GENERAL"]
-**ConflictingAccessCriteria** | [**ConflictingAccessCriteria**](ConflictingAccessCriteria.md) |  | [optional] 
+**ConflictingAccessCriteria** | [**SodPolicyConflictingAccessCriteria**](SodPolicyConflictingAccessCriteria.md) |  | [optional] 
 
 ## Examples
 

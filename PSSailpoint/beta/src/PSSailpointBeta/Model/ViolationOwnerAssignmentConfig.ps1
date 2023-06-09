@@ -27,7 +27,7 @@ function Initialize-BetaViolationOwnerAssignmentConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("MANAGER", "STATIC")]
+        [ValidateSet("MANAGER", "STATIC", "")]
         [String]
         ${AssignmentRule},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

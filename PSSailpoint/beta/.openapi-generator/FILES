@@ -53,6 +53,8 @@ docs/AccountAggregationStatus.md
 docs/AccountAllOf.md
 docs/AccountAttributes.md
 docs/AccountAttributesChanged.md
+docs/AccountAttributesCreate.md
+docs/AccountAttributesCreateAttributes.md
 docs/AccountCorrelated.md
 docs/AccountRequestInfo.md
 docs/AccountStatusChanged.md
@@ -813,6 +815,8 @@ src/PSSailpointBeta/Model/AccountAggregationStatus.ps1
 src/PSSailpointBeta/Model/AccountAllOf.ps1
 src/PSSailpointBeta/Model/AccountAttributes.ps1
 src/PSSailpointBeta/Model/AccountAttributesChanged.ps1
+src/PSSailpointBeta/Model/AccountAttributesCreate.ps1
+src/PSSailpointBeta/Model/AccountAttributesCreateAttributes.ps1
 src/PSSailpointBeta/Model/AccountCorrelated.ps1
 src/PSSailpointBeta/Model/AccountRequestInfo.ps1
 src/PSSailpointBeta/Model/AccountStatusChanged.ps1
@@ -1528,6 +1532,8 @@ tests/Model/AccountAggregationStatus.Tests.ps1
 tests/Model/AccountAllOf.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesChanged.Tests.ps1
+tests/Model/AccountAttributesCreate.Tests.ps1
+tests/Model/AccountAttributesCreateAttributes.Tests.ps1
 tests/Model/AccountCorrelated.Tests.ps1
 tests/Model/AccountRequestInfo.Tests.ps1
 tests/Model/AccountStatusChanged.Tests.ps1

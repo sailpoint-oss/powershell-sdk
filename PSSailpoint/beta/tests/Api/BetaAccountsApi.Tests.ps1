@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccountsApi' {
     Context 'New-BetaAccount' {
         It 'Test New-BetaAccount' {
-            #$TestResult = New-BetaAccount -AccountAttributes "TEST_VALUE"
+            #$TestResult = New-BetaAccount -AccountAttributesCreate "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccountsApi' {
 
     Context 'Get-BetaAccounts' {
         It 'Test Get-BetaAccounts' {
-            #$TestResult = Get-BetaAccounts -DetailLevel "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaAccounts -DetailLevel "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -504,6 +504,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.AccountAllOf](docs/AccountAllOf.md)
  - [PSSailpointBeta/Model.AccountAttributes](docs/AccountAttributes.md)
  - [PSSailpointBeta/Model.AccountAttributesChanged](docs/AccountAttributesChanged.md)
+ - [PSSailpointBeta/Model.AccountAttributesCreate](docs/AccountAttributesCreate.md)
+ - [PSSailpointBeta/Model.AccountAttributesCreateAttributes](docs/AccountAttributesCreateAttributes.md)
  - [PSSailpointBeta/Model.AccountCorrelated](docs/AccountCorrelated.md)
  - [PSSailpointBeta/Model.AccountRequestInfo](docs/AccountRequestInfo.md)
  - [PSSailpointBeta/Model.AccountStatusChanged](docs/AccountStatusChanged.md)

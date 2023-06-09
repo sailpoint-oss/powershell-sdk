@@ -12,9 +12,9 @@ Create Account
 
 .DESCRIPTION
 
-This API submits an account creation task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
 
-.PARAMETER AccountAttributes
+.PARAMETER AccountAttributesCreate
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -30,7 +30,7 @@ function New-BetaAccount {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${AccountAttributes},
+        ${AccountAttributesCreate},
         [Switch]
         $WithHttpInfo
     )
@@ -57,14 +57,14 @@ function New-BetaAccount {
 
         $LocalVarUri = '/accounts'
 
-        if (!$AccountAttributes) {
-            throw "Error! The required parameter `AccountAttributes` missing when calling createAccount."
+        if (!$AccountAttributesCreate) {
+            throw "Error! The required parameter `AccountAttributesCreate` missing when calling createAccount."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $AccountAttributes | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $AccountAttributesCreate | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $AccountAttributes | ForEach-Object {
+            $LocalVarBodyParameter = $AccountAttributesCreate | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -909,6 +909,9 @@ If *true* it will populate the *X-Total-Count* response header with the number o
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **identityId**: *eq*  **name**: *eq, in*  **nativeIdentity**: *eq, in*  **sourceId**: *eq, in*  **uncorrelated**: *eq*
 
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **created**, **modified**
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -936,6 +939,9 @@ function Get-BetaAccounts {
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
         [Switch]
         $WithHttpInfo
     )
@@ -977,6 +983,10 @@ function Get-BetaAccounts {
 
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
 

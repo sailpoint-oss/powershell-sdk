@@ -34,48 +34,50 @@ function ConvertFrom-BetaJsonToListAccounts200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match FullAccount defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToFullAccount $Json
+        if ($match -ne 0) { # no match yet
+            # try to match FullAccount defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToFullAccount $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "FullAccount"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "FullAccount"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'FullAccount' defined in anyOf (BetaListAccounts200ResponseInner). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'FullAccount' defined in oneOf (BetaListAccounts200ResponseInner). Proceeding to the next one if any."
         }
 
-        # try to match SlimAccount defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToSlimAccount $Json
+        if ($match -ne 0) { # no match yet
+            # try to match SlimAccount defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToSlimAccount $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "SlimAccount"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "SlimAccount"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'SlimAccount' defined in anyOf (BetaListAccounts200ResponseInner). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'SlimAccount' defined in oneOf (BetaListAccounts200ResponseInner). Proceeding to the next one if any."
         }
 
-        if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([FullAccount, SlimAccount]). JSON Payload: $($Json)"
-        } elseif ($match -eq 1) {
+        if ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("FullAccount", "SlimAccount")
+                "anyOfSchemas" = @("FullAccount", "SlimAccount")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([FullAccount, SlimAccount]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([FullAccount, SlimAccount]). JSON Payload: $($Json)"
         }
     }
 }

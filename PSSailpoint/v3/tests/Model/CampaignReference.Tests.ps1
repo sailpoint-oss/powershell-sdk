@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'CampaignReference' {
     Context 'CampaignReference' {
         It 'Initialize-CampaignReference' {
             # a simple test to create an object
-            #$NewObject = Initialize-CampaignReference -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -CampaignType "TEST_VALUE" -Description "TEST_VALUE"
+            #$NewObject = Initialize-CampaignReference -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -CampaignType "TEST_VALUE" -Description "TEST_VALUE" -CorrelatedStatus "TEST_VALUE" -MandatoryCommentRequirement "TEST_VALUE"
             #$NewObject | Should -BeOfType CampaignReference
             #$NewObject.property | Should -Be 0
         }

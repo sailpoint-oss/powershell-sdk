@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaCertificationReference' {
     Context 'BetaCertificationReference' {
         It 'Initialize-BetaCertificationReference' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaCertificationReference -Type "TEST_VALUE" -CorrelatedStatus "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Reviewer "TEST_VALUE"
+            #$NewObject = Initialize-BetaCertificationReference -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Reviewer "TEST_VALUE"
             #$NewObject | Should -BeOfType CertificationReference
             #$NewObject.property | Should -Be 0
         }

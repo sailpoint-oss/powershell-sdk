@@ -16,8 +16,6 @@ The previous certification
 
 .PARAMETER Type
 The type of object that the reviewer is.
-.PARAMETER CorrelatedStatus
-The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
 .PARAMETER Id
 ID of the object to which this reference applies
 .PARAMETER Name
@@ -37,16 +35,12 @@ function Initialize-BetaCertificationReference {
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CORRELATED", "UNCORRELATED")]
-        [PSCustomObject]
-        ${CorrelatedStatus},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Reviewer}
     )
@@ -58,7 +52,6 @@ function Initialize-BetaCertificationReference {
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
-            "correlatedStatus" = ${CorrelatedStatus}
             "id" = ${Id}
             "name" = ${Name}
             "reviewer" = ${Reviewer}
@@ -99,7 +92,7 @@ function ConvertFrom-BetaJsonToCertificationReference {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCertificationReference
-        $AllProperties = ("type", "correlatedStatus", "id", "name", "reviewer")
+        $AllProperties = ("type", "id", "name", "reviewer")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -110,12 +103,6 @@ function ConvertFrom-BetaJsonToCertificationReference {
             $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "correlatedStatus"))) { #optional property not found
-            $CorrelatedStatus = $null
-        } else {
-            $CorrelatedStatus = $JsonParameters.PSobject.Properties["correlatedStatus"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -138,7 +125,6 @@ function ConvertFrom-BetaJsonToCertificationReference {
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
-            "correlatedStatus" = ${CorrelatedStatus}
             "id" = ${Id}
             "name" = ${Name}
             "reviewer" = ${Reviewer}

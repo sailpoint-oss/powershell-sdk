@@ -38,6 +38,8 @@ The total number of certifications in this campaign.
 The number of completed certifications in this campaign.
 .PARAMETER SourcesWithOrphanEntitlements
 A list of sources in the campaign that contain \""orphan entitlements\"" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
+.PARAMETER MandatoryCommentRequirement
+Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
 .OUTPUTS
 
 CampaignAllOf<PSCustomObject>
@@ -82,7 +84,11 @@ function Initialize-CampaignAllOf {
         ${CompletedCertifications},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${SourcesWithOrphanEntitlements}
+        ${SourcesWithOrphanEntitlements},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ALL_DECISIONS", "REVOKE_ONLY_DECISIONS", "NO_DECISIONS")]
+        [String]
+        ${MandatoryCommentRequirement}
     )
 
     Process {
@@ -103,6 +109,7 @@ function Initialize-CampaignAllOf {
             "totalCertifications" = ${TotalCertifications}
             "completedCertifications" = ${CompletedCertifications}
             "sourcesWithOrphanEntitlements" = ${SourcesWithOrphanEntitlements}
+            "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }
 
 
@@ -140,7 +147,7 @@ function ConvertFrom-JsonToCampaignAllOf {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CampaignAllOf
-        $AllProperties = ("created", "modified", "correlatedStatus", "filter", "sunsetCommentsRequired", "sourceOwnerCampaignInfo", "searchCampaignInfo", "roleCompositionCampaignInfo", "alerts", "totalCertifications", "completedCertifications", "sourcesWithOrphanEntitlements")
+        $AllProperties = ("created", "modified", "correlatedStatus", "filter", "sunsetCommentsRequired", "sourceOwnerCampaignInfo", "searchCampaignInfo", "roleCompositionCampaignInfo", "alerts", "totalCertifications", "completedCertifications", "sourcesWithOrphanEntitlements", "mandatoryCommentRequirement")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -219,6 +226,12 @@ function ConvertFrom-JsonToCampaignAllOf {
             $SourcesWithOrphanEntitlements = $JsonParameters.PSobject.Properties["sourcesWithOrphanEntitlements"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mandatoryCommentRequirement"))) { #optional property not found
+            $MandatoryCommentRequirement = $null
+        } else {
+            $MandatoryCommentRequirement = $JsonParameters.PSobject.Properties["mandatoryCommentRequirement"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "created" = ${Created}
             "modified" = ${Modified}
@@ -232,6 +245,7 @@ function ConvertFrom-JsonToCampaignAllOf {
             "totalCertifications" = ${TotalCertifications}
             "completedCertifications" = ${CompletedCertifications}
             "sourcesWithOrphanEntitlements" = ${SourcesWithOrphanEntitlements}
+            "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }
 
         return $PSO

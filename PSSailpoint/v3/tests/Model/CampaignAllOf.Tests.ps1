@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'CampaignAllOf' {
     Context 'CampaignAllOf' {
         It 'Initialize-CampaignAllOf' {
             # a simple test to create an object
-            #$NewObject = Initialize-CampaignAllOf -Created "TEST_VALUE" -Modified "TEST_VALUE" -CorrelatedStatus "TEST_VALUE" -VarFilter "TEST_VALUE" -SunsetCommentsRequired "TEST_VALUE" -SourceOwnerCampaignInfo "TEST_VALUE" -SearchCampaignInfo "TEST_VALUE" -RoleCompositionCampaignInfo "TEST_VALUE" -Alerts "TEST_VALUE" -TotalCertifications "TEST_VALUE" -CompletedCertifications "TEST_VALUE" -SourcesWithOrphanEntitlements "TEST_VALUE"
+            #$NewObject = Initialize-CampaignAllOf -Created "TEST_VALUE" -Modified "TEST_VALUE" -CorrelatedStatus "TEST_VALUE" -VarFilter "TEST_VALUE" -SunsetCommentsRequired "TEST_VALUE" -SourceOwnerCampaignInfo "TEST_VALUE" -SearchCampaignInfo "TEST_VALUE" -RoleCompositionCampaignInfo "TEST_VALUE" -Alerts "TEST_VALUE" -TotalCertifications "TEST_VALUE" -CompletedCertifications "TEST_VALUE" -SourcesWithOrphanEntitlements "TEST_VALUE" -MandatoryCommentRequirement "TEST_VALUE"
             #$NewObject | Should -BeOfType CampaignAllOf
             #$NewObject.property | Should -Be 0
         }

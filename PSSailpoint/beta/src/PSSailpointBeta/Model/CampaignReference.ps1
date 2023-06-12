@@ -24,6 +24,10 @@ The type of object that is being referenced.
 The type of the campaign.
 .PARAMETER Description
 The description of the campaign set by the admin who created it.
+.PARAMETER CorrelatedStatus
+The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+.PARAMETER MandatoryCommentRequirement
+Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
 .OUTPUTS
 
 CampaignReference<PSCustomObject>
@@ -48,7 +52,15 @@ function Initialize-BetaCampaignReference {
         ${CampaignType},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description}
+        ${Description},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CORRELATED", "UNCORRELATED")]
+        [PSCustomObject]
+        ${CorrelatedStatus},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ALL_DECISIONS", "REVOKE_ONLY_DECISIONS", "NO_DECISIONS")]
+        [String]
+        ${MandatoryCommentRequirement}
     )
 
     Process {
@@ -71,6 +83,14 @@ function Initialize-BetaCampaignReference {
             throw "invalid value for 'CampaignType', 'CampaignType' cannot be null."
         }
 
+        if ($null -eq $CorrelatedStatus) {
+            throw "invalid value for 'CorrelatedStatus', 'CorrelatedStatus' cannot be null."
+        }
+
+        if ($null -eq $MandatoryCommentRequirement) {
+            throw "invalid value for 'MandatoryCommentRequirement', 'MandatoryCommentRequirement' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -78,6 +98,8 @@ function Initialize-BetaCampaignReference {
             "type" = ${Type}
             "campaignType" = ${CampaignType}
             "description" = ${Description}
+            "correlatedStatus" = ${CorrelatedStatus}
+            "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }
 
 
@@ -115,7 +137,7 @@ function ConvertFrom-BetaJsonToCampaignReference {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCampaignReference
-        $AllProperties = ("id", "name", "type", "campaignType", "description")
+        $AllProperties = ("id", "name", "type", "campaignType", "description", "correlatedStatus", "mandatoryCommentRequirement")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -156,12 +178,26 @@ function ConvertFrom-BetaJsonToCampaignReference {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "correlatedStatus"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'correlatedStatus' missing."
+        } else {
+            $CorrelatedStatus = $JsonParameters.PSobject.Properties["correlatedStatus"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mandatoryCommentRequirement"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'mandatoryCommentRequirement' missing."
+        } else {
+            $MandatoryCommentRequirement = $JsonParameters.PSobject.Properties["mandatoryCommentRequirement"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
             "type" = ${Type}
             "campaignType" = ${CampaignType}
             "description" = ${Description}
+            "correlatedStatus" = ${CorrelatedStatus}
+            "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }
 
         return $PSO

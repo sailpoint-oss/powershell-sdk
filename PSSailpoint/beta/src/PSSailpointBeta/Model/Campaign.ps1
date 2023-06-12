@@ -56,6 +56,8 @@ The total number of certifications in this campaign.
 The number of completed certifications in this campaign.
 .PARAMETER SourcesWithOrphanEntitlements
 A list of sources in the campaign that contain \""orphan entitlements\"" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
+.PARAMETER MandatoryCommentRequirement
+Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
 .OUTPUTS
 
 Campaign<PSCustomObject>
@@ -129,7 +131,11 @@ function Initialize-BetaCampaign {
         ${CompletedCertifications},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${SourcesWithOrphanEntitlements}
+        ${SourcesWithOrphanEntitlements},
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ALL_DECISIONS", "REVOKE_ONLY_DECISIONS", "NO_DECISIONS")]
+        [String]
+        ${MandatoryCommentRequirement}
     )
 
     Process {
@@ -171,6 +177,7 @@ function Initialize-BetaCampaign {
             "totalCertifications" = ${TotalCertifications}
             "completedCertifications" = ${CompletedCertifications}
             "sourcesWithOrphanEntitlements" = ${SourcesWithOrphanEntitlements}
+            "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }
 
 
@@ -208,7 +215,7 @@ function ConvertFrom-BetaJsonToCampaign {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCampaign
-        $AllProperties = ("id", "name", "description", "deadline", "type", "emailNotificationEnabled", "autoRevokeAllowed", "recommendationsEnabled", "status", "correlatedStatus", "created", "modified", "filter", "sunsetCommentsRequired", "sourceOwnerCampaignInfo", "searchCampaignInfo", "roleCompositionCampaignInfo", "alerts", "totalCertifications", "completedCertifications", "sourcesWithOrphanEntitlements")
+        $AllProperties = ("id", "name", "description", "deadline", "type", "emailNotificationEnabled", "autoRevokeAllowed", "recommendationsEnabled", "status", "correlatedStatus", "created", "modified", "filter", "sunsetCommentsRequired", "sourceOwnerCampaignInfo", "searchCampaignInfo", "roleCompositionCampaignInfo", "alerts", "totalCertifications", "completedCertifications", "sourcesWithOrphanEntitlements", "mandatoryCommentRequirement")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -345,6 +352,12 @@ function ConvertFrom-BetaJsonToCampaign {
             $SourcesWithOrphanEntitlements = $JsonParameters.PSobject.Properties["sourcesWithOrphanEntitlements"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mandatoryCommentRequirement"))) { #optional property not found
+            $MandatoryCommentRequirement = $null
+        } else {
+            $MandatoryCommentRequirement = $JsonParameters.PSobject.Properties["mandatoryCommentRequirement"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -367,6 +380,7 @@ function ConvertFrom-BetaJsonToCampaign {
             "totalCertifications" = ${TotalCertifications}
             "completedCertifications" = ${CompletedCertifications}
             "sourcesWithOrphanEntitlements" = ${SourcesWithOrphanEntitlements}
+            "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }
 
         return $PSO

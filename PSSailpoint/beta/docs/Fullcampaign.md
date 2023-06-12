@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **TotalCertifications** | **Int32** | The total number of certifications in this campaign. | [optional] [readonly] 
 **CompletedCertifications** | **Int32** | The number of completed certifications in this campaign. | [optional] [readonly] 
 **SourcesWithOrphanEntitlements** | [**FullcampaignAllOfSourcesWithOrphanEntitlements[]**](FullcampaignAllOfSourcesWithOrphanEntitlements.md) | A list of sources in the campaign that contain \&quot;&quot;orphan entitlements\&quot;&quot; (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented). | [optional] [readonly] 
+**MandatoryCommentRequirement** | **String** | Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions. | [optional] 
 
 ## Examples
 
@@ -49,7 +50,8 @@ $Fullcampaign = Initialize-PSSailpointBetaFullcampaign  -Id 2c9079b270a266a60170
  -Alerts null `
  -TotalCertifications 100 `
  -CompletedCertifications 10 `
- -SourcesWithOrphanEntitlements null
+ -SourcesWithOrphanEntitlements null `
+ -MandatoryCommentRequirement NO_DECISIONS
 ```
 
 - Convert the resource to JSON

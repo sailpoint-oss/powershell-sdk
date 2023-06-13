@@ -100,7 +100,7 @@ function Initialize-BetaManagedCluster {
         [PSCustomObject]
         ${Redis},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CCG", "VA", "INTERNAL", "")]
+        [ValidateSet("CCG", "VA", "INTERNAL", "IIQ_HARVESTER", "")]
         [PSCustomObject]
         ${ClientType},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]

@@ -22,6 +22,8 @@ enum ManagedClientType {
     VA
     # enum value: "INTERNAL"
     INTERNAL
+    # enum value: "IIQ_HARVESTER"
+    IIQ_HARVESTER
     # enum value: "null"
     null
 }

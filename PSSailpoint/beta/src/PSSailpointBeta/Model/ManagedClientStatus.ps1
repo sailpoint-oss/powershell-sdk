@@ -38,7 +38,7 @@ function Initialize-BetaManagedClientStatus {
         [PSCustomObject]
         ${Status},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CCG", "VA", "INTERNAL", "")]
+        [ValidateSet("CCG", "VA", "INTERNAL", "IIQ_HARVESTER", "")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

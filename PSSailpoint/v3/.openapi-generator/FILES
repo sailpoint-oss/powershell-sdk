@@ -424,6 +424,7 @@ docs/SetLifecycleStateRequest.md
 docs/SlimCampaign.md
 docs/SodExemptCriteria.md
 docs/SodPolicy.md
+docs/SodPolicyConflictingAccessCriteria.md
 docs/SodPolicySchedule.md
 docs/SodViolationCheck.md
 docs/SodViolationCheckResult.md
@@ -470,6 +471,7 @@ docs/ViolationContext.md
 docs/ViolationContextPolicy.md
 docs/ViolationContextPolicyAllOf.md
 docs/ViolationOwnerAssignmentConfig.md
+docs/ViolationOwnerAssignmentConfigOwnerRef.md
 docs/ViolationPrediction.md
 docs/VisibilityCriteria.md
 docs/WorkItemState.md
@@ -905,6 +907,7 @@ src/PSSailpoint/Model/SetLifecycleStateRequest.ps1
 src/PSSailpoint/Model/SlimCampaign.ps1
 src/PSSailpoint/Model/SodExemptCriteria.ps1
 src/PSSailpoint/Model/SodPolicy.ps1
+src/PSSailpoint/Model/SodPolicyConflictingAccessCriteria.ps1
 src/PSSailpoint/Model/SodPolicySchedule.ps1
 src/PSSailpoint/Model/SodViolationCheck.ps1
 src/PSSailpoint/Model/SodViolationCheckResult.ps1
@@ -948,6 +951,7 @@ src/PSSailpoint/Model/ViolationContext.ps1
 src/PSSailpoint/Model/ViolationContextPolicy.ps1
 src/PSSailpoint/Model/ViolationContextPolicyAllOf.ps1
 src/PSSailpoint/Model/ViolationOwnerAssignmentConfig.ps1
+src/PSSailpoint/Model/ViolationOwnerAssignmentConfigOwnerRef.ps1
 src/PSSailpoint/Model/ViolationPrediction.ps1
 src/PSSailpoint/Model/VisibilityCriteria.ps1
 src/PSSailpoint/Model/WorkItemState.ps1
@@ -1388,6 +1392,7 @@ tests/Model/SetLifecycleStateRequest.Tests.ps1
 tests/Model/SlimCampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
+tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1
 tests/Model/SodPolicySchedule.Tests.ps1
 tests/Model/SodViolationCheck.Tests.ps1
 tests/Model/SodViolationCheckResult.Tests.ps1
@@ -1431,6 +1436,7 @@ tests/Model/ViolationContext.Tests.ps1
 tests/Model/ViolationContextPolicy.Tests.ps1
 tests/Model/ViolationContextPolicyAllOf.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1
+tests/Model/ViolationOwnerAssignmentConfigOwnerRef.Tests.ps1
 tests/Model/ViolationPrediction.Tests.ps1
 tests/Model/VisibilityCriteria.Tests.ps1
 tests/Model/WorkItemState.Tests.ps1

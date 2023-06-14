@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ViolationOwnerAssignmentConfig** | [**ViolationOwnerAssignmentConfig**](ViolationOwnerAssignmentConfig.md) |  | [optional] 
 **Scheduled** | **Boolean** | defines whether a policy has been scheduled or not | [optional] [default to $false]
 **Type** | **String** | whether a policy is query based or conflicting access based | [optional] [default to "GENERAL"]
-**ConflictingAccessCriteria** | [**ConflictingAccessCriteria**](ConflictingAccessCriteria.md) |  | [optional] 
+**ConflictingAccessCriteria** | [**SodPolicyConflictingAccessCriteria**](SodPolicyConflictingAccessCriteria.md) |  | [optional] 
 
 ## Examples
 
@@ -38,8 +38,8 @@ $SodPolicy = Initialize-PSSailpointSodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742580
  -CorrectionAdvice Based on the role of the employee, managers should remove access that is not required for their job function. `
  -State ENFORCED `
  -Tags [TAG1, TAG2] `
- -CreatorId 0f11f2a47c944bf3a2bd742580fe3bde `
- -ModifierId 0f11f2a47c944bf3a2bd742580fe3bde `
+ -CreatorId 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+ -ModifierId 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -ViolationOwnerAssignmentConfig null `
  -Scheduled true `
  -Type GENERAL `

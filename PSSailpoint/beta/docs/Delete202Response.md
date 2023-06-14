@@ -1,4 +1,4 @@
-# DeleteSource202Response
+# Delete202Response
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DeleteSource202Response = Initialize-PSSailpointBetaDeleteSource202Response  -Type TASK_RESULT `
+$Delete202Response = Initialize-PSSailpointBetaDelete202Response  -Type TASK_RESULT `
  -Id 2c91808779ecf55b0179f720942f181a `
  -Name null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$DeleteSource202Response | ConvertTo-JSON
+$Delete202Response | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

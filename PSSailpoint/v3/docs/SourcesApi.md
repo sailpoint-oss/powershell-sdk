@@ -10,12 +10,15 @@ Method | HTTP request | Description
 [**Remove-ProvisioningPolicy**](SourcesApi.md#Remove-ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 [**Remove-Source**](SourcesApi.md#Remove-Source) | **DELETE** /sources/{id} | Delete Source by ID
 [**Remove-SourceSchema**](SourcesApi.md#Remove-SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
-[**Invoke-DownloadSourceAccountsSchema**](SourcesApi.md#Invoke-DownloadSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
-[**Invoke-DownloadSourceEntitlementsSchema**](SourcesApi.md#Invoke-DownloadSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
+[**Get-AccountsSchema**](SourcesApi.md#Get-AccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
+[**Get-EntitlementsSchema**](SourcesApi.md#Get-EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 [**Get-ProvisioningPolicy**](SourcesApi.md#Get-ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 [**Get-Source**](SourcesApi.md#Get-Source) | **GET** /sources/{id} | Get Source by ID
-[**Get-SourceHealth**](SourcesApi.md#Get-SourceHealth) | **GET** /sources/{sourceId}/source-health | This API fetches source health by source&#39;s id
+[**Get-SourceHealth**](SourcesApi.md#Get-SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
 [**Get-SourceSchema**](SourcesApi.md#Get-SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
+[**Import-AccountsSchema**](SourcesApi.md#Import-AccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
+[**Import-ConnectorFile**](SourcesApi.md#Import-ConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
+[**Import-EntitlementsSchema**](SourcesApi.md#Import-EntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 [**Get-ProvisioningPolicies**](SourcesApi.md#Get-ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
 [**Get-SourceSchemas**](SourcesApi.md#Get-SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on a Source
 [**Get-Sources**](SourcesApi.md#Get-Sources) | **GET** /sources | Lists all sources in IdentityNow.
@@ -26,9 +29,6 @@ Method | HTTP request | Description
 [**Update-ProvisioningPolicy**](SourcesApi.md#Update-ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 [**Update-Source**](SourcesApi.md#Update-Source) | **PATCH** /sources/{id} | Update Source (Partial)
 [**Update-SourceSchema**](SourcesApi.md#Update-SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
-[**Invoke-UploadSourceAccountsSchema**](SourcesApi.md#Invoke-UploadSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
-[**Invoke-UploadSourceConnectorFile**](SourcesApi.md#Invoke-UploadSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
-[**Invoke-UploadSourceEntitlementsSchema**](SourcesApi.md#Invoke-UploadSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 
 
 <a name="New-ProvisioningPolicy"></a>
@@ -364,9 +364,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DownloadSourceAccountsSchema"></a>
-# **Invoke-DownloadSourceAccountsSchema**
-> void Invoke-DownloadSourceAccountsSchema<br>
+<a name="Get-AccountsSchema"></a>
+# **Get-AccountsSchema**
+> void Get-AccountsSchema<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Downloads source accounts schema template
@@ -387,9 +387,9 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
 # Downloads source accounts schema template
 try {
-    $Result = Invoke-DownloadSourceAccountsSchema -Id $Id
+    $Result = Get-AccountsSchema -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DownloadSourceAccountsSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-AccountsSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -415,9 +415,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-DownloadSourceEntitlementsSchema"></a>
-# **Invoke-DownloadSourceEntitlementsSchema**
-> void Invoke-DownloadSourceEntitlementsSchema<br>
+<a name="Get-EntitlementsSchema"></a>
+# **Get-EntitlementsSchema**
+> void Get-EntitlementsSchema<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaName] <String><br>
 
@@ -440,9 +440,9 @@ $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optiona
 
 # Downloads source entitlements schema template
 try {
-    $Result = Invoke-DownloadSourceEntitlementsSchema -Id $Id -SchemaName $SchemaName
+    $Result = Get-EntitlementsSchema -Id $Id -SchemaName $SchemaName
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-DownloadSourceEntitlementsSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-EntitlementsSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 > SourceHealthDto Get-SourceHealth<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 
-This API fetches source health by source's id
+Fetches source health by id
 
 This endpoint fetches source health by source's id
 
@@ -595,7 +595,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
-# This API fetches source health by source's id
+# Fetches source health by id
 try {
     $Result = Get-SourceHealth -SourceId $SourceId
 } catch {
@@ -675,6 +675,171 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Import-AccountsSchema"></a>
+# **Import-AccountsSchema**
+> Schema Import-AccountsSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+
+Uploads source accounts schema template
+
+This API uploads a source schema template file to configure a source's account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+$File =  # System.IO.FileInfo |  (optional)
+
+# Uploads source accounts schema template
+try {
+    $Result = Import-AccountsSchema -Id $Id -File $File
+} catch {
+    Write-Host ("Exception occurred when calling Import-AccountsSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The Source id | 
+ **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+
+### Return type
+
+[**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Import-ConnectorFile"></a>
+# **Import-ConnectorFile**
+> Source Import-ConnectorFile<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+
+Upload connector file to source
+
+This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$File =  # System.IO.FileInfo |  (optional)
+
+# Upload connector file to source
+try {
+    $Result = Import-ConnectorFile -SourceId $SourceId -File $File
+} catch {
+    Write-Host ("Exception occurred when calling Import-ConnectorFile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+
+### Return type
+
+[**Source**](Source.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Import-EntitlementsSchema"></a>
+# **Import-EntitlementsSchema**
+> Schema Import-EntitlementsSchema<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaName] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+
+Uploads source entitlements schema template
+
+This API uploads a source schema template file to configure a source's entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+$SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
+$File =  # System.IO.FileInfo |  (optional)
+
+# Uploads source entitlements schema template
+try {
+    $Result = Import-EntitlementsSchema -Id $Id -SchemaName $SchemaName -File $File
+} catch {
+    Write-Host ("Exception occurred when calling Import-EntitlementsSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The Source id | 
+ **SchemaName** | **String**| Name of entitlement schema | [optional] 
+ **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+
+### Return type
+
+[**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -811,7 +976,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "name eq "#Employees"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *co, eq, in, sw*  **type**: *eq, in*  **owner.id**: *eq, in*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq*  **description**: *eq*  **authoritative**: *eq*  **healthy**: *eq*  **status**: *eq, in*  **connectionType**: *eq*  **connectorName**: *eq* (optional)
+$Filters = "name eq "#Employees"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **name**: *co, eq, in, sw*   **type**: *eq, in*   **owner.id**: *eq, in*   **features**: *ca, co*   **created**: *eq*   **modified**: *eq*   **managementWorkgroup.id**: *eq*   **description**: *eq*   **authoritative**: *eq*   **healthy**: *eq*   **status**: *eq, in*   **connectionType**: *eq*   **connectorName**: *eq* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status** (optional)
 $ForSubadmin = "name" # String | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional)
 
@@ -831,7 +996,7 @@ Name | Type | Description  | Notes
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
- **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *co, eq, in, sw*  **type**: *eq, in*  **owner.id**: *eq, in*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq*  **description**: *eq*  **authoritative**: *eq*  **healthy**: *eq*  **status**: *eq, in*  **connectionType**: *eq*  **connectorName**: *eq* | [optional] 
+ **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **name**: *co, eq, in, sw*   **type**: *eq, in*   **owner.id**: *eq, in*   **features**: *ca, co*   **created**: *eq*   **modified**: *eq*   **managementWorkgroup.id**: *eq*   **description**: *eq*   **authoritative**: *eq*   **healthy**: *eq*   **status**: *eq, in*   **connectionType**: *eq*   **connectorName**: *eq* | [optional] 
  **Sorters** | **String**| Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status** | [optional] 
  **ForSubadmin** | **String**| Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. | [optional] 
 
@@ -1254,171 +1419,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-UploadSourceAccountsSchema"></a>
-# **Invoke-UploadSourceAccountsSchema**
-> Schema Invoke-UploadSourceAccountsSchema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
-
-Uploads source accounts schema template
-
-This API uploads a source schema template file to configure a source's account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
-$File =  # System.IO.FileInfo |  (optional)
-
-# Uploads source accounts schema template
-try {
-    $Result = Invoke-UploadSourceAccountsSchema -Id $Id -File $File
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-UploadSourceAccountsSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Source id | 
- **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-UploadSourceConnectorFile"></a>
-# **Invoke-UploadSourceConnectorFile**
-> Source Invoke-UploadSourceConnectorFile<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
-
-Upload connector file to source
-
-This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$File =  # System.IO.FileInfo |  (optional)
-
-# Upload connector file to source
-try {
-    $Result = Invoke-UploadSourceConnectorFile -SourceId $SourceId -File $File
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-UploadSourceConnectorFile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
-
-### Return type
-
-[**Source**](Source.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Invoke-UploadSourceEntitlementsSchema"></a>
-# **Invoke-UploadSourceEntitlementsSchema**
-> Schema Invoke-UploadSourceEntitlementsSchema<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SchemaName] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
-
-Uploads source entitlements schema template
-
-This API uploads a source schema template file to configure a source's entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
-$SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
-$File =  # System.IO.FileInfo |  (optional)
-
-# Uploads source entitlements schema template
-try {
-    $Result = Invoke-UploadSourceEntitlementsSchema -Id $Id -SchemaName $SchemaName -File $File
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-UploadSourceEntitlementsSchema: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Source id | 
- **SchemaName** | **String**| Name of entitlement schema | [optional] 
- **File** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
-
-### Return type
-
-[**Schema**](Schema.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

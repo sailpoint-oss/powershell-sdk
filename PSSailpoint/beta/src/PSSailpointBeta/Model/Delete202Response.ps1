@@ -22,10 +22,10 @@ ID of the task result
 Human-readable display name of the task result (should be null/empty)
 .OUTPUTS
 
-DeleteSource202Response<PSCustomObject>
+Delete202Response<PSCustomObject>
 #>
 
-function Initialize-BetaDeleteSource202Response {
+function Initialize-BetaDelete202Response {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -41,7 +41,7 @@ function Initialize-BetaDeleteSource202Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaDeleteSource202Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaDelete202Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -59,11 +59,11 @@ function Initialize-BetaDeleteSource202Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to DeleteSource202Response<PSCustomObject>
+Convert from JSON to Delete202Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to DeleteSource202Response<PSCustomObject>
+Convert from JSON to Delete202Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -71,21 +71,21 @@ Json object
 
 .OUTPUTS
 
-DeleteSource202Response<PSCustomObject>
+Delete202Response<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToDeleteSource202Response {
+function ConvertFrom-BetaJsonToDelete202Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaDeleteSource202Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaDelete202Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaDeleteSource202Response
+        # check if Json contains properties not defined in BetaDelete202Response
         $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

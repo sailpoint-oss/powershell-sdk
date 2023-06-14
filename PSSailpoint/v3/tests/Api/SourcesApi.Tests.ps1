@@ -54,17 +54,17 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
-    Context 'Invoke-DownloadSourceAccountsSchema' {
-        It 'Test Invoke-DownloadSourceAccountsSchema' {
-            #$TestResult = Invoke-DownloadSourceAccountsSchema -Id "TEST_VALUE"
+    Context 'Get-AccountsSchema' {
+        It 'Test Get-AccountsSchema' {
+            #$TestResult = Get-AccountsSchema -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-DownloadSourceEntitlementsSchema' {
-        It 'Test Invoke-DownloadSourceEntitlementsSchema' {
-            #$TestResult = Invoke-DownloadSourceEntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE"
+    Context 'Get-EntitlementsSchema' {
+        It 'Test Get-EntitlementsSchema' {
+            #$TestResult = Get-EntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -97,6 +97,30 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
     Context 'Get-SourceSchema' {
         It 'Test Get-SourceSchema' {
             #$TestResult = Get-SourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Import-AccountsSchema' {
+        It 'Test Import-AccountsSchema' {
+            #$TestResult = Import-AccountsSchema -Id "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Import-ConnectorFile' {
+        It 'Test Import-ConnectorFile' {
+            #$TestResult = Import-ConnectorFile -SourceId "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Import-EntitlementsSchema' {
+        It 'Test Import-EntitlementsSchema' {
+            #$TestResult = Import-EntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -177,30 +201,6 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
     Context 'Update-SourceSchema' {
         It 'Test Update-SourceSchema' {
             #$TestResult = Update-SourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-UploadSourceAccountsSchema' {
-        It 'Test Invoke-UploadSourceAccountsSchema' {
-            #$TestResult = Invoke-UploadSourceAccountsSchema -Id "TEST_VALUE" -File "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-UploadSourceConnectorFile' {
-        It 'Test Invoke-UploadSourceConnectorFile' {
-            #$TestResult = Invoke-UploadSourceConnectorFile -SourceId "TEST_VALUE" -File "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-UploadSourceEntitlementsSchema' {
-        It 'Test Invoke-UploadSourceEntitlementsSchema' {
-            #$TestResult = Invoke-UploadSourceEntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

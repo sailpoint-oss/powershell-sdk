@@ -212,9 +212,9 @@ docs/CreatePersonalAccessTokenRequest.md
 docs/CreatePersonalAccessTokenResponse.md
 docs/CreateWorkflowRequest.md
 docs/CustomPasswordInstruction.md
+docs/Delete202Response.md
 docs/DeleteCampaignsRequest.md
 docs/DeleteNonEmployeeRecordInBulkRequest.md
-docs/DeleteSource202Response.md
 docs/DkimAttributes.md
 docs/DomainAddress.md
 docs/DomainStatusDto.md
@@ -924,9 +924,9 @@ src/PSSailpointBeta/Model/CreatePersonalAccessTokenRequest.ps1
 src/PSSailpointBeta/Model/CreatePersonalAccessTokenResponse.ps1
 src/PSSailpointBeta/Model/CreateWorkflowRequest.ps1
 src/PSSailpointBeta/Model/CustomPasswordInstruction.ps1
+src/PSSailpointBeta/Model/Delete202Response.ps1
 src/PSSailpointBeta/Model/DeleteCampaignsRequest.ps1
 src/PSSailpointBeta/Model/DeleteNonEmployeeRecordInBulkRequest.ps1
-src/PSSailpointBeta/Model/DeleteSource202Response.ps1
 src/PSSailpointBeta/Model/DkimAttributes.ps1
 src/PSSailpointBeta/Model/DomainAddress.ps1
 src/PSSailpointBeta/Model/DomainStatusDto.ps1
@@ -1642,9 +1642,9 @@ tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
 tests/Model/CreatePersonalAccessTokenResponse.Tests.ps1
 tests/Model/CreateWorkflowRequest.Tests.ps1
 tests/Model/CustomPasswordInstruction.Tests.ps1
+tests/Model/Delete202Response.Tests.ps1
 tests/Model/DeleteCampaignsRequest.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordInBulkRequest.Tests.ps1
-tests/Model/DeleteSource202Response.Tests.ps1
 tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1
 tests/Model/DomainStatusDto.Tests.ps1

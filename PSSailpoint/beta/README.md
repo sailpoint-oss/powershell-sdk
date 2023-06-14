@@ -1099,7 +1099,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.WorkItems](docs/WorkItems.md)
  - [PSSailpointBeta/Model.WorkItemsCount](docs/WorkItemsCount.md)
  - [PSSailpointBeta/Model.WorkItemsSummary](docs/WorkItemsSummary.md)
- - [PSSailpointBeta/Model.WorkTypeEnum](docs/WorkTypeEnum.md)
  - [PSSailpointBeta/Model.Workflow](docs/Workflow.md)
  - [PSSailpointBeta/Model.WorkflowAllOf](docs/WorkflowAllOf.md)
  - [PSSailpointBeta/Model.WorkflowBody](docs/WorkflowBody.md)

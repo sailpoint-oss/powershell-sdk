@@ -699,7 +699,6 @@ docs/WorkItemType.md
 docs/WorkItems.md
 docs/WorkItemsCount.md
 docs/WorkItemsSummary.md
-docs/WorkTypeEnum.md
 docs/Workflow.md
 docs/WorkflowAllOf.md
 docs/WorkflowBody.md
@@ -1412,7 +1411,6 @@ src/PSSailpointBeta/Model/WorkItemType.ps1
 src/PSSailpointBeta/Model/WorkItems.ps1
 src/PSSailpointBeta/Model/WorkItemsCount.ps1
 src/PSSailpointBeta/Model/WorkItemsSummary.ps1
-src/PSSailpointBeta/Model/WorkTypeEnum.ps1
 src/PSSailpointBeta/Model/Workflow.ps1
 src/PSSailpointBeta/Model/WorkflowAllOf.ps1
 src/PSSailpointBeta/Model/WorkflowBody.ps1
@@ -2131,7 +2129,6 @@ tests/Model/WorkItemType.Tests.ps1
 tests/Model/WorkItems.Tests.ps1
 tests/Model/WorkItemsCount.Tests.ps1
 tests/Model/WorkItemsSummary.Tests.ps1
-tests/Model/WorkTypeEnum.Tests.ps1
 tests/Model/Workflow.Tests.ps1
 tests/Model/WorkflowAllOf.Tests.ps1
 tests/Model/WorkflowBody.Tests.ps1

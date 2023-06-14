@@ -34,7 +34,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: oauth2
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ConfigurationItemRequest = Initialize-ConfigurationItemRequest -ReassignedFromId "2c91808781a71ddb0181b9090b5c504e" -ReassignedToId "2c91808781a71ddb0181b9090b53504a" -ConfigType "accessRequests" -StartDate (Get-Date) -EndDate (Get-Date) # ConfigurationItemRequest | 
+$ConfigurationItemRequest = Initialize-ConfigurationItemRequest -ReassignedFromId "2c91808781a71ddb0181b9090b5c504e" -ReassignedToId "2c91808781a71ddb0181b9090b53504a" -ConfigType "ACCESS_REQUESTS" -StartDate (Get-Date) -EndDate (Get-Date) # ConfigurationItemRequest | 
 
 # Create a Reassignment Configuration
 try {
@@ -139,7 +139,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
-$ConfigType = "accessRequests" # WorkTypeEnum | Reassignment work type
+$ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | Reassignment work type
 $ExclusionFilters = "MyExclusionFilters" # String[] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
 # Evaluate Reassignment Configuration
@@ -156,7 +156,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **IdentityId** | **String**| unique identity id | 
- **ConfigType** | [**WorkTypeEnum**](WorkTypeEnum.md)| Reassignment work type | 
+ **ConfigType** | [**ConfigTypeEnum**](ConfigTypeEnum.md)| Reassignment work type | 
  **ExclusionFilters** | [**String[]**](String.md)| Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments | [optional] 
 
 ### Return type
@@ -384,7 +384,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
-$ConfigurationItemRequest = Initialize-ConfigurationItemRequest -ReassignedFromId "2c91808781a71ddb0181b9090b5c504e" -ReassignedToId "2c91808781a71ddb0181b9090b53504a" -ConfigType "accessRequests" -StartDate (Get-Date) -EndDate (Get-Date) # ConfigurationItemRequest | 
+$ConfigurationItemRequest = Initialize-ConfigurationItemRequest -ReassignedFromId "2c91808781a71ddb0181b9090b5c504e" -ReassignedToId "2c91808781a71ddb0181b9090b53504a" -ConfigType "ACCESS_REQUESTS" -StartDate (Get-Date) -EndDate (Get-Date) # ConfigurationItemRequest | 
 
 # Update Reassignment Configuration
 try {

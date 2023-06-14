@@ -39,7 +39,7 @@ function Initialize-BetaConfigurationItemRequest {
         [String]
         ${ReassignedToId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessRequests", "certifications", "manualTasks")]
+        [ValidateSet("ACCESS_REQUESTS", "CERTIFICATIONS", "MANUAL_TASKS")]
         [PSCustomObject]
         ${ConfigType},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]

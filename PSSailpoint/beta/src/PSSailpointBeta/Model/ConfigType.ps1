@@ -29,7 +29,7 @@ function Initialize-BetaConfigType {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessRequests", "certifications", "manualTasks")]
+        [ValidateSet("ACCESS_REQUESTS", "CERTIFICATIONS", "MANUAL_TASKS")]
         [PSCustomObject]
         ${InternalName},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

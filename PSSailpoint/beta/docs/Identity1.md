@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Identity1 = Initialize-PSSailpointBetaIdentity1  -Id 2c91808380aa05580180aaaaf1940410 `
- -Name William.Wilson
+ -Name William Wilson
 ```
 
 - Convert the resource to JSON

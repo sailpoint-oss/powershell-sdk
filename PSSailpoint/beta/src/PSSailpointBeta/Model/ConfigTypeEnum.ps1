@@ -16,11 +16,11 @@ Enum list of valid work types that can be selected for a Reassignment Configurat
 #>
 
 enum ConfigTypeEnum {
-    # enum value: "accessRequests"
-    accessRequests
-    # enum value: "certifications"
-    certifications
-    # enum value: "manualTasks"
-    manualTasks
+    # enum value: "ACCESS_REQUESTS"
+    ACCESS_REQUESTS
+    # enum value: "CERTIFICATIONS"
+    CERTIFICATIONS
+    # enum value: "MANUAL_TASKS"
+    MANUAL_TASKS
 }
 

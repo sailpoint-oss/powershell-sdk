@@ -702,7 +702,7 @@ function Get-BetaSodViolationReportRunStatus {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/sod-violation-report-status/{reportResultId}'
+        $LocalVarUri = '/sod-policies/sod-violation-report-status/{reportResultId}'
         if (!$ReportResultId) {
             throw "Error! The required parameter `ReportResultId` missing when calling getSodViolationReportRunStatus."
         }

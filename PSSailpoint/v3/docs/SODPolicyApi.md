@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**Get-SodAllReportRunStatus**](SODPolicyApi.md#Get-SodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
 [**Get-SodPolicy**](SODPolicyApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
 [**Get-SodPolicySchedule**](SODPolicyApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
-[**Get-SodViolationReportRunStatus**](SODPolicyApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
+[**Get-SodViolationReportRunStatus**](SODPolicyApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-policies/sod-violation-report-status/{reportResultId} | Get violation report run status
 [**Get-SodViolationReportStatus**](SODPolicyApi.md#Get-SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
 [**Get-SodPolicies**](SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
 [**Update-SodPolicy**](SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID

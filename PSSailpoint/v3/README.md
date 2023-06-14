@@ -184,7 +184,7 @@ Class | Method | HTTP request | Description
 *SODPolicyApi* | [**Get-SodAllReportRunStatus**](docs/SODPolicyApi.md#Get-SodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
 *SODPolicyApi* | [**Get-SodPolicy**](docs/SODPolicyApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
 *SODPolicyApi* | [**Get-SodPolicySchedule**](docs/SODPolicyApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
-*SODPolicyApi* | [**Get-SodViolationReportRunStatus**](docs/SODPolicyApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-violation-report-status/{reportResultId} | Get violation report run status
+*SODPolicyApi* | [**Get-SodViolationReportRunStatus**](docs/SODPolicyApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-policies/sod-violation-report-status/{reportResultId} | Get violation report run status
 *SODPolicyApi* | [**Get-SodViolationReportStatus**](docs/SODPolicyApi.md#Get-SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
 *SODPolicyApi* | [**Get-SodPolicies**](docs/SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
 *SODPolicyApi* | [**Update-SodPolicy**](docs/SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID

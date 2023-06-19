@@ -167,12 +167,10 @@ docs/ErrorResponseDto.md
 docs/Event.md
 docs/EventAllOf.md
 docs/EventDocument.md
-docs/Exception.md
 docs/ExceptionAccessCriteria.md
 docs/ExceptionCriteria.md
 docs/ExceptionCriteriaAccess.md
 docs/ExceptionCriteriaCriteriaListInner.md
-docs/ExceptionList.md
 docs/ExecutionStatus.md
 docs/ExpansionItem.md
 docs/Expression.md
@@ -376,7 +374,6 @@ docs/RoleSummary.md
 docs/RoleSummaryAllOf.md
 docs/RolesApi.md
 docs/Rule.md
-docs/SODExceptionApi.md
 docs/SODPolicyApi.md
 docs/SODViolationsApi.md
 docs/SavedSearch.md
@@ -501,7 +498,6 @@ src/PSSailpoint/Api/PublicIdentitiesApi.ps1
 src/PSSailpoint/Api/PublicIdentitiesConfigApi.ps1
 src/PSSailpoint/Api/RequestableObjectsApi.ps1
 src/PSSailpoint/Api/RolesApi.ps1
-src/PSSailpoint/Api/SODExceptionApi.ps1
 src/PSSailpoint/Api/SODPolicyApi.ps1
 src/PSSailpoint/Api/SODViolationsApi.ps1
 src/PSSailpoint/Api/SavedSearchApi.ps1
@@ -670,12 +666,10 @@ src/PSSailpoint/Model/ErrorMessageDto.ps1
 src/PSSailpoint/Model/ErrorResponseDto.ps1
 src/PSSailpoint/Model/EventAllOf.ps1
 src/PSSailpoint/Model/EventDocument.ps1
-src/PSSailpoint/Model/Exception.ps1
 src/PSSailpoint/Model/ExceptionAccessCriteria.ps1
 src/PSSailpoint/Model/ExceptionCriteria.ps1
 src/PSSailpoint/Model/ExceptionCriteriaAccess.ps1
 src/PSSailpoint/Model/ExceptionCriteriaCriteriaListInner.ps1
-src/PSSailpoint/Model/ExceptionList.ps1
 src/PSSailpoint/Model/ExecutionStatus.ps1
 src/PSSailpoint/Model/ExpansionItem.ps1
 src/PSSailpoint/Model/Expression.ps1
@@ -987,7 +981,6 @@ tests/Api/PublicIdentitiesApi.Tests.ps1
 tests/Api/PublicIdentitiesConfigApi.Tests.ps1
 tests/Api/RequestableObjectsApi.Tests.ps1
 tests/Api/RolesApi.Tests.ps1
-tests/Api/SODExceptionApi.Tests.ps1
 tests/Api/SODPolicyApi.Tests.ps1
 tests/Api/SODViolationsApi.Tests.ps1
 tests/Api/SavedSearchApi.Tests.ps1
@@ -1155,12 +1148,10 @@ tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/EventAllOf.Tests.ps1
 tests/Model/EventDocument.Tests.ps1
-tests/Model/Exception.Tests.ps1
 tests/Model/ExceptionAccessCriteria.Tests.ps1
 tests/Model/ExceptionCriteria.Tests.ps1
 tests/Model/ExceptionCriteriaAccess.Tests.ps1
 tests/Model/ExceptionCriteriaCriteriaListInner.Tests.ps1
-tests/Model/ExceptionList.Tests.ps1
 tests/Model/ExecutionStatus.Tests.ps1
 tests/Model/ExpansionItem.Tests.ps1
 tests/Model/Expression.Tests.ps1

@@ -346,6 +346,7 @@ docs/ManagedClusterTypes.md
 docs/ManagerCorrelationMapping.md
 docs/ManualWorkItemDetails.md
 docs/ManualWorkItemState.md
+docs/ManuallyUpdatedFieldsDTO.md
 docs/Medium.md
 docs/MessageCatalogDto.md
 docs/MetricResponse.md
@@ -1058,6 +1059,7 @@ src/PSSailpointBeta/Model/ManagedClusterTypes.ps1
 src/PSSailpointBeta/Model/ManagerCorrelationMapping.ps1
 src/PSSailpointBeta/Model/ManualWorkItemDetails.ps1
 src/PSSailpointBeta/Model/ManualWorkItemState.ps1
+src/PSSailpointBeta/Model/ManuallyUpdatedFieldsDTO.ps1
 src/PSSailpointBeta/Model/Medium.ps1
 src/PSSailpointBeta/Model/MessageCatalogDto.ps1
 src/PSSailpointBeta/Model/MetricResponse.ps1
@@ -1776,6 +1778,7 @@ tests/Model/ManagedClusterTypes.Tests.ps1
 tests/Model/ManagerCorrelationMapping.Tests.ps1
 tests/Model/ManualWorkItemDetails.Tests.ps1
 tests/Model/ManualWorkItemState.Tests.ps1
+tests/Model/ManuallyUpdatedFieldsDTO.Tests.ps1
 tests/Model/Medium.Tests.ps1
 tests/Model/MessageCatalogDto.Tests.ps1
 tests/Model/MetricResponse.Tests.ps1

@@ -18,31 +18,35 @@ No description available.
 The entitlement id
 .PARAMETER Name
 The entitlement name
+.PARAMETER Created
+Time when the entitlement was created
+.PARAMETER Modified
+Time when the entitlement was last modified
 .PARAMETER Attribute
 The entitlement attribute name
 .PARAMETER Value
 The value of the entitlement
 .PARAMETER SourceSchemaObjectType
 The object type of the entitlement from the source schema
-.PARAMETER Description
-The description of the entitlement
 .PARAMETER Privileged
 True if the entitlement is privileged
 .PARAMETER CloudGoverned
 True if the entitlement is cloud governed
-.PARAMETER Created
-Time when the entitlement was created
-.PARAMETER Modified
-Time when the entitlement was last modified
-.PARAMETER Source
-No description available.
+.PARAMETER Description
+The description of the entitlement
+.PARAMETER Requestable
+True if the entitlement is requestable
 .PARAMETER Attributes
 A map of free-form key-value pairs from the source system
-.PARAMETER Segments
-List of IDs of segments, if any, to which this Entitlement is assigned.
-.PARAMETER DirectPermissions
+.PARAMETER Source
 No description available.
 .PARAMETER Owner
+No description available.
+.PARAMETER DirectPermissions
+No description available.
+.PARAMETER Segments
+List of IDs of segments, if any, to which this Entitlement is assigned.
+.PARAMETER ManuallyUpdatedFields
 No description available.
 .OUTPUTS
 
@@ -59,44 +63,50 @@ function Initialize-BetaEntitlement {
         [String]
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Attribute},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Value},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SourceSchemaObjectType},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Description},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Privileged},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${CloudGoverned},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Attribute},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Value},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SourceSchemaObjectType},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Privileged} = $false,
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${CloudGoverned} = $false,
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Source},
+        [System.Nullable[Boolean]]
+        ${Requestable} = $false,
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${Segments},
+        [PSCustomObject]
+        ${Source},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Owner},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${DirectPermissions},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${Segments},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Owner}
+        ${ManuallyUpdatedFields}
     )
 
     Process {
@@ -107,19 +117,21 @@ function Initialize-BetaEntitlement {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
+            "created" = ${Created}
+            "modified" = ${Modified}
             "attribute" = ${Attribute}
             "value" = ${Value}
             "sourceSchemaObjectType" = ${SourceSchemaObjectType}
-            "description" = ${Description}
             "privileged" = ${Privileged}
             "cloudGoverned" = ${CloudGoverned}
-            "created" = ${Created}
-            "modified" = ${Modified}
-            "source" = ${Source}
+            "description" = ${Description}
+            "requestable" = ${Requestable}
             "attributes" = ${Attributes}
-            "segments" = ${Segments}
-            "directPermissions" = ${DirectPermissions}
+            "source" = ${Source}
             "owner" = ${Owner}
+            "directPermissions" = ${DirectPermissions}
+            "segments" = ${Segments}
+            "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
         }
 
 
@@ -157,7 +169,7 @@ function ConvertFrom-BetaJsonToEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaEntitlement
-        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privileged", "cloudGoverned", "created", "modified", "source", "attributes", "segments", "directPermissions", "owner")
+        $AllProperties = ("id", "name", "created", "modified", "attribute", "value", "sourceSchemaObjectType", "privileged", "cloudGoverned", "description", "requestable", "attributes", "source", "owner", "directPermissions", "segments", "manuallyUpdatedFields")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -174,6 +186,18 @@ function ConvertFrom-BetaJsonToEntitlement {
             $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "attribute"))) { #optional property not found
@@ -194,12 +218,6 @@ function ConvertFrom-BetaJsonToEntitlement {
             $SourceSchemaObjectType = $JsonParameters.PSobject.Properties["sourceSchemaObjectType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "privileged"))) { #optional property not found
             $Privileged = $null
         } else {
@@ -212,22 +230,16 @@ function ConvertFrom-BetaJsonToEntitlement {
             $CloudGoverned = $JsonParameters.PSobject.Properties["cloudGoverned"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
-            $Created = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
         } else {
-            $Created = $JsonParameters.PSobject.Properties["created"].value
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
-            $Modified = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestable"))) { #optional property not found
+            $Requestable = $null
         } else {
-            $Modified = $JsonParameters.PSobject.Properties["modified"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) { #optional property not found
-            $Source = $null
-        } else {
-            $Source = $JsonParameters.PSobject.Properties["source"].value
+            $Requestable = $JsonParameters.PSobject.Properties["requestable"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) { #optional property not found
@@ -236,16 +248,10 @@ function ConvertFrom-BetaJsonToEntitlement {
             $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "segments"))) { #optional property not found
-            $Segments = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) { #optional property not found
+            $Source = $null
         } else {
-            $Segments = $JsonParameters.PSobject.Properties["segments"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "directPermissions"))) { #optional property not found
-            $DirectPermissions = $null
-        } else {
-            $DirectPermissions = $JsonParameters.PSobject.Properties["directPermissions"].value
+            $Source = $JsonParameters.PSobject.Properties["source"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
@@ -254,22 +260,42 @@ function ConvertFrom-BetaJsonToEntitlement {
             $Owner = $JsonParameters.PSobject.Properties["owner"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "directPermissions"))) { #optional property not found
+            $DirectPermissions = $null
+        } else {
+            $DirectPermissions = $JsonParameters.PSobject.Properties["directPermissions"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "segments"))) { #optional property not found
+            $Segments = $null
+        } else {
+            $Segments = $JsonParameters.PSobject.Properties["segments"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "manuallyUpdatedFields"))) { #optional property not found
+            $ManuallyUpdatedFields = $null
+        } else {
+            $ManuallyUpdatedFields = $JsonParameters.PSobject.Properties["manuallyUpdatedFields"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
+            "created" = ${Created}
+            "modified" = ${Modified}
             "attribute" = ${Attribute}
             "value" = ${Value}
             "sourceSchemaObjectType" = ${SourceSchemaObjectType}
-            "description" = ${Description}
             "privileged" = ${Privileged}
             "cloudGoverned" = ${CloudGoverned}
-            "created" = ${Created}
-            "modified" = ${Modified}
-            "source" = ${Source}
+            "description" = ${Description}
+            "requestable" = ${Requestable}
             "attributes" = ${Attributes}
-            "segments" = ${Segments}
-            "directPermissions" = ${DirectPermissions}
+            "source" = ${Source}
             "owner" = ${Owner}
+            "directPermissions" = ${DirectPermissions}
+            "segments" = ${Segments}
+            "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
         }
 
         return $PSO

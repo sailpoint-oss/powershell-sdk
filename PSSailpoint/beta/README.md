@@ -746,6 +746,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ManagerCorrelationMapping](docs/ManagerCorrelationMapping.md)
  - [PSSailpointBeta/Model.ManualWorkItemDetails](docs/ManualWorkItemDetails.md)
  - [PSSailpointBeta/Model.ManualWorkItemState](docs/ManualWorkItemState.md)
+ - [PSSailpointBeta/Model.ManuallyUpdatedFieldsDTO](docs/ManuallyUpdatedFieldsDTO.md)
  - [PSSailpointBeta/Model.Medium](docs/Medium.md)
  - [PSSailpointBeta/Model.MessageCatalogDto](docs/MessageCatalogDto.md)
  - [PSSailpointBeta/Model.MetricResponse](docs/MetricResponse.md)

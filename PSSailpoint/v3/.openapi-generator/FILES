@@ -58,6 +58,8 @@ docs/AccountToggleRequest.md
 docs/AccountUnlockRequest.md
 docs/AccountsApi.md
 docs/AccountsAsyncResult.md
+docs/AdminReviewReassign.md
+docs/AdminReviewReassignReassignTo.md
 docs/Aggregation.md
 docs/AggregationAllOf.md
 docs/AggregationDocument.md
@@ -117,6 +119,7 @@ docs/CertificationIdentitySummary.md
 docs/CertificationPhase.md
 docs/CertificationReference.md
 docs/CertificationSummariesApi.md
+docs/CertificationTask.md
 docs/CertificationsApi.md
 docs/ClientType.md
 docs/Column.md
@@ -327,6 +330,7 @@ docs/Range.md
 docs/ReassignReference.md
 docs/Reassignment.md
 docs/ReassignmentReference.md
+docs/ReassignmentTrailDTO.md
 docs/ReassignmentType.md
 docs/Reference.md
 docs/Reference1.md
@@ -561,6 +565,8 @@ src/PSSailpoint/Model/AccountSourceAllOf.ps1
 src/PSSailpoint/Model/AccountToggleRequest.ps1
 src/PSSailpoint/Model/AccountUnlockRequest.ps1
 src/PSSailpoint/Model/AccountsAsyncResult.ps1
+src/PSSailpoint/Model/AdminReviewReassign.ps1
+src/PSSailpoint/Model/AdminReviewReassignReassignTo.ps1
 src/PSSailpoint/Model/Aggregation.ps1
 src/PSSailpoint/Model/AggregationAllOf.ps1
 src/PSSailpoint/Model/AggregationDocument.ps1
@@ -618,6 +624,7 @@ src/PSSailpoint/Model/CertificationDecision.ps1
 src/PSSailpoint/Model/CertificationIdentitySummary.ps1
 src/PSSailpoint/Model/CertificationPhase.ps1
 src/PSSailpoint/Model/CertificationReference.ps1
+src/PSSailpoint/Model/CertificationTask.ps1
 src/PSSailpoint/Model/ClientType.ps1
 src/PSSailpoint/Model/Column.ps1
 src/PSSailpoint/Model/Comment.ps1
@@ -816,6 +823,7 @@ src/PSSailpoint/Model/Range.ps1
 src/PSSailpoint/Model/ReassignReference.ps1
 src/PSSailpoint/Model/Reassignment.ps1
 src/PSSailpoint/Model/ReassignmentReference.ps1
+src/PSSailpoint/Model/ReassignmentTrailDTO.ps1
 src/PSSailpoint/Model/ReassignmentType.ps1
 src/PSSailpoint/Model/Reference.ps1
 src/PSSailpoint/Model/Reference1.ps1
@@ -1043,6 +1051,8 @@ tests/Model/AccountSourceAllOf.Tests.ps1
 tests/Model/AccountToggleRequest.Tests.ps1
 tests/Model/AccountUnlockRequest.Tests.ps1
 tests/Model/AccountsAsyncResult.Tests.ps1
+tests/Model/AdminReviewReassign.Tests.ps1
+tests/Model/AdminReviewReassignReassignTo.Tests.ps1
 tests/Model/Aggregation.Tests.ps1
 tests/Model/AggregationAllOf.Tests.ps1
 tests/Model/AggregationDocument.Tests.ps1
@@ -1100,6 +1110,7 @@ tests/Model/CertificationDecision.Tests.ps1
 tests/Model/CertificationIdentitySummary.Tests.ps1
 tests/Model/CertificationPhase.Tests.ps1
 tests/Model/CertificationReference.Tests.ps1
+tests/Model/CertificationTask.Tests.ps1
 tests/Model/ClientType.Tests.ps1
 tests/Model/Column.Tests.ps1
 tests/Model/Comment.Tests.ps1
@@ -1298,6 +1309,7 @@ tests/Model/Range.Tests.ps1
 tests/Model/ReassignReference.Tests.ps1
 tests/Model/Reassignment.Tests.ps1
 tests/Model/ReassignmentReference.Tests.ps1
+tests/Model/ReassignmentTrailDTO.Tests.ps1
 tests/Model/ReassignmentType.Tests.ps1
 tests/Model/Reference.Tests.ps1
 tests/Model/Reference1.Tests.ps1

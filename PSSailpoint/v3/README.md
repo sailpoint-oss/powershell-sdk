@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 *CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
+*CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *CertificationSummariesApi* | [**Get-IdentityAccessSummaries**](docs/CertificationSummariesApi.md#Get-IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access Summaries
 *CertificationSummariesApi* | [**Get-IdentityDecisionSummary**](docs/CertificationSummariesApi.md#Get-IdentityDecisionSummary) | **GET** /certifications/{id}/decision-summary | Summary of Certification Decisions
 *CertificationSummariesApi* | [**Get-IdentitySummaries**](docs/CertificationSummariesApi.md#Get-IdentitySummaries) | **GET** /certifications/{id}/identity-summaries | Identity Summaries for Campaign Certification
@@ -326,6 +327,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.AccountToggleRequest](docs/AccountToggleRequest.md)
  - [PSSailpoint/Model.AccountUnlockRequest](docs/AccountUnlockRequest.md)
  - [PSSailpoint/Model.AccountsAsyncResult](docs/AccountsAsyncResult.md)
+ - [PSSailpoint/Model.AdminReviewReassign](docs/AdminReviewReassign.md)
+ - [PSSailpoint/Model.AdminReviewReassignReassignTo](docs/AdminReviewReassignReassignTo.md)
  - [PSSailpoint/Model.Aggregation](docs/Aggregation.md)
  - [PSSailpoint/Model.AggregationAllOf](docs/AggregationAllOf.md)
  - [PSSailpoint/Model.AggregationDocument](docs/AggregationDocument.md)
@@ -383,6 +386,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CertificationIdentitySummary](docs/CertificationIdentitySummary.md)
  - [PSSailpoint/Model.CertificationPhase](docs/CertificationPhase.md)
  - [PSSailpoint/Model.CertificationReference](docs/CertificationReference.md)
+ - [PSSailpoint/Model.CertificationTask](docs/CertificationTask.md)
  - [PSSailpoint/Model.ClientType](docs/ClientType.md)
  - [PSSailpoint/Model.Column](docs/Column.md)
  - [PSSailpoint/Model.Comment](docs/Comment.md)
@@ -581,6 +585,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ReassignReference](docs/ReassignReference.md)
  - [PSSailpoint/Model.Reassignment](docs/Reassignment.md)
  - [PSSailpoint/Model.ReassignmentReference](docs/ReassignmentReference.md)
+ - [PSSailpoint/Model.ReassignmentTrailDTO](docs/ReassignmentTrailDTO.md)
  - [PSSailpoint/Model.ReassignmentType](docs/ReassignmentType.md)
  - [PSSailpoint/Model.Reference](docs/Reference.md)
  - [PSSailpoint/Model.Reference1](docs/Reference1.md)

@@ -22,4 +22,12 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'Move-' {
+        It 'Test Move-' {
+            #$TestResult = Move- -Id "TEST_VALUE" -AdminReviewReassign "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

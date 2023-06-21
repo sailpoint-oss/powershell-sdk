@@ -4,56 +4,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-ArmConfig**](SODViolationsApi.md#Get-ArmConfig) | **GET** /sod-violations/config | Expose just the ARM config
 [**Start-PredictSodViolations**](SODViolationsApi.md#Start-PredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for identity.
 [**Start-ViolationCheck**](SODViolationsApi.md#Start-ViolationCheck) | **POST** /sod-violations/check | Check SOD violations
 
-
-<a name="Get-ArmConfig"></a>
-# **Get-ArmConfig**
-> PublicOrgConfigArmData Get-ArmConfig<br>
-
-Expose just the ARM config
-
-This API expose just the ARM config from Tenaya (Org Config Service) for UI.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-
-# Expose just the ARM config
-try {
-    $Result = Get-ArmConfig
-} catch {
-    Write-Host ("Exception occurred when calling Get-ArmConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**PublicOrgConfigArmData**](PublicOrgConfigArmData.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="Start-PredictSodViolations"></a>
 # **Start-PredictSodViolations**

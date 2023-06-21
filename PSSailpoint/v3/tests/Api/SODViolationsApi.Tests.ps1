@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'SODViolationsApi' {
-    Context 'Get-ArmConfig' {
-        It 'Test Get-ArmConfig' {
-            #$TestResult = Get-ArmConfig
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Start-PredictSodViolations' {
         It 'Test Start-PredictSodViolations' {
             #$TestResult = Start-PredictSodViolations -IdentityWithNewAccess "TEST_VALUE"

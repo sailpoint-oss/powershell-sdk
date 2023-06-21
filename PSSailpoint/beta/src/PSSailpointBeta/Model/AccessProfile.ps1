@@ -102,10 +102,6 @@ function Initialize-BetaAccessProfile {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Owner) {
-            throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
         if ($null -eq $Source) {
             throw "invalid value for 'Source', 'Source' cannot be null."
         }

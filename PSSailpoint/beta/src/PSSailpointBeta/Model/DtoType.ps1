@@ -58,6 +58,8 @@ enum DtoType {
     SOD_POLICY
     # enum value: "SOURCE"
     SOURCE
+    # enum value: "TAG"
+    TAG
     # enum value: "TAG_CATEGORY"
     TAG_CATEGORY
     # enum value: "TASK_RESULT"

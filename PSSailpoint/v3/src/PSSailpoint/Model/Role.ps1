@@ -106,10 +106,6 @@ function Initialize-Role {
             throw "invalid value for 'Name', the character length must be smaller than or equal to 128."
         }
 
-        if ($null -eq $Owner) {
-            throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}

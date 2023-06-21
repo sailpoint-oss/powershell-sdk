@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Unlock-Account**](docs/AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
+*CertificationCampaignsApi* | [**Get-ActiveCampaigns**](docs/CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 *CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
 *CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *CertificationSummariesApi* | [**Get-IdentityAccessSummaries**](docs/CertificationSummariesApi.md#Get-IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access Summaries
@@ -451,6 +452,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ForwardApprovalDto](docs/ForwardApprovalDto.md)
  - [PSSailpoint/Model.GenerateRandomString](docs/GenerateRandomString.md)
  - [PSSailpoint/Model.GenericRule](docs/GenericRule.md)
+ - [PSSailpoint/Model.GetActiveCampaigns200ResponseInner](docs/GetActiveCampaigns200ResponseInner.md)
  - [PSSailpoint/Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpoint/Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
  - [PSSailpoint/Model.GetReferenceIdentityAttribute](docs/GetReferenceIdentityAttribute.md)

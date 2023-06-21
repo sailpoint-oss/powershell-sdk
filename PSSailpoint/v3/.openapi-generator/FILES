@@ -187,6 +187,7 @@ docs/FormItemDetails.md
 docs/ForwardApprovalDto.md
 docs/GenerateRandomString.md
 docs/GenericRule.md
+docs/GetActiveCampaigns200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
@@ -689,6 +690,7 @@ src/PSSailpoint/Model/FormItemDetails.ps1
 src/PSSailpoint/Model/ForwardApprovalDto.ps1
 src/PSSailpoint/Model/GenerateRandomString.ps1
 src/PSSailpoint/Model/GenericRule.ps1
+src/PSSailpoint/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpoint/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpoint/Model/GetReferenceIdentityAttribute.ps1
@@ -1175,6 +1177,7 @@ tests/Model/FormItemDetails.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
 tests/Model/GenericRule.Tests.ps1
+tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1

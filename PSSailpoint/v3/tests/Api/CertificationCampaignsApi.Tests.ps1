@@ -14,6 +14,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'Get-ActiveCampaigns' {
+        It 'Test Get-ActiveCampaigns' {
+            #$TestResult = Get-ActiveCampaigns -Detail "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-Campaign' {
         It 'Test Get-Campaign' {
             #$TestResult = Get-Campaign -Id "TEST_VALUE"

@@ -20,70 +20,15 @@ System.Collections.Hashtable
 #>
 function Get-DefaultConfiguration {
 
+    $Script:Configuration = Get-Config
     $Configuration = $Script:Configuration
 
-    if (Test-Path -Path "$HOME/.sailpoint/config.yaml" -PathType leaf) {
-
-        $ConfigFileContents = Get-Content -Path "$HOME/.sailpoint/config.yaml" -Raw
-
-        $ConfigObject = ConvertFrom-YAML $ConfigFileContents
-
-        if ($null -ne $ConfigObject.environments) {
-            $Environments = $ConfigObject.environments
-            $ActiveEnvironment = $ConfigObject.activeenvironment
-            if (![string]::IsNullOrEmpty($ActiveEnvironment)) {
-                if ($null -ne $Environments.Item($ActiveEnvironment).baseurl) {
-                    $Configuration["BaseUrl"] = $Environments.Item($ActiveEnvironment).baseurl + "/"
-                    $Configuration["TokenUrl"] = $Environments.Item($ActiveEnvironment).baseurl + "/oauth/token"
-                } else {
-                    Write-Host "No baseurl set for environment: $ActiveEnvironment" -ForegroundColor Red
-                }
-
-                if ($null -ne $Environments.Item($ActiveEnvironment).pat.clientid) {
-                    $Configuration["ClientId"] = $Environments.Item($ActiveEnvironment).pat.clientid
-                } else {
-                    Write-Host "No clientid set for environment: $ActiveEnvironment" -ForegroundColor Red
-                }
-
-                if ($null -ne $Environments.Item($ActiveEnvironment).pat.clientsecret) {
-                    $Configuration["ClientSecret"] = $Environments.Item($ActiveEnvironment).pat.clientsecret
-                } else {
-                    Write-Host "No clientsecret set for environment: $ActiveEnvironment" -ForegroundColor Red
-                }
-
-                if($null -ne $Configuration["Environment"]) {
-                    if ($Configuration["Environment"] -ne $ActiveEnvironment) {
-                        Write-Debug "Environment has switched, resetting token."
-                        $Configuration["Token"] = ""
-                    }
-                }
-
-                $Configuration["Environment"] = $ActiveEnvironment
-            } else {
-                Write-Host "No active environment is set" -ForegroundColor Red
-            }
-        } else {
-            Write-Host "No environments specified in config file" -ForegroundColor Red
-        }
-    } elseif ($null -ne $ENV:SAIL_BASE_URL -and $null -ne $ENV:SAIL_CLIENT_ID -and $null -ne $ENV:SAIL_CLIENT_SECRET) {
-        # Environment variables are set, use environment variables for configuration
-        Write-Debug "Environment variables set, using environment variables for configuration."
-    } else {
-        Write-Host "Configuration file not found at $HOME/.sailpoint/config.yaml. Please provide a configuration file or configure using PowerShell environment variables." -ForegroundColor Red
+    # persistent config values
+    if (!($Configuration.BaseUrl[-1] -eq "/")) {
+        $Configuration["BaseUrl"] = $Configuration.BaseUrl + "/"
     }
 
-    if ($null -ne $ENV:SAIL_BASE_URL) {
-        $Configuration["BaseUrl"] = $ENV:SAIL_BASE_URL + "/"
-        $Configuration["TokenUrl"] = $ENV:SAIL_BASE_URL + "/oauth/token"
-    }
-
-    if ($null -ne $ENV:SAIL_CLIENT_ID) {
-        $Configuration["ClientId"] = $ENV:SAIL_CLIENT_ID
-    }
-
-    if ($null -ne $ENV:SAIL_CLIENT_SECRET) {
-        $Configuration["ClientSecret"] = $ENV:SAIL_CLIENT_SECRET
-    }
+    $Configuration["TokenUrl"] = $Configuration.BaseUrl + "oauth/token"
 
     if (!$Configuration.containsKey("Token")) {
         $Configuration["Token"] = ""
@@ -243,7 +188,6 @@ function Get-AccessToken {
         Write-Debug $Script:Configuration["ClientId"]
         Write-Debug $Script:Configuration["ClientSecret"]
 
-        if ("" -eq $Script:Configuration['Token']){    
             $HttpValues = [System.Web.HttpUtility]::ParseQueryString([String]::Empty)
             $HttpValues.Add("grant_type","client_credentials")
             $HttpValues.Add("client_id", $Script:Configuration["ClientId"])
@@ -270,55 +214,124 @@ function Get-AccessToken {
                 } 
 
             } catch {
-                return $null
                 Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
                 Write-Debug ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+                return $null
             }
-        } else {
-            if ($null -ne $Script:Configuration["TokenExpiration"]) {
-                # Check Token Expiration
-                $TokenExp = $Script:Configuration["TokenExpiration"]
-                Write-Debug "Token Exp: $TokenExp"
-                if ((Get-Date) -gt $Script:Configuration["TokenExpiration"]) {
-                    Write-Debug "Token is expired, reset token and expiration"
-                    $HttpValues = [System.Web.HttpUtility]::ParseQueryString([String]::Empty)
-                    $HttpValues.Add("grant_type","client_credentials")
-                    $HttpValues.Add("client_id", $Script:Configuration["ClientId"])
-                    $HttpValues.Add("client_secret",$Script:Configuration["ClientSecret"])
-                
-                    # Build the request and load it with the query string.
-                    $UriBuilder = [System.UriBuilder]($Script:Configuration["TokenUrl"])
-                    $UriBuilder.Query = $HttpValues.ToString()
-                
-                    Write-Debug $UriBuilder.Uri
-                
-                    try {
-                        $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
-                                                      -Method "POST" `
-                                                      -ErrorAction Stop `
-                                                      -UseBasicParsing                
-                    
-                        if ($Response.statuscode -eq '200'){
-                            $Data = ConvertFrom-Json $Response.Content
-                            $Token = $Data.access_token
-                            $TokenExpiration = (Get-Date).AddSeconds($Data.expires_in)
-                            Set-DefaultConfiguration -Token $Token -TokenExpiration $TokenExpiration
-                            return $Token
-                        } 
-                    
-                    } catch {
-                        return $null
-                        Write-Debug ("Exception occurred when calling Invoke-WebRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-                        Write-Debug ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-                    }
-                } else {
-                    Write-Debug "Token is valid"
-                    return $Script:Configuration["Token"]
+    }
+}
+
+
+function Get-HomeConfig {
+
+    $Configuration = $Script:Configuration
+
+    if (Test-Path -Path "$HOME/.sailpoint/config.yaml" -PathType leaf) {
+
+        $ConfigObject = Get-Content -Path "$HOME/.sailpoint/config.yaml" -Raw | ConvertFrom-YAML
+
+        Write-Host $ConfigObject
+
+        if ($null -ne $ConfigObject.environments) {
+            $Environments = $ConfigObject.environments
+            $ActiveEnvironment = $ConfigObject.activeenvironment
+            if (![string]::IsNullOrEmpty($ActiveEnvironment)) {
+                if ($null -ne $Environments.Item($ActiveEnvironment).baseurl) {
+                    $Configuration["BaseUrl"] = $Environments.Item($ActiveEnvironment).baseurl + "/"
+                    $Configuration["TokenUrl"] = $Environments.Item($ActiveEnvironment).baseurl + "/oauth/token"
+                }
+                else {
+                    Write-Host "No baseurl set for environment: $ActiveEnvironment" -ForegroundColor Red
                 }
 
-            } else {
-                return $Script:Configuration["Token"]
+                if ($null -ne $Environments.Item($ActiveEnvironment).pat.clientid) {
+                    $Configuration["ClientId"] = $Environments.Item($ActiveEnvironment).pat.clientid
+                }
+                else {
+                    Write-Host "No clientid set for environment: $ActiveEnvironment" -ForegroundColor Red
+                }
+
+                if ($null -ne $Environments.Item($ActiveEnvironment).pat.clientsecret) {
+                    $Configuration["ClientSecret"] = $Environments.Item($ActiveEnvironment).pat.clientsecret
+                }
+                else {
+                    Write-Host "No clientsecret set for environment: $ActiveEnvironment" -ForegroundColor Red
+                }
+
+                if ($null -ne $Configuration["Environment"]) {
+                    if ($Configuration["Environment"] -ne $ActiveEnvironment) {
+                        Write-Debug "Environment has switched, resetting token."
+                        $Configuration["Token"] = ""
+                    }
+                }
+
+                $Configuration["Environment"] = $ActiveEnvironment
+            }
+            else {
+                Write-Host "No active environment is set" -ForegroundColor Red
             }
         }
+        else {
+            Write-Host "No environments specified in config file" -ForegroundColor Red
+        }
     }
+
+    return $Configuration
+}
+
+function Get-EnvConfig {
+    $Configuration = $Script:Configuration
+
+    if ($null -ne $ENV:SAIL_BASE_URL) {
+        $Configuration["BaseUrl"] = $ENV:SAIL_BASE_URL 
+    }
+
+    if ($null -ne $ENV:SAIL_CLIENT_ID) {
+        $Configuration["ClientId"] = $ENV:SAIL_CLIENT_ID
+    }
+
+    if ($null -ne $ENV:SAIL_CLIENT_SECRET) {
+        $Configuration["ClientSecret"] = $ENV:SAIL_CLIENT_SECRET
+    }
+
+    return $Configuration
+}
+
+function Get-LocalConfig {
+    $Configuration = $Script:Configuration
+
+    if (!(Test-Path -Path "config.json" -PathType Leaf)) { return $null }
+
+    $LocalConfiguration = Get-Content -Path "config.json" | ConvertFrom-JSON
+    
+    $Configuration["ClientId"] = $LocalConfiguration.ClientId
+    $Configuration["ClientSecret"] = $LocalConfiguration.ClientSecret
+    $Configuration["BaseUrl"] = $LocalConfiguration.BaseUrl
+
+    return $Configuration
+}
+
+function Get-Config {
+    $Script:Configuration["ClientId"] = $null
+    $Script:Configuration["ClientSecret"] = $null
+    $Script:Configuration["BaseUrl"] = $null
+
+
+    $EnvConfiguration = Get-EnvConfig
+    if ($EnvConfiguration.clientId) {
+        return $EnvConfiguration
+    }
+
+    $LocalConfig = Get-LocalConfig
+    if ($LocalConfig.clientId) {
+        return $LocalConfig
+    }
+
+    $HomeConfiguration = Get-HomeConfig
+    if ($HomeConfiguration.clientId) {
+        Write-Host "Configuration file found in home directory, this approach of loading configuration will be deprecated in future releases, please upgrade the CLI and use the new 'sail sdk init config' command to create a local configuration file"
+        return $HomeConfiguration
+    }
+
+    return $Configuration
 }

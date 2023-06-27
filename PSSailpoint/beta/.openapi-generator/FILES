@@ -105,6 +105,7 @@ docs/BetaConnectorRuleManagementApi.md
 docs/BetaConnectorsApi.md
 docs/BetaCustomPasswordInstructionsApi.md
 docs/BetaEntitlementsApi.md
+docs/BetaGovernanceGroupsApi.md
 docs/BetaIAIAccessRequestRecommendationsApi.md
 docs/BetaIAICommonAccessApi.md
 docs/BetaIAIOutliersApi.md
@@ -394,6 +395,7 @@ docs/OutlierContributingFeature.md
 docs/OutlierContributingFeatureValue.md
 docs/OutlierFeatureTranslation.md
 docs/OutlierSummary.md
+docs/Owner.md
 docs/OwnerReference.md
 docs/OwnerReferenceDto.md
 docs/PasswordChangeRequest.md
@@ -714,6 +716,7 @@ docs/WorkflowLibraryTrigger.md
 docs/WorkflowOAuthClient.md
 docs/WorkflowTrigger.md
 docs/WorkflowTriggerAttributes.md
+docs/WorkgroupDto.md
 src/PSSailpointBeta/Api/BetaAccessProfilesApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestApprovalsApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestsApi.ps1
@@ -726,6 +729,7 @@ src/PSSailpointBeta/Api/BetaConnectorRuleManagementApi.ps1
 src/PSSailpointBeta/Api/BetaConnectorsApi.ps1
 src/PSSailpointBeta/Api/BetaCustomPasswordInstructionsApi.ps1
 src/PSSailpointBeta/Api/BetaEntitlementsApi.ps1
+src/PSSailpointBeta/Api/BetaGovernanceGroupsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIAccessRequestRecommendationsApi.ps1
 src/PSSailpointBeta/Api/BetaIAICommonAccessApi.ps1
 src/PSSailpointBeta/Api/BetaIAIOutliersApi.ps1
@@ -1107,6 +1111,7 @@ src/PSSailpointBeta/Model/OutlierContributingFeature.ps1
 src/PSSailpointBeta/Model/OutlierContributingFeatureValue.ps1
 src/PSSailpointBeta/Model/OutlierFeatureTranslation.ps1
 src/PSSailpointBeta/Model/OutlierSummary.ps1
+src/PSSailpointBeta/Model/Owner.ps1
 src/PSSailpointBeta/Model/OwnerReference.ps1
 src/PSSailpointBeta/Model/OwnerReferenceDto.ps1
 src/PSSailpointBeta/Model/PasswordChangeRequest.ps1
@@ -1427,6 +1432,7 @@ src/PSSailpointBeta/Model/WorkflowLibraryTrigger.ps1
 src/PSSailpointBeta/Model/WorkflowOAuthClient.ps1
 src/PSSailpointBeta/Model/WorkflowTrigger.ps1
 src/PSSailpointBeta/Model/WorkflowTriggerAttributes.ps1
+src/PSSailpointBeta/Model/WorkgroupDto.ps1
 src/PSSailpointBeta/PSSailpointBeta.psm1
 src/PSSailpointBeta/Private/BetaApiClient.ps1
 src/PSSailpointBeta/Private/BetaHttpSignatureAuth.ps1
@@ -1446,6 +1452,7 @@ tests/Api/BetaConnectorRuleManagementApi.Tests.ps1
 tests/Api/BetaConnectorsApi.Tests.ps1
 tests/Api/BetaCustomPasswordInstructionsApi.Tests.ps1
 tests/Api/BetaEntitlementsApi.Tests.ps1
+tests/Api/BetaGovernanceGroupsApi.Tests.ps1
 tests/Api/BetaIAIAccessRequestRecommendationsApi.Tests.ps1
 tests/Api/BetaIAICommonAccessApi.Tests.ps1
 tests/Api/BetaIAIOutliersApi.Tests.ps1
@@ -1826,6 +1833,7 @@ tests/Model/OutlierContributingFeature.Tests.ps1
 tests/Model/OutlierContributingFeatureValue.Tests.ps1
 tests/Model/OutlierFeatureTranslation.Tests.ps1
 tests/Model/OutlierSummary.Tests.ps1
+tests/Model/Owner.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
 tests/Model/OwnerReferenceDto.Tests.ps1
 tests/Model/PasswordChangeRequest.Tests.ps1
@@ -2146,3 +2154,4 @@ tests/Model/WorkflowLibraryTrigger.Tests.ps1
 tests/Model/WorkflowOAuthClient.Tests.ps1
 tests/Model/WorkflowTrigger.Tests.ps1
 tests/Model/WorkflowTriggerAttributes.Tests.ps1
+tests/Model/WorkgroupDto.Tests.ps1

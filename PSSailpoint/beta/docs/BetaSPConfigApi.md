@@ -191,9 +191,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. (optional) (default to $false)
+"IDENTITY_PROFILE""IDENTITY_PROFILE"
 $ObjectExportImportOptions = Initialize-ObjectExportImportOptions -IncludedIds "be9e116d-08e1-49fc-ab7f-fa585e96c9e4" -IncludedNames "Test Object"
 $BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$ImportOptions = Initialize-ImportOptions -ExcludeTypes "SOURCE" -IncludeTypes "TRIGGER_SUBSCRIPTION" -ObjectOptions @{ key_example = $ObjectExportImportOptions } -DefaultReferences $BaseReferenceDto1 -ExcludeBackup $false # ImportOptions |  (optional)
+$ImportOptions = Initialize-ImportOptions -ExcludeTypes "IDENTITY_PROFILE" -IncludeTypes "IDENTITY_PROFILE""IDENTITY_PROFILE" -ObjectOptions @{ key_example = $ObjectExportImportOptions } -DefaultReferences $BaseReferenceDto1 -ExcludeBackup $false # ImportOptions |  (optional)
 
 # Initiates Configuration Objects Import Job.
 try {

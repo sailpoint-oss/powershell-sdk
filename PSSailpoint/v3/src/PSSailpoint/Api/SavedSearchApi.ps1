@@ -99,7 +99,7 @@ function New-SavedSearch {
 <#
 .SYNOPSIS
 
-Delete a document by ID
+Delete document by ID
 
 .DESCRIPTION
 
@@ -275,7 +275,7 @@ function Invoke-ExecuteSavedSearch {
 <#
 .SYNOPSIS
 
-Return a saved search by ID
+Return saved search by ID
 
 .DESCRIPTION
 
@@ -459,7 +459,7 @@ Updates an existing saved search
 
 .DESCRIPTION
 
-Updates an existing saved search. 
+Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
 
 .PARAMETER Id
 ID of the requested document.
@@ -475,7 +475,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SavedSearch
 #>
-function Update-SavedSearch {
+function Send-SavedSearch {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -489,7 +489,7 @@ function Update-SavedSearch {
     )
 
     Process {
-        'Calling method: Update-SavedSearch' | Write-Debug
+        'Calling method: Send-SavedSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -510,12 +510,12 @@ function Update-SavedSearch {
 
         $LocalVarUri = '/saved-searches/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updateSavedSearch."
+            throw "Error! The required parameter `Id` missing when calling putSavedSearch."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$SavedSearch) {
-            throw "Error! The required parameter `SavedSearch` missing when calling updateSavedSearch."
+            throw "Error! The required parameter `SavedSearch` missing when calling putSavedSearch."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {

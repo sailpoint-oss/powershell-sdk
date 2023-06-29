@@ -5,11 +5,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-SavedSearch**](SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search
-[**Remove-SavedSearch**](SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete a document by ID
+[**Remove-SavedSearch**](SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete document by ID
 [**Invoke-ExecuteSavedSearch**](SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
-[**Get-SavedSearch**](SavedSearchApi.md#Get-SavedSearch) | **GET** /saved-searches/{id} | Return a saved search by ID
+[**Get-SavedSearch**](SavedSearchApi.md#Get-SavedSearch) | **GET** /saved-searches/{id} | Return saved search by ID
 [**Get-SavedSearches**](SavedSearchApi.md#Get-SavedSearches) | **GET** /saved-searches | Return a list of Saved Searches
-[**Update-SavedSearch**](SavedSearchApi.md#Update-SavedSearch) | **PUT** /saved-searches/{id} | Updates an existing saved search 
+[**Send-SavedSearch**](SavedSearchApi.md#Send-SavedSearch) | **PUT** /saved-searches/{id} | Updates an existing saved search 
 
 
 <a name="New-SavedSearch"></a>
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 > void Remove-SavedSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Delete a document by ID
+Delete document by ID
 
 Deletes the specified saved search. 
 
@@ -89,7 +89,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Delete a document by ID
+# Delete document by ID
 try {
     $Result = Remove-SavedSearch -Id $Id
 } catch {
@@ -180,7 +180,7 @@ void (empty response body)
 > SavedSearch Get-SavedSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Return a saved search by ID
+Return saved search by ID
 
 Returns the specified saved search. 
 
@@ -196,7 +196,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Return a saved search by ID
+# Return saved search by ID
 try {
     $Result = Get-SavedSearch -Id $Id
 } catch {
@@ -286,15 +286,15 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-SavedSearch"></a>
-# **Update-SavedSearch**
-> SavedSearch Update-SavedSearch<br>
+<a name="Send-SavedSearch"></a>
+# **Send-SavedSearch**
+> SavedSearch Send-SavedSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SavedSearch] <PSCustomObject><br>
 
 Updates an existing saved search 
 
-Updates an existing saved search. 
+Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
 
 ### Example
 ```powershell
@@ -318,9 +318,9 @@ $SavedSearch = Initialize-SavedSearch -Id "0de46054-fe90-434a-b84e-c6b3359d0c64"
 
 # Updates an existing saved search 
 try {
-    $Result = Update-SavedSearch -Id $Id -SavedSearch $SavedSearch
+    $Result = Send-SavedSearch -Id $Id -SavedSearch $SavedSearch
 } catch {
-    Write-Host ("Exception occurred when calling Update-SavedSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-SavedSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

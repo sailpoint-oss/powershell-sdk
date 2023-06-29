@@ -179,8 +179,8 @@ function Set-Configuration {
         }
 
         If ($null -ne $Proxy) {
-            If ($Proxy.GetType().FullName -ne "System.Net.SystemWebProxy" -and $Proxy.GetType().FullName -ne "System.Net.WebProxy" -and $Proxy.GetType().FullName -ne "System.Net.WebRequest+WebProxyWrapperOpaque") {
-                throw "Incorrect Proxy type '$($Proxy.GetType().FullName)'. Must be System.Net.WebProxy or System.Net.SystemWebProxy or System.Net.WebRequest+WebProxyWrapperOpaque."
+            If ($Proxy.GetType().FullName -ne "System.Net.SystemWebProxy" -and $Proxy.GetType().FullName -ne "System.Net.WebRequest+WebProxyWrapperOpaque") {
+                throw "Incorrect Proxy type '$($Proxy.GetType().FullName)'. Must be System.Net.SystemWebProxy or System.Net.WebRequest+WebProxyWrapperOpaque."
             }
             $Script:Configuration['Proxy'] = $Proxy
         } else {

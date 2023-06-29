@@ -1736,7 +1736,7 @@ Update a potential role
 
 .DESCRIPTION
 
-The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields can not be modified.** 
+The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
 
 .PARAMETER SessionId
 The role mining session id

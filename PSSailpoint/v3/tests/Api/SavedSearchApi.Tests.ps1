@@ -46,9 +46,9 @@ Describe -tag 'PSSailpoint' -name 'SavedSearchApi' {
         }
     }
 
-    Context 'Update-SavedSearch' {
-        It 'Test Update-SavedSearch' {
-            #$TestResult = Update-SavedSearch -Id "TEST_VALUE" -SavedSearch "TEST_VALUE"
+    Context 'Send-SavedSearch' {
+        It 'Test Send-SavedSearch' {
+            #$TestResult = Send-SavedSearch -Id "TEST_VALUE" -SavedSearch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 Update Account
 
-Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields can not be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
+Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields cannot be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell

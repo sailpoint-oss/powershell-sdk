@@ -73,8 +73,8 @@ function Invoke-BetaApiClient {
     }
 
     # Add Custom Header
-    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.0.3"
-    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.0.3/ps"
+    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.0.4"
+    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.0.4/ps"
 
 
     [string]$MultiPartBoundary = $null

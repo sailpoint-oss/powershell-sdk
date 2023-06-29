@@ -134,6 +134,8 @@ Class | Method | HTTP request | Description
 *BetaEntitlementsApi* | [**Update-BetaEntitlement**](docs/BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch an entitlement
 *BetaEntitlementsApi* | [**Send-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
 *BetaEntitlementsApi* | [**Update-BetaEntitlementsInBulk**](docs/BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
+*BetaGovernanceGroupsApi* | [**New-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#New-BetaWorkgroup) | **POST** /workgroups | Create a new Governance Group.
+*BetaGovernanceGroupsApi* | [**Get-BetaWorkgroups**](docs/BetaGovernanceGroupsApi.md#Get-BetaWorkgroups) | **GET** /workgroups | List Governance Groups
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsIgnoredItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Notification of Ignored Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsRequestedItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Notification of Requested Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsViewedItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Notification of Viewed Access Request Recommendations
@@ -794,6 +796,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.OutlierContributingFeatureValue](docs/OutlierContributingFeatureValue.md)
  - [PSSailpointBeta/Model.OutlierFeatureTranslation](docs/OutlierFeatureTranslation.md)
  - [PSSailpointBeta/Model.OutlierSummary](docs/OutlierSummary.md)
+ - [PSSailpointBeta/Model.Owner](docs/Owner.md)
  - [PSSailpointBeta/Model.OwnerReference](docs/OwnerReference.md)
  - [PSSailpointBeta/Model.OwnerReferenceDto](docs/OwnerReferenceDto.md)
  - [PSSailpointBeta/Model.PasswordChangeRequest](docs/PasswordChangeRequest.md)
@@ -1114,6 +1117,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.WorkflowOAuthClient](docs/WorkflowOAuthClient.md)
  - [PSSailpointBeta/Model.WorkflowTrigger](docs/WorkflowTrigger.md)
  - [PSSailpointBeta/Model.WorkflowTriggerAttributes](docs/WorkflowTriggerAttributes.md)
+ - [PSSailpointBeta/Model.WorkgroupDto](docs/WorkgroupDto.md)
 
 
 ## Documentation for Authorization

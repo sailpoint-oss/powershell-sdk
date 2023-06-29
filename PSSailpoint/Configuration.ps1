@@ -209,7 +209,7 @@ function Get-AccessToken {
                     $Data = ConvertFrom-Json $Response.Content
                     $Token = $Data.access_token
                     $TokenExpiration = (Get-Date).AddSeconds($Data.expires_in)
-                    Set-DefaultConfiguration -Token $Token -TokenExpiration $TokenExpiration
+                    Set-DefaultConfiguration -Token $Token -TokenExpiration $TokenExpiration -Proxy $Script:Configuration["Proxy"]
                     return $Token
                 } 
 
@@ -293,7 +293,7 @@ function Get-EnvConfig {
     if ($null -ne $ENV:SAIL_CLIENT_SECRET) {
         $Configuration["ClientSecret"] = $ENV:SAIL_CLIENT_SECRET
     }
-
+    
     return $Configuration
 }
 

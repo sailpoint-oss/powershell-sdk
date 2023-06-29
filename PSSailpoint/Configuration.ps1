@@ -200,11 +200,19 @@ function Get-AccessToken {
             Write-Debug $UriBuilder.Uri
         
             try {
-                $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
+				if ($null -eq $Configuration["Proxy"]) {
+					$Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
                                               -Method "POST" `
                                               -ErrorAction Stop `
                                               -UseBasicParsing                
-
+				} else {
+					$Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
+                                              -Method "POST" `
+                                              -ErrorAction Stop `
+                                              -UseBasicParsing `
+											  -Proxy $Configuration["Proxy"].GetProxy($UriBuilder.Uri) `
+											  -ProxyUseDefaultCredentials
+				}
                 if ($Response.statuscode -eq '200'){
                     $Data = ConvertFrom-Json $Response.Content
                     $Token = $Data.access_token

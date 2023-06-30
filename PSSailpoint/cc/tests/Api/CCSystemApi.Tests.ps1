@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpointCC' -name 'CCCCSystemApi' {
     Context 'Invoke-CCRefreshIdentities' {
         It 'Test Invoke-CCRefreshIdentities' {
-            #$TestResult = Invoke-CCRefreshIdentities -ContentType "TEST_VALUE" -Body "TEST_VALUE"
+            #$TestResult = Invoke-CCRefreshIdentities -ContentType "TEST_VALUE" -RefreshIdentitiesRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

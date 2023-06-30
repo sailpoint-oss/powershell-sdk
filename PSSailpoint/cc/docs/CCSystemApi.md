@@ -11,7 +11,7 @@ Method | HTTP request | Description
 # **Invoke-CCRefreshIdentities**
 > void Invoke-CCRefreshIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ContentType] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RefreshIdentitiesRequest] <PSCustomObject><br>
 
 Refresh Identities
 
@@ -28,11 +28,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ContentType = "application/json" # String |  (optional)
-$Body = "MyBody" # String |  (optional)
+$RefreshIdentitiesRequestRefreshArgs = Initialize-RefreshIdentitiesRequestRefreshArgs -CorrelateEntitlements $true -PromoteAttributes $true -RefreshManagerStatus $false -SynchronizeAttributes $false -PruneIdentities $false -Provision $false
+$RefreshIdentitiesRequest = Initialize-RefreshIdentitiesRequest -VarFilter "MyVarFilter" -RefreshArgs $RefreshIdentitiesRequestRefreshArgs # RefreshIdentitiesRequest |  (optional)
 
 # Refresh Identities
 try {
-    $Result = Invoke-CCRefreshIdentities -ContentType $ContentType -Body $Body
+    $Result = Invoke-CCRefreshIdentities -ContentType $ContentType -RefreshIdentitiesRequest $RefreshIdentitiesRequest
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CCRefreshIdentities: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -44,7 +45,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ContentType** | **String**|  | [optional] 
- **Body** | **String**|  | [optional] 
+ **RefreshIdentitiesRequest** | [**RefreshIdentitiesRequest**](RefreshIdentitiesRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -56,7 +57,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -17,7 +17,7 @@ This kicks off an identity refresh for a specified set of identity attributes.  
 .PARAMETER ContentType
 No description available.
 
-.PARAMETER Body
+.PARAMETER RefreshIdentitiesRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -35,8 +35,8 @@ function Invoke-CCRefreshIdentities {
         [String]
         ${ContentType},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Body},
+        [PSCustomObject]
+        ${RefreshIdentitiesRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -58,6 +58,9 @@ function Invoke-CCRefreshIdentities {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/cc/api/system/refreshIdentities'
 
         if ($ContentType) {
@@ -65,9 +68,9 @@ function Invoke-CCRefreshIdentities {
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $RefreshIdentitiesRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Body | ForEach-Object {
+            $LocalVarBodyParameter = $RefreshIdentitiesRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

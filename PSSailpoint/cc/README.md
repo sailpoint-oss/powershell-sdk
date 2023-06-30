@@ -85,6 +85,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointCC/Model.ListApplications200ResponseInnerHealth](docs/ListApplications200ResponseInnerHealth.md)
  - [PSSailpointCC/Model.ListApplications200ResponseInnerOwner](docs/ListApplications200ResponseInnerOwner.md)
  - [PSSailpointCC/Model.LoadAccountsRequest](docs/LoadAccountsRequest.md)
+ - [PSSailpointCC/Model.RefreshIdentitiesRequest](docs/RefreshIdentitiesRequest.md)
+ - [PSSailpointCC/Model.RefreshIdentitiesRequestRefreshArgs](docs/RefreshIdentitiesRequestRefreshArgs.md)
  - [PSSailpointCC/Model.UpdateApplicationRequest](docs/UpdateApplicationRequest.md)
  - [PSSailpointCC/Model.UpdateUserPermissionsRequest](docs/UpdateUserPermissionsRequest.md)
 

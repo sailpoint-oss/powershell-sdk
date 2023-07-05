@@ -176,6 +176,12 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -199,6 +205,12 @@ function Get-BetaEntitlementChildren {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -236,6 +248,14 @@ function Get-BetaEntitlementChildren {
 
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
         }
 
 
@@ -281,6 +301,12 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -304,6 +330,12 @@ function Get-BetaEntitlementParents {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -341,6 +373,14 @@ function Get-BetaEntitlementParents {
 
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
         }
 
 
@@ -527,7 +567,7 @@ Patch an entitlement
 
 .DESCRIPTION
 
-This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**.  When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 ID of the entitlement to patch

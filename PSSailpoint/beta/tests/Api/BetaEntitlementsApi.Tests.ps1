@@ -24,7 +24,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
 
     Context 'Get-BetaEntitlementChildren' {
         It 'Test Get-BetaEntitlementChildren' {
-            #$TestResult = Get-BetaEntitlementChildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-BetaEntitlementChildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
 
     Context 'Get-BetaEntitlementParents' {
         It 'Test Get-BetaEntitlementParents' {
-            #$TestResult = Get-BetaEntitlementParents -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-BetaEntitlementParents -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

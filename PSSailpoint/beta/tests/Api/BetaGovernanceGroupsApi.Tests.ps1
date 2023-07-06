@@ -14,6 +14,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaGovernanceGroupsApi' {
         }
     }
 
+    Context 'Get-BetaWorkgroup' {
+        It 'Test Get-BetaWorkgroup' {
+            #$TestResult = Get-BetaWorkgroup -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaWorkgroups' {
         It 'Test Get-BetaWorkgroups' {
             #$TestResult = Get-BetaWorkgroups -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"

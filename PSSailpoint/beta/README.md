@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 *BetaEntitlementsApi* | [**Send-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
 *BetaEntitlementsApi* | [**Update-BetaEntitlementsInBulk**](docs/BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *BetaGovernanceGroupsApi* | [**New-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#New-BetaWorkgroup) | **POST** /workgroups | Create a new Governance Group.
+*BetaGovernanceGroupsApi* | [**Get-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#Get-BetaWorkgroup) | **GET** /workgroups/{id} | Get an Governance Groups
 *BetaGovernanceGroupsApi* | [**Get-BetaWorkgroups**](docs/BetaGovernanceGroupsApi.md#Get-BetaWorkgroups) | **GET** /workgroups | List Governance Groups
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsIgnoredItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Notification of Ignored Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsRequestedItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Notification of Requested Access Request Recommendations

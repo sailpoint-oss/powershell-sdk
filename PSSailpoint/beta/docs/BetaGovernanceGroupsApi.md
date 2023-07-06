@@ -5,6 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaWorkgroup**](BetaGovernanceGroupsApi.md#New-BetaWorkgroup) | **POST** /workgroups | Create a new Governance Group.
+[**Get-BetaWorkgroup**](BetaGovernanceGroupsApi.md#Get-BetaWorkgroup) | **GET** /workgroups/{id} | Get an Governance Groups
 [**Get-BetaWorkgroups**](BetaGovernanceGroupsApi.md#Get-BetaWorkgroups) | **GET** /workgroups | List Governance Groups
 
 
@@ -56,6 +57,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaWorkgroup"></a>
+# **Get-BetaWorkgroup**
+> WorkgroupDto Get-BetaWorkgroup<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get an Governance Groups
+
+This API returns an Governance Groups by its ID.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Groups
+
+# Get an Governance Groups
+try {
+    $Result = Get-BetaWorkgroup -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaWorkgroup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| ID of the Governance Groups | 
+
+### Return type
+
+[**WorkgroupDto**](WorkgroupDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

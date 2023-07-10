@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
-    Context 'Invoke-BetaActivateCampaign' {
-        It 'Test Invoke-BetaActivateCampaign' {
-            #$TestResult = Invoke-BetaActivateCampaign -Id "TEST_VALUE" -ActivateCampaignOptions "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Complete-BetaCampaign' {
         It 'Test Complete-BetaCampaign' {
             #$TestResult = Complete-BetaCampaign -Id "TEST_VALUE" -CompleteCampaignOptions "TEST_VALUE"
@@ -169,6 +161,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
     Context 'Set-BetaCampaignTemplateSchedule' {
         It 'Test Set-BetaCampaignTemplateSchedule' {
             #$TestResult = Set-BetaCampaignTemplateSchedule -Id "TEST_VALUE" -Schedule "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-BetaCampaign' {
+        It 'Test Start-BetaCampaign' {
+            #$TestResult = Start-BetaCampaign -Id "TEST_VALUE" -ActivateCampaignOptions "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

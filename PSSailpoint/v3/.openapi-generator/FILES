@@ -58,6 +58,7 @@ docs/AccountToggleRequest.md
 docs/AccountUnlockRequest.md
 docs/AccountsApi.md
 docs/AccountsAsyncResult.md
+docs/ActivateCampaignOptions.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
 docs/Aggregation.md
@@ -562,6 +563,7 @@ src/PSSailpoint/Model/AccountSourceAllOf.ps1
 src/PSSailpoint/Model/AccountToggleRequest.ps1
 src/PSSailpoint/Model/AccountUnlockRequest.ps1
 src/PSSailpoint/Model/AccountsAsyncResult.ps1
+src/PSSailpoint/Model/ActivateCampaignOptions.ps1
 src/PSSailpoint/Model/AdminReviewReassign.ps1
 src/PSSailpoint/Model/AdminReviewReassignReassignTo.ps1
 src/PSSailpoint/Model/Aggregation.ps1
@@ -1045,6 +1047,7 @@ tests/Model/AccountSourceAllOf.Tests.ps1
 tests/Model/AccountToggleRequest.Tests.ps1
 tests/Model/AccountUnlockRequest.Tests.ps1
 tests/Model/AccountsAsyncResult.Tests.ps1
+tests/Model/ActivateCampaignOptions.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
 tests/Model/Aggregation.Tests.ps1

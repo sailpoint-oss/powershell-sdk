@@ -38,4 +38,12 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'Start-Campaign' {
+        It 'Test Start-Campaign' {
+            #$TestResult = Start-Campaign -Id "TEST_VALUE" -ActivateCampaignOptions "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

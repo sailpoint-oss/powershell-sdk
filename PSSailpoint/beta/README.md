@@ -89,7 +89,6 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Invoke-BetaReloadAccount**](docs/BetaAccountsApi.md#Invoke-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *BetaAccountsApi* | [**Unlock-BetaAccount**](docs/BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
-*BetaCertificationCampaignsApi* | [**Invoke-BetaActivateCampaign**](docs/BetaCertificationCampaignsApi.md#Invoke-BetaActivateCampaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *BetaCertificationCampaignsApi* | [**Complete-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Complete-BetaCampaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 *BetaCertificationCampaignsApi* | [**New-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#New-BetaCampaign) | **POST** /campaigns | Create a campaign
 *BetaCertificationCampaignsApi* | [**New-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#New-BetaCampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
@@ -110,6 +109,7 @@ Class | Method | HTTP request | Description
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignReport**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
 *BetaCertificationCampaignsApi* | [**Set-BetaCampaignReportsConfig**](docs/BetaCertificationCampaignsApi.md#Set-BetaCampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
 *BetaCertificationCampaignsApi* | [**Set-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Set-BetaCampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Sets a Campaign Template's Schedule
+*BetaCertificationCampaignsApi* | [**Start-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *BetaCertificationCampaignsApi* | [**Update-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Update-BetaCampaign) | **PATCH** /campaigns/{id} | Update a Campaign
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationItemPermissions**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for Entitlement Certification Item
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationPendingTasks**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationPendingTasks) | **GET** /certifications/{id}/tasks-pending | Pending Certification Tasks

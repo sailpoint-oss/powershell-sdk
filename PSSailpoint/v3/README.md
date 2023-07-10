@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *CertificationCampaignsApi* | [**Get-ActiveCampaigns**](docs/CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 *CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
 *CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
+*CertificationCampaignsApi* | [**Start-Campaign**](docs/CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *CertificationSummariesApi* | [**Get-IdentityAccessSummaries**](docs/CertificationSummariesApi.md#Get-IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access Summaries
 *CertificationSummariesApi* | [**Get-IdentityDecisionSummary**](docs/CertificationSummariesApi.md#Get-IdentityDecisionSummary) | **GET** /certifications/{id}/decision-summary | Summary of Certification Decisions
 *CertificationSummariesApi* | [**Get-IdentitySummaries**](docs/CertificationSummariesApi.md#Get-IdentitySummaries) | **GET** /certifications/{id}/identity-summaries | Identity Summaries for Campaign Certification
@@ -325,6 +326,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.AccountToggleRequest](docs/AccountToggleRequest.md)
  - [PSSailpoint/Model.AccountUnlockRequest](docs/AccountUnlockRequest.md)
  - [PSSailpoint/Model.AccountsAsyncResult](docs/AccountsAsyncResult.md)
+ - [PSSailpoint/Model.ActivateCampaignOptions](docs/ActivateCampaignOptions.md)
  - [PSSailpoint/Model.AdminReviewReassign](docs/AdminReviewReassign.md)
  - [PSSailpoint/Model.AdminReviewReassignReassignTo](docs/AdminReviewReassignReassignTo.md)
  - [PSSailpoint/Model.Aggregation](docs/Aggregation.md)

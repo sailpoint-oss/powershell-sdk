@@ -14,8 +14,10 @@ No summary available.
 
 MAIL FROM attributes for a domain / identity
 
-.PARAMETER Id
-The identity or domain address
+.PARAMETER Identity
+The email identity
+.PARAMETER MailFromDomain
+The name of a domain that an email identity uses as a custom MAIL FROM domain
 .PARAMETER MxRecord
 MX record that is required in customer's DNS to allow the domain to receive bounce and complaint notifications that email providers send you
 .PARAMETER TxtRecord
@@ -32,14 +34,17 @@ function Initialize-BetaMailFromAttributes {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
+        ${Identity},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${MxRecord},
+        ${MailFromDomain},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${TxtRecord},
+        ${MxRecord},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TxtRecord},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PENDING", "SUCCESS", "FAILED")]
         [String]
         ${MailFromDomainStatus}
@@ -51,7 +56,8 @@ function Initialize-BetaMailFromAttributes {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
+            "identity" = ${Identity}
+            "mailFromDomain" = ${MailFromDomain}
             "mxRecord" = ${MxRecord}
             "txtRecord" = ${TxtRecord}
             "mailFromDomainStatus" = ${MailFromDomainStatus}
@@ -92,17 +98,23 @@ function ConvertFrom-BetaJsonToMailFromAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaMailFromAttributes
-        $AllProperties = ("id", "mxRecord", "txtRecord", "mailFromDomainStatus")
+        $AllProperties = ("identity", "mailFromDomain", "mxRecord", "txtRecord", "mailFromDomainStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identity"))) { #optional property not found
+            $Identity = $null
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Identity = $JsonParameters.PSobject.Properties["identity"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mailFromDomain"))) { #optional property not found
+            $MailFromDomain = $null
+        } else {
+            $MailFromDomain = $JsonParameters.PSobject.Properties["mailFromDomain"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "mxRecord"))) { #optional property not found
@@ -124,7 +136,8 @@ function ConvertFrom-BetaJsonToMailFromAttributes {
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
+            "identity" = ${Identity}
+            "mailFromDomain" = ${MailFromDomain}
             "mxRecord" = ${MxRecord}
             "txtRecord" = ${TxtRecord}
             "mailFromDomainStatus" = ${MailFromDomainStatus}

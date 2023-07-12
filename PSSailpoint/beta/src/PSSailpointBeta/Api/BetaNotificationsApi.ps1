@@ -556,7 +556,7 @@ function Get-BetaMailFromAttributes {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/mail-from-attribute/{id}'
+        $LocalVarUri = '/mail-from-attributes/{identity}'
 
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling getMailFromAttributes."

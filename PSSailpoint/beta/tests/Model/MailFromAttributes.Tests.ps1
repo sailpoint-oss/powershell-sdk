@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaMailFromAttributes' {
     Context 'BetaMailFromAttributes' {
         It 'Initialize-BetaMailFromAttributes' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaMailFromAttributes -Id "TEST_VALUE" -MxRecord "TEST_VALUE" -TxtRecord "TEST_VALUE" -MailFromDomainStatus "TEST_VALUE"
+            #$NewObject = Initialize-BetaMailFromAttributes -Identity "TEST_VALUE" -MailFromDomain "TEST_VALUE" -MxRecord "TEST_VALUE" -TxtRecord "TEST_VALUE" -MailFromDomainStatus "TEST_VALUE"
             #$NewObject | Should -BeOfType MailFromAttributes
             #$NewObject.property | Should -Be 0
         }

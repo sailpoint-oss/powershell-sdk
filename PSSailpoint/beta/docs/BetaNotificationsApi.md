@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Remove-BetaNotificationTemplatesInBulk**](BetaNotificationsApi.md#Remove-BetaNotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 [**Remove-BetaVerifiedFromAddress**](BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 [**Get-BetaDkimAttributes**](BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
-[**Get-BetaMailFromAttributes**](BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attribute/{id} | Get MAIL FROM Attributes
+[**Get-BetaMailFromAttributes**](BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get MAIL FROM Attributes
 [**Get-BetaNotificationPreference**](BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
 [**Get-BetaNotificationTemplate**](BetaNotificationsApi.md#Get-BetaNotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
 [**Get-BetaNotificationsTemplateContext**](BetaNotificationsApi.md#Get-BetaNotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context

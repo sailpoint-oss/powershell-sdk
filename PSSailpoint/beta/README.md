@@ -256,7 +256,7 @@ Class | Method | HTTP request | Description
 *BetaNotificationsApi* | [**Remove-BetaNotificationTemplatesInBulk**](docs/BetaNotificationsApi.md#Remove-BetaNotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 *BetaNotificationsApi* | [**Remove-BetaVerifiedFromAddress**](docs/BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 *BetaNotificationsApi* | [**Get-BetaDkimAttributes**](docs/BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
-*BetaNotificationsApi* | [**Get-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attribute/{id} | Get MAIL FROM Attributes
+*BetaNotificationsApi* | [**Get-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get MAIL FROM Attributes
 *BetaNotificationsApi* | [**Get-BetaNotificationPreference**](docs/BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplate**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
 *BetaNotificationsApi* | [**Get-BetaNotificationsTemplateContext**](docs/BetaNotificationsApi.md#Get-BetaNotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context

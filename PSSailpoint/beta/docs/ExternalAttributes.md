@@ -1,22 +1,22 @@
-# WorkflowTrigger
+# ExternalAttributes
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The trigger type | 
-**Attributes** | [**WorkflowTriggerAttributes**](WorkflowTriggerAttributes.md) |  | 
+**Name** | **String** | A unique name for the external trigger | 
+**Description** | **String** | Additonal context about the external trigger | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$WorkflowTrigger = Initialize-PSSailpointBetaWorkflowTrigger  -Type EVENT `
- -Attributes null
+$ExternalAttributes = Initialize-PSSailpointBetaExternalAttributes  -Name search-and-notify `
+ -Description Run a search and notify the results
 ```
 
 - Convert the resource to JSON
 ```powershell
-$WorkflowTrigger | ConvertTo-JSON
+$ExternalAttributes | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

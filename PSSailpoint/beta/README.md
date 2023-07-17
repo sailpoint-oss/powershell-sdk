@@ -646,6 +646,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ExportOptions](docs/ExportOptions.md)
  - [PSSailpointBeta/Model.ExportPayload](docs/ExportPayload.md)
  - [PSSailpointBeta/Model.Expression](docs/Expression.md)
+ - [PSSailpointBeta/Model.ExternalAttributes](docs/ExternalAttributes.md)
  - [PSSailpointBeta/Model.FeatureValueDto](docs/FeatureValueDto.md)
  - [PSSailpointBeta/Model.Field](docs/Field.md)
  - [PSSailpointBeta/Model.FieldAllOf](docs/FieldAllOf.md)

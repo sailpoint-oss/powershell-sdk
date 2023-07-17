@@ -34,48 +34,68 @@ function ConvertFrom-BetaJsonToWorkflowTriggerAttributes {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match EventAttributes defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToEventAttributes $Json
+        if ($match -ne 0) { # no match yet
+            # try to match EventAttributes defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToEventAttributes $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "EventAttributes"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "EventAttributes"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'EventAttributes' defined in anyOf (BetaWorkflowTriggerAttributes). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'EventAttributes' defined in oneOf (BetaWorkflowTriggerAttributes). Proceeding to the next one if any."
         }
 
-        # try to match ScheduledAttributes defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToScheduledAttributes $Json
+        if ($match -ne 0) { # no match yet
+            # try to match ExternalAttributes defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToExternalAttributes $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "ScheduledAttributes"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "ExternalAttributes"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'ExternalAttributes' defined in anyOf (BetaWorkflowTriggerAttributes). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'ScheduledAttributes' defined in oneOf (BetaWorkflowTriggerAttributes). Proceeding to the next one if any."
         }
 
-        if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([EventAttributes, ScheduledAttributes]). JSON Payload: $($Json)"
-        } elseif ($match -eq 1) {
+        if ($match -ne 0) { # no match yet
+            # try to match ScheduledAttributes defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToScheduledAttributes $Json
+
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "ScheduledAttributes"
+                        $match++
+                        break
+                    }
+                }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'ScheduledAttributes' defined in anyOf (BetaWorkflowTriggerAttributes). Proceeding to the next one if any."
+            }
+        }
+
+        if ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("EventAttributes", "ScheduledAttributes")
+                "anyOfSchemas" = @("EventAttributes", "ExternalAttributes", "ScheduledAttributes")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([EventAttributes, ScheduledAttributes]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([EventAttributes, ExternalAttributes, ScheduledAttributes]). JSON Payload: $($Json)"
         }
     }
 }

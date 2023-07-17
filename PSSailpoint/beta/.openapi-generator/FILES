@@ -244,6 +244,7 @@ docs/ExecutionStatus.md
 docs/ExportOptions.md
 docs/ExportPayload.md
 docs/Expression.md
+docs/ExternalAttributes.md
 docs/FeatureValueDto.md
 docs/Field.md
 docs/FieldAllOf.md
@@ -960,6 +961,7 @@ src/PSSailpointBeta/Model/ExecutionStatus.ps1
 src/PSSailpointBeta/Model/ExportOptions.ps1
 src/PSSailpointBeta/Model/ExportPayload.ps1
 src/PSSailpointBeta/Model/Expression.ps1
+src/PSSailpointBeta/Model/ExternalAttributes.ps1
 src/PSSailpointBeta/Model/FeatureValueDto.ps1
 src/PSSailpointBeta/Model/Field.ps1
 src/PSSailpointBeta/Model/FieldAllOf.ps1
@@ -1682,6 +1684,7 @@ tests/Model/ExecutionStatus.Tests.ps1
 tests/Model/ExportOptions.Tests.ps1
 tests/Model/ExportPayload.Tests.ps1
 tests/Model/Expression.Tests.ps1
+tests/Model/ExternalAttributes.Tests.ps1
 tests/Model/FeatureValueDto.Tests.ps1
 tests/Model/Field.Tests.ps1
 tests/Model/FieldAllOf.Tests.ps1

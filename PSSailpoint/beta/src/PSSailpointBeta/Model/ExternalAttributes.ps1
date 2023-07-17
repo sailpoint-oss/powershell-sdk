@@ -14,38 +14,38 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-The unique ID of the trigger
-.PARAMETER VarFilter
-JSON path expression that will limit which events the trigger will fire on
+.PARAMETER Name
+A unique name for the external trigger
+.PARAMETER Description
+Additonal context about the external trigger
 .OUTPUTS
 
-EventAttributes<PSCustomObject>
+ExternalAttributes<PSCustomObject>
 #>
 
-function Initialize-BetaEventAttributes {
+function Initialize-BetaExternalAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
+        ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${VarFilter}
+        ${Description}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaEventAttributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaExternalAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
+        if ($null -eq $Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "filter.$" = ${VarFilter}
+            "name" = ${Name}
+            "description" = ${Description}
         }
 
 
@@ -56,11 +56,11 @@ function Initialize-BetaEventAttributes {
 <#
 .SYNOPSIS
 
-Convert from JSON to EventAttributes<PSCustomObject>
+Convert from JSON to ExternalAttributes<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to EventAttributes<PSCustomObject>
+Convert from JSON to ExternalAttributes<PSCustomObject>
 
 .PARAMETER Json
 
@@ -68,22 +68,22 @@ Json object
 
 .OUTPUTS
 
-EventAttributes<PSCustomObject>
+ExternalAttributes<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToEventAttributes {
+function ConvertFrom-BetaJsonToExternalAttributes {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaEventAttributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaExternalAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaEventAttributes
-        $AllProperties = ("id", "filter.$")
+        # check if Json contains properties not defined in BetaExternalAttributes
+        $AllProperties = ("name", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -91,24 +91,24 @@ function ConvertFrom-BetaJsonToEventAttributes {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "filter.$"))) { #optional property not found
-            $VarFilter = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
         } else {
-            $VarFilter = $JsonParameters.PSobject.Properties["filter.$"].value
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "filter.$" = ${VarFilter}
+            "name" = ${Name}
+            "description" = ${Description}
         }
 
         return $PSO

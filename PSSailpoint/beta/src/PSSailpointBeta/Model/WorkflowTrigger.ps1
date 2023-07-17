@@ -28,7 +28,7 @@ function Initialize-BetaWorkflowTrigger {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("EVENT", "EXTERNAL", "SCHEDULED")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]

@@ -123,6 +123,21 @@ Class | Method | HTTP request | Description
 *BetaConnectorRuleManagementApi* | [**Update-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Update-BetaConnectorRule) | **PUT** /connector-rules/{id} | Update a Connector Rule
 *BetaConnectorRuleManagementApi* | [**Confirm-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Confirm-BetaConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
 *BetaConnectorsApi* | [**Get-BetaConnectorList**](docs/BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Gets connector list
+*BetaCustomFormsApi* | [**New-BetaFormDefinition**](docs/BetaCustomFormsApi.md#New-BetaFormDefinition) | **POST** /form-definitions | Creates a form definition.
+*BetaCustomFormsApi* | [**New-BetaFormDefinitionDynamicSchema**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
+*BetaCustomFormsApi* | [**New-BetaFormInstance**](docs/BetaCustomFormsApi.md#New-BetaFormInstance) | **POST** /form-instances | Creates a form instance.
+*BetaCustomFormsApi* | [**Remove-BetaFormDefinition**](docs/BetaCustomFormsApi.md#Remove-BetaFormDefinition) | **DELETE** /form-definitions/{formDefinitionID} | Deletes a form definition.
+*BetaCustomFormsApi* | [**Export-BetaFormDefinitionsByTenant**](docs/BetaCustomFormsApi.md#Export-BetaFormDefinitionsByTenant) | **GET** /form-definitions/export | List form definitions by tenant.
+*BetaCustomFormsApi* | [**Get-BetaFormDefinitionByKey**](docs/BetaCustomFormsApi.md#Get-BetaFormDefinitionByKey) | **GET** /form-definitions/{formDefinitionID} | Return a form definition.
+*BetaCustomFormsApi* | [**Get-BetaFormInstanceByKey**](docs/BetaCustomFormsApi.md#Get-BetaFormInstanceByKey) | **GET** /form-instances/{formInstanceID} | Returns a form instance.
+*BetaCustomFormsApi* | [**Import-BetaFormDefinitions**](docs/BetaCustomFormsApi.md#Import-BetaFormDefinitions) | **POST** /form-definitions/import | Import form definitions from export.
+*BetaCustomFormsApi* | [**Update-BetaFormDefinition**](docs/BetaCustomFormsApi.md#Update-BetaFormDefinition) | **PATCH** /form-definitions/{formDefinitionID} | Patch a form definition.
+*BetaCustomFormsApi* | [**Update-BetaFormInstance**](docs/BetaCustomFormsApi.md#Update-BetaFormInstance) | **PATCH** /form-instances/{formInstanceID} | Patch a form instance.
+*BetaCustomFormsApi* | [**Search-BetaFormDefinitionsByTenant**](docs/BetaCustomFormsApi.md#Search-BetaFormDefinitionsByTenant) | **GET** /form-definitions | Export form definitions by tenant.
+*BetaCustomFormsApi* | [**Search-BetaFormElementDataByElementID**](docs/BetaCustomFormsApi.md#Search-BetaFormElementDataByElementID) | **GET** /form-instances/{formInstanceID}/data-source/{formElementID} | Retrieves dynamic data by element.
+*BetaCustomFormsApi* | [**Search-BetaFormInstancesByTenant**](docs/BetaCustomFormsApi.md#Search-BetaFormInstancesByTenant) | **GET** /form-instances | List form instances by tenant.
+*BetaCustomFormsApi* | [**Search-BetaPreDefinedSelectOptions**](docs/BetaCustomFormsApi.md#Search-BetaPreDefinedSelectOptions) | **GET** /predefined-select-options | List predefined select options.
+*BetaCustomFormsApi* | [**Show-BetaPreviewDataSource**](docs/BetaCustomFormsApi.md#Show-BetaPreviewDataSource) | **POST** /form-definitions/{formDefinitionID}/data-source | Preview form definition data source.
 *BetaCustomPasswordInstructionsApi* | [**New-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
@@ -590,6 +605,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.CompletedApproval](docs/CompletedApproval.md)
  - [PSSailpointBeta/Model.CompletedApprovalState](docs/CompletedApprovalState.md)
  - [PSSailpointBeta/Model.CompletionStatus](docs/CompletionStatus.md)
+ - [PSSailpointBeta/Model.ConditionEffect](docs/ConditionEffect.md)
+ - [PSSailpointBeta/Model.ConditionRule](docs/ConditionRule.md)
  - [PSSailpointBeta/Model.ConfigObject](docs/ConfigObject.md)
  - [PSSailpointBeta/Model.ConfigType](docs/ConfigType.md)
  - [PSSailpointBeta/Model.ConfigTypeEnum](docs/ConfigTypeEnum.md)
@@ -609,6 +626,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ConnectorRuleValidationResponseDetailsInner](docs/ConnectorRuleValidationResponseDetailsInner.md)
  - [PSSailpointBeta/Model.CorrelatedGovernanceEvent](docs/CorrelatedGovernanceEvent.md)
  - [PSSailpointBeta/Model.CreateDomainDkim405Response](docs/CreateDomainDkim405Response.md)
+ - [PSSailpointBeta/Model.CreateFormDefinitionRequest](docs/CreateFormDefinitionRequest.md)
+ - [PSSailpointBeta/Model.CreateFormInstanceRequest](docs/CreateFormInstanceRequest.md)
  - [PSSailpointBeta/Model.CreateOAuthClientRequest](docs/CreateOAuthClientRequest.md)
  - [PSSailpointBeta/Model.CreateOAuthClientResponse](docs/CreateOAuthClientResponse.md)
  - [PSSailpointBeta/Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
@@ -633,6 +652,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.EntitlementRequestConfig1](docs/EntitlementRequestConfig1.md)
  - [PSSailpointBeta/Model.EntitlementSource](docs/EntitlementSource.md)
  - [PSSailpointBeta/Model.EntityCreatedByDTO](docs/EntityCreatedByDTO.md)
+ - [PSSailpointBeta/Model.ErrorMessage](docs/ErrorMessage.md)
  - [PSSailpointBeta/Model.ErrorMessageDto](docs/ErrorMessageDto.md)
  - [PSSailpointBeta/Model.ErrorResponseDto](docs/ErrorResponseDto.md)
  - [PSSailpointBeta/Model.EvaluateResponse](docs/EvaluateResponse.md)
@@ -642,6 +662,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ExceptionCriteriaAccess](docs/ExceptionCriteriaAccess.md)
  - [PSSailpointBeta/Model.ExceptionCriteriaCriteriaListInner](docs/ExceptionCriteriaCriteriaListInner.md)
  - [PSSailpointBeta/Model.ExecutionStatus](docs/ExecutionStatus.md)
+ - [PSSailpointBeta/Model.ExportFormDefinitionsByTenant200ResponseInner](docs/ExportFormDefinitionsByTenant200ResponseInner.md)
  - [PSSailpointBeta/Model.ExportOptions](docs/ExportOptions.md)
  - [PSSailpointBeta/Model.ExportPayload](docs/ExportPayload.md)
  - [PSSailpointBeta/Model.Expression](docs/Expression.md)
@@ -651,9 +672,26 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.FieldDetails](docs/FieldDetails.md)
  - [PSSailpointBeta/Model.FieldDetailsDto](docs/FieldDetailsDto.md)
  - [PSSailpointBeta/Model.Form](docs/Form.md)
+ - [PSSailpointBeta/Model.FormCondition](docs/FormCondition.md)
+ - [PSSailpointBeta/Model.FormDefinitionDynamicSchemaRequest](docs/FormDefinitionDynamicSchemaRequest.md)
+ - [PSSailpointBeta/Model.FormDefinitionDynamicSchemaRequestAttributes](docs/FormDefinitionDynamicSchemaRequestAttributes.md)
+ - [PSSailpointBeta/Model.FormDefinitionDynamicSchemaResponse](docs/FormDefinitionDynamicSchemaResponse.md)
+ - [PSSailpointBeta/Model.FormDefinitionInput](docs/FormDefinitionInput.md)
+ - [PSSailpointBeta/Model.FormDefinitionResponse](docs/FormDefinitionResponse.md)
  - [PSSailpointBeta/Model.FormDetails](docs/FormDetails.md)
+ - [PSSailpointBeta/Model.FormElement](docs/FormElement.md)
+ - [PSSailpointBeta/Model.FormElementDataSourceConfigOptions](docs/FormElementDataSourceConfigOptions.md)
+ - [PSSailpointBeta/Model.FormElementDynamicDataSource](docs/FormElementDynamicDataSource.md)
+ - [PSSailpointBeta/Model.FormElementDynamicDataSourceConfig](docs/FormElementDynamicDataSourceConfig.md)
+ - [PSSailpointBeta/Model.FormElementPreviewRequest](docs/FormElementPreviewRequest.md)
+ - [PSSailpointBeta/Model.FormError](docs/FormError.md)
+ - [PSSailpointBeta/Model.FormInstanceCreatedBy](docs/FormInstanceCreatedBy.md)
+ - [PSSailpointBeta/Model.FormInstanceRecipient](docs/FormInstanceRecipient.md)
+ - [PSSailpointBeta/Model.FormInstanceResponse](docs/FormInstanceResponse.md)
  - [PSSailpointBeta/Model.FormItem](docs/FormItem.md)
  - [PSSailpointBeta/Model.FormItemDetails](docs/FormItemDetails.md)
+ - [PSSailpointBeta/Model.FormOwner](docs/FormOwner.md)
+ - [PSSailpointBeta/Model.FormUsedBy](docs/FormUsedBy.md)
  - [PSSailpointBeta/Model.ForwardApprovalDto](docs/ForwardApprovalDto.md)
  - [PSSailpointBeta/Model.FullAccount](docs/FullAccount.md)
  - [PSSailpointBeta/Model.FullAccountAllOf](docs/FullAccountAllOf.md)
@@ -711,6 +749,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.IdentitySyncPayload](docs/IdentitySyncPayload.md)
  - [PSSailpointBeta/Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpointBeta/Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
+ - [PSSailpointBeta/Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)
+ - [PSSailpointBeta/Model.ImportFormDefinitions202ResponseErrorsInner](docs/ImportFormDefinitions202ResponseErrorsInner.md)
  - [PSSailpointBeta/Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpointBeta/Model.ImportOptions](docs/ImportOptions.md)
  - [PSSailpointBeta/Model.ImportSpConfigRequest](docs/ImportSpConfigRequest.md)
@@ -728,7 +768,11 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ListAccessProfiles429Response](docs/ListAccessProfiles429Response.md)
  - [PSSailpointBeta/Model.ListAccounts200ResponseInner](docs/ListAccounts200ResponseInner.md)
  - [PSSailpointBeta/Model.ListCompleteWorkflowLibrary200ResponseInner](docs/ListCompleteWorkflowLibrary200ResponseInner.md)
+ - [PSSailpointBeta/Model.ListFormDefinitionsByTenantResponse](docs/ListFormDefinitionsByTenantResponse.md)
+ - [PSSailpointBeta/Model.ListFormElementDataByElementIDResponse](docs/ListFormElementDataByElementIDResponse.md)
+ - [PSSailpointBeta/Model.ListFormInstancesByTenantResponse](docs/ListFormInstancesByTenantResponse.md)
  - [PSSailpointBeta/Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
+ - [PSSailpointBeta/Model.ListPredefinedSelectOptionsResponse](docs/ListPredefinedSelectOptionsResponse.md)
  - [PSSailpointBeta/Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpointBeta/Model.LocalizedMessage](docs/LocalizedMessage.md)
  - [PSSailpointBeta/Model.LookupStep](docs/LookupStep.md)
@@ -754,6 +798,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.MetricResponse](docs/MetricResponse.md)
  - [PSSailpointBeta/Model.MfaConfig](docs/MfaConfig.md)
  - [PSSailpointBeta/Model.MfaConfigTestResponse](docs/MfaConfigTestResponse.md)
+ - [PSSailpointBeta/Model.ModelError](docs/ModelError.md)
  - [PSSailpointBeta/Model.MultiPolicyRequest](docs/MultiPolicyRequest.md)
  - [PSSailpointBeta/Model.NonEmployeeApprovalDecision](docs/NonEmployeeApprovalDecision.md)
  - [PSSailpointBeta/Model.NonEmployeeApprovalItem](docs/NonEmployeeApprovalItem.md)
@@ -818,6 +863,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.PostExternalExecuteWorkflowRequest](docs/PostExternalExecuteWorkflowRequest.md)
  - [PSSailpointBeta/Model.PreApprovalTriggerDetails](docs/PreApprovalTriggerDetails.md)
  - [PSSailpointBeta/Model.PreferencesDto](docs/PreferencesDto.md)
+ - [PSSailpointBeta/Model.PreviewDataSourceResponse](docs/PreviewDataSourceResponse.md)
  - [PSSailpointBeta/Model.ProcessIdentitiesRequest](docs/ProcessIdentitiesRequest.md)
  - [PSSailpointBeta/Model.ProvisioningCompleted](docs/ProvisioningCompleted.md)
  - [PSSailpointBeta/Model.ProvisioningConfig](docs/ProvisioningConfig.md)
@@ -919,6 +965,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ScheduleType](docs/ScheduleType.md)
  - [PSSailpointBeta/Model.Schema](docs/Schema.md)
  - [PSSailpointBeta/Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
+ - [PSSailpointBeta/Model.SearchFormDefinitionsByTenant400Response](docs/SearchFormDefinitionsByTenant400Response.md)
  - [PSSailpointBeta/Model.Section](docs/Section.md)
  - [PSSailpointBeta/Model.SectionAllOf](docs/SectionAllOf.md)
  - [PSSailpointBeta/Model.SectionDetails](docs/SectionDetails.md)

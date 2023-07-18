@@ -103,8 +103,8 @@ Class | Method | HTTP request | Description
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplate) | **GET** /campaign-templates/{id} | Get a Campaign Template
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Gets a Campaign Template's Schedule
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplates**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
+*BetaCertificationCampaignsApi* | [**Move-Beta**](docs/BetaCertificationCampaignsApi.md#Move-Beta) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *BetaCertificationCampaignsApi* | [**Update-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#Update-BetaCampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
-*BetaCertificationCampaignsApi* | [**Invoke-BetaReassignCampaign**](docs/BetaCertificationCampaignsApi.md#Invoke-BetaReassignCampaign) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignRemediationScan**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignReport**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
 *BetaCertificationCampaignsApi* | [**Set-BetaCampaignReportsConfig**](docs/BetaCertificationCampaignsApi.md#Set-BetaCampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration

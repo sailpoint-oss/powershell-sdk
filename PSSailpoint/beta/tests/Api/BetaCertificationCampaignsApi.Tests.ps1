@@ -118,17 +118,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
         }
     }
 
-    Context 'Update-BetaCampaignTemplate' {
-        It 'Test Update-BetaCampaignTemplate' {
-            #$TestResult = Update-BetaCampaignTemplate -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+    Context 'Move-Beta' {
+        It 'Test Move-Beta' {
+            #$TestResult = Move-Beta -Id "TEST_VALUE" -AdminReviewReassign "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaReassignCampaign' {
-        It 'Test Invoke-BetaReassignCampaign' {
-            #$TestResult = Invoke-BetaReassignCampaign -Id "TEST_VALUE" -AdminReviewReassign "TEST_VALUE"
+    Context 'Update-BetaCampaignTemplate' {
+        It 'Test Update-BetaCampaignTemplate' {
+            #$TestResult = Update-BetaCampaignTemplate -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

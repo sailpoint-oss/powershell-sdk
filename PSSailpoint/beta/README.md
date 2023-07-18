@@ -636,7 +636,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ErrorMessageDto](docs/ErrorMessageDto.md)
  - [PSSailpointBeta/Model.ErrorResponseDto](docs/ErrorResponseDto.md)
  - [PSSailpointBeta/Model.EvaluateResponse](docs/EvaluateResponse.md)
- - [PSSailpointBeta/Model.EventAttributes](docs/EventAttributes.md)
  - [PSSailpointBeta/Model.EventBridgeConfig](docs/EventBridgeConfig.md)
  - [PSSailpointBeta/Model.ExceptionAccessCriteria](docs/ExceptionAccessCriteria.md)
  - [PSSailpointBeta/Model.ExceptionCriteria](docs/ExceptionCriteria.md)
@@ -646,7 +645,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ExportOptions](docs/ExportOptions.md)
  - [PSSailpointBeta/Model.ExportPayload](docs/ExportPayload.md)
  - [PSSailpointBeta/Model.Expression](docs/Expression.md)
- - [PSSailpointBeta/Model.ExternalAttributes](docs/ExternalAttributes.md)
  - [PSSailpointBeta/Model.FeatureValueDto](docs/FeatureValueDto.md)
  - [PSSailpointBeta/Model.Field](docs/Field.md)
  - [PSSailpointBeta/Model.FieldAllOf](docs/FieldAllOf.md)
@@ -919,7 +917,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ScheduleHours](docs/ScheduleHours.md)
  - [PSSailpointBeta/Model.ScheduleMonths](docs/ScheduleMonths.md)
  - [PSSailpointBeta/Model.ScheduleType](docs/ScheduleType.md)
- - [PSSailpointBeta/Model.ScheduledAttributes](docs/ScheduledAttributes.md)
  - [PSSailpointBeta/Model.Schema](docs/Schema.md)
  - [PSSailpointBeta/Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
  - [PSSailpointBeta/Model.Section](docs/Section.md)
@@ -1118,7 +1115,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.WorkflowLibraryTrigger](docs/WorkflowLibraryTrigger.md)
  - [PSSailpointBeta/Model.WorkflowOAuthClient](docs/WorkflowOAuthClient.md)
  - [PSSailpointBeta/Model.WorkflowTrigger](docs/WorkflowTrigger.md)
- - [PSSailpointBeta/Model.WorkflowTriggerAttributes](docs/WorkflowTriggerAttributes.md)
  - [PSSailpointBeta/Model.WorkgroupDto](docs/WorkgroupDto.md)
 
 

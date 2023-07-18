@@ -96,10 +96,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $WorkflowBodyOwner = Initialize-WorkflowBodyOwner -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $WorkflowDefinition = Initialize-WorkflowDefinition -Start "Send Email Test" -Steps @{ key_example =  }
-
-$WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes -Id "idn:identity-attributes-changed" -VarFilter "$.changes[?(@.attribute == 'manager')]" -Name "search-and-notify" -Description "Run a search and notify the results" -CronString "0 * */3 */5 *"
-$WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -Attributes $WorkflowTriggerAttributes
-
+$WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -Attributes 
 $CreateWorkflowRequest = Initialize-CreateWorkflowRequest -Name "Send Email" -Owner $WorkflowBodyOwner -Description "Send an email to the identity who's attributes changed." -Definition $WorkflowDefinition -Enabled $false -Trigger $WorkflowTrigger # CreateWorkflowRequest | 
 
 # Create Workflow
@@ -950,10 +947,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 $WorkflowBodyOwner = Initialize-WorkflowBodyOwner -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $WorkflowDefinition = Initialize-WorkflowDefinition -Start "Send Email Test" -Steps @{ key_example =  }
-
-$WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes -Id "idn:identity-attributes-changed" -VarFilter "$.changes[?(@.attribute == 'manager')]" -Name "search-and-notify" -Description "Run a search and notify the results" -CronString "0 * */3 */5 *"
-$WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -Attributes $WorkflowTriggerAttributes
-
+$WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -Attributes 
 $WorkflowBody = Initialize-WorkflowBody -Name "Send Email" -Owner $WorkflowBodyOwner -Description "Send an email to the identity who's attributes changed." -Definition $WorkflowDefinition -Enabled $false -Trigger $WorkflowTrigger # WorkflowBody | 
 
 # Update Workflow

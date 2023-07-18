@@ -17,7 +17,7 @@ The trigger that starts the workflow
 .PARAMETER Type
 The trigger type
 .PARAMETER Attributes
-No description available.
+Workflow Trigger Attributes.
 .OUTPUTS
 
 WorkflowTrigger<PSCustomObject>

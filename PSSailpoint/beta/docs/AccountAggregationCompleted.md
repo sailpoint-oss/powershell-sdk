@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** | [**TriggerInputAccountAggregationCompletedSource**](TriggerInputAccountAggregationCompletedSource.md) |  | 
+**Source** | [**AccountAggregationCompletedSource**](AccountAggregationCompletedSource.md) |  | 
 **Status** | [**SystemCollectionsHashtable**](.md) | The overall status of the aggregation. | 
 **Started** | **System.DateTime** | The date and time when the account aggregation started. | 
 **Completed** | **System.DateTime** | The date and time when the account aggregation finished. | 
 **Errors** | **String[]** | A list of errors that occurred during the aggregation. | 
 **Warnings** | **String[]** | A list of warnings that occurred during the aggregation. | 
-**Stats** | [**TriggerInputAccountAggregationCompletedStats**](TriggerInputAccountAggregationCompletedStats.md) |  | 
+**Stats** | [**AccountAggregationCompletedStats**](AccountAggregationCompletedStats.md) |  | 
 
 ## Examples
 

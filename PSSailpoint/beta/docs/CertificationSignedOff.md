@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Certification** | [**TriggerInputCertificationSignedOffCertification**](TriggerInputCertificationSignedOffCertification.md) |  | 
+**Certification** | [**CertificationSignedOffCertification**](CertificationSignedOffCertification.md) |  | 
 
 ## Examples
 

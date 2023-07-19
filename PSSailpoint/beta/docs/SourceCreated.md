@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Type** | **String** | The connection type. | 
 **Created** | **System.DateTime** | The date and time the source was created. | 
 **Connector** | **String** | The connector type used to connect to the source. | 
-**Actor** | [**TriggerInputSourceCreatedActor**](TriggerInputSourceCreatedActor.md) |  | 
+**Actor** | [**SourceCreatedActor**](SourceCreatedActor.md) |  | 
 
 ## Examples
 

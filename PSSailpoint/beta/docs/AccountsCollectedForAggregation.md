@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** | [**TriggerInputAccountsCollectedForAggregationSource**](TriggerInputAccountsCollectedForAggregationSource.md) |  | 
+**Source** | [**AccountsCollectedForAggregationSource**](AccountsCollectedForAggregationSource.md) |  | 
 **Status** | [**SystemCollectionsHashtable**](.md) | The overall status of the collection. | 
 **Started** | **System.DateTime** | The date and time when the account collection started. | 
 **Completed** | **System.DateTime** | The date and time when the account collection finished. | 
 **Errors** | **String[]** | A list of errors that occurred during the collection. | 
 **Warnings** | **String[]** | A list of warnings that occurred during the collection. | 
-**Stats** | [**TriggerInputAccountsCollectedForAggregationStats**](TriggerInputAccountsCollectedForAggregationStats.md) |  | 
+**Stats** | [**AccountsCollectedForAggregationStats**](AccountsCollectedForAggregationStats.md) |  | 
 
 ## Examples
 

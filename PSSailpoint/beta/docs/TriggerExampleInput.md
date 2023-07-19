@@ -4,36 +4,36 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessRequestId** | **String** | The unique ID of the access request. | 
-**RequestedFor** | [**TriggerInputAccessRequestPostApprovalRequestedFor**](TriggerInputAccessRequestPostApprovalRequestedFor.md) |  | 
-**RequestedItems** | [**TriggerInputAccessRequestPreApprovalRequestedItemsInner[]**](TriggerInputAccessRequestPreApprovalRequestedItemsInner.md) | Details of the access items being requested. | 
-**RequestedBy** | [**TriggerInputAccessRequestPostApprovalRequestedBy**](TriggerInputAccessRequestPostApprovalRequestedBy.md) |  | 
-**RequestedItemsStatus** | [**TriggerInputAccessRequestPostApprovalRequestedItemsStatusInner[]**](TriggerInputAccessRequestPostApprovalRequestedItemsStatusInner.md) | Details on the outcome of each access item. | 
-**Source** | [**TriggerInputAccountUncorrelatedSource**](TriggerInputAccountUncorrelatedSource.md) |  | 
+**RequestedFor** | [**AccessRequestPostApprovalRequestedFor**](AccessRequestPostApprovalRequestedFor.md) |  | 
+**RequestedItems** | [**AccessRequestPreApprovalRequestedItemsInner[]**](AccessRequestPreApprovalRequestedItemsInner.md) | Details of the access items being requested. | 
+**RequestedBy** | [**AccessRequestPostApprovalRequestedBy**](AccessRequestPostApprovalRequestedBy.md) |  | 
+**RequestedItemsStatus** | [**AccessRequestPostApprovalRequestedItemsStatusInner[]**](AccessRequestPostApprovalRequestedItemsStatusInner.md) | Details on the outcome of each access item. | 
+**Source** | [**AccountUncorrelatedSource**](AccountUncorrelatedSource.md) |  | 
 **Status** | [**SystemCollectionsHashtable**](.md) | The overall status of the collection. | 
 **Started** | **System.DateTime** | The date and time when the account collection started. | 
 **Completed** | **System.DateTime** | The date and time when the account collection finished. | 
 **Errors** | **String[]** | A list of any accumulated error messages that occurred during provisioning. | 
 **Warnings** | **String[]** | A list of any accumulated warning messages that occurred during provisioning. | 
-**Stats** | [**TriggerInputAccountsCollectedForAggregationStats**](TriggerInputAccountsCollectedForAggregationStats.md) |  | 
-**Identity** | [**TriggerInputIdentityDeletedIdentity**](TriggerInputIdentityDeletedIdentity.md) |  | 
-**Account** | [**TriggerInputAccountUncorrelatedAccount**](TriggerInputAccountUncorrelatedAccount.md) |  | 
-**Changes** | [**TriggerInputIdentityAttributesChangedChangesInner[]**](TriggerInputIdentityAttributesChangedChangesInner.md) | A list of one or more identity attributes that changed on the identity. | 
+**Stats** | [**AccountsCollectedForAggregationStats**](AccountsCollectedForAggregationStats.md) |  | 
+**Identity** | [**IdentityDeletedIdentity**](IdentityDeletedIdentity.md) |  | 
+**Account** | [**AccountUncorrelatedAccount**](AccountUncorrelatedAccount.md) |  | 
+**Changes** | [**IdentityAttributesChangedChangesInner[]**](IdentityAttributesChangedChangesInner.md) | A list of one or more identity attributes that changed on the identity. | 
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | The attributes of the account. The contents of attributes depends on the account schema for the source. | 
 **EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
-**Campaign** | [**TriggerInputCampaignGeneratedCampaign**](TriggerInputCampaignGeneratedCampaign.md) |  | 
-**Certification** | [**TriggerInputCertificationSignedOffCertification**](TriggerInputCertificationSignedOffCertification.md) |  | 
+**Campaign** | [**CampaignGeneratedCampaign**](CampaignGeneratedCampaign.md) |  | 
+**Certification** | [**CertificationSignedOffCertification**](CertificationSignedOffCertification.md) |  | 
 **TrackingNumber** | **String** | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | 
 **Sources** | **String** | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | 
 **Action** | **String** | Origin of where the provisioning request came from. | [optional] 
-**Recipient** | [**TriggerInputProvisioningCompletedRecipient**](TriggerInputProvisioningCompletedRecipient.md) |  | 
-**Requester** | [**TriggerInputProvisioningCompletedRequester**](TriggerInputProvisioningCompletedRequester.md) |  | [optional] 
-**AccountRequests** | [**TriggerInputProvisioningCompletedAccountRequestsInner[]**](TriggerInputProvisioningCompletedAccountRequestsInner.md) | A list of provisioning instructions to perform on an account-by-account basis. | 
+**Recipient** | [**ProvisioningCompletedRecipient**](ProvisioningCompletedRecipient.md) |  | 
+**Requester** | [**ProvisioningCompletedRequester**](ProvisioningCompletedRequester.md) |  | [optional] 
+**AccountRequests** | [**ProvisioningCompletedAccountRequestsInner[]**](ProvisioningCompletedAccountRequestsInner.md) | A list of provisioning instructions to perform on an account-by-account basis. | 
 **FileName** | **String** | A name for the report file. | 
 **OwnerEmail** | **String** | The email address of the identity that owns the saved search. | 
 **OwnerName** | **String** | The name of the identity that owns the saved search. | 
 **Query** | **String** | The search query that was used to generate the report. | 
 **SearchName** | **String** | The name of the saved search. | 
-**SearchResults** | [**TriggerInputSavedSearchCompleteSearchResults**](TriggerInputSavedSearchCompleteSearchResults.md) |  | 
+**SearchResults** | [**SavedSearchCompleteSearchResults**](SavedSearchCompleteSearchResults.md) |  | 
 **SignedS3Url** | **String** | The Amazon S3 URL to download the report from. | 
 **Uuid** | **String** | Source unique identifier for the identity. UUID is generated by the source system. | [optional] 
 **Id** | **String** | The unique ID of the source. | 
@@ -46,12 +46,12 @@ Name | Type | Description | Notes
 **Type** | [**SystemCollectionsHashtable**](.md) | The type of the object that initiated this event. | 
 **Created** | **System.DateTime** | The date and time the status change occurred. | 
 **Connector** | **String** | The connector type used to connect to the source. | 
-**Actor** | [**TriggerInputSourceUpdatedActor**](TriggerInputSourceUpdatedActor.md) |  | 
+**Actor** | [**SourceUpdatedActor**](SourceUpdatedActor.md) |  | 
 **Deleted** | **System.DateTime** | The date and time the source was deleted. | 
 **Modified** | **System.DateTime** | The date and time the source was modified. | 
-**Application** | [**TriggerInputVAClusterStatusChangeEventApplication**](TriggerInputVAClusterStatusChangeEventApplication.md) |  | 
-**HealthCheckResult** | [**TriggerInputVAClusterStatusChangeEventHealthCheckResult**](TriggerInputVAClusterStatusChangeEventHealthCheckResult.md) |  | 
-**PreviousHealthCheckResult** | [**TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResult**](TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResult.md) |  | 
+**Application** | [**VAClusterStatusChangeEventApplication**](VAClusterStatusChangeEventApplication.md) |  | 
+**HealthCheckResult** | [**VAClusterStatusChangeEventHealthCheckResult**](VAClusterStatusChangeEventHealthCheckResult.md) |  | 
+**PreviousHealthCheckResult** | [**VAClusterStatusChangeEventPreviousHealthCheckResult**](VAClusterStatusChangeEventPreviousHealthCheckResult.md) |  | 
 
 ## Examples
 

@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** | [**TriggerInputAccountCorrelatedIdentity**](TriggerInputAccountCorrelatedIdentity.md) |  | 
-**Source** | [**TriggerInputAccountCorrelatedSource**](TriggerInputAccountCorrelatedSource.md) |  | 
-**Account** | [**TriggerInputAccountCorrelatedAccount**](TriggerInputAccountCorrelatedAccount.md) |  | 
+**Identity** | [**AccountCorrelatedIdentity**](AccountCorrelatedIdentity.md) |  | 
+**Source** | [**AccountCorrelatedSource**](AccountCorrelatedSource.md) |  | 
+**Account** | [**AccountCorrelatedAccount**](AccountCorrelatedAccount.md) |  | 
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | The attributes associated with the account.  Attributes are unique per source. | 
 **EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
 

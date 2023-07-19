@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Type** | **String** | The connection type. | 
 **Deleted** | **System.DateTime** | The date and time the source was deleted. | 
 **Connector** | **String** | The connector type used to connect to the source. | 
-**Actor** | [**TriggerInputSourceDeletedActor**](TriggerInputSourceDeletedActor.md) |  | 
+**Actor** | [**SourceDeletedActor**](SourceDeletedActor.md) |  | 
 
 ## Examples
 

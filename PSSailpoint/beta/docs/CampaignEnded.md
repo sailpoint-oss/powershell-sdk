@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Campaign** | [**TriggerInputCampaignEndedCampaign**](TriggerInputCampaignEndedCampaign.md) |  | 
+**Campaign** | [**CampaignEndedCampaign**](CampaignEndedCampaign.md) |  | 
 
 ## Examples
 

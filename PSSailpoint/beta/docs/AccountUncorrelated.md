@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** | [**TriggerInputAccountUncorrelatedIdentity**](TriggerInputAccountUncorrelatedIdentity.md) |  | 
-**Source** | [**TriggerInputAccountUncorrelatedSource**](TriggerInputAccountUncorrelatedSource.md) |  | 
-**Account** | [**TriggerInputAccountUncorrelatedAccount**](TriggerInputAccountUncorrelatedAccount.md) |  | 
+**Identity** | [**AccountUncorrelatedIdentity**](AccountUncorrelatedIdentity.md) |  | 
+**Source** | [**AccountUncorrelatedSource**](AccountUncorrelatedSource.md) |  | 
+**Account** | [**AccountUncorrelatedAccount**](AccountUncorrelatedAccount.md) |  | 
 **EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
 
 ## Examples

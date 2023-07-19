@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | The trigger type | 
-**Attributes** | [**SystemCollectionsHashtable**](.md) | Workflow Trigger Attributes. | 
+**Attributes** | [**WorkflowTriggerAttributes**](WorkflowTriggerAttributes.md) |  | 
 
 ## Examples
 

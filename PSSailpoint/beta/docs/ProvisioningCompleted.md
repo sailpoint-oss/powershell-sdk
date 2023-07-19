@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Action** | **String** | Origin of where the provisioning request came from. | [optional] 
 **Errors** | **String[]** | A list of any accumulated error messages that occurred during provisioning. | [optional] 
 **Warnings** | **String[]** | A list of any accumulated warning messages that occurred during provisioning. | [optional] 
-**Recipient** | [**TriggerInputProvisioningCompletedRecipient**](TriggerInputProvisioningCompletedRecipient.md) |  | 
-**Requester** | [**TriggerInputProvisioningCompletedRequester**](TriggerInputProvisioningCompletedRequester.md) |  | [optional] 
-**AccountRequests** | [**TriggerInputProvisioningCompletedAccountRequestsInner[]**](TriggerInputProvisioningCompletedAccountRequestsInner.md) | A list of provisioning instructions to perform on an account-by-account basis. | 
+**Recipient** | [**ProvisioningCompletedRecipient**](ProvisioningCompletedRecipient.md) |  | 
+**Requester** | [**ProvisioningCompletedRequester**](ProvisioningCompletedRequester.md) |  | [optional] 
+**AccountRequests** | [**ProvisioningCompletedAccountRequestsInner[]**](ProvisioningCompletedAccountRequestsInner.md) | A list of provisioning instructions to perform on an account-by-account basis. | 
 
 ## Examples
 

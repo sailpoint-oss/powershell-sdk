@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** | [**TriggerInputIdentityAttributesChangedIdentity**](TriggerInputIdentityAttributesChangedIdentity.md) |  | 
-**Changes** | [**TriggerInputIdentityAttributesChangedChangesInner[]**](TriggerInputIdentityAttributesChangedChangesInner.md) | A list of one or more identity attributes that changed on the identity. | 
+**Identity** | [**IdentityAttributesChangedIdentity**](IdentityAttributesChangedIdentity.md) |  | 
+**Changes** | [**IdentityAttributesChangedChangesInner[]**](IdentityAttributesChangedChangesInner.md) | A list of one or more identity attributes that changed on the identity. | 
 
 ## Examples
 

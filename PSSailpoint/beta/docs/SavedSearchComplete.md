@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **OwnerName** | **String** | The name of the identity that owns the saved search. | 
 **Query** | **String** | The search query that was used to generate the report. | 
 **SearchName** | **String** | The name of the saved search. | 
-**SearchResults** | [**TriggerInputSavedSearchCompleteSearchResults**](TriggerInputSavedSearchCompleteSearchResults.md) |  | 
+**SearchResults** | [**SavedSearchCompleteSearchResults**](SavedSearchCompleteSearchResults.md) |  | 
 **SignedS3Url** | **String** | The Amazon S3 URL to download the report from. | 
 
 ## Examples

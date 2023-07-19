@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** | [**TriggerInputIdentityCreatedIdentity**](TriggerInputIdentityCreatedIdentity.md) |  | 
+**Identity** | [**IdentityCreatedIdentity**](IdentityCreatedIdentity.md) |  | 
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | The attributes assigned to the identity.  Attributes are determined by the identity profile. | 
 
 ## Examples

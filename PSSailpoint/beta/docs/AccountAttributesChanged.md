@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** | [**TriggerInputAccountAttributesChangedIdentity**](TriggerInputAccountAttributesChangedIdentity.md) |  | 
-**Source** | [**TriggerInputAccountAttributesChangedSource**](TriggerInputAccountAttributesChangedSource.md) |  | 
-**Account** | [**TriggerInputAccountAttributesChangedAccount**](TriggerInputAccountAttributesChangedAccount.md) |  | 
-**Changes** | [**TriggerInputAccountAttributesChangedChangesInner[]**](TriggerInputAccountAttributesChangedChangesInner.md) | A list of attributes that changed. | 
+**Identity** | [**AccountAttributesChangedIdentity**](AccountAttributesChangedIdentity.md) |  | 
+**Source** | [**AccountAttributesChangedSource**](AccountAttributesChangedSource.md) |  | 
+**Account** | [**AccountAttributesChangedAccount**](AccountAttributesChangedAccount.md) |  | 
+**Changes** | [**AccountAttributesChangedChangesInner[]**](AccountAttributesChangedChangesInner.md) | A list of attributes that changed. | 
 
 ## Examples
 

@@ -20,6 +20,16 @@ Install the main module.
 Install-Module -Name PSSailpoint
 ```
 
+## Proxy configuration
+
+To use a proxy server, add the following configuration to your script.
+
+```powershell
+$Proxy = New-Object System.Net.WebProxy("https://test.proxy.com:8080")
+
+Set-DefaultConfiguration -Proxy $Proxy
+```
+
 ## Create a configuration file or save your configuration as environment variables
 
 You can create a local configuration file using the [CLI tool](https://github.com/sailpoint-oss/sailpoint-cli#configuration) or you can store your configuration in environment variables

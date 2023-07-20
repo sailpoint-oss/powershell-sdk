@@ -41,6 +41,10 @@ function Get-DefaultConfiguration {
     if (!$Configuration.containsKey("SkipCertificateCheck")) {
         $Configuration["SkipCertificateCheck"] = $false
     }
+    
+    if (!$Configuration["DefaultHeaders"]) {
+        $Configuration["DefaultHeaders"] = @{}
+    }
 
     if (!$Configuration.containsKey("MaximumRetryCount")) {
         $Configuration["MaximumRetryCount"] = 10
@@ -200,13 +204,14 @@ function Get-AccessToken {
             Write-Debug $UriBuilder.Uri
         
             try {
-                
                 if($null -eq $Script:Configuration["Proxy"]) {
                     $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
                                                 -Method "POST" `
                                                 -ErrorAction Stop `
                                                 -UseBasicParsing
                 } else {
+                    Write-Debug $Script:Configuration["Proxy"]
+                    Write-Debug $Script:Configuration["Proxy"].GetProxy($UriBuilder.Uri)
                     $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
                                                 -Method "POST" `
                                                 -ErrorAction Stop `

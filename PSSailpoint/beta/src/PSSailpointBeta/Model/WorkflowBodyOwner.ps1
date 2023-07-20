@@ -17,9 +17,9 @@ The identity that owns the workflow.  The owner's permissions in IDN will determ
 .PARAMETER Type
 The type of object that is referenced
 .PARAMETER Id
-ID of the object to which this reference applies
+The unique ID of the object
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+The name of the object
 .OUTPUTS
 
 WorkflowBodyOwner<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaWorkflowBodyOwner {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

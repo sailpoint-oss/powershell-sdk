@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | [optional] 
-**Id** | **String** | ID of the object to which this reference applies | [optional] 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
+**Type** | **String** | The type of object that is referenced | [optional] 
+**Id** | **String** | The unique ID of the object | [optional] 
+**Name** | **String** | The name of the object | [optional] 
 
 ## Examples
 

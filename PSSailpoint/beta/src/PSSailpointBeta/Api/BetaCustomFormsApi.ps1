@@ -1179,7 +1179,7 @@ function Search-BetaPreDefinedSelectOptions {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/predefined-select-options'
+        $LocalVarUri = '/form-definitions/predefined-select-options'
 
 
 

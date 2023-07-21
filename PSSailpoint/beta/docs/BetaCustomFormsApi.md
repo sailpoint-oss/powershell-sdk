@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**Search-BetaFormDefinitionsByTenant**](BetaCustomFormsApi.md#Search-BetaFormDefinitionsByTenant) | **GET** /form-definitions | Export form definitions by tenant.
 [**Search-BetaFormElementDataByElementID**](BetaCustomFormsApi.md#Search-BetaFormElementDataByElementID) | **GET** /form-instances/{formInstanceID}/data-source/{formElementID} | Retrieves dynamic data by element.
 [**Search-BetaFormInstancesByTenant**](BetaCustomFormsApi.md#Search-BetaFormInstancesByTenant) | **GET** /form-instances | List form instances by tenant.
-[**Search-BetaPreDefinedSelectOptions**](BetaCustomFormsApi.md#Search-BetaPreDefinedSelectOptions) | **GET** /predefined-select-options | List predefined select options.
+[**Search-BetaPreDefinedSelectOptions**](BetaCustomFormsApi.md#Search-BetaPreDefinedSelectOptions) | **GET** /form-definitions/predefined-select-options | List predefined select options.
 [**Show-BetaPreviewDataSource**](BetaCustomFormsApi.md#Show-BetaPreviewDataSource) | **POST** /form-definitions/{formDefinitionID}/data-source | Preview form definition data source.
 
 

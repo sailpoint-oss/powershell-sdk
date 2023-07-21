@@ -14,17 +14,33 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSPConfigApi' {
         }
     }
 
-    Context 'Export-BetaSpConfigDownload' {
-        It 'Test Export-BetaSpConfigDownload' {
-            #$TestResult = Export-BetaSpConfigDownload -Id "TEST_VALUE"
+    Context 'Get-BetaSpConfigExport' {
+        It 'Test Get-BetaSpConfigExport' {
+            #$TestResult = Get-BetaSpConfigExport -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Export-BetaSpConfigJobStatus' {
-        It 'Test Export-BetaSpConfigJobStatus' {
-            #$TestResult = Export-BetaSpConfigJobStatus -Id "TEST_VALUE"
+    Context 'Get-BetaSpConfigExportStatus' {
+        It 'Test Get-BetaSpConfigExportStatus' {
+            #$TestResult = Get-BetaSpConfigExportStatus -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaSpConfigImport' {
+        It 'Test Get-BetaSpConfigImport' {
+            #$TestResult = Get-BetaSpConfigImport -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaSpConfigImportStatus' {
+        It 'Test Get-BetaSpConfigImportStatus' {
+            #$TestResult = Get-BetaSpConfigImportStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -33,22 +49,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSPConfigApi' {
     Context 'Import-BetaSpConfig' {
         It 'Test Import-BetaSpConfig' {
             #$TestResult = Import-BetaSpConfig -Data "TEST_VALUE" -Preview "TEST_VALUE" -Options "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Import-BetaSpConfigDownload' {
-        It 'Test Import-BetaSpConfigDownload' {
-            #$TestResult = Import-BetaSpConfigDownload -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Import-BetaSpConfigJobStatus' {
-        It 'Test Import-BetaSpConfigJobStatus' {
-            #$TestResult = Import-BetaSpConfigJobStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

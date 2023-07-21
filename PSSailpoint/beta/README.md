@@ -136,7 +136,7 @@ Class | Method | HTTP request | Description
 *BetaCustomFormsApi* | [**Search-BetaFormDefinitionsByTenant**](docs/BetaCustomFormsApi.md#Search-BetaFormDefinitionsByTenant) | **GET** /form-definitions | Export form definitions by tenant.
 *BetaCustomFormsApi* | [**Search-BetaFormElementDataByElementID**](docs/BetaCustomFormsApi.md#Search-BetaFormElementDataByElementID) | **GET** /form-instances/{formInstanceID}/data-source/{formElementID} | Retrieves dynamic data by element.
 *BetaCustomFormsApi* | [**Search-BetaFormInstancesByTenant**](docs/BetaCustomFormsApi.md#Search-BetaFormInstancesByTenant) | **GET** /form-instances | List form instances by tenant.
-*BetaCustomFormsApi* | [**Search-BetaPreDefinedSelectOptions**](docs/BetaCustomFormsApi.md#Search-BetaPreDefinedSelectOptions) | **GET** /predefined-select-options | List predefined select options.
+*BetaCustomFormsApi* | [**Search-BetaPreDefinedSelectOptions**](docs/BetaCustomFormsApi.md#Search-BetaPreDefinedSelectOptions) | **GET** /form-definitions/predefined-select-options | List predefined select options.
 *BetaCustomFormsApi* | [**Show-BetaPreviewDataSource**](docs/BetaCustomFormsApi.md#Show-BetaPreviewDataSource) | **POST** /form-definitions/{formDefinitionID}/data-source | Preview form definition data source.
 *BetaCustomPasswordInstructionsApi* | [**New-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
@@ -343,13 +343,13 @@ Class | Method | HTTP request | Description
 *BetaSODPolicyApi* | [**Update-BetaPolicySchedule**](docs/BetaSODPolicyApi.md#Update-BetaPolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
 *BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 *BetaSODViolationsApi* | [**Invoke-BetaPredictSodViolations**](docs/BetaSODViolationsApi.md#Invoke-BetaPredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for the given identity if they were granted the given access.
-*BetaSPConfigApi* | [**Export-BetaSpConfig**](docs/BetaSPConfigApi.md#Export-BetaSpConfig) | **POST** /sp-config/export | Initiates Configuration Objects Export Job.
-*BetaSPConfigApi* | [**Export-BetaSpConfigDownload**](docs/BetaSPConfigApi.md#Export-BetaSpConfigDownload) | **GET** /sp-config/export/{id}/download | Download Result of Export Job
-*BetaSPConfigApi* | [**Export-BetaSpConfigJobStatus**](docs/BetaSPConfigApi.md#Export-BetaSpConfigJobStatus) | **GET** /sp-config/export/{id} | Get Status of Export Job
-*BetaSPConfigApi* | [**Import-BetaSpConfig**](docs/BetaSPConfigApi.md#Import-BetaSpConfig) | **POST** /sp-config/import | Initiates Configuration Objects Import Job.
-*BetaSPConfigApi* | [**Import-BetaSpConfigDownload**](docs/BetaSPConfigApi.md#Import-BetaSpConfigDownload) | **GET** /sp-config/import/{id}/download | Download Result of Import Job
-*BetaSPConfigApi* | [**Import-BetaSpConfigJobStatus**](docs/BetaSPConfigApi.md#Import-BetaSpConfigJobStatus) | **GET** /sp-config/import/{id} | Get Status of Import Job
-*BetaSPConfigApi* | [**Get-BetaSpConfigObjects**](docs/BetaSPConfigApi.md#Get-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get Config Object details
+*BetaSPConfigApi* | [**Export-BetaSpConfig**](docs/BetaSPConfigApi.md#Export-BetaSpConfig) | **POST** /sp-config/export | Initiates configuration objects export job
+*BetaSPConfigApi* | [**Get-BetaSpConfigExport**](docs/BetaSPConfigApi.md#Get-BetaSpConfigExport) | **GET** /sp-config/export/{id}/download | Download export job result.
+*BetaSPConfigApi* | [**Get-BetaSpConfigExportStatus**](docs/BetaSPConfigApi.md#Get-BetaSpConfigExportStatus) | **GET** /sp-config/export/{id} | Get export job status
+*BetaSPConfigApi* | [**Get-BetaSpConfigImport**](docs/BetaSPConfigApi.md#Get-BetaSpConfigImport) | **GET** /sp-config/import/{id}/download | Download import job result
+*BetaSPConfigApi* | [**Get-BetaSpConfigImportStatus**](docs/BetaSPConfigApi.md#Get-BetaSpConfigImportStatus) | **GET** /sp-config/import/{id} | Get import job status
+*BetaSPConfigApi* | [**Import-BetaSpConfig**](docs/BetaSPConfigApi.md#Import-BetaSpConfig) | **POST** /sp-config/import | Initiates configuration objects import job
+*BetaSPConfigApi* | [**Get-BetaSpConfigObjects**](docs/BetaSPConfigApi.md#Get-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get config object details
 *BetaSearchAttributeConfigurationApi* | [**New-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#New-BetaSearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create extended search attributes in IdentityNow.
 *BetaSearchAttributeConfigurationApi* | [**Remove-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Remove-BetaSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete an extended search attribute in IdentityNow.
 *BetaSearchAttributeConfigurationApi* | [**Get-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Get-BetaSearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve a list of extended search attributes in IdentityNow.

@@ -15,7 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER IsValid
-True if specified filter expression is valid against the input, false otherwise.
+When this field is true, the filter expression is valid against the input.
+.PARAMETER IsValidJSONPath
+When this field is true, the filter expression is using a valid JSON path.
+.PARAMETER IsPathExist
+When this field is true, the filter expression is using an existing path.
 .OUTPUTS
 
 ValidateFilterOutputDto<PSCustomObject>
@@ -26,7 +30,13 @@ function Initialize-BetaValidateFilterOutputDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsValid}
+        ${IsValid} = $false,
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsValidJSONPath} = $false,
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsPathExist} = $false
     )
 
     Process {
@@ -36,6 +46,8 @@ function Initialize-BetaValidateFilterOutputDto {
 
         $PSO = [PSCustomObject]@{
             "isValid" = ${IsValid}
+            "isValidJSONPath" = ${IsValidJSONPath}
+            "isPathExist" = ${IsPathExist}
         }
 
 
@@ -73,7 +85,7 @@ function ConvertFrom-BetaJsonToValidateFilterOutputDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaValidateFilterOutputDto
-        $AllProperties = ("isValid")
+        $AllProperties = ("isValid", "isValidJSONPath", "isPathExist")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -86,8 +98,22 @@ function ConvertFrom-BetaJsonToValidateFilterOutputDto {
             $IsValid = $JsonParameters.PSobject.Properties["isValid"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isValidJSONPath"))) { #optional property not found
+            $IsValidJSONPath = $null
+        } else {
+            $IsValidJSONPath = $JsonParameters.PSobject.Properties["isValidJSONPath"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isPathExist"))) { #optional property not found
+            $IsPathExist = $null
+        } else {
+            $IsPathExist = $JsonParameters.PSobject.Properties["isPathExist"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "isValid" = ${IsValid}
+            "isValidJSONPath" = ${IsValidJSONPath}
+            "isPathExist" = ${IsPathExist}
         }
 
         return $PSO

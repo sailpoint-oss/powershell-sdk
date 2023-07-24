@@ -425,8 +425,8 @@ Class | Method | HTTP request | Description
 *BetaTriggersApi* | [**Get-BetaTriggers**](docs/BetaTriggersApi.md#Get-BetaTriggers) | **GET** /triggers | List Triggers
 *BetaTriggersApi* | [**Update-BetaSubscription**](docs/BetaTriggersApi.md#Update-BetaSubscription) | **PATCH** /trigger-subscriptions/{id} | Patch a Subscription
 *BetaTriggersApi* | [**Start-BetaTestTriggerInvocation**](docs/BetaTriggersApi.md#Start-BetaTestTriggerInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
+*BetaTriggersApi* | [**Test-BetaSubscriptionFilter**](docs/BetaTriggersApi.md#Test-BetaSubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
 *BetaTriggersApi* | [**Update-BetaSubscription**](docs/BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
-*BetaTriggersApi* | [**Confirm-BetaSubscriptionFilter**](docs/BetaTriggersApi.md#Confirm-BetaSubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item

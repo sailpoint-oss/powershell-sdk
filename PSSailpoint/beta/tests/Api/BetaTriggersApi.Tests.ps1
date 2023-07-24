@@ -70,17 +70,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTriggersApi' {
         }
     }
 
-    Context 'Update-BetaSubscription' {
-        It 'Test Update-BetaSubscription' {
-            #$TestResult = Update-BetaSubscription -Id "TEST_VALUE" -SubscriptionPutRequest "TEST_VALUE"
+    Context 'Test-BetaSubscriptionFilter' {
+        It 'Test Test-BetaSubscriptionFilter' {
+            #$TestResult = Test-BetaSubscriptionFilter -ValidateFilterInputDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Confirm-BetaSubscriptionFilter' {
-        It 'Test Confirm-BetaSubscriptionFilter' {
-            #$TestResult = Confirm-BetaSubscriptionFilter -ValidateFilterInputDto "TEST_VALUE"
+    Context 'Update-BetaSubscription' {
+        It 'Test Update-BetaSubscription' {
+            #$TestResult = Update-BetaSubscription -Id "TEST_VALUE" -SubscriptionPutRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

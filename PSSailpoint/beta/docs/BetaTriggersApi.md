@@ -12,8 +12,8 @@ Method | HTTP request | Description
 [**Get-BetaTriggers**](BetaTriggersApi.md#Get-BetaTriggers) | **GET** /triggers | List Triggers
 [**Update-BetaSubscription**](BetaTriggersApi.md#Update-BetaSubscription) | **PATCH** /trigger-subscriptions/{id} | Patch a Subscription
 [**Start-BetaTestTriggerInvocation**](BetaTriggersApi.md#Start-BetaTestTriggerInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
+[**Test-BetaSubscriptionFilter**](BetaTriggersApi.md#Test-BetaSubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
 [**Update-BetaSubscription**](BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
-[**Confirm-BetaSubscriptionFilter**](BetaTriggersApi.md#Confirm-BetaSubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
 
 
 <a name="Complete-BetaTriggerInvocation"></a>
@@ -472,6 +472,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Test-BetaSubscriptionFilter"></a>
+# **Test-BetaSubscriptionFilter**
+> ValidateFilterOutputDto Test-BetaSubscriptionFilter<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ValidateFilterInputDto] <PSCustomObject><br>
+
+Validate a Subscription Filter
+
+Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$ValidateFilterInputDto = Initialize-ValidateFilterInputDto -VarInput  -VarFilter "$[?($.identityId == "201327fda1c44704ac01181e963d463c")]" # ValidateFilterInputDto | 
+
+# Validate a Subscription Filter
+try {
+    $Result = Test-BetaSubscriptionFilter -ValidateFilterInputDto $ValidateFilterInputDto
+} catch {
+    Write-Host ("Exception occurred when calling Test-BetaSubscriptionFilter: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ValidateFilterInputDto** | [**ValidateFilterInputDto**](ValidateFilterInputDto.md)|  | 
+
+### Return type
+
+[**ValidateFilterOutputDto**](ValidateFilterOutputDto.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Update-BetaSubscription"></a>
 # **Update-BetaSubscription**
 > Subscription Update-BetaSubscription<br>
@@ -519,57 +570,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Subscription**](Subscription.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Confirm-BetaSubscriptionFilter"></a>
-# **Confirm-BetaSubscriptionFilter**
-> ValidateFilterOutputDto Confirm-BetaSubscriptionFilter<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ValidateFilterInputDto] <PSCustomObject><br>
-
-Validate a Subscription Filter
-
-Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$ValidateFilterInputDto = Initialize-ValidateFilterInputDto -VarInput  -VarFilter "$[?($.identityId == "201327fda1c44704ac01181e963d463c")]" # ValidateFilterInputDto | 
-
-# Validate a Subscription Filter
-try {
-    $Result = Confirm-BetaSubscriptionFilter -ValidateFilterInputDto $ValidateFilterInputDto
-} catch {
-    Write-Host ("Exception occurred when calling Confirm-BetaSubscriptionFilter: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ValidateFilterInputDto** | [**ValidateFilterInputDto**](ValidateFilterInputDto.md)|  | 
-
-### Return type
-
-[**ValidateFilterOutputDto**](ValidateFilterOutputDto.md) (PSCustomObject)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaValidateFilterOutputDto' {
     Context 'BetaValidateFilterOutputDto' {
         It 'Initialize-BetaValidateFilterOutputDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaValidateFilterOutputDto -IsValid "TEST_VALUE"
+            #$NewObject = Initialize-BetaValidateFilterOutputDto -IsValid "TEST_VALUE" -IsValidJSONPath "TEST_VALUE" -IsPathExist "TEST_VALUE"
             #$NewObject | Should -BeOfType ValidateFilterOutputDto
             #$NewObject.property | Should -Be 0
         }

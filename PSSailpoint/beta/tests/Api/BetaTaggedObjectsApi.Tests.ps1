@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
-    Context 'Add-BetaTagToObject' {
-        It 'Test Add-BetaTagToObject' {
-            #$TestResult = Add-BetaTagToObject -TaggedObject "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Add-BetaTagsToManyObjects' {
         It 'Test Add-BetaTagsToManyObjects' {
             #$TestResult = Add-BetaTagsToManyObjects -BulkTaggedObject "TEST_VALUE"
@@ -57,6 +49,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
     Context 'Remove-BetaTagsToManyObject' {
         It 'Test Remove-BetaTagsToManyObject' {
             #$TestResult = Remove-BetaTagsToManyObject -BulkTaggedObject "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-BetaTagToObject' {
+        It 'Test Set-BetaTagToObject' {
+            #$TestResult = Set-BetaTagToObject -TaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

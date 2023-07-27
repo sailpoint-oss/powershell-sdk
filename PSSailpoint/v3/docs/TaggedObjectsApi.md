@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 <a name="Set-TagToObject"></a>
 # **Set-TagToObject**
-> TaggedObject Set-TagToObject<br>
+> void Set-TagToObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaggedObject] <PSCustomObject><br>
 
 Add Tag to Object
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaggedObject**](TaggedObject.md) (PSCustomObject)
+void (empty response body)
 
 ### Authorization
 

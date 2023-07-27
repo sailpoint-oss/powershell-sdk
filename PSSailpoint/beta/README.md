@@ -404,13 +404,13 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
 *BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
-*BetaTaggedObjectsApi* | [**Add-BetaTagToObject**](docs/BetaTaggedObjectsApi.md#Add-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 *BetaTaggedObjectsApi* | [**Add-BetaTagsToManyObjects**](docs/BetaTaggedObjectsApi.md#Add-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
 *BetaTaggedObjectsApi* | [**Remove-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObjects**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObjectsByType**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
 *BetaTaggedObjectsApi* | [**Remove-BetaTagsToManyObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
+*BetaTaggedObjectsApi* | [**Set-BetaTagToObject**](docs/BetaTaggedObjectsApi.md#Set-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 *BetaTaggedObjectsApi* | [**Update-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Update-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 *BetaTransformsApi* | [**New-BetaTransform**](docs/BetaTransformsApi.md#New-BetaTransform) | **POST** /transforms | Create transform
 *BetaTransformsApi* | [**Remove-BetaTransform**](docs/BetaTransformsApi.md#Remove-BetaTransform) | **DELETE** /transforms/{id} | Delete a transform

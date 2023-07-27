@@ -4,67 +4,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Add-BetaTagToObject**](BetaTaggedObjectsApi.md#Add-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 [**Add-BetaTagsToManyObjects**](BetaTaggedObjectsApi.md#Add-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
 [**Remove-BetaTaggedObject**](BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
 [**Get-BetaTaggedObject**](BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 [**Get-BetaTaggedObjects**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
 [**Get-BetaTaggedObjectsByType**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
 [**Remove-BetaTagsToManyObject**](BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
+[**Set-BetaTagToObject**](BetaTaggedObjectsApi.md#Set-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 [**Update-BetaTaggedObject**](BetaTaggedObjectsApi.md#Update-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 
-
-<a name="Add-BetaTagToObject"></a>
-# **Add-BetaTagToObject**
-> TaggedObject Add-BetaTagToObject<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaggedObject] <PSCustomObject><br>
-
-Add Tag to Object
-
-This adds a tag to an object.  Any authenticated token may be used to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: oauth2
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto1 -Tags "MyTags" # TaggedObject | 
-
-# Add Tag to Object
-try {
-    $Result = Add-BetaTagToObject -TaggedObject $TaggedObject
-} catch {
-    Write-Host ("Exception occurred when calling Add-BetaTagToObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **TaggedObject** | [**TaggedObject**](TaggedObject.md)|  | 
-
-### Return type
-
-[**TaggedObject**](TaggedObject.md) (PSCustomObject)
-
-### Authorization
-
-[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="Add-BetaTagsToManyObjects"></a>
 # **Add-BetaTagsToManyObjects**
@@ -385,6 +333,58 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ROLE, IDENTITY and SOD_POLICY. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Set-BetaTagToObject"></a>
+# **Set-BetaTagToObject**
+> void Set-BetaTagToObject<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaggedObject] <PSCustomObject><br>
+
+Add Tag to Object
+
+This adds a tag to an object.  Any authenticated token may be used to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto1 -Tags "MyTags" # TaggedObject | 
+
+# Add Tag to Object
+try {
+    $Result = Set-BetaTagToObject -TaggedObject $TaggedObject
+} catch {
+    Write-Host ("Exception occurred when calling Set-BetaTagToObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **TaggedObject** | [**TaggedObject**](TaggedObject.md)|  | 
 
 ### Return type
 

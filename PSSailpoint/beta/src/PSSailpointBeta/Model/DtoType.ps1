@@ -70,5 +70,7 @@ enum DtoType {
     SOD_VIOLATION
     # enum value: "ACCOUNT_ACTIVITY"
     ACCOUNT_ACTIVITY
+    # enum value: "WORKGROUP"
+    WORKGROUP
 }
 

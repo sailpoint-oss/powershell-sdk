@@ -453,6 +453,7 @@ docs/Substring.md
 docs/TaggedObject.md
 docs/TaggedObjectDto.md
 docs/TaggedObjectsApi.md
+docs/TextQuery.md
 docs/Transform.md
 docs/TransformAttributes.md
 docs/TransformDefinition.md
@@ -933,6 +934,7 @@ src/PSSailpoint/Model/SubSearchAggregationSpecificationAllOf.ps1
 src/PSSailpoint/Model/Substring.ps1
 src/PSSailpoint/Model/TaggedObject.ps1
 src/PSSailpoint/Model/TaggedObjectDto.ps1
+src/PSSailpoint/Model/TextQuery.ps1
 src/PSSailpoint/Model/Transform.ps1
 src/PSSailpoint/Model/TransformAttributes.ps1
 src/PSSailpoint/Model/TransformDefinition.ps1
@@ -1417,6 +1419,7 @@ tests/Model/SubSearchAggregationSpecificationAllOf.Tests.ps1
 tests/Model/Substring.Tests.ps1
 tests/Model/TaggedObject.Tests.ps1
 tests/Model/TaggedObjectDto.Tests.ps1
+tests/Model/TextQuery.Tests.ps1
 tests/Model/Transform.Tests.ps1
 tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformDefinition.Tests.ps1

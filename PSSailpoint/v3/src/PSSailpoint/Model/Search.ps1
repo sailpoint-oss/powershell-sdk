@@ -24,6 +24,8 @@ No description available.
 No description available.
 .PARAMETER QueryDsl
 The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax.
+.PARAMETER TextQuery
+No description available.
 .PARAMETER TypeAheadQuery
 No description available.
 .PARAMETER IncludeNested
@@ -56,7 +58,7 @@ function Initialize-Search {
         [PSCustomObject[]]
         ${Indices},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("DSL", "SAILPOINT", "TYPEAHEAD")]
+        [ValidateSet("DSL", "SAILPOINT", "TEXT", "TYPEAHEAD")]
         [PSCustomObject]
         ${QueryType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
@@ -70,33 +72,36 @@ function Initialize-Search {
         ${QueryDsl},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${TypeAheadQuery},
+        ${TextQuery},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${TypeAheadQuery},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IncludeNested} = $true,
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${QueryResultFilter},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("DSL", "SAILPOINT")]
         [PSCustomObject]
         ${AggregationType},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[String]]
         ${AggregationsVersion},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${AggregationsDsl},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Aggregations},
+        ${AggregationsDsl},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${Sort},
+        [PSCustomObject]
+        ${Aggregations},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${SearchAfter},
+        ${Sort},
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${SearchAfter},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Filters}
     )
@@ -112,6 +117,7 @@ function Initialize-Search {
             "queryVersion" = ${QueryVersion}
             "query" = ${Query}
             "queryDsl" = ${QueryDsl}
+            "textQuery" = ${TextQuery}
             "typeAheadQuery" = ${TypeAheadQuery}
             "includeNested" = ${IncludeNested}
             "queryResultFilter" = ${QueryResultFilter}
@@ -159,7 +165,7 @@ function ConvertFrom-JsonToSearch {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Search
-        $AllProperties = ("indices", "queryType", "queryVersion", "query", "queryDsl", "typeAheadQuery", "includeNested", "queryResultFilter", "aggregationType", "aggregationsVersion", "aggregationsDsl", "aggregations", "sort", "searchAfter", "filters")
+        $AllProperties = ("indices", "queryType", "queryVersion", "query", "queryDsl", "textQuery", "typeAheadQuery", "includeNested", "queryResultFilter", "aggregationType", "aggregationsVersion", "aggregationsDsl", "aggregations", "sort", "searchAfter", "filters")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -194,6 +200,12 @@ function ConvertFrom-JsonToSearch {
             $QueryDsl = $null
         } else {
             $QueryDsl = $JsonParameters.PSobject.Properties["queryDsl"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "textQuery"))) { #optional property not found
+            $TextQuery = $null
+        } else {
+            $TextQuery = $JsonParameters.PSobject.Properties["textQuery"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "typeAheadQuery"))) { #optional property not found
@@ -262,6 +274,7 @@ function ConvertFrom-JsonToSearch {
             "queryVersion" = ${QueryVersion}
             "query" = ${Query}
             "queryDsl" = ${QueryDsl}
+            "textQuery" = ${TextQuery}
             "typeAheadQuery" = ${TypeAheadQuery}
             "includeNested" = ${IncludeNested}
             "queryResultFilter" = ${QueryResultFilter}

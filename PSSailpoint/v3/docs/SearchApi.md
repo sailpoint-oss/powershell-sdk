@@ -35,6 +35,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
+$TextQuery = Initialize-TextQuery -Terms "[The quick brown fox, 3141592, 7]" -Fields "[displayName, employeeNumber, roleCount]" -MatchAny $false -Contains $true
 $TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10
 $QueryResultFilter = Initialize-QueryResultFilter -Includes "MyIncludes" -Excludes "MyExcludes"
 
@@ -54,7 +55,7 @@ $Range = Initialize-Range -Lower $Bound -Upper $Bound
 
 $ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
-$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
+$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TextQuery $TextQuery -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -114,6 +115,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
+$TextQuery = Initialize-TextQuery -Terms "[The quick brown fox, 3141592, 7]" -Fields "[displayName, employeeNumber, roleCount]" -MatchAny $false -Contains $true
 $TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10
 $QueryResultFilter = Initialize-QueryResultFilter -Includes "MyIncludes" -Excludes "MyExcludes"
 
@@ -133,7 +135,7 @@ $Range = Initialize-Range -Lower $Bound -Upper $Bound
 
 $ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
-$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
+$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TextQuery $TextQuery -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
 
 # Count Documents Satisfying a Query
 try {
@@ -244,6 +246,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
+$TextQuery = Initialize-TextQuery -Terms "[The quick brown fox, 3141592, 7]" -Fields "[displayName, employeeNumber, roleCount]" -MatchAny $false -Contains $true
 $TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10
 $QueryResultFilter = Initialize-QueryResultFilter -Includes "MyIncludes" -Excludes "MyExcludes"
 
@@ -263,7 +266,7 @@ $Range = Initialize-Range -Lower $Bound -Upper $Bound
 
 $ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
-$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
+$Search = Initialize-Search -Indices "accessprofiles" -QueryType "DSL" -QueryVersion $String -Query $Query -QueryDsl  -TextQuery $TextQuery -TypeAheadQuery $TypeAheadQuery -IncludeNested $true -QueryResultFilter $QueryResultFilter -AggregationType "DSL" -AggregationsVersion $String -AggregationsDsl  -Aggregations $SearchAggregationSpecification -Sort "[displayName, +id]" -SearchAfter "[John Doe, 2c91808375d8e80a0175e1f88a575221]" -Filters @{ key_example = $ModelFilter } # Search | 
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)

@@ -20,6 +20,8 @@ enum QueryType {
     DSL
     # enum value: "SAILPOINT"
     SAILPOINT
+    # enum value: "TEXT"
+    TEXT
     # enum value: "TYPEAHEAD"
     TYPEAHEAD
 }

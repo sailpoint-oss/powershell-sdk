@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **QueryVersion** | **String** |  | [optional] 
 **Query** | [**Query**](Query.md) |  | [optional] 
 **QueryDsl** | [**SystemCollectionsHashtable**](.md) | The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax. | [optional] 
+**TextQuery** | [**TextQuery**](TextQuery.md) |  | [optional] 
 **TypeAheadQuery** | [**TypeAheadQuery**](TypeAheadQuery.md) |  | [optional] 
 **IncludeNested** | **Boolean** | Indicates whether nested objects from returned search results should be included. | [optional] [default to $true]
 **QueryResultFilter** | [**QueryResultFilter**](QueryResultFilter.md) |  | [optional] 
@@ -28,6 +29,7 @@ $Search = Initialize-PSSailpointSearch  -Indices [identities] `
  -QueryVersion null `
  -Query null `
  -QueryDsl {match&#x3D;{name&#x3D;john.doe}} `
+ -TextQuery null `
  -TypeAheadQuery null `
  -IncludeNested true `
  -QueryResultFilter null `

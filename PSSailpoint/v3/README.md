@@ -696,6 +696,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.Substring](docs/Substring.md)
  - [PSSailpoint/Model.TaggedObject](docs/TaggedObject.md)
  - [PSSailpoint/Model.TaggedObjectDto](docs/TaggedObjectDto.md)
+ - [PSSailpoint/Model.TextQuery](docs/TextQuery.md)
  - [PSSailpoint/Model.Transform](docs/Transform.md)
  - [PSSailpoint/Model.TransformAttributes](docs/TransformAttributes.md)
  - [PSSailpoint/Model.TransformDefinition](docs/TransformDefinition.md)

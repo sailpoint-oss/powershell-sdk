@@ -465,6 +465,7 @@ docs/OutlierContributingFeature.md
 docs/OutlierContributingFeatureValue.md
 docs/OutlierFeatureTranslation.md
 docs/OutlierSummary.md
+docs/OutliersContributingFeatureAccessItems.md
 docs/Owner.md
 docs/OwnerReference.md
 docs/OwnerReferenceDto.md
@@ -1189,6 +1190,7 @@ src/PSSailpointBeta/Model/OutlierContributingFeature.ps1
 src/PSSailpointBeta/Model/OutlierContributingFeatureValue.ps1
 src/PSSailpointBeta/Model/OutlierFeatureTranslation.ps1
 src/PSSailpointBeta/Model/OutlierSummary.ps1
+src/PSSailpointBeta/Model/OutliersContributingFeatureAccessItems.ps1
 src/PSSailpointBeta/Model/Owner.ps1
 src/PSSailpointBeta/Model/OwnerReference.ps1
 src/PSSailpointBeta/Model/OwnerReferenceDto.ps1
@@ -1919,6 +1921,7 @@ tests/Model/OutlierContributingFeature.Tests.ps1
 tests/Model/OutlierContributingFeatureValue.Tests.ps1
 tests/Model/OutlierFeatureTranslation.Tests.ps1
 tests/Model/OutlierSummary.Tests.ps1
+tests/Model/OutliersContributingFeatureAccessItems.Tests.ps1
 tests/Model/Owner.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
 tests/Model/OwnerReferenceDto.Tests.ps1

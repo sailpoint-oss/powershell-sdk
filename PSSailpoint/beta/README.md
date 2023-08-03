@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
 *BetaIAIOutliersApi* | [**Get-BetaLatestIdentityOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaLatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
 *BetaIAIOutliersApi* | [**Get-BetaPeerGroupOutliersContributingFeatures**](docs/BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | Get identity outlier's contibuting features
 *BetaIAIOutliersApi* | [**Invoke-BetaIgnoreIdentityOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaIgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
+*BetaIAIOutliersApi* | [**Get-BetaOutliersContributingFeatureAccessItems**](docs/BetaIAIOutliersApi.md#Get-BetaOutliersContributingFeatureAccessItems) | **GET** /outliers/{outlierId}/feature-details/{contributingFeatureId}/access-items | Gets a list of access items associated with each identity outlier contributing feature
 *BetaIAIOutliersApi* | [**Invoke-BetaUnIgnoreIdentityOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
 *BetaIAIPeerGroupStrategiesApi* | [**Get-BetaPeerGroupOutliers**](docs/BetaIAIPeerGroupStrategiesApi.md#Get-BetaPeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
 *BetaIAIRecommendationsApi* | [**Get-BetaMessageCatalogs**](docs/BetaIAIRecommendationsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
@@ -881,6 +882,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.OutlierContributingFeatureValue](docs/OutlierContributingFeatureValue.md)
  - [PSSailpointBeta/Model.OutlierFeatureTranslation](docs/OutlierFeatureTranslation.md)
  - [PSSailpointBeta/Model.OutlierSummary](docs/OutlierSummary.md)
+ - [PSSailpointBeta/Model.OutliersContributingFeatureAccessItems](docs/OutliersContributingFeatureAccessItems.md)
  - [PSSailpointBeta/Model.Owner](docs/Owner.md)
  - [PSSailpointBeta/Model.OwnerReference](docs/OwnerReference.md)
  - [PSSailpointBeta/Model.OwnerReferenceDto](docs/OwnerReferenceDto.md)

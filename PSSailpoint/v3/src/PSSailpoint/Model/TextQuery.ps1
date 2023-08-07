@@ -19,9 +19,9 @@ Words or characters that specify a particular thing to be searched for.
 .PARAMETER Fields
 The fields to be searched.
 .PARAMETER MatchAny
-Indicates if a match was found.
+Indicates that at least one of the terms must be found in the specified fields;  otherwise, all terms must be found.
 .PARAMETER Contains
-Indicates if the search contained a field.
+Indicates that the terms can be located anywhere in the specified fields;  otherwise, the fields must begin with the terms.
 .OUTPUTS
 
 TextQuery<PSCustomObject>

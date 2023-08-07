@@ -332,6 +332,8 @@ docs/HttpDispatchMode.md
 docs/IdentitiesAccountsBulkRequest.md
 docs/Identity.md
 docs/Identity1.md
+docs/IdentityAssociationDetails.md
+docs/IdentityAssociationDetailsAssociationDetailsInner.md
 docs/IdentityAttributeConfig.md
 docs/IdentityAttributeConfig1.md
 docs/IdentityAttributePreview.md
@@ -351,6 +353,8 @@ docs/IdentityCreatedIdentity.md
 docs/IdentityDeleted.md
 docs/IdentityDeletedIdentity.md
 docs/IdentityDto.md
+docs/IdentityEntities.md
+docs/IdentityEntitiesIdentityEntity.md
 docs/IdentityExceptionReportReference.md
 docs/IdentityExceptionReportReference1.md
 docs/IdentityHistoryResponse.md
@@ -1056,6 +1060,8 @@ src/PSSailpointBeta/Model/HttpDispatchMode.ps1
 src/PSSailpointBeta/Model/IdentitiesAccountsBulkRequest.ps1
 src/PSSailpointBeta/Model/Identity.ps1
 src/PSSailpointBeta/Model/Identity1.ps1
+src/PSSailpointBeta/Model/IdentityAssociationDetails.ps1
+src/PSSailpointBeta/Model/IdentityAssociationDetailsAssociationDetailsInner.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig1.ps1
 src/PSSailpointBeta/Model/IdentityAttributePreview.ps1
@@ -1075,6 +1081,8 @@ src/PSSailpointBeta/Model/IdentityCreatedIdentity.ps1
 src/PSSailpointBeta/Model/IdentityDeleted.ps1
 src/PSSailpointBeta/Model/IdentityDeletedIdentity.ps1
 src/PSSailpointBeta/Model/IdentityDto.ps1
+src/PSSailpointBeta/Model/IdentityEntities.ps1
+src/PSSailpointBeta/Model/IdentityEntitiesIdentityEntity.ps1
 src/PSSailpointBeta/Model/IdentityExceptionReportReference.ps1
 src/PSSailpointBeta/Model/IdentityExceptionReportReference1.ps1
 src/PSSailpointBeta/Model/IdentityHistoryResponse.ps1
@@ -1787,6 +1795,8 @@ tests/Model/HttpDispatchMode.Tests.ps1
 tests/Model/IdentitiesAccountsBulkRequest.Tests.ps1
 tests/Model/Identity.Tests.ps1
 tests/Model/Identity1.Tests.ps1
+tests/Model/IdentityAssociationDetails.Tests.ps1
+tests/Model/IdentityAssociationDetailsAssociationDetailsInner.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
 tests/Model/IdentityAttributeConfig1.Tests.ps1
 tests/Model/IdentityAttributePreview.Tests.ps1
@@ -1806,6 +1816,8 @@ tests/Model/IdentityCreatedIdentity.Tests.ps1
 tests/Model/IdentityDeleted.Tests.ps1
 tests/Model/IdentityDeletedIdentity.Tests.ps1
 tests/Model/IdentityDto.Tests.ps1
+tests/Model/IdentityEntities.Tests.ps1
+tests/Model/IdentityEntitiesIdentityEntity.Tests.ps1
 tests/Model/IdentityExceptionReportReference.Tests.ps1
 tests/Model/IdentityExceptionReportReference1.Tests.ps1
 tests/Model/IdentityHistoryResponse.Tests.ps1

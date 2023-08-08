@@ -320,6 +320,16 @@ function Get-HostSetting {
                   "DefaultValue" = "sailpoint";
                 }
               }
+          },
+          @{
+            "Url" = "https://{apiUrl}/v3";
+            "Description" = "This is the V3 API server.";
+            "Variables" = @{
+              "apiUrl" = @{
+                  "Description" = "This is the api url of your tenant";
+                  "DefaultValue" = "sailpoint.api.identitynow.com";
+                }
+              }
           }
     )
 

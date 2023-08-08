@@ -320,6 +320,16 @@ function Get-CCHostSetting {
                   "DefaultValue" = "sailpoint";
                 }
               }
+          },
+          @{
+            "Url" = "https://{apiUrl}";
+            "Description" = "This is the CC API server.";
+            "Variables" = @{
+              "apiUrl" = @{
+                  "Description" = "This is the api url of your tenant";
+                  "DefaultValue" = "sailpoint.api.identitynow.com";
+                }
+              }
           }
     )
 

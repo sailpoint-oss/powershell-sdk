@@ -320,6 +320,16 @@ function Get-BetaHostSetting {
                   "DefaultValue" = "sailpoint";
                 }
               }
+          },
+          @{
+            "Url" = "https://{apiUrl}/beta";
+            "Description" = "This is the beta API server.";
+            "Variables" = @{
+              "apiUrl" = @{
+                  "Description" = "This is the api url of your tenant";
+                  "DefaultValue" = "sailpoint.api.identitynow.com";
+                }
+              }
           }
     )
 

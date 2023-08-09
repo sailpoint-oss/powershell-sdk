@@ -633,8 +633,8 @@ This API returns a list of the enriched access items associated with each featur
 .PARAMETER OutlierId
 The outlier id
 
-.PARAMETER ContributingFeatureId
-The contributing feature id
+.PARAMETER ContributingFeatureName
+The name of contributing feature
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -666,8 +666,9 @@ function Get-BetaOutliersContributingFeatureAccessItems {
         [String]
         ${OutlierId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("radical_entitlement_count", "entitlement_count", "max_jaccard_similarity", "mean_max_bundle_concurrency", "single_entitlement_bundle_count", "peerless_score")]
         [String]
-        ${ContributingFeatureId},
+        ${ContributingFeatureName},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
@@ -703,15 +704,15 @@ function Get-BetaOutliersContributingFeatureAccessItems {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/outliers/{outlierId}/feature-details/{contributingFeatureId}/access-items'
+        $LocalVarUri = '/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items'
         if (!$OutlierId) {
             throw "Error! The required parameter `OutlierId` missing when calling listOutliersContributingFeatureAccessItems."
         }
         $LocalVarUri = $LocalVarUri.replace('{outlierId}', [System.Web.HTTPUtility]::UrlEncode($OutlierId))
-        if (!$ContributingFeatureId) {
-            throw "Error! The required parameter `ContributingFeatureId` missing when calling listOutliersContributingFeatureAccessItems."
+        if (!$ContributingFeatureName) {
+            throw "Error! The required parameter `ContributingFeatureName` missing when calling listOutliersContributingFeatureAccessItems."
         }
-        $LocalVarUri = $LocalVarUri.replace('{contributingFeatureId}', [System.Web.HTTPUtility]::UrlEncode($ContributingFeatureId))
+        $LocalVarUri = $LocalVarUri.replace('{contributingFeatureName}', [System.Web.HTTPUtility]::UrlEncode($ContributingFeatureName))
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit

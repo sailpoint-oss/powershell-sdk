@@ -56,7 +56,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIOutliersApi' {
 
     Context 'Get-BetaOutliersContributingFeatureAccessItems' {
         It 'Test Get-BetaOutliersContributingFeatureAccessItems' {
-            #$TestResult = Get-BetaOutliersContributingFeatureAccessItems -OutlierId "TEST_VALUE" -ContributingFeatureId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -AccessType "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-BetaOutliersContributingFeatureAccessItems -OutlierId "TEST_VALUE" -ContributingFeatureName "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -AccessType "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

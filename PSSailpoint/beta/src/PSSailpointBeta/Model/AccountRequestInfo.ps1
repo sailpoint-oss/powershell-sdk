@@ -35,7 +35,7 @@ function Initialize-BetaAccountRequestInfo {
         [String]
         ${RequestedObjectName},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT")]
+        [ValidateSet("ACCESS_PROFILE", "ROLE")]
         [PSCustomObject]
         ${RequestedObjectType}
     )

@@ -292,7 +292,7 @@ Class | Method | HTTP request | Description
 *BetaOrgConfigApi* | [**Update-BetaOrgConfig**](docs/BetaOrgConfigApi.md#Update-BetaOrgConfig) | **PATCH** /org-config | Patch an Org configuration property
 *BetaPasswordConfigurationApi* | [**New-BetaPasswordOrgConfig**](docs/BetaPasswordConfigurationApi.md#New-BetaPasswordOrgConfig) | **POST** /password-org-config | Create Password Org Config
 *BetaPasswordConfigurationApi* | [**Get-BetaPasswordOrgConfig**](docs/BetaPasswordConfigurationApi.md#Get-BetaPasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
-*BetaPasswordConfigurationApi* | [**Update-BetaPasswordOrgConfig**](docs/BetaPasswordConfigurationApi.md#Update-BetaPasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
+*BetaPasswordConfigurationApi* | [**Send-BetaPasswordOrgConfig**](docs/BetaPasswordConfigurationApi.md#Send-BetaPasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
 *BetaPasswordDictionaryApi* | [**Get-BetaPasswordDictionary**](docs/BetaPasswordDictionaryApi.md#Get-BetaPasswordDictionary) | **GET** /password-dictionary | Get Password Dictionary
 *BetaPasswordDictionaryApi* | [**Update-BetaPasswordDictionary**](docs/BetaPasswordDictionaryApi.md#Update-BetaPasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 *BetaPasswordManagementApi* | [**New-BetaDigitToken**](docs/BetaPasswordManagementApi.md#New-BetaDigitToken) | **POST** /generate-password-reset-token/digit | Generate a digit token

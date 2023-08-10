@@ -12,7 +12,7 @@ Enum RequestableObjectType.
 
 .DESCRIPTION
 
-Enum represented the currently supported requestable object types. Additional values may be added in the future without notice.
+The currently supported requestable object types. 
 #>
 
 enum RequestableObjectType {
@@ -20,7 +20,5 @@ enum RequestableObjectType {
     ACCESS_PROFILE
     # enum value: "ROLE"
     ROLE
-    # enum value: "ENTITLEMENT"
-    ENTITLEMENT
 }
 

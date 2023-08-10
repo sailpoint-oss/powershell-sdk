@@ -22,9 +22,9 @@ Describe -tag 'PSSailpoint' -name 'PasswordConfigurationApi' {
         }
     }
 
-    Context 'Update-PasswordOrgConfig' {
-        It 'Test Update-PasswordOrgConfig' {
-            #$TestResult = Update-PasswordOrgConfig -PasswordOrgConfig "TEST_VALUE"
+    Context 'Send-PasswordOrgConfig' {
+        It 'Test Send-PasswordOrgConfig' {
+            #$TestResult = Send-PasswordOrgConfig -PasswordOrgConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

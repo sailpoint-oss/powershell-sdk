@@ -12,7 +12,7 @@ Create Password Org Config
 
 .DESCRIPTION
 
-This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
+This API creates the password org config. Unspecified fields will use default value. To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to ""true"". Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
 
 .PARAMETER PasswordOrgConfig
 No description available.
@@ -166,7 +166,7 @@ Update Password Org Config
 
 .DESCRIPTION
 
-This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
+This API updates the password org config for specified fields. Other fields will keep original value. You must set the `customInstructionsEnabled` field to ""true"" to be able to use custom password instructions.  Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
 
 .PARAMETER PasswordOrgConfig
 No description available.
@@ -179,7 +179,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 PasswordOrgConfig
 #>
-function Update-BetaPasswordOrgConfig {
+function Send-BetaPasswordOrgConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -190,7 +190,7 @@ function Update-BetaPasswordOrgConfig {
     )
 
     Process {
-        'Calling method: Update-BetaPasswordOrgConfig' | Write-Debug
+        'Calling method: Send-BetaPasswordOrgConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -211,7 +211,7 @@ function Update-BetaPasswordOrgConfig {
         $LocalVarUri = '/password-org-config'
 
         if (!$PasswordOrgConfig) {
-            throw "Error! The required parameter `PasswordOrgConfig` missing when calling updatePasswordOrgConfig."
+            throw "Error! The required parameter `PasswordOrgConfig` missing when calling putPasswordOrgConfig."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {

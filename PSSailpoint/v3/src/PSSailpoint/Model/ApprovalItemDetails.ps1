@@ -15,17 +15,17 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-ID of the approval item
+The approval item's ID
 .PARAMETER Account
 The account referenced by the approval item
 .PARAMETER Application
-The name the application/source
-.PARAMETER AttributeName
-The name of the attribute
-.PARAMETER AttributeOperation
-The operation of the attribute
-.PARAMETER AttributeValue
-The value of the attribute
+The name of the application/source
+.PARAMETER Name
+The attribute's name
+.PARAMETER Operation
+The attribute's operation
+.PARAMETER Value
+The attribute's value
 .PARAMETER State
 No description available.
 .OUTPUTS
@@ -47,13 +47,13 @@ function Initialize-ApprovalItemDetails {
         ${Application},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AttributeName},
+        ${Name},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AttributeOperation},
+        ${Operation},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AttributeValue},
+        ${Value},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED")]
         [PSCustomObject]
@@ -69,9 +69,9 @@ function Initialize-ApprovalItemDetails {
             "id" = ${Id}
             "account" = ${Account}
             "application" = ${Application}
-            "attributeName" = ${AttributeName}
-            "attributeOperation" = ${AttributeOperation}
-            "attributeValue" = ${AttributeValue}
+            "name" = ${Name}
+            "operation" = ${Operation}
+            "value" = ${Value}
             "state" = ${State}
         }
 
@@ -110,7 +110,7 @@ function ConvertFrom-JsonToApprovalItemDetails {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ApprovalItemDetails
-        $AllProperties = ("id", "account", "application", "attributeName", "attributeOperation", "attributeValue", "state")
+        $AllProperties = ("id", "account", "application", "name", "operation", "value", "state")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,22 +135,22 @@ function ConvertFrom-JsonToApprovalItemDetails {
             $Application = $JsonParameters.PSobject.Properties["application"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeName"))) { #optional property not found
-            $AttributeName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
         } else {
-            $AttributeName = $JsonParameters.PSobject.Properties["attributeName"].value
+            $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeOperation"))) { #optional property not found
-            $AttributeOperation = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "operation"))) { #optional property not found
+            $Operation = $null
         } else {
-            $AttributeOperation = $JsonParameters.PSobject.Properties["attributeOperation"].value
+            $Operation = $JsonParameters.PSobject.Properties["operation"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeValue"))) { #optional property not found
-            $AttributeValue = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "value"))) { #optional property not found
+            $Value = $null
         } else {
-            $AttributeValue = $JsonParameters.PSobject.Properties["attributeValue"].value
+            $Value = $JsonParameters.PSobject.Properties["value"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "state"))) { #optional property not found
@@ -163,9 +163,9 @@ function ConvertFrom-JsonToApprovalItemDetails {
             "id" = ${Id}
             "account" = ${Account}
             "application" = ${Application}
-            "attributeName" = ${AttributeName}
-            "attributeOperation" = ${AttributeOperation}
-            "attributeValue" = ${AttributeValue}
+            "name" = ${Name}
+            "operation" = ${Operation}
+            "value" = ${Value}
             "state" = ${State}
         }
 

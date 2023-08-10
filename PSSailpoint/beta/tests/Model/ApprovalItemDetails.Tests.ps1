@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaApprovalItemDetails' {
     Context 'BetaApprovalItemDetails' {
         It 'Initialize-BetaApprovalItemDetails' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaApprovalItemDetails -Id "TEST_VALUE" -Account "TEST_VALUE" -Application "TEST_VALUE" -AttributeName "TEST_VALUE" -AttributeOperation "TEST_VALUE" -AttributeValue "TEST_VALUE" -State "TEST_VALUE"
+            #$NewObject = Initialize-BetaApprovalItemDetails -Id "TEST_VALUE" -Account "TEST_VALUE" -Application "TEST_VALUE" -Name "TEST_VALUE" -Operation "TEST_VALUE" -Value "TEST_VALUE" -State "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalItemDetails
             #$NewObject.property | Should -Be 0
         }

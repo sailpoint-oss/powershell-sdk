@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | ID of the approval item | [optional] 
+**Id** | **String** | The approval item&#39;s ID | [optional] 
 **Account** | **String** | The account referenced by the approval item | [optional] 
-**Application** | **String** | The name the application/source | [optional] 
-**AttributeName** | **String** | The name of the attribute | [optional] 
-**AttributeOperation** | **String** | The operation of the attribute | [optional] 
-**AttributeValue** | **String** | The value of the attribute | [optional] 
+**Application** | **String** | The name of the application/source | [optional] 
+**Name** | **String** | The attribute&#39;s name | [optional] 
+**Operation** | **String** | The attribute&#39;s operation | [optional] 
+**Value** | **String** | The attribute&#39;s value | [optional] 
 **State** | [**WorkItemState**](WorkItemState.md) |  | [optional] 
 
 ## Examples
@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 $ApprovalItemDetails = Initialize-PSSailpointBetaApprovalItemDetails  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Account john.smith `
  -Application Active Directory `
- -AttributeName emailAddress `
- -AttributeOperation update `
- -AttributeValue a@b.com `
+ -Name emailAddress `
+ -Operation update `
+ -Value a@b.com `
  -State null
 ```
 

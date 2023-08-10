@@ -22,9 +22,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaPasswordConfigurationApi' {
         }
     }
 
-    Context 'Update-BetaPasswordOrgConfig' {
-        It 'Test Update-BetaPasswordOrgConfig' {
-            #$TestResult = Update-BetaPasswordOrgConfig -PasswordOrgConfig "TEST_VALUE"
+    Context 'Send-BetaPasswordOrgConfig' {
+        It 'Test Send-BetaPasswordOrgConfig' {
+            #$TestResult = Send-BetaPasswordOrgConfig -PasswordOrgConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

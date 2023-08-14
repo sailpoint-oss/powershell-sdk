@@ -14,6 +14,8 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+Contributing feature id
 .PARAMETER Name
 The name of the feature
 .PARAMETER ValueType
@@ -38,24 +40,27 @@ function Initialize-BetaOutlierContributingFeature {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("INTEGER", "FLOAT")]
         [String]
         ${ValueType},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Value},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Importance},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${DisplayName},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${DisplayName},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${TranslationMessages}
     )
@@ -74,6 +79,7 @@ function Initialize-BetaOutlierContributingFeature {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
             "valueType" = ${ValueType}
             "value" = ${Value}
@@ -118,11 +124,17 @@ function ConvertFrom-BetaJsonToOutlierContributingFeature {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaOutlierContributingFeature
-        $AllProperties = ("name", "valueType", "value", "importance", "displayName", "description", "translationMessages")
+        $AllProperties = ("id", "name", "valueType", "value", "importance", "displayName", "description", "translationMessages")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -168,6 +180,7 @@ function ConvertFrom-BetaJsonToOutlierContributingFeature {
         }
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
             "valueType" = ${ValueType}
             "value" = ${Value}

@@ -467,6 +467,8 @@ docs/OrgConfig.md
 docs/Outlier.md
 docs/OutlierContributingFeature.md
 docs/OutlierContributingFeatureValue.md
+docs/OutlierFeatureSummary.md
+docs/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.md
 docs/OutlierFeatureTranslation.md
 docs/OutlierSummary.md
 docs/OutliersContributingFeatureAccessItems.md
@@ -1196,6 +1198,8 @@ src/PSSailpointBeta/Model/OrgConfig.ps1
 src/PSSailpointBeta/Model/Outlier.ps1
 src/PSSailpointBeta/Model/OutlierContributingFeature.ps1
 src/PSSailpointBeta/Model/OutlierContributingFeatureValue.ps1
+src/PSSailpointBeta/Model/OutlierFeatureSummary.ps1
+src/PSSailpointBeta/Model/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.ps1
 src/PSSailpointBeta/Model/OutlierFeatureTranslation.ps1
 src/PSSailpointBeta/Model/OutlierSummary.ps1
 src/PSSailpointBeta/Model/OutliersContributingFeatureAccessItems.ps1
@@ -1931,6 +1935,8 @@ tests/Model/OrgConfig.Tests.ps1
 tests/Model/Outlier.Tests.ps1
 tests/Model/OutlierContributingFeature.Tests.ps1
 tests/Model/OutlierContributingFeatureValue.Tests.ps1
+tests/Model/OutlierFeatureSummary.Tests.ps1
+tests/Model/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.Tests.ps1
 tests/Model/OutlierFeatureTranslation.Tests.ps1
 tests/Model/OutlierSummary.Tests.ps1
 tests/Model/OutliersContributingFeatureAccessItems.Tests.ps1

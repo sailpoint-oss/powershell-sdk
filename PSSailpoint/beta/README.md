@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
 *BetaIAIOutliersApi* | [**Get-BetaIdentityOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaIdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
 *BetaIAIOutliersApi* | [**Get-BetaIdentityOutliers**](docs/BetaIAIOutliersApi.md#Get-BetaIdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
 *BetaIAIOutliersApi* | [**Get-BetaLatestIdentityOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaLatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
+*BetaIAIOutliersApi* | [**Get-BetaOutlierContributingFeatureSummary**](docs/BetaIAIOutliersApi.md#Get-BetaOutlierContributingFeatureSummary) | **GET** /outlier-feature-summaries/{outlierFeatureId} | Get identity outlier contibuting feature summary
 *BetaIAIOutliersApi* | [**Get-BetaPeerGroupOutliersContributingFeatures**](docs/BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | Get identity outlier's contibuting features
 *BetaIAIOutliersApi* | [**Invoke-BetaIgnoreIdentityOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaIgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
 *BetaIAIOutliersApi* | [**Get-BetaOutliersContributingFeatureAccessItems**](docs/BetaIAIOutliersApi.md#Get-BetaOutliersContributingFeatureAccessItems) | **GET** /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items | Gets a list of access items associated with each identity outlier contributing feature
@@ -884,6 +885,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.Outlier](docs/Outlier.md)
  - [PSSailpointBeta/Model.OutlierContributingFeature](docs/OutlierContributingFeature.md)
  - [PSSailpointBeta/Model.OutlierContributingFeatureValue](docs/OutlierContributingFeatureValue.md)
+ - [PSSailpointBeta/Model.OutlierFeatureSummary](docs/OutlierFeatureSummary.md)
+ - [PSSailpointBeta/Model.OutlierFeatureSummaryOutlierFeatureDisplayValuesInner](docs/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.md)
  - [PSSailpointBeta/Model.OutlierFeatureTranslation](docs/OutlierFeatureTranslation.md)
  - [PSSailpointBeta/Model.OutlierSummary](docs/OutlierSummary.md)
  - [PSSailpointBeta/Model.OutliersContributingFeatureAccessItems](docs/OutliersContributingFeatureAccessItems.md)

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**Get-BetaIdentityOutlierSnapshots**](BetaIAIOutliersApi.md#Get-BetaIdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
 [**Get-BetaIdentityOutliers**](BetaIAIOutliersApi.md#Get-BetaIdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
 [**Get-BetaLatestIdentityOutlierSnapshots**](BetaIAIOutliersApi.md#Get-BetaLatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
+[**Get-BetaOutlierContributingFeatureSummary**](BetaIAIOutliersApi.md#Get-BetaOutlierContributingFeatureSummary) | **GET** /outlier-feature-summaries/{outlierFeatureId} | Get identity outlier contibuting feature summary
 [**Get-BetaPeerGroupOutliersContributingFeatures**](BetaIAIOutliersApi.md#Get-BetaPeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | Get identity outlier&#39;s contibuting features
 [**Invoke-BetaIgnoreIdentityOutliers**](BetaIAIOutliersApi.md#Invoke-BetaIgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
 [**Get-BetaOutliersContributingFeatureAccessItems**](BetaIAIOutliersApi.md#Get-BetaOutliersContributingFeatureAccessItems) | **GET** /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items | Gets a list of access items associated with each identity outlier contributing feature
@@ -233,6 +234,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LatestOutlierSummary[]**](LatestOutlierSummary.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaOutlierContributingFeatureSummary"></a>
+# **Get-BetaOutlierContributingFeatureSummary**
+> OutlierFeatureSummary Get-BetaOutlierContributingFeatureSummary<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OutlierFeatureId] <String><br>
+
+Get identity outlier contibuting feature summary
+
+This API returns a summary of a contributing feature for an identity outlier. The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object Requires authorization scope of 'iai:outliers-management:read'
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$OutlierFeatureId = "04654b66-7561-4090-94f9-abee0722a1af" # String | Contributing feature id
+
+# Get identity outlier contibuting feature summary
+try {
+    $Result = Get-BetaOutlierContributingFeatureSummary -OutlierFeatureId $OutlierFeatureId
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaOutlierContributingFeatureSummary: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **OutlierFeatureId** | **String**| Contributing feature id | 
+
+### Return type
+
+[**OutlierFeatureSummary**](OutlierFeatureSummary.md) (PSCustomObject)
 
 ### Authorization
 

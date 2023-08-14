@@ -38,6 +38,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIOutliersApi' {
         }
     }
 
+    Context 'Get-BetaOutlierContributingFeatureSummary' {
+        It 'Test Get-BetaOutlierContributingFeatureSummary' {
+            #$TestResult = Get-BetaOutlierContributingFeatureSummary -OutlierFeatureId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaPeerGroupOutliersContributingFeatures' {
         It 'Test Get-BetaPeerGroupOutliersContributingFeatures' {
             #$TestResult = Get-BetaPeerGroupOutliersContributingFeatures -OutlierId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -IncludeTranslationMessages "TEST_VALUE" -Sorters "TEST_VALUE"

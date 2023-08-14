@@ -19,7 +19,7 @@ Number of days to wait before the first reminder. If no reminders are configured
 .PARAMETER DaysBetweenReminders
 Number of days to wait between reminder notifications.
 .PARAMETER MaxReminders
-Maximum number of reminder notification to send to the reviewer before approval escalation.
+Maximum number of reminder notification to send to the reviewer before approval escalation. This will only be a positive number.
 .PARAMETER FallbackApproverRef
 No description available.
 .OUTPUTS

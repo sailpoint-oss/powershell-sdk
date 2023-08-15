@@ -46,4 +46,12 @@ Describe -tag 'PSSailpoint' -name 'IdentityProfilesApi' {
         }
     }
 
+    Context 'Sync-IdentityProfile' {
+        It 'Test Sync-IdentityProfile' {
+            #$TestResult = Sync-IdentityProfile -IdentityProfileId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

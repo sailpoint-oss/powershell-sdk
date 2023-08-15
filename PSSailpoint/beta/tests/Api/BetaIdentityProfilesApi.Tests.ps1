@@ -78,9 +78,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityProfilesApi' {
         }
     }
 
-    Context 'Invoke-BetaRefreshIdentityProfile' {
-        It 'Test Invoke-BetaRefreshIdentityProfile' {
-            #$TestResult = Invoke-BetaRefreshIdentityProfile -IdentityProfileId "TEST_VALUE"
+    Context 'Sync-BetaIdentityProfile' {
+        It 'Test Sync-BetaIdentityProfile' {
+            #$TestResult = Sync-BetaIdentityProfile -IdentityProfileId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -818,14 +818,14 @@ function Get-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
-Refreshes all identities under profile
+Process identities under profile
 
 .DESCRIPTION
 
-This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
+Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER IdentityProfileId
-The Identity Profile ID to be refreshed
+The Identity Profile ID to be processed
 
 .PARAMETER WithHttpInfo
 
@@ -835,7 +835,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Invoke-BetaRefreshIdentityProfile {
+function Sync-BetaIdentityProfile {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -846,7 +846,7 @@ function Invoke-BetaRefreshIdentityProfile {
     )
 
     Process {
-        'Calling method: Invoke-BetaRefreshIdentityProfile' | Write-Debug
+        'Calling method: Sync-BetaIdentityProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -861,9 +861,9 @@ function Invoke-BetaRefreshIdentityProfile {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/identity-profiles/{identity-profile-id}/refresh-identities'
+        $LocalVarUri = '/identity-profiles/{identity-profile-id}/process-identities'
         if (!$IdentityProfileId) {
-            throw "Error! The required parameter `IdentityProfileId` missing when calling refreshIdentityProfile."
+            throw "Error! The required parameter `IdentityProfileId` missing when calling syncIdentityProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
 

@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *IdentityProfilesApi* | [**Get-IdentityProfile**](docs/IdentityProfilesApi.md#Get-IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get single Identity Profile
 *IdentityProfilesApi* | [**Import-IdentityProfiles**](docs/IdentityProfilesApi.md#Import-IdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
 *IdentityProfilesApi* | [**Get-IdentityProfiles**](docs/IdentityProfilesApi.md#Get-IdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
+*IdentityProfilesApi* | [**Sync-IdentityProfile**](docs/IdentityProfilesApi.md#Sync-IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 *LifecycleStatesApi* | [**New-LifecycleState**](docs/LifecycleStatesApi.md#New-LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create Lifecycle State
 *LifecycleStatesApi* | [**Remove-LifecycleState**](docs/LifecycleStatesApi.md#Remove-LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State by ID
 *LifecycleStatesApi* | [**Get-LifecycleState**](docs/LifecycleStatesApi.md#Get-LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Retrieves Lifecycle State

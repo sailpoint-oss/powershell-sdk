@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 *CertificationCampaignsApi* | [**Get-ActiveCampaigns**](docs/CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 *CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
+*CertificationCampaignsApi* | [**Get-CampaignReports**](docs/CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
 *CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *CertificationCampaignsApi* | [**Start-Campaign**](docs/CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *CertificationSummariesApi* | [**Get-IdentityAccessSummaries**](docs/CertificationSummariesApi.md#Get-IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access Summaries
@@ -379,6 +380,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CampaignAllOfSourceOwnerCampaignInfo](docs/CampaignAllOfSourceOwnerCampaignInfo.md)
  - [PSSailpoint/Model.CampaignAllOfSourcesWithOrphanEntitlements](docs/CampaignAllOfSourcesWithOrphanEntitlements.md)
  - [PSSailpoint/Model.CampaignReference](docs/CampaignReference.md)
+ - [PSSailpoint/Model.CampaignReport](docs/CampaignReport.md)
+ - [PSSailpoint/Model.CampaignReportAllOf](docs/CampaignReportAllOf.md)
  - [PSSailpoint/Model.CancelAccessRequest](docs/CancelAccessRequest.md)
  - [PSSailpoint/Model.CancelledRequestDetails](docs/CancelledRequestDetails.md)
  - [PSSailpoint/Model.Certification](docs/Certification.md)
@@ -593,6 +596,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ReplaceAll](docs/ReplaceAll.md)
  - [PSSailpoint/Model.ReportResultReference](docs/ReportResultReference.md)
  - [PSSailpoint/Model.ReportResultReferenceAllOf](docs/ReportResultReferenceAllOf.md)
+ - [PSSailpoint/Model.ReportType](docs/ReportType.md)
  - [PSSailpoint/Model.RequestOnBehalfOfConfig](docs/RequestOnBehalfOfConfig.md)
  - [PSSailpoint/Model.Requestability](docs/Requestability.md)
  - [PSSailpoint/Model.RequestabilityForRole](docs/RequestabilityForRole.md)

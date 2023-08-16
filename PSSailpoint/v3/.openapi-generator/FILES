@@ -110,6 +110,8 @@ docs/CampaignAllOfSearchCampaignInfo.md
 docs/CampaignAllOfSourceOwnerCampaignInfo.md
 docs/CampaignAllOfSourcesWithOrphanEntitlements.md
 docs/CampaignReference.md
+docs/CampaignReport.md
+docs/CampaignReportAllOf.md
 docs/CancelAccessRequest.md
 docs/CancelledRequestDetails.md
 docs/Certification.md
@@ -338,6 +340,7 @@ docs/Replace.md
 docs/ReplaceAll.md
 docs/ReportResultReference.md
 docs/ReportResultReferenceAllOf.md
+docs/ReportType.md
 docs/RequestOnBehalfOfConfig.md
 docs/Requestability.md
 docs/RequestabilityForRole.md
@@ -616,6 +619,8 @@ src/PSSailpoint/Model/CampaignAllOfSearchCampaignInfo.ps1
 src/PSSailpoint/Model/CampaignAllOfSourceOwnerCampaignInfo.ps1
 src/PSSailpoint/Model/CampaignAllOfSourcesWithOrphanEntitlements.ps1
 src/PSSailpoint/Model/CampaignReference.ps1
+src/PSSailpoint/Model/CampaignReport.ps1
+src/PSSailpoint/Model/CampaignReportAllOf.ps1
 src/PSSailpoint/Model/CancelAccessRequest.ps1
 src/PSSailpoint/Model/CancelledRequestDetails.ps1
 src/PSSailpoint/Model/Certification.ps1
@@ -830,6 +835,7 @@ src/PSSailpoint/Model/Replace.ps1
 src/PSSailpoint/Model/ReplaceAll.ps1
 src/PSSailpoint/Model/ReportResultReference.ps1
 src/PSSailpoint/Model/ReportResultReferenceAllOf.ps1
+src/PSSailpoint/Model/ReportType.ps1
 src/PSSailpoint/Model/RequestOnBehalfOfConfig.ps1
 src/PSSailpoint/Model/Requestability.ps1
 src/PSSailpoint/Model/RequestabilityForRole.ps1
@@ -1101,6 +1107,8 @@ tests/Model/CampaignAllOfSearchCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfSourcesWithOrphanEntitlements.Tests.ps1
 tests/Model/CampaignReference.Tests.ps1
+tests/Model/CampaignReport.Tests.ps1
+tests/Model/CampaignReportAllOf.Tests.ps1
 tests/Model/CancelAccessRequest.Tests.ps1
 tests/Model/CancelledRequestDetails.Tests.ps1
 tests/Model/Certification.Tests.ps1
@@ -1315,6 +1323,7 @@ tests/Model/Replace.Tests.ps1
 tests/Model/ReplaceAll.Tests.ps1
 tests/Model/ReportResultReference.Tests.ps1
 tests/Model/ReportResultReferenceAllOf.Tests.ps1
+tests/Model/ReportType.Tests.ps1
 tests/Model/RequestOnBehalfOfConfig.Tests.ps1
 tests/Model/Requestability.Tests.ps1
 tests/Model/RequestabilityForRole.Tests.ps1

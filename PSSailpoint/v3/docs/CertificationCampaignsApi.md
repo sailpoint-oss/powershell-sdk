@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**New-Campaign**](CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 [**Get-ActiveCampaigns**](CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 [**Get-Campaign**](CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
+[**Get-CampaignReports**](CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
 [**Move-**](CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 [**Start-Campaign**](CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 
@@ -181,6 +182,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SlimCampaign**](SlimCampaign.md) (PSCustomObject)
+
+### Authorization
+
+[oauth2](../README.md#oauth2), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-CampaignReports"></a>
+# **Get-CampaignReports**
+> CampaignReport[] Get-CampaignReports<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignId] <String><br>
+
+Get Campaign Reports
+
+Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: oauth2
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$CampaignId = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign for which reports are being fetched.
+
+# Get Campaign Reports
+try {
+    $Result = Get-CampaignReports -CampaignId $CampaignId
+} catch {
+    Write-Host ("Exception occurred when calling Get-CampaignReports: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **CampaignId** | **String**| The ID of the campaign for which reports are being fetched. | 
+
+### Return type
+
+[**CampaignReport[]**](CampaignReport.md) (PSCustomObject)
 
 ### Authorization
 

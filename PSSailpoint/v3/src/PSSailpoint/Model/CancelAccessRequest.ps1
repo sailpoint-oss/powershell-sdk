@@ -15,7 +15,7 @@ No summary available.
 Request body payload for cancel access request endpoint.
 
 .PARAMETER AccountActivityId
-ID of the account activity object corresponding to the access request.
+This refers to the identityRequestId. To successfully cancel an access request, you must provide the identityRequestId.
 .PARAMETER Comment
 Reason for cancelling the pending access request.
 .OUTPUTS

@@ -27,7 +27,7 @@ Flag indicating whether or not the attribute is multi-valued.
 .PARAMETER IsEntitlement
 Flag indicating whether or not the attribute is an entitlement.
 .PARAMETER IsGroup
-Flag indicating whether or not the attribute represents a group. This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute.. 
+Flag indicating whether or not the attribute represents a group. This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute. 
 .OUTPUTS
 
 AttributeDefinition<PSCustomObject>
@@ -51,13 +51,13 @@ function Initialize-BetaAttributeDefinition {
         ${Description},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsMulti},
+        ${IsMulti} = $false,
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsEntitlement},
+        ${IsEntitlement} = $false,
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsGroup}
+        ${IsGroup} = $false
     )
 
     Process {

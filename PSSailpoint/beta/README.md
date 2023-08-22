@@ -1092,6 +1092,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SubscriptionPutRequest](docs/SubscriptionPutRequest.md)
  - [PSSailpointBeta/Model.SubscriptionType](docs/SubscriptionType.md)
  - [PSSailpointBeta/Model.TaggedObject](docs/TaggedObject.md)
+ - [PSSailpointBeta/Model.TaskResultSimplified](docs/TaskResultSimplified.md)
  - [PSSailpointBeta/Model.TemplateBulkDeleteDto](docs/TemplateBulkDeleteDto.md)
  - [PSSailpointBeta/Model.TemplateDto](docs/TemplateDto.md)
  - [PSSailpointBeta/Model.TemplateDtoDefault](docs/TemplateDtoDefault.md)

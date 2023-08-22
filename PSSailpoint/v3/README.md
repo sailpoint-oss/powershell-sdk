@@ -99,6 +99,8 @@ Class | Method | HTTP request | Description
 *CertificationsApi* | [**Select-IdentityDecision**](docs/CertificationsApi.md#Select-IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
 *CertificationsApi* | [**Invoke-ReassignIdentityCertifications**](docs/CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 *CertificationsApi* | [**Invoke-SignOffIdentityCertification**](docs/CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
+*IdentityProfilesApi* | [**Remove-IdentityProfile**](docs/IdentityProfilesApi.md#Remove-IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
+*IdentityProfilesApi* | [**Remove-IdentityProfiles**](docs/IdentityProfilesApi.md#Remove-IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 *IdentityProfilesApi* | [**Export-IdentityProfiles**](docs/IdentityProfilesApi.md#Export-IdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
 *IdentityProfilesApi* | [**Get-DefaultIdentityAttributeConfig**](docs/IdentityProfilesApi.md#Get-DefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Get default Identity Attribute Config
 *IdentityProfilesApi* | [**Get-IdentityProfile**](docs/IdentityProfilesApi.md#Get-IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get single Identity Profile
@@ -702,6 +704,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.Substring](docs/Substring.md)
  - [PSSailpoint/Model.TaggedObject](docs/TaggedObject.md)
  - [PSSailpoint/Model.TaggedObjectDto](docs/TaggedObjectDto.md)
+ - [PSSailpoint/Model.TaskResultSimplified](docs/TaskResultSimplified.md)
  - [PSSailpoint/Model.TextQuery](docs/TextQuery.md)
  - [PSSailpoint/Model.Transform](docs/Transform.md)
  - [PSSailpoint/Model.TransformAttributes](docs/TransformAttributes.md)

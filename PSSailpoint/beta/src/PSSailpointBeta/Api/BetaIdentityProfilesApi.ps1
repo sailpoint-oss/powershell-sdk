@@ -102,7 +102,7 @@ Delete an Identity Profile
 
 .DESCRIPTION
 
-This deletes an Identity Profile based on ID. A token with ORG_ADMIN authority is required to call this API to delete an Identity Profile.
+This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID.
@@ -113,7 +113,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-BaseReferenceDto
+TaskResultSimplified
 #>
 function Remove-BetaIdentityProfile {
     [CmdletBinding()]
@@ -158,7 +158,7 @@ function Remove-BetaIdentityProfile {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BaseReferenceDto" `
+                                -ReturnType "TaskResultSimplified" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -176,7 +176,7 @@ Delete Identity Profiles
 
 .DESCRIPTION
 
-This deletes multiple Identity Profiles via a list of supplied IDs. On success, this endpoint will return a reference to the bulk delete task result. A token with ORG_ADMIN authority is required to call this API to delete a list of Identity Profiles.
+This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
 
 .PARAMETER RequestBody
 Identity Profile bulk delete request body.
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-BaseReferenceDto1
+TaskResultSimplified
 #>
 function Remove-BetaIdentityProfiles {
     [CmdletBinding()]
@@ -248,7 +248,7 @@ function Remove-BetaIdentityProfiles {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BaseReferenceDto1" `
+                                -ReturnType "TaskResultSimplified" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

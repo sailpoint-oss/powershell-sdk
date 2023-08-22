@@ -6,6 +6,22 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'IdentityProfilesApi' {
+    Context 'Remove-IdentityProfile' {
+        It 'Test Remove-IdentityProfile' {
+            #$TestResult = Remove-IdentityProfile -IdentityProfileId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-IdentityProfiles' {
+        It 'Test Remove-IdentityProfiles' {
+            #$TestResult = Remove-IdentityProfiles -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Export-IdentityProfiles' {
         It 'Test Export-IdentityProfiles' {
             #$TestResult = Export-IdentityProfiles -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"

@@ -79,12 +79,12 @@ Name | Type | Description  | Notes
 
 <a name="Remove-BetaIdentityProfile"></a>
 # **Remove-BetaIdentityProfile**
-> BaseReferenceDto Remove-BetaIdentityProfile<br>
+> TaskResultSimplified Remove-BetaIdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 
 Delete an Identity Profile
 
-This deletes an Identity Profile based on ID. A token with ORG_ADMIN authority is required to call this API to delete an Identity Profile.
+This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
 
 ### Example
 ```powershell
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
+[**TaskResultSimplified**](TaskResultSimplified.md) (PSCustomObject)
 
 ### Authorization
 
@@ -130,12 +130,12 @@ Name | Type | Description  | Notes
 
 <a name="Remove-BetaIdentityProfiles"></a>
 # **Remove-BetaIdentityProfiles**
-> BaseReferenceDto1 Remove-BetaIdentityProfiles<br>
+> TaskResultSimplified Remove-BetaIdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
 
 Delete Identity Profiles
 
-This deletes multiple Identity Profiles via a list of supplied IDs. On success, this endpoint will return a reference to the bulk delete task result. A token with ORG_ADMIN authority is required to call this API to delete a list of Identity Profiles.
+This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
 
 ### Example
 ```powershell
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseReferenceDto1**](BaseReferenceDto1.md) (PSCustomObject)
+[**TaskResultSimplified**](TaskResultSimplified.md) (PSCustomObject)
 
 ### Authorization
 

@@ -194,6 +194,7 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSession**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSession) | **GET** /role-mining-sessions/{sessionId} | Get a role mining session
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSessionStatus**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessionStatus) | **GET** /role-mining-sessions/{sessionId}/status | Get role mining session status state
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSessions**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
+*BetaIAIRoleMiningApi* | [**Get-BetaSavedRoles**](docs/BetaIAIRoleMiningApi.md#Get-BetaSavedRoles) | **GET** /role-mining-sessions/{sessionId}/potential-roles/draft-roles | Retrieves all draft roles
 *BetaIAIRoleMiningApi* | [**Update-BetaPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaPotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role
 *BetaIAIRoleMiningApi* | [**Update-BetaRoleMiningSession**](docs/BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 *BetaIAIRoleMiningApi* | [**Update-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
@@ -1003,10 +1004,12 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.RoleMiningPotentialRoleRef](docs/RoleMiningPotentialRoleRef.md)
  - [PSSailpointBeta/Model.RoleMiningPotentialRoleSummary](docs/RoleMiningPotentialRoleSummary.md)
  - [PSSailpointBeta/Model.RoleMiningRoleType](docs/RoleMiningRoleType.md)
+ - [PSSailpointBeta/Model.RoleMiningSessionDraftRoleDto](docs/RoleMiningSessionDraftRoleDto.md)
  - [PSSailpointBeta/Model.RoleMiningSessionDto](docs/RoleMiningSessionDto.md)
  - [PSSailpointBeta/Model.RoleMiningSessionParametersDto](docs/RoleMiningSessionParametersDto.md)
  - [PSSailpointBeta/Model.RoleMiningSessionResponse](docs/RoleMiningSessionResponse.md)
  - [PSSailpointBeta/Model.RoleMiningSessionScope](docs/RoleMiningSessionScope.md)
+ - [PSSailpointBeta/Model.RoleMiningSessionScopingMethod](docs/RoleMiningSessionScopingMethod.md)
  - [PSSailpointBeta/Model.RoleMiningSessionStatus](docs/RoleMiningSessionStatus.md)
  - [PSSailpointBeta/Model.SavedSearchComplete](docs/SavedSearchComplete.md)
  - [PSSailpointBeta/Model.SavedSearchCompleteSearchResults](docs/SavedSearchCompleteSearchResults.md)

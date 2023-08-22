@@ -26,6 +26,10 @@ The session's saved status
 No description available.
 .PARAMETER Type
 No description available.
+.PARAMETER State
+No description available.
+.PARAMETER ScopingMethod
+No description available.
 .OUTPUTS
 
 RoleMiningSessionParametersDto<PSCustomObject>
@@ -45,14 +49,20 @@ function Initialize-BetaRoleMiningSessionParametersDto {
         ${PruneThreshold},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Saved},
+        ${Saved} = $true,
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Scope},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
-        ${Type}
+        ${Type},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${State},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ScopingMethod}
     )
 
     Process {
@@ -67,6 +77,8 @@ function Initialize-BetaRoleMiningSessionParametersDto {
             "saved" = ${Saved}
             "scope" = ${Scope}
             "type" = ${Type}
+            "state" = ${State}
+            "scopingMethod" = ${ScopingMethod}
         }
 
 
@@ -104,7 +116,7 @@ function ConvertFrom-BetaJsonToRoleMiningSessionParametersDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningSessionParametersDto
-        $AllProperties = ("minNumIdentitiesInPotentialRole", "name", "pruneThreshold", "saved", "scope", "type")
+        $AllProperties = ("minNumIdentitiesInPotentialRole", "name", "pruneThreshold", "saved", "scope", "type", "state", "scopingMethod")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -147,6 +159,18 @@ function ConvertFrom-BetaJsonToRoleMiningSessionParametersDto {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "state"))) { #optional property not found
+            $State = $null
+        } else {
+            $State = $JsonParameters.PSobject.Properties["state"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scopingMethod"))) { #optional property not found
+            $ScopingMethod = $null
+        } else {
+            $ScopingMethod = $JsonParameters.PSobject.Properties["scopingMethod"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
             "name" = ${Name}
@@ -154,6 +178,8 @@ function ConvertFrom-BetaJsonToRoleMiningSessionParametersDto {
             "saved" = ${Saved}
             "scope" = ${Scope}
             "type" = ${Type}
+            "state" = ${State}
+            "scopingMethod" = ${ScopingMethod}
         }
 
         return $PSO

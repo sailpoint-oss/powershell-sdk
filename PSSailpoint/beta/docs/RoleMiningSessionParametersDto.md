@@ -6,9 +6,11 @@ Name | Type | Description | Notes
 **MinNumIdentitiesInPotentialRole** | **Int32** | Minimum number of identities in a potential role | [optional] 
 **Name** | **String** | The session&#39;s saved name | [optional] 
 **PruneThreshold** | **Int32** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [optional] 
-**Saved** | **Boolean** | The session&#39;s saved status | [optional] 
+**Saved** | **Boolean** | The session&#39;s saved status | [optional] [default to $true]
 **Scope** | [**RoleMiningSessionScope**](RoleMiningSessionScope.md) |  | [optional] 
 **Type** | [**RoleMiningRoleType**](RoleMiningRoleType.md) |  | [optional] 
+**State** | [**RoleMiningSessionStatus**](RoleMiningSessionStatus.md) |  | [optional] 
+**ScopingMethod** | [**RoleMiningSessionScopingMethod**](RoleMiningSessionScopingMethod.md) |  | [optional] 
 
 ## Examples
 
@@ -19,7 +21,9 @@ $RoleMiningSessionParametersDto = Initialize-PSSailpointBetaRoleMiningSessionPar
  -PruneThreshold 5 `
  -Saved true `
  -Scope null `
- -Type null
+ -Type null `
+ -State null `
+ -ScopingMethod null
 ```
 
 - Convert the resource to JSON

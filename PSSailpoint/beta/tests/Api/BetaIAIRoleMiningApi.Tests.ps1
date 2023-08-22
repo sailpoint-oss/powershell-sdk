@@ -134,6 +134,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIRoleMiningApi' {
         }
     }
 
+    Context 'Get-BetaSavedRoles' {
+        It 'Test Get-BetaSavedRoles' {
+            #$TestResult = Get-BetaSavedRoles -SessionId "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-BetaPotentialRole' {
         It 'Test Update-BetaPotentialRole' {
             #$TestResult = Update-BetaPotentialRole -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -PatchPotentialRoleRequestInner "TEST_VALUE"

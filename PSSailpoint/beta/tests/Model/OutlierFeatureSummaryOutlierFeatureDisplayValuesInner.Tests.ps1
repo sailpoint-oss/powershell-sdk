@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaOutlierFeatureSummaryOutlierFeatureDi
     Context 'BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner' {
         It 'Initialize-BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner -DisplayName "TEST_VALUE" -Value "TEST_VALUE"
+            #$NewObject = Initialize-BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner -DisplayName "TEST_VALUE" -Value "TEST_VALUE" -ValueType "TEST_VALUE"
             #$NewObject | Should -BeOfType OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
             #$NewObject.property | Should -Be 0
         }

@@ -5,13 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayName** | **String** | display name | [optional] 
 **Value** | **String** | value | [optional] 
+**ValueType** | **String** | The data type of the value field | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $OutlierFeatureSummaryOutlierFeatureDisplayValuesInner = Initialize-PSSailpointBetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner  -DisplayName Aliza Chris `
- -Value 55
+ -Value 55 `
+ -ValueType INTEGER
 ```
 
 - Convert the resource to JSON

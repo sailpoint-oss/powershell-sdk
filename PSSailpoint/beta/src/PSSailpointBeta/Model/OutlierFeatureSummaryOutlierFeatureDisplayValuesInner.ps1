@@ -18,6 +18,8 @@ No description available.
 display name
 .PARAMETER Value
 value
+.PARAMETER ValueType
+The data type of the value field
 .OUTPUTS
 
 OutlierFeatureSummaryOutlierFeatureDisplayValuesInner<PSCustomObject>
@@ -31,7 +33,11 @@ function Initialize-BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner {
         ${DisplayName},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Value}
+        ${Value},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("INTEGER", "FLOAT")]
+        [String]
+        ${ValueType}
     )
 
     Process {
@@ -42,6 +48,7 @@ function Initialize-BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner {
         $PSO = [PSCustomObject]@{
             "displayName" = ${DisplayName}
             "value" = ${Value}
+            "valueType" = ${ValueType}
         }
 
 
@@ -79,7 +86,7 @@ function ConvertFrom-BetaJsonToOutlierFeatureSummaryOutlierFeatureDisplayValuesI
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner
-        $AllProperties = ("displayName", "value")
+        $AllProperties = ("displayName", "value", "valueType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -98,9 +105,16 @@ function ConvertFrom-BetaJsonToOutlierFeatureSummaryOutlierFeatureDisplayValuesI
             $Value = $JsonParameters.PSobject.Properties["value"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "valueType"))) { #optional property not found
+            $ValueType = $null
+        } else {
+            $ValueType = $JsonParameters.PSobject.Properties["valueType"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "displayName" = ${DisplayName}
             "value" = ${Value}
+            "valueType" = ${ValueType}
         }
 
         return $PSO

@@ -735,7 +735,17 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 
-### oauth2
+### ApplicationOnlyAuth
+
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: 
+  - sp:scopes:default: default scope
+
+
+### UserContextAuth
 
 
 - **Type**: OAuth
@@ -746,7 +756,7 @@ Class | Method | HTTP request | Description
   - sp:scopes:all: access to all scopes
 
 
-### oauth2
+### UserContextAuth
 
 
 - **Type**: OAuth

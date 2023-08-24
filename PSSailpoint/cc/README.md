@@ -94,7 +94,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 
-### oauth2
+### UserContextAuth
 
 
 - **Type**: OAuth
@@ -105,7 +105,7 @@ Class | Method | HTTP request | Description
   - sp:scopes:all: access to all scopes
 
 
-### oauth2
+### UserContextAuth
 
 
 - **Type**: OAuth

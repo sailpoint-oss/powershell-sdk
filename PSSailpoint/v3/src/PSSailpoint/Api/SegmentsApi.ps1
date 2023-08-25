@@ -12,7 +12,7 @@ Create Segment
 
 .DESCRIPTION
 
-This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Segment
 No description available.
@@ -102,10 +102,10 @@ Delete Segment by ID
 
 .DESCRIPTION
 
-This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+This API deletes the segment specified by the given ID. >**Note:** that segment deletion may take some time to become effective. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Id
-The ID of the Segment to delete.
+The segment ID to delete.
 
 .PARAMETER WithHttpInfo
 
@@ -172,14 +172,14 @@ function Remove-Segment {
 <#
 .SYNOPSIS
 
-Get a Segment by ID
+Get Segment by ID
 
 .DESCRIPTION
 
-This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
+This API returns the segment specified by the given ID. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Id
-The ID of the Segment to retrieve.
+The segment ID to retrieve.
 
 .PARAMETER WithHttpInfo
 
@@ -250,7 +250,7 @@ List Segments
 
 .DESCRIPTION
 
-This API returns a list of all segments. A token with ORG_ADMIN or API authority is required to call this API.
+This API returns a list of all segments.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -340,17 +340,17 @@ function Get-Segments {
 <#
 .SYNOPSIS
 
-Update a Segment
+Update Segment
 
 .DESCRIPTION
 
-Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
+Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER Id
-The ID of the Segment being modified.
+The segment ID to modify.
 
 .PARAMETER RequestBody
-A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
 
 .PARAMETER WithHttpInfo
 

@@ -213,9 +213,9 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**Search-Post**](docs/SearchApi.md#Search-Post) | **POST** /search | Perform Search
 *SegmentsApi* | [**New-Segment**](docs/SegmentsApi.md#New-Segment) | **POST** /segments | Create Segment
 *SegmentsApi* | [**Remove-Segment**](docs/SegmentsApi.md#Remove-Segment) | **DELETE** /segments/{id} | Delete Segment by ID
-*SegmentsApi* | [**Get-Segment**](docs/SegmentsApi.md#Get-Segment) | **GET** /segments/{id} | Get a Segment by ID
+*SegmentsApi* | [**Get-Segment**](docs/SegmentsApi.md#Get-Segment) | **GET** /segments/{id} | Get Segment by ID
 *SegmentsApi* | [**Get-Segments**](docs/SegmentsApi.md#Get-Segments) | **GET** /segments | List Segments
-*SegmentsApi* | [**Update-Segment**](docs/SegmentsApi.md#Update-Segment) | **PATCH** /segments/{id} | Update a Segment
+*SegmentsApi* | [**Update-Segment**](docs/SegmentsApi.md#Update-Segment) | **PATCH** /segments/{id} | Update Segment
 *ServiceDeskIntegrationApi* | [**New-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#New-ServiceDeskIntegration) | **POST** /service-desk-integrations | Create new Service Desk integration
 *ServiceDeskIntegrationApi* | [**Remove-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Remove-ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration
 *ServiceDeskIntegrationApi* | [**Get-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Get-ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration

@@ -360,9 +360,9 @@ Class | Method | HTTP request | Description
 *BetaSearchAttributeConfigurationApi* | [**Update-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Update-BetaSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update the details of a specific extended search attribute in IdentityNow.
 *BetaSegmentsApi* | [**New-BetaSegment**](docs/BetaSegmentsApi.md#New-BetaSegment) | **POST** /segments | Create Segment
 *BetaSegmentsApi* | [**Remove-BetaSegment**](docs/BetaSegmentsApi.md#Remove-BetaSegment) | **DELETE** /segments/{id} | Delete Segment by ID
-*BetaSegmentsApi* | [**Get-BetaSegment**](docs/BetaSegmentsApi.md#Get-BetaSegment) | **GET** /segments/{id} | Get a Segment by its ID
+*BetaSegmentsApi* | [**Get-BetaSegment**](docs/BetaSegmentsApi.md#Get-BetaSegment) | **GET** /segments/{id} | Get Segment by ID
 *BetaSegmentsApi* | [**Get-BetaSegments**](docs/BetaSegmentsApi.md#Get-BetaSegments) | **GET** /segments | List Segments
-*BetaSegmentsApi* | [**Update-BetaSegment**](docs/BetaSegmentsApi.md#Update-BetaSegment) | **PATCH** /segments/{id} | Update a Segment
+*BetaSegmentsApi* | [**Update-BetaSegment**](docs/BetaSegmentsApi.md#Update-BetaSegment) | **PATCH** /segments/{id} | Update Segment
 *BetaServiceDeskIntegrationApi* | [**New-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#New-BetaServiceDeskIntegration) | **POST** /service-desk-integrations | Create new Service Desk integration
 *BetaServiceDeskIntegrationApi* | [**Remove-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Remove-BetaServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration
 *BetaServiceDeskIntegrationApi* | [**Get-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Get-BetaServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration

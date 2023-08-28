@@ -4,6 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Complete-Campaign**](CertificationCampaignsApi.md#Complete-Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 [**New-Campaign**](CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 [**Get-ActiveCampaigns**](CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 [**Get-Campaign**](CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
@@ -12,6 +13,60 @@ Method | HTTP request | Description
 [**Start-Campaign**](CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 [**Update-Campaign**](CertificationCampaignsApi.md#Update-Campaign) | **PATCH** /campaigns/{id} | Update a Campaign
 
+
+<a name="Complete-Campaign"></a>
+# **Complete-Campaign**
+> SystemCollectionsHashtable Complete-Campaign<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignCompleteOptions] <PSCustomObject><br>
+
+Complete a Campaign
+
+:::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The campaign id
+$CampaignCompleteOptions = Initialize-CampaignCompleteOptions -AutoCompleteAction "APPROVE" # CampaignCompleteOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
+
+# Complete a Campaign
+try {
+    $Result = Complete-Campaign -Id $Id -CampaignCompleteOptions $CampaignCompleteOptions
+} catch {
+    Write-Host ("Exception occurred when calling Complete-Campaign: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The campaign id | 
+ **CampaignCompleteOptions** | [**CampaignCompleteOptions**](CampaignCompleteOptions.md)| Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE | [optional] 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="New-Campaign"></a>
 # **New-Campaign**

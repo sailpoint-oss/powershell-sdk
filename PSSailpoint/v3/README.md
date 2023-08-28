@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Invoke-ReloadAccount**](docs/AccountsApi.md#Invoke-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *AccountsApi* | [**Unlock-Account**](docs/AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
+*CertificationCampaignsApi* | [**Complete-Campaign**](docs/CertificationCampaignsApi.md#Complete-Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 *CertificationCampaignsApi* | [**Get-ActiveCampaigns**](docs/CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 *CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
@@ -382,6 +383,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CampaignAllOfSearchCampaignInfo](docs/CampaignAllOfSearchCampaignInfo.md)
  - [PSSailpoint/Model.CampaignAllOfSourceOwnerCampaignInfo](docs/CampaignAllOfSourceOwnerCampaignInfo.md)
  - [PSSailpoint/Model.CampaignAllOfSourcesWithOrphanEntitlements](docs/CampaignAllOfSourcesWithOrphanEntitlements.md)
+ - [PSSailpoint/Model.CampaignCompleteOptions](docs/CampaignCompleteOptions.md)
  - [PSSailpoint/Model.CampaignReference](docs/CampaignReference.md)
  - [PSSailpoint/Model.CampaignReport](docs/CampaignReport.md)
  - [PSSailpoint/Model.CampaignReportAllOf](docs/CampaignReportAllOf.md)

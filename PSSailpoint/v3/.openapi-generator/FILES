@@ -109,6 +109,7 @@ docs/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md
 docs/CampaignAllOfSearchCampaignInfo.md
 docs/CampaignAllOfSourceOwnerCampaignInfo.md
 docs/CampaignAllOfSourcesWithOrphanEntitlements.md
+docs/CampaignCompleteOptions.md
 docs/CampaignReference.md
 docs/CampaignReport.md
 docs/CampaignReportAllOf.md
@@ -619,6 +620,7 @@ src/PSSailpoint/Model/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.ps1
 src/PSSailpoint/Model/CampaignAllOfSearchCampaignInfo.ps1
 src/PSSailpoint/Model/CampaignAllOfSourceOwnerCampaignInfo.ps1
 src/PSSailpoint/Model/CampaignAllOfSourcesWithOrphanEntitlements.ps1
+src/PSSailpoint/Model/CampaignCompleteOptions.ps1
 src/PSSailpoint/Model/CampaignReference.ps1
 src/PSSailpoint/Model/CampaignReport.ps1
 src/PSSailpoint/Model/CampaignReportAllOf.ps1
@@ -1108,6 +1110,7 @@ tests/Model/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.Tests.ps1
 tests/Model/CampaignAllOfSearchCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfSourcesWithOrphanEntitlements.Tests.ps1
+tests/Model/CampaignCompleteOptions.Tests.ps1
 tests/Model/CampaignReference.Tests.ps1
 tests/Model/CampaignReport.Tests.ps1
 tests/Model/CampaignReportAllOf.Tests.ps1

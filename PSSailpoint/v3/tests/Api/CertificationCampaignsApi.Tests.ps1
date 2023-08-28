@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
+    Context 'Complete-Campaign' {
+        It 'Test Complete-Campaign' {
+            #$TestResult = Complete-Campaign -Id "TEST_VALUE" -CampaignCompleteOptions "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-Campaign' {
         It 'Test New-Campaign' {
             #$TestResult = New-Campaign -Campaign "TEST_VALUE"

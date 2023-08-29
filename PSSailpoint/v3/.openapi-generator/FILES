@@ -194,6 +194,7 @@ docs/GetActiveCampaigns200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
+docs/GlobalTenantSecuritySettingsApi.md
 docs/GrantType.md
 docs/ISO3166.md
 docs/IdentityAccess.md
@@ -245,6 +246,7 @@ docs/NameNormalizer.md
 docs/NameType.md
 docs/NamedConstructs.md
 docs/NestedAggregation.md
+docs/NetworkConfiguration.md
 docs/NonEmployeeApprovalDecision.md
 docs/NonEmployeeApprovalItem.md
 docs/NonEmployeeApprovalItemAllOf.md
@@ -493,6 +495,7 @@ src/PSSailpoint/Api/AccountsApi.ps1
 src/PSSailpoint/Api/CertificationCampaignsApi.ps1
 src/PSSailpoint/Api/CertificationSummariesApi.ps1
 src/PSSailpoint/Api/CertificationsApi.ps1
+src/PSSailpoint/Api/GlobalTenantSecuritySettingsApi.ps1
 src/PSSailpoint/Api/IdentityProfilesApi.ps1
 src/PSSailpoint/Api/LifecycleStatesApi.ps1
 src/PSSailpoint/Api/NonEmployeeLifecycleManagementApi.ps1
@@ -751,6 +754,7 @@ src/PSSailpoint/Model/NameNormalizer.ps1
 src/PSSailpoint/Model/NameType.ps1
 src/PSSailpoint/Model/NamedConstructs.ps1
 src/PSSailpoint/Model/NestedAggregation.ps1
+src/PSSailpoint/Model/NetworkConfiguration.ps1
 src/PSSailpoint/Model/NonEmployeeApprovalDecision.ps1
 src/PSSailpoint/Model/NonEmployeeApprovalItem.ps1
 src/PSSailpoint/Model/NonEmployeeApprovalItemAllOf.ps1
@@ -984,6 +988,7 @@ tests/Api/AccountsApi.Tests.ps1
 tests/Api/CertificationCampaignsApi.Tests.ps1
 tests/Api/CertificationSummariesApi.Tests.ps1
 tests/Api/CertificationsApi.Tests.ps1
+tests/Api/GlobalTenantSecuritySettingsApi.Tests.ps1
 tests/Api/IdentityProfilesApi.Tests.ps1
 tests/Api/LifecycleStatesApi.Tests.ps1
 tests/Api/NonEmployeeLifecycleManagementApi.Tests.ps1
@@ -1241,6 +1246,7 @@ tests/Model/NameNormalizer.Tests.ps1
 tests/Model/NameType.Tests.ps1
 tests/Model/NamedConstructs.Tests.ps1
 tests/Model/NestedAggregation.Tests.ps1
+tests/Model/NetworkConfiguration.Tests.ps1
 tests/Model/NonEmployeeApprovalDecision.Tests.ps1
 tests/Model/NonEmployeeApprovalItem.Tests.ps1
 tests/Model/NonEmployeeApprovalItemAllOf.Tests.ps1

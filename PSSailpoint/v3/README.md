@@ -101,6 +101,9 @@ Class | Method | HTTP request | Description
 *CertificationsApi* | [**Select-IdentityDecision**](docs/CertificationsApi.md#Select-IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
 *CertificationsApi* | [**Invoke-ReassignIdentityCertifications**](docs/CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 *CertificationsApi* | [**Invoke-SignOffIdentityCertification**](docs/CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
+*GlobalTenantSecuritySettingsApi* | [**New-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#New-AuthOrgNetworkConfig) | **POST** /auth-org/network-config | Create security network configuration.
+*GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgNetworkConfig) | **GET** /auth-org/network-config | Get security network configuration.
+*GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgNetworkConfig) | **PATCH** /auth-org/network-config | Update security network configuration.
 *IdentityProfilesApi* | [**Remove-IdentityProfile**](docs/IdentityProfilesApi.md#Remove-IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
 *IdentityProfilesApi* | [**Remove-IdentityProfiles**](docs/IdentityProfilesApi.md#Remove-IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 *IdentityProfilesApi* | [**Export-IdentityProfiles**](docs/IdentityProfilesApi.md#Export-IdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
@@ -515,6 +518,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.NameType](docs/NameType.md)
  - [PSSailpoint/Model.NamedConstructs](docs/NamedConstructs.md)
  - [PSSailpoint/Model.NestedAggregation](docs/NestedAggregation.md)
+ - [PSSailpoint/Model.NetworkConfiguration](docs/NetworkConfiguration.md)
  - [PSSailpoint/Model.NonEmployeeApprovalDecision](docs/NonEmployeeApprovalDecision.md)
  - [PSSailpoint/Model.NonEmployeeApprovalItem](docs/NonEmployeeApprovalItem.md)
  - [PSSailpoint/Model.NonEmployeeApprovalItemAllOf](docs/NonEmployeeApprovalItemAllOf.md)

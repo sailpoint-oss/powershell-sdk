@@ -85,6 +85,8 @@ docs/AttributeDefinition.md
 docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
 docs/AttributeRequest.md
+docs/AuthUser.md
+docs/AuthUserApi.md
 docs/Base64Decode.md
 docs/Base64Encode.md
 docs/BaseAccess.md
@@ -492,6 +494,7 @@ src/PSSailpoint/Api/AccessRequestApprovalsApi.ps1
 src/PSSailpoint/Api/AccessRequestsApi.ps1
 src/PSSailpoint/Api/AccountActivitiesApi.ps1
 src/PSSailpoint/Api/AccountsApi.ps1
+src/PSSailpoint/Api/AuthUserApi.ps1
 src/PSSailpoint/Api/CertificationCampaignsApi.ps1
 src/PSSailpoint/Api/CertificationSummariesApi.ps1
 src/PSSailpoint/Api/CertificationsApi.ps1
@@ -599,6 +602,7 @@ src/PSSailpoint/Model/AttributeDefinition.ps1
 src/PSSailpoint/Model/AttributeDefinitionSchema.ps1
 src/PSSailpoint/Model/AttributeDefinitionType.ps1
 src/PSSailpoint/Model/AttributeRequest.ps1
+src/PSSailpoint/Model/AuthUser.ps1
 src/PSSailpoint/Model/Base64Decode.ps1
 src/PSSailpoint/Model/Base64Encode.ps1
 src/PSSailpoint/Model/BaseAccess.ps1
@@ -985,6 +989,7 @@ tests/Api/AccessRequestApprovalsApi.Tests.ps1
 tests/Api/AccessRequestsApi.Tests.ps1
 tests/Api/AccountActivitiesApi.Tests.ps1
 tests/Api/AccountsApi.Tests.ps1
+tests/Api/AuthUserApi.Tests.ps1
 tests/Api/CertificationCampaignsApi.Tests.ps1
 tests/Api/CertificationSummariesApi.Tests.ps1
 tests/Api/CertificationsApi.Tests.ps1
@@ -1091,6 +1096,7 @@ tests/Model/AttributeDefinition.Tests.ps1
 tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
 tests/Model/AttributeRequest.Tests.ps1
+tests/Model/AuthUser.Tests.ps1
 tests/Model/Base64Decode.Tests.ps1
 tests/Model/Base64Encode.Tests.ps1
 tests/Model/BaseAccess.Tests.ps1

@@ -82,6 +82,8 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Invoke-ReloadAccount**](docs/AccountsApi.md#Invoke-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *AccountsApi* | [**Unlock-Account**](docs/AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
+*AuthUserApi* | [**Get-AuthUser**](docs/AuthUserApi.md#Get-AuthUser) | **GET** /auth-users/{id} | Auth User Details
+*AuthUserApi* | [**Update-AuthUser**](docs/AuthUserApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
 *CertificationCampaignsApi* | [**Complete-Campaign**](docs/CertificationCampaignsApi.md#Complete-Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 *CertificationCampaignsApi* | [**Get-ActiveCampaigns**](docs/CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
@@ -363,6 +365,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.AttributeDefinitionSchema](docs/AttributeDefinitionSchema.md)
  - [PSSailpoint/Model.AttributeDefinitionType](docs/AttributeDefinitionType.md)
  - [PSSailpoint/Model.AttributeRequest](docs/AttributeRequest.md)
+ - [PSSailpoint/Model.AuthUser](docs/AuthUser.md)
  - [PSSailpoint/Model.Base64Decode](docs/Base64Decode.md)
  - [PSSailpoint/Model.Base64Encode](docs/Base64Encode.md)
  - [PSSailpoint/Model.BaseAccess](docs/BaseAccess.md)

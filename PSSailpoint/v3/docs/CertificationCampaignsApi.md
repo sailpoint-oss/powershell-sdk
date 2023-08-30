@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Complete-Campaign**](CertificationCampaignsApi.md#Complete-Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 [**New-Campaign**](CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
+[**Remove-Campaigns**](CertificationCampaignsApi.md#Remove-Campaigns) | **POST** /campaigns/delete | Deletes Campaigns
 [**Get-ActiveCampaigns**](CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 [**Get-Campaign**](CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
 [**Get-CampaignReports**](CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
@@ -122,6 +123,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Campaign**](Campaign.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-Campaigns"></a>
+# **Remove-Campaigns**
+> SystemCollectionsHashtable Remove-Campaigns<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignsDeleteRequest] <PSCustomObject><br>
+
+Deletes Campaigns
+
+Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$CampaignsDeleteRequest = Initialize-CampaignsDeleteRequest -Ids "MyIds" # CampaignsDeleteRequest | The ids of the campaigns to delete.
+
+# Deletes Campaigns
+try {
+    $Result = Remove-Campaigns -CampaignsDeleteRequest $CampaignsDeleteRequest
+} catch {
+    Write-Host ("Exception occurred when calling Remove-Campaigns: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **CampaignsDeleteRequest** | [**CampaignsDeleteRequest**](CampaignsDeleteRequest.md)| The ids of the campaigns to delete. | 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
 
 ### Authorization
 

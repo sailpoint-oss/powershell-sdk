@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *AuthUserApi* | [**Update-AuthUser**](docs/AuthUserApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
 *CertificationCampaignsApi* | [**Complete-Campaign**](docs/CertificationCampaignsApi.md#Complete-Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
+*CertificationCampaignsApi* | [**Remove-Campaigns**](docs/CertificationCampaignsApi.md#Remove-Campaigns) | **POST** /campaigns/delete | Deletes Campaigns
 *CertificationCampaignsApi* | [**Get-ActiveCampaigns**](docs/CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 *CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
 *CertificationCampaignsApi* | [**Get-CampaignReports**](docs/CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
@@ -394,6 +395,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CampaignReference](docs/CampaignReference.md)
  - [PSSailpoint/Model.CampaignReport](docs/CampaignReport.md)
  - [PSSailpoint/Model.CampaignReportAllOf](docs/CampaignReportAllOf.md)
+ - [PSSailpoint/Model.CampaignsDeleteRequest](docs/CampaignsDeleteRequest.md)
  - [PSSailpoint/Model.CancelAccessRequest](docs/CancelAccessRequest.md)
  - [PSSailpoint/Model.CancelledRequestDetails](docs/CancelledRequestDetails.md)
  - [PSSailpoint/Model.Certification](docs/Certification.md)

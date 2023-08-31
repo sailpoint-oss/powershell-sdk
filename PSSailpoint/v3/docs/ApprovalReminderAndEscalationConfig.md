@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DaysUntilEscalation** | **Int32** | Number of days to wait before the first reminder. If no reminders are configured, then this is the number of days to wait before escalation. | [optional] 
 **DaysBetweenReminders** | **Int32** | Number of days to wait between reminder notifications. | [optional] 
-**MaxReminders** | **Int32** | Maximum number of reminder notification to send to the reviewer before approval escalation. This will only be a positive number. | [optional] 
+**MaxReminders** | **Int32** | Maximum number of reminder notification to send to the reviewer before approval escalation. | [optional] 
 **FallbackApproverRef** | [**IdentityReferenceWithNameAndEmail**](IdentityReferenceWithNameAndEmail.md) |  | [optional] 
 
 ## Examples

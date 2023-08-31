@@ -37,8 +37,8 @@ $Search = Initialize-PSSailpointSearch  -Indices [identities] `
  -AggregationsVersion null `
  -AggregationsDsl {} `
  -Aggregations null `
- -Sort null `
- -SearchAfter null `
+ -Sort [displayName, +id] `
+ -SearchAfter [John Doe, 2c91808375d8e80a0175e1f88a575221] `
  -Filters {}
 ```
 

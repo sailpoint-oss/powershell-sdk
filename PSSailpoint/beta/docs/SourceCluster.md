@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the cluster | [optional] 
-**Name** | **String** | Human-readable display name of the cluster | [optional] 
+**Type** | **String** | The type of object being referenced | 
+**Id** | **String** | ID of the cluster | 
+**Name** | **String** | Human-readable display name of the cluster | 
 
 ## Examples
 

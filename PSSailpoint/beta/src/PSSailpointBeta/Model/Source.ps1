@@ -132,13 +132,13 @@ function Initialize-BetaSource {
         ${DeleteThreshold},
         [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Authoritative},
+        ${Authoritative} = $false,
         [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ManagementWorkgroup},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Healthy},
+        ${Healthy} = $false,
         [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},

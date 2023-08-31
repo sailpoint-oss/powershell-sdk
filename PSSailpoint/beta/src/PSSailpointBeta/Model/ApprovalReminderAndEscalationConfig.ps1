@@ -19,7 +19,7 @@ Number of days to wait before the first reminder. If no reminders are configured
 .PARAMETER DaysBetweenReminders
 Number of days to wait between reminder notifications.
 .PARAMETER MaxReminders
-Maximum number of reminder notification to send to the reviewer before approval escalation. This will only be a positive number.
+Maximum number of reminder notification to send to the reviewer before approval escalation.
 .PARAMETER FallbackApproverRef
 No description available.
 .OUTPUTS
@@ -47,6 +47,10 @@ function Initialize-BetaApprovalReminderAndEscalationConfig {
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaApprovalReminderAndEscalationConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if ($MaxReminders -and $MaxReminders -lt 1) {
+          throw "invalid value for 'MaxReminders', must be greater than or equal to 1."
+        }
 
 
         $PSO = [PSCustomObject]@{

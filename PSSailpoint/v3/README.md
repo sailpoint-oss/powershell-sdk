@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 *CertificationCampaignsApi* | [**Get-ActiveCampaigns**](docs/CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 *CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
 *CertificationCampaignsApi* | [**Get-CampaignReports**](docs/CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
+*CertificationCampaignsApi* | [**Get-CampaignReportsConfig**](docs/CertificationCampaignsApi.md#Get-CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
 *CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *CertificationCampaignsApi* | [**Start-Campaign**](docs/CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *CertificationCampaignsApi* | [**Start-CampaignReport**](docs/CertificationCampaignsApi.md#Start-CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
@@ -395,6 +396,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CampaignReference](docs/CampaignReference.md)
  - [PSSailpoint/Model.CampaignReport](docs/CampaignReport.md)
  - [PSSailpoint/Model.CampaignReportAllOf](docs/CampaignReportAllOf.md)
+ - [PSSailpoint/Model.CampaignReportsConfig](docs/CampaignReportsConfig.md)
  - [PSSailpoint/Model.CampaignsDeleteRequest](docs/CampaignsDeleteRequest.md)
  - [PSSailpoint/Model.CancelAccessRequest](docs/CancelAccessRequest.md)
  - [PSSailpoint/Model.CancelledRequestDetails](docs/CancelledRequestDetails.md)

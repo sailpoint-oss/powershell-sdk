@@ -54,6 +54,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'Get-CampaignReportsConfig' {
+        It 'Test Get-CampaignReportsConfig' {
+            #$TestResult = Get-CampaignReportsConfig
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Move-' {
         It 'Test Move-' {
             #$TestResult = Move- -Id "TEST_VALUE" -AdminReviewReassign "TEST_VALUE"

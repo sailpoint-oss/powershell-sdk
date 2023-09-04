@@ -115,6 +115,7 @@ docs/CampaignCompleteOptions.md
 docs/CampaignReference.md
 docs/CampaignReport.md
 docs/CampaignReportAllOf.md
+docs/CampaignReportsConfig.md
 docs/CampaignsDeleteRequest.md
 docs/CancelAccessRequest.md
 docs/CancelledRequestDetails.md
@@ -632,6 +633,7 @@ src/PSSailpoint/Model/CampaignCompleteOptions.ps1
 src/PSSailpoint/Model/CampaignReference.ps1
 src/PSSailpoint/Model/CampaignReport.ps1
 src/PSSailpoint/Model/CampaignReportAllOf.ps1
+src/PSSailpoint/Model/CampaignReportsConfig.ps1
 src/PSSailpoint/Model/CampaignsDeleteRequest.ps1
 src/PSSailpoint/Model/CancelAccessRequest.ps1
 src/PSSailpoint/Model/CancelledRequestDetails.ps1
@@ -1127,6 +1129,7 @@ tests/Model/CampaignCompleteOptions.Tests.ps1
 tests/Model/CampaignReference.Tests.ps1
 tests/Model/CampaignReport.Tests.ps1
 tests/Model/CampaignReportAllOf.Tests.ps1
+tests/Model/CampaignReportsConfig.Tests.ps1
 tests/Model/CampaignsDeleteRequest.Tests.ps1
 tests/Model/CancelAccessRequest.Tests.ps1
 tests/Model/CancelledRequestDetails.Tests.ps1

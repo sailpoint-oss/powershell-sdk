@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
 *CertificationCampaignsApi* | [**Get-CampaignReports**](docs/CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
 *CertificationCampaignsApi* | [**Get-CampaignReportsConfig**](docs/CertificationCampaignsApi.md#Get-CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
 *CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
+*CertificationCampaignsApi* | [**Set-CampaignReportsConfig**](docs/CertificationCampaignsApi.md#Set-CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
 *CertificationCampaignsApi* | [**Start-Campaign**](docs/CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *CertificationCampaignsApi* | [**Start-CampaignReport**](docs/CertificationCampaignsApi.md#Start-CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
 *CertificationCampaignsApi* | [**Update-Campaign**](docs/CertificationCampaignsApi.md#Update-Campaign) | **PATCH** /campaigns/{id} | Update a Campaign

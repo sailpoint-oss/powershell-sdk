@@ -721,6 +721,96 @@ function Move- {
 <#
 .SYNOPSIS
 
+Set Campaign Reports Configuration
+
+.DESCRIPTION
+
+Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
+
+.PARAMETER CampaignReportsConfig
+Campaign Report Configuration
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+CampaignReportsConfig
+#>
+function Set-CampaignReportsConfig {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CampaignReportsConfig},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Set-CampaignReportsConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/campaigns/reports-configuration'
+
+        if (!$CampaignReportsConfig) {
+            throw "Error! The required parameter `CampaignReportsConfig` missing when calling setCampaignReportsConfig."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $CampaignReportsConfig | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $CampaignReportsConfig | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "CampaignReportsConfig" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Activate a Campaign
 
 .DESCRIPTION

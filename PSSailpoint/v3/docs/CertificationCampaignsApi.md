@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**Get-CampaignReports**](CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
 [**Get-CampaignReportsConfig**](CertificationCampaignsApi.md#Get-CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
 [**Move-**](CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
+[**Set-CampaignReportsConfig**](CertificationCampaignsApi.md#Set-CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
 [**Start-Campaign**](CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 [**Start-CampaignReport**](CertificationCampaignsApi.md#Start-CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
 [**Update-Campaign**](CertificationCampaignsApi.md#Update-Campaign) | **PATCH** /campaigns/{id} | Update a Campaign
@@ -444,6 +445,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CertificationTask**](CertificationTask.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Set-CampaignReportsConfig"></a>
+# **Set-CampaignReportsConfig**
+> CampaignReportsConfig Set-CampaignReportsConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignReportsConfig] <PSCustomObject><br>
+
+Set Campaign Reports Configuration
+
+Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$CampaignReportsConfig = Initialize-CampaignReportsConfig -IdentityAttributeColumns "MyIdentityAttributeColumns" # CampaignReportsConfig | Campaign Report Configuration
+
+# Set Campaign Reports Configuration
+try {
+    $Result = Set-CampaignReportsConfig -CampaignReportsConfig $CampaignReportsConfig
+} catch {
+    Write-Host ("Exception occurred when calling Set-CampaignReportsConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **CampaignReportsConfig** | [**CampaignReportsConfig**](CampaignReportsConfig.md)| Campaign Report Configuration | 
+
+### Return type
+
+[**CampaignReportsConfig**](CampaignReportsConfig.md) (PSCustomObject)
 
 ### Authorization
 

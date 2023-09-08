@@ -86,6 +86,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'Start-CampaignRemediationScan' {
+        It 'Test Start-CampaignRemediationScan' {
+            #$TestResult = Start-CampaignRemediationScan -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Start-CampaignReport' {
         It 'Test Start-CampaignReport' {
             #$TestResult = Start-CampaignReport -Id "TEST_VALUE" -Type "TEST_VALUE"

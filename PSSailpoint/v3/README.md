@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *CertificationCampaignsApi* | [**Set-CampaignReportsConfig**](docs/CertificationCampaignsApi.md#Set-CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
 *CertificationCampaignsApi* | [**Start-Campaign**](docs/CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
+*CertificationCampaignsApi* | [**Start-CampaignRemediationScan**](docs/CertificationCampaignsApi.md#Start-CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 *CertificationCampaignsApi* | [**Start-CampaignReport**](docs/CertificationCampaignsApi.md#Start-CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
 *CertificationCampaignsApi* | [**Update-Campaign**](docs/CertificationCampaignsApi.md#Update-Campaign) | **PATCH** /campaigns/{id} | Update a Campaign
 *CertificationSummariesApi* | [**Get-IdentityAccessSummaries**](docs/CertificationSummariesApi.md#Get-IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access Summaries

@@ -15,27 +15,27 @@ No summary available.
 No description available.
 
 .PARAMETER Key
-No description available.
+The key of the template
 .PARAMETER Name
-No description available.
+The name of the Task Manager Subscription
 .PARAMETER Medium
 The message medium. More mediums may be added in the future.
 .PARAMETER Locale
 The locale for the message text, a BCP 47 language tag.
 .PARAMETER Subject
-No description available.
+The subject line in the template
 .PARAMETER Header
-No description available.
+The header value is now located within the body field. If included with non-null values, will result in a 400.
 .PARAMETER Body
-No description available.
+The body in the template
 .PARAMETER Footer
-No description available.
+The footer value is now located within the body field. If included with non-null values, will result in a 400.
 .PARAMETER VarFrom
-No description available.
+The ""From:"" address in the template
 .PARAMETER ReplyTo
-No description available.
+The ""Reply To"" line in the template
 .PARAMETER Description
-No description available.
+The description in the template
 .PARAMETER Id
 This is auto-generated.
 .PARAMETER Created

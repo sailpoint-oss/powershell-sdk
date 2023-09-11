@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **String** |  | 
-**Name** | **String** |  | [optional] 
+**Key** | **String** | The key of the template | 
+**Name** | **String** | The name of the Task Manager Subscription | [optional] 
 **Medium** | **String** | The message medium. More mediums may be added in the future. | 
 **Locale** | **String** | The locale for the message text, a BCP 47 language tag. | 
-**Subject** | **String** |  | [optional] 
-**Header** | **String** |  | [optional] 
-**Body** | **String** |  | [optional] 
-**Footer** | **String** |  | [optional] 
-**VarFrom** | **String** |  | [optional] 
-**ReplyTo** | **String** |  | [optional] 
-**Description** | **String** |  | [optional] 
+**Subject** | **String** | The subject line in the template | [optional] 
+**Header** | **String** | The header value is now located within the body field. If included with non-null values, will result in a 400. | [optional] 
+**Body** | **String** | The body in the template | [optional] 
+**Footer** | **String** | The footer value is now located within the body field. If included with non-null values, will result in a 400. | [optional] 
+**VarFrom** | **String** | The &quot;&quot;From:&quot;&quot; address in the template | [optional] 
+**ReplyTo** | **String** | The &quot;&quot;Reply To&quot;&quot; line in the template | [optional] 
+**Description** | **String** | The description in the template | [optional] 
 **Id** | **String** | This is auto-generated. | [optional] 
 **Created** | **System.DateTime** | The time when this template is created. This is auto-generated. | [optional] 
 **Modified** | **System.DateTime** | The time when this template was last modified. This is auto-generated. | [optional] 
@@ -27,9 +27,9 @@ $TemplateDto = Initialize-PSSailpointBetaTemplateDto  -Key cloud_manual_work_ite
  -Medium EMAIL `
  -Locale en `
  -Subject You have $numberOfPendingTasks $taskTasks to complete in ${__global.productName}. `
- -Header Dear $__recipient.name, `
+ -Header null `
  -Body Please go to the task manager `
- -Footer Thanks, The $__global.productName Team `
+ -Footer null `
  -VarFrom $__global.emailFromAddress `
  -ReplyTo $__global.emailFromAddress `
  -Description Daily digest - sent if number of outstanding tasks for task owner &gt; 0 `

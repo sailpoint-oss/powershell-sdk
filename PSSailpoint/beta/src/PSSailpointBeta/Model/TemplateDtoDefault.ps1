@@ -15,27 +15,27 @@ No summary available.
 No description available.
 
 .PARAMETER Key
-No description available.
+The key of the default template
 .PARAMETER Name
-No description available.
+The name of the default template
 .PARAMETER Medium
 The message medium. More mediums may be added in the future.
 .PARAMETER Locale
 The locale for the message text, a BCP 47 language tag.
 .PARAMETER Subject
-No description available.
+The subject of the default template
 .PARAMETER Header
-No description available.
+The header value is now located within the body field. If included with non-null values, will result in a 400.
 .PARAMETER Body
-No description available.
+The body of the default template
 .PARAMETER Footer
-No description available.
+The footer value is now located within the body field. If included with non-null values, will result in a 400.
 .PARAMETER VarFrom
-No description available.
+The ""From:"" address of the default template
 .PARAMETER ReplyTo
-No description available.
+The ""Reply To"" field of the default template
 .PARAMETER Description
-No description available.
+The description of the default template
 .OUTPUTS
 
 TemplateDtoDefault<PSCustomObject>

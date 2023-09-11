@@ -415,6 +415,11 @@ Class | Method | HTTP request | Description
 *BetaTaggedObjectsApi* | [**Remove-BetaTagsToManyObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *BetaTaggedObjectsApi* | [**Set-BetaTagToObject**](docs/BetaTaggedObjectsApi.md#Set-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 *BetaTaggedObjectsApi* | [**Update-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Update-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
+*BetaTaskManagementApi* | [**Get-BetaPendingTaskHeaders**](docs/BetaTaskManagementApi.md#Get-BetaPendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve headers only for pending task list.
+*BetaTaskManagementApi* | [**Get-BetaPendingTasks**](docs/BetaTaskManagementApi.md#Get-BetaPendingTasks) | **GET** /task-status/pending-tasks | Retrieve a pending task list.
+*BetaTaskManagementApi* | [**Get-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatus) | **GET** /task-status/{id} | Get task status by ID.
+*BetaTaskManagementApi* | [**Get-BetaTaskStatusList**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatusList) | **GET** /task-status | Retrieve a task status list.
+*BetaTaskManagementApi* | [**Update-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Update-BetaTaskStatus) | **PATCH** /task-status/{id} | Update task status by ID
 *BetaTransformsApi* | [**New-BetaTransform**](docs/BetaTransformsApi.md#New-BetaTransform) | **POST** /transforms | Create transform
 *BetaTransformsApi* | [**Remove-BetaTransform**](docs/BetaTransformsApi.md#Remove-BetaTransform) | **DELETE** /transforms/{id} | Delete a transform
 *BetaTransformsApi* | [**Get-BetaTransform**](docs/BetaTransformsApi.md#Get-BetaTransform) | **GET** /transforms/{id} | Transform by ID
@@ -1096,6 +1101,9 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SubscriptionType](docs/SubscriptionType.md)
  - [PSSailpointBeta/Model.TaggedObject](docs/TaggedObject.md)
  - [PSSailpointBeta/Model.TaskResultSimplified](docs/TaskResultSimplified.md)
+ - [PSSailpointBeta/Model.TaskReturnDetails](docs/TaskReturnDetails.md)
+ - [PSSailpointBeta/Model.TaskStatus](docs/TaskStatus.md)
+ - [PSSailpointBeta/Model.TaskStatusMessage](docs/TaskStatusMessage.md)
  - [PSSailpointBeta/Model.TemplateBulkDeleteDto](docs/TemplateBulkDeleteDto.md)
  - [PSSailpointBeta/Model.TemplateDto](docs/TemplateDto.md)
  - [PSSailpointBeta/Model.TemplateDtoDefault](docs/TemplateDtoDefault.md)

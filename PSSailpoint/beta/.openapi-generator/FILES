@@ -166,6 +166,7 @@ docs/BetaSegmentsApi.md
 docs/BetaServiceDeskIntegrationApi.md
 docs/BetaSourcesApi.md
 docs/BetaTaggedObjectsApi.md
+docs/BetaTaskManagementApi.md
 docs/BetaTransformsApi.md
 docs/BetaTriggersApi.md
 docs/BetaWorkItemsApi.md
@@ -677,6 +678,9 @@ docs/SubscriptionPutRequest.md
 docs/SubscriptionType.md
 docs/TaggedObject.md
 docs/TaskResultSimplified.md
+docs/TaskReturnDetails.md
+docs/TaskStatus.md
+docs/TaskStatusMessage.md
 docs/TemplateBulkDeleteDto.md
 docs/TemplateDto.md
 docs/TemplateDtoDefault.md
@@ -783,6 +787,7 @@ src/PSSailpointBeta/Api/BetaSegmentsApi.ps1
 src/PSSailpointBeta/Api/BetaServiceDeskIntegrationApi.ps1
 src/PSSailpointBeta/Api/BetaSourcesApi.ps1
 src/PSSailpointBeta/Api/BetaTaggedObjectsApi.ps1
+src/PSSailpointBeta/Api/BetaTaskManagementApi.ps1
 src/PSSailpointBeta/Api/BetaTransformsApi.ps1
 src/PSSailpointBeta/Api/BetaTriggersApi.ps1
 src/PSSailpointBeta/Api/BetaWorkItemsApi.ps1
@@ -1411,6 +1416,9 @@ src/PSSailpointBeta/Model/SubscriptionPutRequest.ps1
 src/PSSailpointBeta/Model/SubscriptionType.ps1
 src/PSSailpointBeta/Model/TaggedObject.ps1
 src/PSSailpointBeta/Model/TaskResultSimplified.ps1
+src/PSSailpointBeta/Model/TaskReturnDetails.ps1
+src/PSSailpointBeta/Model/TaskStatus.ps1
+src/PSSailpointBeta/Model/TaskStatusMessage.ps1
 src/PSSailpointBeta/Model/TemplateBulkDeleteDto.ps1
 src/PSSailpointBeta/Model/TemplateDto.ps1
 src/PSSailpointBeta/Model/TemplateDtoDefault.ps1
@@ -1524,6 +1532,7 @@ tests/Api/BetaSegmentsApi.Tests.ps1
 tests/Api/BetaServiceDeskIntegrationApi.Tests.ps1
 tests/Api/BetaSourcesApi.Tests.ps1
 tests/Api/BetaTaggedObjectsApi.Tests.ps1
+tests/Api/BetaTaskManagementApi.Tests.ps1
 tests/Api/BetaTransformsApi.Tests.ps1
 tests/Api/BetaTriggersApi.Tests.ps1
 tests/Api/BetaWorkItemsApi.Tests.ps1
@@ -2151,6 +2160,9 @@ tests/Model/SubscriptionPutRequest.Tests.ps1
 tests/Model/SubscriptionType.Tests.ps1
 tests/Model/TaggedObject.Tests.ps1
 tests/Model/TaskResultSimplified.Tests.ps1
+tests/Model/TaskReturnDetails.Tests.ps1
+tests/Model/TaskStatus.Tests.ps1
+tests/Model/TaskStatusMessage.Tests.ps1
 tests/Model/TemplateBulkDeleteDto.Tests.ps1
 tests/Model/TemplateDto.Tests.ps1
 tests/Model/TemplateDtoDefault.Tests.ps1

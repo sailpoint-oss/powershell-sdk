@@ -360,6 +360,8 @@ docs/IdentityExceptionReportReference.md
 docs/IdentityExceptionReportReference1.md
 docs/IdentityHistoryResponse.md
 docs/IdentityListItem.md
+docs/IdentityOwnershipAssociationDetails.md
+docs/IdentityOwnershipAssociationDetailsAssociationDetailsInner.md
 docs/IdentityPreviewRequest.md
 docs/IdentityPreviewResponse.md
 docs/IdentityProfile.md
@@ -1098,6 +1100,8 @@ src/PSSailpointBeta/Model/IdentityExceptionReportReference.ps1
 src/PSSailpointBeta/Model/IdentityExceptionReportReference1.ps1
 src/PSSailpointBeta/Model/IdentityHistoryResponse.ps1
 src/PSSailpointBeta/Model/IdentityListItem.ps1
+src/PSSailpointBeta/Model/IdentityOwnershipAssociationDetails.ps1
+src/PSSailpointBeta/Model/IdentityOwnershipAssociationDetailsAssociationDetailsInner.ps1
 src/PSSailpointBeta/Model/IdentityPreviewRequest.ps1
 src/PSSailpointBeta/Model/IdentityPreviewResponse.ps1
 src/PSSailpointBeta/Model/IdentityProfile.ps1
@@ -1843,6 +1847,8 @@ tests/Model/IdentityExceptionReportReference.Tests.ps1
 tests/Model/IdentityExceptionReportReference1.Tests.ps1
 tests/Model/IdentityHistoryResponse.Tests.ps1
 tests/Model/IdentityListItem.Tests.ps1
+tests/Model/IdentityOwnershipAssociationDetails.Tests.ps1
+tests/Model/IdentityOwnershipAssociationDetailsAssociationDetailsInner.Tests.ps1
 tests/Model/IdentityPreviewRequest.Tests.ps1
 tests/Model/IdentityPreviewResponse.Tests.ps1
 tests/Model/IdentityProfile.Tests.ps1

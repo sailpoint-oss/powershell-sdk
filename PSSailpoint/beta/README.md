@@ -200,6 +200,7 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Update-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 *BetaIdentitiesApi* | [**Remove-BetaIdentity**](docs/BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
 *BetaIdentitiesApi* | [**Get-BetaIdentity**](docs/BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
+*BetaIdentitiesApi* | [**Get-BetaIdentityOwnershipDetails**](docs/BetaIdentitiesApi.md#Get-BetaIdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
@@ -785,6 +786,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.IdentityExceptionReportReference1](docs/IdentityExceptionReportReference1.md)
  - [PSSailpointBeta/Model.IdentityHistoryResponse](docs/IdentityHistoryResponse.md)
  - [PSSailpointBeta/Model.IdentityListItem](docs/IdentityListItem.md)
+ - [PSSailpointBeta/Model.IdentityOwnershipAssociationDetails](docs/IdentityOwnershipAssociationDetails.md)
+ - [PSSailpointBeta/Model.IdentityOwnershipAssociationDetailsAssociationDetailsInner](docs/IdentityOwnershipAssociationDetailsAssociationDetailsInner.md)
  - [PSSailpointBeta/Model.IdentityPreviewRequest](docs/IdentityPreviewRequest.md)
  - [PSSailpointBeta/Model.IdentityPreviewResponse](docs/IdentityPreviewResponse.md)
  - [PSSailpointBeta/Model.IdentityProfile](docs/IdentityProfile.md)

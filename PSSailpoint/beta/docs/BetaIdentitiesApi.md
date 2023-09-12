@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Remove-BetaIdentity**](BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
 [**Get-BetaIdentity**](BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
+[**Get-BetaIdentityOwnershipDetails**](BetaIdentitiesApi.md#Get-BetaIdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
 [**Get-BetaIdentities**](BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 [**Start-BetaIdentityProcessing**](BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 [**Sync-BetahronizeAttributesForIdentity**](BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
@@ -101,6 +102,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Identity**](Identity.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaIdentityOwnershipDetails"></a>
+# **Get-BetaIdentityOwnershipDetails**
+> IdentityOwnershipAssociationDetails Get-BetaIdentityOwnershipDetails<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
+
+Get ownership details
+
+Get Ownership association details of an Identity
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | The identity id
+
+# Get ownership details
+try {
+    $Result = Get-BetaIdentityOwnershipDetails -IdentityId $IdentityId
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaIdentityOwnershipDetails: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentityId** | **String**| The identity id | 
+
+### Return type
+
+[**IdentityOwnershipAssociationDetails**](IdentityOwnershipAssociationDetails.md) (PSCustomObject)
 
 ### Authorization
 

@@ -22,6 +22,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentitiesApi' {
         }
     }
 
+    Context 'Get-BetaIdentityOwnershipDetails' {
+        It 'Test Get-BetaIdentityOwnershipDetails' {
+            #$TestResult = Get-BetaIdentityOwnershipDetails -IdentityId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaIdentities' {
         It 'Test Get-BetaIdentities' {
             #$TestResult = Get-BetaIdentities -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"

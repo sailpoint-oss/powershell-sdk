@@ -25,9 +25,9 @@ The ID of the source.
 .PARAMETER SourceName
 The name of the source.
 .PARAMETER IdentityId
-The ID of the identity that is corellated with this account.
+The ID of the identity that is correlated with this account.
 .PARAMETER IdentityName
-The name of the identity that is corellated with this account.
+The name of the identity that is correlated with this account.
 .PARAMETER Attributes
 The attributes of the account. The contents of attributes depends on the account schema for the source.
 .OUTPUTS

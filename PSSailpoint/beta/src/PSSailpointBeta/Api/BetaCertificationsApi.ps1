@@ -290,7 +290,7 @@ function Get-BetaIdentityCertificationTaskStatus {
 <#
 .SYNOPSIS
 
-List of Reviewers for the certification
+List of Reviewers for certification
 
 .DESCRIPTION
 

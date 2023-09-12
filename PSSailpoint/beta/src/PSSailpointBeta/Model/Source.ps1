@@ -66,8 +66,8 @@ The id of connector
 The name of the connector that was chosen on source creation
 .PARAMETER ConnectionType
 The type of connection (direct or file)
-.PARAMETER ConnectorImplementstionId
-The connector implementstion id
+.PARAMETER ConnectorImplementationId
+The connector implementation id
 .OUTPUTS
 
 Source<PSCustomObject>
@@ -156,7 +156,7 @@ function Initialize-BetaSource {
         ${ConnectionType},
         [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ConnectorImplementstionId}
+        ${ConnectorImplementationId}
     )
 
     Process {
@@ -203,7 +203,7 @@ function Initialize-BetaSource {
             "connectorId" = ${ConnectorId}
             "connectorName" = ${ConnectorName}
             "connectionType" = ${ConnectionType}
-            "connectorImplementstionId" = ${ConnectorImplementstionId}
+            "connectorImplementationId" = ${ConnectorImplementationId}
         }
 
 
@@ -241,7 +241,7 @@ function ConvertFrom-BetaJsonToSource {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaSource
-        $AllProperties = ("id", "name", "description", "owner", "cluster", "accountCorrelationConfig", "accountCorrelationRule", "managerCorrelationMapping", "managerCorrelationRule", "beforeProvisioningRule", "schemas", "passwordPolicies", "features", "type", "connector", "connectorClass", "connectorAttributes", "deleteThreshold", "authoritative", "managementWorkgroup", "healthy", "status", "since", "connectorId", "connectorName", "connectionType", "connectorImplementstionId")
+        $AllProperties = ("id", "name", "description", "owner", "cluster", "accountCorrelationConfig", "accountCorrelationRule", "managerCorrelationMapping", "managerCorrelationRule", "beforeProvisioningRule", "schemas", "passwordPolicies", "features", "type", "connector", "connectorClass", "connectorAttributes", "deleteThreshold", "authoritative", "managementWorkgroup", "healthy", "status", "since", "connectorId", "connectorName", "connectionType", "connectorImplementationId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -408,10 +408,10 @@ function ConvertFrom-BetaJsonToSource {
             $ConnectionType = $JsonParameters.PSobject.Properties["connectionType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "connectorImplementstionId"))) { #optional property not found
-            $ConnectorImplementstionId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "connectorImplementationId"))) { #optional property not found
+            $ConnectorImplementationId = $null
         } else {
-            $ConnectorImplementstionId = $JsonParameters.PSobject.Properties["connectorImplementstionId"].value
+            $ConnectorImplementationId = $JsonParameters.PSobject.Properties["connectorImplementationId"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -441,7 +441,7 @@ function ConvertFrom-BetaJsonToSource {
             "connectorId" = ${ConnectorId}
             "connectorName" = ${ConnectorName}
             "connectionType" = ${ConnectionType}
-            "connectorImplementstionId" = ${ConnectorImplementstionId}
+            "connectorImplementationId" = ${ConnectorImplementationId}
         }
 
         return $PSO

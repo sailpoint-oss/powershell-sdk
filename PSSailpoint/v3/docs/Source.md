@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **ConnectorId** | **String** | The id of connector | [optional] 
 **ConnectorName** | **String** | The name of the connector that was chosen on source creation | [optional] 
 **ConnectionType** | **String** | The type of connection (direct or file) | [optional] 
-**ConnectorImplementstionId** | **String** | The connector implementstion id | [optional] 
+**ConnectorImplementationId** | **String** | The connector implementation id | [optional] 
 
 ## Examples
 
@@ -61,7 +61,7 @@ $Source = Initialize-PSSailpointSource  -Id 2c91808568c529c60168cca6f90c1324 `
  -ConnectorId active-directory `
  -ConnectorName Active Directory `
  -ConnectionType file `
- -ConnectorImplementstionId delimited-file
+ -ConnectorImplementationId delimited-file
 ```
 
 - Convert the resource to JSON

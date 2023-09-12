@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **NativeIdentifier** | **String** | Unique ID of the account on the source. | 
 **SourceId** | **String** | The ID of the source. | 
 **SourceName** | **String** | The name of the source. | 
-**IdentityId** | **String** | The ID of the identity that is corellated with this account. | 
-**IdentityName** | **String** | The name of the identity that is corellated with this account. | 
+**IdentityId** | **String** | The ID of the identity that is correlated with this account. | 
+**IdentityName** | **String** | The name of the identity that is correlated with this account. | 
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | The attributes of the account. The contents of attributes depends on the account schema for the source. | 
 
 ## Examples

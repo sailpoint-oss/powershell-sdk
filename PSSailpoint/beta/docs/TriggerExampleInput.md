@@ -40,8 +40,8 @@ Name | Type | Description | Notes
 **NativeIdentifier** | **String** | Unique ID of the account on the source. | 
 **SourceId** | **String** | The ID of the source. | 
 **SourceName** | **String** | The name of the source. | 
-**IdentityId** | **String** | The ID of the identity that is corellated with this account. | 
-**IdentityName** | **String** | The name of the identity that is corellated with this account. | 
+**IdentityId** | **String** | The ID of the identity that is correlated with this account. | 
+**IdentityName** | **String** | The name of the identity that is correlated with this account. | 
 **Name** | **String** | The user friendly name of the source. | 
 **Type** | [**SystemCollectionsHashtable**](.md) | The type of the object that initiated this event. | 
 **Created** | **System.DateTime** | The date and time the status change occurred. | 

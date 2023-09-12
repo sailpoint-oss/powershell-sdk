@@ -121,3 +121,17 @@ jobs:
           tagging_message: ${{ github.event.inputs.version }}
           commit_user_name: developer-relations-sp
           commit_user_email: devrel-service@sailpoint.com
+
+
+
+      - name: Create Draft Release
+        id: createRelease
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.event.inputs.version }}
+          release_name: v${{ github.event.inputs.version }}
+          draft: true
+          prerelease: false
+

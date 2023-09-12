@@ -377,8 +377,10 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**New-BetaSource**](docs/BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
 *BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
 *BetaSourcesApi* | [**Remove-Beta**](docs/BetaSourcesApi.md#Remove-Beta) | **DELETE** /sources/{id} | Delete Source by ID
+*BetaSourcesApi* | [**Remove-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Remove-BetaNativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 *BetaSourcesApi* | [**Remove-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Remove-BetaSourceSchema**](docs/BetaSourcesApi.md#Remove-BetaSourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
+*BetaSourcesApi* | [**Get-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Get-BetaNativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Get-BetaSource**](docs/BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
 *BetaSourcesApi* | [**Get-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Get-BetaSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
@@ -395,6 +397,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Get-BetaSources**](docs/BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 *BetaSourcesApi* | [**Receive-BetaResourceObjects**](docs/BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *BetaSourcesApi* | [**Ping-BetaCluster**](docs/BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
+*BetaSourcesApi* | [**Send-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Send-BetaNativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
 *BetaSourcesApi* | [**Send-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Send-BetaSource**](docs/BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
 *BetaSourcesApi* | [**Send-BetaSourceAttrSyncConfig**](docs/BetaSourcesApi.md#Send-BetaSourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
@@ -852,6 +855,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.MfaConfigTestResponse](docs/MfaConfigTestResponse.md)
  - [PSSailpointBeta/Model.ModelError](docs/ModelError.md)
  - [PSSailpointBeta/Model.MultiPolicyRequest](docs/MultiPolicyRequest.md)
+ - [PSSailpointBeta/Model.NativeChangeDetectionConfig](docs/NativeChangeDetectionConfig.md)
  - [PSSailpointBeta/Model.NonEmployeeApprovalDecision](docs/NonEmployeeApprovalDecision.md)
  - [PSSailpointBeta/Model.NonEmployeeApprovalItem](docs/NonEmployeeApprovalItem.md)
  - [PSSailpointBeta/Model.NonEmployeeApprovalItemAllOf](docs/NonEmployeeApprovalItemAllOf.md)

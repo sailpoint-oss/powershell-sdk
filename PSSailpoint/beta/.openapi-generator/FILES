@@ -429,6 +429,7 @@ docs/MetricResponse.md
 docs/MfaConfig.md
 docs/MfaConfigTestResponse.md
 docs/MultiPolicyRequest.md
+docs/NativeChangeDetectionConfig.md
 docs/NonEmployeeApprovalDecision.md
 docs/NonEmployeeApprovalItem.md
 docs/NonEmployeeApprovalItemAllOf.md
@@ -1167,6 +1168,7 @@ src/PSSailpointBeta/Model/MfaConfig.ps1
 src/PSSailpointBeta/Model/MfaConfigTestResponse.ps1
 src/PSSailpointBeta/Model/ModelError.ps1
 src/PSSailpointBeta/Model/MultiPolicyRequest.ps1
+src/PSSailpointBeta/Model/NativeChangeDetectionConfig.ps1
 src/PSSailpointBeta/Model/NonEmployeeApprovalDecision.ps1
 src/PSSailpointBeta/Model/NonEmployeeApprovalItem.ps1
 src/PSSailpointBeta/Model/NonEmployeeApprovalItemAllOf.ps1
@@ -1911,6 +1913,7 @@ tests/Model/MfaConfig.Tests.ps1
 tests/Model/MfaConfigTestResponse.Tests.ps1
 tests/Model/ModelError.Tests.ps1
 tests/Model/MultiPolicyRequest.Tests.ps1
+tests/Model/NativeChangeDetectionConfig.Tests.ps1
 tests/Model/NonEmployeeApprovalDecision.Tests.ps1
 tests/Model/NonEmployeeApprovalItem.Tests.ps1
 tests/Model/NonEmployeeApprovalItemAllOf.Tests.ps1

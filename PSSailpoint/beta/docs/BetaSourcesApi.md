@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**New-BetaSource**](BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
 [**New-BetaSourceSchema**](BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
 [**Remove-Beta**](BetaSourcesApi.md#Remove-Beta) | **DELETE** /sources/{id} | Delete Source by ID
+[**Remove-BetaNativeChangeDetectionConfig**](BetaSourcesApi.md#Remove-BetaNativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 [**Remove-BetaProvisioningPolicy**](BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 [**Remove-BetaSourceSchema**](BetaSourcesApi.md#Remove-BetaSourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
+[**Get-BetaNativeChangeDetectionConfig**](BetaSourcesApi.md#Get-BetaNativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
 [**Get-BetaProvisioningPolicy**](BetaSourcesApi.md#Get-BetaProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 [**Get-BetaSource**](BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
 [**Get-BetaSourceAccountsSchema**](BetaSourcesApi.md#Get-BetaSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
@@ -26,6 +28,7 @@ Method | HTTP request | Description
 [**Get-BetaSources**](BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 [**Receive-BetaResourceObjects**](BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector&#39;s resource objects
 [**Ping-BetaCluster**](BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
+[**Send-BetaNativeChangeDetectionConfig**](BetaSourcesApi.md#Send-BetaNativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
 [**Send-BetaProvisioningPolicy**](BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 [**Send-BetaSource**](BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
 [**Send-BetaSourceAttrSyncConfig**](BetaSourcesApi.md#Send-BetaSourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
@@ -265,6 +268,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Remove-BetaNativeChangeDetectionConfig"></a>
+# **Remove-BetaNativeChangeDetectionConfig**
+> void Remove-BetaNativeChangeDetectionConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Delete Native Change Detection Configuration
+
+Deletes the native change detection configuration for the source specified by the given ID. A token with API, or ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+
+# Delete Native Change Detection Configuration
+try {
+    $Result = Remove-BetaNativeChangeDetectionConfig -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaNativeChangeDetectionConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The source id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Remove-BetaProvisioningPolicy"></a>
 # **Remove-BetaProvisioningPolicy**
 > void Remove-BetaProvisioningPolicy<br>
@@ -359,6 +413,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-BetaNativeChangeDetectionConfig"></a>
+# **Get-BetaNativeChangeDetectionConfig**
+> NativeChangeDetectionConfig Get-BetaNativeChangeDetectionConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Native Change Detection Configuration
+
+This API returns the existing native change detection configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+
+# Native Change Detection Configuration
+try {
+    $Result = Get-BetaNativeChangeDetectionConfig -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaNativeChangeDetectionConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The source id | 
+
+### Return type
+
+[**NativeChangeDetectionConfig**](NativeChangeDetectionConfig.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1217,6 +1322,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Send-BetaNativeChangeDetectionConfig"></a>
+# **Send-BetaNativeChangeDetectionConfig**
+> NativeChangeDetectionConfig Send-BetaNativeChangeDetectionConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-NativeChangeDetectionConfig] <PSCustomObject><br>
+
+Update Native Change Detection Configuration
+
+Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+"ACCOUNT_UPDATED"$NativeChangeDetectionConfig = Initialize-NativeChangeDetectionConfig -Enabled $true -Operations "ACCOUNT_UPDATED" -AllEntitlements $false -AllNonEntitlementAttributes $false -SelectedEntitlements "MySelectedEntitlements" -SelectedNonEntitlementAttributes "MySelectedNonEntitlementAttributes" # NativeChangeDetectionConfig | 
+
+# Update Native Change Detection Configuration
+try {
+    $Result = Send-BetaNativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $NativeChangeDetectionConfig
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaNativeChangeDetectionConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The source id | 
+ **NativeChangeDetectionConfig** | [**NativeChangeDetectionConfig**](NativeChangeDetectionConfig.md)|  | 
+
+### Return type
+
+[**NativeChangeDetectionConfig**](NativeChangeDetectionConfig.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

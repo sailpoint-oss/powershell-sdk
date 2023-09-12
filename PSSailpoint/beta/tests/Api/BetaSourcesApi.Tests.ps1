@@ -38,6 +38,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'Remove-BetaNativeChangeDetectionConfig' {
+        It 'Test Remove-BetaNativeChangeDetectionConfig' {
+            #$TestResult = Remove-BetaNativeChangeDetectionConfig -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-BetaProvisioningPolicy' {
         It 'Test Remove-BetaProvisioningPolicy' {
             #$TestResult = Remove-BetaProvisioningPolicy -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
@@ -49,6 +57,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
     Context 'Remove-BetaSourceSchema' {
         It 'Test Remove-BetaSourceSchema' {
             #$TestResult = Remove-BetaSourceSchema -SourceId "TEST_VALUE" -SchemaId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaNativeChangeDetectionConfig' {
+        It 'Test Get-BetaNativeChangeDetectionConfig' {
+            #$TestResult = Get-BetaNativeChangeDetectionConfig -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -177,6 +193,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
     Context 'Ping-BetaCluster' {
         It 'Test Ping-BetaCluster' {
             #$TestResult = Ping-BetaCluster -SourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-BetaNativeChangeDetectionConfig' {
+        It 'Test Send-BetaNativeChangeDetectionConfig' {
+            #$TestResult = Send-BetaNativeChangeDetectionConfig -Id "TEST_VALUE" -NativeChangeDetectionConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

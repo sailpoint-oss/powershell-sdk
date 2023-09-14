@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'CertificationsApi' {
+    Context 'Get-CertificationTask' {
+        It 'Test Get-CertificationTask' {
+            #$TestResult = Get-CertificationTask -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-IdentityCertification' {
         It 'Test Get-IdentityCertification' {
             #$TestResult = Get-IdentityCertification -Id "TEST_VALUE"

@@ -4,6 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Get-CertificationTask**](CertificationsApi.md#Get-CertificationTask) | **GET** /certification-tasks/{id} | Certification Task by ID
 [**Get-IdentityCertification**](CertificationsApi.md#Get-IdentityCertification) | **GET** /certifications/{id} | Identity Certification by ID
 [**Get-CertificationReviewers**](CertificationsApi.md#Get-CertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for certification
 [**Get-IdentityAccessReviewItems**](CertificationsApi.md#Get-IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of Access Review Items
@@ -12,6 +13,57 @@ Method | HTTP request | Description
 [**Invoke-ReassignIdentityCertifications**](CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 [**Invoke-SignOffIdentityCertification**](CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
 
+
+<a name="Get-CertificationTask"></a>
+# **Get-CertificationTask**
+> CertificationTask Get-CertificationTask<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Certification Task by ID
+
+This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for the specified certification can also call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
+
+# Certification Task by ID
+try {
+    $Result = Get-CertificationTask -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-CertificationTask: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The task ID | 
+
+### Return type
+
+[**CertificationTask**](CertificationTask.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="Get-IdentityCertification"></a>
 # **Get-IdentityCertification**

@@ -86,6 +86,7 @@ docs/AccountUncorrelatedAccount.md
 docs/AccountUncorrelatedIdentity.md
 docs/AccountUncorrelatedSource.md
 docs/AccountUnlockRequest.md
+docs/AccountUsage.md
 docs/AccountsAsyncResult.md
 docs/AccountsCollectedForAggregation.md
 docs/AccountsCollectedForAggregationSource.md
@@ -123,6 +124,7 @@ docs/BetaAccessRequestApprovalsApi.md
 docs/BetaAccessRequestsApi.md
 docs/BetaAccountActivitiesApi.md
 docs/BetaAccountAggregationsApi.md
+docs/BetaAccountUsagesApi.md
 docs/BetaAccountsApi.md
 docs/BetaCertificationCampaignsApi.md
 docs/BetaCertificationsApi.md
@@ -164,6 +166,7 @@ docs/BetaSPConfigApi.md
 docs/BetaSearchAttributeConfigurationApi.md
 docs/BetaSegmentsApi.md
 docs/BetaServiceDeskIntegrationApi.md
+docs/BetaSourceUsagesApi.md
 docs/BetaSourcesApi.md
 docs/BetaTaggedObjectsApi.md
 docs/BetaTaskManagementApi.md
@@ -665,6 +668,8 @@ docs/SourceSyncJob.md
 docs/SourceSyncPayload.md
 docs/SourceUpdated.md
 docs/SourceUpdatedActor.md
+docs/SourceUsage.md
+docs/SourceUsageStatus.md
 docs/SpConfigExportResults.md
 docs/SpConfigImportResults.md
 docs/SpConfigJob.md
@@ -747,6 +752,7 @@ src/PSSailpointBeta/Api/BetaAccessRequestApprovalsApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestsApi.ps1
 src/PSSailpointBeta/Api/BetaAccountActivitiesApi.ps1
 src/PSSailpointBeta/Api/BetaAccountAggregationsApi.ps1
+src/PSSailpointBeta/Api/BetaAccountUsagesApi.ps1
 src/PSSailpointBeta/Api/BetaAccountsApi.ps1
 src/PSSailpointBeta/Api/BetaCertificationCampaignsApi.ps1
 src/PSSailpointBeta/Api/BetaCertificationsApi.ps1
@@ -788,6 +794,7 @@ src/PSSailpointBeta/Api/BetaSPConfigApi.ps1
 src/PSSailpointBeta/Api/BetaSearchAttributeConfigurationApi.ps1
 src/PSSailpointBeta/Api/BetaSegmentsApi.ps1
 src/PSSailpointBeta/Api/BetaServiceDeskIntegrationApi.ps1
+src/PSSailpointBeta/Api/BetaSourceUsagesApi.ps1
 src/PSSailpointBeta/Api/BetaSourcesApi.ps1
 src/PSSailpointBeta/Api/BetaTaggedObjectsApi.ps1
 src/PSSailpointBeta/Api/BetaTaskManagementApi.ps1
@@ -881,6 +888,7 @@ src/PSSailpointBeta/Model/AccountUncorrelatedAccount.ps1
 src/PSSailpointBeta/Model/AccountUncorrelatedIdentity.ps1
 src/PSSailpointBeta/Model/AccountUncorrelatedSource.ps1
 src/PSSailpointBeta/Model/AccountUnlockRequest.ps1
+src/PSSailpointBeta/Model/AccountUsage.ps1
 src/PSSailpointBeta/Model/AccountsAsyncResult.ps1
 src/PSSailpointBeta/Model/AccountsCollectedForAggregation.ps1
 src/PSSailpointBeta/Model/AccountsCollectedForAggregationSource.ps1
@@ -1406,6 +1414,8 @@ src/PSSailpointBeta/Model/SourceSyncJob.ps1
 src/PSSailpointBeta/Model/SourceSyncPayload.ps1
 src/PSSailpointBeta/Model/SourceUpdated.ps1
 src/PSSailpointBeta/Model/SourceUpdatedActor.ps1
+src/PSSailpointBeta/Model/SourceUsage.ps1
+src/PSSailpointBeta/Model/SourceUsageStatus.ps1
 src/PSSailpointBeta/Model/SpConfigExportResults.ps1
 src/PSSailpointBeta/Model/SpConfigImportResults.ps1
 src/PSSailpointBeta/Model/SpConfigJob.ps1
@@ -1495,6 +1505,7 @@ tests/Api/BetaAccessRequestApprovalsApi.Tests.ps1
 tests/Api/BetaAccessRequestsApi.Tests.ps1
 tests/Api/BetaAccountActivitiesApi.Tests.ps1
 tests/Api/BetaAccountAggregationsApi.Tests.ps1
+tests/Api/BetaAccountUsagesApi.Tests.ps1
 tests/Api/BetaAccountsApi.Tests.ps1
 tests/Api/BetaCertificationCampaignsApi.Tests.ps1
 tests/Api/BetaCertificationsApi.Tests.ps1
@@ -1536,6 +1547,7 @@ tests/Api/BetaSPConfigApi.Tests.ps1
 tests/Api/BetaSearchAttributeConfigurationApi.Tests.ps1
 tests/Api/BetaSegmentsApi.Tests.ps1
 tests/Api/BetaServiceDeskIntegrationApi.Tests.ps1
+tests/Api/BetaSourceUsagesApi.Tests.ps1
 tests/Api/BetaSourcesApi.Tests.ps1
 tests/Api/BetaTaggedObjectsApi.Tests.ps1
 tests/Api/BetaTaskManagementApi.Tests.ps1
@@ -1628,6 +1640,7 @@ tests/Model/AccountUncorrelatedAccount.Tests.ps1
 tests/Model/AccountUncorrelatedIdentity.Tests.ps1
 tests/Model/AccountUncorrelatedSource.Tests.ps1
 tests/Model/AccountUnlockRequest.Tests.ps1
+tests/Model/AccountUsage.Tests.ps1
 tests/Model/AccountsAsyncResult.Tests.ps1
 tests/Model/AccountsCollectedForAggregation.Tests.ps1
 tests/Model/AccountsCollectedForAggregationSource.Tests.ps1
@@ -2153,6 +2166,8 @@ tests/Model/SourceSyncJob.Tests.ps1
 tests/Model/SourceSyncPayload.Tests.ps1
 tests/Model/SourceUpdated.Tests.ps1
 tests/Model/SourceUpdatedActor.Tests.ps1
+tests/Model/SourceUsage.Tests.ps1
+tests/Model/SourceUsageStatus.Tests.ps1
 tests/Model/SpConfigExportResults.Tests.ps1
 tests/Model/SpConfigImportResults.Tests.ps1
 tests/Model/SpConfigJob.Tests.ps1

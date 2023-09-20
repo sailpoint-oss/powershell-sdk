@@ -56,6 +56,8 @@ docs/AccountSource.md
 docs/AccountSourceAllOf.md
 docs/AccountToggleRequest.md
 docs/AccountUnlockRequest.md
+docs/AccountUsage.md
+docs/AccountUsagesApi.md
 docs/AccountsApi.md
 docs/AccountsAsyncResult.md
 docs/ActivateCampaignOptions.md
@@ -453,6 +455,9 @@ docs/SourceManagerCorrelationRule.md
 docs/SourceOwner.md
 docs/SourcePasswordPoliciesInner.md
 docs/SourceSchemasInner.md
+docs/SourceUsage.md
+docs/SourceUsageStatus.md
+docs/SourceUsagesApi.md
 docs/SourcesApi.md
 docs/SpConfigMessage.md
 docs/Split.md
@@ -495,6 +500,7 @@ src/PSSailpoint/Api/AccessProfilesApi.ps1
 src/PSSailpoint/Api/AccessRequestApprovalsApi.ps1
 src/PSSailpoint/Api/AccessRequestsApi.ps1
 src/PSSailpoint/Api/AccountActivitiesApi.ps1
+src/PSSailpoint/Api/AccountUsagesApi.ps1
 src/PSSailpoint/Api/AccountsApi.ps1
 src/PSSailpoint/Api/AuthUserApi.ps1
 src/PSSailpoint/Api/CertificationCampaignsApi.ps1
@@ -521,6 +527,7 @@ src/PSSailpoint/Api/ScheduledSearchApi.ps1
 src/PSSailpoint/Api/SearchApi.ps1
 src/PSSailpoint/Api/SegmentsApi.ps1
 src/PSSailpoint/Api/ServiceDeskIntegrationApi.ps1
+src/PSSailpoint/Api/SourceUsagesApi.ps1
 src/PSSailpoint/Api/SourcesApi.ps1
 src/PSSailpoint/Api/TaggedObjectsApi.ps1
 src/PSSailpoint/Api/TransformsApi.ps1
@@ -576,6 +583,7 @@ src/PSSailpoint/Model/AccountSource.ps1
 src/PSSailpoint/Model/AccountSourceAllOf.ps1
 src/PSSailpoint/Model/AccountToggleRequest.ps1
 src/PSSailpoint/Model/AccountUnlockRequest.ps1
+src/PSSailpoint/Model/AccountUsage.ps1
 src/PSSailpoint/Model/AccountsAsyncResult.ps1
 src/PSSailpoint/Model/ActivateCampaignOptions.ps1
 src/PSSailpoint/Model/AdminReviewReassign.ps1
@@ -947,6 +955,8 @@ src/PSSailpoint/Model/SourceManagerCorrelationRule.ps1
 src/PSSailpoint/Model/SourceOwner.ps1
 src/PSSailpoint/Model/SourcePasswordPoliciesInner.ps1
 src/PSSailpoint/Model/SourceSchemasInner.ps1
+src/PSSailpoint/Model/SourceUsage.ps1
+src/PSSailpoint/Model/SourceUsageStatus.ps1
 src/PSSailpoint/Model/SpConfigMessage.ps1
 src/PSSailpoint/Model/Split.ps1
 src/PSSailpoint/Model/Static.ps1
@@ -992,6 +1002,7 @@ tests/Api/AccessProfilesApi.Tests.ps1
 tests/Api/AccessRequestApprovalsApi.Tests.ps1
 tests/Api/AccessRequestsApi.Tests.ps1
 tests/Api/AccountActivitiesApi.Tests.ps1
+tests/Api/AccountUsagesApi.Tests.ps1
 tests/Api/AccountsApi.Tests.ps1
 tests/Api/AuthUserApi.Tests.ps1
 tests/Api/CertificationCampaignsApi.Tests.ps1
@@ -1018,6 +1029,7 @@ tests/Api/ScheduledSearchApi.Tests.ps1
 tests/Api/SearchApi.Tests.ps1
 tests/Api/SegmentsApi.Tests.ps1
 tests/Api/ServiceDeskIntegrationApi.Tests.ps1
+tests/Api/SourceUsagesApi.Tests.ps1
 tests/Api/SourcesApi.Tests.ps1
 tests/Api/TaggedObjectsApi.Tests.ps1
 tests/Api/TransformsApi.Tests.ps1
@@ -1072,6 +1084,7 @@ tests/Model/AccountSource.Tests.ps1
 tests/Model/AccountSourceAllOf.Tests.ps1
 tests/Model/AccountToggleRequest.Tests.ps1
 tests/Model/AccountUnlockRequest.Tests.ps1
+tests/Model/AccountUsage.Tests.ps1
 tests/Model/AccountsAsyncResult.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
@@ -1443,6 +1456,8 @@ tests/Model/SourceManagerCorrelationRule.Tests.ps1
 tests/Model/SourceOwner.Tests.ps1
 tests/Model/SourcePasswordPoliciesInner.Tests.ps1
 tests/Model/SourceSchemasInner.Tests.ps1
+tests/Model/SourceUsage.Tests.ps1
+tests/Model/SourceUsageStatus.Tests.ps1
 tests/Model/SpConfigMessage.Tests.ps1
 tests/Model/Split.Tests.ps1
 tests/Model/Static.Tests.ps1

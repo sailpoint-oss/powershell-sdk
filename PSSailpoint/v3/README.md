@@ -71,6 +71,7 @@ Class | Method | HTTP request | Description
 *AccessRequestsApi* | [**Update-AccessRequestConfig**](docs/AccessRequestsApi.md#Update-AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 *AccountActivitiesApi* | [**Get-AccountActivity**](docs/AccountActivitiesApi.md#Get-AccountActivity) | **GET** /account-activities/{id} | Get an Account Activity
 *AccountActivitiesApi* | [**Get-AccountActivities**](docs/AccountActivitiesApi.md#Get-AccountActivities) | **GET** /account-activities | List Account Activities
+*AccountUsagesApi* | [**Get-UsagesByAccountId**](docs/AccountUsagesApi.md#Get-UsagesByAccountId) | **GET** /account-usages/{accountId}/summaries | Returns account usage insights
 *AccountsApi* | [**New-Account**](docs/AccountsApi.md#New-Account) | **POST** /accounts | Create Account
 *AccountsApi* | [**Remove-Account**](docs/AccountsApi.md#Remove-Account) | **DELETE** /accounts/{id} | Delete Account
 *AccountsApi* | [**Disable-Account**](docs/AccountsApi.md#Disable-Account) | **POST** /accounts/{id}/disable | Disable Account
@@ -239,6 +240,8 @@ Class | Method | HTTP request | Description
 *ServiceDeskIntegrationApi* | [**Update-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Update-ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update PATCH
 *ServiceDeskIntegrationApi* | [**Send-ServiceDeskIntegration**](docs/ServiceDeskIntegrationApi.md#Send-ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
 *ServiceDeskIntegrationApi* | [**Update-StatusCheckDetails**](docs/ServiceDeskIntegrationApi.md#Update-StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
+*SourceUsagesApi* | [**Get-StatusBySourceId**](docs/SourceUsagesApi.md#Get-StatusBySourceId) | **GET** /source-usages/{sourceId}/status | Finds status of source usage
+*SourceUsagesApi* | [**Get-UsagesBySourceId**](docs/SourceUsagesApi.md#Get-UsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
 *SourcesApi* | [**New-ProvisioningPolicy**](docs/SourcesApi.md#New-ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 *SourcesApi* | [**New-Source**](docs/SourcesApi.md#New-Source) | **POST** /sources | Creates a source in IdentityNow.
 *SourcesApi* | [**New-SourceSchema**](docs/SourcesApi.md#New-SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on a Source
@@ -343,6 +346,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.AccountSourceAllOf](docs/AccountSourceAllOf.md)
  - [PSSailpoint/Model.AccountToggleRequest](docs/AccountToggleRequest.md)
  - [PSSailpoint/Model.AccountUnlockRequest](docs/AccountUnlockRequest.md)
+ - [PSSailpoint/Model.AccountUsage](docs/AccountUsage.md)
  - [PSSailpoint/Model.AccountsAsyncResult](docs/AccountsAsyncResult.md)
  - [PSSailpoint/Model.ActivateCampaignOptions](docs/ActivateCampaignOptions.md)
  - [PSSailpoint/Model.AdminReviewReassign](docs/AdminReviewReassign.md)
@@ -714,6 +718,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SourceOwner](docs/SourceOwner.md)
  - [PSSailpoint/Model.SourcePasswordPoliciesInner](docs/SourcePasswordPoliciesInner.md)
  - [PSSailpoint/Model.SourceSchemasInner](docs/SourceSchemasInner.md)
+ - [PSSailpoint/Model.SourceUsage](docs/SourceUsage.md)
+ - [PSSailpoint/Model.SourceUsageStatus](docs/SourceUsageStatus.md)
  - [PSSailpoint/Model.SpConfigMessage](docs/SpConfigMessage.md)
  - [PSSailpoint/Model.Split](docs/Split.md)
  - [PSSailpoint/Model.Static](docs/Static.md)

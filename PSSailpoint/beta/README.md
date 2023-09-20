@@ -74,6 +74,7 @@ Class | Method | HTTP request | Description
 *BetaAccountActivitiesApi* | [**Get-BetaAccountActivity**](docs/BetaAccountActivitiesApi.md#Get-BetaAccountActivity) | **GET** /account-activities/{id} | Get Account Activity
 *BetaAccountActivitiesApi* | [**Get-BetaAccountActivities**](docs/BetaAccountActivitiesApi.md#Get-BetaAccountActivities) | **GET** /account-activities | List Account Activities
 *BetaAccountAggregationsApi* | [**Get-BetaAccountAggregationStatus**](docs/BetaAccountAggregationsApi.md#Get-BetaAccountAggregationStatus) | **GET** /account-aggregations/{id}/status | In-progress Account Aggregation status
+*BetaAccountUsagesApi* | [**Get-BetaUsagesByAccountId**](docs/BetaAccountUsagesApi.md#Get-BetaUsagesByAccountId) | **GET** /account-usages/{accountId}/summaries | Returns account usage insights
 *BetaAccountsApi* | [**New-BetaAccount**](docs/BetaAccountsApi.md#New-BetaAccount) | **POST** /accounts | Create Account
 *BetaAccountsApi* | [**Remove-BetaAccount**](docs/BetaAccountsApi.md#Remove-BetaAccount) | **DELETE** /accounts/{id} | Delete Account
 *BetaAccountsApi* | [**Disable-BetaAccount**](docs/BetaAccountsApi.md#Disable-BetaAccount) | **POST** /accounts/{id}/disable | Disable Account
@@ -374,6 +375,8 @@ Class | Method | HTTP request | Description
 *BetaServiceDeskIntegrationApi* | [**Update-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update PATCH
 *BetaServiceDeskIntegrationApi* | [**Send-BetaServiceDeskIntegration**](docs/BetaServiceDeskIntegrationApi.md#Send-BetaServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
 *BetaServiceDeskIntegrationApi* | [**Update-BetaStatusCheckDetails**](docs/BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
+*BetaSourceUsagesApi* | [**Get-BetaStatusBySourceId**](docs/BetaSourceUsagesApi.md#Get-BetaStatusBySourceId) | **GET** /source-usages/{sourceId}/status | Finds status of source usage
+*BetaSourceUsagesApi* | [**Get-BetaUsagesBySourceId**](docs/BetaSourceUsagesApi.md#Get-BetaUsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
 *BetaSourcesApi* | [**New-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#New-BetaProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 *BetaSourcesApi* | [**New-BetaSource**](docs/BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
 *BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
@@ -567,6 +570,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.AccountUncorrelatedIdentity](docs/AccountUncorrelatedIdentity.md)
  - [PSSailpointBeta/Model.AccountUncorrelatedSource](docs/AccountUncorrelatedSource.md)
  - [PSSailpointBeta/Model.AccountUnlockRequest](docs/AccountUnlockRequest.md)
+ - [PSSailpointBeta/Model.AccountUsage](docs/AccountUsage.md)
  - [PSSailpointBeta/Model.AccountsAsyncResult](docs/AccountsAsyncResult.md)
  - [PSSailpointBeta/Model.AccountsCollectedForAggregation](docs/AccountsCollectedForAggregation.md)
  - [PSSailpointBeta/Model.AccountsCollectedForAggregationSource](docs/AccountsCollectedForAggregationSource.md)
@@ -1092,6 +1096,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SourceSyncPayload](docs/SourceSyncPayload.md)
  - [PSSailpointBeta/Model.SourceUpdated](docs/SourceUpdated.md)
  - [PSSailpointBeta/Model.SourceUpdatedActor](docs/SourceUpdatedActor.md)
+ - [PSSailpointBeta/Model.SourceUsage](docs/SourceUsage.md)
+ - [PSSailpointBeta/Model.SourceUsageStatus](docs/SourceUsageStatus.md)
  - [PSSailpointBeta/Model.SpConfigExportResults](docs/SpConfigExportResults.md)
  - [PSSailpointBeta/Model.SpConfigImportResults](docs/SpConfigImportResults.md)
  - [PSSailpointBeta/Model.SpConfigJob](docs/SpConfigJob.md)

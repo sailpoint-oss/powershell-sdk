@@ -141,6 +141,7 @@ docs/BetaIAIPeerGroupStrategiesApi.md
 docs/BetaIAIRecommendationsApi.md
 docs/BetaIAIRoleMiningApi.md
 docs/BetaIdentitiesApi.md
+docs/BetaIdentityAttributesApi.md
 docs/BetaIdentityHistoryApi.md
 docs/BetaIdentityProfilesApi.md
 docs/BetaLifecycleStatesApi.md
@@ -338,6 +339,7 @@ docs/Identity.md
 docs/Identity1.md
 docs/IdentityAssociationDetails.md
 docs/IdentityAssociationDetailsAssociationDetailsInner.md
+docs/IdentityAttribute.md
 docs/IdentityAttributeConfig.md
 docs/IdentityAttributeConfig1.md
 docs/IdentityAttributePreview.md
@@ -647,6 +649,7 @@ docs/SodViolationContextCheckCompleted1.md
 docs/SodViolationContextConflictingAccessCriteria.md
 docs/SodViolationContextConflictingAccessCriteriaLeftCriteria.md
 docs/Source.md
+docs/Source1.md
 docs/SourceAccount.md
 docs/SourceAccountCorrelationConfig.md
 docs/SourceAccountCorrelationRule.md
@@ -769,6 +772,7 @@ src/PSSailpointBeta/Api/BetaIAIPeerGroupStrategiesApi.ps1
 src/PSSailpointBeta/Api/BetaIAIRecommendationsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIRoleMiningApi.ps1
 src/PSSailpointBeta/Api/BetaIdentitiesApi.ps1
+src/PSSailpointBeta/Api/BetaIdentityAttributesApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityHistoryApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityProfilesApi.ps1
 src/PSSailpointBeta/Api/BetaLifecycleStatesApi.ps1
@@ -1083,6 +1087,7 @@ src/PSSailpointBeta/Model/Identity.ps1
 src/PSSailpointBeta/Model/Identity1.ps1
 src/PSSailpointBeta/Model/IdentityAssociationDetails.ps1
 src/PSSailpointBeta/Model/IdentityAssociationDetailsAssociationDetailsInner.ps1
+src/PSSailpointBeta/Model/IdentityAttribute.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig1.ps1
 src/PSSailpointBeta/Model/IdentityAttributePreview.ps1
@@ -1393,6 +1398,7 @@ src/PSSailpointBeta/Model/SodViolationContextCheckCompleted1.ps1
 src/PSSailpointBeta/Model/SodViolationContextConflictingAccessCriteria.ps1
 src/PSSailpointBeta/Model/SodViolationContextConflictingAccessCriteriaLeftCriteria.ps1
 src/PSSailpointBeta/Model/Source.ps1
+src/PSSailpointBeta/Model/Source1.ps1
 src/PSSailpointBeta/Model/SourceAccount.ps1
 src/PSSailpointBeta/Model/SourceAccountCorrelationConfig.ps1
 src/PSSailpointBeta/Model/SourceAccountCorrelationRule.ps1
@@ -1522,6 +1528,7 @@ tests/Api/BetaIAIPeerGroupStrategiesApi.Tests.ps1
 tests/Api/BetaIAIRecommendationsApi.Tests.ps1
 tests/Api/BetaIAIRoleMiningApi.Tests.ps1
 tests/Api/BetaIdentitiesApi.Tests.ps1
+tests/Api/BetaIdentityAttributesApi.Tests.ps1
 tests/Api/BetaIdentityHistoryApi.Tests.ps1
 tests/Api/BetaIdentityProfilesApi.Tests.ps1
 tests/Api/BetaLifecycleStatesApi.Tests.ps1
@@ -1835,6 +1842,7 @@ tests/Model/Identity.Tests.ps1
 tests/Model/Identity1.Tests.ps1
 tests/Model/IdentityAssociationDetails.Tests.ps1
 tests/Model/IdentityAssociationDetailsAssociationDetailsInner.Tests.ps1
+tests/Model/IdentityAttribute.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
 tests/Model/IdentityAttributeConfig1.Tests.ps1
 tests/Model/IdentityAttributePreview.Tests.ps1
@@ -2145,6 +2153,7 @@ tests/Model/SodViolationContextCheckCompleted1.Tests.ps1
 tests/Model/SodViolationContextConflictingAccessCriteria.Tests.ps1
 tests/Model/SodViolationContextConflictingAccessCriteriaLeftCriteria.Tests.ps1
 tests/Model/Source.Tests.ps1
+tests/Model/Source1.Tests.ps1
 tests/Model/SourceAccount.Tests.ps1
 tests/Model/SourceAccountCorrelationConfig.Tests.ps1
 tests/Model/SourceAccountCorrelationRule.Tests.ps1

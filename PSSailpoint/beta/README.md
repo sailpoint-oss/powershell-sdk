@@ -205,6 +205,8 @@ Class | Method | HTTP request | Description
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
+*BetaIdentityAttributesApi* | [**Get-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#Get-BetaIdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute
+*BetaIdentityAttributesApi* | [**Get-BetaIdentityAttributes**](docs/BetaIdentityAttributesApi.md#Get-BetaIdentityAttributes) | **GET** /identity-attributes | List Identity Attributes
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshotsAccessType**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
 *BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentity**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentity) | **GET** /historical-identities/{id} | Get latest snapshot of identity
@@ -765,6 +767,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.Identity1](docs/Identity1.md)
  - [PSSailpointBeta/Model.IdentityAssociationDetails](docs/IdentityAssociationDetails.md)
  - [PSSailpointBeta/Model.IdentityAssociationDetailsAssociationDetailsInner](docs/IdentityAssociationDetailsAssociationDetailsInner.md)
+ - [PSSailpointBeta/Model.IdentityAttribute](docs/IdentityAttribute.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig](docs/IdentityAttributeConfig.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig1](docs/IdentityAttributeConfig1.md)
  - [PSSailpointBeta/Model.IdentityAttributePreview](docs/IdentityAttributePreview.md)
@@ -1075,6 +1078,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SodViolationContextConflictingAccessCriteria](docs/SodViolationContextConflictingAccessCriteria.md)
  - [PSSailpointBeta/Model.SodViolationContextConflictingAccessCriteriaLeftCriteria](docs/SodViolationContextConflictingAccessCriteriaLeftCriteria.md)
  - [PSSailpointBeta/Model.Source](docs/Source.md)
+ - [PSSailpointBeta/Model.Source1](docs/Source1.md)
  - [PSSailpointBeta/Model.SourceAccount](docs/SourceAccount.md)
  - [PSSailpointBeta/Model.SourceAccountCorrelationConfig](docs/SourceAccountCorrelationConfig.md)
  - [PSSailpointBeta/Model.SourceAccountCorrelationRule](docs/SourceAccountCorrelationRule.md)

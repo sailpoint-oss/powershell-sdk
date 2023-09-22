@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'TypeAheadQuery' {
     Context 'TypeAheadQuery' {
         It 'Initialize-TypeAheadQuery' {
             # a simple test to create an object
-            #$NewObject = Initialize-TypeAheadQuery -Query "TEST_VALUE" -Field "TEST_VALUE" -NestedType "TEST_VALUE" -MaxExpansions "TEST_VALUE"
+            #$NewObject = Initialize-TypeAheadQuery -Query "TEST_VALUE" -Field "TEST_VALUE" -NestedType "TEST_VALUE" -MaxExpansions "TEST_VALUE" -Size "TEST_VALUE"
             #$NewObject | Should -BeOfType TypeAheadQuery
             #$NewObject.property | Should -Be 0
         }

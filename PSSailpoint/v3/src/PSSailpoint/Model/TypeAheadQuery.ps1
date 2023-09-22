@@ -22,6 +22,8 @@ The field on which to perform the type ahead search.
 The nested type.
 .PARAMETER MaxExpansions
 The number of suffixes the last term will be expanded into. Influences the performance of the query and the number results returned. Valid values: 1 to 1000.
+.PARAMETER Size
+The max amount of records the search will return.
 .OUTPUTS
 
 TypeAheadQuery<PSCustomObject>
@@ -41,7 +43,10 @@ function Initialize-TypeAheadQuery {
         ${NestedType},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${MaxExpansions} = 10
+        ${MaxExpansions} = 10,
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${Size} = 100
     )
 
     Process {
@@ -64,12 +69,17 @@ function Initialize-TypeAheadQuery {
           throw "invalid value for 'MaxExpansions', must be greater than or equal to 1."
         }
 
+        if ($Size -and $Size -lt 1) {
+          throw "invalid value for 'Size', must be greater than or equal to 1."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "query" = ${Query}
             "field" = ${Field}
             "nestedType" = ${NestedType}
             "maxExpansions" = ${MaxExpansions}
+            "size" = ${Size}
         }
 
 
@@ -107,7 +117,7 @@ function ConvertFrom-JsonToTypeAheadQuery {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TypeAheadQuery
-        $AllProperties = ("query", "field", "nestedType", "maxExpansions")
+        $AllProperties = ("query", "field", "nestedType", "maxExpansions", "size")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -142,11 +152,18 @@ function ConvertFrom-JsonToTypeAheadQuery {
             $MaxExpansions = $JsonParameters.PSobject.Properties["maxExpansions"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "size"))) { #optional property not found
+            $Size = $null
+        } else {
+            $Size = $JsonParameters.PSobject.Properties["size"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "query" = ${Query}
             "field" = ${Field}
             "nestedType" = ${NestedType}
             "maxExpansions" = ${MaxExpansions}
+            "size" = ${Size}
         }
 
         return $PSO

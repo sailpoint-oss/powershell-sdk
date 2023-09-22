@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Field** | **String** | The field on which to perform the type ahead search. | 
 **NestedType** | **String** | The nested type. | [optional] 
 **MaxExpansions** | **Int32** | The number of suffixes the last term will be expanded into. Influences the performance of the query and the number results returned. Valid values: 1 to 1000. | [optional] [default to 10]
+**Size** | **Int32** | The max amount of records the search will return. | [optional] [default to 100]
 
 ## Examples
 
@@ -15,7 +16,8 @@ Name | Type | Description | Notes
 $TypeAheadQuery = Initialize-PSSailpointTypeAheadQuery  -Query Work `
  -Field source.name `
  -NestedType access `
- -MaxExpansions 10
+ -MaxExpansions 10 `
+ -Size 100
 ```
 
 - Convert the resource to JSON

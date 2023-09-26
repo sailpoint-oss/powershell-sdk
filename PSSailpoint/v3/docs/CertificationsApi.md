@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**Select-IdentityDecision**](CertificationsApi.md#Select-IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
 [**Invoke-ReassignIdentityCertifications**](CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 [**Invoke-SignOffIdentityCertification**](CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
+[**Submit-ReassignCertsAsync**](CertificationsApi.md#Submit-ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 
 
 <a name="Get-CertificationTask"></a>
@@ -547,6 +548,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Submit-ReassignCertsAsync"></a>
+# **Submit-ReassignCertsAsync**
+> CertificationTask Submit-ReassignCertsAsync<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReviewReassign] <PSCustomObject><br>
+
+Reassign Certifications Asynchronously
+
+This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+$ReassignReference = Initialize-ReassignReference -Id "ef38f94347e94562b5bb8424a56397d8" -Type "TARGET_SUMMARY"
+$ReviewReassign = Initialize-ReviewReassign -Reassign $ReassignReference -ReassignTo "ef38f94347e94562b5bb8424a56397d8" -Reason "reassigned for some reason" # ReviewReassign | 
+
+# Reassign Certifications Asynchronously
+try {
+    $Result = Submit-ReassignCertsAsync -Id $Id -ReviewReassign $ReviewReassign
+} catch {
+    Write-Host ("Exception occurred when calling Submit-ReassignCertsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The identity campaign certification ID | 
+ **ReviewReassign** | [**ReviewReassign**](ReviewReassign.md)|  | 
+
+### Return type
+
+[**CertificationTask**](CertificationTask.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

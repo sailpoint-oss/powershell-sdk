@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Get-BetaIdentityCertificationPendingTasks**](BetaCertificationsApi.md#Get-BetaIdentityCertificationPendingTasks) | **GET** /certifications/{id}/tasks-pending | Pending Certification Tasks
 [**Get-BetaIdentityCertificationTaskStatus**](BetaCertificationsApi.md#Get-BetaIdentityCertificationTaskStatus) | **GET** /certifications/{id}/tasks/{taskId} | Certification Task Status
 [**Get-BetaCertificationReviewers**](BetaCertificationsApi.md#Get-BetaCertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for certification
-[**Invoke-BetaReassignIdentityCertsAsync**](BetaCertificationsApi.md#Invoke-BetaReassignIdentityCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
+[**Submit-BetaReassignCertsAsync**](BetaCertificationsApi.md#Submit-BetaReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 
 
 <a name="Get-BetaIdentityCertificationItemPermissions"></a>
@@ -248,9 +248,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaReassignIdentityCertsAsync"></a>
-# **Invoke-BetaReassignIdentityCertsAsync**
-> IdentityCertificationTask Invoke-BetaReassignIdentityCertsAsync<br>
+<a name="Submit-BetaReassignCertsAsync"></a>
+# **Submit-BetaReassignCertsAsync**
+> IdentityCertificationTask Submit-BetaReassignCertsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReviewReassign] <PSCustomObject><br>
 
@@ -268,15 +268,15 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "MyId" # String | The identity campaign certification ID
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
 $ReassignReference = Initialize-ReassignReference -Id "ef38f94347e94562b5bb8424a56397d8" -Type "TARGET_SUMMARY"
 $ReviewReassign = Initialize-ReviewReassign -Reassign $ReassignReference -ReassignTo "ef38f94347e94562b5bb8424a56397d8" -Reason "reassigned for some reason" # ReviewReassign | 
 
 # Reassign Certifications Asynchronously
 try {
-    $Result = Invoke-BetaReassignIdentityCertsAsync -Id $Id -ReviewReassign $ReviewReassign
+    $Result = Submit-BetaReassignCertsAsync -Id $Id -ReviewReassign $ReviewReassign
 } catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaReassignIdentityCertsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Submit-BetaReassignCertsAsync: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

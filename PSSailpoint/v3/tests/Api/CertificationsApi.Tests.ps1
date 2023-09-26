@@ -78,4 +78,12 @@ Describe -tag 'PSSailpoint' -name 'CertificationsApi' {
         }
     }
 
+    Context 'Submit-ReassignCertsAsync' {
+        It 'Test Submit-ReassignCertsAsync' {
+            #$TestResult = Submit-ReassignCertsAsync -Id "TEST_VALUE" -ReviewReassign "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

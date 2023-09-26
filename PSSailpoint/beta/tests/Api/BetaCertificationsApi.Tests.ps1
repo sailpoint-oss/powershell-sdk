@@ -38,9 +38,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationsApi' {
         }
     }
 
-    Context 'Invoke-BetaReassignIdentityCertsAsync' {
-        It 'Test Invoke-BetaReassignIdentityCertsAsync' {
-            #$TestResult = Invoke-BetaReassignIdentityCertsAsync -Id "TEST_VALUE" -ReviewReassign "TEST_VALUE"
+    Context 'Submit-BetaReassignCertsAsync' {
+        It 'Test Submit-BetaReassignCertsAsync' {
+            #$TestResult = Submit-BetaReassignCertsAsync -Id "TEST_VALUE" -ReviewReassign "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

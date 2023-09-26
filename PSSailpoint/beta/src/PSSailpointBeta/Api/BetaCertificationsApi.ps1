@@ -434,7 +434,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 IdentityCertificationTask
 #>
-function Invoke-BetaReassignIdentityCertsAsync {
+function Submit-BetaReassignCertsAsync {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -448,7 +448,7 @@ function Invoke-BetaReassignIdentityCertsAsync {
     )
 
     Process {
-        'Calling method: Invoke-BetaReassignIdentityCertsAsync' | Write-Debug
+        'Calling method: Submit-BetaReassignCertsAsync' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -468,12 +468,12 @@ function Invoke-BetaReassignIdentityCertsAsync {
 
         $LocalVarUri = '/certifications/{id}/reassign-async'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling reassignIdentityCertsAsync."
+            throw "Error! The required parameter `Id` missing when calling submitReassignCertsAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$ReviewReassign) {
-            throw "Error! The required parameter `ReviewReassign` missing when calling reassignIdentityCertsAsync."
+            throw "Error! The required parameter `ReviewReassign` missing when calling submitReassignCertsAsync."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {

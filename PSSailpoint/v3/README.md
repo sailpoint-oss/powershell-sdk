@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *CertificationsApi* | [**Get-CertificationTask**](docs/CertificationsApi.md#Get-CertificationTask) | **GET** /certification-tasks/{id} | Certification Task by ID
 *CertificationsApi* | [**Get-IdentityCertification**](docs/CertificationsApi.md#Get-IdentityCertification) | **GET** /certifications/{id} | Identity Certification by ID
 *CertificationsApi* | [**Get-IdentityCertificationItemPermissions**](docs/CertificationsApi.md#Get-IdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for Entitlement Certification Item
+*CertificationsApi* | [**Get-PendingCertificationTasks**](docs/CertificationsApi.md#Get-PendingCertificationTasks) | **GET** /certification-tasks | List of Pending Certification Tasks
 *CertificationsApi* | [**Get-CertificationReviewers**](docs/CertificationsApi.md#Get-CertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for certification
 *CertificationsApi* | [**Get-IdentityAccessReviewItems**](docs/CertificationsApi.md#Get-IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of Access Review Items
 *CertificationsApi* | [**Get-IdentityCertifications**](docs/CertificationsApi.md#Get-IdentityCertifications) | **GET** /certifications | Identity Campaign Certifications by IDs

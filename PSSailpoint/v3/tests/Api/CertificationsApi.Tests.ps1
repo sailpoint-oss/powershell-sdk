@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationsApi' {
         }
     }
 
+    Context 'Get-PendingCertificationTasks' {
+        It 'Test Get-PendingCertificationTasks' {
+            #$TestResult = Get-PendingCertificationTasks -ReviewerIdentity "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-CertificationReviewers' {
         It 'Test Get-CertificationReviewers' {
             #$TestResult = Get-CertificationReviewers -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"

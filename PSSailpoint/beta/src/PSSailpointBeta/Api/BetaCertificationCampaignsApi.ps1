@@ -198,7 +198,7 @@ Create a Campaign Template
 
 .DESCRIPTION
 
-No description or notes available.
+Create a campaign Template based on campaign.
 
 .PARAMETER CampaignTemplate
 No description available.

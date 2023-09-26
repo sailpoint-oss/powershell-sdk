@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'New-CampaignTemplate' {
+        It 'Test New-CampaignTemplate' {
+            #$TestResult = New-CampaignTemplate -CampaignTemplate "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-Campaigns' {
         It 'Test Remove-Campaigns' {
             #$TestResult = Remove-Campaigns -CampaignsDeleteRequest "TEST_VALUE"

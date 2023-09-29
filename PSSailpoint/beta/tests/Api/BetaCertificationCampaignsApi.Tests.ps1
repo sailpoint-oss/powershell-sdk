@@ -128,7 +128,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
 
     Context 'Update-BetaCampaignTemplate' {
         It 'Test Update-BetaCampaignTemplate' {
-            #$TestResult = Update-BetaCampaignTemplate -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+            #$TestResult = Update-BetaCampaignTemplate -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -1304,7 +1304,7 @@ Allows updating individual fields on a campaign template using the [JSON Patch](
 .PARAMETER Id
 The ID of the campaign template being modified.
 
-.PARAMETER RequestBody
+.PARAMETER JsonPatchOperation
 A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
 .PARAMETER WithHttpInfo
@@ -1323,7 +1323,7 @@ function Update-BetaCampaignTemplate {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${RequestBody},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -1353,14 +1353,14 @@ function Update-BetaCampaignTemplate {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$RequestBody) {
-            throw "Error! The required parameter `RequestBody` missing when calling patchCampaignTemplate."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchCampaignTemplate."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $RequestBody | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

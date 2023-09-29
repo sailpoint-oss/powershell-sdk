@@ -1085,7 +1085,7 @@ List Campaign Templates
 
 .DESCRIPTION
 
-No description or notes available.
+Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

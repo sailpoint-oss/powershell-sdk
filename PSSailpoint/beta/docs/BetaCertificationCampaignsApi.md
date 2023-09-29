@@ -730,6 +730,8 @@ Name | Type | Description  | Notes
 
 List Campaign Templates
 
+Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
+
 ### Example
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc

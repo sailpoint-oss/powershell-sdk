@@ -31,12 +31,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
+$ScheduleDays = Initialize-ScheduleDays -Type "LIST" -Values "MyValues" -Interval 3
+$ScheduleHours = Initialize-ScheduleHours -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule = Initialize-Schedule -Type "DAILY" -Days $ScheduleDays -Hours $ScheduleHours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
-$CreateScheduledSearchRequest = Initialize-CreateScheduledSearchRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # CreateScheduledSearchRequest | The scheduled search to persist.
+$CreateScheduledSearchRequest = Initialize-CreateScheduledSearchRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # CreateScheduledSearchRequest | The scheduled search to persist.
 
 # Create a new scheduled search
 try {
@@ -307,12 +307,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 $ScheduledSearchAllOfOwner = Initialize-ScheduledSearchAllOfOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
 
-$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
+$ScheduleDays = Initialize-ScheduleDays -Type "LIST" -Values "MyValues" -Interval 3
+$ScheduleHours = Initialize-ScheduleHours -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule = Initialize-Schedule -Type "DAILY" -Days $ScheduleDays -Hours $ScheduleHours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
-$ScheduledSearch = Initialize-ScheduledSearch -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $ScheduledSearchAllOfOwner -OwnerId "2c9180867624cbd7017642d8c8c81f67" -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # ScheduledSearch | The scheduled search to persist.
+$ScheduledSearch = Initialize-ScheduledSearch -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $ScheduledSearchAllOfOwner -OwnerId "2c9180867624cbd7017642d8c8c81f67" -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # ScheduledSearch | The scheduled search to persist.
 
 # Update an existing Scheduled Search
 try {

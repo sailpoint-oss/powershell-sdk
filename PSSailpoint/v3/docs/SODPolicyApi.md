@@ -680,12 +680,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update its schedule.
-$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
+$ScheduleDays = Initialize-ScheduleDays -Type "LIST" -Values "MyValues" -Interval 3
+$ScheduleHours = Initialize-ScheduleHours -Type "LIST" -Values "MyValues" -Interval 3
+$Schedule = Initialize-Schedule -Type "DAILY" -Days $ScheduleDays -Hours $ScheduleHours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
 
 $BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$SodPolicySchedule = Initialize-SodPolicySchedule -Name "SCH-1584312283015" -Created (Get-Date) -Modified (Get-Date) -Description "Schedule for policy xyz" -Schedule $Schedule1 -Recipients $BaseReferenceDto -EmailEmptyResults $false -CreatorId "0f11f2a47c944bf3a2bd742580fe3bde" -ModifierId "0f11f2a47c944bf3a2bd742580fe3bde" # SodPolicySchedule | 
+$SodPolicySchedule = Initialize-SodPolicySchedule -Name "SCH-1584312283015" -Created (Get-Date) -Modified (Get-Date) -Description "Schedule for policy xyz" -Schedule $Schedule -Recipients $BaseReferenceDto -EmailEmptyResults $false -CreatorId "0f11f2a47c944bf3a2bd742580fe3bde" -ModifierId "0f11f2a47c944bf3a2bd742580fe3bde" # SodPolicySchedule | 
 
 # Update SOD Policy schedule
 try {

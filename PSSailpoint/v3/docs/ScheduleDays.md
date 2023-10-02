@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | Enum type to specify days value | 
-**Values** | **String[]** | Values of the days based on the enum type mentioned above | 
-**Interval** | **Int64** | Interval between the cert generations | [optional] 
+**Type** | [**SelectorType**](SelectorType.md) |  | 
+**Values** | **String[]** | The selected values.  | 
+**Interval** | **Int32** | The selected interval for RANGE selectors.  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ScheduleDays = Initialize-PSSailpointScheduleDays  -Type LIST `
- -Values [1] `
- -Interval 2
+$ScheduleDays = Initialize-PSSailpointScheduleDays  -Type null `
+ -Values [MON, WED] `
+ -Interval 3
 ```
 
 - Convert the resource to JSON

@@ -102,14 +102,6 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
-    Context 'Set-CampaignTemplateSchedule' {
-        It 'Test Set-CampaignTemplateSchedule' {
-            #$TestResult = Set-CampaignTemplateSchedule -Id "TEST_VALUE" -Schedule "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Start-Campaign' {
         It 'Test Start-Campaign' {
             #$TestResult = Start-Campaign -Id "TEST_VALUE" -ActivateCampaignOptions "TEST_VALUE"

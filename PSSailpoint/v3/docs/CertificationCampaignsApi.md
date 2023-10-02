@@ -16,7 +16,6 @@ Method | HTTP request | Description
 [**Move-**](CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 [**Update-CampaignTemplate**](CertificationCampaignsApi.md#Update-CampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
 [**Set-CampaignReportsConfig**](CertificationCampaignsApi.md#Set-CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
-[**Set-CampaignTemplateSchedule**](CertificationCampaignsApi.md#Set-CampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Sets a Campaign Template&#39;s Schedule
 [**Start-Campaign**](CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 [**Start-CampaignRemediationScan**](CertificationCampaignsApi.md#Start-CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 [**Start-CampaignReport**](CertificationCampaignsApi.md#Start-CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
@@ -671,63 +670,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CampaignReportsConfig**](CampaignReportsConfig.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="Set-CampaignTemplateSchedule"></a>
-# **Set-CampaignTemplateSchedule**
-> void Set-CampaignTemplateSchedule<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schedule] <PSCustomObject><br>
-
-Sets a Campaign Template's Schedule
-
-Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with the new one.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | The ID of the campaign template being scheduled.
-$ScheduleMonths = Initialize-ScheduleMonths -Type "LIST" -Values "MyValues" -Interval 2
-$ScheduleDays = Initialize-ScheduleDays -Type "LIST" -Values "MyValues" -Interval 2
-$ScheduleHours = Initialize-ScheduleHours -Type "LIST" -Values "MyValues" -Interval 2
-$Schedule = Initialize-Schedule -Type "WEEKLY" -Months $ScheduleMonths -Days $ScheduleDays -Hours $ScheduleHours -Expiration (Get-Date) -TimeZoneId "CST" # Schedule |  (optional)
-
-# Sets a Campaign Template's Schedule
-try {
-    $Result = Set-CampaignTemplateSchedule -Id $Id -Schedule $Schedule
-} catch {
-    Write-Host ("Exception occurred when calling Set-CampaignTemplateSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template being scheduled. | 
- **Schedule** | [**Schedule**](Schedule.md)|  | [optional] 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

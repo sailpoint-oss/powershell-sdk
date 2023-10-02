@@ -97,7 +97,6 @@ Class | Method | HTTP request | Description
 *CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *CertificationCampaignsApi* | [**Update-CampaignTemplate**](docs/CertificationCampaignsApi.md#Update-CampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
 *CertificationCampaignsApi* | [**Set-CampaignReportsConfig**](docs/CertificationCampaignsApi.md#Set-CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
-*CertificationCampaignsApi* | [**Set-CampaignTemplateSchedule**](docs/CertificationCampaignsApi.md#Set-CampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Sets a Campaign Template's Schedule
 *CertificationCampaignsApi* | [**Start-Campaign**](docs/CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *CertificationCampaignsApi* | [**Start-CampaignRemediationScan**](docs/CertificationCampaignsApi.md#Start-CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 *CertificationCampaignsApi* | [**Start-CampaignReport**](docs/CertificationCampaignsApi.md#Start-CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
@@ -673,12 +672,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SavedSearchDetailFilters](docs/SavedSearchDetailFilters.md)
  - [PSSailpoint/Model.SavedSearchName](docs/SavedSearchName.md)
  - [PSSailpoint/Model.Schedule](docs/Schedule.md)
- - [PSSailpoint/Model.Schedule1](docs/Schedule1.md)
- - [PSSailpoint/Model.Schedule1Days](docs/Schedule1Days.md)
- - [PSSailpoint/Model.Schedule1Hours](docs/Schedule1Hours.md)
  - [PSSailpoint/Model.ScheduleDays](docs/ScheduleDays.md)
  - [PSSailpoint/Model.ScheduleHours](docs/ScheduleHours.md)
- - [PSSailpoint/Model.ScheduleMonths](docs/ScheduleMonths.md)
  - [PSSailpoint/Model.ScheduleType](docs/ScheduleType.md)
  - [PSSailpoint/Model.ScheduledSearch](docs/ScheduledSearch.md)
  - [PSSailpoint/Model.ScheduledSearchAllOf](docs/ScheduledSearchAllOf.md)

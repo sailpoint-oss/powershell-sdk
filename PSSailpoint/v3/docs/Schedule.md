@@ -3,21 +3,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**ScheduleType**](ScheduleType.md) |  | 
+**Type** | **String** | Determines the overall schedule cadence. In general, all time period fields smaller than the chosen type can be configured. For example, a DAILY schedule can have &#39;hours&#39; set, but not &#39;days&#39;; a WEEKLY schedule can have both &#39;hours&#39; and &#39;days&#39; set. | 
+**Months** | [**ScheduleMonths**](ScheduleMonths.md) |  | [optional] 
 **Days** | [**ScheduleDays**](ScheduleDays.md) |  | [optional] 
 **Hours** | [**ScheduleHours**](ScheduleHours.md) |  | 
-**Expiration** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**TimeZoneId** | **String** | The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org&#39;s default timezone is used. | [optional] 
+**Expiration** | **System.DateTime** | Specifies the time after which this schedule will no longer occur. | [optional] 
+**TimeZoneId** | **String** | The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to &quot;&quot;CST&quot;&quot;, the schedule will run at 1AM CST. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Schedule = Initialize-PSSailpointSchedule  -Type null `
+$Schedule = Initialize-PSSailpointSchedule  -Type WEEKLY `
+ -Months null `
  -Days null `
  -Hours null `
- -Expiration 2018-06-25T20:22:28.104Z `
- -TimeZoneId GMT-06:00
+ -Expiration null `
+ -TimeZoneId CST
 ```
 
 - Convert the resource to JSON

@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Specifies which hour(s) a schedule is active for. Examples:  Every three hours starting from 8AM, inclusive: * type LIST * values ""8"" * interval 3  During business hours: * type RANGE * values ""9"", ""5""  At 5AM, noon, and 5PM: * type LIST * values ""5"", ""12"", ""17"" 
 
 .PARAMETER Type
-No description available.
+Enum type to specify hours value
 .PARAMETER Values
-The selected values. 
+Values of the days based on the enum type mentioned above
 .PARAMETER Interval
-The selected interval for RANGE selectors. 
+Interval between the cert generations
 .OUTPUTS
 
 ScheduleHours<PSCustomObject>
@@ -30,13 +30,13 @@ function Initialize-ScheduleHours {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("LIST", "RANGE")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Values},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
+        [System.Nullable[Int64]]
         ${Interval}
     )
 

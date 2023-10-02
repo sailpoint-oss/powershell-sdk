@@ -8,18 +8,18 @@ Name | Type | Description | Notes
 **Days** | [**ScheduleDays**](ScheduleDays.md) |  | [optional] 
 **Hours** | [**ScheduleHours**](ScheduleHours.md) |  | 
 **Expiration** | **System.DateTime** | Specifies the time after which this schedule will no longer occur. | [optional] 
-**TimeZoneId** | **String** | The time zone to use when running the schedule. For instance, if the schedule is a DAILY schedule that runs at 1AM, and this field is set to &quot;&quot;CST&quot;&quot;, the schedule will run at 1AM CST. | [optional] 
+**TimeZoneId** | **String** | The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to &quot;&quot;CST&quot;&quot;, the schedule will run at 1AM CST. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Schedule = Initialize-PSSailpointBetaSchedule  -Type null `
+$Schedule = Initialize-PSSailpointBetaSchedule  -Type WEEKLY `
  -Months null `
  -Days null `
  -Hours null `
  -Expiration null `
- -TimeZoneId null
+ -TimeZoneId CST
 ```
 
 - Convert the resource to JSON

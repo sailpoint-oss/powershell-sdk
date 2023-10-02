@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** |  | 
-**Values** | **String[]** |  | 
-**Interval** | **Int32** |  | [optional] 
+**Type** | **String** | Enum type to specify hours value | 
+**Values** | **String[]** | Values of the days based on the enum type mentioned above | 
+**Interval** | **Int64** | Interval between the cert generations | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ScheduleHours = Initialize-PSSailpointBetaScheduleHours  -Type null `
- -Values null `
- -Interval null
+$ScheduleHours = Initialize-PSSailpointBetaScheduleHours  -Type LIST `
+ -Values [1] `
+ -Interval 2
 ```
 
 - Convert the resource to JSON

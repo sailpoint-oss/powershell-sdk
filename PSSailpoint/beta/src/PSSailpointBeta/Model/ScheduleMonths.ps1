@@ -15,11 +15,11 @@ No summary available.
 Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:  On February and March: * type LIST * values ""2"", ""3""  Every 3 months, starting in January (quarterly): * type LIST * values ""1"" * interval 3  Every two months between July and December: * type RANGE * values ""7"", ""12"" * interval 2 
 
 .PARAMETER Type
-No description available.
+Enum type to specify months value
 .PARAMETER Values
-No description available.
+Values of the months based on the enum type mentioned above
 .PARAMETER Interval
-No description available.
+Interval between the cert generations
 .OUTPUTS
 
 ScheduleMonths<PSCustomObject>
@@ -36,7 +36,7 @@ function Initialize-BetaScheduleMonths {
         [String[]]
         ${Values},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
+        [System.Nullable[Int64]]
         ${Interval}
     )
 

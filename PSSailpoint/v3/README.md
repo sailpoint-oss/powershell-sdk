@@ -743,6 +743,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.TransformAttributes](docs/TransformAttributes.md)
  - [PSSailpoint/Model.TransformDefinition](docs/TransformDefinition.md)
  - [PSSailpoint/Model.TransformDefinitionAttributesValue](docs/TransformDefinitionAttributesValue.md)
+ - [PSSailpoint/Model.TransformRead](docs/TransformRead.md)
+ - [PSSailpoint/Model.TransformReadAllOf](docs/TransformReadAllOf.md)
  - [PSSailpoint/Model.Trim](docs/Trim.md)
  - [PSSailpoint/Model.TypeAheadQuery](docs/TypeAheadQuery.md)
  - [PSSailpoint/Model.TypedReference](docs/TypedReference.md)

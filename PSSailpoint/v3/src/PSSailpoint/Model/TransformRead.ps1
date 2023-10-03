@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-The representation of an internally- or customer-defined transform.
+No description available.
 
 .PARAMETER Name
 Unique name of this transform
@@ -22,12 +22,14 @@ The type of transform operation
 No description available.
 .PARAMETER Internal
 Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+.PARAMETER Id
+Unique ID of this transform
 .OUTPUTS
 
-Transform<PSCustomObject>
+TransformRead<PSCustomObject>
 #>
 
-function Initialize-Transform {
+function Initialize-TransformRead {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -42,11 +44,14 @@ function Initialize-Transform {
         ${Attributes},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Internal}
+        ${Internal},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => Transform' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => TransformRead' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $Name) {
@@ -75,6 +80,7 @@ function Initialize-Transform {
             "type" = ${Type}
             "attributes" = ${Attributes}
             "internal" = ${Internal}
+            "id" = ${Id}
         }
 
 
@@ -85,11 +91,11 @@ function Initialize-Transform {
 <#
 .SYNOPSIS
 
-Convert from JSON to Transform<PSCustomObject>
+Convert from JSON to TransformRead<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Transform<PSCustomObject>
+Convert from JSON to TransformRead<PSCustomObject>
 
 .PARAMETER Json
 
@@ -97,22 +103,22 @@ Json object
 
 .OUTPUTS
 
-Transform<PSCustomObject>
+TransformRead<PSCustomObject>
 #>
-function ConvertFrom-JsonToTransform {
+function ConvertFrom-JsonToTransformRead {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => Transform' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => TransformRead' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in Transform
-        $AllProperties = ("name", "type", "attributes", "internal")
+        # check if Json contains properties not defined in TransformRead
+        $AllProperties = ("name", "type", "attributes", "internal", "id")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -147,11 +153,18 @@ function ConvertFrom-JsonToTransform {
             $Internal = $JsonParameters.PSobject.Properties["internal"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "type" = ${Type}
             "attributes" = ${Attributes}
             "internal" = ${Internal}
+            "id" = ${Id}
         }
 
         return $PSO

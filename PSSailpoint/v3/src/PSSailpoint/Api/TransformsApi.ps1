@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transform
+TransformRead
 #>
 function Get-Transform {
     [CmdletBinding()]
@@ -232,7 +232,7 @@ function Get-Transform {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transform" `
+                                -ReturnType "TransformRead" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -273,7 +273,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transform[]
+TransformRead[]
 #>
 function Get-Transforms {
     [CmdletBinding()]
@@ -346,7 +346,7 @@ function Get-Transforms {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transform[]" `
+                                -ReturnType "TransformRead[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

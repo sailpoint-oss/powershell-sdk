@@ -38,7 +38,7 @@ $DateCompareSecondDate = Initialize-DateCompareSecondDate -SourceName "Workday" 
 
 $TransformAttributes = Initialize-TransformAttributes -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -Values "string$variable" -Expression "now+1w" -PositiveCondition "true" -NegativeCondition "false" -FirstDate $DateCompareFirstDate -SecondDate $DateCompareSecondDate -Operator "LT" -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat -RoundUp $false -DefaultRegion "US" -IgnoreErrors $false -Name "email" -Operation "getReferenceIdentityAttribute" -IncludeNumbers $true -IncludeSpecialChars $true -Length "4" -Uid "2c91808570313110017040b06f344ec9" -Substring "admin_" -Format "alpha2" -Padding "0" -Table @{ key_example =  } -Id "Existing Transform" -Regex "[^a-zA-Z]" -Replacement " " -Delimiter "," -Index "5" -Throws $true -VarBegin 1 -BeginOffset 3 -VarEnd 6 -EndOffset 1
 
-$Transform = Initialize-Transform -Id "2cd78adghjkja34jh2b1hkjhasuecd" -Name "Timestamp To Date" -Type "accountAttribute" -Attributes $TransformAttributes -Internal $false # Transform | The transform to be created.
+$Transform = Initialize-Transform -Name "Timestamp To Date" -Type "accountAttribute" -Attributes $TransformAttributes -Internal $false # Transform | The transform to be created.
 
 # Create transform
 try {
@@ -123,7 +123,7 @@ void (empty response body)
 
 <a name="Get-Transform"></a>
 # **Get-Transform**
-> Transform Get-Transform<br>
+> TransformRead Get-Transform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Transform by ID
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Transform**](Transform.md) (PSCustomObject)
+[**TransformRead**](TransformRead.md) (PSCustomObject)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 <a name="Get-Transforms"></a>
 # **Get-Transforms**
-> Transform[] Get-Transforms<br>
+> TransformRead[] Get-Transforms<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Transform[]**](Transform.md) (PSCustomObject)
+[**TransformRead[]**](TransformRead.md) (PSCustomObject)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ $DateCompareSecondDate = Initialize-DateCompareSecondDate -SourceName "Workday" 
 
 $TransformAttributes = Initialize-TransformAttributes -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -Values "string$variable" -Expression "now+1w" -PositiveCondition "true" -NegativeCondition "false" -FirstDate $DateCompareFirstDate -SecondDate $DateCompareSecondDate -Operator "LT" -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat -RoundUp $false -DefaultRegion "US" -IgnoreErrors $false -Name "email" -Operation "getReferenceIdentityAttribute" -IncludeNumbers $true -IncludeSpecialChars $true -Length "4" -Uid "2c91808570313110017040b06f344ec9" -Substring "admin_" -Format "alpha2" -Padding "0" -Table @{ key_example =  } -Id "Existing Transform" -Regex "[^a-zA-Z]" -Replacement " " -Delimiter "," -Index "5" -Throws $true -VarBegin 1 -BeginOffset 3 -VarEnd 6 -EndOffset 1
 
-$Transform = Initialize-Transform -Id "2cd78adghjkja34jh2b1hkjhasuecd" -Name "Timestamp To Date" -Type "accountAttribute" -Attributes $TransformAttributes -Internal $false # Transform | The updated transform object (must include ""name"", ""type"", and ""attributes"" fields). (optional)
+$Transform = Initialize-Transform -Name "Timestamp To Date" -Type "accountAttribute" -Attributes $TransformAttributes -Internal $false # Transform | The updated transform object (must include ""name"", ""type"", and ""attributes"" fields). (optional)
 
 # Update a transform
 try {

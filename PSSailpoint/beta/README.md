@@ -96,7 +96,6 @@ Class | Method | HTTP request | Description
 *BetaCertificationCampaignsApi* | [**Remove-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
 *BetaCertificationCampaignsApi* | [**Remove-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Deletes a Campaign Template's Schedule
 *BetaCertificationCampaignsApi* | [**Remove-BetaCampaigns**](docs/BetaCertificationCampaignsApi.md#Remove-BetaCampaigns) | **POST** /campaigns/delete | Deletes Campaigns
-*BetaCertificationCampaignsApi* | [**New-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#New-BetaCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a Campaign from Template
 *BetaCertificationCampaignsApi* | [**Get-BetaActiveCampaigns**](docs/BetaCertificationCampaignsApi.md#Get-BetaActiveCampaigns) | **GET** /campaigns | List Campaigns
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaign) | **GET** /campaigns/{id} | Get a campaign
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignReports**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
@@ -111,6 +110,7 @@ Class | Method | HTTP request | Description
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignRemediationScan**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignReport**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
+*BetaCertificationCampaignsApi* | [**Start-BetaGenerateCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#Start-BetaGenerateCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a Campaign from Template
 *BetaCertificationCampaignsApi* | [**Update-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Update-BetaCampaign) | **PATCH** /campaigns/{id} | Update a Campaign
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationItemPermissions**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for Entitlement Certification Item
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationPendingTasks**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationPendingTasks) | **GET** /certifications/{id}/tasks-pending | Pending Certification Tasks

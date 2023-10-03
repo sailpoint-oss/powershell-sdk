@@ -1369,6 +1369,80 @@ function Start-CampaignReport {
 <#
 .SYNOPSIS
 
+Generate a Campaign from Template
+
+.DESCRIPTION
+
+Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, ""%Y"" will insert the current year; a campaign template named ""Campaign for %y"" would generate a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+
+.PARAMETER Id
+The ID of the campaign template to use for generation.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+CampaignReference
+#>
+function Start-GenerateCampaignTemplate {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Start-GenerateCampaignTemplate' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/campaign-templates/{id}/generate'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling startGenerateCampaignTemplate."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "CampaignReference" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Update a Campaign
 
 .DESCRIPTION

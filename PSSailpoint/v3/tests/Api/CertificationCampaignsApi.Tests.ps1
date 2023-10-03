@@ -126,6 +126,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'Start-GenerateCampaignTemplate' {
+        It 'Test Start-GenerateCampaignTemplate' {
+            #$TestResult = Start-GenerateCampaignTemplate -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-Campaign' {
         It 'Test Update-Campaign' {
             #$TestResult = Update-Campaign -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"

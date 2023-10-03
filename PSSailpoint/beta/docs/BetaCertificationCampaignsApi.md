@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**Remove-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
 [**Remove-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Deletes a Campaign Template&#39;s Schedule
 [**Remove-BetaCampaigns**](BetaCertificationCampaignsApi.md#Remove-BetaCampaigns) | **POST** /campaigns/delete | Deletes Campaigns
-[**New-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#New-BetaCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a Campaign from Template
 [**Get-BetaActiveCampaigns**](BetaCertificationCampaignsApi.md#Get-BetaActiveCampaigns) | **GET** /campaigns | List Campaigns
 [**Get-BetaCampaign**](BetaCertificationCampaignsApi.md#Get-BetaCampaign) | **GET** /campaigns/{id} | Get a campaign
 [**Get-BetaCampaignReports**](BetaCertificationCampaignsApi.md#Get-BetaCampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
@@ -25,6 +24,7 @@ Method | HTTP request | Description
 [**Start-BetaCampaign**](BetaCertificationCampaignsApi.md#Start-BetaCampaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 [**Start-BetaCampaignRemediationScan**](BetaCertificationCampaignsApi.md#Start-BetaCampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 [**Start-BetaCampaignReport**](BetaCertificationCampaignsApi.md#Start-BetaCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
+[**Start-BetaGenerateCampaignTemplate**](BetaCertificationCampaignsApi.md#Start-BetaGenerateCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a Campaign from Template
 [**Update-BetaCampaign**](BetaCertificationCampaignsApi.md#Update-BetaCampaign) | **PATCH** /campaigns/{id} | Update a Campaign
 
 
@@ -348,57 +348,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="New-BetaCampaignTemplate"></a>
-# **New-BetaCampaignTemplate**
-> CampaignReference New-BetaCampaignTemplate<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-
-Generate a Campaign from Template
-
-Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, ""%Y"" will insert the current year; a campaign template named ""Campaign for %y"" would generate a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "MyId" # String | The ID of the campaign template to use for generation.
-
-# Generate a Campaign from Template
-try {
-    $Result = New-BetaCampaignTemplate -Id $Id
-} catch {
-    Write-Host ("Exception occurred when calling New-BetaCampaignTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template to use for generation. | 
-
-### Return type
-
-[**CampaignReference**](CampaignReference.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1147,6 +1096,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Start-BetaGenerateCampaignTemplate"></a>
+# **Start-BetaGenerateCampaignTemplate**
+> CampaignReference Start-BetaGenerateCampaignTemplate<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Generate a Campaign from Template
+
+Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, ""%Y"" will insert the current year; a campaign template named ""Campaign for %y"" would generate a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the campaign template to use for generation.
+
+# Generate a Campaign from Template
+try {
+    $Result = Start-BetaGenerateCampaignTemplate -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Start-BetaGenerateCampaignTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the campaign template to use for generation. | 
+
+### Return type
+
+[**CampaignReference**](CampaignReference.md) (PSCustomObject)
 
 ### Authorization
 

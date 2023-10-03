@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**Start-Campaign**](CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 [**Start-CampaignRemediationScan**](CertificationCampaignsApi.md#Start-CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 [**Start-CampaignReport**](CertificationCampaignsApi.md#Start-CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
+[**Start-GenerateCampaignTemplate**](CertificationCampaignsApi.md#Start-GenerateCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a Campaign from Template
 [**Update-Campaign**](CertificationCampaignsApi.md#Update-Campaign) | **PATCH** /campaigns/{id} | Update a Campaign
 
 
@@ -829,6 +830,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Start-GenerateCampaignTemplate"></a>
+# **Start-GenerateCampaignTemplate**
+> CampaignReference Start-GenerateCampaignTemplate<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Generate a Campaign from Template
+
+Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, ""%Y"" will insert the current year; a campaign template named ""Campaign for %y"" would generate a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the campaign template to use for generation.
+
+# Generate a Campaign from Template
+try {
+    $Result = Start-GenerateCampaignTemplate -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Start-GenerateCampaignTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the campaign template to use for generation. | 
+
+### Return type
+
+[**CampaignReference**](CampaignReference.md) (PSCustomObject)
 
 ### Authorization
 

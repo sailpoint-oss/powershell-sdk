@@ -54,14 +54,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
         }
     }
 
-    Context 'New-BetaCampaignTemplate' {
-        It 'Test New-BetaCampaignTemplate' {
-            #$TestResult = New-BetaCampaignTemplate -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaActiveCampaigns' {
         It 'Test Get-BetaActiveCampaigns' {
             #$TestResult = Get-BetaActiveCampaigns -Detail "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
@@ -169,6 +161,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCertificationCampaignsApi' {
     Context 'Start-BetaCampaignReport' {
         It 'Test Start-BetaCampaignReport' {
             #$TestResult = Start-BetaCampaignReport -Id "TEST_VALUE" -Type "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-BetaGenerateCampaignTemplate' {
+        It 'Test Start-BetaGenerateCampaignTemplate' {
+            #$TestResult = Start-BetaGenerateCampaignTemplate -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

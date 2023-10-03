@@ -3,13 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | Unique ID of this transform | [optional] 
+**Id** | **String** | Unique ID of this transform | 
+**Internal** | **Boolean** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [optional] [default to $false]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$TransformReadAllOf = Initialize-PSSailpointTransformReadAllOf  -Id 2cd78adghjkja34jh2b1hkjhasuecd
+$TransformReadAllOf = Initialize-PSSailpointTransformReadAllOf  -Id 2cd78adghjkja34jh2b1hkjhasuecd `
+ -Internal false
 ```
 
 - Convert the resource to JSON

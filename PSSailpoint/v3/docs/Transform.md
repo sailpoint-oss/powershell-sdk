@@ -3,19 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Attributes** | [**TransformUpdateAttributes**](TransformUpdateAttributes.md) |  | 
 **Name** | **String** | Unique name of this transform | 
 **Type** | **String** | The type of transform operation | 
-**Attributes** | [**TransformAttributes**](TransformAttributes.md) |  | 
-**Internal** | **Boolean** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [optional] [readonly] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Transform = Initialize-PSSailpointTransform  -Name Timestamp To Date `
- -Type dateFormat `
- -Attributes null `
- -Internal false
+$Transform = Initialize-PSSailpointTransform  -Attributes null `
+ -Name Timestamp To Date `
+ -Type dateFormat
 ```
 
 - Convert the resource to JSON

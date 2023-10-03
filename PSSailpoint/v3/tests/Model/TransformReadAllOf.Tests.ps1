@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'TransformReadAllOf' {
     Context 'TransformReadAllOf' {
         It 'Initialize-TransformReadAllOf' {
             # a simple test to create an object
-            #$NewObject = Initialize-TransformReadAllOf -Id "TEST_VALUE"
+            #$NewObject = Initialize-TransformReadAllOf -Id "TEST_VALUE" -Internal "TEST_VALUE"
             #$NewObject | Should -BeOfType TransformReadAllOf
             #$NewObject.property | Should -Be 0
         }

@@ -14,12 +14,12 @@ No summary available.
 
 No description available.
 
-.PARAMETER Key
-The attribute key
 .PARAMETER Name
-Human-readable display name of the attribute
-.PARAMETER Value
-The attribute value
+The system (camel-cased) name of the identity attribute to bring in
+.PARAMETER RequiresPeriodicRefresh
+A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+.PARAMETER VarInput
+This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
 .OUTPUTS
 
 IdentityAttribute1<PSCustomObject>
@@ -30,24 +30,28 @@ function Initialize-IdentityAttribute1 {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Key},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Name},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${RequiresPeriodicRefresh} = $false,
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Value}
+        [System.Collections.Hashtable]
+        ${VarInput}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => IdentityAttribute1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if ($null -eq $Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "key" = ${Key}
             "name" = ${Name}
-            "value" = ${Value}
+            "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
+            "input" = ${VarInput}
         }
 
 
@@ -85,35 +89,39 @@ function ConvertFrom-JsonToIdentityAttribute1 {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IdentityAttribute1
-        $AllProperties = ("key", "name", "value")
+        $AllProperties = ("name", "requiresPeriodicRefresh", "input")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "key"))) { #optional property not found
-            $Key = $null
-        } else {
-            $Key = $JsonParameters.PSobject.Properties["key"].value
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "value"))) { #optional property not found
-            $Value = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requiresPeriodicRefresh"))) { #optional property not found
+            $RequiresPeriodicRefresh = $null
         } else {
-            $Value = $JsonParameters.PSobject.Properties["value"].value
+            $RequiresPeriodicRefresh = $JsonParameters.PSobject.Properties["requiresPeriodicRefresh"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "input"))) { #optional property not found
+            $VarInput = $null
+        } else {
+            $VarInput = $JsonParameters.PSobject.Properties["input"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "key" = ${Key}
             "name" = ${Name}
-            "value" = ${Value}
+            "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
+            "input" = ${VarInput}
         }
 
         return $PSO

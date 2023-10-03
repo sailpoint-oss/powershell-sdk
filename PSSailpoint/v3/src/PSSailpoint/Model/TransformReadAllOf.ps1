@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER Id
 Unique ID of this transform
+.PARAMETER Internal
+Indicates whether this is an internal SailPoint-created transform or a customer-created transform
 .OUTPUTS
 
 TransformReadAllOf<PSCustomObject>
@@ -26,16 +28,24 @@ function Initialize-TransformReadAllOf {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id}
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Internal} = $false
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => TransformReadAllOf' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if ($null -eq $Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "internal" = ${Internal}
         }
 
 
@@ -73,21 +83,32 @@ function ConvertFrom-JsonToTransformReadAllOf {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TransformReadAllOf
-        $AllProperties = ("id")
+        $AllProperties = ("id", "internal")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "internal"))) { #optional property not found
+            $Internal = $null
+        } else {
+            $Internal = $JsonParameters.PSobject.Properties["internal"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "internal" = ${Internal}
         }
 
         return $PSO

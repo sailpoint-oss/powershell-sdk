@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transform
+TransformRead
 #>
 function New-Transform {
     [CmdletBinding()]
@@ -84,7 +84,7 @@ function New-Transform {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transform" `
+                                -ReturnType "TransformRead" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -369,7 +369,7 @@ Replaces the transform specified by the given ID with the transform provided in 
 .PARAMETER Id
 ID of the transform to update
 
-.PARAMETER Transform
+.PARAMETER TransformUpdate
 The updated transform object (must include ""name"", ""type"", and ""attributes"" fields).
 
 .PARAMETER WithHttpInfo
@@ -378,7 +378,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transform
+TransformRead
 #>
 function Update-Transform {
     [CmdletBinding()]
@@ -388,7 +388,7 @@ function Update-Transform {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Transform},
+        ${TransformUpdate},
         [Switch]
         $WithHttpInfo
     )
@@ -419,9 +419,9 @@ function Update-Transform {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $Transform | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $TransformUpdate | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Transform | ForEach-Object {
+            $LocalVarBodyParameter = $TransformUpdate | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -442,7 +442,7 @@ function Update-Transform {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transform" `
+                                -ReturnType "TransformRead" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

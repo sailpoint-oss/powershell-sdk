@@ -3,21 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | Unique ID of this transform | [optional] 
+**Attributes** | [**TransformUpdateAttributes**](TransformUpdateAttributes.md) |  | 
 **Name** | **String** | Unique name of this transform | 
-**Type** | **String** | The transform type (see [Transformations in IdentityNow Using Seaspray](https://community.sailpoint.com/docs/DOC-4629)). | 
-**Attributes** | [**SystemCollectionsHashtable**](.md) | Meta-data about the transform. Values in this list are specific to the type of transform to be executed. | 
-**Internal** | **Boolean** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [optional] [readonly] [default to $false]
+**Type** | **String** | The type of transform operation | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Transform = Initialize-PSSailpointBetaTransform  -Id 2cd78adghjkja34jh2b1hkjhasuecd `
+$Transform = Initialize-PSSailpointBetaTransform  -Attributes null `
  -Name Timestamp To Date `
- -Type concat `
- -Attributes {inputFormat&#x3D;MMM dd yyyy, HH:mm:ss.SSS, outputFormat&#x3D;yyyy/dd/MM} `
- -Internal false
+ -Type dateFormat
 ```
 
 - Convert the resource to JSON

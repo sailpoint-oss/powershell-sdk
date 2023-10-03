@@ -12,7 +12,7 @@ Create transform
 
 .DESCRIPTION
 
-Creates a new transform object. Request body must include name, type, and attributes. A token with transform write authority is required to call this API.
+Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write authority is required to call this API.
 
 .PARAMETER Transform
 The transform to be created.
@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transform
+TransformRead
 #>
 function New-BetaTransform {
     [CmdletBinding()]
@@ -84,7 +84,7 @@ function New-BetaTransform {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transform" `
+                                -ReturnType "TransformRead" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -102,7 +102,7 @@ Delete a transform
 
 .DESCRIPTION
 
-Deletes the transform specified by the given ID. A token with transform delete authority is required to call this API.
+Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform. A token with transform delete authority is required to call this API.
 
 .PARAMETER Id
 ID of the transform to delete
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transform
+TransformRead
 #>
 function Get-BetaTransform {
     [CmdletBinding()]
@@ -232,7 +232,7 @@ function Get-BetaTransform {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transform" `
+                                -ReturnType "TransformRead" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -273,7 +273,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transform[]
+TransformRead[]
 #>
 function Get-BetaTransforms {
     [CmdletBinding()]
@@ -346,7 +346,7 @@ function Get-BetaTransforms {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transform[]" `
+                                -ReturnType "TransformRead[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -364,12 +364,12 @@ Update a transform
 
 .DESCRIPTION
 
-Replaces the transform specified by the given ID with the transform provided in the request body. Only the ""attributes"" field is mutable. Attempting to change other attributes will result in an error. A token with transform write authority is required to call this API.
+Replaces the transform specified by the given ID with the transform provided in the request body. Only the ""attributes"" field is mutable. Attempting to change other properties (ex. ""name"" and ""type"") will result in an error. A token with transform write authority is required to call this API.
 
 .PARAMETER Id
 ID of the transform to update
 
-.PARAMETER Transform
+.PARAMETER TransformUpdate
 The updated transform object (must include ""name"", ""type"", and ""attributes"" fields).
 
 .PARAMETER WithHttpInfo
@@ -378,7 +378,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Transform
+TransformRead
 #>
 function Update-BetaTransform {
     [CmdletBinding()]
@@ -388,7 +388,7 @@ function Update-BetaTransform {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Transform},
+        ${TransformUpdate},
         [Switch]
         $WithHttpInfo
     )
@@ -419,9 +419,9 @@ function Update-BetaTransform {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $Transform | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $TransformUpdate | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Transform | ForEach-Object {
+            $LocalVarBodyParameter = $TransformUpdate | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -442,7 +442,7 @@ function Update-BetaTransform {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Transform" `
+                                -ReturnType "TransformRead" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

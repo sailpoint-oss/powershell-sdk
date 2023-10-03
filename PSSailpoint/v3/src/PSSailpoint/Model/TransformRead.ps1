@@ -14,16 +14,16 @@ No summary available.
 
 No description available.
 
+.PARAMETER Attributes
+No description available.
 .PARAMETER Name
 Unique name of this transform
 .PARAMETER Type
 The type of transform operation
-.PARAMETER Attributes
-No description available.
-.PARAMETER Internal
-Indicates whether this is an internal SailPoint-created transform or a customer-created transform
 .PARAMETER Id
 Unique ID of this transform
+.PARAMETER Internal
+Indicates whether this is an internal SailPoint-created transform or a customer-created transform
 .OUTPUTS
 
 TransformRead<PSCustomObject>
@@ -33,26 +33,30 @@ function Initialize-TransformRead {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Attributes},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("accountAttribute", "base64Decode", "base64Encode", "concat", "conditional", "dateCompare", "dateFormat", "dateMath", "decomposeDiacriticalMarks", "e164phone", "firstValid", "rule", "identityAttribute", "indexOf", "iso3166", "lastIndexOf", "leftPad", "lookup", "lower", "normalizeNames", "randomAlphaNumeric", "randomNumeric", "reference", "replaceAll", "replace", "rightPad", "split", "static", "substring", "trim", "upper", "usernameGenerator", "uuid")]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Attributes},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Internal},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id}
+        ${Id},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Internal} = $false
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => TransformRead' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if ($null -eq $Attributes) {
+            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
+        }
 
         if ($null -eq $Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
@@ -70,17 +74,17 @@ function Initialize-TransformRead {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
-            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
+        if ($null -eq $Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
+            "attributes" = ${Attributes}
             "name" = ${Name}
             "type" = ${Type}
-            "attributes" = ${Attributes}
-            "internal" = ${Internal}
             "id" = ${Id}
+            "internal" = ${Internal}
         }
 
 
@@ -118,7 +122,7 @@ function ConvertFrom-JsonToTransformRead {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TransformRead
-        $AllProperties = ("name", "type", "attributes", "internal", "id")
+        $AllProperties = ("attributes", "name", "type", "id", "internal")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -126,7 +130,13 @@ function ConvertFrom-JsonToTransformRead {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'attributes' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
+        } else {
+            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
@@ -141,10 +151,10 @@ function ConvertFrom-JsonToTransformRead {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
-            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "internal"))) { #optional property not found
@@ -153,18 +163,12 @@ function ConvertFrom-JsonToTransformRead {
             $Internal = $JsonParameters.PSobject.Properties["internal"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
         $PSO = [PSCustomObject]@{
+            "attributes" = ${Attributes}
             "name" = ${Name}
             "type" = ${Type}
-            "attributes" = ${Attributes}
-            "internal" = ${Internal}
             "id" = ${Id}
+            "internal" = ${Internal}
         }
 
         return $PSO

@@ -12,18 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-DTO for representing an internally- or customer-defined transform.
+No description available.
 
-.PARAMETER Id
-Unique ID of this transform
+.PARAMETER Attributes
+No description available.
 .PARAMETER Name
 Unique name of this transform
 .PARAMETER Type
-The transform type (see [Transformations in IdentityNow Using Seaspray](https://community.sailpoint.com/docs/DOC-4629)).
-.PARAMETER Attributes
-Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
-.PARAMETER Internal
-Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+The type of transform operation
 .OUTPUTS
 
 Transform<PSCustomObject>
@@ -33,28 +29,35 @@ function Initialize-BetaTransform {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
+        [PSCustomObject]
+        ${Attributes},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("accountAttribute", "base64Decode", "base64Encode", "concat", "conditional", "dateCompare", "dateFormat", "dateMath", "decomposeDiacriticalMarks", "e164phone", "firstValid", "rule", "identityAttribute", "indexOf", "iso3166", "lastIndexOf", "leftPad", "lookup", "lower", "normalizeNames", "randomAlphaNumeric", "randomNumeric", "reference", "replaceAll", "replace", "rightPad", "split", "static", "substring", "trim", "upper", "usernameGenerator", "uuid")]
         [String]
-        ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Attributes},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Internal} = $false
+        ${Type}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaTransform' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if ($null -eq $Attributes) {
+            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
+        }
+
         if ($null -eq $Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
+        }
+
+        if ($Name.length -gt 50) {
+            throw "invalid value for 'Name', the character length must be smaller than or equal to 50."
+        }
+
+        if ($Name.length -lt 1) {
+            throw "invalid value for 'Name', the character length must be great than or equal to 1."
         }
 
         if ($null -eq $Type) {
@@ -63,11 +66,9 @@ function Initialize-BetaTransform {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
+            "attributes" = ${Attributes}
             "name" = ${Name}
             "type" = ${Type}
-            "attributes" = ${Attributes}
-            "internal" = ${Internal}
         }
 
 
@@ -105,7 +106,7 @@ function ConvertFrom-BetaJsonToTransform {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaTransform
-        $AllProperties = ("id", "name", "type", "attributes", "internal")
+        $AllProperties = ("attributes", "name", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -113,7 +114,13 @@ function ConvertFrom-BetaJsonToTransform {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'attributes' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
+        } else {
+            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
@@ -128,30 +135,10 @@ function ConvertFrom-BetaJsonToTransform {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
-        } else {
-            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "internal"))) { #optional property not found
-            $Internal = $null
-        } else {
-            $Internal = $JsonParameters.PSobject.Properties["internal"].value
-        }
-
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
+            "attributes" = ${Attributes}
             "name" = ${Name}
             "type" = ${Type}
-            "attributes" = ${Attributes}
-            "internal" = ${Internal}
         }
 
         return $PSO

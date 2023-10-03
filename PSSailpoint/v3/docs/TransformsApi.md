@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="New-Transform"></a>
 # **New-Transform**
-> Transform New-Transform<br>
+> TransformRead New-Transform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Transform] <PSCustomObject><br>
 
 Create transform
@@ -36,9 +36,9 @@ $DateCompareFirstDate = Initialize-DateCompareFirstDate -SourceName "Workday" -A
 
 $DateCompareSecondDate = Initialize-DateCompareSecondDate -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat
 
-$TransformAttributes = Initialize-TransformAttributes -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -Values "string$variable" -Expression "now+1w" -PositiveCondition "true" -NegativeCondition "false" -FirstDate $DateCompareFirstDate -SecondDate $DateCompareSecondDate -Operator "LT" -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat -RoundUp $false -DefaultRegion "US" -IgnoreErrors $false -Name "email" -Operation "getReferenceIdentityAttribute" -IncludeNumbers $true -IncludeSpecialChars $true -Length "4" -Uid "2c91808570313110017040b06f344ec9" -Substring "admin_" -Format "alpha2" -Padding "0" -Table @{ key_example =  } -Id "Existing Transform" -Regex "[^a-zA-Z]" -Replacement " " -Delimiter "," -Index "5" -Throws $true -VarBegin 1 -BeginOffset 3 -VarEnd 6 -EndOffset 1
+$TransformUpdateAttributes = Initialize-TransformUpdateAttributes -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -Values "string$variable" -Expression "now+1w" -PositiveCondition "true" -NegativeCondition "false" -FirstDate $DateCompareFirstDate -SecondDate $DateCompareSecondDate -Operator "LT" -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat -RoundUp $false -DefaultRegion "US" -IgnoreErrors $false -Name "email" -Operation "getReferenceIdentityAttribute" -IncludeNumbers $true -IncludeSpecialChars $true -Length "4" -Uid "2c91808570313110017040b06f344ec9" -Substring "admin_" -Format "alpha2" -Padding "0" -Table @{ key_example =  } -Id "Existing Transform" -Regex "[^a-zA-Z]" -Replacement " " -Delimiter "," -Index "5" -Throws $true -VarBegin 1 -BeginOffset 3 -VarEnd 6 -EndOffset 1
 
-$Transform = Initialize-Transform -Name "Timestamp To Date" -Type "accountAttribute" -Attributes $TransformAttributes -Internal $false # Transform | The transform to be created.
+$Transform = Initialize-Transform -Attributes $TransformUpdateAttributes -Name "Timestamp To Date" -Type "accountAttribute" # Transform | The transform to be created.
 
 # Create transform
 try {
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Transform**](Transform.md) (PSCustomObject)
+[**TransformRead**](TransformRead.md) (PSCustomObject)
 
 ### Authorization
 
@@ -237,9 +237,9 @@ Name | Type | Description  | Notes
 
 <a name="Update-Transform"></a>
 # **Update-Transform**
-> Transform Update-Transform<br>
+> TransformRead Update-Transform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Transform] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TransformUpdate] <PSCustomObject><br>
 
 Update a transform
 
@@ -262,13 +262,13 @@ $DateCompareFirstDate = Initialize-DateCompareFirstDate -SourceName "Workday" -A
 
 $DateCompareSecondDate = Initialize-DateCompareSecondDate -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat
 
-$TransformAttributes = Initialize-TransformAttributes -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -Values "string$variable" -Expression "now+1w" -PositiveCondition "true" -NegativeCondition "false" -FirstDate $DateCompareFirstDate -SecondDate $DateCompareSecondDate -Operator "LT" -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat -RoundUp $false -DefaultRegion "US" -IgnoreErrors $false -Name "email" -Operation "getReferenceIdentityAttribute" -IncludeNumbers $true -IncludeSpecialChars $true -Length "4" -Uid "2c91808570313110017040b06f344ec9" -Substring "admin_" -Format "alpha2" -Padding "0" -Table @{ key_example =  } -Id "Existing Transform" -Regex "[^a-zA-Z]" -Replacement " " -Delimiter "," -Index "5" -Throws $true -VarBegin 1 -BeginOffset 3 -VarEnd 6 -EndOffset 1
+$TransformUpdateAttributes = Initialize-TransformUpdateAttributes -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -Values "string$variable" -Expression "now+1w" -PositiveCondition "true" -NegativeCondition "false" -FirstDate $DateCompareFirstDate -SecondDate $DateCompareSecondDate -Operator "LT" -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat -RoundUp $false -DefaultRegion "US" -IgnoreErrors $false -Name "email" -Operation "getReferenceIdentityAttribute" -IncludeNumbers $true -IncludeSpecialChars $true -Length "4" -Uid "2c91808570313110017040b06f344ec9" -Substring "admin_" -Format "alpha2" -Padding "0" -Table @{ key_example =  } -Id "Existing Transform" -Regex "[^a-zA-Z]" -Replacement " " -Delimiter "," -Index "5" -Throws $true -VarBegin 1 -BeginOffset 3 -VarEnd 6 -EndOffset 1
 
-$Transform = Initialize-Transform -Name "Timestamp To Date" -Type "accountAttribute" -Attributes $TransformAttributes -Internal $false # Transform | The updated transform object (must include ""name"", ""type"", and ""attributes"" fields). (optional)
+$TransformUpdate = Initialize-TransformUpdate -Attributes $TransformUpdateAttributes # TransformUpdate | The updated transform object (must include ""name"", ""type"", and ""attributes"" fields). (optional)
 
 # Update a transform
 try {
-    $Result = Update-Transform -Id $Id -Transform $Transform
+    $Result = Update-Transform -Id $Id -TransformUpdate $TransformUpdate
 } catch {
     Write-Host ("Exception occurred when calling Update-Transform: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -280,11 +280,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| ID of the transform to update | 
- **Transform** | [**Transform**](Transform.md)| The updated transform object (must include &quot;&quot;name&quot;&quot;, &quot;&quot;type&quot;&quot;, and &quot;&quot;attributes&quot;&quot; fields). | [optional] 
+ **TransformUpdate** | [**TransformUpdate**](TransformUpdate.md)| The updated transform object (must include &quot;&quot;name&quot;&quot;, &quot;&quot;type&quot;&quot;, and &quot;&quot;attributes&quot;&quot; fields). | [optional] 
 
 ### Return type
 
-[**Transform**](Transform.md) (PSCustomObject)
+[**TransformRead**](TransformRead.md) (PSCustomObject)
 
 ### Authorization
 

@@ -221,7 +221,7 @@ function SelectHeaders {
     )
 
     foreach ($Header in $Headers) {
-        if (IsJsonMIME -MIME $Header) {
+        if (Test-JsonMIME -MIME $Header) {
             return $Header
         }
     }
@@ -233,7 +233,7 @@ function SelectHeaders {
     }
 }
 
-function IsJsonMIME {
+function Test-JsonMIME {
     Param(
         [Parameter(Mandatory)]
         [string]$MIME
@@ -278,7 +278,7 @@ function DeserializeResponse {
                 $ContentType = $ContentTypes[0]
             }
 
-            if (IsJsonMIME -MIME $ContentType) { # JSON
+            if (Test-JsonMIME -MIME $ContentType) { # JSON
                 return ConvertFrom-Json $Response
             } else { # XML, file, etc
                 return $Response

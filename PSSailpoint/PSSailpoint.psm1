@@ -44,8 +44,10 @@ $CCClient = @( Get-ChildItem -Path "$PSScriptRoot\cc\src\PSSailpointCC\Client\*.
 $CCModel = @( Get-ChildItem -Path "$PSScriptRoot\cc\src\PSSailpointCC\Model\*.ps1" )
 $CCPrivate = @( Get-ChildItem -Path "$PSScriptRoot\cc\src\PSSailpointCC\Private\*.ps1" )
 
+$Common = @( Get-ChildItem -Path "$PSScriptRoot\common\*.ps1" )
 
-Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $BetaClient + $BetaModel + $BetaPrivate + $V2API + $V2Client + $V2Model + $V2Private + $CCAPI + $CCClient + $CCModel + $CCPrivate)) {
+
+Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $BetaClient + $BetaModel + $BetaPrivate + $V2API + $V2Client + $V2Model + $V2Private + $CCAPI + $CCClient + $CCModel + $CCPrivate + $Common)) {
     Try {
         . $import.fullname
     }

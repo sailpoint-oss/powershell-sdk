@@ -30,7 +30,7 @@ function Initialize-BetaTransformReadAllOf {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
+        [Boolean]
         ${Internal} = $false
     )
 
@@ -40,6 +40,10 @@ function Initialize-BetaTransformReadAllOf {
 
         if ($null -eq $Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
+        }
+
+        if ($null -eq $Internal) {
+            throw "invalid value for 'Internal', 'Internal' cannot be null."
         }
 
 
@@ -100,8 +104,8 @@ function ConvertFrom-BetaJsonToTransformReadAllOf {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "internal"))) { #optional property not found
-            $Internal = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "internal"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'internal' missing."
         } else {
             $Internal = $JsonParameters.PSobject.Properties["internal"].value
         }

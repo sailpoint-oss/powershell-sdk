@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'IdentityAttribute' {
     Context 'IdentityAttribute' {
         It 'Initialize-IdentityAttribute' {
             # a simple test to create an object
-            #$NewObject = Initialize-IdentityAttribute -Key "TEST_VALUE" -Name "TEST_VALUE" -Value "TEST_VALUE"
+            #$NewObject = Initialize-IdentityAttribute -Name "TEST_VALUE" -RequiresPeriodicRefresh "TEST_VALUE" -VarInput "TEST_VALUE"
             #$NewObject | Should -BeOfType IdentityAttribute
             #$NewObject.property | Should -Be 0
         }

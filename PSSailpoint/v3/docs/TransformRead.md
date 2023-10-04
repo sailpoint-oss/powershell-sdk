@@ -3,19 +3,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | [**TransformUpdateAttributes**](TransformUpdateAttributes.md) |  | 
 **Name** | **String** | Unique name of this transform | 
 **Type** | **String** | The type of transform operation | 
+**Attributes** | [**TransformAttributes**](TransformAttributes.md) |  | 
 **Id** | **String** | Unique ID of this transform | 
-**Internal** | **Boolean** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [optional] [default to $false]
+**Internal** | **Boolean** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [default to $false]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$TransformRead = Initialize-PSSailpointTransformRead  -Attributes null `
- -Name Timestamp To Date `
+$TransformRead = Initialize-PSSailpointTransformRead  -Name Timestamp To Date `
  -Type dateFormat `
+ -Attributes null `
  -Id 2cd78adghjkja34jh2b1hkjhasuecd `
  -Internal false
 ```

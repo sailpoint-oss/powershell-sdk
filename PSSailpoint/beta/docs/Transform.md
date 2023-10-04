@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | [**TransformUpdateAttributes**](TransformUpdateAttributes.md) |  | 
 **Name** | **String** | Unique name of this transform | 
 **Type** | **String** | The type of transform operation | 
+**Attributes** | [**TransformAttributes**](TransformAttributes.md) |  | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Transform = Initialize-PSSailpointBetaTransform  -Attributes null `
- -Name Timestamp To Date `
- -Type dateFormat
+$Transform = Initialize-PSSailpointBetaTransform  -Name Timestamp To Date `
+ -Type dateFormat `
+ -Attributes null
 ```
 
 - Convert the resource to JSON

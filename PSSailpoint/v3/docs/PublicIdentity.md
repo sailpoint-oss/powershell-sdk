@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Email** | **String** | Email address of identity. | [optional] 
 **Status** | **String** | The lifecycle status for the identity | [optional] 
 **Manager** | [**IdentityReference**](IdentityReference.md) |  | [optional] 
-**Attributes** | [**IdentityAttribute[]**](IdentityAttribute.md) | The public identity attributes of the identity | [optional] 
+**Attributes** | [**IdentityAttribute1[]**](IdentityAttribute1.md) | The public identity attributes of the identity | [optional] 
 
 ## Examples
 

@@ -1,4 +1,4 @@
-# TransformUpdateAttributes
+# TransformAttributes
 ## Properties
 
 Name | Type | Description | Notes
@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformUpdateAttributes = Initialize-PSSailpointTransformUpdateAttributes  -SourceName Workday `
+$TransformAttributes = Initialize-PSSailpointBetaTransformAttributes  -SourceName Workday `
  -AttributeName DEPARTMENT `
  -AccountSortAttribute created `
  -AccountSortDescending false `
@@ -94,7 +94,7 @@ $TransformUpdateAttributes = Initialize-PSSailpointTransformUpdateAttributes  -S
 
 - Convert the resource to JSON
 ```powershell
-$TransformUpdateAttributes | ConvertTo-JSON
+$TransformAttributes | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

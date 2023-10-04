@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+The representation of an internally- or customer-defined transform.
 
-.PARAMETER Attributes
-No description available.
 .PARAMETER Name
 Unique name of this transform
 .PARAMETER Type
 The type of transform operation
+.PARAMETER Attributes
+No description available.
 .OUTPUTS
 
 Transform<PSCustomObject>
@@ -29,24 +29,20 @@ function Initialize-Transform {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Attributes},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("accountAttribute", "base64Decode", "base64Encode", "concat", "conditional", "dateCompare", "dateFormat", "dateMath", "decomposeDiacriticalMarks", "e164phone", "firstValid", "rule", "identityAttribute", "indexOf", "iso3166", "lastIndexOf", "leftPad", "lookup", "lower", "normalizeNames", "randomAlphaNumeric", "randomNumeric", "reference", "replaceAll", "replace", "rightPad", "split", "static", "substring", "trim", "upper", "usernameGenerator", "uuid")]
         [String]
-        ${Type}
+        ${Type},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Attributes}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => Transform' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if ($null -eq $Attributes) {
-            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
-        }
 
         if ($null -eq $Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
@@ -64,11 +60,15 @@ function Initialize-Transform {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
+        if ($null -eq $Attributes) {
+            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "attributes" = ${Attributes}
             "name" = ${Name}
             "type" = ${Type}
+            "attributes" = ${Attributes}
         }
 
 
@@ -106,7 +106,7 @@ function ConvertFrom-JsonToTransform {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Transform
-        $AllProperties = ("attributes", "name", "type")
+        $AllProperties = ("name", "type", "attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -114,13 +114,7 @@ function ConvertFrom-JsonToTransform {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'attributes' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
-        } else {
-            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
@@ -135,10 +129,16 @@ function ConvertFrom-JsonToTransform {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
+        } else {
+            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "attributes" = ${Attributes}
             "name" = ${Name}
             "type" = ${Type}
+            "attributes" = ${Attributes}
         }
 
         return $PSO

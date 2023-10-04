@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaTransform' {
     Context 'BetaTransform' {
         It 'Initialize-BetaTransform' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaTransform -Attributes "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-BetaTransform -Name "TEST_VALUE" -Type "TEST_VALUE" -Attributes "TEST_VALUE"
             #$NewObject | Should -BeOfType Transform
             #$NewObject.property | Should -Be 0
         }

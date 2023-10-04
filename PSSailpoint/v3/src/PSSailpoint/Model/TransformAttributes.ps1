@@ -20,9 +20,9 @@ JSON object
 
 .OUTPUTS
 
-TransformUpdateAttributes<PSCustomObject>
+TransformAttributes<PSCustomObject>
 #>
-function ConvertFrom-JsonToTransformUpdateAttributes {
+function ConvertFrom-JsonToTransformAttributes {
     [CmdletBinding()]
     Param (
         [AllowEmptyString()]
@@ -47,7 +47,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccountAttribute' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'AccountAttribute' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Base64Decode defined in the oneOf schemas
@@ -63,7 +63,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Base64Decode' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Base64Decode' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Base64Encode defined in the oneOf schemas
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Base64Encode' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Base64Encode' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Concatenation defined in the oneOf schemas
@@ -95,7 +95,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Concatenation' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Concatenation' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Conditional defined in the oneOf schemas
@@ -111,7 +111,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Conditional' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Conditional' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match DateCompare defined in the oneOf schemas
@@ -127,7 +127,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'DateCompare' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'DateCompare' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match DateFormat defined in the oneOf schemas
@@ -143,7 +143,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'DateFormat' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'DateFormat' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match DateMath defined in the oneOf schemas
@@ -159,7 +159,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'DateMath' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'DateMath' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match DecomposeDiacriticalMarks defined in the oneOf schemas
@@ -175,7 +175,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'DecomposeDiacriticalMarks' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'DecomposeDiacriticalMarks' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match E164phone defined in the oneOf schemas
@@ -191,7 +191,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'E164phone' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'E164phone' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match FirstValid defined in the oneOf schemas
@@ -207,7 +207,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'FirstValid' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'FirstValid' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match ISO3166 defined in the oneOf schemas
@@ -223,23 +223,23 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'ISO3166' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'ISO3166' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
-        # try to match IdentityAttribute1 defined in the oneOf schemas
+        # try to match IdentityAttribute defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-JsonToIdentityAttribute1 $Json
+            $matchInstance = ConvertFrom-JsonToIdentityAttribute $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "IdentityAttribute1"
+                    $matchType = "IdentityAttribute"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'IdentityAttribute1' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'IdentityAttribute' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match IndexOf defined in the oneOf schemas
@@ -255,7 +255,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'IndexOf' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'IndexOf' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match LeftPad defined in the oneOf schemas
@@ -271,7 +271,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'LeftPad' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'LeftPad' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Lookup defined in the oneOf schemas
@@ -287,7 +287,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Lookup' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Lookup' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Lower defined in the oneOf schemas
@@ -303,7 +303,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Lower' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Lower' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match NameNormalizer defined in the oneOf schemas
@@ -319,7 +319,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'NameNormalizer' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'NameNormalizer' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match RandomAlphaNumeric defined in the oneOf schemas
@@ -335,7 +335,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'RandomAlphaNumeric' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'RandomAlphaNumeric' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match RandomNumeric defined in the oneOf schemas
@@ -351,7 +351,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'RandomNumeric' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'RandomNumeric' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Reference defined in the oneOf schemas
@@ -367,7 +367,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Reference' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Reference' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Replace defined in the oneOf schemas
@@ -383,7 +383,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Replace' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Replace' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match ReplaceAll defined in the oneOf schemas
@@ -399,7 +399,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'ReplaceAll' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'ReplaceAll' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match RightPad defined in the oneOf schemas
@@ -415,7 +415,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'RightPad' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'RightPad' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Rule defined in the oneOf schemas
@@ -431,7 +431,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Rule' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Rule' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Split defined in the oneOf schemas
@@ -447,7 +447,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Split' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Split' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Static defined in the oneOf schemas
@@ -463,7 +463,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Static' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Static' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Substring defined in the oneOf schemas
@@ -479,7 +479,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Substring' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Substring' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Trim defined in the oneOf schemas
@@ -495,7 +495,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Trim' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Trim' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match UUIDGenerator defined in the oneOf schemas
@@ -511,7 +511,7 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'UUIDGenerator' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'UUIDGenerator' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         # try to match Upper defined in the oneOf schemas
@@ -527,19 +527,19 @@ function ConvertFrom-JsonToTransformUpdateAttributes {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Upper' defined in oneOf (TransformUpdateAttributes). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Upper' defined in oneOf (TransformAttributes). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccountAttribute, Base64Decode, Base64Encode, Concatenation, Conditional, DateCompare, DateFormat, DateMath, DecomposeDiacriticalMarks, E164phone, FirstValid, ISO3166, IdentityAttribute1, IndexOf, LeftPad, Lookup, Lower, NameNormalizer, RandomAlphaNumeric, RandomNumeric, Reference, Replace, ReplaceAll, RightPad, Rule, Split, Static, Substring, Trim, UUIDGenerator, Upper]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccountAttribute, Base64Decode, Base64Encode, Concatenation, Conditional, DateCompare, DateFormat, DateMath, DecomposeDiacriticalMarks, E164phone, FirstValid, ISO3166, IdentityAttribute, IndexOf, LeftPad, Lookup, Lower, NameNormalizer, RandomAlphaNumeric, RandomNumeric, Reference, Replace, ReplaceAll, RightPad, Rule, Split, Static, Substring, Trim, UUIDGenerator, Upper]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("AccountAttribute", "Base64Decode", "Base64Encode", "Concatenation", "Conditional", "DateCompare", "DateFormat", "DateMath", "DecomposeDiacriticalMarks", "E164phone", "FirstValid", "ISO3166", "IdentityAttribute1", "IndexOf", "LeftPad", "Lookup", "Lower", "NameNormalizer", "RandomAlphaNumeric", "RandomNumeric", "Reference", "Replace", "ReplaceAll", "RightPad", "Rule", "Split", "Static", "Substring", "Trim", "UUIDGenerator", "Upper")
+                "OneOfSchemas" = @("AccountAttribute", "Base64Decode", "Base64Encode", "Concatenation", "Conditional", "DateCompare", "DateFormat", "DateMath", "DecomposeDiacriticalMarks", "E164phone", "FirstValid", "ISO3166", "IdentityAttribute", "IndexOf", "LeftPad", "Lookup", "Lower", "NameNormalizer", "RandomAlphaNumeric", "RandomNumeric", "Reference", "Replace", "ReplaceAll", "RightPad", "Rule", "Split", "Static", "Substring", "Trim", "UUIDGenerator", "Upper")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccountAttribute, Base64Decode, Base64Encode, Concatenation, Conditional, DateCompare, DateFormat, DateMath, DecomposeDiacriticalMarks, E164phone, FirstValid, ISO3166, IdentityAttribute1, IndexOf, LeftPad, Lookup, Lower, NameNormalizer, RandomAlphaNumeric, RandomNumeric, Reference, Replace, ReplaceAll, RightPad, Rule, Split, Static, Substring, Trim, UUIDGenerator, Upper]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccountAttribute, Base64Decode, Base64Encode, Concatenation, Conditional, DateCompare, DateFormat, DateMath, DecomposeDiacriticalMarks, E164phone, FirstValid, ISO3166, IdentityAttribute, IndexOf, LeftPad, Lookup, Lower, NameNormalizer, RandomAlphaNumeric, RandomNumeric, Reference, Replace, ReplaceAll, RightPad, Rule, Split, Static, Substring, Trim, UUIDGenerator, Upper]). JSON Payload: $($Json)"
         }
     }
 }

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Unique ID of this transform | 
-**Internal** | **Boolean** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [optional] [default to $false]
+**Internal** | **Boolean** | Indicates whether this is an internal SailPoint-created transform or a customer-created transform | [default to $false]
 
 ## Examples
 

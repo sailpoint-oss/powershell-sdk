@@ -369,8 +369,8 @@ Replaces the transform specified by the given ID with the transform provided in 
 .PARAMETER Id
 ID of the transform to update
 
-.PARAMETER TransformUpdate
-The updated transform object (must include ""name"", ""type"", and ""attributes"" fields).
+.PARAMETER Transform
+The updated transform object. Must include ""name"", ""type"", and ""attributes"" fields, but ""name"" and ""type"" must not be modified.
 
 .PARAMETER WithHttpInfo
 
@@ -388,7 +388,7 @@ function Update-Transform {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${TransformUpdate},
+        ${Transform},
         [Switch]
         $WithHttpInfo
     )
@@ -419,9 +419,9 @@ function Update-Transform {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $TransformUpdate | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $Transform | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $TransformUpdate | ForEach-Object {
+            $LocalVarBodyParameter = $Transform | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

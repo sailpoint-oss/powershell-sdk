@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint' -name 'TransformsApi' {
 
     Context 'Update-Transform' {
         It 'Test Update-Transform' {
-            #$TestResult = Update-Transform -Id "TEST_VALUE" -TransformUpdate "TEST_VALUE"
+            #$TestResult = Update-Transform -Id "TEST_VALUE" -Transform "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

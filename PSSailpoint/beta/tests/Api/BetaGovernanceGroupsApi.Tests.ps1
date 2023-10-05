@@ -14,6 +14,30 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaGovernanceGroupsApi' {
         }
     }
 
+    Context 'Remove-BetaWorkgroup' {
+        It 'Test Remove-BetaWorkgroup' {
+            #$TestResult = Remove-BetaWorkgroup -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BetaWorkgroupMembers' {
+        It 'Test Remove-BetaWorkgroupMembers' {
+            #$TestResult = Remove-BetaWorkgroupMembers -WorkgroupId "TEST_VALUE" -BaseReferenceDto1 "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BetaWorkgroupsInBulk' {
+        It 'Test Remove-BetaWorkgroupsInBulk' {
+            #$TestResult = Remove-BetaWorkgroupsInBulk -WorkgroupBulkDeleteRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaWorkgroup' {
         It 'Test Get-BetaWorkgroup' {
             #$TestResult = Get-BetaWorkgroup -Id "TEST_VALUE"
@@ -22,9 +46,41 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaGovernanceGroupsApi' {
         }
     }
 
+    Context 'Get-BetaConnections' {
+        It 'Test Get-BetaConnections' {
+            #$TestResult = Get-BetaConnections -WorkgroupId "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaWorkgroupMembers' {
+        It 'Test Get-BetaWorkgroupMembers' {
+            #$TestResult = Get-BetaWorkgroupMembers -WorkgroupId "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaWorkgroups' {
         It 'Test Get-BetaWorkgroups' {
-            #$TestResult = Get-BetaWorkgroups -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-BetaWorkgroups -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaWorkgroup' {
+        It 'Test Update-BetaWorkgroup' {
+            #$TestResult = Update-BetaWorkgroup -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaWorkgroupMembers' {
+        It 'Test Update-BetaWorkgroupMembers' {
+            #$TestResult = Update-BetaWorkgroupMembers -WorkgroupId "TEST_VALUE" -BaseReferenceDto1 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

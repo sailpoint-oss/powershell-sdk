@@ -19,21 +19,19 @@ No description available.
 .PARAMETER Id
 ID of the object to which this reference applies
 .PARAMETER Name
-Human-readable name of the owner
-.PARAMETER DisplayName
-Human-readable display name of the owner
-.PARAMETER EmailAddress
-Email ID of the owner
+Human-readable name of Connected object
+.PARAMETER Description
+Description of the Connected object.
 .OUTPUTS
 
-Owner<PSCustomObject>
+ConnectedObject<PSCustomObject>
 #>
 
-function Initialize-BetaOwner {
+function Initialize-BetaConnectedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
+        [ValidateSet("ACCESS_PROFILE", "ROLE", "SOD_POLICY", "SOURCE")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
@@ -44,14 +42,11 @@ function Initialize-BetaOwner {
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DisplayName},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EmailAddress}
+        ${Description}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaConnectedObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -59,8 +54,7 @@ function Initialize-BetaOwner {
             "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
-            "displayName" = ${DisplayName}
-            "emailAddress" = ${EmailAddress}
+            "description" = ${Description}
         }
 
 
@@ -71,11 +65,11 @@ function Initialize-BetaOwner {
 <#
 .SYNOPSIS
 
-Convert from JSON to Owner<PSCustomObject>
+Convert from JSON to ConnectedObject<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Owner<PSCustomObject>
+Convert from JSON to ConnectedObject<PSCustomObject>
 
 .PARAMETER Json
 
@@ -83,22 +77,22 @@ Json object
 
 .OUTPUTS
 
-Owner<PSCustomObject>
+ConnectedObject<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToOwner {
+function ConvertFrom-BetaJsonToConnectedObject {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaConnectedObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaOwner
-        $AllProperties = ("type", "id", "name", "displayName", "emailAddress")
+        # check if Json contains properties not defined in BetaConnectedObject
+        $AllProperties = ("type", "id", "name", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,24 +117,17 @@ function ConvertFrom-BetaJsonToOwner {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
-            $DisplayName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
         } else {
-            $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "emailAddress"))) { #optional property not found
-            $EmailAddress = $null
-        } else {
-            $EmailAddress = $JsonParameters.PSobject.Properties["emailAddress"].value
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
-            "displayName" = ${DisplayName}
-            "emailAddress" = ${EmailAddress}
+            "description" = ${Description}
         }
 
         return $PSO

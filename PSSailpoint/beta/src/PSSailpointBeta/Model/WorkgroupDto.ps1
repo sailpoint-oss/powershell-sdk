@@ -18,6 +18,8 @@ No description available.
 No description available.
 .PARAMETER Id
 ID of the object to which this reference applies
+.PARAMETER Name
+Name of the Governance Group
 .PARAMETER Description
 Description of the Governance Group
 .PARAMETER MemberCount
@@ -40,11 +42,14 @@ function Initialize-BetaWorkgroupDto {
         ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${MemberCount},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${ConnectionCount}
     )
@@ -57,6 +62,7 @@ function Initialize-BetaWorkgroupDto {
         $PSO = [PSCustomObject]@{
             "owner" = ${Owner}
             "id" = ${Id}
+            "name" = ${Name}
             "description" = ${Description}
             "memberCount" = ${MemberCount}
             "connectionCount" = ${ConnectionCount}
@@ -97,7 +103,7 @@ function ConvertFrom-BetaJsonToWorkgroupDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkgroupDto
-        $AllProperties = ("owner", "id", "description", "memberCount", "connectionCount")
+        $AllProperties = ("owner", "id", "name", "description", "memberCount", "connectionCount")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -114,6 +120,12 @@ function ConvertFrom-BetaJsonToWorkgroupDto {
             $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -137,6 +149,7 @@ function ConvertFrom-BetaJsonToWorkgroupDto {
         $PSO = [PSCustomObject]@{
             "owner" = ${Owner}
             "id" = ${Id}
+            "name" = ${Name}
             "description" = ${Description}
             "memberCount" = ${MemberCount}
             "connectionCount" = ${ConnectionCount}

@@ -151,8 +151,15 @@ Class | Method | HTTP request | Description
 *BetaEntitlementsApi* | [**Send-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
 *BetaEntitlementsApi* | [**Update-BetaEntitlementsInBulk**](docs/BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *BetaGovernanceGroupsApi* | [**New-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#New-BetaWorkgroup) | **POST** /workgroups | Create a new Governance Group.
-*BetaGovernanceGroupsApi* | [**Get-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#Get-BetaWorkgroup) | **GET** /workgroups/{id} | Get an Governance Groups
+*BetaGovernanceGroupsApi* | [**Remove-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#Remove-BetaWorkgroup) | **DELETE** /workgroups/{id} | Delete a Governance Group
+*BetaGovernanceGroupsApi* | [**Remove-BetaWorkgroupMembers**](docs/BetaGovernanceGroupsApi.md#Remove-BetaWorkgroupMembers) | **POST** /workgroups/{workgrouId}/members/bulk-delete | Remove members from Governance Group
+*BetaGovernanceGroupsApi* | [**Remove-BetaWorkgroupsInBulk**](docs/BetaGovernanceGroupsApi.md#Remove-BetaWorkgroupsInBulk) | **POST** /workgroups/bulk-delete | Delete Governance Group(s)
+*BetaGovernanceGroupsApi* | [**Get-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#Get-BetaWorkgroup) | **GET** /workgroups/{id} | Get Governance Group by Id
+*BetaGovernanceGroupsApi* | [**Get-BetaConnections**](docs/BetaGovernanceGroupsApi.md#Get-BetaConnections) | **GET** /workgroups/{workgrouId}/connections | List connections for Governance Group
+*BetaGovernanceGroupsApi* | [**Get-BetaWorkgroupMembers**](docs/BetaGovernanceGroupsApi.md#Get-BetaWorkgroupMembers) | **GET** /workgroups/{workgrouId}/members | List Governance Group Members
 *BetaGovernanceGroupsApi* | [**Get-BetaWorkgroups**](docs/BetaGovernanceGroupsApi.md#Get-BetaWorkgroups) | **GET** /workgroups | List Governance Groups
+*BetaGovernanceGroupsApi* | [**Update-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#Update-BetaWorkgroup) | **PATCH** /workgroups/{id} | Patch a Governance Group
+*BetaGovernanceGroupsApi* | [**Update-BetaWorkgroupMembers**](docs/BetaGovernanceGroupsApi.md#Update-BetaWorkgroupMembers) | **POST** /workgroups/{workgrouId}/members/bulk-add | Add members to Governance Group
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsIgnoredItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Notification of Ignored Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsRequestedItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Notification of Requested Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Add-BetaAccessRequestRecommendationsViewedItem**](docs/BetaIAIAccessRequestRecommendationsApi.md#Add-BetaAccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Notification of Viewed Access Request Recommendations
@@ -669,6 +676,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ConfigurationItemResponse](docs/ConfigurationItemResponse.md)
  - [PSSailpointBeta/Model.ConfigurationResponse](docs/ConfigurationResponse.md)
  - [PSSailpointBeta/Model.ConflictingAccessCriteria](docs/ConflictingAccessCriteria.md)
+ - [PSSailpointBeta/Model.ConnectedObject](docs/ConnectedObject.md)
+ - [PSSailpointBeta/Model.ConnectedObjectType](docs/ConnectedObjectType.md)
  - [PSSailpointBeta/Model.ConnectorDetail](docs/ConnectorDetail.md)
  - [PSSailpointBeta/Model.ConnectorRuleCreateRequest](docs/ConnectorRuleCreateRequest.md)
  - [PSSailpointBeta/Model.ConnectorRuleCreateRequestSignature](docs/ConnectorRuleCreateRequestSignature.md)
@@ -936,7 +945,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.OutlierFeatureTranslation](docs/OutlierFeatureTranslation.md)
  - [PSSailpointBeta/Model.OutlierSummary](docs/OutlierSummary.md)
  - [PSSailpointBeta/Model.OutliersContributingFeatureAccessItems](docs/OutliersContributingFeatureAccessItems.md)
- - [PSSailpointBeta/Model.Owner](docs/Owner.md)
  - [PSSailpointBeta/Model.OwnerReference](docs/OwnerReference.md)
  - [PSSailpointBeta/Model.OwnerReferenceDto](docs/OwnerReferenceDto.md)
  - [PSSailpointBeta/Model.PasswordChangeRequest](docs/PasswordChangeRequest.md)
@@ -1220,7 +1228,12 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.WorkflowOAuthClient](docs/WorkflowOAuthClient.md)
  - [PSSailpointBeta/Model.WorkflowTrigger](docs/WorkflowTrigger.md)
  - [PSSailpointBeta/Model.WorkflowTriggerAttributes](docs/WorkflowTriggerAttributes.md)
+ - [PSSailpointBeta/Model.WorkgroupBulkDeleteRequest](docs/WorkgroupBulkDeleteRequest.md)
+ - [PSSailpointBeta/Model.WorkgroupConnectionDto](docs/WorkgroupConnectionDto.md)
+ - [PSSailpointBeta/Model.WorkgroupDeleteItem](docs/WorkgroupDeleteItem.md)
  - [PSSailpointBeta/Model.WorkgroupDto](docs/WorkgroupDto.md)
+ - [PSSailpointBeta/Model.WorkgroupMemberAddItem](docs/WorkgroupMemberAddItem.md)
+ - [PSSailpointBeta/Model.WorkgroupMemberDeleteItem](docs/WorkgroupMemberDeleteItem.md)
 
 
 ## Documentation for Authorization

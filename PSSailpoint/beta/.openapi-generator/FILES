@@ -240,6 +240,8 @@ docs/ConfigurationItemRequest.md
 docs/ConfigurationItemResponse.md
 docs/ConfigurationResponse.md
 docs/ConflictingAccessCriteria.md
+docs/ConnectedObject.md
+docs/ConnectedObjectType.md
 docs/ConnectorDetail.md
 docs/ConnectorRuleCreateRequest.md
 docs/ConnectorRuleCreateRequestSignature.md
@@ -507,7 +509,6 @@ docs/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.md
 docs/OutlierFeatureTranslation.md
 docs/OutlierSummary.md
 docs/OutliersContributingFeatureAccessItems.md
-docs/Owner.md
 docs/OwnerReference.md
 docs/OwnerReferenceDto.md
 docs/PasswordChangeRequest.md
@@ -791,7 +792,12 @@ docs/WorkflowLibraryTrigger.md
 docs/WorkflowOAuthClient.md
 docs/WorkflowTrigger.md
 docs/WorkflowTriggerAttributes.md
+docs/WorkgroupBulkDeleteRequest.md
+docs/WorkgroupConnectionDto.md
+docs/WorkgroupDeleteItem.md
 docs/WorkgroupDto.md
+docs/WorkgroupMemberAddItem.md
+docs/WorkgroupMemberDeleteItem.md
 src/PSSailpointBeta/Api/BetaAccessProfilesApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestApprovalsApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestsApi.ps1
@@ -1031,6 +1037,8 @@ src/PSSailpointBeta/Model/ConfigurationItemRequest.ps1
 src/PSSailpointBeta/Model/ConfigurationItemResponse.ps1
 src/PSSailpointBeta/Model/ConfigurationResponse.ps1
 src/PSSailpointBeta/Model/ConflictingAccessCriteria.ps1
+src/PSSailpointBeta/Model/ConnectedObject.ps1
+src/PSSailpointBeta/Model/ConnectedObjectType.ps1
 src/PSSailpointBeta/Model/ConnectorDetail.ps1
 src/PSSailpointBeta/Model/ConnectorRuleCreateRequest.ps1
 src/PSSailpointBeta/Model/ConnectorRuleCreateRequestSignature.ps1
@@ -1298,7 +1306,6 @@ src/PSSailpointBeta/Model/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.
 src/PSSailpointBeta/Model/OutlierFeatureTranslation.ps1
 src/PSSailpointBeta/Model/OutlierSummary.ps1
 src/PSSailpointBeta/Model/OutliersContributingFeatureAccessItems.ps1
-src/PSSailpointBeta/Model/Owner.ps1
 src/PSSailpointBeta/Model/OwnerReference.ps1
 src/PSSailpointBeta/Model/OwnerReferenceDto.ps1
 src/PSSailpointBeta/Model/PasswordChangeRequest.ps1
@@ -1582,7 +1589,12 @@ src/PSSailpointBeta/Model/WorkflowLibraryTrigger.ps1
 src/PSSailpointBeta/Model/WorkflowOAuthClient.ps1
 src/PSSailpointBeta/Model/WorkflowTrigger.ps1
 src/PSSailpointBeta/Model/WorkflowTriggerAttributes.ps1
+src/PSSailpointBeta/Model/WorkgroupBulkDeleteRequest.ps1
+src/PSSailpointBeta/Model/WorkgroupConnectionDto.ps1
+src/PSSailpointBeta/Model/WorkgroupDeleteItem.ps1
 src/PSSailpointBeta/Model/WorkgroupDto.ps1
+src/PSSailpointBeta/Model/WorkgroupMemberAddItem.ps1
+src/PSSailpointBeta/Model/WorkgroupMemberDeleteItem.ps1
 src/PSSailpointBeta/PSSailpointBeta.psm1
 src/PSSailpointBeta/Private/BetaApiClient.ps1
 src/PSSailpointBeta/Private/BetaHttpSignatureAuth.ps1
@@ -1828,6 +1840,8 @@ tests/Model/ConfigurationItemRequest.Tests.ps1
 tests/Model/ConfigurationItemResponse.Tests.ps1
 tests/Model/ConfigurationResponse.Tests.ps1
 tests/Model/ConflictingAccessCriteria.Tests.ps1
+tests/Model/ConnectedObject.Tests.ps1
+tests/Model/ConnectedObjectType.Tests.ps1
 tests/Model/ConnectorDetail.Tests.ps1
 tests/Model/ConnectorRuleCreateRequest.Tests.ps1
 tests/Model/ConnectorRuleCreateRequestSignature.Tests.ps1
@@ -2095,7 +2109,6 @@ tests/Model/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.Tests.ps1
 tests/Model/OutlierFeatureTranslation.Tests.ps1
 tests/Model/OutlierSummary.Tests.ps1
 tests/Model/OutliersContributingFeatureAccessItems.Tests.ps1
-tests/Model/Owner.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
 tests/Model/OwnerReferenceDto.Tests.ps1
 tests/Model/PasswordChangeRequest.Tests.ps1
@@ -2379,4 +2392,9 @@ tests/Model/WorkflowLibraryTrigger.Tests.ps1
 tests/Model/WorkflowOAuthClient.Tests.ps1
 tests/Model/WorkflowTrigger.Tests.ps1
 tests/Model/WorkflowTriggerAttributes.Tests.ps1
+tests/Model/WorkgroupBulkDeleteRequest.Tests.ps1
+tests/Model/WorkgroupConnectionDto.Tests.ps1
+tests/Model/WorkgroupDeleteItem.Tests.ps1
 tests/Model/WorkgroupDto.Tests.ps1
+tests/Model/WorkgroupMemberAddItem.Tests.ps1
+tests/Model/WorkgroupMemberDeleteItem.Tests.ps1

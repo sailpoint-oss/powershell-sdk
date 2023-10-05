@@ -32,7 +32,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$OwnerReference = Initialize-OwnerReference -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
+$OwnerReference = Initialize-OwnerReference -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
 $AccessProfileSourceRef = Initialize-AccessProfileSourceRef -Id "2c91809773dee3610173fdb0b6061ef4" -Type "SOURCE" -Name "ODS-AD-SOURCE"
 $EntitlementRef = Initialize-EntitlementRef -Id "2c91809773dee32014e13e122092014e" -Type "ENTITLEMENT" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
 

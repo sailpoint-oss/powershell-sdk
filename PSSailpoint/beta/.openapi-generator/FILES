@@ -106,6 +106,7 @@ docs/ApprovalStatus.md
 docs/ApprovalStatusDto.md
 docs/ApprovalSummary.md
 docs/Argument.md
+docs/ArrayInner.md
 docs/AttrSyncSourceAttributeConfig.md
 docs/AttrSyncSourceConfig.md
 docs/AttributeChange.md
@@ -420,7 +421,6 @@ docs/InvocationStatusType.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
-docs/JsonPatchOperationValueAnyOfInner.md
 docs/LatestOutlierSummary.md
 docs/LeftPad.md
 docs/LifecycleState.md
@@ -511,6 +511,7 @@ docs/OutlierSummary.md
 docs/OutliersContributingFeatureAccessItems.md
 docs/OwnerReference.md
 docs/OwnerReferenceDto.md
+docs/OwnerReferenceSegments.md
 docs/PasswordChangeRequest.md
 docs/PasswordChangeResponse.md
 docs/PasswordDigitToken.md
@@ -720,6 +721,8 @@ docs/Static.md
 docs/StatusResponse.md
 docs/Subscription.md
 docs/SubscriptionPatchRequestInner.md
+docs/SubscriptionPatchRequestInnerValue.md
+docs/SubscriptionPatchRequestInnerValueAnyOfInner.md
 docs/SubscriptionPostRequest.md
 docs/SubscriptionPutRequest.md
 docs/SubscriptionType.md
@@ -960,6 +963,7 @@ src/PSSailpointBeta/Model/ApprovalStatus.ps1
 src/PSSailpointBeta/Model/ApprovalStatusDto.ps1
 src/PSSailpointBeta/Model/ApprovalSummary.ps1
 src/PSSailpointBeta/Model/Argument.ps1
+src/PSSailpointBeta/Model/ArrayInner.ps1
 src/PSSailpointBeta/Model/AttrSyncSourceAttributeConfig.ps1
 src/PSSailpointBeta/Model/AttrSyncSourceConfig.ps1
 src/PSSailpointBeta/Model/AttributeChange.ps1
@@ -1216,7 +1220,6 @@ src/PSSailpointBeta/Model/InvocationStatusType.ps1
 src/PSSailpointBeta/Model/JsonPatch.ps1
 src/PSSailpointBeta/Model/JsonPatchOperation.ps1
 src/PSSailpointBeta/Model/JsonPatchOperationValue.ps1
-src/PSSailpointBeta/Model/JsonPatchOperationValueAnyOfInner.ps1
 src/PSSailpointBeta/Model/LatestOutlierSummary.ps1
 src/PSSailpointBeta/Model/LeftPad.ps1
 src/PSSailpointBeta/Model/LifecycleState.ps1
@@ -1308,6 +1311,7 @@ src/PSSailpointBeta/Model/OutlierSummary.ps1
 src/PSSailpointBeta/Model/OutliersContributingFeatureAccessItems.ps1
 src/PSSailpointBeta/Model/OwnerReference.ps1
 src/PSSailpointBeta/Model/OwnerReferenceDto.ps1
+src/PSSailpointBeta/Model/OwnerReferenceSegments.ps1
 src/PSSailpointBeta/Model/PasswordChangeRequest.ps1
 src/PSSailpointBeta/Model/PasswordChangeResponse.ps1
 src/PSSailpointBeta/Model/PasswordDigitToken.ps1
@@ -1517,6 +1521,8 @@ src/PSSailpointBeta/Model/Static.ps1
 src/PSSailpointBeta/Model/StatusResponse.ps1
 src/PSSailpointBeta/Model/Subscription.ps1
 src/PSSailpointBeta/Model/SubscriptionPatchRequestInner.ps1
+src/PSSailpointBeta/Model/SubscriptionPatchRequestInnerValue.ps1
+src/PSSailpointBeta/Model/SubscriptionPatchRequestInnerValueAnyOfInner.ps1
 src/PSSailpointBeta/Model/SubscriptionPostRequest.ps1
 src/PSSailpointBeta/Model/SubscriptionPutRequest.ps1
 src/PSSailpointBeta/Model/SubscriptionType.ps1
@@ -1763,6 +1769,7 @@ tests/Model/ApprovalStatus.Tests.ps1
 tests/Model/ApprovalStatusDto.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
 tests/Model/Argument.Tests.ps1
+tests/Model/ArrayInner.Tests.ps1
 tests/Model/AttrSyncSourceAttributeConfig.Tests.ps1
 tests/Model/AttrSyncSourceConfig.Tests.ps1
 tests/Model/AttributeChange.Tests.ps1
@@ -2019,7 +2026,6 @@ tests/Model/InvocationStatusType.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
-tests/Model/JsonPatchOperationValueAnyOfInner.Tests.ps1
 tests/Model/LatestOutlierSummary.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
@@ -2111,6 +2117,7 @@ tests/Model/OutlierSummary.Tests.ps1
 tests/Model/OutliersContributingFeatureAccessItems.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
 tests/Model/OwnerReferenceDto.Tests.ps1
+tests/Model/OwnerReferenceSegments.Tests.ps1
 tests/Model/PasswordChangeRequest.Tests.ps1
 tests/Model/PasswordChangeResponse.Tests.ps1
 tests/Model/PasswordDigitToken.Tests.ps1
@@ -2320,6 +2327,8 @@ tests/Model/Static.Tests.ps1
 tests/Model/StatusResponse.Tests.ps1
 tests/Model/Subscription.Tests.ps1
 tests/Model/SubscriptionPatchRequestInner.Tests.ps1
+tests/Model/SubscriptionPatchRequestInnerValue.Tests.ps1
+tests/Model/SubscriptionPatchRequestInnerValueAnyOfInner.Tests.ps1
 tests/Model/SubscriptionPostRequest.Tests.ps1
 tests/Model/SubscriptionPutRequest.Tests.ps1
 tests/Model/SubscriptionType.Tests.ps1

@@ -22,10 +22,10 @@ Identity id
 Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner's display name, otherwise a 400 Bad Request error will result.
 .OUTPUTS
 
-OwnerReference<PSCustomObject>
+OwnerReferenceSegments<PSCustomObject>
 #>
 
-function Initialize-OwnerReference {
+function Initialize-OwnerReferenceSegments {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -41,7 +41,7 @@ function Initialize-OwnerReference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => OwnerReference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => OwnerReferenceSegments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -59,11 +59,11 @@ function Initialize-OwnerReference {
 <#
 .SYNOPSIS
 
-Convert from JSON to OwnerReference<PSCustomObject>
+Convert from JSON to OwnerReferenceSegments<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to OwnerReference<PSCustomObject>
+Convert from JSON to OwnerReferenceSegments<PSCustomObject>
 
 .PARAMETER Json
 
@@ -71,21 +71,21 @@ Json object
 
 .OUTPUTS
 
-OwnerReference<PSCustomObject>
+OwnerReferenceSegments<PSCustomObject>
 #>
-function ConvertFrom-JsonToOwnerReference {
+function ConvertFrom-JsonToOwnerReferenceSegments {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => OwnerReference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => OwnerReferenceSegments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in OwnerReference
+        # check if Json contains properties not defined in OwnerReferenceSegments
         $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

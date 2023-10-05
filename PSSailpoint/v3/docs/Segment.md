@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The id of the Segment. | [optional] 
-**Name** | **String** | Segment Business Name | [optional] 
-**Created** | **System.DateTime** | The time when this Segment is created | [optional] 
-**Modified** | **System.DateTime** | The time when this Segment is modified | [optional] 
-**Description** | **String** | Optional description of the Segment | [optional] 
-**Owner** | [**OwnerReference**](OwnerReference.md) |  | [optional] 
+**Id** | **String** | The segment&#39;s ID. | [optional] 
+**Name** | **String** | The segment&#39;s business name. | [optional] 
+**Created** | **System.DateTime** | The time when the segment is created. | [optional] 
+**Modified** | **System.DateTime** | The time when the segment is modified. | [optional] 
+**Description** | **String** | The segment&#39;s optional description. | [optional] 
+**Owner** | [**OwnerReferenceSegments**](OwnerReferenceSegments.md) |  | [optional] 
 **VisibilityCriteria** | [**VisibilityCriteria**](VisibilityCriteria.md) |  | [optional] 
-**Active** | **Boolean** | Whether the Segment is currently active. Inactive segments have no effect. | [optional] [default to $false]
+**Active** | **Boolean** | This boolean indicates whether the segment is currently active. Inactive segments have no effect. | [optional] [default to $false]
 
 ## Examples
 

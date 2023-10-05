@@ -15,7 +15,7 @@ No summary available.
 The owner of this object.
 
 .PARAMETER Type
-No description available.
+Owner type. This field must be either left null or set to 'IDENTITY' on input, otherwise a 400 Bad Request error will result.
 .PARAMETER Id
 Identity id
 .PARAMETER Name
@@ -29,8 +29,8 @@ function Initialize-BetaOwnerReference {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
-        [PSCustomObject]
+        [ValidateSet("IDENTITY")]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

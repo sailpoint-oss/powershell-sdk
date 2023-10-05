@@ -30,7 +30,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$OwnerReference = Initialize-OwnerReference -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
+$OwnerReference = Initialize-OwnerReference -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
 $AccessProfileRef = Initialize-AccessProfileRef -Id "ff808081751e6e129f1518161919ecca" -Type "ACCESS_PROFILE" -Name "Access Profile 2567"
 
 $RoleCriteriaKey = Initialize-RoleCriteriaKey -Type "IDENTITY" -Property "attribute.email" -SourceId "2c9180867427f3a301745aec18211519"

@@ -15,21 +15,21 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-No description available.
+The segment's ID.
 .PARAMETER Name
-Segment Business Name
+The segment's business name.
 .PARAMETER Created
-The time when this Segment is created
+The time when the segment is created.
 .PARAMETER Modified
-The time when this Segment is modified
+The time when the segment is modified.
 .PARAMETER Description
-Optional description of the Segment
+The segment's optional description.
 .PARAMETER Owner
 No description available.
 .PARAMETER VisibilityCriteria
 No description available.
 .PARAMETER Active
-Whether the Segment is currently active. Inactive segments have no effect.
+This boolean indicates whether the segment is currently active. Inactive segments have no effect.
 .OUTPUTS
 
 Segment<PSCustomObject>
@@ -61,7 +61,7 @@ function Initialize-BetaSegment {
         ${VisibilityCriteria},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Active}
+        ${Active} = $false
     )
 
     Process {

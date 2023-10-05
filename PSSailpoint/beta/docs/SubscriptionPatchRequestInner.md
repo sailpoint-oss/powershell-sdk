@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Op** | **String** | The operation to be performed | 
 **Path** | **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | 
-**Value** | [**JsonPatchOperationValue**](JsonPatchOperationValue.md) |  | [optional] 
+**Value** | [**SubscriptionPatchRequestInnerValue**](SubscriptionPatchRequestInnerValue.md) |  | [optional] 
 
 ## Examples
 

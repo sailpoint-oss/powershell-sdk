@@ -387,8 +387,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$SubscriptionPatchRequestInner = Initialize-SubscriptionPatchRequestInner -Op "add" -Path "/description" -Value $JsonPatchOperationValue # SubscriptionPatchRequestInner[] | 
+$SubscriptionPatchRequestInnerValue = Initialize-SubscriptionPatchRequestInnerValue 
+$SubscriptionPatchRequestInner = Initialize-SubscriptionPatchRequestInner -Op "add" -Path "/description" -Value $SubscriptionPatchRequestInnerValue # SubscriptionPatchRequestInner[] | 
 
 # Patch a Subscription
 try {

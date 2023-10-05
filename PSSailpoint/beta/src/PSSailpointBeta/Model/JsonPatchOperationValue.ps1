@@ -34,86 +34,80 @@ function ConvertFrom-BetaJsonToJsonPatchOperationValue {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -ne 0) { # no match yet
-            # try to match Int32 defined in the anyOf schemas
-            try {
-                $matchInstance = ConvertFrom-BetaJsonToInt32 $Json
+        # try to match ArrayInner[] defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-BetaJsonToArrayInner[] $Json
 
-                foreach($property in $matchInstance.PsObject.Properties) {
-                    if ($null -ne $property.Value) {
-                        $matchType = "Int32"
-                        $match++
-                        break
-                    }
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "ArrayInner[]"
+                    $match++
+                    break
                 }
-            } catch {
-                # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Int32' defined in anyOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
             }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'ArrayInner[]' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
         }
 
-        if ($match -ne 0) { # no match yet
-            # try to match JsonPatchOperationValueAnyOfInner[] defined in the anyOf schemas
-            try {
-                $matchInstance = ConvertFrom-BetaJsonToJsonPatchOperationValueAnyOfInner[] $Json
+        # try to match Int32 defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-BetaJsonToInt32 $Json
 
-                foreach($property in $matchInstance.PsObject.Properties) {
-                    if ($null -ne $property.Value) {
-                        $matchType = "JsonPatchOperationValueAnyOfInner[]"
-                        $match++
-                        break
-                    }
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "Int32"
+                    $match++
+                    break
                 }
-            } catch {
-                # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'JsonPatchOperationValueAnyOfInner[]' defined in anyOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
             }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'Int32' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
         }
 
-        if ($match -ne 0) { # no match yet
-            # try to match String defined in the anyOf schemas
-            try {
-                $matchInstance = ConvertFrom-BetaJsonToString $Json
+        # try to match String defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-BetaJsonToString $Json
 
-                foreach($property in $matchInstance.PsObject.Properties) {
-                    if ($null -ne $property.Value) {
-                        $matchType = "String"
-                        $match++
-                        break
-                    }
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "String"
+                    $match++
+                    break
                 }
-            } catch {
-                # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'String' defined in anyOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
             }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'String' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
         }
 
-        if ($match -ne 0) { # no match yet
-            # try to match SystemCollectionsHashtable defined in the anyOf schemas
-            try {
-                $matchInstance = ConvertFrom-BetaJsonToSystemCollectionsHashtable $Json
+        # try to match SystemCollectionsHashtable defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-BetaJsonToSystemCollectionsHashtable $Json
 
-                foreach($property in $matchInstance.PsObject.Properties) {
-                    if ($null -ne $property.Value) {
-                        $matchType = "SystemCollectionsHashtable"
-                        $match++
-                        break
-                    }
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "SystemCollectionsHashtable"
+                    $match++
+                    break
                 }
-            } catch {
-                # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'SystemCollectionsHashtable' defined in anyOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
             }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'SystemCollectionsHashtable' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
         }
 
-        if ($match -eq 1) {
+        if ($match -gt 1) {
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([ArrayInner[], Int32, String, SystemCollectionsHashtable]). JSON Payload: $($Json)"
+        } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "anyOfSchemas" = @("Int32", "JsonPatchOperationValueAnyOfInner[]", "String", "SystemCollectionsHashtable")
+                "OneOfSchemas" = @("ArrayInner[]", "Int32", "String", "SystemCollectionsHashtable")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([Int32, JsonPatchOperationValueAnyOfInner[], String, SystemCollectionsHashtable]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([ArrayInner[], Int32, String, SystemCollectionsHashtable]). JSON Payload: $($Json)"
         }
     }
 }

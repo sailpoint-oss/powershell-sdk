@@ -1,4 +1,4 @@
-# OwnerReference
+# OwnerReferenceSegments
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OwnerReference = Initialize-PSSailpointOwnerReference  -Type IDENTITY `
+$OwnerReferenceSegments = Initialize-PSSailpointBetaOwnerReferenceSegments  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name support
 ```
 
 - Convert the resource to JSON
 ```powershell
-$OwnerReference | ConvertTo-JSON
+$OwnerReferenceSegments | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

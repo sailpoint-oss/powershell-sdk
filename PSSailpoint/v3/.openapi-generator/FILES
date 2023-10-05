@@ -83,6 +83,7 @@ docs/ApprovalSchemeForRole.md
 docs/ApprovalStatus.md
 docs/ApprovalStatusDto.md
 docs/ApprovalSummary.md
+docs/ArrayInner.md
 docs/AttributeDefinition.md
 docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
@@ -234,7 +235,6 @@ docs/InnerHit.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
-docs/JsonPatchOperationValueAnyOfInner.md
 docs/LeftPad.md
 docs/LifecycleState.md
 docs/LifecycleStateAllOf.md
@@ -296,6 +296,7 @@ docs/OriginalRequest.md
 docs/Owner.md
 docs/OwnerAllOf.md
 docs/OwnerReference.md
+docs/OwnerReferenceSegments.md
 docs/Owns.md
 docs/PasswordChangeRequest.md
 docs/PasswordChangeResponse.md
@@ -612,6 +613,7 @@ src/PSSailpoint/Model/ApprovalSchemeForRole.ps1
 src/PSSailpoint/Model/ApprovalStatus.ps1
 src/PSSailpoint/Model/ApprovalStatusDto.ps1
 src/PSSailpoint/Model/ApprovalSummary.ps1
+src/PSSailpoint/Model/ArrayInner.ps1
 src/PSSailpoint/Model/AttributeDefinition.ps1
 src/PSSailpoint/Model/AttributeDefinitionSchema.ps1
 src/PSSailpoint/Model/AttributeDefinitionType.ps1
@@ -755,7 +757,6 @@ src/PSSailpoint/Model/InnerHit.ps1
 src/PSSailpoint/Model/JsonPatch.ps1
 src/PSSailpoint/Model/JsonPatchOperation.ps1
 src/PSSailpoint/Model/JsonPatchOperationValue.ps1
-src/PSSailpoint/Model/JsonPatchOperationValueAnyOfInner.ps1
 src/PSSailpoint/Model/LeftPad.ps1
 src/PSSailpoint/Model/LifecycleState.ps1
 src/PSSailpoint/Model/LifecycleStateAllOf.ps1
@@ -816,6 +817,7 @@ src/PSSailpoint/Model/OriginalRequest.ps1
 src/PSSailpoint/Model/Owner.ps1
 src/PSSailpoint/Model/OwnerAllOf.ps1
 src/PSSailpoint/Model/OwnerReference.ps1
+src/PSSailpoint/Model/OwnerReferenceSegments.ps1
 src/PSSailpoint/Model/Owns.ps1
 src/PSSailpoint/Model/PasswordChangeRequest.ps1
 src/PSSailpoint/Model/PasswordChangeResponse.ps1
@@ -1117,6 +1119,7 @@ tests/Model/ApprovalSchemeForRole.Tests.ps1
 tests/Model/ApprovalStatus.Tests.ps1
 tests/Model/ApprovalStatusDto.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
+tests/Model/ArrayInner.Tests.ps1
 tests/Model/AttributeDefinition.Tests.ps1
 tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
@@ -1260,7 +1263,6 @@ tests/Model/InnerHit.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
-tests/Model/JsonPatchOperationValueAnyOfInner.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
 tests/Model/LifecycleStateAllOf.Tests.ps1
@@ -1321,6 +1323,7 @@ tests/Model/OriginalRequest.Tests.ps1
 tests/Model/Owner.Tests.ps1
 tests/Model/OwnerAllOf.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
+tests/Model/OwnerReferenceSegments.Tests.ps1
 tests/Model/Owns.Tests.ps1
 tests/Model/PasswordChangeRequest.Tests.ps1
 tests/Model/PasswordChangeResponse.Tests.ps1

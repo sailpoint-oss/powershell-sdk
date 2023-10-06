@@ -70,6 +70,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'Get-CampaignTemplate' {
+        It 'Test Get-CampaignTemplate' {
+            #$TestResult = Get-CampaignTemplate -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-CampaignTemplates' {
         It 'Test Get-CampaignTemplates' {
             #$TestResult = Get-CampaignTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"

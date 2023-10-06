@@ -4,9 +4,166 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes/{name} | Create Identity Attribute
+[**Remove-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Remove-BetaIdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete Identity Attribute
+[**Remove-BetaIdentityAttributesInBulk**](BetaIdentityAttributesApi.md#Remove-BetaIdentityAttributesInBulk) | **POST** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
 [**Get-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Get-BetaIdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute
 [**Get-BetaIdentityAttributes**](BetaIdentityAttributesApi.md#Get-BetaIdentityAttributes) | **GET** /identity-attributes | List Identity Attributes
 
+
+<a name="New-BetaIdentityAttribute"></a>
+# **New-BetaIdentityAttribute**
+> IdentityAttribute New-BetaIdentityAttribute<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityAttribute] <PSCustomObject><br>
+
+Create Identity Attribute
+
+This creates a new identity attribute.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Source1 = Initialize-Source1 -Type "rule" -Properties 
+$IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "IdentityNow Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
+
+# Create Identity Attribute
+try {
+    $Result = New-BetaIdentityAttribute -IdentityAttribute $IdentityAttribute
+} catch {
+    Write-Host ("Exception occurred when calling New-BetaIdentityAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentityAttribute** | [**IdentityAttribute**](IdentityAttribute.md)|  | 
+
+### Return type
+
+[**IdentityAttribute**](IdentityAttribute.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-BetaIdentityAttribute"></a>
+# **Remove-BetaIdentityAttribute**
+> void Remove-BetaIdentityAttribute<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
+
+Delete Identity Attribute
+
+This deletes an identity attribute for a given technical name.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Name = "displayName" # String | The attribute's technical name.
+
+# Delete Identity Attribute
+try {
+    $Result = Remove-BetaIdentityAttribute -Name $Name
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaIdentityAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Name** | **String**| The attribute&#39;s technical name. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-BetaIdentityAttributesInBulk"></a>
+# **Remove-BetaIdentityAttributesInBulk**
+> void Remove-BetaIdentityAttributesInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
+
+Bulk delete Identity Attributes
+
+This deletes identity attributes for a given set of technical names.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$RequestBody = "MyRequestBody" # String[] | 
+
+# Bulk delete Identity Attributes
+try {
+    $Result = Remove-BetaIdentityAttributesInBulk -RequestBody $RequestBody
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaIdentityAttributesInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestBody** | [**String[]**](String.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="Get-BetaIdentityAttribute"></a>
 # **Get-BetaIdentityAttribute**
@@ -15,7 +172,7 @@ Method | HTTP request | Description
 
 Get Identity Attribute
 
-This gets an identity attributes for a given technical name.
+This gets an identity attribute for a given technical name.
 
 ### Example
 ```powershell

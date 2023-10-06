@@ -212,6 +212,9 @@ Class | Method | HTTP request | Description
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
+*BetaIdentityAttributesApi* | [**New-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes/{name} | Create Identity Attribute
+*BetaIdentityAttributesApi* | [**Remove-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#Remove-BetaIdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete Identity Attribute
+*BetaIdentityAttributesApi* | [**Remove-BetaIdentityAttributesInBulk**](docs/BetaIdentityAttributesApi.md#Remove-BetaIdentityAttributesInBulk) | **POST** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
 *BetaIdentityAttributesApi* | [**Get-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#Get-BetaIdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute
 *BetaIdentityAttributesApi* | [**Get-BetaIdentityAttributes**](docs/BetaIdentityAttributesApi.md#Get-BetaIdentityAttributes) | **GET** /identity-attributes | List Identity Attributes
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots

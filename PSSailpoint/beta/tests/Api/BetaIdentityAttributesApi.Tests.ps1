@@ -6,6 +6,30 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityAttributesApi' {
+    Context 'New-BetaIdentityAttribute' {
+        It 'Test New-BetaIdentityAttribute' {
+            #$TestResult = New-BetaIdentityAttribute -IdentityAttribute "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BetaIdentityAttribute' {
+        It 'Test Remove-BetaIdentityAttribute' {
+            #$TestResult = Remove-BetaIdentityAttribute -Name "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BetaIdentityAttributesInBulk' {
+        It 'Test Remove-BetaIdentityAttributesInBulk' {
+            #$TestResult = Remove-BetaIdentityAttributesInBulk -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaIdentityAttribute' {
         It 'Test Get-BetaIdentityAttribute' {
             #$TestResult = Get-BetaIdentityAttribute -Name "TEST_VALUE"

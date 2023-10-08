@@ -1,4 +1,4 @@
-# PSSailpoint
+# PowerShell SDK
 
 ## Description
 

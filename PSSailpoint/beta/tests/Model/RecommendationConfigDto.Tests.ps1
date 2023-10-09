@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaRecommendationConfigDto' {
     Context 'BetaRecommendationConfigDto' {
         It 'Initialize-BetaRecommendationConfigDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRecommendationConfigDto -RecommenderFeatures "TEST_VALUE" -PeerGroupPercentageThreshold "TEST_VALUE" -ForceRefresh "TEST_VALUE"
+            #$NewObject = Initialize-BetaRecommendationConfigDto -RecommenderFeatures "TEST_VALUE" -PeerGroupPercentageThreshold "TEST_VALUE" -RunAutoSelectOnce "TEST_VALUE" -OnlyTuneThreshold "TEST_VALUE"
             #$NewObject | Should -BeOfType RecommendationConfigDto
             #$NewObject.property | Should -Be 0
         }

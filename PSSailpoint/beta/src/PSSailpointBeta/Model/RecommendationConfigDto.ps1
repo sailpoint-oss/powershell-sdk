@@ -18,8 +18,10 @@ No description available.
 List of identity attributes to use for calculating certification recommendations
 .PARAMETER PeerGroupPercentageThreshold
 The percent value that the recommendation calculation must surpass to produce a YES recommendation
-.PARAMETER ForceRefresh
+.PARAMETER RunAutoSelectOnce
 If true, rulesRecommenderConfig will be refreshed with new programatically selected attribute and threshold values on the next pipeline run
+.PARAMETER OnlyTuneThreshold
+If true, rulesRecommenderConfig will be refreshed with new programatically selected threshold values on the next pipeline run
 .OUTPUTS
 
 RecommendationConfigDto<PSCustomObject>
@@ -32,11 +34,14 @@ function Initialize-BetaRecommendationConfigDto {
         [String[]]
         ${RecommenderFeatures},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
+        [System.Nullable[Double]]
         ${PeerGroupPercentageThreshold},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${ForceRefresh}
+        ${RunAutoSelectOnce} = $false,
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${OnlyTuneThreshold} = $false
     )
 
     Process {
@@ -55,7 +60,8 @@ function Initialize-BetaRecommendationConfigDto {
         $PSO = [PSCustomObject]@{
             "recommenderFeatures" = ${RecommenderFeatures}
             "peerGroupPercentageThreshold" = ${PeerGroupPercentageThreshold}
-            "forceRefresh" = ${ForceRefresh}
+            "runAutoSelectOnce" = ${RunAutoSelectOnce}
+            "onlyTuneThreshold" = ${OnlyTuneThreshold}
         }
 
 
@@ -93,7 +99,7 @@ function ConvertFrom-BetaJsonToRecommendationConfigDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRecommendationConfigDto
-        $AllProperties = ("recommenderFeatures", "peerGroupPercentageThreshold", "forceRefresh")
+        $AllProperties = ("recommenderFeatures", "peerGroupPercentageThreshold", "runAutoSelectOnce", "onlyTuneThreshold")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -112,16 +118,23 @@ function ConvertFrom-BetaJsonToRecommendationConfigDto {
             $PeerGroupPercentageThreshold = $JsonParameters.PSobject.Properties["peerGroupPercentageThreshold"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "forceRefresh"))) { #optional property not found
-            $ForceRefresh = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "runAutoSelectOnce"))) { #optional property not found
+            $RunAutoSelectOnce = $null
         } else {
-            $ForceRefresh = $JsonParameters.PSobject.Properties["forceRefresh"].value
+            $RunAutoSelectOnce = $JsonParameters.PSobject.Properties["runAutoSelectOnce"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "onlyTuneThreshold"))) { #optional property not found
+            $OnlyTuneThreshold = $null
+        } else {
+            $OnlyTuneThreshold = $JsonParameters.PSobject.Properties["onlyTuneThreshold"].value
         }
 
         $PSO = [PSCustomObject]@{
             "recommenderFeatures" = ${RecommenderFeatures}
             "peerGroupPercentageThreshold" = ${PeerGroupPercentageThreshold}
-            "forceRefresh" = ${ForceRefresh}
+            "runAutoSelectOnce" = ${RunAutoSelectOnce}
+            "onlyTuneThreshold" = ${OnlyTuneThreshold}
         }
 
         return $PSO

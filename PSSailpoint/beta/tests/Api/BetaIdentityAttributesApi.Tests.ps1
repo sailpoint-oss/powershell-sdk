@@ -46,4 +46,12 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityAttributesApi' {
         }
     }
 
+    Context 'Send-BetaIdentityAttribute' {
+        It 'Test Send-BetaIdentityAttribute' {
+            #$TestResult = Send-BetaIdentityAttribute -Name "TEST_VALUE" -IdentityAttribute "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

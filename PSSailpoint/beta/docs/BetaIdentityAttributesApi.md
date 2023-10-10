@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**Remove-BetaIdentityAttributesInBulk**](BetaIdentityAttributesApi.md#Remove-BetaIdentityAttributesInBulk) | **POST** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
 [**Get-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Get-BetaIdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute
 [**Get-BetaIdentityAttributes**](BetaIdentityAttributesApi.md#Get-BetaIdentityAttributes) | **GET** /identity-attributes | List Identity Attributes
+[**Send-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Send-BetaIdentityAttribute) | **PUT** /identity-attributes/{name} | Update Identity Attribute
 
 
 <a name="New-BetaIdentityAttribute"></a>
@@ -133,7 +134,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$RequestBody = "MyRequestBody" # String[] | 
+$RequestBody = "name" # String[] | 
 
 # Bulk delete Identity Attributes
 try {
@@ -272,6 +273,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Send-BetaIdentityAttribute"></a>
+# **Send-BetaIdentityAttribute**
+> IdentityAttribute Send-BetaIdentityAttribute<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityAttribute] <PSCustomObject><br>
+
+Update Identity Attribute
+
+This updates an existing identity attribute.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Name = "displayName" # String | The attribute's technical name.
+$Source1 = Initialize-Source1 -Type "rule" -Properties 
+$IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "IdentityNow Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
+
+# Update Identity Attribute
+try {
+    $Result = Send-BetaIdentityAttribute -Name $Name -IdentityAttribute $IdentityAttribute
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaIdentityAttribute: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Name** | **String**| The attribute&#39;s technical name. | 
+ **IdentityAttribute** | [**IdentityAttribute**](IdentityAttribute.md)|  | 
+
+### Return type
+
+[**IdentityAttribute**](IdentityAttribute.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -15,7 +15,7 @@ No summary available.
 Optional configuration options for role composition campaigns.
 
 .PARAMETER Reviewer
-If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
+No description available.
 .PARAMETER RoleIds
 Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
 .PARAMETER RemediatorRef

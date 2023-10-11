@@ -19,7 +19,7 @@ The type of search campaign represented.
 .PARAMETER Description
 Describes this search campaign. Intended for storing the query used, and possibly the number of identities selected/available.
 .PARAMETER Reviewer
-If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
+No description available.
 .PARAMETER Query
 The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of `query` or `identityIds` must be set.
 .PARAMETER IdentityIds

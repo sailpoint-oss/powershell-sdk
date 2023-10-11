@@ -342,6 +342,7 @@ docs/FullcampaignAllOfFilter.md
 docs/FullcampaignAllOfRoleCompositionCampaignInfo.md
 docs/FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md
 docs/FullcampaignAllOfSearchCampaignInfo.md
+docs/FullcampaignAllOfSearchCampaignInfoReviewer.md
 docs/FullcampaignAllOfSourceOwnerCampaignInfo.md
 docs/FullcampaignAllOfSourcesWithOrphanEntitlements.md
 docs/GenerateRandomString.md
@@ -1142,6 +1143,7 @@ src/PSSailpointBeta/Model/FullcampaignAllOfFilter.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfRoleCompositionCampaignInfo.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfSearchCampaignInfo.ps1
+src/PSSailpointBeta/Model/FullcampaignAllOfSearchCampaignInfoReviewer.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfSourceOwnerCampaignInfo.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfSourcesWithOrphanEntitlements.ps1
 src/PSSailpointBeta/Model/GenerateRandomString.ps1
@@ -1949,6 +1951,7 @@ tests/Model/FullcampaignAllOfFilter.Tests.ps1
 tests/Model/FullcampaignAllOfRoleCompositionCampaignInfo.Tests.ps1
 tests/Model/FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.Tests.ps1
 tests/Model/FullcampaignAllOfSearchCampaignInfo.Tests.ps1
+tests/Model/FullcampaignAllOfSearchCampaignInfoReviewer.Tests.ps1
 tests/Model/FullcampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
 tests/Model/FullcampaignAllOfSourcesWithOrphanEntitlements.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1

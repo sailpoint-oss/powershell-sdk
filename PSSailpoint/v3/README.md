@@ -407,6 +407,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CampaignAllOfRoleCompositionCampaignInfo](docs/CampaignAllOfRoleCompositionCampaignInfo.md)
  - [PSSailpoint/Model.CampaignAllOfRoleCompositionCampaignInfoRemediatorRef](docs/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md)
  - [PSSailpoint/Model.CampaignAllOfSearchCampaignInfo](docs/CampaignAllOfSearchCampaignInfo.md)
+ - [PSSailpoint/Model.CampaignAllOfSearchCampaignInfoReviewer](docs/CampaignAllOfSearchCampaignInfoReviewer.md)
  - [PSSailpoint/Model.CampaignAllOfSourceOwnerCampaignInfo](docs/CampaignAllOfSourceOwnerCampaignInfo.md)
  - [PSSailpoint/Model.CampaignAllOfSourcesWithOrphanEntitlements](docs/CampaignAllOfSourcesWithOrphanEntitlements.md)
  - [PSSailpoint/Model.CampaignCompleteOptions](docs/CampaignCompleteOptions.md)

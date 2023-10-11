@@ -781,6 +781,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.FullcampaignAllOfRoleCompositionCampaignInfo](docs/FullcampaignAllOfRoleCompositionCampaignInfo.md)
  - [PSSailpointBeta/Model.FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef](docs/FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md)
  - [PSSailpointBeta/Model.FullcampaignAllOfSearchCampaignInfo](docs/FullcampaignAllOfSearchCampaignInfo.md)
+ - [PSSailpointBeta/Model.FullcampaignAllOfSearchCampaignInfoReviewer](docs/FullcampaignAllOfSearchCampaignInfoReviewer.md)
  - [PSSailpointBeta/Model.FullcampaignAllOfSourceOwnerCampaignInfo](docs/FullcampaignAllOfSourceOwnerCampaignInfo.md)
  - [PSSailpointBeta/Model.FullcampaignAllOfSourcesWithOrphanEntitlements](docs/FullcampaignAllOfSourcesWithOrphanEntitlements.md)
  - [PSSailpointBeta/Model.GenerateRandomString](docs/GenerateRandomString.md)

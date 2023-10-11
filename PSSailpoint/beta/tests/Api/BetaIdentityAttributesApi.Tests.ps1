@@ -24,7 +24,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityAttributesApi' {
 
     Context 'Remove-BetaIdentityAttributesInBulk' {
         It 'Test Remove-BetaIdentityAttributesInBulk' {
-            #$TestResult = Remove-BetaIdentityAttributesInBulk -RequestBody "TEST_VALUE"
+            #$TestResult = Remove-BetaIdentityAttributesInBulk -IdentityAttributeNames "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

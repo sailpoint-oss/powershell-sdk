@@ -804,6 +804,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.IdentityAttribute1](docs/IdentityAttribute1.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig](docs/IdentityAttributeConfig.md)
  - [PSSailpointBeta/Model.IdentityAttributeConfig1](docs/IdentityAttributeConfig1.md)
+ - [PSSailpointBeta/Model.IdentityAttributeNames](docs/IdentityAttributeNames.md)
  - [PSSailpointBeta/Model.IdentityAttributePreview](docs/IdentityAttributePreview.md)
  - [PSSailpointBeta/Model.IdentityAttributeTransform](docs/IdentityAttributeTransform.md)
  - [PSSailpointBeta/Model.IdentityAttributeTransform1](docs/IdentityAttributeTransform1.md)

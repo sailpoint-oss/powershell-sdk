@@ -118,7 +118,7 @@ void (empty response body)
 <a name="Remove-BetaIdentityAttributesInBulk"></a>
 # **Remove-BetaIdentityAttributesInBulk**
 > void Remove-BetaIdentityAttributesInBulk<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityAttributeNames] <PSCustomObject><br>
 
 Bulk delete Identity Attributes
 
@@ -134,11 +134,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$RequestBody = "name" # String[] | 
+$IdentityAttributeNames = Initialize-IdentityAttributeNames -Ids "name" # IdentityAttributeNames | 
 
 # Bulk delete Identity Attributes
 try {
-    $Result = Remove-BetaIdentityAttributesInBulk -RequestBody $RequestBody
+    $Result = Remove-BetaIdentityAttributesInBulk -IdentityAttributeNames $IdentityAttributeNames
 } catch {
     Write-Host ("Exception occurred when calling Remove-BetaIdentityAttributesInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -149,7 +149,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestBody** | [**String[]**](String.md)|  | 
+ **IdentityAttributeNames** | [**IdentityAttributeNames**](IdentityAttributeNames.md)|  | 
 
 ### Return type
 

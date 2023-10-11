@@ -178,7 +178,7 @@ Bulk delete Identity Attributes
 
 This deletes identity attributes for a given set of technical names.
 
-.PARAMETER RequestBody
+.PARAMETER IdentityAttributeNames
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -193,8 +193,8 @@ function Remove-BetaIdentityAttributesInBulk {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String[]]
-        ${RequestBody},
+        [PSCustomObject]
+        ${IdentityAttributeNames},
         [Switch]
         $WithHttpInfo
     )
@@ -220,14 +220,14 @@ function Remove-BetaIdentityAttributesInBulk {
 
         $LocalVarUri = '/identity-attributes/bulk-delete'
 
-        if (!$RequestBody) {
-            throw "Error! The required parameter `RequestBody` missing when calling deleteIdentityAttributesInBulk."
+        if (!$IdentityAttributeNames) {
+            throw "Error! The required parameter `IdentityAttributeNames` missing when calling deleteIdentityAttributesInBulk."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $IdentityAttributeNames | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $RequestBody | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityAttributeNames | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

@@ -365,6 +365,7 @@ docs/IdentityAttribute.md
 docs/IdentityAttribute1.md
 docs/IdentityAttributeConfig.md
 docs/IdentityAttributeConfig1.md
+docs/IdentityAttributeNames.md
 docs/IdentityAttributePreview.md
 docs/IdentityAttributeTransform.md
 docs/IdentityAttributeTransform1.md
@@ -1164,6 +1165,7 @@ src/PSSailpointBeta/Model/IdentityAttribute.ps1
 src/PSSailpointBeta/Model/IdentityAttribute1.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig.ps1
 src/PSSailpointBeta/Model/IdentityAttributeConfig1.ps1
+src/PSSailpointBeta/Model/IdentityAttributeNames.ps1
 src/PSSailpointBeta/Model/IdentityAttributePreview.ps1
 src/PSSailpointBeta/Model/IdentityAttributeTransform.ps1
 src/PSSailpointBeta/Model/IdentityAttributeTransform1.ps1
@@ -1970,6 +1972,7 @@ tests/Model/IdentityAttribute.Tests.ps1
 tests/Model/IdentityAttribute1.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
 tests/Model/IdentityAttributeConfig1.Tests.ps1
+tests/Model/IdentityAttributeNames.Tests.ps1
 tests/Model/IdentityAttributePreview.Tests.ps1
 tests/Model/IdentityAttributeTransform.Tests.ps1
 tests/Model/IdentityAttributeTransform1.Tests.ps1

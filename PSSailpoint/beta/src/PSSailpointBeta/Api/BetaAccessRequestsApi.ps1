@@ -503,7 +503,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 AccessRequestConfig
 #>
-function Update-BetaAccessRequestConfig {
+function Set-BetaAccessRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -514,7 +514,7 @@ function Update-BetaAccessRequestConfig {
     )
 
     Process {
-        'Calling method: Update-BetaAccessRequestConfig' | Write-Debug
+        'Calling method: Set-BetaAccessRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -535,7 +535,7 @@ function Update-BetaAccessRequestConfig {
         $LocalVarUri = '/access-request-config'
 
         if (!$AccessRequestConfig) {
-            throw "Error! The required parameter `AccessRequestConfig` missing when calling updateAccessRequestConfig."
+            throw "Error! The required parameter `AccessRequestConfig` missing when calling setAccessRequestConfig."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {

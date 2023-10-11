@@ -46,9 +46,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessRequestsApi' {
         }
     }
 
-    Context 'Update-BetaAccessRequestConfig' {
-        It 'Test Update-BetaAccessRequestConfig' {
-            #$TestResult = Update-BetaAccessRequestConfig -AccessRequestConfig "TEST_VALUE"
+    Context 'Set-BetaAccessRequestConfig' {
+        It 'Test Set-BetaAccessRequestConfig' {
+            #$TestResult = Set-BetaAccessRequestConfig -AccessRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

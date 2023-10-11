@@ -70,7 +70,7 @@ Class | Method | HTTP request | Description
 *BetaAccessRequestsApi* | [**New-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#New-BetaAccessRequest) | **POST** /access-requests | Submit an Access Request
 *BetaAccessRequestsApi* | [**Get-BetaAccessRequestConfig**](docs/BetaAccessRequestsApi.md#Get-BetaAccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 *BetaAccessRequestsApi* | [**Get-BetaAccessRequestStatus**](docs/BetaAccessRequestsApi.md#Get-BetaAccessRequestStatus) | **GET** /access-request-status | Access Request Status
-*BetaAccessRequestsApi* | [**Update-BetaAccessRequestConfig**](docs/BetaAccessRequestsApi.md#Update-BetaAccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
+*BetaAccessRequestsApi* | [**Set-BetaAccessRequestConfig**](docs/BetaAccessRequestsApi.md#Set-BetaAccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 *BetaAccountActivitiesApi* | [**Get-BetaAccountActivity**](docs/BetaAccountActivitiesApi.md#Get-BetaAccountActivity) | **GET** /account-activities/{id} | Get Account Activity
 *BetaAccountActivitiesApi* | [**Get-BetaAccountActivities**](docs/BetaAccountActivitiesApi.md#Get-BetaAccountActivities) | **GET** /account-activities | List Account Activities
 *BetaAccountAggregationsApi* | [**Get-BetaAccountAggregationStatus**](docs/BetaAccountAggregationsApi.md#Get-BetaAccountAggregationStatus) | **GET** /account-aggregations/{id}/status | In-progress Account Aggregation status

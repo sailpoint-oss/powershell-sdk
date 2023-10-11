@@ -38,9 +38,9 @@ Describe -tag 'PSSailpoint' -name 'AccessRequestsApi' {
         }
     }
 
-    Context 'Update-AccessRequestConfig' {
-        It 'Test Update-AccessRequestConfig' {
-            #$TestResult = Update-AccessRequestConfig -AccessRequestConfig "TEST_VALUE"
+    Context 'Set-AccessRequestConfig' {
+        It 'Test Set-AccessRequestConfig' {
+            #$TestResult = Set-AccessRequestConfig -AccessRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

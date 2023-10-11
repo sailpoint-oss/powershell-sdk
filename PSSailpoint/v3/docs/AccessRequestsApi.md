@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**New-AccessRequest**](AccessRequestsApi.md#New-AccessRequest) | **POST** /access-requests | Submit an Access Request
 [**Get-AccessRequestConfig**](AccessRequestsApi.md#Get-AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 [**Get-AccessRequestStatus**](AccessRequestsApi.md#Get-AccessRequestStatus) | **GET** /access-request-status | Access Request Status
-[**Update-AccessRequestConfig**](AccessRequestsApi.md#Update-AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
+[**Set-AccessRequestConfig**](AccessRequestsApi.md#Set-AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 
 
 <a name="Suspend-AccessRequest"></a>
@@ -232,9 +232,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-AccessRequestConfig"></a>
-# **Update-AccessRequestConfig**
-> AccessRequestConfig Update-AccessRequestConfig<br>
+<a name="Set-AccessRequestConfig"></a>
+# **Set-AccessRequestConfig**
+> AccessRequestConfig Set-AccessRequestConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequestConfig] <PSCustomObject><br>
 
 Update Access Request Configuration
@@ -261,9 +261,9 @@ $AccessRequestConfig = Initialize-AccessRequestConfig -ApprovalsMustBeExternal $
 
 # Update Access Request Configuration
 try {
-    $Result = Update-AccessRequestConfig -AccessRequestConfig $AccessRequestConfig
+    $Result = Set-AccessRequestConfig -AccessRequestConfig $AccessRequestConfig
 } catch {
-    Write-Host ("Exception occurred when calling Update-AccessRequestConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Set-AccessRequestConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

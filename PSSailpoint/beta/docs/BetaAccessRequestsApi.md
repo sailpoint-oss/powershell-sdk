@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**New-BetaAccessRequest**](BetaAccessRequestsApi.md#New-BetaAccessRequest) | **POST** /access-requests | Submit an Access Request
 [**Get-BetaAccessRequestConfig**](BetaAccessRequestsApi.md#Get-BetaAccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 [**Get-BetaAccessRequestStatus**](BetaAccessRequestsApi.md#Get-BetaAccessRequestStatus) | **GET** /access-request-status | Access Request Status
-[**Update-BetaAccessRequestConfig**](BetaAccessRequestsApi.md#Update-BetaAccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
+[**Set-BetaAccessRequestConfig**](BetaAccessRequestsApi.md#Set-BetaAccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 
 
 <a name="Suspend-BetaAccessRequest"></a>
@@ -284,9 +284,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaAccessRequestConfig"></a>
-# **Update-BetaAccessRequestConfig**
-> AccessRequestConfig Update-BetaAccessRequestConfig<br>
+<a name="Set-BetaAccessRequestConfig"></a>
+# **Set-BetaAccessRequestConfig**
+> AccessRequestConfig Set-BetaAccessRequestConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequestConfig] <PSCustomObject><br>
 
 Update Access Request Configuration
@@ -313,9 +313,9 @@ $AccessRequestConfig = Initialize-AccessRequestConfig -ApprovalsMustBeExternal $
 
 # Update Access Request Configuration
 try {
-    $Result = Update-BetaAccessRequestConfig -AccessRequestConfig $AccessRequestConfig
+    $Result = Set-BetaAccessRequestConfig -AccessRequestConfig $AccessRequestConfig
 } catch {
-    Write-Host ("Exception occurred when calling Update-BetaAccessRequestConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Set-BetaAccessRequestConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

@@ -68,7 +68,7 @@ Class | Method | HTTP request | Description
 *AccessRequestsApi* | [**New-AccessRequest**](docs/AccessRequestsApi.md#New-AccessRequest) | **POST** /access-requests | Submit an Access Request
 *AccessRequestsApi* | [**Get-AccessRequestConfig**](docs/AccessRequestsApi.md#Get-AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 *AccessRequestsApi* | [**Get-AccessRequestStatus**](docs/AccessRequestsApi.md#Get-AccessRequestStatus) | **GET** /access-request-status | Access Request Status
-*AccessRequestsApi* | [**Update-AccessRequestConfig**](docs/AccessRequestsApi.md#Update-AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
+*AccessRequestsApi* | [**Set-AccessRequestConfig**](docs/AccessRequestsApi.md#Set-AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 *AccountActivitiesApi* | [**Get-AccountActivity**](docs/AccountActivitiesApi.md#Get-AccountActivity) | **GET** /account-activities/{id} | Get an Account Activity
 *AccountActivitiesApi* | [**Get-AccountActivities**](docs/AccountActivitiesApi.md#Get-AccountActivities) | **GET** /account-activities | List Account Activities
 *AccountUsagesApi* | [**Get-UsagesByAccountId**](docs/AccountUsagesApi.md#Get-UsagesByAccountId) | **GET** /account-usages/{accountId}/summaries | Returns account usage insights

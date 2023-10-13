@@ -194,6 +194,7 @@ Class | Method | HTTP request | Description
 *PublicIdentitiesConfigApi* | [**Update-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Update-PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
 *RequestableObjectsApi* | [**Get-RequestableObjects**](docs/RequestableObjectsApi.md#Get-RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
 *RolesApi* | [**New-Role**](docs/RolesApi.md#New-Role) | **POST** /roles | Create a Role
+*RolesApi* | [**Remove-BulkRoles**](docs/RolesApi.md#Remove-BulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
 *RolesApi* | [**Get-Role**](docs/RolesApi.md#Get-Role) | **GET** /roles/{id} | Get a Role
 *RolesApi* | [**Get-RoleAssignedIdentities**](docs/RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 *RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles
@@ -655,6 +656,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.RightPad](docs/RightPad.md)
  - [PSSailpoint/Model.Role](docs/Role.md)
  - [PSSailpoint/Model.RoleAssignmentSourceType](docs/RoleAssignmentSourceType.md)
+ - [PSSailpoint/Model.RoleBulkDeleteRequest](docs/RoleBulkDeleteRequest.md)
  - [PSSailpoint/Model.RoleCriteriaKey](docs/RoleCriteriaKey.md)
  - [PSSailpoint/Model.RoleCriteriaKeyType](docs/RoleCriteriaKeyType.md)
  - [PSSailpoint/Model.RoleCriteriaLevel1](docs/RoleCriteriaLevel1.md)

@@ -376,6 +376,7 @@ docs/Revocability.md
 docs/RightPad.md
 docs/Role.md
 docs/RoleAssignmentSourceType.md
+docs/RoleBulkDeleteRequest.md
 docs/RoleCriteriaKey.md
 docs/RoleCriteriaKeyType.md
 docs/RoleCriteriaLevel1.md
@@ -890,6 +891,7 @@ src/PSSailpoint/Model/Revocability.ps1
 src/PSSailpoint/Model/RightPad.ps1
 src/PSSailpoint/Model/Role.ps1
 src/PSSailpoint/Model/RoleAssignmentSourceType.ps1
+src/PSSailpoint/Model/RoleBulkDeleteRequest.ps1
 src/PSSailpoint/Model/RoleCriteriaKey.ps1
 src/PSSailpoint/Model/RoleCriteriaKeyType.ps1
 src/PSSailpoint/Model/RoleCriteriaLevel1.ps1
@@ -1397,6 +1399,7 @@ tests/Model/Revocability.Tests.ps1
 tests/Model/RightPad.Tests.ps1
 tests/Model/Role.Tests.ps1
 tests/Model/RoleAssignmentSourceType.Tests.ps1
+tests/Model/RoleBulkDeleteRequest.Tests.ps1
 tests/Model/RoleCriteriaKey.Tests.ps1
 tests/Model/RoleCriteriaKeyType.Tests.ps1
 tests/Model/RoleCriteriaLevel1.Tests.ps1

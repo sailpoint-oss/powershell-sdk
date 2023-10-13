@@ -5,6 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-Role**](RolesApi.md#New-Role) | **POST** /roles | Create a Role
+[**Remove-BulkRoles**](RolesApi.md#Remove-BulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
 [**Get-Role**](RolesApi.md#Get-Role) | **GET** /roles/{id} | Get a Role
 [**Get-RoleAssignedIdentities**](RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 [**Get-Roles**](RolesApi.md#Get-Roles) | **GET** /roles | List Roles
@@ -70,6 +71,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Role**](Role.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-BulkRoles"></a>
+# **Remove-BulkRoles**
+> BaseReferenceDto Remove-BulkRoles<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleBulkDeleteRequest] <PSCustomObject><br>
+
+Delete Role(s)
+
+This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$RoleBulkDeleteRequest = Initialize-RoleBulkDeleteRequest -RoleIds "MyRoleIds" # RoleBulkDeleteRequest | 
+
+# Delete Role(s)
+try {
+    $Result = Remove-BulkRoles -RoleBulkDeleteRequest $RoleBulkDeleteRequest
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BulkRoles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RoleBulkDeleteRequest** | [**RoleBulkDeleteRequest**](RoleBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
 
 ### Authorization
 

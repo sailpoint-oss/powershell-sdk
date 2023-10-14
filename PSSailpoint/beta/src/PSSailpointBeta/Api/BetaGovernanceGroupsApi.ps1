@@ -224,7 +224,7 @@ function Remove-BetaWorkgroupMembers {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/workgroups/{workgrouId}/members/bulk-delete'
+        $LocalVarUri = '/workgroups/{workgroupId}/members/bulk-delete'
         if (!$WorkgroupId) {
             throw "Error! The required parameter `WorkgroupId` missing when calling deleteWorkgroupMembers."
         }
@@ -503,7 +503,7 @@ function Get-BetaConnections {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/workgroups/{workgrouId}/connections'
+        $LocalVarUri = '/workgroups/{workgroupId}/connections'
         if (!$WorkgroupId) {
             throw "Error! The required parameter `WorkgroupId` missing when calling listConnections."
         }
@@ -617,7 +617,7 @@ function Get-BetaWorkgroupMembers {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/workgroups/{workgrouId}/members'
+        $LocalVarUri = '/workgroups/{workgroupId}/members'
         if (!$WorkgroupId) {
             throw "Error! The required parameter `WorkgroupId` missing when calling listWorkgroupMembers."
         }
@@ -926,7 +926,7 @@ function Update-BetaWorkgroupMembers {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/workgroups/{workgrouId}/members/bulk-add'
+        $LocalVarUri = '/workgroups/{workgroupId}/members/bulk-add'
         if (!$WorkgroupId) {
             throw "Error! The required parameter `WorkgroupId` missing when calling updateWorkgroupMembers."
         }

@@ -6,14 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaWorkgroup**](BetaGovernanceGroupsApi.md#New-BetaWorkgroup) | **POST** /workgroups | Create a new Governance Group.
 [**Remove-BetaWorkgroup**](BetaGovernanceGroupsApi.md#Remove-BetaWorkgroup) | **DELETE** /workgroups/{id} | Delete a Governance Group
-[**Remove-BetaWorkgroupMembers**](BetaGovernanceGroupsApi.md#Remove-BetaWorkgroupMembers) | **POST** /workgroups/{workgrouId}/members/bulk-delete | Remove members from Governance Group
+[**Remove-BetaWorkgroupMembers**](BetaGovernanceGroupsApi.md#Remove-BetaWorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-delete | Remove members from Governance Group
 [**Remove-BetaWorkgroupsInBulk**](BetaGovernanceGroupsApi.md#Remove-BetaWorkgroupsInBulk) | **POST** /workgroups/bulk-delete | Delete Governance Group(s)
 [**Get-BetaWorkgroup**](BetaGovernanceGroupsApi.md#Get-BetaWorkgroup) | **GET** /workgroups/{id} | Get Governance Group by Id
-[**Get-BetaConnections**](BetaGovernanceGroupsApi.md#Get-BetaConnections) | **GET** /workgroups/{workgrouId}/connections | List connections for Governance Group
-[**Get-BetaWorkgroupMembers**](BetaGovernanceGroupsApi.md#Get-BetaWorkgroupMembers) | **GET** /workgroups/{workgrouId}/members | List Governance Group Members
+[**Get-BetaConnections**](BetaGovernanceGroupsApi.md#Get-BetaConnections) | **GET** /workgroups/{workgroupId}/connections | List connections for Governance Group
+[**Get-BetaWorkgroupMembers**](BetaGovernanceGroupsApi.md#Get-BetaWorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List Governance Group Members
 [**Get-BetaWorkgroups**](BetaGovernanceGroupsApi.md#Get-BetaWorkgroups) | **GET** /workgroups | List Governance Groups
 [**Update-BetaWorkgroup**](BetaGovernanceGroupsApi.md#Update-BetaWorkgroup) | **PATCH** /workgroups/{id} | Patch a Governance Group
-[**Update-BetaWorkgroupMembers**](BetaGovernanceGroupsApi.md#Update-BetaWorkgroupMembers) | **POST** /workgroups/{workgrouId}/members/bulk-add | Add members to Governance Group
+[**Update-BetaWorkgroupMembers**](BetaGovernanceGroupsApi.md#Update-BetaWorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-add | Add members to Governance Group
 
 
 <a name="New-BetaWorkgroup"></a>

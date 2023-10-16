@@ -5,6 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-AccessProfile**](AccessProfilesApi.md#New-AccessProfile) | **POST** /access-profiles | Create an Access Profile
+[**Remove-AccessProfile**](AccessProfilesApi.md#Remove-AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
 [**Remove-AccessProfilesInBulk**](AccessProfilesApi.md#Remove-AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
 [**Get-AccessProfile**](AccessProfilesApi.md#Get-AccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
 [**Get-AccessProfileEntitlements**](AccessProfilesApi.md#Get-AccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile&#39;s Entitlements
@@ -73,6 +74,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-AccessProfile"></a>
+# **Remove-AccessProfile**
+> void Remove-AccessProfile<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Delete the specified Access Profile
+
+This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to delete
+
+# Delete the specified Access Profile
+try {
+    $Result = Remove-AccessProfile -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Remove-AccessProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| ID of the Access Profile to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

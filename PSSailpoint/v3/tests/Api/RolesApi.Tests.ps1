@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint' -name 'RolesApi' {
         }
     }
 
+    Context 'Remove-Role' {
+        It 'Test Remove-Role' {
+            #$TestResult = Remove-Role -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-Role' {
         It 'Test Get-Role' {
             #$TestResult = Get-Role -Id "TEST_VALUE"

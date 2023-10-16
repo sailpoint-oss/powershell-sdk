@@ -53,6 +53,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccessProfilesApi* | [**New-AccessProfile**](docs/AccessProfilesApi.md#New-AccessProfile) | **POST** /access-profiles | Create an Access Profile
+*AccessProfilesApi* | [**Remove-AccessProfile**](docs/AccessProfilesApi.md#Remove-AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
 *AccessProfilesApi* | [**Remove-AccessProfilesInBulk**](docs/AccessProfilesApi.md#Remove-AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
 *AccessProfilesApi* | [**Get-AccessProfile**](docs/AccessProfilesApi.md#Get-AccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
 *AccessProfilesApi* | [**Get-AccessProfileEntitlements**](docs/AccessProfilesApi.md#Get-AccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile's Entitlements
@@ -195,6 +196,7 @@ Class | Method | HTTP request | Description
 *RequestableObjectsApi* | [**Get-RequestableObjects**](docs/RequestableObjectsApi.md#Get-RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
 *RolesApi* | [**New-Role**](docs/RolesApi.md#New-Role) | **POST** /roles | Create a Role
 *RolesApi* | [**Remove-BulkRoles**](docs/RolesApi.md#Remove-BulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
+*RolesApi* | [**Remove-Role**](docs/RolesApi.md#Remove-Role) | **DELETE** /roles/{id} | Delete a Role
 *RolesApi* | [**Get-Role**](docs/RolesApi.md#Get-Role) | **GET** /roles/{id} | Get a Role
 *RolesApi* | [**Get-RoleAssignedIdentities**](docs/RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 *RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles

@@ -14,6 +14,14 @@ Describe -tag 'PSSailpoint' -name 'AccessProfilesApi' {
         }
     }
 
+    Context 'Remove-AccessProfile' {
+        It 'Test Remove-AccessProfile' {
+            #$TestResult = Remove-AccessProfile -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-AccessProfilesInBulk' {
         It 'Test Remove-AccessProfilesInBulk' {
             #$TestResult = Remove-AccessProfilesInBulk -AccessProfileBulkDeleteRequest "TEST_VALUE"

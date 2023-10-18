@@ -86,6 +86,8 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
 *AuthUserApi* | [**Get-AuthUser**](docs/AuthUserApi.md#Get-AuthUser) | **GET** /auth-users/{id} | Auth User Details
 *AuthUserApi* | [**Update-AuthUser**](docs/AuthUserApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
+*CertificationCampaignFiltersApi* | [**New-CampaignFilter**](docs/CertificationCampaignFiltersApi.md#New-CampaignFilter) | **POST** /campaign-filters | Create a Campaign Filter
+*CertificationCampaignFiltersApi* | [**Get-CampaignFilterById**](docs/CertificationCampaignFiltersApi.md#Get-CampaignFilterById) | **GET** /campaign-filters/{id} | Get Campaign Filter by ID
 *CertificationCampaignsApi* | [**Complete-Campaign**](docs/CertificationCampaignsApi.md#Complete-Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 *CertificationCampaignsApi* | [**New-CampaignTemplate**](docs/CertificationCampaignsApi.md#New-CampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
@@ -415,6 +417,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CampaignAllOfSourceOwnerCampaignInfo](docs/CampaignAllOfSourceOwnerCampaignInfo.md)
  - [PSSailpoint/Model.CampaignAllOfSourcesWithOrphanEntitlements](docs/CampaignAllOfSourcesWithOrphanEntitlements.md)
  - [PSSailpoint/Model.CampaignCompleteOptions](docs/CampaignCompleteOptions.md)
+ - [PSSailpoint/Model.CampaignFilterDetails](docs/CampaignFilterDetails.md)
+ - [PSSailpoint/Model.CampaignFilterDetailsCriteriaListInner](docs/CampaignFilterDetailsCriteriaListInner.md)
  - [PSSailpoint/Model.CampaignReference](docs/CampaignReference.md)
  - [PSSailpoint/Model.CampaignReport](docs/CampaignReport.md)
  - [PSSailpoint/Model.CampaignReportAllOf](docs/CampaignReportAllOf.md)
@@ -448,6 +452,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.CreatePersonalAccessTokenResponse](docs/CreatePersonalAccessTokenResponse.md)
  - [PSSailpoint/Model.CreateSavedSearchRequest](docs/CreateSavedSearchRequest.md)
  - [PSSailpoint/Model.CreateScheduledSearchRequest](docs/CreateScheduledSearchRequest.md)
+ - [PSSailpoint/Model.CriteriaType](docs/CriteriaType.md)
  - [PSSailpoint/Model.DateCompare](docs/DateCompare.md)
  - [PSSailpoint/Model.DateCompareFirstDate](docs/DateCompareFirstDate.md)
  - [PSSailpoint/Model.DateCompareSecondDate](docs/DateCompareSecondDate.md)
@@ -584,6 +589,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.NonEmployeeSourceWithNECount](docs/NonEmployeeSourceWithNECount.md)
  - [PSSailpoint/Model.NonEmployeeSourceWithNECountAllOf](docs/NonEmployeeSourceWithNECountAllOf.md)
  - [PSSailpoint/Model.ObjectImportResult](docs/ObjectImportResult.md)
+ - [PSSailpoint/Model.Operation](docs/Operation.md)
  - [PSSailpoint/Model.OriginalRequest](docs/OriginalRequest.md)
  - [PSSailpoint/Model.Owner](docs/Owner.md)
  - [PSSailpoint/Model.OwnerAllOf](docs/OwnerAllOf.md)

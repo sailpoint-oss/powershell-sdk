@@ -36,7 +36,7 @@ $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type 
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
 $TextQuery = Initialize-TextQuery -Terms "MyTerms" -Fields "MyFields" -MatchAny $false -Contains $true
-$TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100
+$TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100 -Sort "asc" -SortByValue $true
 $QueryResultFilter = Initialize-QueryResultFilter -Includes "MyIncludes" -Excludes "MyExcludes"
 
 $NestedAggregation = Initialize-NestedAggregation -Name "id" -Type "access"
@@ -116,7 +116,7 @@ $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type 
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
 $TextQuery = Initialize-TextQuery -Terms "MyTerms" -Fields "MyFields" -MatchAny $false -Contains $true
-$TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100
+$TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100 -Sort "asc" -SortByValue $true
 $QueryResultFilter = Initialize-QueryResultFilter -Includes "MyIncludes" -Excludes "MyExcludes"
 
 $NestedAggregation = Initialize-NestedAggregation -Name "id" -Type "access"
@@ -247,7 +247,7 @@ $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type 
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
 $TextQuery = Initialize-TextQuery -Terms "MyTerms" -Fields "MyFields" -MatchAny $false -Contains $true
-$TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100
+$TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100 -Sort "asc" -SortByValue $true
 $QueryResultFilter = Initialize-QueryResultFilter -Includes "MyIncludes" -Excludes "MyExcludes"
 
 $NestedAggregation = Initialize-NestedAggregation -Name "id" -Type "access"

@@ -24,6 +24,10 @@ The nested type.
 The number of suffixes the last term will be expanded into. Influences the performance of the query and the number results returned. Valid values: 1 to 1000.
 .PARAMETER Size
 The max amount of records the search will return.
+.PARAMETER Sort
+The sort order of the returned records.
+.PARAMETER SortByValue
+The flag that defines the sort type, by count or value.
 .OUTPUTS
 
 TypeAheadQuery<PSCustomObject>
@@ -46,7 +50,13 @@ function Initialize-TypeAheadQuery {
         ${MaxExpansions} = 10,
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${Size} = 100
+        ${Size} = 100,
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Sort} = "desc",
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${SortByValue} = $false
     )
 
     Process {
@@ -80,6 +90,8 @@ function Initialize-TypeAheadQuery {
             "nestedType" = ${NestedType}
             "maxExpansions" = ${MaxExpansions}
             "size" = ${Size}
+            "sort" = ${Sort}
+            "sortByValue" = ${SortByValue}
         }
 
 
@@ -117,7 +129,7 @@ function ConvertFrom-JsonToTypeAheadQuery {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in TypeAheadQuery
-        $AllProperties = ("query", "field", "nestedType", "maxExpansions", "size")
+        $AllProperties = ("query", "field", "nestedType", "maxExpansions", "size", "sort", "sortByValue")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -158,12 +170,26 @@ function ConvertFrom-JsonToTypeAheadQuery {
             $Size = $JsonParameters.PSobject.Properties["size"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sort"))) { #optional property not found
+            $Sort = $null
+        } else {
+            $Sort = $JsonParameters.PSobject.Properties["sort"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sortByValue"))) { #optional property not found
+            $SortByValue = $null
+        } else {
+            $SortByValue = $JsonParameters.PSobject.Properties["sortByValue"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "query" = ${Query}
             "field" = ${Field}
             "nestedType" = ${NestedType}
             "maxExpansions" = ${MaxExpansions}
             "size" = ${Size}
+            "sort" = ${Sort}
+            "sortByValue" = ${SortByValue}
         }
 
         return $PSO

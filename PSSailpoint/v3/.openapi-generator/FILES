@@ -116,6 +116,8 @@ docs/CampaignAllOfSearchCampaignInfoReviewer.md
 docs/CampaignAllOfSourceOwnerCampaignInfo.md
 docs/CampaignAllOfSourcesWithOrphanEntitlements.md
 docs/CampaignCompleteOptions.md
+docs/CampaignFilterDetails.md
+docs/CampaignFilterDetailsCriteriaListInner.md
 docs/CampaignReference.md
 docs/CampaignReport.md
 docs/CampaignReportAllOf.md
@@ -126,6 +128,7 @@ docs/CampaignsDeleteRequest.md
 docs/CancelAccessRequest.md
 docs/CancelledRequestDetails.md
 docs/Certification.md
+docs/CertificationCampaignFiltersApi.md
 docs/CertificationCampaignsApi.md
 docs/CertificationDecision.md
 docs/CertificationIdentitySummary.md
@@ -152,6 +155,7 @@ docs/CreatePersonalAccessTokenRequest.md
 docs/CreatePersonalAccessTokenResponse.md
 docs/CreateSavedSearchRequest.md
 docs/CreateScheduledSearchRequest.md
+docs/CriteriaType.md
 docs/DateCompare.md
 docs/DateCompareFirstDate.md
 docs/DateCompareSecondDate.md
@@ -293,6 +297,7 @@ docs/NonEmployeeSourceWithNECount.md
 docs/NonEmployeeSourceWithNECountAllOf.md
 docs/OAuthClientsApi.md
 docs/ObjectImportResult.md
+docs/Operation.md
 docs/OriginalRequest.md
 docs/Owner.md
 docs/OwnerAllOf.md
@@ -514,6 +519,7 @@ src/PSSailpoint/Api/AccountActivitiesApi.ps1
 src/PSSailpoint/Api/AccountUsagesApi.ps1
 src/PSSailpoint/Api/AccountsApi.ps1
 src/PSSailpoint/Api/AuthUserApi.ps1
+src/PSSailpoint/Api/CertificationCampaignFiltersApi.ps1
 src/PSSailpoint/Api/CertificationCampaignsApi.ps1
 src/PSSailpoint/Api/CertificationSummariesApi.ps1
 src/PSSailpoint/Api/CertificationsApi.ps1
@@ -651,6 +657,8 @@ src/PSSailpoint/Model/CampaignAllOfSearchCampaignInfoReviewer.ps1
 src/PSSailpoint/Model/CampaignAllOfSourceOwnerCampaignInfo.ps1
 src/PSSailpoint/Model/CampaignAllOfSourcesWithOrphanEntitlements.ps1
 src/PSSailpoint/Model/CampaignCompleteOptions.ps1
+src/PSSailpoint/Model/CampaignFilterDetails.ps1
+src/PSSailpoint/Model/CampaignFilterDetailsCriteriaListInner.ps1
 src/PSSailpoint/Model/CampaignReference.ps1
 src/PSSailpoint/Model/CampaignReport.ps1
 src/PSSailpoint/Model/CampaignReportAllOf.ps1
@@ -684,6 +692,7 @@ src/PSSailpoint/Model/CreatePersonalAccessTokenRequest.ps1
 src/PSSailpoint/Model/CreatePersonalAccessTokenResponse.ps1
 src/PSSailpoint/Model/CreateSavedSearchRequest.ps1
 src/PSSailpoint/Model/CreateScheduledSearchRequest.ps1
+src/PSSailpoint/Model/CriteriaType.ps1
 src/PSSailpoint/Model/DateCompare.ps1
 src/PSSailpoint/Model/DateCompareFirstDate.ps1
 src/PSSailpoint/Model/DateCompareSecondDate.ps1
@@ -820,6 +829,7 @@ src/PSSailpoint/Model/NonEmployeeSourceWithCloudExternalIdAllOf.ps1
 src/PSSailpoint/Model/NonEmployeeSourceWithNECount.ps1
 src/PSSailpoint/Model/NonEmployeeSourceWithNECountAllOf.ps1
 src/PSSailpoint/Model/ObjectImportResult.ps1
+src/PSSailpoint/Model/Operation.ps1
 src/PSSailpoint/Model/OriginalRequest.ps1
 src/PSSailpoint/Model/Owner.ps1
 src/PSSailpoint/Model/OwnerAllOf.ps1
@@ -1027,6 +1037,7 @@ tests/Api/AccountActivitiesApi.Tests.ps1
 tests/Api/AccountUsagesApi.Tests.ps1
 tests/Api/AccountsApi.Tests.ps1
 tests/Api/AuthUserApi.Tests.ps1
+tests/Api/CertificationCampaignFiltersApi.Tests.ps1
 tests/Api/CertificationCampaignsApi.Tests.ps1
 tests/Api/CertificationSummariesApi.Tests.ps1
 tests/Api/CertificationsApi.Tests.ps1
@@ -1163,6 +1174,8 @@ tests/Model/CampaignAllOfSearchCampaignInfoReviewer.Tests.ps1
 tests/Model/CampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfSourcesWithOrphanEntitlements.Tests.ps1
 tests/Model/CampaignCompleteOptions.Tests.ps1
+tests/Model/CampaignFilterDetails.Tests.ps1
+tests/Model/CampaignFilterDetailsCriteriaListInner.Tests.ps1
 tests/Model/CampaignReference.Tests.ps1
 tests/Model/CampaignReport.Tests.ps1
 tests/Model/CampaignReportAllOf.Tests.ps1
@@ -1196,6 +1209,7 @@ tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
 tests/Model/CreatePersonalAccessTokenResponse.Tests.ps1
 tests/Model/CreateSavedSearchRequest.Tests.ps1
 tests/Model/CreateScheduledSearchRequest.Tests.ps1
+tests/Model/CriteriaType.Tests.ps1
 tests/Model/DateCompare.Tests.ps1
 tests/Model/DateCompareFirstDate.Tests.ps1
 tests/Model/DateCompareSecondDate.Tests.ps1
@@ -1332,6 +1346,7 @@ tests/Model/NonEmployeeSourceWithCloudExternalIdAllOf.Tests.ps1
 tests/Model/NonEmployeeSourceWithNECount.Tests.ps1
 tests/Model/NonEmployeeSourceWithNECountAllOf.Tests.ps1
 tests/Model/ObjectImportResult.Tests.ps1
+tests/Model/Operation.Tests.ps1
 tests/Model/OriginalRequest.Tests.ps1
 tests/Model/Owner.Tests.ps1
 tests/Model/OwnerAllOf.Tests.ps1

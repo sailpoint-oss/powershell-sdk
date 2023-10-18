@@ -12,51 +12,46 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+The schedule information.
 
 .PARAMETER Type
-Determines the overall schedule cadence. In general, all time period fields smaller than the chosen type can be configured. For example, a DAILY schedule can have 'hours' set, but not 'days'; a WEEKLY schedule can have both 'hours' and 'days' set.
-.PARAMETER Months
 No description available.
 .PARAMETER Days
 No description available.
 .PARAMETER Hours
 No description available.
 .PARAMETER Expiration
-Specifies the time after which this schedule will no longer occur.
+A date-time in ISO-8601 format
 .PARAMETER TimeZoneId
-The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to ""CST"", the schedule will run at 1AM CST.
+The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org's default timezone is used.
 .OUTPUTS
 
-Schedule<PSCustomObject>
+Schedule1<PSCustomObject>
 #>
 
-function Initialize-Schedule {
+function Initialize-Schedule1 {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("WEEKLY", "MONTHLY", "ANNUALLY", "CALENDAR")]
-        [String]
+        [ValidateSet("DAILY", "WEEKLY", "MONTHLY", "CALENDAR")]
+        [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Months},
+        ${Days},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Days},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
         ${Hours},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Expiration},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TimeZoneId}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => Schedule' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => Schedule1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $Type) {
@@ -70,7 +65,6 @@ function Initialize-Schedule {
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
-            "months" = ${Months}
             "days" = ${Days}
             "hours" = ${Hours}
             "expiration" = ${Expiration}
@@ -85,11 +79,11 @@ function Initialize-Schedule {
 <#
 .SYNOPSIS
 
-Convert from JSON to Schedule<PSCustomObject>
+Convert from JSON to Schedule1<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Schedule<PSCustomObject>
+Convert from JSON to Schedule1<PSCustomObject>
 
 .PARAMETER Json
 
@@ -97,22 +91,22 @@ Json object
 
 .OUTPUTS
 
-Schedule<PSCustomObject>
+Schedule1<PSCustomObject>
 #>
-function ConvertFrom-JsonToSchedule {
+function ConvertFrom-JsonToSchedule1 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => Schedule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => Schedule1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in Schedule
-        $AllProperties = ("type", "months", "days", "hours", "expiration", "timeZoneId")
+        # check if Json contains properties not defined in Schedule1
+        $AllProperties = ("type", "days", "hours", "expiration", "timeZoneId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -135,12 +129,6 @@ function ConvertFrom-JsonToSchedule {
             $Hours = $JsonParameters.PSobject.Properties["hours"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "months"))) { #optional property not found
-            $Months = $null
-        } else {
-            $Months = $JsonParameters.PSobject.Properties["months"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "days"))) { #optional property not found
             $Days = $null
         } else {
@@ -161,7 +149,6 @@ function ConvertFrom-JsonToSchedule {
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
-            "months" = ${Months}
             "days" = ${Days}
             "hours" = ${Hours}
             "expiration" = ${Expiration}

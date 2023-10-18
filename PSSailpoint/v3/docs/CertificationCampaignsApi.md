@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**Get-CampaignReports**](CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
 [**Get-CampaignReportsConfig**](CertificationCampaignsApi.md#Get-CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
 [**Get-CampaignTemplate**](CertificationCampaignsApi.md#Get-CampaignTemplate) | **GET** /campaign-templates/{id} | Get a Campaign Template
+[**Get-CampaignTemplateSchedule**](CertificationCampaignsApi.md#Get-CampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Gets a Campaign Template&#39;s Schedule
 [**Get-CampaignTemplates**](CertificationCampaignsApi.md#Get-CampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
 [**Move-**](CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 [**Update-CampaignTemplate**](CertificationCampaignsApi.md#Update-CampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
@@ -499,6 +500,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CampaignTemplate**](CampaignTemplate.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Get-CampaignTemplateSchedule"></a>
+# **Get-CampaignTemplateSchedule**
+> Schedule Get-CampaignTemplateSchedule<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Gets a Campaign Template's Schedule
+
+Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | The ID of the campaign template whose schedule is being fetched.
+
+# Gets a Campaign Template's Schedule
+try {
+    $Result = Get-CampaignTemplateSchedule -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-CampaignTemplateSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the campaign template whose schedule is being fetched. | 
+
+### Return type
+
+[**Schedule**](Schedule.md) (PSCustomObject)
 
 ### Authorization
 

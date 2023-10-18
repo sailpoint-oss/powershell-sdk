@@ -1,24 +1,24 @@
-# ScheduleHours
+# Schedule1Days
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | Enum type to specify hours value | 
-**Values** | **String[]** | Values of the days based on the enum type mentioned above | 
-**Interval** | **Int64** | Interval between the cert generations | [optional] 
+**Type** | [**SelectorType**](SelectorType.md) |  | 
+**Values** | **String[]** | The selected values.  | 
+**Interval** | **Int32** | The selected interval for RANGE selectors.  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ScheduleHours = Initialize-PSSailpointScheduleHours  -Type LIST `
- -Values [1] `
- -Interval 2
+$Schedule1Days = Initialize-PSSailpointSchedule1Days  -Type null `
+ -Values [MON, WED] `
+ -Interval 3
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ScheduleHours | ConvertTo-JSON
+$Schedule1Days | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

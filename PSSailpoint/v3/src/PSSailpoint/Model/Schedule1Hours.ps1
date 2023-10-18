@@ -12,36 +12,36 @@ No summary available.
 
 .DESCRIPTION
 
-Specifies which hour(s) a schedule is active for. Examples:  Every three hours starting from 8AM, inclusive: * type LIST * values ""8"" * interval 3  During business hours: * type RANGE * values ""9"", ""5""  At 5AM, noon, and 5PM: * type LIST * values ""5"", ""12"", ""17"" 
+No description available.
 
 .PARAMETER Type
-Enum type to specify hours value
+No description available.
 .PARAMETER Values
-Values of the days based on the enum type mentioned above
+The selected values. 
 .PARAMETER Interval
-Interval between the cert generations
+The selected interval for RANGE selectors. 
 .OUTPUTS
 
-ScheduleHours<PSCustomObject>
+Schedule1Hours<PSCustomObject>
 #>
 
-function Initialize-ScheduleHours {
+function Initialize-Schedule1Hours {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("LIST", "RANGE")]
-        [String]
+        [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Values},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int64]]
+        [System.Nullable[Int32]]
         ${Interval}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => ScheduleHours' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => Schedule1Hours' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $Type) {
@@ -67,11 +67,11 @@ function Initialize-ScheduleHours {
 <#
 .SYNOPSIS
 
-Convert from JSON to ScheduleHours<PSCustomObject>
+Convert from JSON to Schedule1Hours<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ScheduleHours<PSCustomObject>
+Convert from JSON to Schedule1Hours<PSCustomObject>
 
 .PARAMETER Json
 
@@ -79,21 +79,21 @@ Json object
 
 .OUTPUTS
 
-ScheduleHours<PSCustomObject>
+Schedule1Hours<PSCustomObject>
 #>
-function ConvertFrom-JsonToScheduleHours {
+function ConvertFrom-JsonToSchedule1Hours {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => ScheduleHours' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => Schedule1Hours' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in ScheduleHours
+        # check if Json contains properties not defined in Schedule1Hours
         $AllProperties = ("type", "values", "interval")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

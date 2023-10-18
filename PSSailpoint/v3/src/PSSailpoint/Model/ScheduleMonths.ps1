@@ -12,20 +12,20 @@ No summary available.
 
 .DESCRIPTION
 
-Specifies which hour(s) a schedule is active for. Examples:  Every three hours starting from 8AM, inclusive: * type LIST * values ""8"" * interval 3  During business hours: * type RANGE * values ""9"", ""5""  At 5AM, noon, and 5PM: * type LIST * values ""5"", ""12"", ""17"" 
+Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:  On February and March: * type LIST * values ""2"", ""3""  Every 3 months, starting in January (quarterly): * type LIST * values ""1"" * interval 3  Every two months between July and December: * type RANGE * values ""7"", ""12"" * interval 2 
 
 .PARAMETER Type
-Enum type to specify hours value
+Enum type to specify months value
 .PARAMETER Values
-Values of the days based on the enum type mentioned above
+Values of the months based on the enum type mentioned above
 .PARAMETER Interval
 Interval between the cert generations
 .OUTPUTS
 
-ScheduleHours<PSCustomObject>
+ScheduleMonths<PSCustomObject>
 #>
 
-function Initialize-ScheduleHours {
+function Initialize-ScheduleMonths {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -41,7 +41,7 @@ function Initialize-ScheduleHours {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => ScheduleHours' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => ScheduleMonths' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $Type) {
@@ -67,11 +67,11 @@ function Initialize-ScheduleHours {
 <#
 .SYNOPSIS
 
-Convert from JSON to ScheduleHours<PSCustomObject>
+Convert from JSON to ScheduleMonths<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ScheduleHours<PSCustomObject>
+Convert from JSON to ScheduleMonths<PSCustomObject>
 
 .PARAMETER Json
 
@@ -79,21 +79,21 @@ Json object
 
 .OUTPUTS
 
-ScheduleHours<PSCustomObject>
+ScheduleMonths<PSCustomObject>
 #>
-function ConvertFrom-JsonToScheduleHours {
+function ConvertFrom-JsonToScheduleMonths {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => ScheduleHours' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => ScheduleMonths' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in ScheduleHours
+        # check if Json contains properties not defined in ScheduleMonths
         $AllProperties = ("type", "values", "interval")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

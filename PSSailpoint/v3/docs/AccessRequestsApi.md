@@ -166,6 +166,7 @@ This endpoint does not need any parameter.
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedFor] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedBy] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RegardingIdentity] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssignedTo] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -189,6 +190,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $RequestedFor = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity for which the requests were made. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
 $RequestedBy = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity that made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
 $RegardingIdentity = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the specified identity which is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
+$AssignedTo = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the specified identity which is the owner of the Identity Request Work Item. *me* indicates the current user. (optional)
 $Count = $false # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored. (optional) (default to $false)
 $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
 $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
@@ -197,7 +199,7 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 
 # Access Request Status
 try {
-    $Result = Get-AccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters
+    $Result = Get-AccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters
 } catch {
     Write-Host ("Exception occurred when calling Get-AccessRequestStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -211,6 +213,7 @@ Name | Type | Description  | Notes
  **RequestedFor** | **String**| Filter the results by the identity for which the requests were made. *me* indicates the current user. Mutually exclusive with *regarding-identity*. | [optional] 
  **RequestedBy** | **String**| Filter the results by the identity that made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. | [optional] 
  **RegardingIdentity** | **String**| Filter the results by the specified identity which is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. | [optional] 
+ **AssignedTo** | **String**| Filter the results by the specified identity which is the owner of the Identity Request Work Item. *me* indicates the current user. | [optional] 
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored. | [optional] [default to $false]
  **Limit** | **Int32**| Max number of results to return. | [optional] [default to 250]
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. | [optional] 

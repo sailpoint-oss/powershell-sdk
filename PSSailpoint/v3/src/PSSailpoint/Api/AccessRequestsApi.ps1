@@ -267,6 +267,9 @@ Filter the results by the identity that made the requests. *me* indicates the cu
 .PARAMETER RegardingIdentity
 Filter the results by the specified identity which is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
 
+.PARAMETER AssignedTo
+Filter the results by the specified identity which is the owner of the Identity Request Work Item. *me* indicates the current user.
+
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.
 
@@ -303,18 +306,21 @@ function Get-AccessRequestStatus {
         [String]
         ${RegardingIdentity},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AssignedTo},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Limit},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
-        ${Offset},
+        ${Limit},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -349,6 +355,10 @@ function Get-AccessRequestStatus {
 
         if ($RegardingIdentity) {
             $LocalVarQueryParameters['regarding-identity'] = $RegardingIdentity
+        }
+
+        if ($AssignedTo) {
+            $LocalVarQueryParameters['assigned-to'] = $AssignedTo
         }
 
         if ($Count) {

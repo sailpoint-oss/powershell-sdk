@@ -40,7 +40,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessRequestsApi' {
 
     Context 'Get-BetaAccessRequestStatus' {
         It 'Test Get-BetaAccessRequestStatus' {
-            #$TestResult = Get-BetaAccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-BetaAccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

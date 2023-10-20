@@ -231,6 +231,7 @@ docs/CompletedApprovalState.md
 docs/CompletionStatus.md
 docs/Concatenation.md
 docs/ConditionEffect.md
+docs/ConditionEffectConfig.md
 docs/ConditionRule.md
 docs/Conditional.md
 docs/ConfigObject.md
@@ -1033,6 +1034,7 @@ src/PSSailpointBeta/Model/CompletedApprovalState.ps1
 src/PSSailpointBeta/Model/CompletionStatus.ps1
 src/PSSailpointBeta/Model/Concatenation.ps1
 src/PSSailpointBeta/Model/ConditionEffect.ps1
+src/PSSailpointBeta/Model/ConditionEffectConfig.ps1
 src/PSSailpointBeta/Model/ConditionRule.ps1
 src/PSSailpointBeta/Model/Conditional.ps1
 src/PSSailpointBeta/Model/ConfigObject.ps1
@@ -1841,6 +1843,7 @@ tests/Model/CompletedApprovalState.Tests.ps1
 tests/Model/CompletionStatus.Tests.ps1
 tests/Model/Concatenation.Tests.ps1
 tests/Model/ConditionEffect.Tests.ps1
+tests/Model/ConditionEffectConfig.Tests.ps1
 tests/Model/ConditionRule.Tests.ps1
 tests/Model/Conditional.Tests.ps1
 tests/Model/ConfigObject.Tests.ps1

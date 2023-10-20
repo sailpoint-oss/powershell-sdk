@@ -671,6 +671,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.CompletionStatus](docs/CompletionStatus.md)
  - [PSSailpointBeta/Model.Concatenation](docs/Concatenation.md)
  - [PSSailpointBeta/Model.ConditionEffect](docs/ConditionEffect.md)
+ - [PSSailpointBeta/Model.ConditionEffectConfig](docs/ConditionEffectConfig.md)
  - [PSSailpointBeta/Model.ConditionRule](docs/ConditionRule.md)
  - [PSSailpointBeta/Model.Conditional](docs/Conditional.md)
  - [PSSailpointBeta/Model.ConfigObject](docs/ConfigObject.md)

@@ -14,16 +14,16 @@ No summary available.
 
 No description available.
 
-.PARAMETER Config
-Config is a config object
-.PARAMETER ElementType
-ElementType is a FormElementType value TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns
 .PARAMETER Id
-ID is a form element identifier
+Form element identifier.
+.PARAMETER ElementType
+FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns
+.PARAMETER Config
+Config object.
 .PARAMETER Key
-Key is the technical key
+Technical key.
 .PARAMETER Validations
-FormElementValidationsSet is a set of FormElementValidation items
+Set of FormElementValidation items.
 .OUTPUTS
 
 FormElement<PSCustomObject>
@@ -33,15 +33,15 @@ function Initialize-BetaFormElement {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable]
-        ${Config},
+        [String]
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("TEXT", "TOGGLE", "TEXTAREA", "HIDDEN", "PHONE", "EMAIL", "SELECT", "DATE", "SECTION", "COLUMNS")]
         [String]
         ${ElementType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
+        [System.Collections.Hashtable]
+        ${Config},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Key},
@@ -56,9 +56,9 @@ function Initialize-BetaFormElement {
 
 
         $PSO = [PSCustomObject]@{
-            "config" = ${Config}
-            "elementType" = ${ElementType}
             "id" = ${Id}
+            "elementType" = ${ElementType}
+            "config" = ${Config}
             "key" = ${Key}
             "validations" = ${Validations}
         }
@@ -98,17 +98,17 @@ function ConvertFrom-BetaJsonToFormElement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaFormElement
-        $AllProperties = ("config", "elementType", "id", "key", "validations")
+        $AllProperties = ("id", "elementType", "config", "key", "validations")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "config"))) { #optional property not found
-            $Config = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
-            $Config = $JsonParameters.PSobject.Properties["config"].value
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "elementType"))) { #optional property not found
@@ -117,10 +117,10 @@ function ConvertFrom-BetaJsonToFormElement {
             $ElementType = $JsonParameters.PSobject.Properties["elementType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "config"))) { #optional property not found
+            $Config = $null
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Config = $JsonParameters.PSobject.Properties["config"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "key"))) { #optional property not found
@@ -136,9 +136,9 @@ function ConvertFrom-BetaJsonToFormElement {
         }
 
         $PSO = [PSCustomObject]@{
-            "config" = ${Config}
-            "elementType" = ${ElementType}
             "id" = ${Id}
+            "elementType" = ${ElementType}
+            "config" = ${Config}
             "key" = ${Key}
             "validations" = ${Validations}
         }

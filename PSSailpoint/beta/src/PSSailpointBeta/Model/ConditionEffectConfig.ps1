@@ -12,37 +12,36 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Arbitrary map containing a configuration based on the EffectType.
 
-.PARAMETER Type
-FormOwnerType value. IDENTITY FormOwnerTypeIdentity
-.PARAMETER Id
-Unique identifier of the form's owner.
+.PARAMETER DefaultValueLabel
+Effect type's label.
+.PARAMETER Element
+Element's identifier.
 .OUTPUTS
 
-FormOwner<PSCustomObject>
+ConditionEffectConfig<PSCustomObject>
 #>
 
-function Initialize-BetaFormOwner {
+function Initialize-BetaConditionEffectConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY")]
         [String]
-        ${Type},
+        ${DefaultValueLabel},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id}
+        ${Element}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaFormOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaConditionEffectConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "type" = ${Type}
-            "id" = ${Id}
+            "defaultValueLabel" = ${DefaultValueLabel}
+            "element" = ${Element}
         }
 
 
@@ -53,11 +52,11 @@ function Initialize-BetaFormOwner {
 <#
 .SYNOPSIS
 
-Convert from JSON to FormOwner<PSCustomObject>
+Convert from JSON to ConditionEffectConfig<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to FormOwner<PSCustomObject>
+Convert from JSON to ConditionEffectConfig<PSCustomObject>
 
 .PARAMETER Json
 
@@ -65,43 +64,43 @@ Json object
 
 .OUTPUTS
 
-FormOwner<PSCustomObject>
+ConditionEffectConfig<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToFormOwner {
+function ConvertFrom-BetaJsonToConditionEffectConfig {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaFormOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaConditionEffectConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaFormOwner
-        $AllProperties = ("type", "id")
+        # check if Json contains properties not defined in BetaConditionEffectConfig
+        $AllProperties = ("defaultValueLabel", "element")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "defaultValueLabel"))) { #optional property not found
+            $DefaultValueLabel = $null
         } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
+            $DefaultValueLabel = $JsonParameters.PSobject.Properties["defaultValueLabel"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "element"))) { #optional property not found
+            $Element = $null
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Element = $JsonParameters.PSobject.Properties["element"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "type" = ${Type}
-            "id" = ${Id}
+            "defaultValueLabel" = ${DefaultValueLabel}
+            "element" = ${Element}
         }
 
         return $PSO

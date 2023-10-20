@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaFormElement' {
     Context 'BetaFormElement' {
         It 'Initialize-BetaFormElement' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaFormElement -Config "TEST_VALUE" -ElementType "TEST_VALUE" -Id "TEST_VALUE" -Key "TEST_VALUE" -Validations "TEST_VALUE"
+            #$NewObject = Initialize-BetaFormElement -Id "TEST_VALUE" -ElementType "TEST_VALUE" -Config "TEST_VALUE" -Key "TEST_VALUE" -Validations "TEST_VALUE"
             #$NewObject | Should -BeOfType FormElement
             #$NewObject.property | Should -Be 0
         }

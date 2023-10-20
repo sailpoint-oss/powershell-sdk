@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Effects** | [**ConditionEffect[]**](ConditionEffect.md) | Effects is a list of effects | [optional] 
-**RuleOperator** | **String** | RuleOperator is a ConditionRuleLogicalOperatorType value AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr | [optional] 
-**Rules** | [**ConditionRule[]**](ConditionRule.md) | Rules is a list of rules | [optional] 
+**RuleOperator** | **String** | ConditionRuleLogicalOperatorType value. AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr | [optional] 
+**Rules** | [**ConditionRule[]**](ConditionRule.md) | List of rules. | [optional] 
+**Effects** | [**ConditionEffect[]**](ConditionEffect.md) | List of effects. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$FormCondition = Initialize-PSSailpointBetaFormCondition  -Effects null `
- -RuleOperator AND `
- -Rules null
+$FormCondition = Initialize-PSSailpointBetaFormCondition  -RuleOperator AND `
+ -Rules null `
+ -Effects null
 ```
 
 - Convert the resource to JSON

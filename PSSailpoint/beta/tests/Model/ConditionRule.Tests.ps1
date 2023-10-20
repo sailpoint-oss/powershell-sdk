@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaConditionRule' {
     Context 'BetaConditionRule' {
         It 'Initialize-BetaConditionRule' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaConditionRule -Operator "TEST_VALUE" -Source "TEST_VALUE" -SourceType "TEST_VALUE" -Value "TEST_VALUE" -ValueType "TEST_VALUE"
+            #$NewObject = Initialize-BetaConditionRule -SourceType "TEST_VALUE" -Source "TEST_VALUE" -Operator "TEST_VALUE" -ValueType "TEST_VALUE" -Value "TEST_VALUE"
             #$NewObject | Should -BeOfType ConditionRule
             #$NewObject.property | Should -Be 0
         }

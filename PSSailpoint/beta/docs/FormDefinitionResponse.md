@@ -3,31 +3,31 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **System.DateTime** | Created is the date the form definition was created | [optional] 
-**Description** | **String** | Description is the form definition description | [optional] 
-**FormConditions** | [**FormCondition[]**](FormCondition.md) | FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form | [optional] 
-**FormElements** | [**FormElement[]**](FormElement.md) | FormElements is a list of nested form elements | [optional] 
-**FormInput** | [**FormDefinitionInput[]**](FormDefinitionInput.md) | FormInput is a list of form inputs that are required when creating a form-instance object | [optional] 
-**Id** | **String** | FormDefinitionID is a unique guid identifying this form definition | [optional] 
-**Modified** | **System.DateTime** | Modified is the last date the form definition was modified | [optional] 
-**Name** | **String** | Name is the form definition name | [optional] 
+**Id** | **String** | Unique guid identifying the form definition. | [optional] 
+**Name** | **String** | Name of the form definition. | [optional] 
+**Description** | **String** | Form definition&#39;s description. | [optional] 
 **Owner** | [**FormOwner**](FormOwner.md) |  | [optional] 
-**UsedBy** | [**FormUsedBy[]**](FormUsedBy.md) | UsedBy is a list of objects where when any system uses a particular form it reaches out to the form service to record it is currently being used | [optional] 
+**UsedBy** | [**FormUsedBy[]**](FormUsedBy.md) | List of objects using the form definition. Whenever a system uses a form, the API reaches out to the form service to record that the system is currently using it. | [optional] 
+**FormInput** | [**FormDefinitionInput[]**](FormDefinitionInput.md) | List of form inputs required to create a form-instance object. | [optional] 
+**FormElements** | [**FormElement[]**](FormElement.md) | List of nested form elements. | [optional] 
+**FormConditions** | [**FormCondition[]**](FormCondition.md) | Conditional logic that can dynamically modify the form as the recipient is interacting with it. | [optional] 
+**Created** | **System.DateTime** | Created is the date the form definition was created | [optional] 
+**Modified** | **System.DateTime** | Modified is the last date the form definition was modified | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$FormDefinitionResponse = Initialize-PSSailpointBetaFormDefinitionResponse  -Created 2023-07-12T20:14:57.744860Z `
- -Description My form description `
- -FormConditions null `
- -FormElements null `
- -FormInput null `
- -Id 00000000-0000-0000-0000-000000000000 `
- -Modified 2023-07-12T20:14:57.744860Z `
+$FormDefinitionResponse = Initialize-PSSailpointBetaFormDefinitionResponse  -Id 00000000-0000-0000-0000-000000000000 `
  -Name My form `
+ -Description My form description `
  -Owner null `
- -UsedBy null
+ -UsedBy null `
+ -FormInput null `
+ -FormElements null `
+ -FormConditions null `
+ -Created 2023-07-12T20:14:57.744860Z `
+ -Modified 2023-07-12T20:14:57.744860Z
 ```
 
 - Convert the resource to JSON

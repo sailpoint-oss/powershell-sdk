@@ -3,19 +3,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Config** | [**System.Collections.Hashtable**](SystemCollectionsHashtable.md) | Config is a config object | [optional] 
-**ElementType** | **String** | ElementType is a FormElementType value TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns | [optional] 
-**Id** | **String** | ID is a form element identifier | [optional] 
-**Key** | **String** | Key is the technical key | [optional] 
-**Validations** | [**SystemCollectionsHashtable**](.md) | FormElementValidationsSet is a set of FormElementValidation items | [optional] 
+**Id** | **String** | Form element identifier. | [optional] 
+**ElementType** | **String** | FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns | [optional] 
+**Config** | [**System.Collections.Hashtable**](SystemCollectionsHashtable.md) | Config object. | [optional] 
+**Key** | **String** | Technical key. | [optional] 
+**Validations** | [**SystemCollectionsHashtable**](.md) | Set of FormElementValidation items. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$FormElement = Initialize-PSSailpointBetaFormElement  -Config {label&#x3D;Department} `
+$FormElement = Initialize-PSSailpointBetaFormElement  -Id 00000000-0000-0000-0000-000000000000 `
  -ElementType TEXT `
- -Id 00000000-0000-0000-0000-000000000000 `
+ -Config {label&#x3D;Department} `
  -Key department `
  -Validations [{validationType&#x3D;REQUIRED}]
 ```

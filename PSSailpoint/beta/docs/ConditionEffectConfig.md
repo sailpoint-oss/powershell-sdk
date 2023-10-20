@@ -1,22 +1,22 @@
-# FormOwner
+# ConditionEffectConfig
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | FormOwnerType value. IDENTITY FormOwnerTypeIdentity | [optional] 
-**Id** | **String** | Unique identifier of the form&#39;s owner. | [optional] 
+**DefaultValueLabel** | **String** | Effect type&#39;s label. | [optional] 
+**Element** | **String** | Element&#39;s identifier. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$FormOwner = Initialize-PSSailpointBetaFormOwner  -Type IDENTITY `
- -Id 00000000-0000-0000-0000-000000000000
+$ConditionEffectConfig = Initialize-PSSailpointBetaConditionEffectConfig  -DefaultValueLabel Access to Remove `
+ -Element 8110662963316867
 ```
 
 - Convert the resource to JSON
 ```powershell
-$FormOwner | ConvertTo-JSON
+$ConditionEffectConfig | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

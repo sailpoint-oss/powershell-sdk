@@ -14,14 +14,14 @@ No summary available.
 
 No description available.
 
-.PARAMETER Description
-Description is the description for this form input value
 .PARAMETER Id
-ID is a unique identifier
-.PARAMETER Label
-Label is the name for this form input value
+Unique identifier for the form input.
 .PARAMETER Type
-Type is a FormDefinitionInputType value STRING FormDefinitionInputTypeString
+FormDefinitionInputType value. STRING FormDefinitionInputTypeString
+.PARAMETER Label
+Name for the form input.
+.PARAMETER Description
+Form input's description.
 .OUTPUTS
 
 FormDefinitionInput<PSCustomObject>
@@ -32,17 +32,17 @@ function Initialize-BetaFormDefinitionInput {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("STRING")]
+        [String]
+        ${Type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Label},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("STRING")]
         [String]
-        ${Type}
+        ${Description}
     )
 
     Process {
@@ -51,10 +51,10 @@ function Initialize-BetaFormDefinitionInput {
 
 
         $PSO = [PSCustomObject]@{
-            "description" = ${Description}
             "id" = ${Id}
-            "label" = ${Label}
             "type" = ${Type}
+            "label" = ${Label}
+            "description" = ${Description}
         }
 
 
@@ -92,17 +92,11 @@ function ConvertFrom-BetaJsonToFormDefinitionInput {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaFormDefinitionInput
-        $AllProperties = ("description", "id", "label", "type")
+        $AllProperties = ("id", "type", "label", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -111,23 +105,29 @@ function ConvertFrom-BetaJsonToFormDefinitionInput {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "label"))) { #optional property not found
-            $Label = $null
-        } else {
-            $Label = $JsonParameters.PSobject.Properties["label"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
             $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "label"))) { #optional property not found
+            $Label = $null
+        } else {
+            $Label = $JsonParameters.PSobject.Properties["label"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "description" = ${Description}
             "id" = ${Id}
-            "label" = ${Label}
             "type" = ${Type}
+            "label" = ${Label}
+            "description" = ${Description}
         }
 
         return $PSO

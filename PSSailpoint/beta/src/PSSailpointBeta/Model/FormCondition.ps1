@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-FormCondition represent a form conditional
+Represent a form conditional.
 
-.PARAMETER Effects
-Effects is a list of effects
 .PARAMETER RuleOperator
-RuleOperator is a ConditionRuleLogicalOperatorType value AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr
+ConditionRuleLogicalOperatorType value. AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr
 .PARAMETER Rules
-Rules is a list of rules
+List of rules.
+.PARAMETER Effects
+List of effects.
 .OUTPUTS
 
 FormCondition<PSCustomObject>
@@ -29,15 +29,15 @@ function Initialize-BetaFormCondition {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${Effects},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("AND", "OR")]
         [String]
         ${RuleOperator},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Rules},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${Rules}
+        ${Effects}
     )
 
     Process {
@@ -46,9 +46,9 @@ function Initialize-BetaFormCondition {
 
 
         $PSO = [PSCustomObject]@{
-            "effects" = ${Effects}
             "ruleOperator" = ${RuleOperator}
             "rules" = ${Rules}
+            "effects" = ${Effects}
         }
 
 
@@ -86,17 +86,11 @@ function ConvertFrom-BetaJsonToFormCondition {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaFormCondition
-        $AllProperties = ("effects", "ruleOperator", "rules")
+        $AllProperties = ("ruleOperator", "rules", "effects")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effects"))) { #optional property not found
-            $Effects = $null
-        } else {
-            $Effects = $JsonParameters.PSobject.Properties["effects"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "ruleOperator"))) { #optional property not found
@@ -111,10 +105,16 @@ function ConvertFrom-BetaJsonToFormCondition {
             $Rules = $JsonParameters.PSobject.Properties["rules"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "effects"))) { #optional property not found
+            $Effects = $null
+        } else {
+            $Effects = $JsonParameters.PSobject.Properties["effects"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "effects" = ${Effects}
             "ruleOperator" = ${RuleOperator}
             "rules" = ${Rules}
+            "effects" = ${Effects}
         }
 
         return $PSO

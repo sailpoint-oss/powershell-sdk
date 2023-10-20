@@ -12,12 +12,12 @@ No summary available.
 
 .DESCRIPTION
 
-ConditionEffect is the effect produced by a condition
+Effect produced by a condition.
 
-.PARAMETER Config
-Config is a arbitrary map that holds a configuration based on EffectType
 .PARAMETER EffectType
-EffectType is the type of effect to perform when the conditions are evaluated for this logic block HIDE ConditionEffectTypeHide  ConditionEffectTypeHide disables validations SHOW ConditionEffectTypeShow  ConditionEffectTypeShow enables validations DISABLE ConditionEffectTypeDisable  ConditionEffectTypeDisable disables validations ENABLE ConditionEffectTypeEnable  ConditionEffectTypeEnable enables validations REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  ConditionEffectTypeSetDefaultValue is ignored on purpose
+Type of effect to perform when the conditions are evaluated for this logic block. HIDE ConditionEffectTypeHide  Disables validations. SHOW ConditionEffectTypeShow  Enables validations. DISABLE ConditionEffectTypeDisable  Disables validations. ENABLE ConditionEffectTypeEnable  Enables validations. REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  This value is ignored on purpose.
+.PARAMETER Config
+No description available.
 .OUTPUTS
 
 ConditionEffect<PSCustomObject>
@@ -27,12 +27,12 @@ function Initialize-BetaConditionEffect {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable]
-        ${Config},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("HIDE", "SHOW", "DISABLE", "ENABLE", "REQUIRE", "OPTIONAL", "SUBMIT_MESSAGE", "SUBMIT_NOTIFICATION", "SET_DEFAULT_VALUE")]
         [String]
-        ${EffectType}
+        ${EffectType},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Config}
     )
 
     Process {
@@ -41,8 +41,8 @@ function Initialize-BetaConditionEffect {
 
 
         $PSO = [PSCustomObject]@{
-            "config" = ${Config}
             "effectType" = ${EffectType}
+            "config" = ${Config}
         }
 
 
@@ -80,17 +80,11 @@ function ConvertFrom-BetaJsonToConditionEffect {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaConditionEffect
-        $AllProperties = ("config", "effectType")
+        $AllProperties = ("effectType", "config")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "config"))) { #optional property not found
-            $Config = $null
-        } else {
-            $Config = $JsonParameters.PSobject.Properties["config"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "effectType"))) { #optional property not found
@@ -99,9 +93,15 @@ function ConvertFrom-BetaJsonToConditionEffect {
             $EffectType = $JsonParameters.PSobject.Properties["effectType"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "config"))) { #optional property not found
+            $Config = $null
+        } else {
+            $Config = $JsonParameters.PSobject.Properties["config"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "config" = ${Config}
             "effectType" = ${EffectType}
+            "config" = ${Config}
         }
 
         return $PSO

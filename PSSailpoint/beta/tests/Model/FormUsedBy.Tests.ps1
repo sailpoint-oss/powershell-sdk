@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaFormUsedBy' {
     Context 'BetaFormUsedBy' {
         It 'Initialize-BetaFormUsedBy' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaFormUsedBy -Id "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-BetaFormUsedBy -Type "TEST_VALUE" -Id "TEST_VALUE"
             #$NewObject | Should -BeOfType FormUsedBy
             #$NewObject.property | Should -Be 0
         }

@@ -38,14 +38,17 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ConditionEffect = Initialize-ConditionEffect -Config @{ key_example =  } -EffectType "HIDE"
-$ConditionRule = Initialize-ConditionRule -Operator "EQ" -Source "department" -SourceType "INPUT" -Value  -ValueType "STRING"
-$FormCondition = Initialize-FormCondition -Effects $ConditionEffect -RuleOperator "AND" -Rules $ConditionRule
+$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value 
 
-$FormElement = Initialize-FormElement -Config @{ key_example =  } -ElementType "TEXT" -Id "00000000-0000-0000-0000-000000000000" -Key "department" -Validations 
-$FormDefinitionInput = Initialize-FormDefinitionInput -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic" -Id "00000000-0000-0000-0000-000000000000" -Label "input1" -Type "STRING"
-$FormOwner = Initialize-FormOwner -Id "00000000-0000-0000-0000-000000000000" -Type "IDENTITY"
-$FormUsedBy = Initialize-FormUsedBy -Id "00000000-0000-0000-0000-000000000000" -Type "WORKFLOW"
+$ConditionEffectConfig = Initialize-ConditionEffectConfig -DefaultValueLabel "Access to Remove" -Element "8110662963316867"
+$ConditionEffect = Initialize-ConditionEffect -EffectType "HIDE" -Config $ConditionEffectConfig
+
+$FormCondition = Initialize-FormCondition -RuleOperator "AND" -Rules $ConditionRule -Effects $ConditionEffect
+
+$FormElement = Initialize-FormElement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations 
+$FormDefinitionInput = Initialize-FormDefinitionInput -Id "00000000-0000-0000-0000-000000000000" -Type "STRING" -Label "input1" -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic"
+$FormOwner = Initialize-FormOwner -Type "IDENTITY" -Id "00000000-0000-0000-0000-000000000000"
+$FormUsedBy = Initialize-FormUsedBy -Type "WORKFLOW" -Id "00000000-0000-0000-0000-000000000000"
 $CreateFormDefinitionRequest = Initialize-CreateFormDefinitionRequest -Description "My form description" -FormConditions $FormCondition -FormElements $FormElement -FormInput $FormDefinitionInput -Name "My form" -Owner $FormOwner -UsedBy $FormUsedBy # CreateFormDefinitionRequest | Body is the request payload to create form definition request (optional)
 
 # Creates a form definition.
@@ -409,15 +412,19 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ConditionEffect = Initialize-ConditionEffect -Config @{ key_example =  } -EffectType "HIDE"
-$ConditionRule = Initialize-ConditionRule -Operator "EQ" -Source "department" -SourceType "INPUT" -Value  -ValueType "STRING"
-$FormCondition = Initialize-FormCondition -Effects $ConditionEffect -RuleOperator "AND" -Rules $ConditionRule
+$FormOwner = Initialize-FormOwner -Type "IDENTITY" -Id "00000000-0000-0000-0000-000000000000"
+$FormUsedBy = Initialize-FormUsedBy -Type "WORKFLOW" -Id "00000000-0000-0000-0000-000000000000"
+$FormDefinitionInput = Initialize-FormDefinitionInput -Id "00000000-0000-0000-0000-000000000000" -Type "STRING" -Label "input1" -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic"
+$FormElement = Initialize-FormElement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations 
 
-$FormElement = Initialize-FormElement -Config @{ key_example =  } -ElementType "TEXT" -Id "00000000-0000-0000-0000-000000000000" -Key "department" -Validations 
-$FormDefinitionInput = Initialize-FormDefinitionInput -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic" -Id "00000000-0000-0000-0000-000000000000" -Label "input1" -Type "STRING"
-$FormOwner = Initialize-FormOwner -Id "00000000-0000-0000-0000-000000000000" -Type "IDENTITY"
-$FormUsedBy = Initialize-FormUsedBy -Id "00000000-0000-0000-0000-000000000000" -Type "WORKFLOW"
-$FormDefinitionResponse = Initialize-FormDefinitionResponse -Created (Get-Date) -Description "My form description" -FormConditions $FormCondition -FormElements $FormElement -FormInput $FormDefinitionInput -Id "00000000-0000-0000-0000-000000000000" -Modified (Get-Date) -Name "My form" -Owner $FormOwner -UsedBy $FormUsedBy
+$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value 
+
+$ConditionEffectConfig = Initialize-ConditionEffectConfig -DefaultValueLabel "Access to Remove" -Element "8110662963316867"
+$ConditionEffect = Initialize-ConditionEffect -EffectType "HIDE" -Config $ConditionEffectConfig
+
+$FormCondition = Initialize-FormCondition -RuleOperator "AND" -Rules $ConditionRule -Effects $ConditionEffect
+
+$FormDefinitionResponse = Initialize-FormDefinitionResponse -Id "00000000-0000-0000-0000-000000000000" -Name "My form" -Description "My form description" -Owner $FormOwner -UsedBy $FormUsedBy -FormInput $FormDefinitionInput -FormElements $FormElement -FormConditions $FormCondition -Created (Get-Date) -Modified (Get-Date)
 
 $ExportFormDefinitionsByTenant200ResponseInner = Initialize-ExportFormDefinitionsByTenant200ResponseInner -Object $FormDefinitionResponse -Self "MySelf" -Version 0 # ExportFormDefinitionsByTenant200ResponseInner[] | Body is the request payload to import form definitions (optional)
 

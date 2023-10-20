@@ -14,10 +14,10 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-ID is a unique identifier
 .PARAMETER Type
-Type is a FormUsedByType value WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource
+FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource
+.PARAMETER Id
+Unique identifier of the system using the form.
 .OUTPUTS
 
 FormUsedBy<PSCustomObject>
@@ -27,12 +27,12 @@ function Initialize-BetaFormUsedBy {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("WORKFLOW", "SOURCE")]
         [String]
-        ${Type}
+        ${Type},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id}
     )
 
     Process {
@@ -41,8 +41,8 @@ function Initialize-BetaFormUsedBy {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "type" = ${Type}
+            "id" = ${Id}
         }
 
 
@@ -80,17 +80,11 @@ function ConvertFrom-BetaJsonToFormUsedBy {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaFormUsedBy
-        $AllProperties = ("id", "type")
+        $AllProperties = ("type", "id")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
@@ -99,9 +93,15 @@ function ConvertFrom-BetaJsonToFormUsedBy {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "type" = ${Type}
+            "id" = ${Id}
         }
 
         return $PSO

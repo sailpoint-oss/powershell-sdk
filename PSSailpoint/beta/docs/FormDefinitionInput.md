@@ -3,19 +3,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | **String** | Description is the description for this form input value | [optional] 
-**Id** | **String** | ID is a unique identifier | [optional] 
-**Label** | **String** | Label is the name for this form input value | [optional] 
-**Type** | **String** | Type is a FormDefinitionInputType value STRING FormDefinitionInputTypeString | [optional] 
+**Id** | **String** | Unique identifier for the form input. | [optional] 
+**Type** | **String** | FormDefinitionInputType value. STRING FormDefinitionInputTypeString | [optional] 
+**Label** | **String** | Name for the form input. | [optional] 
+**Description** | **String** | Form input&#39;s description. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$FormDefinitionInput = Initialize-PSSailpointBetaFormDefinitionInput  -Description A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic `
- -Id 00000000-0000-0000-0000-000000000000 `
+$FormDefinitionInput = Initialize-PSSailpointBetaFormDefinitionInput  -Id 00000000-0000-0000-0000-000000000000 `
+ -Type STRING `
  -Label input1 `
- -Type STRING
+ -Description A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic
 ```
 
 - Convert the resource to JSON

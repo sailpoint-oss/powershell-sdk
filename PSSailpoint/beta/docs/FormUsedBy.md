@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | ID is a unique identifier | [optional] 
-**Type** | **String** | Type is a FormUsedByType value WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource | [optional] 
+**Type** | **String** | FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource | [optional] 
+**Id** | **String** | Unique identifier of the system using the form. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$FormUsedBy = Initialize-PSSailpointBetaFormUsedBy  -Id 00000000-0000-0000-0000-000000000000 `
- -Type WORKFLOW
+$FormUsedBy = Initialize-PSSailpointBetaFormUsedBy  -Type WORKFLOW `
+ -Id 00000000-0000-0000-0000-000000000000
 ```
 
 - Convert the resource to JSON

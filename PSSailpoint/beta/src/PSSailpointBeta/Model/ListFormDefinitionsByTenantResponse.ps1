@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Count
-Count number of Results
+Count number of results.
 .PARAMETER Results
-Results holds a list of FormDefinitionResponse items
+List of FormDefinitionResponse items.
 .OUTPUTS
 
 ListFormDefinitionsByTenantResponse<PSCustomObject>

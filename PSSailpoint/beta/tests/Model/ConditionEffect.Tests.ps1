@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaConditionEffect' {
     Context 'BetaConditionEffect' {
         It 'Initialize-BetaConditionEffect' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaConditionEffect -Config "TEST_VALUE" -EffectType "TEST_VALUE"
+            #$NewObject = Initialize-BetaConditionEffect -EffectType "TEST_VALUE" -Config "TEST_VALUE"
             #$NewObject | Should -BeOfType ConditionEffect
             #$NewObject.property | Should -Be 0
         }

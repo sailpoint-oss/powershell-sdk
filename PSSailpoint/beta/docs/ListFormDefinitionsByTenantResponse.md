@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | **Int64** | Count number of Results | [optional] 
-**Results** | [**FormDefinitionResponse[]**](FormDefinitionResponse.md) | Results holds a list of FormDefinitionResponse items | [optional] 
+**Count** | **Int64** | Count number of results. | [optional] 
+**Results** | [**FormDefinitionResponse[]**](FormDefinitionResponse.md) | List of FormDefinitionResponse items. | [optional] 
 
 ## Examples
 

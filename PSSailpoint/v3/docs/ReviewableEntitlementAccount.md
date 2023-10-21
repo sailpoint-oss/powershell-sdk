@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NativeIdentity** | **String** | The native identity for this account | [optional] 
-**Disabled** | **Boolean** | Indicates whether this account is currently disabled | [optional] 
-**Locked** | **Boolean** | Indicates whether this account is currently locked | [optional] 
+**Disabled** | **Boolean** | Indicates whether this account is currently disabled | [optional] [default to $false]
+**Locked** | **Boolean** | Indicates whether this account is currently locked | [optional] [default to $false]
 **Type** | [**DtoType**](DtoType.md) |  | [optional] 
 **Id** | **String** | The id associated with the account | [optional] 
 **Name** | **String** | The account name | [optional] 

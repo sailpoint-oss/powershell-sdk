@@ -156,6 +156,10 @@ docs/CreatePersonalAccessTokenResponse.md
 docs/CreateSavedSearchRequest.md
 docs/CreateScheduledSearchRequest.md
 docs/CriteriaType.md
+docs/DataAccess.md
+docs/DataAccessCategoriesInner.md
+docs/DataAccessImpactScore.md
+docs/DataAccessPoliciesInner.md
 docs/DateCompare.md
 docs/DateCompareFirstDate.md
 docs/DateCompareSecondDate.md
@@ -693,6 +697,10 @@ src/PSSailpoint/Model/CreatePersonalAccessTokenResponse.ps1
 src/PSSailpoint/Model/CreateSavedSearchRequest.ps1
 src/PSSailpoint/Model/CreateScheduledSearchRequest.ps1
 src/PSSailpoint/Model/CriteriaType.ps1
+src/PSSailpoint/Model/DataAccess.ps1
+src/PSSailpoint/Model/DataAccessCategoriesInner.ps1
+src/PSSailpoint/Model/DataAccessImpactScore.ps1
+src/PSSailpoint/Model/DataAccessPoliciesInner.ps1
 src/PSSailpoint/Model/DateCompare.ps1
 src/PSSailpoint/Model/DateCompareFirstDate.ps1
 src/PSSailpoint/Model/DateCompareSecondDate.ps1
@@ -1210,6 +1218,10 @@ tests/Model/CreatePersonalAccessTokenResponse.Tests.ps1
 tests/Model/CreateSavedSearchRequest.Tests.ps1
 tests/Model/CreateScheduledSearchRequest.Tests.ps1
 tests/Model/CriteriaType.Tests.ps1
+tests/Model/DataAccess.Tests.ps1
+tests/Model/DataAccessCategoriesInner.Tests.ps1
+tests/Model/DataAccessImpactScore.Tests.ps1
+tests/Model/DataAccessPoliciesInner.Tests.ps1
 tests/Model/DateCompare.Tests.ps1
 tests/Model/DateCompareFirstDate.Tests.ps1
 tests/Model/DateCompareSecondDate.Tests.ps1

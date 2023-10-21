@@ -42,6 +42,10 @@ Indicates if the entitlement is a representation of an account permission
 Indicates whether the entitlement can be revoked
 .PARAMETER CloudGoverned
 True if the entitlement is cloud governed
+.PARAMETER ContainsDataAccess
+True if the entitlement has DAS data
+.PARAMETER DataAccess
+No description available.
 .PARAMETER Account
 No description available.
 .OUTPUTS
@@ -63,7 +67,7 @@ function Initialize-ReviewableEntitlement {
         ${Description},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Privileged},
+        ${Privileged} = $false,
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
@@ -84,17 +88,23 @@ function Initialize-ReviewableEntitlement {
         ${SourceType},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${HasPermissions},
+        ${HasPermissions} = $false,
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsPermission},
+        ${IsPermission} = $false,
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Revocable},
+        ${Revocable} = $false,
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${CloudGoverned},
+        ${CloudGoverned} = $false,
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ContainsDataAccess} = $false,
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${DataAccess},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Account}
     )
@@ -119,6 +129,8 @@ function Initialize-ReviewableEntitlement {
             "isPermission" = ${IsPermission}
             "revocable" = ${Revocable}
             "cloudGoverned" = ${CloudGoverned}
+            "containsDataAccess" = ${ContainsDataAccess}
+            "dataAccess" = ${DataAccess}
             "account" = ${Account}
         }
 
@@ -157,7 +169,7 @@ function ConvertFrom-JsonToReviewableEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ReviewableEntitlement
-        $AllProperties = ("id", "name", "description", "privileged", "owner", "attributeName", "attributeValue", "sourceSchemaObjectType", "sourceName", "sourceType", "hasPermissions", "isPermission", "revocable", "cloudGoverned", "account")
+        $AllProperties = ("id", "name", "description", "privileged", "owner", "attributeName", "attributeValue", "sourceSchemaObjectType", "sourceName", "sourceType", "hasPermissions", "isPermission", "revocable", "cloudGoverned", "containsDataAccess", "dataAccess", "account")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -248,6 +260,18 @@ function ConvertFrom-JsonToReviewableEntitlement {
             $CloudGoverned = $JsonParameters.PSobject.Properties["cloudGoverned"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "containsDataAccess"))) { #optional property not found
+            $ContainsDataAccess = $null
+        } else {
+            $ContainsDataAccess = $JsonParameters.PSobject.Properties["containsDataAccess"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dataAccess"))) { #optional property not found
+            $DataAccess = $null
+        } else {
+            $DataAccess = $JsonParameters.PSobject.Properties["dataAccess"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "account"))) { #optional property not found
             $Account = $null
         } else {
@@ -269,6 +293,8 @@ function ConvertFrom-JsonToReviewableEntitlement {
             "isPermission" = ${IsPermission}
             "revocable" = ${Revocable}
             "cloudGoverned" = ${CloudGoverned}
+            "containsDataAccess" = ${ContainsDataAccess}
+            "dataAccess" = ${DataAccess}
             "account" = ${Account}
         }
 

@@ -6,17 +6,19 @@ Name | Type | Description | Notes
 **Id** | **String** | The id for the entitlement | [optional] 
 **Name** | **String** | The name of the entitlement | [optional] 
 **Description** | **String** | Information about the entitlement | [optional] 
-**Privileged** | **Boolean** | Indicates if the entitlement is a privileged entitlement | [optional] 
+**Privileged** | **Boolean** | Indicates if the entitlement is a privileged entitlement | [optional] [default to $false]
 **Owner** | [**IdentityReferenceWithNameAndEmail**](IdentityReferenceWithNameAndEmail.md) |  | [optional] 
 **AttributeName** | **String** | The name of the attribute on the source | [optional] 
 **AttributeValue** | **String** | The value of the attribute on the source | [optional] 
 **SourceSchemaObjectType** | **String** | The schema object type on the source used to represent the entitlement and its attributes | [optional] 
 **SourceName** | **String** | The name of the source for which this entitlement belongs | [optional] 
 **SourceType** | **String** | The type of the source for which the entitlement belongs | [optional] 
-**HasPermissions** | **Boolean** | Indicates if the entitlement has permissions | [optional] 
-**IsPermission** | **Boolean** | Indicates if the entitlement is a representation of an account permission | [optional] 
-**Revocable** | **Boolean** | Indicates whether the entitlement can be revoked | [optional] 
-**CloudGoverned** | **Boolean** | True if the entitlement is cloud governed | [optional] 
+**HasPermissions** | **Boolean** | Indicates if the entitlement has permissions | [optional] [default to $false]
+**IsPermission** | **Boolean** | Indicates if the entitlement is a representation of an account permission | [optional] [default to $false]
+**Revocable** | **Boolean** | Indicates whether the entitlement can be revoked | [optional] [default to $false]
+**CloudGoverned** | **Boolean** | True if the entitlement is cloud governed | [optional] [default to $false]
+**ContainsDataAccess** | **Boolean** | True if the entitlement has DAS data | [optional] [default to $false]
+**DataAccess** | [**DataAccess**](DataAccess.md) |  | [optional] 
 **Account** | [**ReviewableEntitlementAccount**](ReviewableEntitlementAccount.md) |  | [optional] 
 
 ## Examples
@@ -37,6 +39,8 @@ $ReviewableEntitlement = Initialize-PSSailpointReviewableEntitlement  -Id 2c9180
  -IsPermission false `
  -Revocable true `
  -CloudGoverned false `
+ -ContainsDataAccess true `
+ -DataAccess null `
  -Account null
 ```
 

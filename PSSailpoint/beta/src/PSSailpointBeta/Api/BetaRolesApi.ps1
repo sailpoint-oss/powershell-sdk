@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-BaseReferenceDto1
+BaseReferenceDto
 #>
 function Invoke-BetaBulkDeleteRoles {
     [CmdletBinding()]
@@ -84,7 +84,7 @@ function Invoke-BetaBulkDeleteRoles {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BaseReferenceDto1" `
+                                -ReturnType "BaseReferenceDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

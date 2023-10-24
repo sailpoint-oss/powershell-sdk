@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
+**Identity** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **PreviewAttributes** | [**IdentityAttributePreview[]**](IdentityAttributePreview.md) |  | [optional] 
 
 ## Examples

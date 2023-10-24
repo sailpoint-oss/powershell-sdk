@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBaseReferenceDto' {
     Context 'BetaBaseReferenceDto' {
         It 'Initialize-BetaBaseReferenceDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaBaseReferenceDto -Id "TEST_VALUE" -Name "TEST_VALUE"
+            #$NewObject = Initialize-BetaBaseReferenceDto -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE"
             #$NewObject | Should -BeOfType BaseReferenceDto
             #$NewObject.property | Should -Be 0
         }

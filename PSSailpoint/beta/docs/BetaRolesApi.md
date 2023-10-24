@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="Invoke-BetaBulkDeleteRoles"></a>
 # **Invoke-BetaBulkDeleteRoles**
-> BaseReferenceDto1 Invoke-BetaBulkDeleteRoles<br>
+> BaseReferenceDto Invoke-BetaBulkDeleteRoles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleBulkDeleteRequest] <PSCustomObject><br>
 
 Delete Role(s)
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseReferenceDto1**](BaseReferenceDto1.md) (PSCustomObject)
+[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
 
 ### Authorization
 

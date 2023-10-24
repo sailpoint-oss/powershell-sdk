@@ -24,7 +24,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaGovernanceGroupsApi' {
 
     Context 'Remove-BetaWorkgroupMembers' {
         It 'Test Remove-BetaWorkgroupMembers' {
-            #$TestResult = Remove-BetaWorkgroupMembers -WorkgroupId "TEST_VALUE" -BaseReferenceDto1 "TEST_VALUE"
+            #$TestResult = Remove-BetaWorkgroupMembers -WorkgroupId "TEST_VALUE" -BaseReferenceDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaGovernanceGroupsApi' {
 
     Context 'Update-BetaWorkgroupMembers' {
         It 'Test Update-BetaWorkgroupMembers' {
-            #$TestResult = Update-BetaWorkgroupMembers -WorkgroupId "TEST_VALUE" -BaseReferenceDto1 "TEST_VALUE"
+            #$TestResult = Update-BetaWorkgroupMembers -WorkgroupId "TEST_VALUE" -BaseReferenceDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

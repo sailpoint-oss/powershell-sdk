@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ExecutionCount** | **Int32** | The number of times this workflow has been executed | [optional] 
 **FailureCount** | **Int32** | The number of times this workflow has failed during execution | [optional] 
 **Created** | **System.DateTime** | The date and time the workflow was created | [optional] 
-**Creator** | [**BaseReferenceDto1**](BaseReferenceDto1.md) | The identity that created the workflow. | [optional] 
+**Creator** | [**BaseReferenceDto**](BaseReferenceDto.md) | The identity that created the workflow. | [optional] 
 
 ## Examples
 

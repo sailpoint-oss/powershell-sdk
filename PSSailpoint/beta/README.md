@@ -1171,6 +1171,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SubscriptionType](docs/SubscriptionType.md)
  - [PSSailpointBeta/Model.Substring](docs/Substring.md)
  - [PSSailpointBeta/Model.TaggedObject](docs/TaggedObject.md)
+ - [PSSailpointBeta/Model.TaskResultResponse](docs/TaskResultResponse.md)
  - [PSSailpointBeta/Model.TaskResultSimplified](docs/TaskResultSimplified.md)
  - [PSSailpointBeta/Model.TaskReturnDetails](docs/TaskReturnDetails.md)
  - [PSSailpointBeta/Model.TaskStatus](docs/TaskStatus.md)

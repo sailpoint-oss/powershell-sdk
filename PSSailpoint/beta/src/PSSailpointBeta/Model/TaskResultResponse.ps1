@@ -14,32 +14,38 @@ No summary available.
 
 No description available.
 
+.PARAMETER Type
+the type of response reference
 .PARAMETER Id
-the application ID
+the task ID
 .PARAMETER Name
-the application name
+the task name (not used in this endpoint, always null)
 .OUTPUTS
 
-BaseReferenceDto1<PSCustomObject>
+TaskResultResponse<PSCustomObject>
 #>
 
-function Initialize-BetaBaseReferenceDto1 {
+function Initialize-BetaTaskResultResponse {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
+        ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaBaseReferenceDto1' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaTaskResultResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
+            "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
         }
@@ -52,11 +58,11 @@ function Initialize-BetaBaseReferenceDto1 {
 <#
 .SYNOPSIS
 
-Convert from JSON to BaseReferenceDto1<PSCustomObject>
+Convert from JSON to TaskResultResponse<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to BaseReferenceDto1<PSCustomObject>
+Convert from JSON to TaskResultResponse<PSCustomObject>
 
 .PARAMETER Json
 
@@ -64,26 +70,32 @@ Json object
 
 .OUTPUTS
 
-BaseReferenceDto1<PSCustomObject>
+TaskResultResponse<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToBaseReferenceDto1 {
+function ConvertFrom-BetaJsonToTaskResultResponse {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaBaseReferenceDto1' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaTaskResultResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaBaseReferenceDto1
-        $AllProperties = ("id", "name")
+        # check if Json contains properties not defined in BetaTaskResultResponse
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -99,6 +111,7 @@ function ConvertFrom-BetaJsonToBaseReferenceDto1 {
         }
 
         $PSO = [PSCustomObject]@{
+            "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
         }

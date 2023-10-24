@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectRef** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
+**ObjectRef** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **Tags** | **String[]** | Labels to be applied to an Object | [optional] 
 
 ## Examples

@@ -3,15 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | the application ID | [optional] 
-**Name** | **String** | the application name | [optional] 
+**Type** | [**DtoType**](DtoType.md) |  | [optional] 
+**Id** | **String** | ID of the object to which this reference applies | [optional] 
+**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$BaseReferenceDto = Initialize-PSSailpointBetaBaseReferenceDto  -Id ff8081814d977c21014da056804a0af3 `
- -Name Github
+$BaseReferenceDto = Initialize-PSSailpointBetaBaseReferenceDto  -Type null `
+ -Id 2c91808568c529c60168cca6f90c1313 `
+ -Name William Wilson
 ```
 
 - Convert the resource to JSON

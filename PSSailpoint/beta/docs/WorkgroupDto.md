@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Owner** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
+**Owner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **Id** | **String** | ID of the object to which this reference applies | [optional] [readonly] 
 **Name** | **String** | Name of the Governance Group | [optional] 
 **Description** | **String** | Description of the Governance Group | [optional] 

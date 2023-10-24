@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | 
+**Source** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | 
 **Attributes** | [**AttrSyncSourceAttributeConfig[]**](AttrSyncSourceAttributeConfig.md) | Attribute synchronization configuration for specific identity attributes in the context of a source | 
 
 ## Examples

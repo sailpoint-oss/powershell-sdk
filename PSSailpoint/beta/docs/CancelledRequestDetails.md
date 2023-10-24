@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | **String** | Comment made by the owner when cancelling the associated request. | [optional] 
-**Owner** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
+**Owner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **Modified** | **System.DateTime** | Date comment was added by the owner when cancelling the associated request | [optional] 
 
 ## Examples

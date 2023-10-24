@@ -731,6 +731,7 @@ docs/SubscriptionPutRequest.md
 docs/SubscriptionType.md
 docs/Substring.md
 docs/TaggedObject.md
+docs/TaskResultResponse.md
 docs/TaskResultSimplified.md
 docs/TaskReturnDetails.md
 docs/TaskStatus.md
@@ -1534,6 +1535,7 @@ src/PSSailpointBeta/Model/SubscriptionPutRequest.ps1
 src/PSSailpointBeta/Model/SubscriptionType.ps1
 src/PSSailpointBeta/Model/Substring.ps1
 src/PSSailpointBeta/Model/TaggedObject.ps1
+src/PSSailpointBeta/Model/TaskResultResponse.ps1
 src/PSSailpointBeta/Model/TaskResultSimplified.ps1
 src/PSSailpointBeta/Model/TaskReturnDetails.ps1
 src/PSSailpointBeta/Model/TaskStatus.ps1
@@ -2343,6 +2345,7 @@ tests/Model/SubscriptionPutRequest.Tests.ps1
 tests/Model/SubscriptionType.Tests.ps1
 tests/Model/Substring.Tests.ps1
 tests/Model/TaggedObject.Tests.ps1
+tests/Model/TaskResultResponse.Tests.ps1
 tests/Model/TaskResultSimplified.Tests.ps1
 tests/Model/TaskReturnDetails.Tests.ps1
 tests/Model/TaskStatus.Tests.ps1

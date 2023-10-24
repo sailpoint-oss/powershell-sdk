@@ -295,8 +295,8 @@ $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. (optional) (default to $false)
 "IDENTITY_OBJECT_CONFIG""IDENTITY_OBJECT_CONFIG"
 $ObjectExportImportOptions = Initialize-ObjectExportImportOptions -IncludedIds "be9e116d-08e1-49fc-ab7f-fa585e96c9e4" -IncludedNames "Test Object"
-$BaseReferenceDto1 = Initialize-BaseReferenceDto1 -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$ImportOptions = Initialize-ImportOptions -ExcludeTypes "IDENTITY_OBJECT_CONFIG" -IncludeTypes "IDENTITY_OBJECT_CONFIG""IDENTITY_OBJECT_CONFIG" -ObjectOptions @{ key_example = $ObjectExportImportOptions } -DefaultReferences $BaseReferenceDto1 -ExcludeBackup $false # ImportOptions |  (optional)
+$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$ImportOptions = Initialize-ImportOptions -ExcludeTypes "IDENTITY_OBJECT_CONFIG" -IncludeTypes "IDENTITY_OBJECT_CONFIG""IDENTITY_OBJECT_CONFIG" -ObjectOptions @{ key_example = $ObjectExportImportOptions } -DefaultReferences $BaseReferenceDto -ExcludeBackup $false # ImportOptions |  (optional)
 
 # Initiates configuration objects import job
 try {

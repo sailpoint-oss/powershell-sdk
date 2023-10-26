@@ -6,17 +6,41 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaMFAConfigurationApi' {
-    Context 'Get-BetaMFAConfig' {
-        It 'Test Get-BetaMFAConfig' {
-            #$TestResult = Get-BetaMFAConfig -Method "TEST_VALUE"
+    Context 'Remove-BetaMFAConfig' {
+        It 'Test Remove-BetaMFAConfig' {
+            #$TestResult = Remove-BetaMFAConfig -Method "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Set-BetaMFAConfig' {
-        It 'Test Set-BetaMFAConfig' {
-            #$TestResult = Set-BetaMFAConfig -Method "TEST_VALUE" -MfaConfig "TEST_VALUE"
+    Context 'Get-BetaMFADuoConfig' {
+        It 'Test Get-BetaMFADuoConfig' {
+            #$TestResult = Get-BetaMFADuoConfig
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaMFAOktaConfig' {
+        It 'Test Get-BetaMFAOktaConfig' {
+            #$TestResult = Get-BetaMFAOktaConfig
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-BetaMFADuoConfig' {
+        It 'Test Set-BetaMFADuoConfig' {
+            #$TestResult = Set-BetaMFADuoConfig -MfaDuoConfig "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-BetaMFAOktaConfig' {
+        It 'Test Set-BetaMFAOktaConfig' {
+            #$TestResult = Set-BetaMFAOktaConfig -MfaOktaConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

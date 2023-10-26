@@ -14,6 +14,8 @@ No summary available.
 
 No description available.
 
+.PARAMETER MfaMethod
+Mfa method name
 .PARAMETER Enabled
 If MFA method is enabled.
 .PARAMETER VarHost
@@ -22,38 +24,48 @@ The server host name or IP address of the MFA provider.
 The secret key for authenticating requests to the MFA provider.
 .PARAMETER IdentityAttribute
 Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
+.PARAMETER ConfigProperties
+A map with additional config properties for the given MFA method - duo-web.
 .OUTPUTS
 
-MfaConfig<PSCustomObject>
+MfaDuoConfig<PSCustomObject>
 #>
 
-function Initialize-BetaMfaConfig {
+function Initialize-BetaMfaDuoConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Enabled},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${VarHost},
+        ${MfaMethod},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Enabled} = $false,
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccessKey},
+        ${VarHost},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${IdentityAttribute}
+        ${AccessKey},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${IdentityAttribute},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${ConfigProperties}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaMfaConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaMfaDuoConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
+            "mfaMethod" = ${MfaMethod}
             "enabled" = ${Enabled}
             "host" = ${VarHost}
             "accessKey" = ${AccessKey}
             "identityAttribute" = ${IdentityAttribute}
+            "configProperties" = ${ConfigProperties}
         }
 
 
@@ -64,11 +76,11 @@ function Initialize-BetaMfaConfig {
 <#
 .SYNOPSIS
 
-Convert from JSON to MfaConfig<PSCustomObject>
+Convert from JSON to MfaDuoConfig<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to MfaConfig<PSCustomObject>
+Convert from JSON to MfaDuoConfig<PSCustomObject>
 
 .PARAMETER Json
 
@@ -76,26 +88,32 @@ Json object
 
 .OUTPUTS
 
-MfaConfig<PSCustomObject>
+MfaDuoConfig<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToMfaConfig {
+function ConvertFrom-BetaJsonToMfaDuoConfig {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaMfaConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaMfaDuoConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaMfaConfig
-        $AllProperties = ("enabled", "host", "accessKey", "identityAttribute")
+        # check if Json contains properties not defined in BetaMfaDuoConfig
+        $AllProperties = ("mfaMethod", "enabled", "host", "accessKey", "identityAttribute", "configProperties")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mfaMethod"))) { #optional property not found
+            $MfaMethod = $null
+        } else {
+            $MfaMethod = $JsonParameters.PSobject.Properties["mfaMethod"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "enabled"))) { #optional property not found
@@ -122,11 +140,19 @@ function ConvertFrom-BetaJsonToMfaConfig {
             $IdentityAttribute = $JsonParameters.PSobject.Properties["identityAttribute"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "configProperties"))) { #optional property not found
+            $ConfigProperties = $null
+        } else {
+            $ConfigProperties = $JsonParameters.PSobject.Properties["configProperties"].value
+        }
+
         $PSO = [PSCustomObject]@{
+            "mfaMethod" = ${MfaMethod}
             "enabled" = ${Enabled}
             "host" = ${VarHost}
             "accessKey" = ${AccessKey}
             "identityAttribute" = ${IdentityAttribute}
+            "configProperties" = ${ConfigProperties}
         }
 
         return $PSO

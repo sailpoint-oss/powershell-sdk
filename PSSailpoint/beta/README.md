@@ -242,8 +242,11 @@ Class | Method | HTTP request | Description
 *BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
 *BetaLifecycleStatesApi* | [**Get-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Lifecycle State
 *BetaLifecycleStatesApi* | [**Update-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
-*BetaMFAConfigurationApi* | [**Get-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAConfig) | **GET** /mfa/{method}/config | Configuration of a MFA method
-*BetaMFAConfigurationApi* | [**Set-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAConfig) | **PUT** /mfa/{method}/config | Set MFA method configuration
+*BetaMFAConfigurationApi* | [**Remove-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Remove-BetaMFAConfig) | **DELETE** /mfa/{method}/delete | Delete MFA method configuration
+*BetaMFAConfigurationApi* | [**Get-BetaMFADuoConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of Duo MFA method
+*BetaMFAConfigurationApi* | [**Get-BetaMFAOktaConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of Okta MFA method
+*BetaMFAConfigurationApi* | [**Set-BetaMFADuoConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFADuoConfig) | **PUT** /mfa/duo-web/config | Set Duo MFA configuration
+*BetaMFAConfigurationApi* | [**Set-BetaMFAOktaConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *BetaMFAConfigurationApi* | [**Test-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
 *BetaManagedClientsApi* | [**Get-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Specified Managed Client Status.
 *BetaManagedClientsApi* | [**Update-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle status request from client
@@ -901,8 +904,9 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.Medium](docs/Medium.md)
  - [PSSailpointBeta/Model.MessageCatalogDto](docs/MessageCatalogDto.md)
  - [PSSailpointBeta/Model.MetricResponse](docs/MetricResponse.md)
- - [PSSailpointBeta/Model.MfaConfig](docs/MfaConfig.md)
  - [PSSailpointBeta/Model.MfaConfigTestResponse](docs/MfaConfigTestResponse.md)
+ - [PSSailpointBeta/Model.MfaDuoConfig](docs/MfaDuoConfig.md)
+ - [PSSailpointBeta/Model.MfaOktaConfig](docs/MfaOktaConfig.md)
  - [PSSailpointBeta/Model.ModelError](docs/ModelError.md)
  - [PSSailpointBeta/Model.MultiPolicyRequest](docs/MultiPolicyRequest.md)
  - [PSSailpointBeta/Model.NameNormalizer](docs/NameNormalizer.md)

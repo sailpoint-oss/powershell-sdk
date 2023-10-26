@@ -8,14 +8,14 @@
 <#
 .SYNOPSIS
 
-Configuration of a MFA method
+Delete MFA method configuration
 
 .DESCRIPTION
 
-This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Method
-The name of the MFA method. The currently supported method name is okta-verify.
+The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
 .PARAMETER WithHttpInfo
 
@@ -23,9 +23,9 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-MfaConfig
+MfaOktaConfig
 #>
-function Get-BetaMFAConfig {
+function Remove-BetaMFAConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -36,7 +36,7 @@ function Get-BetaMFAConfig {
     )
 
     Process {
-        'Calling method: Get-BetaMFAConfig' | Write-Debug
+        'Calling method: Remove-BetaMFAConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -51,15 +51,15 @@ function Get-BetaMFAConfig {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/mfa/{method}/config'
+        $LocalVarUri = '/mfa/{method}/delete'
         if (!$Method) {
-            throw "Error! The required parameter `Method` missing when calling getMFAConfig."
+            throw "Error! The required parameter `Method` missing when calling deleteMFAConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{method}', [System.Web.HTTPUtility]::UrlEncode($Method))
 
 
 
-        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+        $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `
@@ -68,7 +68,7 @@ function Get-BetaMFAConfig {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MfaConfig" `
+                                -ReturnType "MfaOktaConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -82,16 +82,141 @@ function Get-BetaMFAConfig {
 <#
 .SYNOPSIS
 
-Set MFA method configuration
+Configuration of Duo MFA method
 
 .DESCRIPTION
 
-This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
 
-.PARAMETER Method
-The name of the MFA method. The currently supported method name is okta-verify.
+.PARAMETER WithHttpInfo
 
-.PARAMETER MfaConfig
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+MfaDuoConfig
+#>
+function Get-BetaMFADuoConfig {
+    [CmdletBinding()]
+    Param (
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaMFADuoConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/mfa/duo-web/config'
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "MfaDuoConfig" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Configuration of Okta MFA method
+
+.DESCRIPTION
+
+This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+MfaOktaConfig
+#>
+function Get-BetaMFAOktaConfig {
+    [CmdletBinding()]
+    Param (
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaMFAOktaConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/mfa/okta-verify/config'
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "MfaOktaConfig" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Set Duo MFA configuration
+
+.DESCRIPTION
+
+This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+
+.PARAMETER MfaDuoConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -100,23 +225,20 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-MfaConfig
+MfaDuoConfig
 #>
-function Set-BetaMFAConfig {
+function Set-BetaMFADuoConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Method},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${MfaConfig},
+        ${MfaDuoConfig},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Set-BetaMFAConfig' | Write-Debug
+        'Calling method: Set-BetaMFADuoConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -134,20 +256,16 @@ function Set-BetaMFAConfig {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/mfa/{method}/config'
-        if (!$Method) {
-            throw "Error! The required parameter `Method` missing when calling setMFAConfig."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{method}', [System.Web.HTTPUtility]::UrlEncode($Method))
+        $LocalVarUri = '/mfa/duo-web/config'
 
-        if (!$MfaConfig) {
-            throw "Error! The required parameter `MfaConfig` missing when calling setMFAConfig."
+        if (!$MfaDuoConfig) {
+            throw "Error! The required parameter `MfaDuoConfig` missing when calling setMFADuoConfig."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $MfaConfig | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $MfaDuoConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $MfaConfig | ForEach-Object {
+            $LocalVarBodyParameter = $MfaDuoConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -168,7 +286,97 @@ function Set-BetaMFAConfig {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MfaConfig" `
+                                -ReturnType "MfaDuoConfig" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Set Okta MFA configuration
+
+.DESCRIPTION
+
+This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+
+.PARAMETER MfaOktaConfig
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+MfaOktaConfig
+#>
+function Set-BetaMFAOktaConfig {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${MfaOktaConfig},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Set-BetaMFAOktaConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/mfa/okta-verify/config'
+
+        if (!$MfaOktaConfig) {
+            throw "Error! The required parameter `MfaOktaConfig` missing when calling setMFAOktaConfig."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $MfaOktaConfig | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $MfaOktaConfig | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "MfaOktaConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -189,7 +397,7 @@ MFA method's test configuration
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Method
-The name of the MFA method. The currently supported method name is okta-verify.
+The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
 .PARAMETER WithHttpInfo
 

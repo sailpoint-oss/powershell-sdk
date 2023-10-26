@@ -462,8 +462,9 @@ docs/ManuallyUpdatedFieldsDTO.md
 docs/Medium.md
 docs/MessageCatalogDto.md
 docs/MetricResponse.md
-docs/MfaConfig.md
 docs/MfaConfigTestResponse.md
+docs/MfaDuoConfig.md
+docs/MfaOktaConfig.md
 docs/MultiPolicyRequest.md
 docs/NameNormalizer.md
 docs/NamedConstructs.md
@@ -1265,8 +1266,9 @@ src/PSSailpointBeta/Model/ManuallyUpdatedFieldsDTO.ps1
 src/PSSailpointBeta/Model/Medium.ps1
 src/PSSailpointBeta/Model/MessageCatalogDto.ps1
 src/PSSailpointBeta/Model/MetricResponse.ps1
-src/PSSailpointBeta/Model/MfaConfig.ps1
 src/PSSailpointBeta/Model/MfaConfigTestResponse.ps1
+src/PSSailpointBeta/Model/MfaDuoConfig.ps1
+src/PSSailpointBeta/Model/MfaOktaConfig.ps1
 src/PSSailpointBeta/Model/ModelError.ps1
 src/PSSailpointBeta/Model/MultiPolicyRequest.ps1
 src/PSSailpointBeta/Model/NameNormalizer.ps1
@@ -2075,8 +2077,9 @@ tests/Model/ManuallyUpdatedFieldsDTO.Tests.ps1
 tests/Model/Medium.Tests.ps1
 tests/Model/MessageCatalogDto.Tests.ps1
 tests/Model/MetricResponse.Tests.ps1
-tests/Model/MfaConfig.Tests.ps1
 tests/Model/MfaConfigTestResponse.Tests.ps1
+tests/Model/MfaDuoConfig.Tests.ps1
+tests/Model/MfaOktaConfig.Tests.ps1
 tests/Model/ModelError.Tests.ps1
 tests/Model/MultiPolicyRequest.Tests.ps1
 tests/Model/NameNormalizer.Tests.ps1

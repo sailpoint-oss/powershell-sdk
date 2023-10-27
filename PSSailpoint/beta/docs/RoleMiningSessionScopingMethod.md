@@ -3,13 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** | **String** | The scoping method used in the current role mining session. Can be one of these states - MANUAL|AUTO_RM | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionScopingMethod = Initialize-PSSailpointBetaRoleMiningSessionScopingMethod  -State MANUAL
+$RoleMiningSessionScopingMethod = Initialize-PSSailpointBetaRoleMiningSessionScopingMethod 
 ```
 
 - Convert the resource to JSON

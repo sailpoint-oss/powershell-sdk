@@ -25,7 +25,13 @@ The number of identities with this entitlement in a role.
 .PARAMETER Popularity
 The % popularity of this entitlement in a role.
 .PARAMETER PopularityInOrg
-TThe % popularity of this entitlement in the org.
+The % popularity of this entitlement in the org.
+.PARAMETER SourceId
+The ID of the source/application.
+.PARAMETER ActivitySourceState
+The status of activity data for the source.   Value is complete or notComplete.
+.PARAMETER SourceUsagePercent
+The percentage of identities in the potential role that have usage of the source/application of this entitlement.
 .OUTPUTS
 
 RoleMiningEntitlement<PSCustomObject>
@@ -47,11 +53,20 @@ function Initialize-BetaRoleMiningEntitlement {
         [System.Nullable[Int32]]
         ${IdentityCount},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
+        [System.Nullable[Double]]
         ${Popularity},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${PopularityInOrg}
+        [System.Nullable[Double]]
+        ${PopularityInOrg},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ActivitySourceState},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Double]]
+        ${SourceUsagePercent}
     )
 
     Process {
@@ -66,6 +81,9 @@ function Initialize-BetaRoleMiningEntitlement {
             "identityCount" = ${IdentityCount}
             "popularity" = ${Popularity}
             "popularityInOrg" = ${PopularityInOrg}
+            "sourceId" = ${SourceId}
+            "activitySourceState" = ${ActivitySourceState}
+            "sourceUsagePercent" = ${SourceUsagePercent}
         }
 
 
@@ -103,7 +121,7 @@ function ConvertFrom-BetaJsonToRoleMiningEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningEntitlement
-        $AllProperties = ("entitlementRef", "name", "applicationName", "identityCount", "popularity", "popularityInOrg")
+        $AllProperties = ("entitlementRef", "name", "applicationName", "identityCount", "popularity", "popularityInOrg", "sourceId", "activitySourceState", "sourceUsagePercent")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -146,6 +164,24 @@ function ConvertFrom-BetaJsonToRoleMiningEntitlement {
             $PopularityInOrg = $JsonParameters.PSobject.Properties["popularityInOrg"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceId"))) { #optional property not found
+            $SourceId = $null
+        } else {
+            $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "activitySourceState"))) { #optional property not found
+            $ActivitySourceState = $null
+        } else {
+            $ActivitySourceState = $JsonParameters.PSobject.Properties["activitySourceState"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceUsagePercent"))) { #optional property not found
+            $SourceUsagePercent = $null
+        } else {
+            $SourceUsagePercent = $JsonParameters.PSobject.Properties["sourceUsagePercent"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "entitlementRef" = ${EntitlementRef}
             "name" = ${Name}
@@ -153,6 +189,9 @@ function ConvertFrom-BetaJsonToRoleMiningEntitlement {
             "identityCount" = ${IdentityCount}
             "popularity" = ${Popularity}
             "popularityInOrg" = ${PopularityInOrg}
+            "sourceId" = ${SourceId}
+            "activitySourceState" = ${ActivitySourceState}
+            "sourceUsagePercent" = ${SourceUsagePercent}
         }
 
         return $PSO

@@ -15,19 +15,19 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-Id of the entitlement
-.PARAMETER Name
-Name of the entitlement
-.PARAMETER Description
-Description forthe entitlement
-.PARAMETER Attribute
-The entitlement attribute
+The identity ID
+.PARAMETER DisplayName
+Display name for the identity
+.PARAMETER Email
+Email address for the identity
+.PARAMETER UsageCount
+The number of days there has been usage of the source by the identity.
 .OUTPUTS
 
-RoleMiningEntitlementRef<PSCustomObject>
+RoleMiningPotentialRoleSourceUsage<PSCustomObject>
 #>
 
-function Initialize-BetaRoleMiningEntitlementRef {
+function Initialize-BetaRoleMiningPotentialRoleSourceUsage {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -35,25 +35,25 @@ function Initialize-BetaRoleMiningEntitlementRef {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
+        ${DisplayName},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Email},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Attribute}
+        [System.Nullable[Int32]]
+        ${UsageCount}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaRoleMiningEntitlementRef' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaRoleMiningPotentialRoleSourceUsage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "name" = ${Name}
-            "description" = ${Description}
-            "attribute" = ${Attribute}
+            "displayName" = ${DisplayName}
+            "email" = ${Email}
+            "usageCount" = ${UsageCount}
         }
 
 
@@ -64,11 +64,11 @@ function Initialize-BetaRoleMiningEntitlementRef {
 <#
 .SYNOPSIS
 
-Convert from JSON to RoleMiningEntitlementRef<PSCustomObject>
+Convert from JSON to RoleMiningPotentialRoleSourceUsage<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to RoleMiningEntitlementRef<PSCustomObject>
+Convert from JSON to RoleMiningPotentialRoleSourceUsage<PSCustomObject>
 
 .PARAMETER Json
 
@@ -76,22 +76,22 @@ Json object
 
 .OUTPUTS
 
-RoleMiningEntitlementRef<PSCustomObject>
+RoleMiningPotentialRoleSourceUsage<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToRoleMiningEntitlementRef {
+function ConvertFrom-BetaJsonToRoleMiningPotentialRoleSourceUsage {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaRoleMiningEntitlementRef' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaRoleMiningPotentialRoleSourceUsage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaRoleMiningEntitlementRef
-        $AllProperties = ("id", "name", "description", "attribute")
+        # check if Json contains properties not defined in BetaRoleMiningPotentialRoleSourceUsage
+        $AllProperties = ("id", "displayName", "email", "usageCount")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -104,29 +104,29 @@ function ConvertFrom-BetaJsonToRoleMiningEntitlementRef {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
+            $DisplayName = $null
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "email"))) { #optional property not found
+            $Email = $null
         } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
+            $Email = $JsonParameters.PSobject.Properties["email"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attribute"))) { #optional property not found
-            $Attribute = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "usageCount"))) { #optional property not found
+            $UsageCount = $null
         } else {
-            $Attribute = $JsonParameters.PSobject.Properties["attribute"].value
+            $UsageCount = $JsonParameters.PSobject.Properties["usageCount"].value
         }
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "name" = ${Name}
-            "description" = ${Description}
-            "attribute" = ${Attribute}
+            "displayName" = ${DisplayName}
+            "email" = ${Email}
+            "usageCount" = ${UsageCount}
         }
 
         return $PSO

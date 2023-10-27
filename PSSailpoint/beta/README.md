@@ -192,18 +192,22 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Export-BetaRoleMiningPotentialRole**](docs/BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export | Export (download) details for a potential role in a role mining session
 *BetaIAIRoleMiningApi* | [**Export-BetaRoleMiningPotentialRoleAsync**](docs/BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRoleAsync) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async | Asynchronously export details for a potential role in a role mining session and upload to S3
 *BetaIAIRoleMiningApi* | [**Export-BetaRoleMiningPotentialRoleStatus**](docs/BetaIAIRoleMiningApi.md#Export-BetaRoleMiningPotentialRoleStatus) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId} | Retrieve status of a potential role export job
+*BetaIAIRoleMiningApi* | [**Get-BetaAllPotentialRoleSummaries**](docs/BetaIAIRoleMiningApi.md#Get-BetaAllPotentialRoleSummaries) | **GET** /role-mining-potential-roles | Retrieves all potential role summaries
 *BetaIAIRoleMiningApi* | [**Get-BetaEntitlementDistributionPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaEntitlementDistributionPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution | Retrieves entitlement popularity distribution for a potential role in a role mining session
 *BetaIAIRoleMiningApi* | [**Get-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaEntitlementsPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularities | Retrieves entitlements for a potential role in a role mining session
 *BetaIAIRoleMiningApi* | [**Get-BetaExcludedEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaExcludedEntitlementsPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/excluded-entitlements | Retrieves excluded entitlements for a potential role in a role mining session
 *BetaIAIRoleMiningApi* | [**Get-BetaIdentitiesPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaIdentitiesPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities | Retrieves identities for a potential role in a role mining session
 *BetaIAIRoleMiningApi* | [**Get-BetaPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Retrieves a specific potential role
 *BetaIAIRoleMiningApi* | [**Get-BetaPotentialRoleApplications**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleApplications) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications | Retrieves the applications of a potential role for a role mining session
+*BetaIAIRoleMiningApi* | [**Get-BetaPotentialRoleSourceIdentityUsage**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleSourceIdentityUsage) | **GET** /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage | Retrieves potential role source usage
 *BetaIAIRoleMiningApi* | [**Get-BetaPotentialRoleSummaries**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleSummaries) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries | Retrieves all potential role summaries
+*BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningPotentialRole) | **GET** /role-mining-potential-roles/{potentialRoleId} | Retrieves a specific potential role
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSession**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSession) | **GET** /role-mining-sessions/{sessionId} | Get a role mining session
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSessionStatus**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessionStatus) | **GET** /role-mining-sessions/{sessionId}/status | Get role mining session status state
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSessions**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
-*BetaIAIRoleMiningApi* | [**Get-BetaSavedRoles**](docs/BetaIAIRoleMiningApi.md#Get-BetaSavedRoles) | **GET** /role-mining-sessions/{sessionId}/potential-roles/draft-roles | Retrieves all draft roles
+*BetaIAIRoleMiningApi* | [**Get-BetaSavedPotentialRoles**](docs/BetaIAIRoleMiningApi.md#Get-BetaSavedPotentialRoles) | **GET** /role-mining-potential-roles/saved | Retrieves all saved potential roles
 *BetaIAIRoleMiningApi* | [**Update-BetaPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaPotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role
+*BetaIAIRoleMiningApi* | [**Update-BetaPotentialRole0**](docs/BetaIAIRoleMiningApi.md#Update-BetaPotentialRole0) | **PATCH** /role-mining-potential-roles/{potentialRoleId} | Update a potential role
 *BetaIAIRoleMiningApi* | [**Update-BetaRoleMiningSession**](docs/BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 *BetaIAIRoleMiningApi* | [**Update-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 *BetaIdentitiesApi* | [**Remove-BetaIdentity**](docs/BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
@@ -1073,14 +1077,17 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.RoleMiningPotentialRoleProvisionRequest](docs/RoleMiningPotentialRoleProvisionRequest.md)
  - [PSSailpointBeta/Model.RoleMiningPotentialRoleProvisionState](docs/RoleMiningPotentialRoleProvisionState.md)
  - [PSSailpointBeta/Model.RoleMiningPotentialRoleRef](docs/RoleMiningPotentialRoleRef.md)
+ - [PSSailpointBeta/Model.RoleMiningPotentialRoleSourceUsage](docs/RoleMiningPotentialRoleSourceUsage.md)
  - [PSSailpointBeta/Model.RoleMiningPotentialRoleSummary](docs/RoleMiningPotentialRoleSummary.md)
  - [PSSailpointBeta/Model.RoleMiningRoleType](docs/RoleMiningRoleType.md)
  - [PSSailpointBeta/Model.RoleMiningSessionDraftRoleDto](docs/RoleMiningSessionDraftRoleDto.md)
  - [PSSailpointBeta/Model.RoleMiningSessionDto](docs/RoleMiningSessionDto.md)
+ - [PSSailpointBeta/Model.RoleMiningSessionDtoCreatedBy](docs/RoleMiningSessionDtoCreatedBy.md)
  - [PSSailpointBeta/Model.RoleMiningSessionParametersDto](docs/RoleMiningSessionParametersDto.md)
  - [PSSailpointBeta/Model.RoleMiningSessionResponse](docs/RoleMiningSessionResponse.md)
  - [PSSailpointBeta/Model.RoleMiningSessionScope](docs/RoleMiningSessionScope.md)
  - [PSSailpointBeta/Model.RoleMiningSessionScopingMethod](docs/RoleMiningSessionScopingMethod.md)
+ - [PSSailpointBeta/Model.RoleMiningSessionState](docs/RoleMiningSessionState.md)
  - [PSSailpointBeta/Model.RoleMiningSessionStatus](docs/RoleMiningSessionStatus.md)
  - [PSSailpointBeta/Model.Rule](docs/Rule.md)
  - [PSSailpointBeta/Model.SavedSearchComplete](docs/SavedSearchComplete.md)

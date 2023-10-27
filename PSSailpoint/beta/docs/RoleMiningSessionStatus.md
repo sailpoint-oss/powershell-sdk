@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** | **String** | The role mining session status. Can be one of these states - CREATED|UPDATED|IDENTITIES_OBTAINED|PRUNE_THRESHOLD_OBTAINED|POTENTIAL_ROLES_PROCESSING|POTENTIAL_ROLES_CREATED | [optional] 
+**State** | [**RoleMiningSessionState**](RoleMiningSessionState.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionStatus = Initialize-PSSailpointBetaRoleMiningSessionStatus  -State CREATED
+$RoleMiningSessionStatus = Initialize-PSSailpointBetaRoleMiningSessionStatus  -State null
 ```
 
 - Convert the resource to JSON

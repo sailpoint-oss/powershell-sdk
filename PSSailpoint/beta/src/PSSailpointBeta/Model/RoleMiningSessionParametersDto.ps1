@@ -14,10 +14,12 @@ No summary available.
 
 No description available.
 
-.PARAMETER MinNumIdentitiesInPotentialRole
-Minimum number of identities in a potential role
+.PARAMETER Id
+The ID of the role mining session
 .PARAMETER Name
 The session's saved name
+.PARAMETER MinNumIdentitiesInPotentialRole
+Minimum number of identities in a potential role
 .PARAMETER PruneThreshold
 The prune threshold to be used or null to calculate prescribedPruneThreshold
 .PARAMETER Saved
@@ -39,28 +41,33 @@ function Initialize-BetaRoleMiningSessionParametersDto {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${MinNumIdentitiesInPotentialRole},
+        [String]
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${PruneThreshold},
+        ${MinNumIdentitiesInPotentialRole},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${PruneThreshold},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Saved} = $true,
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Scope},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CREATED", "UPDATED", "IDENTITIES_OBTAINED", "PRUNE_THRESHOLD_OBTAINED", "POTENTIAL_ROLES_PROCESSING", "POTENTIAL_ROLES_CREATED")]
         [PSCustomObject]
         ${State},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("MANUAL", "AUTO_RM")]
         [PSCustomObject]
         ${ScopingMethod}
     )
@@ -71,8 +78,9 @@ function Initialize-BetaRoleMiningSessionParametersDto {
 
 
         $PSO = [PSCustomObject]@{
-            "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
+            "id" = ${Id}
             "name" = ${Name}
+            "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
             "pruneThreshold" = ${PruneThreshold}
             "saved" = ${Saved}
             "scope" = ${Scope}
@@ -116,23 +124,29 @@ function ConvertFrom-BetaJsonToRoleMiningSessionParametersDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningSessionParametersDto
-        $AllProperties = ("minNumIdentitiesInPotentialRole", "name", "pruneThreshold", "saved", "scope", "type", "state", "scopingMethod")
+        $AllProperties = ("id", "name", "minNumIdentitiesInPotentialRole", "pruneThreshold", "saved", "scope", "type", "state", "scopingMethod")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "minNumIdentitiesInPotentialRole"))) { #optional property not found
-            $MinNumIdentitiesInPotentialRole = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
-            $MinNumIdentitiesInPotentialRole = $JsonParameters.PSobject.Properties["minNumIdentitiesInPotentialRole"].value
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
             $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "minNumIdentitiesInPotentialRole"))) { #optional property not found
+            $MinNumIdentitiesInPotentialRole = $null
+        } else {
+            $MinNumIdentitiesInPotentialRole = $JsonParameters.PSobject.Properties["minNumIdentitiesInPotentialRole"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "pruneThreshold"))) { #optional property not found
@@ -172,8 +186,9 @@ function ConvertFrom-BetaJsonToRoleMiningSessionParametersDto {
         }
 
         $PSO = [PSCustomObject]@{
-            "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
+            "id" = ${Id}
             "name" = ${Name}
+            "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
             "pruneThreshold" = ${PruneThreshold}
             "saved" = ${Saved}
             "scope" = ${Scope}

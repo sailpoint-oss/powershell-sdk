@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaRoleMiningSessionScopingMethod' {
     Context 'BetaRoleMiningSessionScopingMethod' {
         It 'Initialize-BetaRoleMiningSessionScopingMethod' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRoleMiningSessionScopingMethod -State "TEST_VALUE"
+            #$NewObject = Initialize-BetaRoleMiningSessionScopingMethod
             #$NewObject | Should -BeOfType RoleMiningSessionScopingMethod
             #$NewObject.property | Should -Be 0
         }

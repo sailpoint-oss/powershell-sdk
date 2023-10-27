@@ -3,21 +3,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MinNumIdentitiesInPotentialRole** | **Int32** | Minimum number of identities in a potential role | [optional] 
+**Id** | **String** | The ID of the role mining session | [optional] 
 **Name** | **String** | The session&#39;s saved name | [optional] 
+**MinNumIdentitiesInPotentialRole** | **Int32** | Minimum number of identities in a potential role | [optional] 
 **PruneThreshold** | **Int32** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [optional] 
 **Saved** | **Boolean** | The session&#39;s saved status | [optional] [default to $true]
 **Scope** | [**RoleMiningSessionScope**](RoleMiningSessionScope.md) |  | [optional] 
 **Type** | [**RoleMiningRoleType**](RoleMiningRoleType.md) |  | [optional] 
-**State** | [**RoleMiningSessionStatus**](RoleMiningSessionStatus.md) |  | [optional] 
+**State** | [**RoleMiningSessionState**](RoleMiningSessionState.md) |  | [optional] 
 **ScopingMethod** | [**RoleMiningSessionScopingMethod**](RoleMiningSessionScopingMethod.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionParametersDto = Initialize-PSSailpointBetaRoleMiningSessionParametersDto  -MinNumIdentitiesInPotentialRole 20 `
+$RoleMiningSessionParametersDto = Initialize-PSSailpointBetaRoleMiningSessionParametersDto  -Id 9f36f5e5-1e81-4eca-b087-548959d91c71 `
  -Name Saved RM Session - 07/10 `
+ -MinNumIdentitiesInPotentialRole 20 `
  -PruneThreshold 5 `
  -Saved true `
  -Scope null `

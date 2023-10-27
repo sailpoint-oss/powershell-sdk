@@ -8,17 +8,25 @@
 <#
 .SYNOPSIS
 
-Enum RoleMiningSessionScopingMethod.
+Enum RoleMiningSessionState.
 
 .DESCRIPTION
 
-The scoping method used in the current role mining session.
+Role mining session status
 #>
 
-enum RoleMiningSessionScopingMethod {
-    # enum value: "MANUAL"
-    MANUAL
-    # enum value: "AUTO_RM"
-    AUTO_RM
+enum RoleMiningSessionState {
+    # enum value: "CREATED"
+    CREATED
+    # enum value: "UPDATED"
+    UPDATED
+    # enum value: "IDENTITIES_OBTAINED"
+    IDENTITIES_OBTAINED
+    # enum value: "PRUNE_THRESHOLD_OBTAINED"
+    PRUNE_THRESHOLD_OBTAINED
+    # enum value: "POTENTIAL_ROLES_PROCESSING"
+    POTENTIAL_ROLES_PROCESSING
+    # enum value: "POTENTIAL_ROLES_CREATED"
+    POTENTIAL_ROLES_CREATED
 }
 

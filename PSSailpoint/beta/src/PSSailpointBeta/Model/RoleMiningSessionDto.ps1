@@ -84,7 +84,7 @@ function Initialize-BetaRoleMiningSessionDto {
         ${IdentityCount},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Saved},
+        ${Saved} = $false,
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}

@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **Status** | [**RoleMiningSessionStatus**](RoleMiningSessionStatus.md) |  | [optional] 
 **Type** | [**RoleMiningRoleType**](RoleMiningRoleType.md) |  | [optional] 
 **EmailRecipientId** | **String** | The id of the user who will receive an email about the role mining session | [optional] 
-**CreatedBy** | [**EntityCreatedByDTO**](EntityCreatedByDTO.md) |  | [optional] 
+**CreatedBy** | [**RoleMiningSessionDtoCreatedBy**](RoleMiningSessionDtoCreatedBy.md) |  | [optional] 
 **IdentityCount** | **Int32** | Number of identities in the population which meet the search criteria or identity list provided | [optional] 
-**Saved** | **Boolean** | The session&#39;s saved status | [optional] 
+**Saved** | **Boolean** | The session&#39;s saved status | [optional] [default to $false]
 **Name** | **String** | The session&#39;s saved name | [optional] 
 
 ## Examples

@@ -1,22 +1,22 @@
-# RoleMiningPotentialRoleRef
+# RoleMiningSessionDtoCreatedBy
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | Id of the potential role | [optional] 
-**Name** | **String** | Name of the potential role | [optional] 
+**Id** | **String** | ID of the creator | [optional] 
+**DisplayName** | **String** | The display name of the creator | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleRef = Initialize-PSSailpointBetaRoleMiningPotentialRoleRef  -Id e0cc5d7d-bf7f-4f81-b2af-8885b09d9923 `
- -Name Potential Role - e0cc5d
+$RoleMiningSessionDtoCreatedBy = Initialize-PSSailpointBetaRoleMiningSessionDtoCreatedBy  -Id 2c918090761a5aac0176215c46a62d58 `
+ -DisplayName Ashley.Pierce
 ```
 
 - Convert the resource to JSON
 ```powershell
-$RoleMiningPotentialRoleRef | ConvertTo-JSON
+$RoleMiningSessionDtoCreatedBy | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

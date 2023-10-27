@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER State
-The role mining session status. Can be one of these states - CREATED|UPDATED|IDENTITIES_OBTAINED|PRUNE_THRESHOLD_OBTAINED|POTENTIAL_ROLES_PROCESSING|POTENTIAL_ROLES_CREATED
+No description available.
 .OUTPUTS
 
 RoleMiningSessionStatus<PSCustomObject>
@@ -25,7 +25,8 @@ function Initialize-BetaRoleMiningSessionStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [ValidateSet("CREATED", "UPDATED", "IDENTITIES_OBTAINED", "PRUNE_THRESHOLD_OBTAINED", "POTENTIAL_ROLES_PROCESSING", "POTENTIAL_ROLES_CREATED")]
+        [PSCustomObject]
         ${State}
     )
 

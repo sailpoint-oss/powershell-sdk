@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaRoleMiningEntitlementRef' {
     Context 'BetaRoleMiningEntitlementRef' {
         It 'Initialize-BetaRoleMiningEntitlementRef' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRoleMiningEntitlementRef -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE"
+            #$NewObject = Initialize-BetaRoleMiningEntitlementRef -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Attribute "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleMiningEntitlementRef
             #$NewObject.property | Should -Be 0
         }

@@ -227,7 +227,7 @@ void (empty response body)
 
 <a name="Get-CCConnectors"></a>
 # **Get-CCConnectors**
-> void Get-CCConnectors<br>
+> ListConnectors200Response Get-CCConnectors<br>
 
 List Connectors
 
@@ -256,7 +256,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**ListConnectors200Response**](ListConnectors200Response.md) (PSCustomObject)
 
 ### Authorization
 

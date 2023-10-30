@@ -382,7 +382,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-None
+ListConnectors200Response
 #>
 function Get-CCConnectors {
     [CmdletBinding()]
@@ -420,7 +420,7 @@ function Get-CCConnectors {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "" `
+                                -ReturnType "ListConnectors200Response" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

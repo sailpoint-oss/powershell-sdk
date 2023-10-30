@@ -33,7 +33,7 @@ function Initialize-FirstValid {
         ${Values},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IgnoreErrors},
+        ${IgnoreErrors} = $false,
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false

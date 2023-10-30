@@ -35,7 +35,7 @@ function Initialize-BetaDateMath {
         ${Expression},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${RoundUp},
+        ${RoundUp} = $false,
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,

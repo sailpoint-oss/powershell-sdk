@@ -34,6 +34,15 @@ function ConvertFrom-BetaJsonToTransformAttributes {
         $matchType = $null
         $matchInstance = $null
 
+        # nullable check
+        if ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") {
+            return [PSCustomObject]@{
+                "ActualType" = $null
+                "ActualInstance" = $null
+                "OneOfSchemas" = @("AccountAttribute", "Base64Decode", "Base64Encode", "Concatenation", "Conditional", "DateCompare", "DateFormat", "DateMath", "DecomposeDiacriticalMarks", "E164phone", "FirstValid", "ISO3166", "IdentityAttribute1", "IndexOf", "LeftPad", "Lookup", "Lower", "NameNormalizer", "RandomAlphaNumeric", "RandomNumeric", "Reference", "Replace", "ReplaceAll", "RightPad", "Rule", "Split", "Static", "Substring", "Trim", "UUIDGenerator", "Upper")
+            }
+        }
+
         # try to match AccountAttribute defined in the oneOf schemas
         try {
             $matchInstance = ConvertFrom-BetaJsonToAccountAttribute $Json

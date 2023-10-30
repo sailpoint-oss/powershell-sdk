@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="Get-CCAccounts"></a>
 # **Get-CCAccounts**
-> void Get-CCAccounts<br>
+> ListAccounts200ResponseInner[] Get-CCAccounts<br>
 
 List Accounts
 
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**ListAccounts200ResponseInner[]**](ListAccounts200ResponseInner.md) (PSCustomObject)
 
 ### Authorization
 

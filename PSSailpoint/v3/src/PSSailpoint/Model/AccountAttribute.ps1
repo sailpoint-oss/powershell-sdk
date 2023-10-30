@@ -48,13 +48,13 @@ function Initialize-AccountAttribute {
         ${AttributeName},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccountSortAttribute},
+        ${AccountSortAttribute} = "created",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AccountSortDescending},
+        ${AccountSortDescending} = $false,
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AccountReturnFirstLink},
+        ${AccountReturnFirstLink} = $false,
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountFilter},

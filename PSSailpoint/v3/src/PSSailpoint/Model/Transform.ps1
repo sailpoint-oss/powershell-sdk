@@ -60,10 +60,6 @@ function Initialize-Transform {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
-            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}

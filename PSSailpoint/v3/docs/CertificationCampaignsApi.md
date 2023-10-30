@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 <a name="Get-CampaignReports"></a>
 # **Get-CampaignReports**
 > CampaignReport[] Get-CampaignReports<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Campaign Reports
 
@@ -436,11 +436,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$CampaignId = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign for which reports are being fetched.
+$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign for which reports are being fetched.
 
 # Get Campaign Reports
 try {
-    $Result = Get-CampaignReports -CampaignId $CampaignId
+    $Result = Get-CampaignReports -Id $Id
 } catch {
     Write-Host ("Exception occurred when calling Get-CampaignReports: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -451,7 +451,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **CampaignId** | **String**| The ID of the campaign for which reports are being fetched. | 
+ **Id** | **String**| The ID of the campaign for which reports are being fetched. | 
 
 ### Return type
 

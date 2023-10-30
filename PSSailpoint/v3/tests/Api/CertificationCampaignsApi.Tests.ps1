@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
 
     Context 'Get-CampaignReports' {
         It 'Test Get-CampaignReports' {
-            #$TestResult = Get-CampaignReports -CampaignId "TEST_VALUE"
+            #$TestResult = Get-CampaignReports -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

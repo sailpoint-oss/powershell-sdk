@@ -653,7 +653,7 @@ Get Campaign Reports
 
 Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
 
-.PARAMETER CampaignId
+.PARAMETER Id
 The ID of the campaign for which reports are being fetched.
 
 .PARAMETER WithHttpInfo
@@ -669,7 +669,7 @@ function Get-CampaignReports {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${CampaignId},
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -691,10 +691,10 @@ function Get-CampaignReports {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/campaigns/{id}/reports'
-        if (!$CampaignId) {
-            throw "Error! The required parameter `CampaignId` missing when calling getCampaignReports."
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getCampaignReports."
         }
-        $LocalVarUri = $LocalVarUri.replace('{campaignId}', [System.Web.HTTPUtility]::UrlEncode($CampaignId))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
 
 

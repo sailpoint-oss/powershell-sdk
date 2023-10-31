@@ -267,7 +267,7 @@ function DeserializeResponse {
     If ([string]::IsNullOrEmpty($ReturnType) -and $ContentTypes.Count -eq 0) { # void response
         return $Response
     } Elseif ($ReturnType -match '\[\]$') { # array
-        return ConvertFrom-Json $Response
+        return ConvertFrom-Json $Response -AsHashtable
     } Elseif (@("String", "Boolean", "System.DateTime") -contains $ReturnType) { # string, boolean ,datetime
         return $Response
     } Else { # others (e.g. model, file)
@@ -280,7 +280,7 @@ function DeserializeResponse {
             }
 
             if (IsJsonMIME -MIME $ContentType) { # JSON
-                return ConvertFrom-Json $Response
+                return ConvertFrom-Json $Response -AsHashtable
             } else { # XML, file, etc
                 return $Response
             }

@@ -353,10 +353,10 @@ Offset  Integer specifying the offset of the first result from the beginning of 
 Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
 .PARAMETER Filters
-Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: <b>name</b>: <i>eq, gt, sw, in</i> <b>description</b>: <i>eq, gt, sw, in</i> <b>created</b>: <i>eq, gt, sw, in</i> <b>modified</b>: <i>eq, gt, sw, in</i>
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
 
 .PARAMETER Sorters
-Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: <b>name</b> <b>description</b> <b>created</b> <b>modified</b>
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
 
 .PARAMETER WithHttpInfo
 
@@ -883,10 +883,10 @@ Offset  Integer specifying the offset of the first result from the beginning of 
 Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
 .PARAMETER Filters
-Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: <b>name</b>: <i>eq, gt, sw, in</i> <b>description</b>: <i>eq, gt, sw, in</i> <b>created</b>: <i>eq, gt, sw, in</i> <b>modified</b>: <i>eq, gt, sw, in</i>
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
 
 .PARAMETER Sorters
-Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: <b>name</b> <b>description</b> <b>created</b> <b>modified</b>
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
 
 .PARAMETER WithHttpInfo
 
@@ -990,7 +990,7 @@ Form element ID
 Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
 .PARAMETER Filters
-Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: <b>value</b>: <i>eq, ne, in</i> <b>label</b>: <i>eq, ne, in</i> <b>subLabel</b>: <i>eq, ne, in</i>
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  **label**: *eq, ne, in*  **subLabel**: *eq, ne, in*
 
 .PARAMETER WithHttpInfo
 
@@ -1219,7 +1219,7 @@ Form definition ID
 Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
 .PARAMETER Filters
-Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: <b>value</b>: <i>eq, gt, sw, in</i> <b>label</b>: <i>eq, gt, sw, in</i> <b>subLabel</b>: <i>eq, gt, sw, in</i>
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, gt, sw, in*  **label**: *eq, gt, sw, in*  **subLabel**: *eq, gt, sw, in*
 
 .PARAMETER Query
 Query  String specifying to query against

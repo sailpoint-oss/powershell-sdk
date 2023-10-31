@@ -262,7 +262,7 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Allowed filter properties: *owner.id*, *savedSearchId*  Allowed filter operator: *eq*  **Example filters**:  ```owner.id eq ""0de46054-fe90-434a-b84e-c6b3359d0c64""``` -- returns scheduled searches for the specified owner ID  ```savedSearchId eq ""6cc0945d-9eeb-4948-9033-72d066e1153e""``` -- returns scheduled searches that reference the specified saved search  ```owner.id eq me or savedSearchId eq ""6cc0945d-9eeb-4948-9033-72d066e1153e""``` -- returns all of the current user's scheduled searches as well as all scheduled searches that reference the specified saved search 
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **savedSearchId**: *eq*
 
 .PARAMETER WithHttpInfo
 

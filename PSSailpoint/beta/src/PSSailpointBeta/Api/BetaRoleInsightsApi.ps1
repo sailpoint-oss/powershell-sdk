@@ -82,10 +82,10 @@ This endpoint returns the entitlement insights for a role.
 The role insight id
 
 .PARAMETER Sorters
-sort by identitiesWithAccess, default order descending
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess**  The default sort is **identitiesWithAccess** in descending order.
 
 .PARAMETER Filters
-Filter parameter(s) by ""starts with"" for the name and description.
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
 
 .PARAMETER ReturnType
 
@@ -203,10 +203,10 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Sorters
-sort by name
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
 
 .PARAMETER Filters
-Filter parameter by ""starts with"" for the name.
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*
 
 .PARAMETER WithHttpInfo
 
@@ -412,10 +412,10 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Sorters
-sort by numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities (default- ascending)
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **numberOfUpdates, identitiesWithAccess, totalNumberOfIdentities**
 
 .PARAMETER Filters
-Filter parameter(s) by ""starts with"" for the name, ownerName and description.
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **ownerName**: *sw*  **description**: *sw*
 
 .PARAMETER WithHttpInfo
 
@@ -520,7 +520,7 @@ This endpoint gets the entitlements for a role. The term ""current"" is to disti
 The role insight id
 
 .PARAMETER Filters
-Filter parameter(s) by ""starts with"" for the name and description.
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
 
 .PARAMETER WithHttpInfo
 
@@ -604,10 +604,10 @@ This endpoint returns entitlement insights for a role.
 The role insight id
 
 .PARAMETER Sorters
-sort by identitiesWithAccess or name
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess, name**
 
 .PARAMETER Filters
-Filter parameter(s) by ""starts with"" for the name and description.
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw*
 
 .PARAMETER WithHttpInfo
 

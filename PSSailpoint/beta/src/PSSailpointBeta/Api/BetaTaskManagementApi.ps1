@@ -23,12 +23,6 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
-.PARAMETER Sorters
-sort criteria
-
-.PARAMETER Filters
-filter criteria
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -49,12 +43,6 @@ function Get-BetaPendingTaskHeaders {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Sorters},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -87,14 +75,6 @@ function Get-BetaPendingTaskHeaders {
 
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
-        }
-
-        if ($Sorters) {
-            $LocalVarQueryParameters['sorters'] = $Sorters
-        }
-
-        if ($Filters) {
-            $LocalVarQueryParameters['filters'] = $Filters
         }
 
 
@@ -137,12 +117,6 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
-.PARAMETER Sorters
-sort criteria
-
-.PARAMETER Filters
-filter criteria
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -163,12 +137,6 @@ function Get-BetaPendingTasks {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Sorters},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -201,14 +169,6 @@ function Get-BetaPendingTasks {
 
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
-        }
-
-        if ($Sorters) {
-            $LocalVarQueryParameters['sorters'] = $Sorters
-        }
-
-        if ($Filters) {
-            $LocalVarQueryParameters['filters'] = $Filters
         }
 
 
@@ -326,10 +286,10 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **sourceId**: *eq, in*   **completionStatus**: *eq, in*   **type**: *eq, in* ""CLOUD_ACCOUNT_AGGREGATION"", ""CLOUD_GROUP_AGGREGATION"", ""CLOUD_PROCESS_UNCORRELATED_ACCOUNTS"" or ""CLOUD_REFRESH_ROLE""
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in*
 
 .PARAMETER Sorters
-Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **created**
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created**
 
 .PARAMETER WithHttpInfo
 

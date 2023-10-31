@@ -114,10 +114,10 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)  Filtering is supported for the following fields and operators:  **status**: *eq* ""CONFIRMED"" or ""DENIED"" **reviewedByUser** *eq* true or false **access.id**: *eq* ""id"" **access.type**: *eq* ""ROLE"" or ""ACCESS_PROFILE"" **access.name**: *sw* ""Administrator"" **access.description**: *sw* ""admin""
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **reviewedByUser** *eq*  **access.id**: *eq*  **access.type**: *eq*  **access.name**: *sw*  **access.description**: *sw*
 
 .PARAMETER Sorters
-Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407)  Sorting is supported for the following fields: **access.name,status**  By default the common access items are sorted by name, ascending.
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending.
 
 .PARAMETER WithHttpInfo
 

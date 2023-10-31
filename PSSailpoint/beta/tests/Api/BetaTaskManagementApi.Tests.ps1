@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaskManagementApi' {
     Context 'Get-BetaPendingTaskHeaders' {
         It 'Test Get-BetaPendingTaskHeaders' {
-            #$TestResult = Get-BetaPendingTaskHeaders -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaPendingTaskHeaders -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaskManagementApi' {
 
     Context 'Get-BetaPendingTasks' {
         It 'Test Get-BetaPendingTasks' {
-            #$TestResult = Get-BetaPendingTasks -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaPendingTasks -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

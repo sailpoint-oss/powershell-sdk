@@ -65,7 +65,7 @@ function Invoke-CCApiClient {
     }
 
     try {
-        $Token = Get-AccessToken
+        $Token = Get-IDNAccessToken
         $HeaderParameters['Authorization'] = "Bearer $Token"
     } catch {
         Write-Host $_ -ForegroundColor Red

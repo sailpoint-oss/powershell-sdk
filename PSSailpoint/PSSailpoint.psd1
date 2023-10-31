@@ -2472,8 +2472,9 @@ FunctionsToExport = 'New-AccessProfile', 'Remove-AccessProfile',
                'Get-CCUrlFromHostSetting', 'Set-CCConfigurationHttpSigning', 
                'Get-CCConfigurationHttpSigning', 'Get-FunctionsToExport', 
                'Get-DefaultConfiguration', 'Set-DefaultConfiguration', 
-               'Get-AccessToken', 'Get-HomeConfig', 'Get-EnvConfig', 'Get-LocalConfig', 
-               'Get-Config', 'Invoke-Paginate', 'Invoke-PaginateSearch'
+               'Get-IDNAccessToken', 'Get-HomeConfig', 'Get-EnvConfig', 
+               'Get-LocalConfig', 'Get-Config', 'Invoke-Paginate', 
+               'Invoke-PaginateSearch'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

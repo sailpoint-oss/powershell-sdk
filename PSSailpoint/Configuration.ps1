@@ -182,7 +182,7 @@ function Set-DefaultConfiguration {
     }
 }
 
-function Get-AccessToken {
+function Get-IDNAccessToken {
     Write-Debug "Getting Access Token"
 
     if ($null -eq $Script:Configuration["ClientId"] -or $null -eq $Script:Configuration["ClientSecret"] -or $null -eq $Script:Configuration["TokenUrl"]) {

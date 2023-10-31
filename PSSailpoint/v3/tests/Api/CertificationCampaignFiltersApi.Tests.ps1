@@ -14,6 +14,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignFiltersApi' {
         }
     }
 
+    Context 'Remove-CampaignFilters' {
+        It 'Test Remove-CampaignFilters' {
+            #$TestResult = Remove-CampaignFilters -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-CampaignFilterById' {
         It 'Test Get-CampaignFilterById' {
             #$TestResult = Get-CampaignFilterById -FilterId "TEST_VALUE"

@@ -38,6 +38,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignsApi' {
         }
     }
 
+    Context 'Remove-CampaignTemplateSchedule' {
+        It 'Test Remove-CampaignTemplateSchedule' {
+            #$TestResult = Remove-CampaignTemplateSchedule -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-Campaigns' {
         It 'Test Remove-Campaigns' {
             #$TestResult = Remove-Campaigns -CampaignsDeleteRequest "TEST_VALUE"

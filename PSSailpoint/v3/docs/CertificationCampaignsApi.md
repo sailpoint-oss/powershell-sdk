@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**New-Campaign**](CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 [**New-CampaignTemplate**](CertificationCampaignsApi.md#New-CampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
 [**Remove-CampaignTemplate**](CertificationCampaignsApi.md#Remove-CampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
+[**Remove-CampaignTemplateSchedule**](CertificationCampaignsApi.md#Remove-CampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Deletes a Campaign Template&#39;s Schedule
 [**Remove-Campaigns**](CertificationCampaignsApi.md#Remove-Campaigns) | **POST** /campaigns/delete | Deletes Campaigns
 [**Get-ActiveCampaigns**](CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
 [**Get-Campaign**](CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
@@ -233,6 +234,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| The ID of the campaign template being deleted. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Remove-CampaignTemplateSchedule"></a>
+# **Remove-CampaignTemplateSchedule**
+> void Remove-CampaignTemplateSchedule<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Deletes a Campaign Template's Schedule
+
+Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | The ID of the campaign template whose schedule is being deleted.
+
+# Deletes a Campaign Template's Schedule
+try {
+    $Result = Remove-CampaignTemplateSchedule -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Remove-CampaignTemplateSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the campaign template whose schedule is being deleted. | 
 
 ### Return type
 

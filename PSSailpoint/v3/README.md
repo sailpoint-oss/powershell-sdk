@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *AuthUserApi* | [**Update-AuthUser**](docs/AuthUserApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
 *CertificationCampaignFiltersApi* | [**New-CampaignFilter**](docs/CertificationCampaignFiltersApi.md#New-CampaignFilter) | **POST** /campaign-filters | Create a Campaign Filter
 *CertificationCampaignFiltersApi* | [**Get-CampaignFilterById**](docs/CertificationCampaignFiltersApi.md#Get-CampaignFilterById) | **GET** /campaign-filters/{id} | Get Campaign Filter by ID
+*CertificationCampaignFiltersApi* | [**Get-CampaignFilters**](docs/CertificationCampaignFiltersApi.md#Get-CampaignFilters) | **GET** /campaign-filters | List Campaign Filters
 *CertificationCampaignFiltersApi* | [**Update-CampaignFilter**](docs/CertificationCampaignFiltersApi.md#Update-CampaignFilter) | **POST** /campaign-filters/{id} | Updates a Campaign Filter
 *CertificationCampaignsApi* | [**Complete-Campaign**](docs/CertificationCampaignsApi.md#Complete-Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign

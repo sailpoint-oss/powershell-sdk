@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint' -name 'CertificationCampaignFiltersApi' {
         }
     }
 
+    Context 'Get-CampaignFilters' {
+        It 'Test Get-CampaignFilters' {
+            #$TestResult = Get-CampaignFilters -Limit "TEST_VALUE" -Start "TEST_VALUE" -IncludeSystemFilters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-CampaignFilter' {
         It 'Test Update-CampaignFilter' {
             #$TestResult = Update-CampaignFilter -FilterId "TEST_VALUE" -CampaignFilterDetails "TEST_VALUE"

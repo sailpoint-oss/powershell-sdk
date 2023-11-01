@@ -4,14 +4,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaRoleInsightRequests**](BetaRoleInsightsApi.md#New-BetaRoleInsightRequests) | **POST** /role-insights/requests | A request to generate insights for roles
+[**New-BetaRoleInsightRequests**](BetaRoleInsightsApi.md#New-BetaRoleInsightRequests) | **POST** /role-insights/requests | Generate insights for roles
 [**Invoke-BetaDownloadRoleInsightsEntitlementsChanges**](BetaRoleInsightsApi.md#Invoke-BetaDownloadRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes/download | Download entitlement insights for a role
 [**Get-BetaEntitlementChangesIdentities**](BetaRoleInsightsApi.md#Get-BetaEntitlementChangesIdentities) | **GET** /role-insights/{insightId}/entitlement-changes/{entitlementId}/identities | Get identities for a suggested entitlement (for a role)
 [**Get-BetaRoleInsight**](BetaRoleInsightsApi.md#Get-BetaRoleInsight) | **GET** /role-insights/{insightId} | Get a single role insight
 [**Get-BetaRoleInsights**](BetaRoleInsightsApi.md#Get-BetaRoleInsights) | **GET** /role-insights | Get role insights
 [**Get-BetaRoleInsightsCurrentEntitlements**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsCurrentEntitlements) | **GET** /role-insights/{insightId}/current-entitlements | Get current entitlement for a role
 [**Get-BetaRoleInsightsEntitlementsChanges**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes | Get entitlement insights for a role
-[**Get-BetaRoleInsightsRequests**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns the metadata for a request in order to generate insights for roles.
+[**Get-BetaRoleInsightsRequests**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns metadata from prior request.
 [**Get-BetaRoleInsightsSummary**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
 
 
@@ -19,9 +19,9 @@ Method | HTTP request | Description
 # **New-BetaRoleInsightRequests**
 > RoleInsightsResponse New-BetaRoleInsightRequests<br>
 
-A request to generate insights for roles
+Generate insights for roles
 
-This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
 
 ### Example
 ```powershell
@@ -34,7 +34,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
-# A request to generate insights for roles
+# Generate insights for roles
 try {
     $Result = New-BetaRoleInsightRequests
 } catch {
@@ -420,9 +420,9 @@ Name | Type | Description  | Notes
 > RoleInsightsResponse Get-BetaRoleInsightsRequests<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Returns the metadata for a request in order to generate insights for roles.
+Returns metadata from prior request.
 
-This endpoint returns details of a prior request.
+This endpoint returns details of a prior role insights request. 
 
 ### Example
 ```powershell
@@ -436,7 +436,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insights request id
 
-# Returns the metadata for a request in order to generate insights for roles.
+# Returns metadata from prior request.
 try {
     $Result = Get-BetaRoleInsightsRequests -Id $Id
 } catch {

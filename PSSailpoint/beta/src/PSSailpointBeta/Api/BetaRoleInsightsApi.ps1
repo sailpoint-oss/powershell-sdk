@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-A request to generate insights for roles
+Generate insights for roles
 
 .DESCRIPTION
 
-This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
 
 .PARAMETER WithHttpInfo
 
@@ -688,11 +688,11 @@ function Get-BetaRoleInsightsEntitlementsChanges {
 <#
 .SYNOPSIS
 
-Returns the metadata for a request in order to generate insights for roles.
+Returns metadata from prior request.
 
 .DESCRIPTION
 
-This endpoint returns details of a prior request.
+This endpoint returns details of a prior role insights request. 
 
 .PARAMETER Id
 The role insights request id

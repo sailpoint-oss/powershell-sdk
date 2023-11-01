@@ -335,14 +335,14 @@ Class | Method | HTTP request | Description
 *BetaPublicIdentitiesConfigApi* | [**Get-BetaPublicIdentityConfig**](docs/BetaPublicIdentitiesConfigApi.md#Get-BetaPublicIdentityConfig) | **GET** /public-identities-config | Get Public Identity Config
 *BetaPublicIdentitiesConfigApi* | [**Update-BetaPublicIdentityConfig**](docs/BetaPublicIdentitiesConfigApi.md#Update-BetaPublicIdentityConfig) | **PUT** /public-identities-config | Update Public Identity Config
 *BetaRequestableObjectsApi* | [**Get-BetaRequestableObjects**](docs/BetaRequestableObjectsApi.md#Get-BetaRequestableObjects) | **GET** /requestable-objects | Requestable Objects List
-*BetaRoleInsightsApi* | [**New-BetaRoleInsightRequests**](docs/BetaRoleInsightsApi.md#New-BetaRoleInsightRequests) | **POST** /role-insights/requests | A request to generate insights for roles
+*BetaRoleInsightsApi* | [**New-BetaRoleInsightRequests**](docs/BetaRoleInsightsApi.md#New-BetaRoleInsightRequests) | **POST** /role-insights/requests | Generate insights for roles
 *BetaRoleInsightsApi* | [**Invoke-BetaDownloadRoleInsightsEntitlementsChanges**](docs/BetaRoleInsightsApi.md#Invoke-BetaDownloadRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes/download | Download entitlement insights for a role
 *BetaRoleInsightsApi* | [**Get-BetaEntitlementChangesIdentities**](docs/BetaRoleInsightsApi.md#Get-BetaEntitlementChangesIdentities) | **GET** /role-insights/{insightId}/entitlement-changes/{entitlementId}/identities | Get identities for a suggested entitlement (for a role)
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsight**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsight) | **GET** /role-insights/{insightId} | Get a single role insight
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsights**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsights) | **GET** /role-insights | Get role insights
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsCurrentEntitlements**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsCurrentEntitlements) | **GET** /role-insights/{insightId}/current-entitlements | Get current entitlement for a role
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsEntitlementsChanges**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes | Get entitlement insights for a role
-*BetaRoleInsightsApi* | [**Get-BetaRoleInsightsRequests**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns the metadata for a request in order to generate insights for roles.
+*BetaRoleInsightsApi* | [**Get-BetaRoleInsightsRequests**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns metadata from prior request.
 *BetaRoleInsightsApi* | [**Get-BetaRoleInsightsSummary**](docs/BetaRoleInsightsApi.md#Get-BetaRoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
 *BetaRolesApi* | [**Invoke-BetaBulkDeleteRoles**](docs/BetaRolesApi.md#Invoke-BetaBulkDeleteRoles) | **POST** /roles/bulk-delete | Delete Role(s)
 *BetaRolesApi* | [**New-BetaRole**](docs/BetaRolesApi.md#New-BetaRole) | **POST** /roles | Create a Role

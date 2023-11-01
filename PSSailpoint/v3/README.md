@@ -714,7 +714,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SearchAggregationSpecificationAllOf](docs/SearchAggregationSpecificationAllOf.md)
  - [PSSailpoint/Model.SearchArguments](docs/SearchArguments.md)
  - [PSSailpoint/Model.SearchArgumentsOwner](docs/SearchArgumentsOwner.md)
- - [PSSailpoint/Model.SearchDocument](docs/SearchDocument.md)
  - [PSSailpoint/Model.SearchFilterType](docs/SearchFilterType.md)
  - [PSSailpoint/Model.SearchIdentityReference](docs/SearchIdentityReference.md)
  - [PSSailpoint/Model.SearchIdentityReferenceAllOf](docs/SearchIdentityReferenceAllOf.md)

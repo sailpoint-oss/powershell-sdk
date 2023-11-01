@@ -34,6 +34,8 @@ The schema object type on the source used to represent the entitlement and its a
 The name of the source for which this entitlement belongs
 .PARAMETER SourceType
 The type of the source for which the entitlement belongs
+.PARAMETER SourceId
+The ID of the source for which the entitlement belongs
 .PARAMETER HasPermissions
 Indicates if the entitlement has permissions
 .PARAMETER IsPermission
@@ -87,24 +89,27 @@ function Initialize-ReviewableEntitlement {
         [String]
         ${SourceType},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${HasPermissions} = $false,
+        [String]
+        ${SourceId},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsPermission} = $false,
+        ${HasPermissions} = $false,
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Revocable} = $false,
+        ${IsPermission} = $false,
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${CloudGoverned} = $false,
+        ${Revocable} = $false,
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${ContainsDataAccess} = $false,
+        ${CloudGoverned} = $false,
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ContainsDataAccess} = $false,
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${DataAccess},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Account}
     )
@@ -125,6 +130,7 @@ function Initialize-ReviewableEntitlement {
             "sourceSchemaObjectType" = ${SourceSchemaObjectType}
             "sourceName" = ${SourceName}
             "sourceType" = ${SourceType}
+            "sourceId" = ${SourceId}
             "hasPermissions" = ${HasPermissions}
             "isPermission" = ${IsPermission}
             "revocable" = ${Revocable}
@@ -169,7 +175,7 @@ function ConvertFrom-JsonToReviewableEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ReviewableEntitlement
-        $AllProperties = ("id", "name", "description", "privileged", "owner", "attributeName", "attributeValue", "sourceSchemaObjectType", "sourceName", "sourceType", "hasPermissions", "isPermission", "revocable", "cloudGoverned", "containsDataAccess", "dataAccess", "account")
+        $AllProperties = ("id", "name", "description", "privileged", "owner", "attributeName", "attributeValue", "sourceSchemaObjectType", "sourceName", "sourceType", "sourceId", "hasPermissions", "isPermission", "revocable", "cloudGoverned", "containsDataAccess", "dataAccess", "account")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -236,6 +242,12 @@ function ConvertFrom-JsonToReviewableEntitlement {
             $SourceType = $JsonParameters.PSobject.Properties["sourceType"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceId"))) { #optional property not found
+            $SourceId = $null
+        } else {
+            $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "hasPermissions"))) { #optional property not found
             $HasPermissions = $null
         } else {
@@ -289,6 +301,7 @@ function ConvertFrom-JsonToReviewableEntitlement {
             "sourceSchemaObjectType" = ${SourceSchemaObjectType}
             "sourceName" = ${SourceName}
             "sourceType" = ${SourceType}
+            "sourceId" = ${SourceId}
             "hasPermissions" = ${HasPermissions}
             "isPermission" = ${IsPermission}
             "revocable" = ${Revocable}

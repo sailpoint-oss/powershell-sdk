@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SourceSchemaObjectType** | **String** | The schema object type on the source used to represent the entitlement and its attributes | [optional] 
 **SourceName** | **String** | The name of the source for which this entitlement belongs | [optional] 
 **SourceType** | **String** | The type of the source for which the entitlement belongs | [optional] 
+**SourceId** | **String** | The ID of the source for which the entitlement belongs | [optional] 
 **HasPermissions** | **Boolean** | Indicates if the entitlement has permissions | [optional] [default to $false]
 **IsPermission** | **Boolean** | Indicates if the entitlement is a representation of an account permission | [optional] [default to $false]
 **Revocable** | **Boolean** | Indicates whether the entitlement can be revoked | [optional] [default to $false]
@@ -35,6 +36,7 @@ $ReviewableEntitlement = Initialize-PSSailpointReviewableEntitlement  -Id 2c9180
  -SourceSchemaObjectType groups `
  -SourceName ODS-AD-Source `
  -SourceType Active Directory - Direct `
+ -SourceId 78ca6be511cb41fbb86dba2fcca7780c `
  -HasPermissions false `
  -IsPermission false `
  -Revocable true `

@@ -6,17 +6,17 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
-    Context 'Add-BetaTagsToManyObjects' {
-        It 'Test Add-BetaTagsToManyObjects' {
-            #$TestResult = Add-BetaTagsToManyObjects -BulkTaggedObject "TEST_VALUE"
+    Context 'Remove-BetaTaggedObject' {
+        It 'Test Remove-BetaTaggedObject' {
+            #$TestResult = Remove-BetaTaggedObject -Type "TEST_VALUE" -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Remove-BetaTaggedObject' {
-        It 'Test Remove-BetaTaggedObject' {
-            #$TestResult = Remove-BetaTaggedObject -Type "TEST_VALUE" -Id "TEST_VALUE"
+    Context 'Remove-BetaTagsToManyObject' {
+        It 'Test Remove-BetaTagsToManyObject' {
+            #$TestResult = Remove-BetaTagsToManyObject -BulkTaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -46,9 +46,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
         }
     }
 
-    Context 'Remove-BetaTagsToManyObject' {
-        It 'Test Remove-BetaTagsToManyObject' {
-            #$TestResult = Remove-BetaTagsToManyObject -BulkTaggedObject "TEST_VALUE"
+    Context 'Send-BetaTaggedObject' {
+        It 'Test Send-BetaTaggedObject' {
+            #$TestResult = Send-BetaTaggedObject -Type "TEST_VALUE" -Id "TEST_VALUE" -TaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -62,9 +62,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaggedObjectsApi' {
         }
     }
 
-    Context 'Update-BetaTaggedObject' {
-        It 'Test Update-BetaTaggedObject' {
-            #$TestResult = Update-BetaTaggedObject -Type "TEST_VALUE" -Id "TEST_VALUE" -TaggedObject "TEST_VALUE"
+    Context 'Set-BetaTagsToManyObjects' {
+        It 'Test Set-BetaTagsToManyObjects' {
+            #$TestResult = Set-BetaTagsToManyObjects -BulkTaggedObject "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

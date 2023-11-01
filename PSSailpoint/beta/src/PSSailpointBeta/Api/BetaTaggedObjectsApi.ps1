@@ -8,96 +8,6 @@
 <#
 .SYNOPSIS
 
-Tag Multiple Objects
-
-.DESCRIPTION
-
-This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-.PARAMETER BulkTaggedObject
-Supported object types are ROLE, IDENTITY and SOD_POLICY.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-BulkTaggedObject
-#>
-function Add-BetaTagsToManyObjects {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${BulkTaggedObject},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Add-BetaTagsToManyObjects' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/tagged-objects/bulk-add'
-
-        if (!$BulkTaggedObject) {
-            throw "Error! The required parameter `BulkTaggedObject` missing when calling addTagsToManyObjects."
-        }
-
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -AsArray -Depth 100
-        } else {
-            $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-            }
-        }
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BulkTaggedObject" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 Delete Tagged Object
 
 .DESCRIPTION
@@ -122,7 +32,7 @@ function Remove-BetaTaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("ROLE", "IDENTITY", "SOD_POLICY")]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
         [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -183,6 +93,96 @@ function Remove-BetaTaggedObject {
 <#
 .SYNOPSIS
 
+Remove Tags from Multiple Objects
+
+.DESCRIPTION
+
+This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+.PARAMETER BulkTaggedObject
+Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-BetaTagsToManyObject {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BulkTaggedObject},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-BetaTagsToManyObject' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/tagged-objects/bulk-remove'
+
+        if (!$BulkTaggedObject) {
+            throw "Error! The required parameter `BulkTaggedObject` missing when calling deleteTagsToManyObject."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get Tagged Object
 
 .DESCRIPTION
@@ -207,7 +207,7 @@ function Get-BetaTaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("ROLE", "IDENTITY", "SOD_POLICY")]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
         [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -487,14 +487,20 @@ function Get-BetaTaggedObjectsByType {
 <#
 .SYNOPSIS
 
-Remove Tags from Multiple Objects
+Update Tagged Object
 
 .DESCRIPTION
 
-This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This updates a tagged object for the specified type.
 
-.PARAMETER BulkTaggedObject
-Supported object types are ROLE, IDENTITY and SOD_POLICY.
+.PARAMETER Type
+The type of tagged object to update.
+
+.PARAMETER Id
+The ID of the object reference to update.
+
+.PARAMETER TaggedObject
+No description available.
 
 .PARAMETER WithHttpInfo
 
@@ -502,20 +508,27 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-None
+TaggedObject
 #>
-function Remove-BetaTagsToManyObject {
+function Send-BetaTaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
+        [String]
+        ${Type},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${BulkTaggedObject},
+        ${TaggedObject},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Remove-BetaTagsToManyObject' | Write-Debug
+        'Calling method: Send-BetaTaggedObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -533,16 +546,24 @@ function Remove-BetaTagsToManyObject {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/tagged-objects/bulk-remove'
+        $LocalVarUri = '/tagged-objects/{type}/{id}'
+        if (!$Type) {
+            throw "Error! The required parameter `Type` missing when calling putTaggedObject."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{type}', [System.Web.HTTPUtility]::UrlEncode($Type))
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling putTaggedObject."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$BulkTaggedObject) {
-            throw "Error! The required parameter `BulkTaggedObject` missing when calling removeTagsToManyObject."
+        if (!$TaggedObject) {
+            throw "Error! The required parameter `TaggedObject` missing when calling putTaggedObject."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $TaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
+            $LocalVarBodyParameter = $TaggedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -554,7 +575,7 @@ function Remove-BetaTagsToManyObject {
 
 
 
-        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+        $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `
@@ -563,7 +584,7 @@ function Remove-BetaTagsToManyObject {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "" `
+                                -ReturnType "TaggedObject" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -667,20 +688,14 @@ function Set-BetaTagToObject {
 <#
 .SYNOPSIS
 
-Update Tagged Object
+Tag Multiple Objects
 
 .DESCRIPTION
 
-This updates a tagged object for the specified type.
+This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-.PARAMETER Type
-The type of tagged object to update.
-
-.PARAMETER Id
-The ID of the object reference to update.
-
-.PARAMETER TaggedObject
-No description available.
+.PARAMETER BulkTaggedObject
+Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 .PARAMETER WithHttpInfo
 
@@ -688,27 +703,20 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-TaggedObject
+BulkTaggedObject
 #>
-function Update-BetaTaggedObject {
+function Set-BetaTagsToManyObjects {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("ROLE", "IDENTITY", "SOD_POLICY")]
-        [String]
-        ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${TaggedObject},
+        ${BulkTaggedObject},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Update-BetaTaggedObject' | Write-Debug
+        'Calling method: Set-BetaTagsToManyObjects' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -726,24 +734,16 @@ function Update-BetaTaggedObject {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/tagged-objects/{type}/{id}'
-        if (!$Type) {
-            throw "Error! The required parameter `Type` missing when calling updateTaggedObject."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{type}', [System.Web.HTTPUtility]::UrlEncode($Type))
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updateTaggedObject."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = '/tagged-objects/bulk-add'
 
-        if (!$TaggedObject) {
-            throw "Error! The required parameter `TaggedObject` missing when calling updateTaggedObject."
+        if (!$BulkTaggedObject) {
+            throw "Error! The required parameter `BulkTaggedObject` missing when calling setTagsToManyObjects."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $TaggedObject | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $TaggedObject | ForEach-Object {
+            $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -755,7 +755,7 @@ function Update-BetaTaggedObject {
 
 
 
-        $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `
@@ -764,7 +764,7 @@ function Update-BetaTaggedObject {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "TaggedObject" `
+                                -ReturnType "BulkTaggedObject" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

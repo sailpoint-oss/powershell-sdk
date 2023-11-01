@@ -4,67 +4,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Add-BetaTagsToManyObjects**](BetaTaggedObjectsApi.md#Add-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
 [**Remove-BetaTaggedObject**](BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+[**Remove-BetaTagsToManyObject**](BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 [**Get-BetaTaggedObject**](BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 [**Get-BetaTaggedObjects**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
 [**Get-BetaTaggedObjectsByType**](BetaTaggedObjectsApi.md#Get-BetaTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
-[**Remove-BetaTagsToManyObject**](BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
+[**Send-BetaTaggedObject**](BetaTaggedObjectsApi.md#Send-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 [**Set-BetaTagToObject**](BetaTaggedObjectsApi.md#Set-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
-[**Update-BetaTaggedObject**](BetaTaggedObjectsApi.md#Update-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
+[**Set-BetaTagsToManyObjects**](BetaTaggedObjectsApi.md#Set-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
 
-
-<a name="Add-BetaTagsToManyObjects"></a>
-# **Add-BetaTagsToManyObjects**
-> BulkTaggedObject Add-BetaTagsToManyObjects<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
-
-Tag Multiple Objects
-
-This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $BaseReferenceDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ROLE, IDENTITY and SOD_POLICY.
-
-# Tag Multiple Objects
-try {
-    $Result = Add-BetaTagsToManyObjects -BulkTaggedObject $BulkTaggedObject
-} catch {
-    Write-Host ("Exception occurred when calling Add-BetaTagsToManyObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ROLE, IDENTITY and SOD_POLICY. | 
-
-### Return type
-
-[**BulkTaggedObject**](BulkTaggedObject.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="Remove-BetaTaggedObject"></a>
 # **Remove-BetaTaggedObject**
@@ -86,7 +34,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Type = "ROLE" # String | The type of tagged object to delete.
+$Type = "ACCESS_PROFILE" # String | The type of tagged object to delete.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to delete.
 
 # Delete Tagged Object
@@ -120,6 +68,58 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Remove-BetaTagsToManyObject"></a>
+# **Remove-BetaTagsToManyObject**
+> void Remove-BetaTagsToManyObject<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
+
+Remove Tags from Multiple Objects
+
+This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+
+# Remove Tags from Multiple Objects
+try {
+    $Result = Remove-BetaTagsToManyObject -BulkTaggedObject $BulkTaggedObject
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaTagsToManyObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Get-BetaTaggedObject"></a>
 # **Get-BetaTaggedObject**
 > TaggedObject Get-BetaTaggedObject<br>
@@ -140,7 +140,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Type = "ROLE" # String | The type of tagged object to retrieve.
+$Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
 # Get Tagged Object
@@ -297,14 +297,16 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaTagsToManyObject"></a>
-# **Remove-BetaTagsToManyObject**
-> void Remove-BetaTagsToManyObject<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
+<a name="Send-BetaTaggedObject"></a>
+# **Send-BetaTaggedObject**
+> TaggedObject Send-BetaTaggedObject<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaggedObject] <PSCustomObject><br>
 
-Remove Tags from Multiple Objects
+Update Tagged Object
 
-This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This updates a tagged object for the specified type.
 
 ### Example
 ```powershell
@@ -316,14 +318,16 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $BaseReferenceDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ROLE, IDENTITY and SOD_POLICY.
+$Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
+$TaggedObjectObjectRef = Initialize-TaggedObjectObjectRef -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObjectObjectRef -Tags "MyTags" # TaggedObject | 
 
-# Remove Tags from Multiple Objects
+# Update Tagged Object
 try {
-    $Result = Remove-BetaTagsToManyObject -BulkTaggedObject $BulkTaggedObject
+    $Result = Send-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $TaggedObject
 } catch {
-    Write-Host ("Exception occurred when calling Remove-BetaTagsToManyObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-BetaTaggedObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -332,11 +336,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ROLE, IDENTITY and SOD_POLICY. | 
+ **Type** | **String**| The type of tagged object to update. | 
+ **Id** | **String**| The ID of the object reference to update. | 
+ **TaggedObject** | [**TaggedObject**](TaggedObject.md)|  | 
 
 ### Return type
 
-void (empty response body)
+[**TaggedObject**](TaggedObject.md) (PSCustomObject)
 
 ### Authorization
 
@@ -368,8 +374,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto -Tags "MyTags" # TaggedObject | 
+$TaggedObjectObjectRef = Initialize-TaggedObjectObjectRef -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObjectObjectRef -Tags "MyTags" # TaggedObject | 
 
 # Add Tag to Object
 try {
@@ -401,16 +407,14 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaTaggedObject"></a>
-# **Update-BetaTaggedObject**
-> TaggedObject Update-BetaTaggedObject<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaggedObject] <PSCustomObject><br>
+<a name="Set-BetaTagsToManyObjects"></a>
+# **Set-BetaTagsToManyObjects**
+> BulkTaggedObject Set-BetaTagsToManyObjects<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
 
-Update Tagged Object
+Tag Multiple Objects
 
-This updates a tagged object for the specified type.
+This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -422,16 +426,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Type = "ROLE" # String | The type of tagged object to update.
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$TaggedObject = Initialize-TaggedObject -ObjectRef $BaseReferenceDto -Tags "MyTags" # TaggedObject | 
+$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
-# Update Tagged Object
+# Tag Multiple Objects
 try {
-    $Result = Update-BetaTaggedObject -Type $Type -Id $Id -TaggedObject $TaggedObject
+    $Result = Set-BetaTagsToManyObjects -BulkTaggedObject $BulkTaggedObject
 } catch {
-    Write-Host ("Exception occurred when calling Update-BetaTaggedObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Set-BetaTagsToManyObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -440,13 +442,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Type** | **String**| The type of tagged object to update. | 
- **Id** | **String**| The ID of the object reference to update. | 
- **TaggedObject** | [**TaggedObject**](TaggedObject.md)|  | 
+ **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
 
 ### Return type
 
-[**TaggedObject**](TaggedObject.md) (PSCustomObject)
+[**BulkTaggedObject**](BulkTaggedObject.md) (PSCustomObject)
 
 ### Authorization
 

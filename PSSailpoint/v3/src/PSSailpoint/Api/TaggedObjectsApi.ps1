@@ -32,7 +32,7 @@ function Remove-TaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("ROLE", "IDENTITY", "SOD_POLICY")]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
         [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -100,7 +100,7 @@ Remove Tags from Multiple Objects
 This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER BulkTaggedObject
-Supported object types are ROLE, IDENTITY and SOD_POLICY.
+Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 .PARAMETER WithHttpInfo
 
@@ -207,7 +207,7 @@ function Get-TaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("ROLE", "IDENTITY", "SOD_POLICY")]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
         [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -514,7 +514,7 @@ function Send-TaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("ROLE", "IDENTITY", "SOD_POLICY")]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
         [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -695,7 +695,7 @@ Tag Multiple Objects
 This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER BulkTaggedObject
-Supported object types are ROLE, IDENTITY and SOD_POLICY.
+Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 .PARAMETER WithHttpInfo
 

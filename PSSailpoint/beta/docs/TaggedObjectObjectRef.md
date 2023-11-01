@@ -1,4 +1,4 @@
-# TaggedObjectDto
+# TaggedObjectObjectRef
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaggedObjectDto = Initialize-PSSailpointTaggedObjectDto  -Type IDENTITY `
+$TaggedObjectObjectRef = Initialize-PSSailpointBetaTaggedObjectObjectRef  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
 ```
 
 - Convert the resource to JSON
 ```powershell
-$TaggedObjectDto | ConvertTo-JSON
+$TaggedObjectObjectRef | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

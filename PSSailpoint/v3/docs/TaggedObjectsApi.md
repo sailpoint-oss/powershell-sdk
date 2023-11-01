@@ -34,7 +34,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Type = "ROLE" # String | The type of tagged object to delete.
+$Type = "ACCESS_PROFILE" # String | The type of tagged object to delete.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to delete.
 
 # Delete Tagged Object
@@ -87,8 +87,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ROLE, IDENTITY and SOD_POLICY.
+$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 # Remove Tags from Multiple Objects
 try {
@@ -103,7 +103,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ROLE, IDENTITY and SOD_POLICY. | 
+ **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
 
 ### Return type
 
@@ -140,7 +140,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Type = "ROLE" # String | The type of tagged object to retrieve.
+$Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
 # Get Tagged Object
@@ -318,9 +318,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Type = "ROLE" # String | The type of tagged object to update.
+$Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
-$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObjectDto -Tags "MyTags" # TaggedObject | 
 
 # Update Tagged Object
@@ -374,7 +374,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObjectDto -Tags "MyTags" # TaggedObject | 
 
 # Add Tag to Object
@@ -426,8 +426,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ROLE, IDENTITY and SOD_POLICY.
+$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 # Tag Multiple Objects
 try {
@@ -442,7 +442,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ROLE, IDENTITY and SOD_POLICY. | 
+ **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
 
 ### Return type
 

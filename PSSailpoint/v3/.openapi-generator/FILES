@@ -430,7 +430,6 @@ docs/SearchAggregationSpecificationAllOf.md
 docs/SearchApi.md
 docs/SearchArguments.md
 docs/SearchArgumentsOwner.md
-docs/SearchDocument.md
 docs/SearchFilterType.md
 docs/SearchIdentityReference.md
 docs/SearchIdentityReferenceAllOf.md
@@ -952,7 +951,6 @@ src/PSSailpoint/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint/Model/SearchAggregationSpecificationAllOf.ps1
 src/PSSailpoint/Model/SearchArguments.ps1
 src/PSSailpoint/Model/SearchArgumentsOwner.ps1
-src/PSSailpoint/Model/SearchDocument.ps1
 src/PSSailpoint/Model/SearchFilterType.ps1
 src/PSSailpoint/Model/SearchIdentityReference.ps1
 src/PSSailpoint/Model/SearchIdentityReferenceAllOf.ps1
@@ -1473,7 +1471,6 @@ tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchAggregationSpecificationAllOf.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
 tests/Model/SearchArgumentsOwner.Tests.ps1
-tests/Model/SearchDocument.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchIdentityReference.Tests.ps1
 tests/Model/SearchIdentityReferenceAllOf.Tests.ps1

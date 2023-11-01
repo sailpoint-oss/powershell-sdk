@@ -169,7 +169,7 @@ void (empty response body)
 
 <a name="Search-Get"></a>
 # **Search-Get**
-> SearchDocument Search-Get<br>
+> SystemCollectionsHashtable Search-Get<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Index] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchDocument**](SearchDocument.md) (PSCustomObject)
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 <a name="Search-Post"></a>
 # **Search-Post**
-> SearchDocument[] Search-Post<br>
+> SystemCollectionsHashtable[] Search-Post<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchDocument[]**](SearchDocument.md) (PSCustomObject)
+[**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md) (PSCustomObject)
 
 ### Authorization
 

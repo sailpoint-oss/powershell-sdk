@@ -35,6 +35,11 @@ jobs:
         with:
           node-version: "16"
 
+      - name: Run Prescript
+        id: prescript
+        run: |
+          node sdk-resources/prescript.js api-specs/idn
+
       # Install yq for working with yaml files
       - name: Set up yq
         uses: frenck/action-setup-yq@v1

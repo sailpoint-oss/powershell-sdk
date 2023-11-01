@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Aggregations** | [**SystemCollectionsHashtable**](.md) | The document containing the results of the aggregation. This document is controlled by Elasticsearch and depends on the type of aggregation query that is run.  See Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) documentation for information.  | [optional] 
-**Hits** | [**SearchDocument[]**](SearchDocument.md) | The results of the aggregation search query.  | [optional] 
+**Hits** | [**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md) | The results of the aggregation search query.  | [optional] 
 
 ## Examples
 

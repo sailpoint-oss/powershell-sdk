@@ -2279,7 +2279,7 @@ If *true* it will populate the *X-Total-Count* response header with the number o
 The flag to determine whether return a non-employee count associate with source.
 
 .PARAMETER Sorters
-Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created**
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
 
 .PARAMETER WithHttpInfo
 

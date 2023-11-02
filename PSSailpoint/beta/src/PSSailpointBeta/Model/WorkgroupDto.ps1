@@ -17,15 +17,15 @@ No description available.
 .PARAMETER Owner
 No description available.
 .PARAMETER Id
-ID of the object to which this reference applies
+Governance group ID.
 .PARAMETER Name
-Name of the Governance Group
+Governance group name.
 .PARAMETER Description
-Description of the Governance Group
+Governance group description.
 .PARAMETER MemberCount
-Number of members in the Governance Group.
+Number of members in the governance group.
 .PARAMETER ConnectionCount
-Number of connections in the Governance Group.
+Number of connections in the governance group.
 .OUTPUTS
 
 WorkgroupDto<PSCustomObject>

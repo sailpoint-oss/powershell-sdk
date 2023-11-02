@@ -21,7 +21,7 @@ Object type names to be included in an sp-config export command. IncludeTypes ta
 .PARAMETER ObjectOptions
 Additional options targeting specific objects related to each item in the includeTypes field
 .PARAMETER DefaultReferences
-List of BaseRefenceDtos that can be used to resolve references on import.
+List of object types that can be used to resolve references on import.
 .PARAMETER ExcludeBackup
 By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed.
 .OUTPUTS
@@ -44,7 +44,8 @@ function Initialize-BetaImportOptions {
         [System.Collections.Hashtable]
         ${ObjectOptions},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
+        [ValidateSet("IDENTITY_OBJECT_CONFIG", "IDENTITY_PROFILE", "RULE", "SOURCE", "TRANSFORM", "TRIGGER_SUBSCRIPTION")]
+        [String[]]
         ${DefaultReferences},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]

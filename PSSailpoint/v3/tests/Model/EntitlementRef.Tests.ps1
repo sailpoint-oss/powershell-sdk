@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'EntitlementRef' {
     Context 'EntitlementRef' {
         It 'Initialize-EntitlementRef' {
             # a simple test to create an object
-            #$NewObject = Initialize-EntitlementRef -Id "TEST_VALUE" -Type "TEST_VALUE" -Name "TEST_VALUE"
+            #$NewObject = Initialize-EntitlementRef -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE"
             #$NewObject | Should -BeOfType EntitlementRef
             #$NewObject.property | Should -Be 0
         }

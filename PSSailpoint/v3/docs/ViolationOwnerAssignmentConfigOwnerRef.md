@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**DtoType**](DtoType.md) |  | [optional] 
-**Id** | **String** | ID of the object to which this reference applies | [optional] 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
+**Type** | **String** | Owner&#39;s DTO type. | [optional] 
+**Id** | **String** | Owner&#39;s identity ID. | [optional] 
+**Name** | **String** | Owner&#39;s display name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ViolationOwnerAssignmentConfigOwnerRef = Initialize-PSSailpointViolationOwnerAssignmentConfigOwnerRef  -Type null `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson
+$ViolationOwnerAssignmentConfigOwnerRef = Initialize-PSSailpointViolationOwnerAssignmentConfigOwnerRef  -Type IDENTITY `
+ -Id 2c9180a46faadee4016fb4e018c20639 `
+ -Name Support
 ```
 
 - Convert the resource to JSON

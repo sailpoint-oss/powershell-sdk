@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | [optional] 
-**Id** | **String** | ID of the object to which this reference applies | [optional] 
+**Id** | **String** | SOD policy ID. | [optional] 
 **Name** | **String** |  | [optional] 
 
 ## Examples
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ViolationContextPolicy = Initialize-PSSailpointViolationContextPolicy  -Type ENTITLEMENT `
- -Id 2c91808568c529c60168cca6f90c1313 `
+ -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name A very cool policy name
 ```
 

@@ -112,7 +112,7 @@ Delete Lifecycle State by ID
 
 .DESCRIPTION
 
-This endpoint deletes the Lifecycle State using it's ID. A token with API, or ORG_ADMIN authority is required to call this API.
+This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 Identity Profile ID
@@ -126,7 +126,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-BaseReferenceDto
+LifecyclestateDeleted
 #>
 function Remove-LifecycleState {
     [CmdletBinding()]
@@ -178,7 +178,7 @@ function Remove-LifecycleState {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BaseReferenceDto" `
+                                -ReturnType "LifecyclestateDeleted" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

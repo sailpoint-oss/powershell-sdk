@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The source from which the account came from.
+The source the accounts are uncorrelated from.
 
 .PARAMETER Type
-The type of object that is referenced
+The DTO type of the source the accounts are uncorrelated from.
 .PARAMETER Id
-ID of the object to which this reference applies
+The ID of the source the accounts are uncorrelated from.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Display name of the source the accounts are uncorrelated from.
 .OUTPUTS
 
 AccountUncorrelatedSource<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaAccountUncorrelatedSource {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

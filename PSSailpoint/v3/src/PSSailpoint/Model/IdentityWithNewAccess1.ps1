@@ -15,7 +15,7 @@ No summary available.
 An identity with a set of access to be added
 
 .PARAMETER IdentityId
-Set of identity id's to be checked.
+Set of identity IDs to be checked.
 .PARAMETER AccessRefs
 The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type.
 .PARAMETER ClientMetadata

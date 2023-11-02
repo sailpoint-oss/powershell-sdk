@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Workflow ID. This is a UUID generated upon creation. | [optional] 
-**ExecutionCount** | **Int32** | The number of times this workflow has been executed | [optional] 
-**FailureCount** | **Int32** | The number of times this workflow has failed during execution | [optional] 
-**Created** | **System.DateTime** | The date and time the workflow was created | [optional] 
-**Creator** | [**BaseReferenceDto**](BaseReferenceDto.md) | The identity that created the workflow. | [optional] 
+**ExecutionCount** | **Int32** | The number of times this workflow has been executed. | [optional] 
+**FailureCount** | **Int32** | The number of times this workflow has failed during execution. | [optional] 
+**Created** | **System.DateTime** | The date and time the workflow was created. | [optional] 
+**Creator** | [**WorkflowAllOfCreator**](WorkflowAllOfCreator.md) |  | [optional] 
 **Name** | **String** | The name of the workflow | [optional] 
 **Owner** | [**WorkflowBodyOwner**](WorkflowBodyOwner.md) |  | [optional] 
 **Description** | **String** | Description of what the workflow accomplishes | [optional] 
@@ -23,7 +23,7 @@ $Workflow = Initialize-PSSailpointBetaWorkflow  -Id d201c5e9-d37b-4aff-af14-6641
  -ExecutionCount 2 `
  -FailureCount 0 `
  -Created 2022-01-10T16:06:16.636381447Z `
- -Creator {type&#x3D;IDENTITY, id&#x3D;2c91808568c529c60168cca6f90c1313, name&#x3D;William Wilson} `
+ -Creator null `
  -Name Send Email `
  -Owner null `
  -Description Send an email to the identity who&#39;s attributes changed. `

@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-No description available.
+DTO type of the commenting identity.
 .PARAMETER Id
-ID of the author
+ID of the commenting identity.
 .PARAMETER Name
-Human-readable display name of the identity making the comment
+Display name of the commenting identity.
 .OUTPUTS
 
 CommentDtoAuthor<PSCustomObject>
@@ -29,8 +29,8 @@ function Initialize-CommentDtoAuthor {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
-        [PSCustomObject]
+        [ValidateSet("IDENTITY")]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

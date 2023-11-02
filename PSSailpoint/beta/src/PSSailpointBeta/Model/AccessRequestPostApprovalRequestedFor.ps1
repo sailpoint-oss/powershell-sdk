@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The identity who the access request is for.
+No description available.
 
 .PARAMETER Type
-The type of object that is referenced
+DTO type of identity the access item is requested for.
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of identity the access item is requested for.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Human-readable display name of identity the access item is requested for.
 .OUTPUTS
 
 AccessRequestPostApprovalRequestedFor<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaAccessRequestPostApprovalRequestedFor {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

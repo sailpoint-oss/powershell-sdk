@@ -33,8 +33,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | The id of the approval.
-$CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "Adam Kennedy"
-$CommentDto = Initialize-CommentDto -Comment "Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat" -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment. (optional)
+$CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "Adam Kennedy"
+$CommentDto = Initialize-CommentDto -Comment "This is a comment." -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment. (optional)
 
 # Approves an access request approval.
 try {
@@ -328,8 +328,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | The id of the approval.
-$CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "Adam Kennedy"
-$CommentDto = Initialize-CommentDto -Comment "Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat" -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment. (optional)
+$CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "Adam Kennedy"
+$CommentDto = Initialize-CommentDto -Comment "This is a comment." -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment. (optional)
 
 # Rejects an access request approval.
 try {

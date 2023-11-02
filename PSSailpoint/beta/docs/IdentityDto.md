@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **EmailAddress** | **String** | The email address of the identity | [optional] 
 **ProcessingState** | **String** | The processing state of the identity | [optional] 
 **IdentityStatus** | **String** | The identity&#39;s status in the system | [optional] 
-**ManagerRef** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**ManagerRef** | [**IdentityDtoManagerRef**](IdentityDtoManagerRef.md) |  | [optional] 
 **IsManager** | **Boolean** | Whether this identity is a manager of another identity | [optional] [default to $false]
 **LastRefresh** | **System.DateTime** | The last time the identity was refreshed by the system | [optional] 
 **Attributes** | [**SystemCollectionsHashtable**](.md) | A map with the identity attributes for the identity | [optional] 

@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object being referenced | [optional] 
-**Id** | [**SystemCollectionsHashtable**](.md) | ID of the source | [optional] 
-**Name** | [**SystemCollectionsHashtable**](.md) | Human-readable display name of the source | [optional] 
+**Type** | **String** | DTO type of source for service desk integration template. | [optional] 
+**Id** | **String** | ID of source for service desk integration template. | [optional] 
+**Name** | **String** | Human-readable name of source for service desk integration template. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $ProvisioningConfigManagedResourceRefsInner = Initialize-PSSailpointProvisioningConfigManagedResourceRefsInner  -Type SOURCE `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name My Source
+ -Id 2c9180835d191a86015d28455b4b232a `
+ -Name HR Active Directory
 ```
 
 - Convert the resource to JSON

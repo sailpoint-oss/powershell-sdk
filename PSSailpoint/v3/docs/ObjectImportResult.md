@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Infos** | [**SpConfigMessage[]**](SpConfigMessage.md) | Informational messages returned from the target service on import. | 
 **Warnings** | [**SpConfigMessage[]**](SpConfigMessage.md) | Warning messages returned from the target service on import. | 
 **Errors** | [**SpConfigMessage[]**](SpConfigMessage.md) | Error messages returned from the target service on import. | 
-**ImportedObjects** | [**BaseReferenceDto[]**](BaseReferenceDto.md) | References to objects that were created or updated by the import. | 
+**ImportedObjects** | [**ImportObject[]**](ImportObject.md) | References to objects that were created or updated by the import. | 
 
 ## Examples
 

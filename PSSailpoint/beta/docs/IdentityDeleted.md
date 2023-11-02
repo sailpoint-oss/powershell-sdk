@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identity** | [**IdentityDeletedIdentity**](IdentityDeletedIdentity.md) |  | 
-**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | The attributes assigned to the identity.  Attributes are determined by the identity profile. | 
+**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | The attributes assigned to the identity. Attributes are determined by the identity profile. | 
 
 ## Examples
 

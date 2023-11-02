@@ -1523,9 +1523,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$AttrSyncSource = Initialize-AttrSyncSource -Type "SOURCE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
 $AttrSyncSourceAttributeConfig = Initialize-AttrSyncSourceAttributeConfig -Name "email" -DisplayName "Email" -Enabled $true -Target "mail"
-$AttrSyncSourceConfig = Initialize-AttrSyncSourceConfig -Source $BaseReferenceDto -Attributes $AttrSyncSourceAttributeConfig # AttrSyncSourceConfig | 
+$AttrSyncSourceConfig = Initialize-AttrSyncSourceConfig -Source $AttrSyncSource -Attributes $AttrSyncSourceAttributeConfig # AttrSyncSourceConfig | 
 
 # Update Attribute Sync Config
 try {

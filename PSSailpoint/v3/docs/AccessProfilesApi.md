@@ -34,7 +34,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $OwnerReference = Initialize-OwnerReference -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
 $AccessProfileSourceRef = Initialize-AccessProfileSourceRef -Id "2c91809773dee3610173fdb0b6061ef4" -Type "SOURCE" -Name "ODS-AD-SOURCE"
-$EntitlementRef = Initialize-EntitlementRef -Id "2c91809773dee32014e13e122092014e" -Type "ENTITLEMENT" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
+$EntitlementRef = Initialize-EntitlementRef -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
 
 $AccessProfileApprovalScheme = Initialize-AccessProfileApprovalScheme -ApproverType "APP_OWNER" -ApproverId "46c79819-a69f-49a2-becb-12c971ae66c6"
 $Requestability = Initialize-Requestability -CommentsRequired $true -DenialCommentsRequired $true -ApprovalSchemes $AccessProfileApprovalScheme

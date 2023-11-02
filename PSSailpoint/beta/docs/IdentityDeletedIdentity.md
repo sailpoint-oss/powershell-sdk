@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | 
-**Id** | **String** | ID of the object to which this reference applies | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Type** | **String** | Deleted identity&#39;s DTO type. | 
+**Id** | **String** | Deleted identity ID. | 
+**Name** | **String** | Deleted identity&#39;s display name. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $IdentityDeletedIdentity = Initialize-PSSailpointBetaIdentityDeletedIdentity  -Type IDENTITY `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson
+ -Id 2c7180a46faadee4016fb4e018c20642 `
+ -Name Michael Michaels
 ```
 
 - Convert the resource to JSON

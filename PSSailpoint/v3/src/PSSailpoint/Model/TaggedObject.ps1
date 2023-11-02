@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Tagged object.
 
 .PARAMETER ObjectRef
 No description available.

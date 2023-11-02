@@ -113,7 +113,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-BaseReferenceDto
+TaskResultDto
 #>
 function Remove-BulkRoles {
     [CmdletBinding()]
@@ -174,7 +174,7 @@ function Remove-BulkRoles {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BaseReferenceDto" `
+                                -ReturnType "TaskResultDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

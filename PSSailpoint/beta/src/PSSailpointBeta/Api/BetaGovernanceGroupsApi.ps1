@@ -181,7 +181,7 @@ This API removes one or more  members from a Governance Group.  A token with API
 .PARAMETER WorkgroupId
 ID of the Governance Group.
 
-.PARAMETER BaseReferenceDto
+.PARAMETER BulkWorkgroupMembersRequestInner
 List of identities to be removed from  a Governance Group members list.
 
 .PARAMETER WithHttpInfo
@@ -200,7 +200,7 @@ function Remove-BetaWorkgroupMembers {
         ${WorkgroupId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${BaseReferenceDto},
+        ${BulkWorkgroupMembersRequestInner},
         [Switch]
         $WithHttpInfo
     )
@@ -230,14 +230,14 @@ function Remove-BetaWorkgroupMembers {
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
 
-        if (!$BaseReferenceDto) {
-            throw "Error! The required parameter `BaseReferenceDto` missing when calling deleteWorkgroupMembers."
+        if (!$BulkWorkgroupMembersRequestInner) {
+            throw "Error! The required parameter `BulkWorkgroupMembersRequestInner` missing when calling deleteWorkgroupMembers."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $BaseReferenceDto | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $BulkWorkgroupMembersRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $BaseReferenceDto | ForEach-Object {
+            $LocalVarBodyParameter = $BulkWorkgroupMembersRequestInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -577,7 +577,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-BaseReferenceDto[]
+ListWorkgroupMembers200ResponseInner[]
 #>
 function Get-BetaWorkgroupMembers {
     [CmdletBinding()]
@@ -650,7 +650,7 @@ function Get-BetaWorkgroupMembers {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "BaseReferenceDto[]" `
+                                -ReturnType "ListWorkgroupMembers200ResponseInner[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -883,7 +883,7 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 .PARAMETER WorkgroupId
 ID of the Governance Group.
 
-.PARAMETER BaseReferenceDto
+.PARAMETER BulkWorkgroupMembersRequestInner
 List of identities to be added to a Governance Group members list.
 
 .PARAMETER WithHttpInfo
@@ -902,7 +902,7 @@ function Update-BetaWorkgroupMembers {
         ${WorkgroupId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${BaseReferenceDto},
+        ${BulkWorkgroupMembersRequestInner},
         [Switch]
         $WithHttpInfo
     )
@@ -932,14 +932,14 @@ function Update-BetaWorkgroupMembers {
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
 
-        if (!$BaseReferenceDto) {
-            throw "Error! The required parameter `BaseReferenceDto` missing when calling updateWorkgroupMembers."
+        if (!$BulkWorkgroupMembersRequestInner) {
+            throw "Error! The required parameter `BulkWorkgroupMembersRequestInner` missing when calling updateWorkgroupMembers."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $BaseReferenceDto | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $BulkWorkgroupMembersRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $BaseReferenceDto | ForEach-Object {
+            $LocalVarBodyParameter = $BulkWorkgroupMembersRequestInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

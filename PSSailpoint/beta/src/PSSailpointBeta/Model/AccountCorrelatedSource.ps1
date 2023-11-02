@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The source from which the account came from.
+The source the accounts are being correlated from.
 
-.PARAMETER Id
-ID of the object to which this reference applies
 .PARAMETER Type
-The type of object that is referenced
+The DTO type of the source the accounts are being correlated from.
+.PARAMETER Id
+The ID of the source the accounts are being correlated from.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Display name of the source the accounts are being correlated from.
 .OUTPUTS
 
 AccountCorrelatedSource<PSCustomObject>
@@ -29,12 +29,12 @@ function Initialize-BetaAccountCorrelatedSource {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE")]
         [String]
         ${Type},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
@@ -44,12 +44,12 @@ function Initialize-BetaAccountCorrelatedSource {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccountCorrelatedSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
         if ($null -eq $Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
+        }
+
+        if ($null -eq $Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
         if ($null -eq $Name) {
@@ -58,8 +58,8 @@ function Initialize-BetaAccountCorrelatedSource {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "type" = ${Type}
+            "id" = ${Id}
             "name" = ${Name}
         }
 
@@ -98,7 +98,7 @@ function ConvertFrom-BetaJsonToAccountCorrelatedSource {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccountCorrelatedSource
-        $AllProperties = ("id", "type", "name")
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -106,19 +106,19 @@ function ConvertFrom-BetaJsonToAccountCorrelatedSource {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            throw "Error! Empty JSON cannot be serialized due to the required property 'type' missing."
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
             throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
@@ -128,8 +128,8 @@ function ConvertFrom-BetaJsonToAccountCorrelatedSource {
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "type" = ${Type}
+            "id" = ${Id}
             "name" = ${Name}
         }
 

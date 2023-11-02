@@ -3,16 +3,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | 
-**Id** | **String** | ID of the object to which this reference applies | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Type** | **String** | DTO type of identity who created the source. | 
+**Id** | **String** | ID of identity who created the source. | 
+**Name** | **String** | Display name of identity who created the source. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $SourceCreatedActor = Initialize-PSSailpointBetaSourceCreatedActor  -Type IDENTITY `
- -Id 2c91808568c529c60168cca6f90c1313 `
+ -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
 ```
 

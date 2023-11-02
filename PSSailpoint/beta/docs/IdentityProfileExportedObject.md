@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | **Int32** | Version or object from the target service. | [optional] 
-**Self** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Self** | [**SelfImportExportDto**](SelfImportExportDto.md) |  | [optional] 
 **Object** | [**IdentityProfile1**](IdentityProfile1.md) |  | [optional] 
 
 ## Examples

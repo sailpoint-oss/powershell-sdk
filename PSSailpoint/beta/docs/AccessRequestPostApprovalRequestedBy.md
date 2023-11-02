@@ -3,16 +3,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | 
-**Id** | **String** | ID of the object to which this reference applies | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Type** | **String** | Access item requester&#39;s DTO type. | 
+**Id** | **String** | Access item requester&#39;s identity ID. | 
+**Name** | **String** | Access item owner&#39;s human-readable display name. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $AccessRequestPostApprovalRequestedBy = Initialize-PSSailpointBetaAccessRequestPostApprovalRequestedBy  -Type IDENTITY `
- -Id 2c91808568c529c60168cca6f90c1313 `
+ -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
 ```
 

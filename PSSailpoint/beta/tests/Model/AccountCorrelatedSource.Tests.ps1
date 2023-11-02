@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaAccountCorrelatedSource' {
     Context 'BetaAccountCorrelatedSource' {
         It 'Initialize-BetaAccountCorrelatedSource' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccountCorrelatedSource -Id "TEST_VALUE" -Type "TEST_VALUE" -Name "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccountCorrelatedSource -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountCorrelatedSource
             #$NewObject.property | Should -Be 0
         }

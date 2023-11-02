@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | 
-**Id** | **String** | ID of the object to which this reference applies | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Type** | **String** | DTO type of identity the access item is requested for. | 
+**Id** | **String** | ID of identity the access item is requested for. | 
+**Name** | **String** | Human-readable display name of identity the access item is requested for. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $AccessRequestPostApprovalRequestedFor = Initialize-PSSailpointBetaAccessRequestPostApprovalRequestedFor  -Type IDENTITY `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson
+ -Id 2c4180a46faadee4016fb4e018c20626 `
+ -Name Robert Robinson
 ```
 
 - Convert the resource to JSON

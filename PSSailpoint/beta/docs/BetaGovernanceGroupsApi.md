@@ -35,8 +35,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$WorkgroupDto = Initialize-WorkgroupDto -Owner $BaseReferenceDto -Id "2c91808568c529c60168cca6f90c1313" -Name "DB Access Governance Group" -Description "Description of the Governance Group" -MemberCount 1641498673000 -ConnectionCount 1641498673000 # WorkgroupDto | 
+$OwnerDto = Initialize-OwnerDto -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "Support"
+$WorkgroupDto = Initialize-WorkgroupDto -Owner $OwnerDto -Id "2c91808568c529c60168cca6f90c1313" -Name "DB Access Governance Group" -Description "Description of the Governance Group" -MemberCount 1641498673000 -ConnectionCount 1641498673000 # WorkgroupDto | 
 
 # Create a new Governance Group.
 try {
@@ -123,7 +123,7 @@ void (empty response body)
 # **Remove-BetaWorkgroupMembers**
 > WorkgroupMemberDeleteItem[] Remove-BetaWorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BaseReferenceDto] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkWorkgroupMembersRequestInner] <PSCustomObject[]><br>
 
 Remove members from Governance Group
 
@@ -140,11 +140,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson" # BaseReferenceDto[] | List of identities to be removed from  a Governance Group members list.
+$BulkWorkgroupMembersRequestInner = Initialize-BulkWorkgroupMembersRequestInner -Type "IDENTITY" -Id "2c7180a46faadee4016fb4e018c20642" -Name "Michael Michaels" # BulkWorkgroupMembersRequestInner[] | List of identities to be removed from  a Governance Group members list.
 
 # Remove members from Governance Group
 try {
-    $Result = Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BaseReferenceDto $BaseReferenceDto
+    $Result = Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $BulkWorkgroupMembersRequestInner
 } catch {
     Write-Host ("Exception occurred when calling Remove-BetaWorkgroupMembers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -156,7 +156,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **WorkgroupId** | **String**| ID of the Governance Group. | 
- **BaseReferenceDto** | [**BaseReferenceDto[]**](BaseReferenceDto.md)| List of identities to be removed from  a Governance Group members list. | 
+ **BulkWorkgroupMembersRequestInner** | [**BulkWorkgroupMembersRequestInner[]**](BulkWorkgroupMembersRequestInner.md)| List of identities to be removed from  a Governance Group members list. | 
 
 ### Return type
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 <a name="Get-BetaWorkgroupMembers"></a>
 # **Get-BetaWorkgroupMembers**
-> BaseReferenceDto[] Get-BetaWorkgroupMembers<br>
+> ListWorkgroupMembers200ResponseInner[] Get-BetaWorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseReferenceDto[]**](BaseReferenceDto.md) (PSCustomObject)
+[**ListWorkgroupMembers200ResponseInner[]**](ListWorkgroupMembers200ResponseInner.md) (PSCustomObject)
 
 ### Authorization
 
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 # **Update-BetaWorkgroupMembers**
 > WorkgroupMemberAddItem[] Update-BetaWorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BaseReferenceDto] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkWorkgroupMembersRequestInner] <PSCustomObject[]><br>
 
 Add members to Governance Group
 
@@ -540,11 +540,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson" # BaseReferenceDto[] | List of identities to be added to a Governance Group members list.
+$BulkWorkgroupMembersRequestInner = Initialize-BulkWorkgroupMembersRequestInner -Type "IDENTITY" -Id "2c7180a46faadee4016fb4e018c20642" -Name "Michael Michaels" # BulkWorkgroupMembersRequestInner[] | List of identities to be added to a Governance Group members list.
 
 # Add members to Governance Group
 try {
-    $Result = Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BaseReferenceDto $BaseReferenceDto
+    $Result = Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $BulkWorkgroupMembersRequestInner
 } catch {
     Write-Host ("Exception occurred when calling Update-BetaWorkgroupMembers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -556,7 +556,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **WorkgroupId** | **String**| ID of the Governance Group. | 
- **BaseReferenceDto** | [**BaseReferenceDto[]**](BaseReferenceDto.md)| List of identities to be added to a Governance Group members list. | 
+ **BulkWorkgroupMembersRequestInner** | [**BulkWorkgroupMembersRequestInner[]**](BulkWorkgroupMembersRequestInner.md)| List of identities to be added to a Governance Group members list. | 
 
 ### Return type
 

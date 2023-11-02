@@ -3,19 +3,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that the reviewer is. | 
-**Email** | **String** | The email of the reviewing identity. Only applicable to &#x60;IDENTITY&#x60; | [optional] 
-**Id** | **String** | ID of the object to which this reference applies | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Type** | **String** | The reviewer&#39;s DTO type. | 
+**Id** | **String** | The reviewer&#39;s ID. | 
+**Name** | **String** | The reviewer&#39;s display name. | 
+**Email** | **String** | The reviewing identity&#39;s email. Only applicable to &#x60;IDENTITY&#x60;. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $Reviewer = Initialize-PSSailpointBetaReviewer  -Type IDENTITY `
- -Email reviewer@test.com `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson
+ -Id 2c7180a46faadee4016fb4e018c20642 `
+ -Name Michael Michaels `
+ -Email reviewer@test.com
 ```
 
 - Convert the resource to JSON

@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** | **String** | Set of identity id&#39;s to be checked. | 
-**AccessRefs** | [**BaseReferenceDto[]**](BaseReferenceDto.md) | The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type. | 
+**IdentityId** | **String** | Set of identity IDs to be checked. | 
+**AccessRefs** | [**IdentityWithNewAccess1AccessRefsInner[]**](IdentityWithNewAccess1AccessRefsInner.md) | The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type. | 
 **ClientMetadata** | **System.Collections.Hashtable** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
 
 ## Examples

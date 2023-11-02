@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Owner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
-**Id** | **String** | ID of the object to which this reference applies | [optional] [readonly] 
-**Name** | **String** | Name of the Governance Group | [optional] 
-**Description** | **String** | Description of the Governance Group | [optional] 
-**MemberCount** | **Int64** | Number of members in the Governance Group. | [optional] [readonly] 
-**ConnectionCount** | **Int64** | Number of connections in the Governance Group. | [optional] [readonly] 
+**Owner** | [**OwnerDto**](OwnerDto.md) |  | [optional] 
+**Id** | **String** | Governance group ID. | [optional] [readonly] 
+**Name** | **String** | Governance group name. | [optional] 
+**Description** | **String** | Governance group description. | [optional] 
+**MemberCount** | **Int64** | Number of members in the governance group. | [optional] [readonly] 
+**ConnectionCount** | **Int64** | Number of connections in the governance group. | [optional] [readonly] 
 
 ## Examples
 

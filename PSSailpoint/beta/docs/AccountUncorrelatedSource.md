@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | 
-**Id** | **String** | ID of the object to which this reference applies | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Type** | **String** | The DTO type of the source the accounts are uncorrelated from. | 
+**Id** | **String** | The ID of the source the accounts are uncorrelated from. | 
+**Name** | **String** | Display name of the source the accounts are uncorrelated from. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $AccountUncorrelatedSource = Initialize-PSSailpointBetaAccountUncorrelatedSource  -Type SOURCE `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson
+ -Id 2c6180835d191a86015d28455b4b231b `
+ -Name Corporate Directory
 ```
 
 - Convert the resource to JSON

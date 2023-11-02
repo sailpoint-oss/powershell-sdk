@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The identity that was created.
+Created identity.
 
 .PARAMETER Type
-The type of object that is referenced
+Created identity's DTO type.
 .PARAMETER Id
-ID of the object to which this reference applies
+Created identity ID.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Created identity's display name.
 .OUTPUTS
 
 IdentityCreatedIdentity<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaIdentityCreatedIdentity {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

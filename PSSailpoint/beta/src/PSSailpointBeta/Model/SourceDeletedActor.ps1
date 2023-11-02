@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The identity that deleted the source.
+Identity who deleted the source.
 
 .PARAMETER Type
-The type of object that is referenced
+DTO type of identity who deleted the source.
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of identity who deleted the source.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Display name of identity who deleted the source.
 .OUTPUTS
 
 SourceDeletedActor<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaSourceDeletedActor {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

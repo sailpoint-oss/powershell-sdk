@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjectRefs** | [**TaggedObjectDto[]**](TaggedObjectDto.md) |  | [optional] 
-**Tags** | **String[]** | Label to be applied to an Object | [optional] 
+**Tags** | **String[]** | Label to be applied to object. | [optional] 
 **Operation** | **String** | If APPEND, tags are appended to the list of tags for the object. A 400 error is returned if this would add duplicate tags to the object.  If MERGE, tags are merged with the existing tags. Duplicate tags are silently ignored. | [optional] [default to "APPEND"]
 
 ## Examples

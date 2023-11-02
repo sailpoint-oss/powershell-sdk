@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | The time when this SOD policy schedule is modified. | [optional] [readonly] 
 **Description** | **String** | SOD Policy schedule description | [optional] 
 **Schedule** | [**Schedule1**](Schedule1.md) |  | [optional] 
-**Recipients** | [**BaseReferenceDto[]**](BaseReferenceDto.md) |  | [optional] 
+**Recipients** | [**SodRecipient[]**](SodRecipient.md) |  | [optional] 
 **EmailEmptyResults** | **Boolean** | Indicates if empty results need to be emailed | [optional] [default to $false]
 **CreatorId** | **String** | Policy&#39;s creator ID | [optional] [readonly] 
 **ModifierId** | **String** | Policy&#39;s modifier ID | [optional] [readonly] 

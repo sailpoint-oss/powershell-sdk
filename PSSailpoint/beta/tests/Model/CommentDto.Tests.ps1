@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaCommentDto' {
     Context 'BetaCommentDto' {
         It 'Initialize-BetaCommentDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaCommentDto -Comment "TEST_VALUE"
+            #$NewObject = Initialize-BetaCommentDto -Comment "TEST_VALUE" -Author "TEST_VALUE" -Created "TEST_VALUE"
             #$NewObject | Should -BeOfType CommentDto
             #$NewObject.property | Should -Be 0
         }

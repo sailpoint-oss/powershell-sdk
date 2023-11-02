@@ -12,26 +12,26 @@ No summary available.
 
 .DESCRIPTION
 
-Specification of a Service Desk integration
+Specification of a Service Desk integration.
 
 .PARAMETER Description
-Description of the Service Desk integration
+Description of the Service Desk integration.
 .PARAMETER Type
 Service Desk integration types  - ServiceNowSDIM - ServiceNow 
 .PARAMETER OwnerRef
-Reference to the identity that is the owner of this Service Desk integration
+No description available.
 .PARAMETER ClusterRef
-Reference to the source cluster for this Service Desk integration
+No description available.
 .PARAMETER Cluster
-ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
+ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
 .PARAMETER ManagedSources
-Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility)
+Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
 .PARAMETER ProvisioningConfig
 No description available.
 .PARAMETER Attributes
 Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
 .PARAMETER BeforeProvisioningRule
-Reference to beforeProvisioningRule for this Service Desk integration
+No description available.
 .OUTPUTS
 
 ServiceDeskIntegrationDtoAllOf<PSCustomObject>

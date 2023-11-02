@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **String** | Status of a violation report | [optional] 
+**Status** | **String** | Status of a SOD policy violation report. | [optional] 
 
 ## Examples
 

@@ -4,9 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Forwarded** | **Boolean** | True if the request for this item was forwarded from one owner to another. | [optional] 
-**OriginalOwner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
-**CurrentOwner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
-**ReviewedBy** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**OriginalOwner** | [**ApprovalStatusDtoOriginalOwner**](ApprovalStatusDtoOriginalOwner.md) |  | [optional] 
+**CurrentOwner** | [**AccessItemReviewedBy**](AccessItemReviewedBy.md) |  | [optional] 
 **Modified** | **System.DateTime** | Time at which item was modified. | [optional] 
 **Status** | [**ManualWorkItemState**](ManualWorkItemState.md) |  | [optional] 
 **Scheme** | [**ApprovalScheme**](ApprovalScheme.md) |  | [optional] 
@@ -21,7 +20,6 @@ Name | Type | Description | Notes
 $ApprovalStatusDto = Initialize-PSSailpointApprovalStatusDto  -Forwarded false `
  -OriginalOwner null `
  -CurrentOwner null `
- -ReviewedBy null `
  -Modified 2019-08-23T18:52:57.398Z `
  -Status null `
  -Scheme null `

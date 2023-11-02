@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**DtoType**](DtoType.md) |  | [optional] 
-**Id** | **String** | ID of the author | [optional] 
-**Name** | **String** | Human-readable display name of the identity making the comment | [optional] 
+**Type** | **String** | DTO type of the commenting identity. | [optional] 
+**Id** | **String** | ID of the commenting identity. | [optional] 
+**Name** | **String** | Display name of the commenting identity. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CommentDtoAuthor = Initialize-PSSailpointCommentDtoAuthor  -Type null `
+$CommentDtoAuthor = Initialize-PSSailpointCommentDtoAuthor  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Adam Kennedy
 ```

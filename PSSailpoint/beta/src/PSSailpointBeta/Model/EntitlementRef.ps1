@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Entitlement including a specific set of access.
 
-.PARAMETER Id
-The ID of the Entitlement
 .PARAMETER Type
-The type of the Entitlement, will always be ENTITLEMENT
+Entitlement's DTO type.
+.PARAMETER Id
+Entitlement's ID.
 .PARAMETER Name
-The display name of the Entitlement
+Entitlement's display name.
 .OUTPUTS
 
 EntitlementRef<PSCustomObject>
@@ -29,12 +29,12 @@ function Initialize-BetaEntitlementRef {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ENTITLEMENT")]
         [String]
         ${Type},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
@@ -46,8 +46,8 @@ function Initialize-BetaEntitlementRef {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "type" = ${Type}
+            "id" = ${Id}
             "name" = ${Name}
         }
 
@@ -86,23 +86,23 @@ function ConvertFrom-BetaJsonToEntitlementRef {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaEntitlementRef
-        $AllProperties = ("id", "type", "name")
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
             $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -112,8 +112,8 @@ function ConvertFrom-BetaJsonToEntitlementRef {
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "type" = ${Type}
+            "id" = ${Id}
             "name" = ${Name}
         }
 

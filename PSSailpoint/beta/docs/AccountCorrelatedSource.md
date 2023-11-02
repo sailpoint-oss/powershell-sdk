@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | ID of the object to which this reference applies | 
-**Type** | **String** | The type of object that is referenced | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Type** | **String** | The DTO type of the source the accounts are being correlated from. | 
+**Id** | **String** | The ID of the source the accounts are being correlated from. | 
+**Name** | **String** | Display name of the source the accounts are being correlated from. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccountCorrelatedSource = Initialize-PSSailpointBetaAccountCorrelatedSource  -Id 4e4d982dddff4267ab12f0f1e72b5a6d `
- -Type SOURCE `
- -Name Corporate Active Directory
+$AccountCorrelatedSource = Initialize-PSSailpointBetaAccountCorrelatedSource  -Type SOURCE `
+ -Id 2c9180835d191a86015d28455b4b232a `
+ -Name HR Active Directory
 ```
 
 - Convert the resource to JSON

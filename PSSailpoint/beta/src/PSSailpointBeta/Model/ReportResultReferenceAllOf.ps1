@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER Status
-No description available.
+Status of a SOD policy violation report.
 .OUTPUTS
 
 ReportResultReferenceAllOf<PSCustomObject>

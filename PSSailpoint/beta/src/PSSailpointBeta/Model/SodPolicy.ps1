@@ -15,39 +15,39 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-Policy id
+Policy ID.
 .PARAMETER Name
-Policy Business Name
+Policy business name.
 .PARAMETER Created
 The time when this SOD policy is created.
 .PARAMETER Modified
 The time when this SOD policy is modified.
 .PARAMETER Description
-Optional description of the SOD policy
+Optional description of the SOD policy.
 .PARAMETER OwnerRef
 No description available.
 .PARAMETER ExternalPolicyReference
-Optional External Policy Reference
+Optional external policy reference.
 .PARAMETER PolicyQuery
-Search query of the SOD policy
+Search query of the SOD policy.
 .PARAMETER CompensatingControls
-Optional compensating controls(Mitigating Controls)
+Optional compensating controls (Mitigating Controls).
 .PARAMETER CorrectionAdvice
-Optional correction advice
+Optional correction advice.
 .PARAMETER State
-whether the policy is enforced or not
+Whether the policy is enforced or not.
 .PARAMETER Tags
-tags for this policy object
+Tags for the policy object.
 .PARAMETER CreatorId
-Policy's creator ID
+Policy's creator ID.
 .PARAMETER ModifierId
-Policy's modifier ID
+Policy's modifier ID.
 .PARAMETER ViolationOwnerAssignmentConfig
 No description available.
 .PARAMETER Scheduled
-defines whether a policy has been scheduled or not
+Defines whether a policy has been scheduled or not.
 .PARAMETER Type
-whether a policy is query based or conflicting access based
+Whether a policy is query based or conflicting access based.
 .PARAMETER ConflictingAccessCriteria
 No description available.
 .OUTPUTS

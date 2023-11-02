@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to the identity who is the target of the provisioning request.
+Provisioning recpient.
 
 .PARAMETER Type
-The type of object that is referenced
+Provisioning recipient DTO type.
 .PARAMETER Id
-ID of the object to which this reference applies
+Provisioning recipient's identity ID.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Provisioning recipient's display name.
 .OUTPUTS
 
 ProvisioningCompletedRecipient<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaProvisioningCompletedRecipient {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

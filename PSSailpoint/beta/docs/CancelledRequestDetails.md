@@ -4,14 +4,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | **String** | Comment made by the owner when cancelling the associated request. | [optional] 
-**Owner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
-**Modified** | **System.DateTime** | Date comment was added by the owner when cancelling the associated request | [optional] 
+**Owner** | [**OwnerDto**](OwnerDto.md) |  | [optional] 
+**Modified** | **System.DateTime** | Date comment was added by the owner when cancelling the associated request. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CancelledRequestDetails = Initialize-PSSailpointBetaCancelledRequestDetails  -Comment Nisl quis ipsum quam quisque condimentum nunc ut dolor nunc. `
+$CancelledRequestDetails = Initialize-PSSailpointBetaCancelledRequestDetails  -Comment This request must be cancelled. `
  -Owner null `
  -Modified 2019-12-20T09:17:12.192Z
 ```

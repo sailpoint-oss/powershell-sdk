@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 <a name="Remove-BulkRoles"></a>
 # **Remove-BulkRoles**
-> BaseReferenceDto Remove-BulkRoles<br>
+> TaskResultDto Remove-BulkRoles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleBulkDeleteRequest] <PSCustomObject><br>
 
 Delete Role(s)
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
+[**TaskResultDto**](TaskResultDto.md) (PSCustomObject)
 
 ### Authorization
 

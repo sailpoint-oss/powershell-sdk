@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The identity whose account attributes changed.
+The identity whose account attributes were updated.
 
 .PARAMETER Type
-The type of object that is referenced
+DTO type of the identity whose account attributes were updated.
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of the identity whose account attributes were updated.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Display name of the identity whose account attributes were updated.
 .OUTPUTS
 
 AccountAttributesChangedIdentity<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaAccountAttributesChangedIdentity {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

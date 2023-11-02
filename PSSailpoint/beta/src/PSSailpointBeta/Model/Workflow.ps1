@@ -17,13 +17,13 @@ No description available.
 .PARAMETER Id
 Workflow ID. This is a UUID generated upon creation.
 .PARAMETER ExecutionCount
-The number of times this workflow has been executed
+The number of times this workflow has been executed.
 .PARAMETER FailureCount
-The number of times this workflow has failed during execution
+The number of times this workflow has failed during execution.
 .PARAMETER Created
-The date and time the workflow was created
+The date and time the workflow was created.
 .PARAMETER Creator
-The identity that created the workflow.
+No description available.
 .PARAMETER Name
 The name of the workflow
 .PARAMETER Owner

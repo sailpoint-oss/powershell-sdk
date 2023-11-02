@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Identity Profile exported object
+Identity profile exported object.
 
 .PARAMETER Version
 Version or object from the target service.

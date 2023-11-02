@@ -70,13 +70,13 @@ Name | Type | Description  | Notes
 
 <a name="Remove-LifecycleState"></a>
 # **Remove-LifecycleState**
-> BaseReferenceDto Remove-LifecycleState<br>
+> LifecyclestateDeleted Remove-LifecycleState<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LifecycleStateId] <String><br>
 
 Delete Lifecycle State by ID
 
-This endpoint deletes the Lifecycle State using it's ID. A token with API, or ORG_ADMIN authority is required to call this API.
+This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseReferenceDto**](BaseReferenceDto.md) (PSCustomObject)
+[**LifecyclestateDeleted**](LifecyclestateDeleted.md) (PSCustomObject)
 
 ### Authorization
 

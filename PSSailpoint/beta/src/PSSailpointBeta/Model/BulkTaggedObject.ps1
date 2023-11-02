@@ -17,7 +17,7 @@ No description available.
 .PARAMETER ObjectRefs
 No description available.
 .PARAMETER Tags
-Label to be applied to an Object
+Label to be applied to object.
 .PARAMETER Operation
 If APPEND, tags are appended to the list of tags for the object. A 400 error is returned if this would add duplicate tags to the object.  If MERGE, tags are merged with the existing tags. Duplicate tags are silently ignored.
 .OUTPUTS

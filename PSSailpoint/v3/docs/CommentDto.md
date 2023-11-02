@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** | **String** | Content of the comment | [optional] 
+**Comment** | **String** | Comment content. | [optional] 
 **Author** | [**CommentDtoAuthor**](CommentDtoAuthor.md) |  | [optional] 
-**Created** | **System.DateTime** | Date and time comment was created | [optional] 
+**Created** | **System.DateTime** | Date and time comment was created. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CommentDto = Initialize-PSSailpointCommentDto  -Comment Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat `
+$CommentDto = Initialize-PSSailpointCommentDto  -Comment This is a comment. `
  -Author null `
  -Created 2017-07-11T18:45:37.098Z
 ```

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **SourceSchemaObjectType** | **String** | Schema objectType on the given application that maps to an Account Group | [optional] 
 **Privileged** | **Boolean** | Determines if this Entitlement is privileged. | [optional] 
 **CloudGoverned** | **Boolean** | Determines if this Entitlement is goverened in the cloud. | [optional] 
-**Source** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Source** | [**EntitlementSource**](EntitlementSource.md) |  | [optional] 
 
 ## Examples
 

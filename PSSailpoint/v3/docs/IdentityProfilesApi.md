@@ -300,7 +300,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$IdentityProfileExportedObjectSelf = Initialize-IdentityProfileExportedObjectSelf -Type "ACCESS_PROFILE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
 
 $IdentityProfileAllOfOwner = Initialize-IdentityProfileAllOfOwner -Type "IDENTITY" -Id "2c9180835d191a86015d28455b4b232a" -Name "William Wilson"
 $IdentityProfileAllOfAuthoritativeSource = Initialize-IdentityProfileAllOfAuthoritativeSource -Type "SOURCE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
@@ -315,7 +315,7 @@ $IdentityAttributeConfig = Initialize-IdentityAttributeConfig -Enabled $true -At
 $IdentityExceptionReportReference = Initialize-IdentityExceptionReportReference -TaskResultId "2b838de9-db9b-abcf-e646-d4f274ad4238" -ReportName "My annual report"
 $IdentityProfile = Initialize-IdentityProfile -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "My custom flat file profile" -Owner $IdentityProfileAllOfOwner -Priority 10 -AuthoritativeSource $IdentityProfileAllOfAuthoritativeSource -IdentityRefreshRequired $true -IdentityCount 8 -IdentityAttributeConfig $IdentityAttributeConfig -IdentityExceptionReportReference $IdentityExceptionReportReference -HasTimeBasedAttr $true
 
-$IdentityProfileExportedObject = Initialize-IdentityProfileExportedObject -Version 1 -Self $BaseReferenceDto -Object $IdentityProfile # IdentityProfileExportedObject[] | Previously exported Identity Profiles.
+$IdentityProfileExportedObject = Initialize-IdentityProfileExportedObject -Version 1 -Self $IdentityProfileExportedObjectSelf -Object $IdentityProfile # IdentityProfileExportedObject[] | Previously exported Identity Profiles.
 
 # Import Identity Profiles
 try {

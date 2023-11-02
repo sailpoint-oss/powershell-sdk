@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The identity or system that performed the update.
+Identity who updated the source.
 
 .PARAMETER Type
-The type of object that is referenced
+DTO type of identity who updated the source.
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of identity who updated the source.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Display name of identity who updated the source.
 .OUTPUTS
 
 SourceUpdatedActor<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaSourceUpdatedActor {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

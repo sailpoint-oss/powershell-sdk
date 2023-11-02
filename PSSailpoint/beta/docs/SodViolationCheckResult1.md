@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Message** | [**ErrorMessageDto**](ErrorMessageDto.md) |  | [optional] 
 **ClientMetadata** | **System.Collections.Hashtable** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
 **ViolationContexts** | [**SodViolationContext1[]**](SodViolationContext1.md) |  | [optional] 
-**ViolatedPolicies** | [**BaseReferenceDto1[]**](BaseReferenceDto1.md) | A list of the Policies that were violated | [optional] 
+**ViolatedPolicies** | [**SodPolicyDto[]**](SodPolicyDto.md) | A list of the Policies that were violated. | [optional] 
 
 ## Examples
 

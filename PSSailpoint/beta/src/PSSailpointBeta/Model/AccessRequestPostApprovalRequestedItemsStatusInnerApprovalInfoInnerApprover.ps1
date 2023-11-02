@@ -17,9 +17,9 @@ The identity of the approver.
 .PARAMETER Type
 The type of object that is referenced
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of identity who approved the access item request.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Human-readable display name of identity who approved the access item request.
 .OUTPUTS
 
 AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover<PSCustomObject>

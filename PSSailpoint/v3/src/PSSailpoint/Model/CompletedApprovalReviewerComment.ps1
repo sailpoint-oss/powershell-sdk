@@ -15,11 +15,11 @@ No summary available.
 The approval's reviewer's comment.
 
 .PARAMETER Comment
-Content of the comment
+Comment content.
 .PARAMETER Author
 No description available.
 .PARAMETER Created
-Date and time comment was created
+Date and time comment was created.
 .OUTPUTS
 
 CompletedApprovalReviewerComment<PSCustomObject>

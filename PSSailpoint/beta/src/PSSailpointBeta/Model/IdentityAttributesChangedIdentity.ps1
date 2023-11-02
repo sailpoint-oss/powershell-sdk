@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The identity who's attributes changed.
+Identity whose attributes changed.
 
 .PARAMETER Type
-The type of object that is referenced
+DTO type of identity whose attributes changed.
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of identity whose attributes changed.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Display name of identity whose attributes changed.
 .OUTPUTS
 
 IdentityAttributesChangedIdentity<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaIdentityAttributesChangedIdentity {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

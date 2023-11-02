@@ -20,8 +20,6 @@ True if the request for this item was forwarded from one owner to another.
 No description available.
 .PARAMETER CurrentOwner
 No description available.
-.PARAMETER ReviewedBy
-No description available.
 .PARAMETER Modified
 Time at which item was modified.
 .PARAMETER Status
@@ -52,26 +50,23 @@ function Initialize-ApprovalStatusDto {
         [PSCustomObject]
         ${CurrentOwner},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${ReviewedBy},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PENDING", "APPROVED", "REJECTED", "EXPIRED", "CANCELLED", "ARCHIVED")]
         [PSCustomObject]
         ${Status},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APP_OWNER", "SOURCE_OWNER", "MANAGER", "ROLE_OWNER", "ACCESS_PROFILE_OWNER", "ENTITLEMENT_OWNER", "GOVERNANCE_GROUP")]
         [PSCustomObject]
         ${Scheme},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ErrorMessages},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${RemoveDate}
     )
@@ -85,7 +80,6 @@ function Initialize-ApprovalStatusDto {
             "forwarded" = ${Forwarded}
             "originalOwner" = ${OriginalOwner}
             "currentOwner" = ${CurrentOwner}
-            "reviewedBy" = ${ReviewedBy}
             "modified" = ${Modified}
             "status" = ${Status}
             "scheme" = ${Scheme}
@@ -129,7 +123,7 @@ function ConvertFrom-JsonToApprovalStatusDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ApprovalStatusDto
-        $AllProperties = ("forwarded", "originalOwner", "currentOwner", "reviewedBy", "modified", "status", "scheme", "errorMessages", "comment", "removeDate")
+        $AllProperties = ("forwarded", "originalOwner", "currentOwner", "modified", "status", "scheme", "errorMessages", "comment", "removeDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -152,12 +146,6 @@ function ConvertFrom-JsonToApprovalStatusDto {
             $CurrentOwner = $null
         } else {
             $CurrentOwner = $JsonParameters.PSobject.Properties["currentOwner"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reviewedBy"))) { #optional property not found
-            $ReviewedBy = $null
-        } else {
-            $ReviewedBy = $JsonParameters.PSobject.Properties["reviewedBy"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
@@ -200,7 +188,6 @@ function ConvertFrom-JsonToApprovalStatusDto {
             "forwarded" = ${Forwarded}
             "originalOwner" = ${OriginalOwner}
             "currentOwner" = ${CurrentOwner}
-            "reviewedBy" = ${ReviewedBy}
             "modified" = ${Modified}
             "status" = ${Status}
             "scheme" = ${Scheme}

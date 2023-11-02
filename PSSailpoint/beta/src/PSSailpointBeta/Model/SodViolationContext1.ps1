@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-The contextual information of the violated criteria
+The contextual information of the violated criteria.
 
 .PARAMETER Policy
 No description available.

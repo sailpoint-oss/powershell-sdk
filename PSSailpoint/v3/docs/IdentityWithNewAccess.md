@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IdentityId** | **String** | Identity id to be checked. | 
-**AccessRefs** | [**IdentityWithNewAccessAccessRefsInner[]**](IdentityWithNewAccessAccessRefsInner.md) | The list of ENTITLEMENTs to consider for calculating possible violations in a preventive check. | 
+**AccessRefs** | [**IdentityWithNewAccessAccessRefsInner[]**](IdentityWithNewAccessAccessRefsInner.md) | The list of entitlements to consider for possible violations in a preventive check. | 
 
 ## Examples
 

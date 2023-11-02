@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-The type of object being referenced
+DTO type of source for service desk integration template.
 .PARAMETER Id
-ID of the source
+ID of source for service desk integration template.
 .PARAMETER Name
-Human-readable display name of the source
+Human-readable name of source for service desk integration template.
 .OUTPUTS
 
 ProvisioningConfigManagedResourceRefsInner<PSCustomObject>
@@ -30,13 +30,13 @@ function Initialize-ProvisioningConfigManagedResourceRefsInner {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Name}
     )
 

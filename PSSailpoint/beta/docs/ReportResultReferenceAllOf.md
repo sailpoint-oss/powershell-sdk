@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **String** |  | [optional] 
+**Status** | **String** | Status of a SOD policy violation report. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ReportResultReferenceAllOf = Initialize-PSSailpointBetaReportResultReferenceAllOf  -Status null
+$ReportResultReferenceAllOf = Initialize-PSSailpointBetaReportResultReferenceAllOf  -Status PENDING
 ```
 
 - Convert the resource to JSON

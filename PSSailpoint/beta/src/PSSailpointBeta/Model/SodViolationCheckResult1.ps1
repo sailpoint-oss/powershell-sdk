@@ -21,7 +21,7 @@ Arbitrary key-value pairs. They will never be processed by the IdentityNow syste
 .PARAMETER ViolationContexts
 No description available.
 .PARAMETER ViolatedPolicies
-A list of the Policies that were violated
+A list of the Policies that were violated.
 .OUTPUTS
 
 SodViolationCheckResult1<PSCustomObject>

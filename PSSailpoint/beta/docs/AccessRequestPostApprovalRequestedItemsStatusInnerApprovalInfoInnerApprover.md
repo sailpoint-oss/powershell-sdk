@@ -4,16 +4,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | 
-**Id** | **String** | ID of the object to which this reference applies | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Id** | **String** | ID of identity who approved the access item request. | 
+**Name** | **String** | Human-readable display name of identity who approved the access item request. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover = Initialize-PSSailpointBetaAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover  -Type IDENTITY `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson
+ -Id 2c3780a46faadee4016fb4e018c20652 `
+ -Name Allen Albertson
 ```
 
 - Convert the resource to JSON

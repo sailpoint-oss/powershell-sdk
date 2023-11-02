@@ -27,7 +27,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityWithNewAccessAccessRefsInner = Initialize-IdentityWithNewAccessAccessRefsInner -Type "ENTITLEMENT" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
+$IdentityWithNewAccessAccessRefsInner = Initialize-IdentityWithNewAccessAccessRefsInner -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
 $IdentityWithNewAccess = Initialize-IdentityWithNewAccess -IdentityId "2c91808568c529c60168cca6f90c1313" -AccessRefs $IdentityWithNewAccessAccessRefsInner # IdentityWithNewAccess | 
 
 # Predict SOD violations for identity.
@@ -79,8 +79,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$BaseReferenceDto = Initialize-BaseReferenceDto -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$IdentityWithNewAccess1 = Initialize-IdentityWithNewAccess1 -IdentityId "2c91809050db617d0150e0bf3215385e" -AccessRefs $BaseReferenceDto -ClientMetadata @{ key_example = "MyInner" } # IdentityWithNewAccess1 | 
+$IdentityWithNewAccess1AccessRefsInner = Initialize-IdentityWithNewAccess1AccessRefsInner -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
+$IdentityWithNewAccess1 = Initialize-IdentityWithNewAccess1 -IdentityId "2c91809050db617d0150e0bf3215385e" -AccessRefs $IdentityWithNewAccess1AccessRefsInner -ClientMetadata @{ key_example = "MyInner" } # IdentityWithNewAccess1 | 
 
 # Check SOD violations
 try {

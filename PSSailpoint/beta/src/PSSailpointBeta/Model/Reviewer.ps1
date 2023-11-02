@@ -15,13 +15,13 @@ No summary available.
 Details of the reviewer for certification.
 
 .PARAMETER Type
-The type of object that the reviewer is.
-.PARAMETER Email
-The email of the reviewing identity. Only applicable to `IDENTITY`
+The reviewer's DTO type.
 .PARAMETER Id
-ID of the object to which this reference applies
+The reviewer's ID.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+The reviewer's display name.
+.PARAMETER Email
+The reviewing identity's email. Only applicable to `IDENTITY`.
 .OUTPUTS
 
 Reviewer<PSCustomObject>
@@ -32,17 +32,17 @@ function Initialize-BetaReviewer {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY", "GOVERNANCE_GROUP")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Email},
+        ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
+        ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name}
+        ${Email}
     )
 
     Process {
@@ -64,9 +64,9 @@ function Initialize-BetaReviewer {
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
-            "email" = ${Email}
             "id" = ${Id}
             "name" = ${Name}
+            "email" = ${Email}
         }
 
 
@@ -104,7 +104,7 @@ function ConvertFrom-BetaJsonToReviewer {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaReviewer
-        $AllProperties = ("type", "email", "id", "name")
+        $AllProperties = ("type", "id", "name", "email")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -141,9 +141,9 @@ function ConvertFrom-BetaJsonToReviewer {
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
-            "email" = ${Email}
             "id" = ${Id}
             "name" = ${Name}
+            "email" = ${Email}
         }
 
         return $PSO

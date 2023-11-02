@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policy** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Policy** | [**SodPolicyDto**](SodPolicyDto.md) |  | [optional] 
 **ConflictingAccessCriteria** | [**SodViolationContextConflictingAccessCriteria**](SodViolationContextConflictingAccessCriteria.md) |  | [optional] 
 
 ## Examples

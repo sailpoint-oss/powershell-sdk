@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaReviewer' {
     Context 'BetaReviewer' {
         It 'Initialize-BetaReviewer' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaReviewer -Type "TEST_VALUE" -Email "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE"
+            #$NewObject = Initialize-BetaReviewer -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Email "TEST_VALUE"
             #$NewObject | Should -BeOfType Reviewer
             #$NewObject.property | Should -Be 0
         }

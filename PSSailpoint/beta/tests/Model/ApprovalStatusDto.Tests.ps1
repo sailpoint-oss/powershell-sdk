@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaApprovalStatusDto' {
     Context 'BetaApprovalStatusDto' {
         It 'Initialize-BetaApprovalStatusDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaApprovalStatusDto -Forwarded "TEST_VALUE" -OriginalOwner "TEST_VALUE" -CurrentOwner "TEST_VALUE" -ReviewedBy "TEST_VALUE" -Modified "TEST_VALUE" -Status "TEST_VALUE" -Scheme "TEST_VALUE" -ErrorMessages "TEST_VALUE" -Comment "TEST_VALUE" -RemoveDate "TEST_VALUE"
+            #$NewObject = Initialize-BetaApprovalStatusDto -Forwarded "TEST_VALUE" -OriginalOwner "TEST_VALUE" -CurrentOwner "TEST_VALUE" -Modified "TEST_VALUE" -Status "TEST_VALUE" -Scheme "TEST_VALUE" -ErrorMessages "TEST_VALUE" -Comment "TEST_VALUE" -RemoveDate "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalStatusDto
             #$NewObject.property | Should -Be 0
         }

@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The identity that the account uncorrelated with.
+Identity the account is uncorrelated with.
 
 .PARAMETER Type
-The type of object that is referenced
+DTO type of the identity the account is uncorrelated with.
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of the identity the account is uncorrelated with.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Display name of the identity the account is uncorrelated with.
 .OUTPUTS
 
 AccountUncorrelatedIdentity<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaAccountUncorrelatedIdentity {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

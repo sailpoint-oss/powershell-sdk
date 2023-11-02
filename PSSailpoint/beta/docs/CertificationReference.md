@@ -3,18 +3,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that the reviewer is. | [optional] 
-**Id** | **String** | ID of the object to which this reference applies | [optional] 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
+**Type** | **String** | DTO type of certification for review. | [optional] 
+**Id** | **String** | ID of certification for review. | [optional] 
+**Name** | **String** | Display name of certification for review. | [optional] 
 **Reviewer** | [**Reviewer**](Reviewer.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CertificationReference = Initialize-PSSailpointBetaCertificationReference  -Type CERTIFICATION `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson `
+$CertificationReference = Initialize-PSSailpointBetaCertificationReference  -Type IDENTITY `
+ -Id 7589a83cec4b4f138ce56c1a5ef0756d `
+ -Name Manager Access for Michael Michaels `
  -Reviewer null
 ```
 

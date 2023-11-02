@@ -15,7 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Comment
+Comment content.
+.PARAMETER Author
 No description available.
+.PARAMETER Created
+Date and time comment was created.
 .OUTPUTS
 
 CommentDto<PSCustomObject>
@@ -26,7 +30,13 @@ function Initialize-BetaCommentDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Comment}
+        ${Comment},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Author},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Created}
     )
 
     Process {
@@ -36,6 +46,8 @@ function Initialize-BetaCommentDto {
 
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
+            "author" = ${Author}
+            "created" = ${Created}
         }
 
 
@@ -73,7 +85,7 @@ function ConvertFrom-BetaJsonToCommentDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCommentDto
-        $AllProperties = ("comment")
+        $AllProperties = ("comment", "author", "created")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -86,8 +98,22 @@ function ConvertFrom-BetaJsonToCommentDto {
             $Comment = $JsonParameters.PSobject.Properties["comment"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "author"))) { #optional property not found
+            $Author = $null
+        } else {
+            $Author = $JsonParameters.PSobject.Properties["author"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
+            "author" = ${Author}
+            "created" = ${Created}
         }
 
         return $PSO

@@ -19,7 +19,7 @@ Comment made by the owner when cancelling the associated request.
 .PARAMETER Owner
 No description available.
 .PARAMETER Modified
-Date comment was added by the owner when cancelling the associated request
+Date comment was added by the owner when cancelling the associated request.
 .OUTPUTS
 
 CancelledRequestDetails<PSCustomObject>

@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | 
-**Id** | **String** | ID of the object to which this reference applies | 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | 
+**Type** | **String** | The DTO type of the source the accounts are being aggregated from. | 
+**Id** | **String** | The ID of the source the accounts are being aggregated from. | 
+**Name** | **String** | Display name of the source the accounts are being aggregated from. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $AccountAggregationCompletedSource = Initialize-PSSailpointBetaAccountAggregationCompletedSource  -Type SOURCE `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson
+ -Id 2c9180835d191a86015d28455b4b232a `
+ -Name HR Active Directory
 ```
 
 - Convert the resource to JSON

@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of object that is referenced | [optional] 
-**Id** | **String** | ID of the object to which this reference applies | [optional] 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
+**Type** | **String** | Entitlement&#39;s DTO type. | [optional] 
+**Id** | **String** | Entitlement&#39;s ID. | [optional] 
+**Name** | **String** | Entitlement&#39;s display name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $IdentityWithNewAccessAccessRefsInner = Initialize-PSSailpointBetaIdentityWithNewAccessAccessRefsInner  -Type ENTITLEMENT `
- -Id 2c91808568c529c60168cca6f90c1313 `
- -Name William Wilson
+ -Id 2c91809773dee32014e13e122092014e `
+ -Name CN&#x3D;entitlement.490efde5,OU&#x3D;OrgCo,OU&#x3D;ServiceDept,DC&#x3D;HQAD,DC&#x3D;local
 ```
 
 - Convert the resource to JSON

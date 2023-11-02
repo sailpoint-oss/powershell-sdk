@@ -17,7 +17,7 @@ The types of objects supported for SOD violations
 .PARAMETER Type
 The type of object that is referenced
 .PARAMETER Id
-ID of the object to which this reference applies
+SOD policy ID.
 .PARAMETER Name
 No description available.
 .OUTPUTS

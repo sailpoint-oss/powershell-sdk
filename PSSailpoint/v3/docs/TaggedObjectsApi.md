@@ -320,8 +320,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
-$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObjectDto -Tags "MyTags" # TaggedObject | 
+$TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObject -Tags "MyTags" # TaggedObject | 
 
 # Update Tagged Object
 try {
@@ -374,8 +373,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObjectDto -Tags "MyTags" # TaggedObject | 
+$TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObject -Tags "MyTags" # TaggedObject | 
 
 # Add Tag to Object
 try {

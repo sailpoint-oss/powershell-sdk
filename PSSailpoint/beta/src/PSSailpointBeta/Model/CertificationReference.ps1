@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The previous certification
+Previous certification.
 
 .PARAMETER Type
-The type of object that the reviewer is.
+DTO type of certification for review.
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of certification for review.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Display name of certification for review.
 .PARAMETER Reviewer
 No description available.
 .OUTPUTS
@@ -32,7 +32,7 @@ function Initialize-BetaCertificationReference {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CERTIFICATION")]
-        [PSCustomObject]
+        [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]

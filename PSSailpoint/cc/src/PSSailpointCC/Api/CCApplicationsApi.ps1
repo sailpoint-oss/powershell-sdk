@@ -405,7 +405,7 @@ function Update-CCApplication {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Collections.Hashtable]
+        [PSCustomObject]
         ${RequestBody},
         [Switch]
         $WithHttpInfo

@@ -77,14 +77,12 @@ function Invoke-BetaApiClient {
     $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.1.3/ps"
 
 
-    [string]$MultiPartBoundary = $null
+    $HasFormData = $False
     $ContentType= SelectHeaders -Headers $ContentTypes
     if ($ContentType) {
         $HeaderParameters['Content-Type'] = $ContentType
         if ($ContentType -eq 'multipart/form-data') {
-            [string]$MultiPartBoundary = [System.Guid]::NewGuid()
-            $MultiPartBoundary = "---------------------------$MultiPartBoundary"
-            $HeaderParameters['Content-Type'] = "$ContentType; boundary=$MultiPartBoundary"
+            $HasFormData = $True
         }
     }
 
@@ -110,27 +108,30 @@ function Invoke-BetaApiClient {
 
     # include form parameters in the request body
     if ($FormParameters -and $FormParameters.Count -gt 0) {
-        if (![string]::IsNullOrEmpty($MultiPartBoundary)) {
-            $RequestBody = ""
-            $LF = "`r`n"
+        if ($HasFormData) {
+            $multipartContent = [System.Net.Http.MultipartFormDataContent]::new()
+
             $FormParameters.Keys | ForEach-Object {
                 $value = $FormParameters[$_]
                 $isFile = $value.GetType().FullName -eq "System.IO.FileInfo"
-
-                $RequestBody += "--$MultiPartBoundary$LF"
-                $RequestBody += "Content-Disposition: form-data; name=`"$_`""
-                if ($isFile) {
-                    $fileName = $value.Name
-                    $RequestBody += "; filename=`"$fileName`"$LF"
-                    $RequestBody += "Content-Type: application/octet-stream$LF$LF"
-                    $RequestBody += Get-Content -Path $value.FullName
+                if($isFile) {
+                    $FileStream = [System.IO.FileStream]::new($value.FullName, [System.IO.FileMode]::Open)
+                    $fileHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
+                    $fileHeader.Name = $_
+                    $fileHeader.FileName = $value.Name
+                    $fileContent = [System.Net.Http.StreamContent]::new($FileStream)
+                    $fileContent.Headers.ContentDisposition = $fileHeader
+                    $multipartContent.Add($fileContent)
                 } else {
-                    $RequestBody += "$LF$LF"
-                    $RequestBody += ([string]$value)
+                    $stringHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
+                    $stringHeader.Name = $_
+                    $stringContent = [System.Net.Http.StringContent]::new([string]$value)
+                    $stringContent.Headers.ContentDisposition = $stringHeader
+                    $multipartContent.Add($stringContent)
                 }
-                $RequestBody += "$LF--$MultiPartBoundary"
             }
-            $RequestBody += "--"
+
+            $RequestBody = $multipartContent
         } else {
             $RequestBody = $FormParameters
         }

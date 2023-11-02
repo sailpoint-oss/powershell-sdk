@@ -115,8 +115,7 @@ function Invoke-CCApiClient {
                 $value = $FormParameters[$_]
                 $isFile = $value.GetType().FullName -eq "System.IO.FileInfo"
                 if($isFile) {
-                    $multipartFile = '/Users/tyler.mairose/development/powershell-sdk/File.csv'
-                    $FileStream = [System.IO.FileStream]::new($multipartFile, [System.IO.FileMode]::Open)
+                    $FileStream = [System.IO.FileStream]::new($value.FullName, [System.IO.FileMode]::Open)
                     $fileHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
                     $fileHeader.Name = $_
                     $fileHeader.FileName = $value.Name

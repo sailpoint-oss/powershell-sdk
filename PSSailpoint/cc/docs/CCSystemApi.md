@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="Invoke-CCRefreshIdentities"></a>
 # **Invoke-CCRefreshIdentities**
-> void Invoke-CCRefreshIdentities<br>
+> System.Collections.Hashtable Invoke-CCRefreshIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ContentType] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RefreshIdentitiesRequest] <PSCustomObject><br>
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**System.Collections.Hashtable**](AnyType.md) (PSCustomObject)
 
 ### Authorization
 

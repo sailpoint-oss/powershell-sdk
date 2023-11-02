@@ -66,6 +66,7 @@ Class | Method | HTTP request | Description
 *CCConnectorsApi* | [**Get-CCConnectors**](docs/CCConnectorsApi.md#Get-CCConnectors) | **GET** /cc/api/connector/list | List Connectors
 *CCSourcesAccountsApi* | [**Export-CCAccountFeed**](docs/CCSourcesAccountsApi.md#Export-CCAccountFeed) | **GET** /cc/api/source/exportAccountFeed/{id} | Export Account Feed
 *CCSourcesAggregationApi* | [**Invoke-CCLoadAccounts**](docs/CCSourcesAggregationApi.md#Invoke-CCLoadAccounts) | **POST** /cc/api/source/loadAccounts/{id} | Account Aggregation (File)
+*CCSourcesAggregationApi* | [**Invoke-CCLoadEntitlements**](docs/CCSourcesAggregationApi.md#Invoke-CCLoadEntitlements) | **POST** /cc/api/source/loadEntitlements/{id} | Account Aggregation (File)
 *CCSystemApi* | [**Invoke-CCRefreshIdentities**](docs/CCSystemApi.md#Invoke-CCRefreshIdentities) | **POST** /cc/api/system/refreshIdentities | Refresh Identities
 *CCUserApi* | [**Get-CCIdentity**](docs/CCUserApi.md#Get-CCIdentity) | **GET** /cc/api/user/get/{id} | Get Single Identity
 *CCUserApi* | [**Update-CCUserPermissions**](docs/CCUserApi.md#Update-CCUserPermissions) | **POST** /cc/api/user/updatePermissions | Update User Permissions
@@ -89,9 +90,9 @@ Class | Method | HTTP request | Description
  - [PSSailpointCC/Model.ListConnectors200Response](docs/ListConnectors200Response.md)
  - [PSSailpointCC/Model.ListConnectors200ResponseItemsInner](docs/ListConnectors200ResponseItemsInner.md)
  - [PSSailpointCC/Model.LoadAccountsRequest](docs/LoadAccountsRequest.md)
+ - [PSSailpointCC/Model.LoadEntitlementsRequest](docs/LoadEntitlementsRequest.md)
  - [PSSailpointCC/Model.RefreshIdentitiesRequest](docs/RefreshIdentitiesRequest.md)
  - [PSSailpointCC/Model.RefreshIdentitiesRequestRefreshArgs](docs/RefreshIdentitiesRequestRefreshArgs.md)
- - [PSSailpointCC/Model.UpdateApplicationRequest](docs/UpdateApplicationRequest.md)
  - [PSSailpointCC/Model.UpdateUserPermissionsRequest](docs/UpdateUserPermissionsRequest.md)
 
 

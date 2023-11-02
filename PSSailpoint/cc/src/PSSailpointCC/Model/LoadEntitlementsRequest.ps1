@@ -14,28 +14,28 @@ No summary available.
 
 No description available.
 
-.PARAMETER Description
+.PARAMETER File
 No description available.
 .OUTPUTS
 
-UpdateApplicationRequest<PSCustomObject>
+LoadEntitlementsRequest<PSCustomObject>
 #>
 
-function Initialize-CCUpdateApplicationRequest {
+function Initialize-CCLoadEntitlementsRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Description}
+        [System.IO.FileInfo]
+        ${File}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointCC => CCUpdateApplicationRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointCC => CCLoadEntitlementsRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "description" = ${Description}
+            "file" = ${File}
         }
 
 
@@ -46,11 +46,11 @@ function Initialize-CCUpdateApplicationRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to UpdateApplicationRequest<PSCustomObject>
+Convert from JSON to LoadEntitlementsRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to UpdateApplicationRequest<PSCustomObject>
+Convert from JSON to LoadEntitlementsRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -58,36 +58,36 @@ Json object
 
 .OUTPUTS
 
-UpdateApplicationRequest<PSCustomObject>
+LoadEntitlementsRequest<PSCustomObject>
 #>
-function ConvertFrom-CCJsonToUpdateApplicationRequest {
+function ConvertFrom-CCJsonToLoadEntitlementsRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointCC => CCUpdateApplicationRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointCC => CCLoadEntitlementsRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in CCUpdateApplicationRequest
-        $AllProperties = ("description")
+        # check if Json contains properties not defined in CCLoadEntitlementsRequest
+        $AllProperties = ("file")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "file"))) { #optional property not found
+            $File = $null
         } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
+            $File = $JsonParameters.PSobject.Properties["file"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "description" = ${Description}
+            "file" = ${File}
         }
 
         return $PSO

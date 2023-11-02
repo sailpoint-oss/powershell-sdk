@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-None
+System.Collections.Hashtable
 #>
 function Invoke-CCRefreshIdentities {
     [CmdletBinding()]
@@ -90,7 +90,7 @@ function Invoke-CCRefreshIdentities {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "" `
+                                -ReturnType "System.Collections.Hashtable" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

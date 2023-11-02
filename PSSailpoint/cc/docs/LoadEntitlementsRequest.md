@@ -1,20 +1,20 @@
-# UpdateApplicationRequest
+# LoadEntitlementsRequest
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | **String** |  | [optional] 
+**File** | **System.IO.FileInfo** |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$UpdateApplicationRequest = Initialize-PSSailpointCCUpdateApplicationRequest  -Description null
+$LoadEntitlementsRequest = Initialize-PSSailpointCCLoadEntitlementsRequest  -File null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$UpdateApplicationRequest | ConvertTo-JSON
+$LoadEntitlementsRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

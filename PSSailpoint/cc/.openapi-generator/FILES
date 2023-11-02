@@ -25,9 +25,9 @@ docs/ListApplications200ResponseInnerOwner.md
 docs/ListConnectors200Response.md
 docs/ListConnectors200ResponseItemsInner.md
 docs/LoadAccountsRequest.md
+docs/LoadEntitlementsRequest.md
 docs/RefreshIdentitiesRequest.md
 docs/RefreshIdentitiesRequestRefreshArgs.md
-docs/UpdateApplicationRequest.md
 docs/UpdateUserPermissionsRequest.md
 src/PSSailpointCC/Api/CCAccountsApi.ps1
 src/PSSailpointCC/Api/CCApplicationsApi.ps1
@@ -53,9 +53,9 @@ src/PSSailpointCC/Model/ListApplications200ResponseInnerOwner.ps1
 src/PSSailpointCC/Model/ListConnectors200Response.ps1
 src/PSSailpointCC/Model/ListConnectors200ResponseItemsInner.ps1
 src/PSSailpointCC/Model/LoadAccountsRequest.ps1
+src/PSSailpointCC/Model/LoadEntitlementsRequest.ps1
 src/PSSailpointCC/Model/RefreshIdentitiesRequest.ps1
 src/PSSailpointCC/Model/RefreshIdentitiesRequestRefreshArgs.ps1
-src/PSSailpointCC/Model/UpdateApplicationRequest.ps1
 src/PSSailpointCC/Model/UpdateUserPermissionsRequest.ps1
 src/PSSailpointCC/PSSailpointCC.psm1
 src/PSSailpointCC/Private/CCApiClient.ps1
@@ -87,7 +87,7 @@ tests/Model/ListApplications200ResponseInnerOwner.Tests.ps1
 tests/Model/ListConnectors200Response.Tests.ps1
 tests/Model/ListConnectors200ResponseItemsInner.Tests.ps1
 tests/Model/LoadAccountsRequest.Tests.ps1
+tests/Model/LoadEntitlementsRequest.Tests.ps1
 tests/Model/RefreshIdentitiesRequest.Tests.ps1
 tests/Model/RefreshIdentitiesRequestRefreshArgs.Tests.ps1
-tests/Model/UpdateApplicationRequest.Tests.ps1
 tests/Model/UpdateUserPermissionsRequest.Tests.ps1

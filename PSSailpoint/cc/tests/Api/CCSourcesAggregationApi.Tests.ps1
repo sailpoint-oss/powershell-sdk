@@ -14,4 +14,12 @@ Describe -tag 'PSSailpointCC' -name 'CCCCSourcesAggregationApi' {
         }
     }
 
+    Context 'Invoke-CCLoadEntitlements' {
+        It 'Test Invoke-CCLoadEntitlements' {
+            #$TestResult = Invoke-CCLoadEntitlements -Id "TEST_VALUE" -ContentType "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

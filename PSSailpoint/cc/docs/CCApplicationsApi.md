@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="New-CCApplication"></a>
 # **New-CCApplication**
-> void New-CCApplication<br>
+> System.Collections.Hashtable New-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateApplicationRequest] <PSCustomObject><br>
 
 Create Application
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**System.Collections.Hashtable**](AnyType.md) (PSCustomObject)
 
 ### Authorization
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 <a name="Get-CCApplicationAccessProfiles"></a>
 # **Get-CCApplicationAccessProfiles**
-> void Get-CCApplicationAccessProfiles<br>
+> System.Collections.Hashtable Get-CCApplicationAccessProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Access Profiles for Application
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**System.Collections.Hashtable**](AnyType.md) (PSCustomObject)
 
 ### Authorization
 
@@ -246,9 +246,9 @@ This endpoint does not need any parameter.
 
 <a name="Update-CCApplication"></a>
 # **Update-CCApplication**
-> void Update-CCApplication<br>
+> System.Collections.Hashtable Update-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UpdateApplicationRequest] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <System.Collections.Hashtable><br>
 
 Update Application
 
@@ -263,11 +263,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "12345" # String | 
-$UpdateApplicationRequest = Initialize-UpdateApplicationRequest -Description "MyDescription" # UpdateApplicationRequest |  (optional)
+$RequestBody = @{ key_example =  } # System.Collections.Hashtable |  (optional)
 
 # Update Application
 try {
-    $Result = Update-CCApplication -Id $Id -UpdateApplicationRequest $UpdateApplicationRequest
+    $Result = Update-CCApplication -Id $Id -RequestBody $RequestBody
 } catch {
     Write-Host ("Exception occurred when calling Update-CCApplication: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -279,11 +279,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**|  | 
- **UpdateApplicationRequest** | [**UpdateApplicationRequest**](UpdateApplicationRequest.md)|  | [optional] 
+ **RequestBody** | [**System.Collections.Hashtable**](AnyType.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**System.Collections.Hashtable**](AnyType.md) (PSCustomObject)
 
 ### Authorization
 

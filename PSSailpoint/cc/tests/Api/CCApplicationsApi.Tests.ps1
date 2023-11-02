@@ -48,7 +48,7 @@ Describe -tag 'PSSailpointCC' -name 'CCCCApplicationsApi' {
 
     Context 'Update-CCApplication' {
         It 'Test Update-CCApplication' {
-            #$TestResult = Update-CCApplication -Id "TEST_VALUE" -UpdateApplicationRequest "TEST_VALUE"
+            #$TestResult = Update-CCApplication -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

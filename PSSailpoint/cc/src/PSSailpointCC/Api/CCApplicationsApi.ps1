@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-None
+System.Collections.Hashtable
 #>
 function New-CCApplication {
     [CmdletBinding()]
@@ -80,7 +80,7 @@ function New-CCApplication {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "" `
+                                -ReturnType "System.Collections.Hashtable" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -257,7 +257,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-None
+System.Collections.Hashtable
 #>
 function Get-CCApplicationAccessProfiles {
     [CmdletBinding()]
@@ -300,7 +300,7 @@ function Get-CCApplicationAccessProfiles {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "" `
+                                -ReturnType "System.Collections.Hashtable" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -387,7 +387,7 @@ No description or notes available.
 .PARAMETER Id
 No description available.
 
-.PARAMETER UpdateApplicationRequest
+.PARAMETER RequestBody
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -396,7 +396,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-None
+System.Collections.Hashtable
 #>
 function Update-CCApplication {
     [CmdletBinding()]
@@ -405,8 +405,8 @@ function Update-CCApplication {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${UpdateApplicationRequest},
+        [System.Collections.Hashtable]
+        ${RequestBody},
         [Switch]
         $WithHttpInfo
     )
@@ -437,9 +437,9 @@ function Update-CCApplication {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $UpdateApplicationRequest | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $UpdateApplicationRequest | ForEach-Object {
+            $LocalVarBodyParameter = $RequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -460,7 +460,7 @@ function Update-CCApplication {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "" `
+                                -ReturnType "System.Collections.Hashtable" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

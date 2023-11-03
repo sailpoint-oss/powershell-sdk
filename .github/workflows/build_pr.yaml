@@ -66,6 +66,7 @@ jobs:
         run: |
           rm -rf ./PSSailpoint/cc
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.cc.yaml -g powershell -o PSSailpoint/cc --global-property skipFormModel=false --config sdk-resources/cc-config.yaml
+          node sdk-resources/postscript.js ./PSSailpoint/cc
 
       - name: After SDK Build
         if: steps.buildCC.outcome == 'success'

@@ -84,6 +84,21 @@ const fixFiles = function (myArray) {
       rawDataArra = fileOut.slice();
       fileOut = [];
     }
+
+    if (file.includes("CCApplicationsApi.ps1")) {
+      for (const line of rawDataArra) {
+        if (line.includes("[System.Collections.Hashtable]")) {
+          fileOut.push(line.replace("[System.Collections.Hashtable]", "[PSCustomObject]"));
+          madeChange = true;
+        }
+        else {
+          fileOut.push(line);
+        }
+      }
+      rawDataArra = fileOut.slice();
+      fileOut = [];
+    }
+
     if (madeChange) {
       fs.writeFileSync(file, rawDataArra.join("\n"));
     }

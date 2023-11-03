@@ -22,7 +22,7 @@ No description available.
 No description available.
 .PARAMETER Description
 A human-readable description of the attribute.
-.PARAMETER IsMultiValued
+.PARAMETER IsMulti
 Flag indicating whether or not the attribute is multi-valued.
 .PARAMETER IsEntitlement
 Flag indicating whether or not the attribute is an entitlement.
@@ -51,13 +51,13 @@ function Initialize-AttributeDefinition {
         ${Description},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsMultiValued},
+        ${IsMulti} = $false,
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsEntitlement},
+        ${IsEntitlement} = $false,
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsGroup}
+        ${IsGroup} = $false
     )
 
     Process {
@@ -70,7 +70,7 @@ function Initialize-AttributeDefinition {
             "type" = ${Type}
             "schema" = ${Schema}
             "description" = ${Description}
-            "isMultiValued" = ${IsMultiValued}
+            "isMulti" = ${IsMulti}
             "isEntitlement" = ${IsEntitlement}
             "isGroup" = ${IsGroup}
         }
@@ -110,7 +110,7 @@ function ConvertFrom-JsonToAttributeDefinition {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AttributeDefinition
-        $AllProperties = ("name", "type", "schema", "description", "isMultiValued", "isEntitlement", "isGroup")
+        $AllProperties = ("name", "type", "schema", "description", "isMulti", "isEntitlement", "isGroup")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -141,10 +141,10 @@ function ConvertFrom-JsonToAttributeDefinition {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isMultiValued"))) { #optional property not found
-            $IsMultiValued = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isMulti"))) { #optional property not found
+            $IsMulti = $null
         } else {
-            $IsMultiValued = $JsonParameters.PSobject.Properties["isMultiValued"].value
+            $IsMulti = $JsonParameters.PSobject.Properties["isMulti"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "isEntitlement"))) { #optional property not found
@@ -164,7 +164,7 @@ function ConvertFrom-JsonToAttributeDefinition {
             "type" = ${Type}
             "schema" = ${Schema}
             "description" = ${Description}
-            "isMultiValued" = ${IsMultiValued}
+            "isMulti" = ${IsMulti}
             "isEntitlement" = ${IsEntitlement}
             "isGroup" = ${IsGroup}
         }

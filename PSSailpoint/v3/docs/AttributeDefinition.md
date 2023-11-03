@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **Type** | [**AttributeDefinitionType**](AttributeDefinitionType.md) |  | [optional] 
 **Schema** | [**AttributeDefinitionSchema**](AttributeDefinitionSchema.md) |  | [optional] 
 **Description** | **String** | A human-readable description of the attribute. | [optional] 
-**IsMultiValued** | **Boolean** | Flag indicating whether or not the attribute is multi-valued. | [optional] 
-**IsEntitlement** | **Boolean** | Flag indicating whether or not the attribute is an entitlement. | [optional] 
-**IsGroup** | **Boolean** | Flag indicating whether or not the attribute represents a group. This can only be &#x60;true&#x60; if &#x60;isEntitlement&#x60; is also &#x60;true&#x60; **and** there is a schema defined for the attribute..  | [optional] 
+**IsMulti** | **Boolean** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to $false]
+**IsEntitlement** | **Boolean** | Flag indicating whether or not the attribute is an entitlement. | [optional] [default to $false]
+**IsGroup** | **Boolean** | Flag indicating whether or not the attribute represents a group. This can only be &#x60;true&#x60; if &#x60;isEntitlement&#x60; is also &#x60;true&#x60; **and** there is a schema defined for the attribute..  | [optional] [default to $false]
 
 ## Examples
 
@@ -19,7 +19,7 @@ $AttributeDefinition = Initialize-PSSailpointAttributeDefinition  -Name sAMAccou
  -Type null `
  -Schema null `
  -Description SAM Account Name `
- -IsMultiValued false `
+ -IsMulti false `
  -IsEntitlement false `
  -IsGroup false
 ```

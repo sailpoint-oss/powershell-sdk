@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Predict SOD violations for the given identity if they were granted the given access.
+Predict SOD violations for identity.
 
 .DESCRIPTION
 
@@ -25,7 +25,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ViolationPrediction
 #>
-function Invoke-BetaPredictSodViolations {
+function Start-BetaPredictSodViolations {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -36,7 +36,7 @@ function Invoke-BetaPredictSodViolations {
     )
 
     Process {
-        'Calling method: Invoke-BetaPredictSodViolations' | Write-Debug
+        'Calling method: Start-BetaPredictSodViolations' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -57,7 +57,7 @@ function Invoke-BetaPredictSodViolations {
         $LocalVarUri = '/sod-violations/predict'
 
         if (!$IdentityWithNewAccess) {
-            throw "Error! The required parameter `IdentityWithNewAccess` missing when calling predictSodViolations."
+            throw "Error! The required parameter `IdentityWithNewAccess` missing when calling startPredictSodViolations."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {

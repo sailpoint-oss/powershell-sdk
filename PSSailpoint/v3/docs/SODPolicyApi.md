@@ -16,8 +16,8 @@ Method | HTTP request | Description
 [**Get-SodViolationReportStatus**](SODPolicyApi.md#Get-SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
 [**Get-SodPolicies**](SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
 [**Update-SodPolicy**](SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
-[**Set-PolicySchedule**](SODPolicyApi.md#Set-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
-[**Set-SodPolicy**](SODPolicyApi.md#Set-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
+[**Send-PolicySchedule**](SODPolicyApi.md#Send-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
+[**Send-SodPolicy**](SODPolicyApi.md#Send-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 [**Start-EvaluateSodPolicy**](SODPolicyApi.md#Start-EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by ID
 [**Start-SodAllPoliciesForOrg**](SODPolicyApi.md#Start-SodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
 [**Start-SodPolicy**](SODPolicyApi.md#Start-SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
@@ -659,9 +659,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-PolicySchedule"></a>
-# **Set-PolicySchedule**
-> SodPolicySchedule Set-PolicySchedule<br>
+<a name="Send-PolicySchedule"></a>
+# **Send-PolicySchedule**
+> SodPolicySchedule Send-PolicySchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SodPolicySchedule] <PSCustomObject><br>
 
@@ -689,9 +689,9 @@ $SodPolicySchedule = Initialize-SodPolicySchedule -Name "SCH-1584312283015" -Cre
 
 # Update SOD Policy schedule
 try {
-    $Result = Set-PolicySchedule -Id $Id -SodPolicySchedule $SodPolicySchedule
+    $Result = Send-PolicySchedule -Id $Id -SodPolicySchedule $SodPolicySchedule
 } catch {
-    Write-Host ("Exception occurred when calling Set-PolicySchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-PolicySchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -718,9 +718,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-SodPolicy"></a>
-# **Set-SodPolicy**
-> SodPolicy Set-SodPolicy<br>
+<a name="Send-SodPolicy"></a>
+# **Send-SodPolicy**
+> SodPolicy Send-SodPolicy<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SodPolicy] <PSCustomObject><br>
 
@@ -753,9 +753,9 @@ $SodPolicy = Initialize-SodPolicy -Id "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -Na
 
 # Update SOD policy by ID
 try {
-    $Result = Set-SodPolicy -Id $Id -SodPolicy $SodPolicy
+    $Result = Send-SodPolicy -Id $Id -SodPolicy $SodPolicy
 } catch {
-    Write-Host ("Exception occurred when calling Set-SodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-SodPolicy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

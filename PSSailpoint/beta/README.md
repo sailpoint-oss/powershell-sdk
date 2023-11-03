@@ -354,8 +354,8 @@ Class | Method | HTTP request | Description
 *BetaSODPolicyApi* | [**New-BetaSodPolicy**](docs/BetaSODPolicyApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD policy
 *BetaSODPolicyApi* | [**Remove-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
 *BetaSODPolicyApi* | [**Remove-BetaSodPolicySchedule**](docs/BetaSODPolicyApi.md#Remove-BetaSodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
-*BetaSODPolicyApi* | [**Invoke-BetaDownloadCustomViolationReport**](docs/BetaSODPolicyApi.md#Invoke-BetaDownloadCustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
-*BetaSODPolicyApi* | [**Invoke-BetaDownloadDefaultViolationReport**](docs/BetaSODPolicyApi.md#Invoke-BetaDownloadDefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
+*BetaSODPolicyApi* | [**Get-BetaCustomViolationReport**](docs/BetaSODPolicyApi.md#Get-BetaCustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
+*BetaSODPolicyApi* | [**Get-BetaDefaultViolationReport**](docs/BetaSODPolicyApi.md#Get-BetaDefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 *BetaSODPolicyApi* | [**Get-BetaSodAllReportRunStatus**](docs/BetaSODPolicyApi.md#Get-BetaSodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
 *BetaSODPolicyApi* | [**Get-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
 *BetaSODPolicyApi* | [**Get-BetaSodPolicySchedule**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
@@ -363,11 +363,11 @@ Class | Method | HTTP request | Description
 *BetaSODPolicyApi* | [**Get-BetaSodViolationReportStatus**](docs/BetaSODPolicyApi.md#Get-BetaSodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
 *BetaSODPolicyApi* | [**Get-BetaSodPolicies**](docs/BetaSODPolicyApi.md#Get-BetaSodPolicies) | **GET** /sod-policies | List SOD policies
 *BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PATCH** /sod-policies/{id} | Patch a SOD policy
+*BetaSODPolicyApi* | [**Send-BetaPolicySchedule**](docs/BetaSODPolicyApi.md#Send-BetaPolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
+*BetaSODPolicyApi* | [**Send-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Send-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 *BetaSODPolicyApi* | [**Start-BetaSodAllPoliciesForOrg**](docs/BetaSODPolicyApi.md#Start-BetaSodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
 *BetaSODPolicyApi* | [**Start-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Start-BetaSodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
-*BetaSODPolicyApi* | [**Update-BetaPolicySchedule**](docs/BetaSODPolicyApi.md#Update-BetaPolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
-*BetaSODPolicyApi* | [**Update-BetaSodPolicy**](docs/BetaSODPolicyApi.md#Update-BetaSodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
-*BetaSODViolationsApi* | [**Invoke-BetaPredictSodViolations**](docs/BetaSODViolationsApi.md#Invoke-BetaPredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for the given identity if they were granted the given access.
+*BetaSODViolationsApi* | [**Start-BetaPredictSodViolations**](docs/BetaSODViolationsApi.md#Start-BetaPredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for identity.
 *BetaSPConfigApi* | [**Export-BetaSpConfig**](docs/BetaSPConfigApi.md#Export-BetaSpConfig) | **POST** /sp-config/export | Initiates configuration objects export job
 *BetaSPConfigApi* | [**Get-BetaSpConfigExport**](docs/BetaSPConfigApi.md#Get-BetaSpConfigExport) | **GET** /sp-config/export/{id}/download | Download export job result.
 *BetaSPConfigApi* | [**Get-BetaSpConfigExportStatus**](docs/BetaSPConfigApi.md#Get-BetaSpConfigExportStatus) | **GET** /sp-config/export/{id} | Get export job status

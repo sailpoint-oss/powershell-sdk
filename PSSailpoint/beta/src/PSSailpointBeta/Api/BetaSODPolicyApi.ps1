@@ -280,7 +280,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 System.IO.FileInfo
 #>
-function Invoke-BetaDownloadCustomViolationReport {
+function Get-BetaCustomViolationReport {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -297,7 +297,7 @@ function Invoke-BetaDownloadCustomViolationReport {
     )
 
     Process {
-        'Calling method: Invoke-BetaDownloadCustomViolationReport' | Write-Debug
+        'Calling method: Get-BetaCustomViolationReport' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -319,11 +319,11 @@ function Invoke-BetaDownloadCustomViolationReport {
 
         $LocalVarUri = '/sod-violation-report/{reportResultId}/download/{fileName}'
         if (!$ReportResultId) {
-            throw "Error! The required parameter `ReportResultId` missing when calling downloadCustomViolationReport."
+            throw "Error! The required parameter `ReportResultId` missing when calling getCustomViolationReport."
         }
         $LocalVarUri = $LocalVarUri.replace('{reportResultId}', [System.Web.HTTPUtility]::UrlEncode($ReportResultId))
         if (!$FileName) {
-            throw "Error! The required parameter `FileName` missing when calling downloadCustomViolationReport."
+            throw "Error! The required parameter `FileName` missing when calling getCustomViolationReport."
         }
         $LocalVarUri = $LocalVarUri.replace('{fileName}', [System.Web.HTTPUtility]::UrlEncode($FileName))
 
@@ -373,7 +373,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 System.IO.FileInfo
 #>
-function Invoke-BetaDownloadDefaultViolationReport {
+function Get-BetaDefaultViolationReport {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -387,7 +387,7 @@ function Invoke-BetaDownloadDefaultViolationReport {
     )
 
     Process {
-        'Calling method: Invoke-BetaDownloadDefaultViolationReport' | Write-Debug
+        'Calling method: Get-BetaDefaultViolationReport' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -409,7 +409,7 @@ function Invoke-BetaDownloadDefaultViolationReport {
 
         $LocalVarUri = '/sod-violation-report/{reportResultId}/download'
         if (!$ReportResultId) {
-            throw "Error! The required parameter `ReportResultId` missing when calling downloadDefaultViolationReport."
+            throw "Error! The required parameter `ReportResultId` missing when calling getDefaultViolationReport."
         }
         $LocalVarUri = $LocalVarUri.replace('{reportResultId}', [System.Web.HTTPUtility]::UrlEncode($ReportResultId))
 
@@ -906,7 +906,7 @@ Patch a SOD policy
 
 .DESCRIPTION
 
-Allows updating SOD Policy fields other than [""id"",""created"",""creatorId"",""policyQuery"",""type""] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+Allows updating SOD Policy fields other than [""id"",""created"",""creatorId"",""policyQuery"",""type""] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
 
 .PARAMETER Id
 The ID of the SOD policy being modified.
@@ -980,6 +980,206 @@ function Update-BetaSodPolicy {
 
 
         $LocalVarResult = Invoke-BetaApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SodPolicy" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Update SOD Policy schedule
+
+.DESCRIPTION
+
+This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
+
+.PARAMETER Id
+The ID of the SOD policy to update its schedule.
+
+.PARAMETER SodPolicySchedule
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SodPolicySchedule
+#>
+function Send-BetaPolicySchedule {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SodPolicySchedule},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Send-BetaPolicySchedule' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/sod-policies/{id}/schedule'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling putPolicySchedule."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$SodPolicySchedule) {
+            throw "Error! The required parameter `SodPolicySchedule` missing when calling putPolicySchedule."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $SodPolicySchedule | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $SodPolicySchedule | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SodPolicySchedule" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Update SOD policy by ID
+
+.DESCRIPTION
+
+This updates a specified SOD policy. Requires role of ORG_ADMIN.
+
+.PARAMETER Id
+The ID of the SOD policy to update.
+
+.PARAMETER SodPolicy
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SodPolicy
+#>
+function Send-BetaSodPolicy {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${SodPolicy},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Send-BetaSodPolicy' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/sod-policies/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling putSodPolicy."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$SodPolicy) {
+            throw "Error! The required parameter `SodPolicy` missing when calling putSodPolicy."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+            $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `
@@ -1133,7 +1333,7 @@ function Start-BetaSodPolicy {
 
         $LocalVarUri = '/sod-policies/{id}/violation-report/run'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling runSodPolicy."
+            throw "Error! The required parameter `Id` missing when calling startSodPolicy."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -1149,206 +1349,6 @@ function Start-BetaSodPolicy {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "ReportResultReference" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Update SOD Policy schedule
-
-.DESCRIPTION
-
-This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
-
-.PARAMETER Id
-The ID of the SOD policy to update its schedule.
-
-.PARAMETER SodPolicySchedule
-No description available.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-SodPolicySchedule
-#>
-function Update-BetaPolicySchedule {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${SodPolicySchedule},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Update-BetaPolicySchedule' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/sod-policies/{id}/schedule'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updatePolicySchedule."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$SodPolicySchedule) {
-            throw "Error! The required parameter `SodPolicySchedule` missing when calling updatePolicySchedule."
-        }
-
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $SodPolicySchedule | ConvertTo-Json -AsArray -Depth 100
-        } else {
-            $LocalVarBodyParameter = $SodPolicySchedule | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-            }
-        }
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SodPolicySchedule" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Update SOD policy by ID
-
-.DESCRIPTION
-
-This updates a specified SOD policy. Requires role of ORG_ADMIN.
-
-.PARAMETER Id
-The ID of the SOD policy to update.
-
-.PARAMETER SodPolicy
-No description available.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-SodPolicy
-#>
-function Update-BetaSodPolicy {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${SodPolicy},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Update-BetaSodPolicy' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/sod-policies/{id}'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updateSodPolicy."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$SodPolicy) {
-            throw "Error! The required parameter `SodPolicy` missing when calling updateSodPolicy."
-        }
-
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -AsArray -Depth 100
-        } else {
-            $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-            }
-        }
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SodPolicy" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

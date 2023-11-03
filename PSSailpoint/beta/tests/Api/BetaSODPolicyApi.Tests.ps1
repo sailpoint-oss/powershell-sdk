@@ -30,17 +30,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODPolicyApi' {
         }
     }
 
-    Context 'Invoke-BetaDownloadCustomViolationReport' {
-        It 'Test Invoke-BetaDownloadCustomViolationReport' {
-            #$TestResult = Invoke-BetaDownloadCustomViolationReport -ReportResultId "TEST_VALUE" -FileName "TEST_VALUE"
+    Context 'Get-BetaCustomViolationReport' {
+        It 'Test Get-BetaCustomViolationReport' {
+            #$TestResult = Get-BetaCustomViolationReport -ReportResultId "TEST_VALUE" -FileName "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Invoke-BetaDownloadDefaultViolationReport' {
-        It 'Test Invoke-BetaDownloadDefaultViolationReport' {
-            #$TestResult = Invoke-BetaDownloadDefaultViolationReport -ReportResultId "TEST_VALUE"
+    Context 'Get-BetaDefaultViolationReport' {
+        It 'Test Get-BetaDefaultViolationReport' {
+            #$TestResult = Get-BetaDefaultViolationReport -ReportResultId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -102,6 +102,22 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODPolicyApi' {
         }
     }
 
+    Context 'Send-BetaPolicySchedule' {
+        It 'Test Send-BetaPolicySchedule' {
+            #$TestResult = Send-BetaPolicySchedule -Id "TEST_VALUE" -SodPolicySchedule "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-BetaSodPolicy' {
+        It 'Test Send-BetaSodPolicy' {
+            #$TestResult = Send-BetaSodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Start-BetaSodAllPoliciesForOrg' {
         It 'Test Start-BetaSodAllPoliciesForOrg' {
             #$TestResult = Start-BetaSodAllPoliciesForOrg -MultiPolicyRequest "TEST_VALUE"
@@ -113,22 +129,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODPolicyApi' {
     Context 'Start-BetaSodPolicy' {
         It 'Test Start-BetaSodPolicy' {
             #$TestResult = Start-BetaSodPolicy -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Update-BetaPolicySchedule' {
-        It 'Test Update-BetaPolicySchedule' {
-            #$TestResult = Update-BetaPolicySchedule -Id "TEST_VALUE" -SodPolicySchedule "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Update-BetaSodPolicy' {
-        It 'Test Update-BetaSodPolicy' {
-            #$TestResult = Update-BetaSodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

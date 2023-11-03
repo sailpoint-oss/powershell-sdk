@@ -102,17 +102,17 @@ Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
         }
     }
 
-    Context 'Set-PolicySchedule' {
-        It 'Test Set-PolicySchedule' {
-            #$TestResult = Set-PolicySchedule -Id "TEST_VALUE" -SodPolicySchedule "TEST_VALUE"
+    Context 'Send-PolicySchedule' {
+        It 'Test Send-PolicySchedule' {
+            #$TestResult = Send-PolicySchedule -Id "TEST_VALUE" -SodPolicySchedule "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Set-SodPolicy' {
-        It 'Test Set-SodPolicy' {
-            #$TestResult = Set-SodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
+    Context 'Send-SodPolicy' {
+        It 'Test Send-SodPolicy' {
+            #$TestResult = Send-SodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

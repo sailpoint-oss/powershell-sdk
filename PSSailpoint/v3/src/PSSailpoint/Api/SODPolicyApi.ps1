@@ -1022,7 +1022,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SodPolicySchedule
 #>
-function Set-PolicySchedule {
+function Send-PolicySchedule {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1036,7 +1036,7 @@ function Set-PolicySchedule {
     )
 
     Process {
-        'Calling method: Set-PolicySchedule' | Write-Debug
+        'Calling method: Send-PolicySchedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1056,12 +1056,12 @@ function Set-PolicySchedule {
 
         $LocalVarUri = '/sod-policies/{id}/schedule'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling setPolicySchedule."
+            throw "Error! The required parameter `Id` missing when calling putPolicySchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$SodPolicySchedule) {
-            throw "Error! The required parameter `SodPolicySchedule` missing when calling setPolicySchedule."
+            throw "Error! The required parameter `SodPolicySchedule` missing when calling putPolicySchedule."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
@@ -1122,7 +1122,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SodPolicy
 #>
-function Set-SodPolicy {
+function Send-SodPolicy {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1136,7 +1136,7 @@ function Set-SodPolicy {
     )
 
     Process {
-        'Calling method: Set-SodPolicy' | Write-Debug
+        'Calling method: Send-SodPolicy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1156,12 +1156,12 @@ function Set-SodPolicy {
 
         $LocalVarUri = '/sod-policies/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling setSodPolicy."
+            throw "Error! The required parameter `Id` missing when calling putSodPolicy."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$SodPolicy) {
-            throw "Error! The required parameter `SodPolicy` missing when calling setSodPolicy."
+            throw "Error! The required parameter `SodPolicy` missing when calling putSodPolicy."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {

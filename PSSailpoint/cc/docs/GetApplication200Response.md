@@ -1,4 +1,4 @@
-# ListApplications200ResponseInner
+# GetApplication200Response
 ## Properties
 
 Name | Type | Description | Notes
@@ -52,13 +52,13 @@ Name | Type | Description | Notes
 **XsdVersion** | **String** |  | [optional] 
 **AppProfiles** | [**ListApplications200ResponseInnerAppProfilesInner[]**](ListApplications200ResponseInnerAppProfilesInner.md) |  | [optional] 
 **PasswordServiceId** | **Decimal** |  | [optional] 
-**AccessProfileIds** | **String[]** |  | [optional] 
+**AccessProfileIds** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ListApplications200ResponseInner = Initialize-PSSailpointCCListApplications200ResponseInner  -Id null `
+$GetApplication200Response = Initialize-PSSailpointCCGetApplication200Response  -Id null `
  -AppId null `
  -ServiceId null `
  -ServiceAppId null `
@@ -112,7 +112,7 @@ $ListApplications200ResponseInner = Initialize-PSSailpointCCListApplications200R
 
 - Convert the resource to JSON
 ```powershell
-$ListApplications200ResponseInner | ConvertTo-JSON
+$GetApplication200Response | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

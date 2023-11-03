@@ -116,10 +116,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-ListApplications200ResponseInner<PSCustomObject>
+GetApplication200Response<PSCustomObject>
 #>
 
-function Initialize-CCListApplications200ResponseInner {
+function Initialize-CCGetApplication200Response {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -270,12 +270,12 @@ function Initialize-CCListApplications200ResponseInner {
         [System.Nullable[Decimal]]
         ${PasswordServiceId},
         [Parameter(Position = 49, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
+        [PSCustomObject]
         ${AccessProfileIds}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointCC => CCListApplications200ResponseInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpointCC => CCGetApplication200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -340,11 +340,11 @@ function Initialize-CCListApplications200ResponseInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to ListApplications200ResponseInner<PSCustomObject>
+Convert from JSON to GetApplication200Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ListApplications200ResponseInner<PSCustomObject>
+Convert from JSON to GetApplication200Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -352,21 +352,21 @@ Json object
 
 .OUTPUTS
 
-ListApplications200ResponseInner<PSCustomObject>
+GetApplication200Response<PSCustomObject>
 #>
-function ConvertFrom-CCJsonToListApplications200ResponseInner {
+function ConvertFrom-CCJsonToGetApplication200Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointCC => CCListApplications200ResponseInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointCC => CCGetApplication200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in CCListApplications200ResponseInner
+        # check if Json contains properties not defined in CCGetApplication200Response
         $AllProperties = ("id", "appId", "serviceId", "serviceAppId", "name", "description", "appCenterEnabled", "provisionRequestEnabled", "controlType", "mobile", "privateApp", "scriptName", "status", "icon", "health", "enableSso", "ssoMethod", "hasLinks", "hasAutomations", "stepUpAuthData", "stepUpAuthType", "usageAnalytics", "usageCertRequired", "usageCertText", "launchpadEnabled", "passwordManaged", "owner", "dateCreated", "lastUpdated", "defaultAccessProfile", "service", "selectedSsoMethod", "supportedSsoMethods", "offNetworkBlockedRoles", "supportedOffNetwork", "accountServiceId", "launcherCount", "accountServiceName", "accountServiceExternalId", "accountServiceMatchAllAccounts", "externalId", "accountServiceUseForPasswordManagement", "accountServicePolicyId", "accountServicePolicyName", "requireStrongAuthn", "accountServicePolicies", "xsdVersion", "appProfiles", "passwordServiceId", "accessProfileIds")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

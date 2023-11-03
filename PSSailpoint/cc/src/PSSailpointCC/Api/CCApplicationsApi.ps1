@@ -183,7 +183,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ListApplications200ResponseInner
+GetApplication200Response
 #>
 function Get-CCApplication {
     [CmdletBinding()]
@@ -228,7 +228,7 @@ function Get-CCApplication {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ListApplications200ResponseInner" `
+                                -ReturnType "GetApplication200Response" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

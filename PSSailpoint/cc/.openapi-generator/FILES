@@ -11,6 +11,7 @@ docs/CCSystemApi.md
 docs/CCUserApi.md
 docs/CreateApplicationRequest.md
 docs/CreateConnectorRequest.md
+docs/GetApplication200Response.md
 docs/GetIdentity200Response.md
 docs/GetIdentity200ResponseAuth.md
 docs/GetIdentity200ResponseOrg.md
@@ -39,6 +40,7 @@ src/PSSailpointCC/Api/CCUserApi.ps1
 src/PSSailpointCC/Client/CCConfiguration.ps1
 src/PSSailpointCC/Model/CreateApplicationRequest.ps1
 src/PSSailpointCC/Model/CreateConnectorRequest.ps1
+src/PSSailpointCC/Model/GetApplication200Response.ps1
 src/PSSailpointCC/Model/GetIdentity200Response.ps1
 src/PSSailpointCC/Model/GetIdentity200ResponseAuth.ps1
 src/PSSailpointCC/Model/GetIdentity200ResponseOrg.ps1
@@ -73,6 +75,7 @@ tests/Api/CCSystemApi.Tests.ps1
 tests/Api/CCUserApi.Tests.ps1
 tests/Model/CreateApplicationRequest.Tests.ps1
 tests/Model/CreateConnectorRequest.Tests.ps1
+tests/Model/GetApplication200Response.Tests.ps1
 tests/Model/GetIdentity200Response.Tests.ps1
 tests/Model/GetIdentity200ResponseAuth.Tests.ps1
 tests/Model/GetIdentity200ResponseOrg.Tests.ps1

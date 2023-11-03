@@ -112,7 +112,7 @@ void (empty response body)
 
 <a name="Get-CCApplication"></a>
 # **Get-CCApplication**
-> ListApplications200ResponseInner Get-CCApplication<br>
+> GetApplication200Response Get-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Single Application
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListApplications200ResponseInner**](ListApplications200ResponseInner.md) (PSCustomObject)
+[**GetApplication200Response**](GetApplication200Response.md) (PSCustomObject)
 
 ### Authorization
 

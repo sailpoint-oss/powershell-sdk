@@ -76,6 +76,7 @@ Class | Method | HTTP request | Description
 
  - [PSSailpointCC/Model.CreateApplicationRequest](docs/CreateApplicationRequest.md)
  - [PSSailpointCC/Model.CreateConnectorRequest](docs/CreateConnectorRequest.md)
+ - [PSSailpointCC/Model.GetApplication200Response](docs/GetApplication200Response.md)
  - [PSSailpointCC/Model.GetIdentity200Response](docs/GetIdentity200Response.md)
  - [PSSailpointCC/Model.GetIdentity200ResponseAuth](docs/GetIdentity200ResponseAuth.md)
  - [PSSailpointCC/Model.GetIdentity200ResponseOrg](docs/GetIdentity200ResponseOrg.md)

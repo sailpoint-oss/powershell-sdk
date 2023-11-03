@@ -70,7 +70,7 @@ function Initialize-AttributeDefinition {
             "type" = ${Type}
             "schema" = ${Schema}
             "description" = ${Description}
-            "isMultiValued" = ${IsMultiValued}
+            "isMulti" = ${IsMultiValued}
             "isEntitlement" = ${IsEntitlement}
             "isGroup" = ${IsGroup}
         }
@@ -110,7 +110,7 @@ function ConvertFrom-JsonToAttributeDefinition {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AttributeDefinition
-        $AllProperties = ("name", "type", "schema", "description", "isMultiValued", "isEntitlement", "isGroup")
+        $AllProperties = ("name", "type", "schema", "description", "isMulti", "isEntitlement", "isGroup")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -141,10 +141,10 @@ function ConvertFrom-JsonToAttributeDefinition {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isMultiValued"))) { #optional property not found
-            $IsMultiValued = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isMulti"))) { #optional property not found
+            $isMulti = $null
         } else {
-            $IsMultiValued = $JsonParameters.PSobject.Properties["isMultiValued"].value
+            $isMulti = $JsonParameters.PSobject.Properties["isMulti"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "isEntitlement"))) { #optional property not found
@@ -164,7 +164,7 @@ function ConvertFrom-JsonToAttributeDefinition {
             "type" = ${Type}
             "schema" = ${Schema}
             "description" = ${Description}
-            "isMultiValued" = ${IsMultiValued}
+            "isMulti" = ${isMulti}
             "isEntitlement" = ${IsEntitlement}
             "isGroup" = ${IsGroup}
         }

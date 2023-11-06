@@ -73,8 +73,8 @@ function Invoke-CCApiClient {
     }
 
     # Add Custom Header
-    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.1.3"
-    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.1.3/ps"
+    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.2.0"
+    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.2.0/ps"
 
 
     $HasFormData = $False

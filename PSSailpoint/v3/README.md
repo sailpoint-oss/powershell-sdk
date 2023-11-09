@@ -202,6 +202,10 @@ Class | Method | HTTP request | Description
 *PublicIdentitiesApi* | [**Get-PublicIdentities**](docs/PublicIdentitiesApi.md#Get-PublicIdentities) | **GET** /public-identities | Get a list of public identities
 *PublicIdentitiesConfigApi* | [**Get-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Get-PublicIdentityConfig) | **GET** /public-identities-config | Get the Public Identities Configuration
 *PublicIdentitiesConfigApi* | [**Update-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Update-PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
+*ReportsDataExtractionApi* | [**Suspend-Report**](docs/ReportsDataExtractionApi.md#Suspend-Report) | **POST** /reports/{id}/cancel | Cancel Report
+*ReportsDataExtractionApi* | [**Get-Report**](docs/ReportsDataExtractionApi.md#Get-Report) | **GET** /reports/{taskResultId} | Get Report File
+*ReportsDataExtractionApi* | [**Get-ReportResult**](docs/ReportsDataExtractionApi.md#Get-ReportResult) | **GET** /reports/{taskResultId}/result | Get Report Result
+*ReportsDataExtractionApi* | [**Start-Report**](docs/ReportsDataExtractionApi.md#Start-Report) | **POST** /reports/run | Run Report
 *RequestableObjectsApi* | [**Get-RequestableObjects**](docs/RequestableObjectsApi.md#Get-RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
 *RolesApi* | [**New-Role**](docs/RolesApi.md#New-Role) | **POST** /roles | Create a Role
 *RolesApi* | [**Remove-BulkRoles**](docs/RolesApi.md#Remove-BulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
@@ -372,6 +376,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.AccountUnlockRequest](docs/AccountUnlockRequest.md)
  - [PSSailpoint/Model.AccountUsage](docs/AccountUsage.md)
  - [PSSailpoint/Model.AccountsAsyncResult](docs/AccountsAsyncResult.md)
+ - [PSSailpoint/Model.AccountsExportReportArguments](docs/AccountsExportReportArguments.md)
  - [PSSailpoint/Model.ActivateCampaignOptions](docs/ActivateCampaignOptions.md)
  - [PSSailpoint/Model.AdminReviewReassign](docs/AdminReviewReassign.md)
  - [PSSailpoint/Model.AdminReviewReassignReassignTo](docs/AdminReviewReassignReassignTo.md)
@@ -520,6 +525,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.GetReferenceIdentityAttribute](docs/GetReferenceIdentityAttribute.md)
  - [PSSailpoint/Model.GrantType](docs/GrantType.md)
  - [PSSailpoint/Model.ISO3166](docs/ISO3166.md)
+ - [PSSailpoint/Model.IdentitiesDetailsReportArguments](docs/IdentitiesDetailsReportArguments.md)
+ - [PSSailpoint/Model.IdentitiesReportArguments](docs/IdentitiesReportArguments.md)
  - [PSSailpoint/Model.IdentityAccess](docs/IdentityAccess.md)
  - [PSSailpoint/Model.IdentityAttribute](docs/IdentityAttribute.md)
  - [PSSailpoint/Model.IdentityAttribute1](docs/IdentityAttribute1.md)
@@ -536,6 +543,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.IdentityProfileAllOfOwner](docs/IdentityProfileAllOfOwner.md)
  - [PSSailpoint/Model.IdentityProfileExportedObject](docs/IdentityProfileExportedObject.md)
  - [PSSailpoint/Model.IdentityProfileExportedObjectSelf](docs/IdentityProfileExportedObjectSelf.md)
+ - [PSSailpoint/Model.IdentityProfileIdentityErrorReportArguments](docs/IdentityProfileIdentityErrorReportArguments.md)
  - [PSSailpoint/Model.IdentityReference](docs/IdentityReference.md)
  - [PSSailpoint/Model.IdentityReferenceWithNameAndEmail](docs/IdentityReferenceWithNameAndEmail.md)
  - [PSSailpoint/Model.IdentitySummary](docs/IdentitySummary.md)
@@ -612,6 +620,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.ObjectImportResult](docs/ObjectImportResult.md)
  - [PSSailpoint/Model.Operation](docs/Operation.md)
  - [PSSailpoint/Model.OriginalRequest](docs/OriginalRequest.md)
+ - [PSSailpoint/Model.OrphanUncorrelatedReportArguments](docs/OrphanUncorrelatedReportArguments.md)
  - [PSSailpoint/Model.Owner](docs/Owner.md)
  - [PSSailpoint/Model.OwnerAllOf](docs/OwnerAllOf.md)
  - [PSSailpoint/Model.OwnerDto](docs/OwnerDto.md)
@@ -665,8 +674,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.RemediationItems](docs/RemediationItems.md)
  - [PSSailpoint/Model.Replace](docs/Replace.md)
  - [PSSailpoint/Model.ReplaceAll](docs/ReplaceAll.md)
+ - [PSSailpoint/Model.ReportDetails](docs/ReportDetails.md)
+ - [PSSailpoint/Model.ReportDetailsArguments](docs/ReportDetailsArguments.md)
  - [PSSailpoint/Model.ReportResultReference](docs/ReportResultReference.md)
  - [PSSailpoint/Model.ReportResultReferenceAllOf](docs/ReportResultReferenceAllOf.md)
+ - [PSSailpoint/Model.ReportResults](docs/ReportResults.md)
  - [PSSailpoint/Model.ReportType](docs/ReportType.md)
  - [PSSailpoint/Model.RequestOnBehalfOfConfig](docs/RequestOnBehalfOfConfig.md)
  - [PSSailpoint/Model.Requestability](docs/Requestability.md)
@@ -728,6 +740,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.SearchAggregationSpecificationAllOf](docs/SearchAggregationSpecificationAllOf.md)
  - [PSSailpoint/Model.SearchArguments](docs/SearchArguments.md)
  - [PSSailpoint/Model.SearchArgumentsOwner](docs/SearchArgumentsOwner.md)
+ - [PSSailpoint/Model.SearchExportReportArguments](docs/SearchExportReportArguments.md)
  - [PSSailpoint/Model.SearchFilterType](docs/SearchFilterType.md)
  - [PSSailpoint/Model.SearchIdentityReference](docs/SearchIdentityReference.md)
  - [PSSailpoint/Model.SearchIdentityReferenceAllOf](docs/SearchIdentityReferenceAllOf.md)
@@ -784,6 +797,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint/Model.Substring](docs/Substring.md)
  - [PSSailpoint/Model.TaggedObject](docs/TaggedObject.md)
  - [PSSailpoint/Model.TaggedObjectDto](docs/TaggedObjectDto.md)
+ - [PSSailpoint/Model.TaskResultDetails](docs/TaskResultDetails.md)
+ - [PSSailpoint/Model.TaskResultDetailsMessagesInner](docs/TaskResultDetailsMessagesInner.md)
+ - [PSSailpoint/Model.TaskResultDetailsReturnsInner](docs/TaskResultDetailsReturnsInner.md)
  - [PSSailpoint/Model.TaskResultDto](docs/TaskResultDto.md)
  - [PSSailpoint/Model.TaskResultSimplified](docs/TaskResultSimplified.md)
  - [PSSailpoint/Model.TextQuery](docs/TextQuery.md)

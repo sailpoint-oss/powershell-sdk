@@ -64,6 +64,7 @@ docs/AccountUsage.md
 docs/AccountUsagesApi.md
 docs/AccountsApi.md
 docs/AccountsAsyncResult.md
+docs/AccountsExportReportArguments.md
 docs/ActivateCampaignOptions.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
@@ -220,6 +221,8 @@ docs/GetReferenceIdentityAttribute.md
 docs/GlobalTenantSecuritySettingsApi.md
 docs/GrantType.md
 docs/ISO3166.md
+docs/IdentitiesDetailsReportArguments.md
+docs/IdentitiesReportArguments.md
 docs/IdentityAccess.md
 docs/IdentityAttribute.md
 docs/IdentityAttribute1.md
@@ -236,6 +239,7 @@ docs/IdentityProfileAllOfAuthoritativeSource.md
 docs/IdentityProfileAllOfOwner.md
 docs/IdentityProfileExportedObject.md
 docs/IdentityProfileExportedObjectSelf.md
+docs/IdentityProfileIdentityErrorReportArguments.md
 docs/IdentityProfilesApi.md
 docs/IdentityReference.md
 docs/IdentityReferenceWithNameAndEmail.md
@@ -314,6 +318,7 @@ docs/OAuthClientsApi.md
 docs/ObjectImportResult.md
 docs/Operation.md
 docs/OriginalRequest.md
+docs/OrphanUncorrelatedReportArguments.md
 docs/Owner.md
 docs/OwnerAllOf.md
 docs/OwnerDto.md
@@ -374,9 +379,13 @@ docs/RemediationItemDetails.md
 docs/RemediationItems.md
 docs/Replace.md
 docs/ReplaceAll.md
+docs/ReportDetails.md
+docs/ReportDetailsArguments.md
 docs/ReportResultReference.md
 docs/ReportResultReferenceAllOf.md
+docs/ReportResults.md
 docs/ReportType.md
+docs/ReportsDataExtractionApi.md
 docs/RequestOnBehalfOfConfig.md
 docs/Requestability.md
 docs/RequestabilityForRole.md
@@ -444,6 +453,7 @@ docs/SearchAggregationSpecificationAllOf.md
 docs/SearchApi.md
 docs/SearchArguments.md
 docs/SearchArgumentsOwner.md
+docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchIdentityReference.md
 docs/SearchIdentityReferenceAllOf.md
@@ -505,6 +515,9 @@ docs/Substring.md
 docs/TaggedObject.md
 docs/TaggedObjectDto.md
 docs/TaggedObjectsApi.md
+docs/TaskResultDetails.md
+docs/TaskResultDetailsMessagesInner.md
+docs/TaskResultDetailsReturnsInner.md
 docs/TaskResultDto.md
 docs/TaskResultSimplified.md
 docs/TextQuery.md
@@ -559,6 +572,7 @@ src/PSSailpoint/Api/PasswordSyncGroupsApi.ps1
 src/PSSailpoint/Api/PersonalAccessTokensApi.ps1
 src/PSSailpoint/Api/PublicIdentitiesApi.ps1
 src/PSSailpoint/Api/PublicIdentitiesConfigApi.ps1
+src/PSSailpoint/Api/ReportsDataExtractionApi.ps1
 src/PSSailpoint/Api/RequestableObjectsApi.ps1
 src/PSSailpoint/Api/RolesApi.ps1
 src/PSSailpoint/Api/SODPolicyApi.ps1
@@ -630,6 +644,7 @@ src/PSSailpoint/Model/AccountToggleRequest.ps1
 src/PSSailpoint/Model/AccountUnlockRequest.ps1
 src/PSSailpoint/Model/AccountUsage.ps1
 src/PSSailpoint/Model/AccountsAsyncResult.ps1
+src/PSSailpoint/Model/AccountsExportReportArguments.ps1
 src/PSSailpoint/Model/ActivateCampaignOptions.ps1
 src/PSSailpoint/Model/AdminReviewReassign.ps1
 src/PSSailpoint/Model/AdminReviewReassignReassignTo.ps1
@@ -778,6 +793,8 @@ src/PSSailpoint/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpoint/Model/GetReferenceIdentityAttribute.ps1
 src/PSSailpoint/Model/GrantType.ps1
 src/PSSailpoint/Model/ISO3166.ps1
+src/PSSailpoint/Model/IdentitiesDetailsReportArguments.ps1
+src/PSSailpoint/Model/IdentitiesReportArguments.ps1
 src/PSSailpoint/Model/IdentityAccess.ps1
 src/PSSailpoint/Model/IdentityAttribute.ps1
 src/PSSailpoint/Model/IdentityAttribute1.ps1
@@ -794,6 +811,7 @@ src/PSSailpoint/Model/IdentityProfileAllOfAuthoritativeSource.ps1
 src/PSSailpoint/Model/IdentityProfileAllOfOwner.ps1
 src/PSSailpoint/Model/IdentityProfileExportedObject.ps1
 src/PSSailpoint/Model/IdentityProfileExportedObjectSelf.ps1
+src/PSSailpoint/Model/IdentityProfileIdentityErrorReportArguments.ps1
 src/PSSailpoint/Model/IdentityReference.ps1
 src/PSSailpoint/Model/IdentityReferenceWithNameAndEmail.ps1
 src/PSSailpoint/Model/IdentitySummary.ps1
@@ -870,6 +888,7 @@ src/PSSailpoint/Model/NonEmployeeSourceWithNECountAllOf.ps1
 src/PSSailpoint/Model/ObjectImportResult.ps1
 src/PSSailpoint/Model/Operation.ps1
 src/PSSailpoint/Model/OriginalRequest.ps1
+src/PSSailpoint/Model/OrphanUncorrelatedReportArguments.ps1
 src/PSSailpoint/Model/Owner.ps1
 src/PSSailpoint/Model/OwnerAllOf.ps1
 src/PSSailpoint/Model/OwnerDto.ps1
@@ -923,8 +942,11 @@ src/PSSailpoint/Model/RemediationItemDetails.ps1
 src/PSSailpoint/Model/RemediationItems.ps1
 src/PSSailpoint/Model/Replace.ps1
 src/PSSailpoint/Model/ReplaceAll.ps1
+src/PSSailpoint/Model/ReportDetails.ps1
+src/PSSailpoint/Model/ReportDetailsArguments.ps1
 src/PSSailpoint/Model/ReportResultReference.ps1
 src/PSSailpoint/Model/ReportResultReferenceAllOf.ps1
+src/PSSailpoint/Model/ReportResults.ps1
 src/PSSailpoint/Model/ReportType.ps1
 src/PSSailpoint/Model/RequestOnBehalfOfConfig.ps1
 src/PSSailpoint/Model/Requestability.ps1
@@ -986,6 +1008,7 @@ src/PSSailpoint/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint/Model/SearchAggregationSpecificationAllOf.ps1
 src/PSSailpoint/Model/SearchArguments.ps1
 src/PSSailpoint/Model/SearchArgumentsOwner.ps1
+src/PSSailpoint/Model/SearchExportReportArguments.ps1
 src/PSSailpoint/Model/SearchFilterType.ps1
 src/PSSailpoint/Model/SearchIdentityReference.ps1
 src/PSSailpoint/Model/SearchIdentityReferenceAllOf.ps1
@@ -1042,6 +1065,9 @@ src/PSSailpoint/Model/SubSearchAggregationSpecificationAllOf.ps1
 src/PSSailpoint/Model/Substring.ps1
 src/PSSailpoint/Model/TaggedObject.ps1
 src/PSSailpoint/Model/TaggedObjectDto.ps1
+src/PSSailpoint/Model/TaskResultDetails.ps1
+src/PSSailpoint/Model/TaskResultDetailsMessagesInner.ps1
+src/PSSailpoint/Model/TaskResultDetailsReturnsInner.ps1
 src/PSSailpoint/Model/TaskResultDto.ps1
 src/PSSailpoint/Model/TaskResultSimplified.ps1
 src/PSSailpoint/Model/TextQuery.ps1
@@ -1101,6 +1127,7 @@ tests/Api/PasswordSyncGroupsApi.Tests.ps1
 tests/Api/PersonalAccessTokensApi.Tests.ps1
 tests/Api/PublicIdentitiesApi.Tests.ps1
 tests/Api/PublicIdentitiesConfigApi.Tests.ps1
+tests/Api/ReportsDataExtractionApi.Tests.ps1
 tests/Api/RequestableObjectsApi.Tests.ps1
 tests/Api/RolesApi.Tests.ps1
 tests/Api/SODPolicyApi.Tests.ps1
@@ -1171,6 +1198,7 @@ tests/Model/AccountToggleRequest.Tests.ps1
 tests/Model/AccountUnlockRequest.Tests.ps1
 tests/Model/AccountUsage.Tests.ps1
 tests/Model/AccountsAsyncResult.Tests.ps1
+tests/Model/AccountsExportReportArguments.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
@@ -1319,6 +1347,8 @@ tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1
 tests/Model/GrantType.Tests.ps1
 tests/Model/ISO3166.Tests.ps1
+tests/Model/IdentitiesDetailsReportArguments.Tests.ps1
+tests/Model/IdentitiesReportArguments.Tests.ps1
 tests/Model/IdentityAccess.Tests.ps1
 tests/Model/IdentityAttribute.Tests.ps1
 tests/Model/IdentityAttribute1.Tests.ps1
@@ -1335,6 +1365,7 @@ tests/Model/IdentityProfileAllOfAuthoritativeSource.Tests.ps1
 tests/Model/IdentityProfileAllOfOwner.Tests.ps1
 tests/Model/IdentityProfileExportedObject.Tests.ps1
 tests/Model/IdentityProfileExportedObjectSelf.Tests.ps1
+tests/Model/IdentityProfileIdentityErrorReportArguments.Tests.ps1
 tests/Model/IdentityReference.Tests.ps1
 tests/Model/IdentityReferenceWithNameAndEmail.Tests.ps1
 tests/Model/IdentitySummary.Tests.ps1
@@ -1411,6 +1442,7 @@ tests/Model/NonEmployeeSourceWithNECountAllOf.Tests.ps1
 tests/Model/ObjectImportResult.Tests.ps1
 tests/Model/Operation.Tests.ps1
 tests/Model/OriginalRequest.Tests.ps1
+tests/Model/OrphanUncorrelatedReportArguments.Tests.ps1
 tests/Model/Owner.Tests.ps1
 tests/Model/OwnerAllOf.Tests.ps1
 tests/Model/OwnerDto.Tests.ps1
@@ -1464,8 +1496,11 @@ tests/Model/RemediationItemDetails.Tests.ps1
 tests/Model/RemediationItems.Tests.ps1
 tests/Model/Replace.Tests.ps1
 tests/Model/ReplaceAll.Tests.ps1
+tests/Model/ReportDetails.Tests.ps1
+tests/Model/ReportDetailsArguments.Tests.ps1
 tests/Model/ReportResultReference.Tests.ps1
 tests/Model/ReportResultReferenceAllOf.Tests.ps1
+tests/Model/ReportResults.Tests.ps1
 tests/Model/ReportType.Tests.ps1
 tests/Model/RequestOnBehalfOfConfig.Tests.ps1
 tests/Model/Requestability.Tests.ps1
@@ -1527,6 +1562,7 @@ tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchAggregationSpecificationAllOf.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
 tests/Model/SearchArgumentsOwner.Tests.ps1
+tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchIdentityReference.Tests.ps1
 tests/Model/SearchIdentityReferenceAllOf.Tests.ps1
@@ -1583,6 +1619,9 @@ tests/Model/SubSearchAggregationSpecificationAllOf.Tests.ps1
 tests/Model/Substring.Tests.ps1
 tests/Model/TaggedObject.Tests.ps1
 tests/Model/TaggedObjectDto.Tests.ps1
+tests/Model/TaskResultDetails.Tests.ps1
+tests/Model/TaskResultDetailsMessagesInner.Tests.ps1
+tests/Model/TaskResultDetailsReturnsInner.Tests.ps1
 tests/Model/TaskResultDto.Tests.ps1
 tests/Model/TaskResultSimplified.Tests.ps1
 tests/Model/TextQuery.Tests.ps1

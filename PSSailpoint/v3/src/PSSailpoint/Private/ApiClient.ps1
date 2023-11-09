@@ -137,6 +137,10 @@ function Invoke-ApiClient {
         }
     }
 
+    if(($ContentType -eq 'multipart/form-data') -and -not ($FormParameters -and $FormParameters.Count -gt 0))
+    {
+        $HeaderParameters.Remove('Content-Type')
+    }
 
 
     if ($Body -or $IsBodyNullable) {

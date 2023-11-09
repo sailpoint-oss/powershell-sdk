@@ -73,8 +73,8 @@ function Invoke-V2ApiClient {
     }
 
     # Add Custom Header
-    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.2.0"
-    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.2.0/ps"
+    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.2.1"
+    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.2.1/ps"
 
 
     $HasFormData = $False

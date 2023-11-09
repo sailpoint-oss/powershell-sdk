@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/resources
 packageName: PSSailpointV2
-packageVersion: 1.2.0
+packageVersion: 1.2.1
 apiNamePrefix: V2
 apiVersion: v2
 companyName: SailPoint Technologies

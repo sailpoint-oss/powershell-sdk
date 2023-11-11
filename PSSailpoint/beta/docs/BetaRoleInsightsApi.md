@@ -25,14 +25,6 @@ Submits a create role insights request to the role insights application. At this
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # Generate insights for roles
 try {
@@ -74,14 +66,6 @@ This endpoint returns the entitlement insights for a role.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
 $Sorters = "identitiesWithAccess" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess**  The default sort is **identitiesWithAccess** in descending order. (optional)
 $Filters = "name sw "r"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw* (optional)
@@ -136,14 +120,6 @@ Role insights suggests entitlements to be added for a role. This endpoint return
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
 $EntitlementId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The entitlement id
 $HasEntitlement = $true # Boolean | Identity has this entitlement or not (optional) (default to $false)
@@ -201,14 +177,6 @@ This endpoint gets role insights information for a role.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
 
 # Get a single role insight
@@ -256,14 +224,6 @@ This method returns detailed role insights for each role.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -316,14 +276,6 @@ This endpoint gets the entitlements for a role. The term ""current"" is to disti
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
 $Filters = "name sw "r"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw* (optional)
 
@@ -371,14 +323,6 @@ This endpoint returns entitlement insights for a role.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitiesWithAccess, name** (optional)
 $Filters = "name sw "Admin"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw*  **description**: *sw* (optional)
@@ -426,14 +370,6 @@ This endpoint returns details of a prior role insights request.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insights request id
 
 # Returns metadata from prior request.
@@ -476,14 +412,6 @@ This method returns high level summary information for role insights for a custo
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # Get role insights summary information
 try {

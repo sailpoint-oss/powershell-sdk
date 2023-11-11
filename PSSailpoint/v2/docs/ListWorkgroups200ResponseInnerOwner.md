@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListWorkgroups200ResponseInnerOwner = Initialize-PSSailpointV2ListWorkgroups200ResponseInnerOwner  -DisplayName Philip Ellis `
+$ListWorkgroups200ResponseInnerOwner = Initialize-V2ListWorkgroups200ResponseInnerOwner  -DisplayName Philip Ellis `
  -EmailAddress philip.ellis@sailpoint.com `
  -Id 2c9180897d2cb80b017d39ccb26c1804 `
  -Name philip.ellis

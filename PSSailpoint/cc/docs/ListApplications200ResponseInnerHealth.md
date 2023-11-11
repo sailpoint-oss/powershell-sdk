@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListApplications200ResponseInnerHealth = Initialize-PSSailpointCCListApplications200ResponseInnerHealth  -Status null `
+$ListApplications200ResponseInnerHealth = Initialize-CCListApplications200ResponseInnerHealth  -Status null `
  -LastChanged null `
  -Since null `
  -Healthy null

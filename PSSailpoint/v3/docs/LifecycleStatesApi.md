@@ -24,14 +24,6 @@ This API creates a new Lifecycle State. A token with ORG_ADMIN or API authority 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Profile ID
 $EmailNotificationOption = Initialize-EmailNotificationOption -NotifyManagers $true -NotifyAllAdmins $true -NotifySpecificUsers $true -EmailAddressList "MyEmailAddressList"
 $AccountAction = Initialize-AccountAction -Action "ENABLE" -SourceIds "MySourceIds"
@@ -80,14 +72,6 @@ This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID
 
@@ -134,14 +118,6 @@ This endpoint retrieves a Lifecycle State. A token with ORG_ADMIN or API authori
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID
 
@@ -191,14 +167,6 @@ This end-point lists all the LifecycleStates associated with IdentityProfiles. A
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The IdentityProfile id
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -251,14 +219,6 @@ This endpoint will set/update an identity's lifecycle state to the one provided 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityId = "2c9180857893f1290178944561990364" # String | The ID of the identity to update
 $SetLifecycleStateRequest = Initialize-SetLifecycleStateRequest -LifecycleStateId "2c9180877a86e408017a8c19fefe046c" # SetLifecycleStateRequest | 
 
@@ -306,14 +266,6 @@ This endpoint updates individual Lifecycle State fields using the [JSON Patch](h
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 

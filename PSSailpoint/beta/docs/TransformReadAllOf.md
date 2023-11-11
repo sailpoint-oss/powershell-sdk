@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformReadAllOf = Initialize-PSSailpointBetaTransformReadAllOf  -Id 2cd78adghjkja34jh2b1hkjhasuecd `
+$TransformReadAllOf = Initialize-BetaTransformReadAllOf  -Id 2cd78adghjkja34jh2b1hkjhasuecd `
  -Internal false
 ```
 

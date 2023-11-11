@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Revocability = Initialize-PSSailpointRevocability  -CommentsRequired false `
+$Revocability = Initialize-Revocability  -CommentsRequired false `
  -DenialCommentsRequired false `
  -ApprovalSchemes null
 ```

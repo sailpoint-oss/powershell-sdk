@@ -19,14 +19,6 @@ This kicks off an identity refresh for a specified set of identity attributes.  
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $ContentType = "application/json" # String |  (optional)
 $RefreshIdentitiesRequestRefreshArgs = Initialize-RefreshIdentitiesRequestRefreshArgs -CorrelateEntitlements $true -PromoteAttributes $true -RefreshManagerStatus $false -SynchronizeAttributes $false -PruneIdentities $false -Provision $false
 $RefreshIdentitiesRequest = Initialize-RefreshIdentitiesRequest -VarFilter "MyVarFilter" -RefreshArgs $RefreshIdentitiesRequestRefreshArgs # RefreshIdentitiesRequest |  (optional)

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivitySearchedItemAllOf = Initialize-PSSailpointAccountActivitySearchedItemAllOf  -Action Identity Refresh. `
+$AccountActivitySearchedItemAllOf = Initialize-AccountActivitySearchedItemAllOf  -Action Identity Refresh. `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Stage Completed `

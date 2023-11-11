@@ -20,14 +20,6 @@ Retrieve Managed Client Status by ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "aClientId" # String | ID of the Managed Client Status to get
 $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
 
@@ -74,14 +66,6 @@ Update a status detail passed in from the client
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "aClientId" # String | ID of the Managed Client Status to update
 $ManagedClientStatus = Initialize-ManagedClientStatus -Body  -Status "NORMAL" -Type "CCG" -Timestamp (Get-Date) # ManagedClientStatus | 
 

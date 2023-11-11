@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeSourceWithCloudExternalIdAllOf = Initialize-PSSailpointBetaNonEmployeeSourceWithCloudExternalIdAllOf  -CloudExternalId 99999
+$NonEmployeeSourceWithCloudExternalIdAllOf = Initialize-BetaNonEmployeeSourceWithCloudExternalIdAllOf  -CloudExternalId 99999
 ```
 
 - Convert the resource to JSON

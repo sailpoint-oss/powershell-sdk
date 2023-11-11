@@ -28,14 +28,6 @@ Completes an invocation to a REQUEST_RESPONSE type trigger.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the invocation to complete.
 $CompleteInvocation = Initialize-CompleteInvocation -Secret "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -VarError "Access request is denied." -Output # CompleteInvocation | 
 
@@ -81,14 +73,6 @@ This API creates a new subscription to a trigger and defines trigger invocation 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $BasicAuthConfig = Initialize-BasicAuthConfig -UserName "user@example.com" -Password "MyPassword"
 $BearerTokenAuthConfig = Initialize-BearerTokenAuthConfig -BearerToken "MyBearerToken"
 $HttpConfig = Initialize-HttpConfig -Url "https://www.example.com" -HttpDispatchMode "SYNC" -HttpAuthenticationType "NO_AUTH" -BasicAuthConfig $BasicAuthConfig -BearerTokenAuthConfig $BearerTokenAuthConfig
@@ -137,14 +121,6 @@ Deletes an existing subscription to a trigger.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
 
 # Delete a Subscription
@@ -192,14 +168,6 @@ Gets a list of all trigger subscriptions.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -255,14 +223,6 @@ Gets a list of latest invocation statuses. Statuses of successful invocations ar
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -318,14 +278,6 @@ Gets a list of triggers that are available in the tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -378,14 +330,6 @@ This API updates a trigger subscription in IdentityNow, using a set of instructi
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
 $SubscriptionPatchRequestInnerValue = Initialize-SubscriptionPatchRequestInnerValue 
 $SubscriptionPatchRequestInner = Initialize-SubscriptionPatchRequestInner -Op "add" -Path "/description" -Value $SubscriptionPatchRequestInnerValue # SubscriptionPatchRequestInner[] | 
@@ -432,14 +376,6 @@ Initiate a test event for all subscribers of the specified event trigger.  If th
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $TestInvocation = Initialize-TestInvocation -TriggerId "idn:access-request-post-approval" -VarInput  -ContentJson  -SubscriptionIds "MySubscriptionIds" # TestInvocation | 
 
 # Start a Test Invocation
@@ -483,14 +419,6 @@ Validates a JSONPath filter expression against a provided mock input. Request re
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $ValidateFilterInputDto = Initialize-ValidateFilterInputDto -VarInput  -VarFilter "$[?($.identityId == "201327fda1c44704ac01181e963d463c")]" # ValidateFilterInputDto | 
 
 # Validate a Subscription Filter
@@ -535,14 +463,6 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
 $BasicAuthConfig = Initialize-BasicAuthConfig -UserName "user@example.com" -Password "MyPassword"
 $BearerTokenAuthConfig = Initialize-BearerTokenAuthConfig -BearerToken "MyBearerToken"

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportResultReferenceAllOf = Initialize-PSSailpointReportResultReferenceAllOf  -Status PENDING
+$ReportResultReferenceAllOf = Initialize-ReportResultReferenceAllOf  -Status PENDING
 ```
 
 - Convert the resource to JSON

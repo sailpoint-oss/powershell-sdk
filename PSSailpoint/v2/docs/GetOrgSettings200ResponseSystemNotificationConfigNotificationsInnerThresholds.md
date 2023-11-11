@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetOrgSettings200ResponseSystemNotificationConfigNotificationsInnerThresholds = Initialize-PSSailpointV2GetOrgSettings200ResponseSystemNotificationConfigNotificationsInnerThresholds  -Healthy null `
+$GetOrgSettings200ResponseSystemNotificationConfigNotificationsInnerThresholds = Initialize-V2GetOrgSettings200ResponseSystemNotificationConfigNotificationsInnerThresholds  -Healthy null `
  -Unhealthy null
 ```
 

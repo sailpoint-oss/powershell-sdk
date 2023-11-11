@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListAccounts200ResponseInnerPasswordChangeResult = Initialize-PSSailpointCCListAccounts200ResponseInnerPasswordChangeResult  -CompletionStatus SUCCESS
+$ListAccounts200ResponseInnerPasswordChangeResult = Initialize-CCListAccounts200ResponseInnerPasswordChangeResult  -CompletionStatus SUCCESS
 ```
 
 - Convert the resource to JSON

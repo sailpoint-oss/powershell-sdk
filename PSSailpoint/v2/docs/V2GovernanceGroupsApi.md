@@ -26,14 +26,6 @@ This API allows you to bulk-delete work groups
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $BulkDeleteWorkGroupsRequest = Initialize-BulkDeleteWorkGroupsRequest -Ids "868edef1-222b-40e4-8787-b56cfd78b100" # BulkDeleteWorkGroupsRequest | Work group ids to delete
 
 # Bulk delete work groups
@@ -77,14 +69,6 @@ This API allows you to create a work group
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $CreateWorkgroupRequestOwner = Initialize-CreateWorkgroupRequestOwner -Id "2c9180867624cbd7017642d8c8c81f67"
 $CreateWorkgroupRequest = Initialize-CreateWorkgroupRequest -Name "Test group 3" -Description "This is a test" -Owner $CreateWorkgroupRequestOwner # CreateWorkgroupRequest | Work group to create.
 
@@ -129,14 +113,6 @@ This API deletes a single workgroup based on the ID
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 
 # Delete Work Group By Id
@@ -180,14 +156,6 @@ This API returns the details for a single workgroup based on the ID
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 
 # Get Work Group By Id
@@ -231,14 +199,6 @@ This API returns the connections of a work group
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 
 # List Work Group Connections
@@ -285,14 +245,6 @@ This API returns the members of a work group
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 $Limit = 250 # Int32 | Max number of results to return (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. (optional) (default to 0)
@@ -344,14 +296,6 @@ This API returns a list of work groups
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Limit = 250 # Int32 | Max number of results to return (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. (optional) (default to 0)
 $Filters = "MyFilters" # String | Filter results using the following syntax. [{property:name, value: ""Tyler"", operation: EQ}] (optional)
@@ -400,14 +344,6 @@ This API allows you to modify the members of a work group
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 $ModifyWorkgroupMembersRequest = Initialize-ModifyWorkgroupMembersRequest -Add "2c9180867624cbd7017642d8c8c81f67" -Remove "2c9180867624cbd7017642d8c8c81f67" # ModifyWorkgroupMembersRequest | Add/Remove workgroup member ids.
 
@@ -454,14 +390,6 @@ This API updates and returns the details for a single workgroup based on the ID
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $WorkgroupId = "ef38f94347e94562b5bb8424a56397d8" # String | The workgroup ID
 $CreateWorkgroupRequestOwner = Initialize-CreateWorkgroupRequestOwner -Id "2c9180867624cbd7017642d8c8c81f67"
 $CreateWorkgroupRequest = Initialize-CreateWorkgroupRequest -Name "Test group 3" -Description "This is a test" -Owner $CreateWorkgroupRequestOwner # CreateWorkgroupRequest | Work group to modify.

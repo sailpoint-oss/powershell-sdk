@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningState = Initialize-PSSailpointBetaProvisioningState 
+$ProvisioningState = Initialize-BetaProvisioningState 
 ```
 
 - Convert the resource to JSON

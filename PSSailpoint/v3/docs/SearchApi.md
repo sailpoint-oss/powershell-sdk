@@ -24,14 +24,6 @@ Performs a search query aggregation and returns the aggregation result. By defau
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
@@ -104,14 +96,6 @@ Performs a search with a provided query and returns the count of results in the 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
@@ -179,14 +163,6 @@ Fetches a single document from the specified index, using the specified document
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Index = "accounts" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
@@ -235,14 +211,6 @@ Performs a search with the provided query and returns a matching result collecti
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
 $Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
 

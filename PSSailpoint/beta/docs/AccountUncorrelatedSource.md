@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountUncorrelatedSource = Initialize-PSSailpointBetaAccountUncorrelatedSource  -Type SOURCE `
+$AccountUncorrelatedSource = Initialize-BetaAccountUncorrelatedSource  -Type SOURCE `
  -Id 2c6180835d191a86015d28455b4b231b `
  -Name Corporate Directory
 ```

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearch = Initialize-PSSailpointSavedSearch  -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
+$SavedSearch = Initialize-SavedSearch  -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
  -Owner null `
  -Name Disabled accounts `
  -Description Disabled accounts `

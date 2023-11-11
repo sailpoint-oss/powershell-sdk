@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListAccounts200ResponseInner = Initialize-PSSailpointCCListAccounts200ResponseInner  -Id 17248154 `
+$ListAccounts200ResponseInner = Initialize-CCListAccounts200ResponseInner  -Id 17248154 `
  -Type SYSTEM_CONTROLLED `
  -DisplayName tyler.mairose `
  -Username tyler.mairose `

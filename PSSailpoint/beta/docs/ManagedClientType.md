@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClientType = Initialize-PSSailpointBetaManagedClientType 
+$ManagedClientType = Initialize-BetaManagedClientType 
 ```
 
 - Convert the resource to JSON

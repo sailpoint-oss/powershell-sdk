@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatusRequestState = Initialize-PSSailpointRequestedItemStatusRequestState 
+$RequestedItemStatusRequestState = Initialize-RequestedItemStatusRequestState 
 ```
 
 - Convert the resource to JSON

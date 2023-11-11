@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListConnectors200ResponseItemsInner = Initialize-PSSailpointCCListConnectors200ResponseItemsInner  -ApplicationXml null `
+$ListConnectors200ResponseItemsInner = Initialize-CCListConnectors200ResponseItemsInner  -ApplicationXml null `
  -ClassName null `
  -ConnectorMetadata null `
  -CorrelationConfigXml null `

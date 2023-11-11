@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRequestWithoutApprovalItemAllOf = Initialize-PSSailpointNonEmployeeRequestWithoutApprovalItemAllOf  -AccountName william.smith `
+$NonEmployeeRequestWithoutApprovalItemAllOf = Initialize-NonEmployeeRequestWithoutApprovalItemAllOf  -AccountName william.smith `
  -FirstName William `
  -LastName Smith `
  -Email william.smith@example.com `
@@ -34,8 +34,8 @@ $NonEmployeeRequestWithoutApprovalItemAllOf = Initialize-PSSailpointNonEmployeeR
  -ApprovalStatus null `
  -Comment approved `
  -CompletionDate 2020-03-24T11:11:41.139-05:00 `
- -StartDate Tue Mar 24 00:00:00 UTC 2020 `
- -EndDate Thu Mar 25 00:00:00 UTC 2021 `
+ -StartDate Mon Mar 23 20:00:00 EDT 2020 `
+ -EndDate Wed Mar 24 20:00:00 EDT 2021 `
  -Modified 2020-03-24T11:11:41.139-05:00 `
  -Created 2020-03-24T11:11:41.139-05:00
 ```

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateWorkgroupRequest = Initialize-PSSailpointV2CreateWorkgroupRequest  -Name Test group 3 `
+$CreateWorkgroupRequest = Initialize-V2CreateWorkgroupRequest  -Name Test group 3 `
  -Description This is a test `
  -Owner null
 ```

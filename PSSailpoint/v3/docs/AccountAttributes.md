@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttributes = Initialize-PSSailpointAccountAttributes  -Attributes {city&#x3D;Austin, displayName&#x3D;John Doe, userName&#x3D;jdoe, sAMAccountName&#x3D;jDoe, mail&#x3D;john.doe@sailpoint.com}
+$AccountAttributes = Initialize-AccountAttributes  -Attributes {city&#x3D;Austin, displayName&#x3D;John Doe, userName&#x3D;jdoe, sAMAccountName&#x3D;jDoe, mail&#x3D;john.doe@sailpoint.com}
 ```
 
 - Convert the resource to JSON

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeSchemaAttributeType = Initialize-PSSailpointNonEmployeeSchemaAttributeType 
+$NonEmployeeSchemaAttributeType = Initialize-NonEmployeeSchemaAttributeType 
 ```
 
 - Convert the resource to JSON

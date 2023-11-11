@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchSchedule = Initialize-PSSailpointSearchSchedule  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
+$SearchSchedule = Initialize-SearchSchedule  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
  -Created null `
  -Modified null `
  -Schedule null `

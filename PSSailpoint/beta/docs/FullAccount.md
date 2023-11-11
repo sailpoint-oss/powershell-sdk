@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FullAccount = Initialize-PSSailpointBetaFullAccount  -Id id12345 `
+$FullAccount = Initialize-BetaFullAccount  -Id id12345 `
  -Name aName `
  -Created 2023-01-03T21:16:22.432Z `
  -Modified 2023-01-03T21:16:22.432Z `

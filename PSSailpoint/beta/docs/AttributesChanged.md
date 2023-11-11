@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributesChanged = Initialize-PSSailpointBetaAttributesChanged  -Changes null `
+$AttributesChanged = Initialize-BetaAttributesChanged  -Changes null `
  -EventType null `
  -IdentityId null `
  -Dt null

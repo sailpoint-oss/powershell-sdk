@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleSummaryAllOf = Initialize-PSSailpointRoleSummaryAllOf  -Owner null `
+$RoleSummaryAllOf = Initialize-RoleSummaryAllOf  -Owner null `
  -Disabled null `
  -Revocable null
 ```

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FieldAllOf = Initialize-PSSailpointBetaFieldAllOf  -DisplayName Field 1 `
+$FieldAllOf = Initialize-BetaFieldAllOf  -DisplayName Field 1 `
  -DisplayType checkbox `
  -Required null `
  -AllowedValuesList [{Val1Display&#x3D;null, Val1Value&#x3D;null}, {Val2Display&#x3D;null, Val2Value&#x3D;null}] `

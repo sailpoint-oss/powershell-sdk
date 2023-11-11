@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodViolationCheckResult1 = Initialize-PSSailpointBetaSodViolationCheckResult1  -Message null `
+$SodViolationCheckResult1 = Initialize-BetaSodViolationCheckResult1  -Message null `
  -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1} `
  -ViolationContexts null `
  -ViolatedPolicies null

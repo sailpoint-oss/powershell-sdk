@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAlert = Initialize-PSSailpointCampaignAlert  -Level ERROR `
+$CampaignAlert = Initialize-CampaignAlert  -Level ERROR `
  -Localizations null
 ```
 

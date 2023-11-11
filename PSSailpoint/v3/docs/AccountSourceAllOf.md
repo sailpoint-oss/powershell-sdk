@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountSourceAllOf = Initialize-PSSailpointAccountSourceAllOf  -Type Delimited File
+$AccountSourceAllOf = Initialize-AccountSourceAllOf  -Type Delimited File
 ```
 
 - Convert the resource to JSON

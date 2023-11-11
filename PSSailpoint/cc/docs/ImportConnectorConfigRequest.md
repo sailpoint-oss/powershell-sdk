@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportConnectorConfigRequest = Initialize-PSSailpointCCImportConnectorConfigRequest  -File null
+$ImportConnectorConfigRequest = Initialize-CCImportConnectorConfigRequest  -File null
 ```
 
 - Convert the resource to JSON

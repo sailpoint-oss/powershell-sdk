@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledSearchAllOf = Initialize-PSSailpointScheduledSearchAllOf  -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
+$ScheduledSearchAllOf = Initialize-ScheduledSearchAllOf  -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
  -Owner null `
  -OwnerId 2c9180867624cbd7017642d8c8c81f67
 ```

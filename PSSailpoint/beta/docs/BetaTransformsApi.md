@@ -22,14 +22,6 @@ Creates a new transform object immediately. By default, the internal flag is set
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $DateFormatInputFormat = Initialize-DateFormatInputFormat 
 $DateFormatOutputFormat = Initialize-DateFormatOutputFormat 
 $DateCompareFirstDate = Initialize-DateCompareFirstDate -SourceName "Workday" -AttributeName "DEPARTMENT" -AccountSortAttribute "created" -AccountSortDescending $false -AccountReturnFirstLink $false -AccountFilter "!(nativeIdentity.startsWith("*DELETED*"))" -AccountPropertyFilter "(groups.containsAll({'Admin'}) || location == 'Austin')" -RequiresPeriodicRefresh $false -VarInput @{ key_example =  } -InputFormat $DateFormatInputFormat -OutputFormat $DateFormatOutputFormat
@@ -81,14 +73,6 @@ Deletes the transform specified by the given ID. Attempting to delete a transfor
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
 
 # Delete a transform
@@ -132,14 +116,6 @@ This API returns the transform specified by the given ID. A token with transform
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retrieve
 
 # Transform by ID
@@ -187,14 +163,6 @@ Gets a list of all saved transform objects. A token with transforms-list read au
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -247,14 +215,6 @@ Replaces the transform specified by the given ID with the transform provided in 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to update
 $DateFormatInputFormat = Initialize-DateFormatInputFormat 
 $DateFormatOutputFormat = Initialize-DateFormatOutputFormat 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityReference = Initialize-PSSailpointBetaIdentityReference  -Type null `
+$IdentityReference = Initialize-BetaIdentityReference  -Type null `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Thomas Edison
 ```

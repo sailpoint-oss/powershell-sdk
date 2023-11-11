@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountDocumentAllOf = Initialize-PSSailpointAccountDocumentAllOf  -Modified 2018-06-25T20:22:28.104Z `
+$AccountDocumentAllOf = Initialize-AccountDocumentAllOf  -Modified 2018-06-25T20:22:28.104Z `
  -Attributes {firstName&#x3D;John, lastName&#x3D;Doe, displayName&#x3D;John.Doe} `
  -Identity null `
  -Access null `

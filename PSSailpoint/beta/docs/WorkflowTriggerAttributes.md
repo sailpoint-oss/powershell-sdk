@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowTriggerAttributes = Initialize-PSSailpointBetaWorkflowTriggerAttributes  -Id idn:identity-attributes-changed `
+$WorkflowTriggerAttributes = Initialize-BetaWorkflowTriggerAttributes  -Id idn:identity-attributes-changed `
  -VarFilter $.changes[?(@.attribute &#x3D;&#x3D; &#39;manager&#39;)] `
  -Name search-and-notify `
  -Description Run a search and notify the results `

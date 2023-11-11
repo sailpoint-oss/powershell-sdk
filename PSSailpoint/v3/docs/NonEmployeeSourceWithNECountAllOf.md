@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeSourceWithNECountAllOf = Initialize-PSSailpointNonEmployeeSourceWithNECountAllOf  -NonEmployeeCount 120
+$NonEmployeeSourceWithNECountAllOf = Initialize-NonEmployeeSourceWithNECountAllOf  -NonEmployeeCount 120
 ```
 
 - Convert the resource to JSON

@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountDocument = Initialize-PSSailpointAccountDocument  -Id 2c91808568c529c60168cca6f90c1313 `
+$AccountDocument = Initialize-AccountDocument  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type null `
  -AccountId john.doe `

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectExportImportOptions = Initialize-PSSailpointBetaObjectExportImportOptions  -IncludedIds null `
+$ObjectExportImportOptions = Initialize-BetaObjectExportImportOptions  -IncludedIds null `
  -IncludedNames null
 ```
 

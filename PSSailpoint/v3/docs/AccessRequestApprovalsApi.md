@@ -24,14 +24,6 @@ This endpoint approves an access request approval. Only the owner of the approva
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | The id of the approval.
 $CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "Adam Kennedy"
 $CommentDto = Initialize-CommentDto -Comment "This is a comment." -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment. (optional)
@@ -79,14 +71,6 @@ This endpoint forwards an access request approval to a new owner. Only the owner
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | The id of the approval.
 $ForwardApprovalDto = Initialize-ForwardApprovalDto -NewOwnerId "2c91808568c529c60168cca6f90c1314" -Comment "2c91808568c529c60168cca6f90c1313" # ForwardApprovalDto | Information about the forwarded approval.
 
@@ -133,14 +117,6 @@ This endpoint returns the number of pending, approved and rejected access reques
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
 $FromDate = "from-date=2020-03-19T19:59:11Z" # String | From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format (optional)
 
@@ -191,14 +167,6 @@ This endpoint returns list of completed approvals. See *owner-id* query paramete
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -257,14 +225,6 @@ This endpoint returns a list of pending approvals. See ""owner-id"" query parame
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -319,14 +279,6 @@ This endpoint rejects an access request approval. Only the owner of the approval
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | The id of the approval.
 $CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "Adam Kennedy"
 $CommentDto = Initialize-CommentDto -Comment "This is a comment." -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment. (optional)

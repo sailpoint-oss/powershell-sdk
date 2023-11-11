@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FeatureValueDto = Initialize-PSSailpointBetaFeatureValueDto  -Feature department `
+$FeatureValueDto = Initialize-BetaFeatureValueDto  -Feature department `
  -Numerator 14 `
  -Denominator 14
 ```

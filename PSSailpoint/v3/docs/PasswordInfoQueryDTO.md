@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordInfoQueryDTO = Initialize-PSSailpointPasswordInfoQueryDTO  -UserName Abby.Smith `
+$PasswordInfoQueryDTO = Initialize-PasswordInfoQueryDTO  -UserName Abby.Smith `
  -SourceName My-AD
 ```
 

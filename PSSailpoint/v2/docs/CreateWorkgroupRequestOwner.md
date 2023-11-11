@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateWorkgroupRequestOwner = Initialize-PSSailpointV2CreateWorkgroupRequestOwner  -Id 2c9180867624cbd7017642d8c8c81f67
+$CreateWorkgroupRequestOwner = Initialize-V2CreateWorkgroupRequestOwner  -Id 2c9180867624cbd7017642d8c8c81f67
 ```
 
 - Convert the resource to JSON

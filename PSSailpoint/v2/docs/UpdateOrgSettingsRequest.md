@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UpdateOrgSettingsRequest = Initialize-PSSailpointV2UpdateOrgSettingsRequest  -CountryCodes null `
+$UpdateOrgSettingsRequest = Initialize-V2UpdateOrgSettingsRequest  -CountryCodes null `
  -EnableExternalPasswordChange null `
  -EnableAutomaticPasswordReplay null `
  -EnableAutomationGeneration null `

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Static = Initialize-PSSailpointStatic  -Values string$variable `
+$Static = Initialize-Static  -Values string$variable `
  -RequiresPeriodicRefresh false
 ```
 

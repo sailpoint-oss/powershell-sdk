@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetOrgSettings200Response = Initialize-PSSailpointV2GetOrgSettings200Response  -Id null `
+$GetOrgSettings200Response = Initialize-V2GetOrgSettings200Response  -Id null `
  -Name null `
  -Description null `
  -DateCreated null `

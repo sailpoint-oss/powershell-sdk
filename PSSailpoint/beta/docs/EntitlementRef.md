@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementRef = Initialize-PSSailpointBetaEntitlementRef  -Type ENTITLEMENT `
+$EntitlementRef = Initialize-BetaEntitlementRef  -Type ENTITLEMENT `
  -Id 2c91809773dee32014e13e122092014e `
  -Name CN&#x3D;entitlement.490efde5,OU&#x3D;OrgCo,OU&#x3D;ServiceDept,DC&#x3D;HQAD,DC&#x3D;local
 ```

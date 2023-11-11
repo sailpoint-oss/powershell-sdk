@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchIdentityReferenceAllOf = Initialize-PSSailpointSearchIdentityReferenceAllOf  -Type null
+$SearchIdentityReferenceAllOf = Initialize-SearchIdentityReferenceAllOf  -Type null
 ```
 
 - Convert the resource to JSON

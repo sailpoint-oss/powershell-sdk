@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleDocumentAllOf = Initialize-PSSailpointRoleDocumentAllOf  -AccessProfiles null `
+$RoleDocumentAllOf = Initialize-RoleDocumentAllOf  -AccessProfiles null `
  -AccessProfileCount null `
  -Tags [TAG_1, TAG_2]
 ```

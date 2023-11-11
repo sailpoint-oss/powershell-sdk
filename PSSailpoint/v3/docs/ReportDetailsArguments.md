@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportDetailsArguments = Initialize-PSSailpointReportDetailsArguments  -Application 2c9180897eSourceIde781782f705b9 `
+$ReportDetailsArguments = Initialize-ReportDetailsArguments  -Application 2c9180897eSourceIde781782f705b9 `
  -SourceName DataScienceSourceName `
  -DefaultS3Bucket true `
  -S3Bucket the-dev-bucket `

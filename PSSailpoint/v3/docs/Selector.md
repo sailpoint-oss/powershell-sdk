@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Selector = Initialize-PSSailpointSelector  -Type null `
+$Selector = Initialize-Selector  -Type null `
  -Values [MON, WED] `
  -Interval 3
 ```

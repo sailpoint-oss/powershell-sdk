@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryTrigger = Initialize-PSSailpointBetaWorkflowLibraryTrigger  -Id idn:identity-attributes-changed `
+$WorkflowLibraryTrigger = Initialize-BetaWorkflowLibraryTrigger  -Id idn:identity-attributes-changed `
  -Type EVENT `
  -Name Identity Attributes Changed `
  -Description One or more identity attributes changed. `

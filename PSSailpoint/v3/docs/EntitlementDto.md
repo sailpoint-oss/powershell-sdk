@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementDto = Initialize-PSSailpointEntitlementDto  -Id id12345 `
+$EntitlementDto = Initialize-EntitlementDto  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SectionDetailsAllOf = Initialize-PSSailpointSectionDetailsAllOf  -Label Section 1 `
+$SectionDetailsAllOf = Initialize-SectionDetailsAllOf  -Label Section 1 `
  -FormItems []
 ```
 

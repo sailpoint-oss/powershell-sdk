@@ -22,14 +22,6 @@ Create a campaign Filter based on filter details and criteria.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation "EQUALS" -Property "displayName" -Value "Allie"
 $CampaignFilterDetails = Initialize-CampaignFilterDetails -Id "e9f9a1397b842fd5a65842087040d3ac" -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on specified property of Identity Attribute." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | 
 
@@ -74,14 +66,6 @@ Deletes campaign filters whose Ids are specified in the provided list of campaig
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $RequestBody = "MyRequestBody" # String[] | A json list of IDs of campaign filters to delete.
 
 # Deletes Campaign Filters
@@ -125,14 +109,6 @@ Retrieves information for an existing campaign filter using the filter's ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FilterId = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter to be retrieved.
 
 # Get Campaign Filter by ID
@@ -178,14 +154,6 @@ Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Start = 0 # Int32 | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $IncludeSystemFilters = $true # Boolean | If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true. (optional) (default to $true)
@@ -234,14 +202,6 @@ Updates an existing campaign filter using the filter's ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FilterId = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter being modified.
 $CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation "EQUALS" -Property "displayName" -Value "Allie"
 $CampaignFilterDetails = Initialize-CampaignFilterDetails -Id "e9f9a1397b842fd5a65842087040d3ac" -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on specified property of Identity Attribute." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | A campaign filter details with updated field values.

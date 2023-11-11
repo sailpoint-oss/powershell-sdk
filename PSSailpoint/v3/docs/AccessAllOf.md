@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessAllOf = Initialize-PSSailpointAccessAllOf  -Type null `
+$AccessAllOf = Initialize-AccessAllOf  -Type null `
  -Description null
 ```
 

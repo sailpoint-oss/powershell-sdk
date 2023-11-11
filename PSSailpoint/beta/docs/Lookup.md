@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Lookup = Initialize-PSSailpointBetaLookup  -Table {USA&#x3D;Americas, FRA&#x3D;EMEA, AUS&#x3D;APAC, default&#x3D;Unknown Region} `
+$Lookup = Initialize-BetaLookup  -Table {USA&#x3D;Americas, FRA&#x3D;EMEA, AUS&#x3D;APAC, default&#x3D;Unknown Region} `
  -RequiresPeriodicRefresh false `
  -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
 ```

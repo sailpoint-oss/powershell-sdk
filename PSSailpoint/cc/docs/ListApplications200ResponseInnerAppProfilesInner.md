@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListApplications200ResponseInnerAppProfilesInner = Initialize-PSSailpointCCListApplications200ResponseInnerAppProfilesInner  -Id null `
+$ListApplications200ResponseInnerAppProfilesInner = Initialize-CCListApplications200ResponseInnerAppProfilesInner  -Id null `
  -Filename null `
  -CreatedBy null `
  -DateCreated null `

@@ -26,14 +26,6 @@ Creates a new Reassignment Configuration for the specified identity.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $ConfigurationItemRequest = Initialize-ConfigurationItemRequest -ReassignedFromId "2c91808781a71ddb0181b9090b5c504e" -ReassignedToId "2c91808781a71ddb0181b9090b53504a" -ConfigType "ACCESS_REQUESTS" -StartDate (Get-Date) -EndDate (Get-Date) # ConfigurationItemRequest | 
 
 # Create a Reassignment Configuration
@@ -77,14 +69,6 @@ Deletes all Reassignment Configuration for the specified identity
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
 
 # Delete Reassignment Configuration
@@ -130,14 +114,6 @@ Evaluates the Reassignment Configuration for an `Identity` to determine if work 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
 $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | Reassignment work type
 $ExclusionFilters = "MyExclusionFilters" # String[] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
@@ -184,14 +160,6 @@ Gets a collection of types which are available in the Reassignment Configuration
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # List Reassignment Config Types
 try {
@@ -231,14 +199,6 @@ Gets the Reassignment Configuration for an identity.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
 
 # Get Reassignment Configuration
@@ -281,14 +241,6 @@ Gets the global Reassignment Configuration settings for the requestor's tenant.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # Get Tenant-wide Reassignment Configuration settings
 try {
@@ -327,14 +279,6 @@ Gets all Reassignment configuration for the current org.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # List Reassignment Configurations
 try {
@@ -375,14 +319,6 @@ Replaces existing Reassignment configuration for an identity with the newly prov
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
 $ConfigurationItemRequest = Initialize-ConfigurationItemRequest -ReassignedFromId "2c91808781a71ddb0181b9090b5c504e" -ReassignedToId "2c91808781a71ddb0181b9090b53504a" -ConfigType "ACCESS_REQUESTS" -StartDate (Get-Date) -EndDate (Get-Date) # ConfigurationItemRequest | 
 
@@ -428,14 +364,6 @@ Replaces existing Tenant-wide Reassignment Configuration settings with the newly
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $TenantConfigurationDetails = Initialize-TenantConfigurationDetails -Disabled $true
 $TenantConfigurationRequest = Initialize-TenantConfigurationRequest -ConfigDetails $TenantConfigurationDetails # TenantConfigurationRequest | 
 

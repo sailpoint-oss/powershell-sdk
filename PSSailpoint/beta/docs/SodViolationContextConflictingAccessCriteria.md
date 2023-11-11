@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodViolationContextConflictingAccessCriteria = Initialize-PSSailpointBetaSodViolationContextConflictingAccessCriteria  -LeftCriteria null `
+$SodViolationContextConflictingAccessCriteria = Initialize-BetaSodViolationContextConflictingAccessCriteria  -LeftCriteria null `
  -RightCriteria null
 ```
 

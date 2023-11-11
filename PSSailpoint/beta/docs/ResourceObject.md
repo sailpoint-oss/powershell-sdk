@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ResourceObject = Initialize-PSSailpointBetaResourceObject  -Instance null `
+$ResourceObject = Initialize-BetaResourceObject  -Instance null `
  -Identity CN&#x3D;Aaron Carr,OU&#x3D;test1,DC&#x3D;test2,DC&#x3D;test `
  -Uuid {abf7bd9b-68b4-4d21-9b70-870c58ebf844} `
  -PreviousIdentity null `

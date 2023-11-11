@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OwnerAllOf = Initialize-PSSailpointOwnerAllOf  -Email john.doe@sailpoint.com
+$OwnerAllOf = Initialize-OwnerAllOf  -Email john.doe@sailpoint.com
 ```
 
 - Convert the resource to JSON

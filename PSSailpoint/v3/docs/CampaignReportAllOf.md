@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignReportAllOf = Initialize-PSSailpointCampaignReportAllOf  -ReportType null `
+$CampaignReportAllOf = Initialize-CampaignReportAllOf  -ReportType null `
  -LastRunAt null
 ```
 

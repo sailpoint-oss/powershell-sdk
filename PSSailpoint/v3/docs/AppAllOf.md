@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AppAllOf = Initialize-PSSailpointAppAllOf  -Source null `
+$AppAllOf = Initialize-AppAllOf  -Source null `
  -Account null
 ```
 

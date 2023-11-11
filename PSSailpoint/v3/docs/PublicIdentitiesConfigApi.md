@@ -18,14 +18,6 @@ Returns the publicly visible attributes of an identity available to request appr
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # Get the Public Identities Configuration
 try {
@@ -65,14 +57,6 @@ Updates the publicly visible attributes of an identity available to request appr
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $PublicIdentityAttributeConfig = Initialize-PublicIdentityAttributeConfig -Key "country" -Name "Country"
 $IdentityReference = Initialize-IdentityReference -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c9180a46faadee4016fb4e018c20639" -Name "Thomas Edison"
 $PublicIdentityConfig = Initialize-PublicIdentityConfig -Attributes $PublicIdentityAttributeConfig -Modified (Get-Date) -ModifiedBy $IdentityReference # PublicIdentityConfig | 

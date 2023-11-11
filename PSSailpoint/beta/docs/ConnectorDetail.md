@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorDetail = Initialize-PSSailpointBetaConnectorDetail  -Name JDBC `
+$ConnectorDetail = Initialize-BetaConnectorDetail  -Name JDBC `
  -SourceConfigXml &lt;Form connectorName&#x3D;&#39;Active Directory - Direct&#39; directConnect&#x3D;&#39;true&#39; name&#x3D;&#39;Active Directory&#39; status&#x3D;&#39;released&#39; type&#x3D;&#39;SourceConfig&#39; xmlns&#x3D;&#39;http://www.sailpoint.com/xsd/sailpoint_form_1_0.xsd&#39;&gt;
 	&lt;Field defaultValue&#x3D;&#39;true&#39; hidden&#x3D;&#39;true&#39; name&#x3D;&#39;cloudAuthEnabled&#39; type&#x3D;&#39;boolean&#39; value&#x3D;&#39;true&#39;&gt; &lt;/Field&gt; &lt;/Form&gt; `
  -SourceConfig {Form&#x3D;{Field&#x3D;{_defaultValue&#x3D;true, _hidden&#x3D;true, _name&#x3D;cloudAuthEnabled, _type&#x3D;boolean, _value&#x3D;true}, _xmlns&#x3D;http://www.sailpoint.com/xsd/sailpoint_form_1_0.xsd, _connectorName&#x3D;Active Directory - Direct, _directConnect&#x3D;true, _name&#x3D;Active Directory, _status&#x3D;released, _type&#x3D;SourceConfig, __text&#x3D;\n\t}} `

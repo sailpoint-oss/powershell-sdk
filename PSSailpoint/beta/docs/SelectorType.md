@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SelectorType = Initialize-PSSailpointBetaSelectorType 
+$SelectorType = Initialize-BetaSelectorType 
 ```
 
 - Convert the resource to JSON

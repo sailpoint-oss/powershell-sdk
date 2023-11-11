@@ -26,14 +26,6 @@ This deletes a tagged object for the specified type.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Type = "ACCESS_PROFILE" # String | The type of tagged object to delete.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to delete.
 
@@ -79,14 +71,6 @@ This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
@@ -132,14 +116,6 @@ This gets a tagged object for the specified type.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
@@ -188,14 +164,6 @@ This API returns a list of all tagged objects.  Any authenticated token may be u
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -249,14 +217,6 @@ This API returns a list of all tagged objects by type.  Any authenticated token 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Type = "ROLE" # String | The type of tagged object to retrieve.
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -310,14 +270,6 @@ This updates a tagged object for the specified type.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
 $TaggedObjectObjectRef = Initialize-TaggedObjectObjectRef -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
@@ -366,14 +318,6 @@ This adds a tag to an object.  Any authenticated token may be used to call this 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $TaggedObjectObjectRef = Initialize-TaggedObjectObjectRef -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $TaggedObject = Initialize-TaggedObject -ObjectRef $TaggedObjectObjectRef -Tags "MyTags" # TaggedObject | 
 
@@ -418,14 +362,6 @@ This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 

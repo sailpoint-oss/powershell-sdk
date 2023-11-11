@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationTemplateDtoAllOf = Initialize-PSSailpointBetaServiceDeskIntegrationTemplateDtoAllOf  -Type Web Service SDIM `
+$ServiceDeskIntegrationTemplateDtoAllOf = Initialize-BetaServiceDeskIntegrationTemplateDtoAllOf  -Type Web Service SDIM `
  -Attributes null `
  -ProvisioningConfig null
 ```

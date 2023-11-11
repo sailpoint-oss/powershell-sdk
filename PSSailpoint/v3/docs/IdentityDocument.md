@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDocument = Initialize-PSSailpointIdentityDocument  -Id 2c91808568c529c60168cca6f90c1313 `
+$IdentityDocument = Initialize-IdentityDocument  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type null `
  -DisplayName Carol.Adams `

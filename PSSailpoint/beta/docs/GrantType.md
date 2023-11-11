@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GrantType = Initialize-PSSailpointBetaGrantType 
+$GrantType = Initialize-BetaGrantType 
 ```
 
 - Convert the resource to JSON

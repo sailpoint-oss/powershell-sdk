@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemReviewedBy = Initialize-PSSailpointAccessItemReviewedBy  -Type IDENTITY `
+$AccessItemReviewedBy = Initialize-AccessItemReviewedBy  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
 ```

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeSourceLiteWithSchemaAttributesAllOf = Initialize-PSSailpointBetaNonEmployeeSourceLiteWithSchemaAttributesAllOf  -SchemaAttributes null
+$NonEmployeeSourceLiteWithSchemaAttributesAllOf = Initialize-BetaNonEmployeeSourceLiteWithSchemaAttributesAllOf  -SchemaAttributes null
 ```
 
 - Convert the resource to JSON

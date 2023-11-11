@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubSearchAggregationSpecificationAllOf = Initialize-PSSailpointSubSearchAggregationSpecificationAllOf  -SubAggregation null
+$SubSearchAggregationSpecificationAllOf = Initialize-SubSearchAggregationSpecificationAllOf  -SubAggregation null
 ```
 
 - Convert the resource to JSON

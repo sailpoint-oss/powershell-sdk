@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommonAccessItemState = Initialize-PSSailpointBetaCommonAccessItemState 
+$CommonAccessItemState = Initialize-BetaCommonAccessItemState 
 ```
 
 - Convert the resource to JSON

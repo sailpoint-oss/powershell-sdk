@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigType = Initialize-PSSailpointBetaConfigType  -InternalName null `
+$ConfigType = Initialize-BetaConfigType  -InternalName null `
  -DisplayName Access Requests `
  -Description Reassign Access Request Work Items for an identity
 ```

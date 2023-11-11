@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommonAccessResponse = Initialize-PSSailpointBetaCommonAccessResponse  -Access null `
+$CommonAccessResponse = Initialize-BetaCommonAccessResponse  -Access null `
  -Status null `
  -LastUpdated null `
  -ReviewedByUser null `

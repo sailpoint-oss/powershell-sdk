@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementDtoAllOf = Initialize-PSSailpointEntitlementDtoAllOf  -Attribute authorizationType `
+$EntitlementDtoAllOf = Initialize-EntitlementDtoAllOf  -Attribute authorizationType `
  -Value CN&#x3D;Users,dc&#x3D;sailpoint,dc&#x3D;com `
  -Description Active Directory DC `
  -Attributes {GroupType&#x3D;Security, sAMAccountName&#x3D;Buyer} `

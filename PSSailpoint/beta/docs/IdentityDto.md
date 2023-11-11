@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDto = Initialize-PSSailpointBetaIdentityDto  -Alias walter.white `
+$IdentityDto = Initialize-BetaIdentityDto  -Alias walter.white `
  -EmailAddress sender@example.com `
  -ProcessingState ERROR `
  -IdentityStatus LOCKED `

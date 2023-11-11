@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsRequest = Initialize-PSSailpointCCLoadAccountsRequest  -DisableOptimization true `
+$LoadAccountsRequest = Initialize-CCLoadAccountsRequest  -DisableOptimization true `
  -File null
 ```
 

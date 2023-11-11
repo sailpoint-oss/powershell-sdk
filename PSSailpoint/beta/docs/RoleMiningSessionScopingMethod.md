@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionScopingMethod = Initialize-PSSailpointBetaRoleMiningSessionScopingMethod 
+$RoleMiningSessionScopingMethod = Initialize-BetaRoleMiningSessionScopingMethod 
 ```
 
 - Convert the resource to JSON

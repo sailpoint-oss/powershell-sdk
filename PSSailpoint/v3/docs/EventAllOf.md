@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EventAllOf = Initialize-PSSailpointEventAllOf  -Created 2018-06-25T20:22:28.104Z `
+$EventAllOf = Initialize-EventAllOf  -Created 2018-06-25T20:22:28.104Z `
  -Synced 2018-06-25T20:22:28.104Z `
  -Action update `
  -Type SYSTEM_CONFIG `

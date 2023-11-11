@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AggregationDocument = Initialize-PSSailpointAggregationDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
+$AggregationDocument = Initialize-AggregationDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
  -Name john.doe `
  -Type null `
  -Status Success `

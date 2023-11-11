@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$JsonPatch = Initialize-PSSailpointJsonPatch  -Operations null
+$JsonPatch = Initialize-JsonPatch  -Operations null
 ```
 
 - Convert the resource to JSON

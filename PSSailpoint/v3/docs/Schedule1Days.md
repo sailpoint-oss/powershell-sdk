@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Schedule1Days = Initialize-PSSailpointSchedule1Days  -Type null `
+$Schedule1Days = Initialize-Schedule1Days  -Type null `
  -Values [MON, WED] `
  -Interval 3
 ```

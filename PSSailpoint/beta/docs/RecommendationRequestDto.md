@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommendationRequestDto = Initialize-PSSailpointBetaRecommendationRequestDto  -Requests null `
+$RecommendationRequestDto = Initialize-BetaRecommendationRequestDto  -Requests null `
  -ExcludeInterpretations false `
  -IncludeTranslationMessages false `
  -IncludeDebugInformation true `

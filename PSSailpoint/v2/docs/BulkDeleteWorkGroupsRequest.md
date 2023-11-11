@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkDeleteWorkGroupsRequest = Initialize-PSSailpointV2BulkDeleteWorkGroupsRequest  -Ids null
+$BulkDeleteWorkGroupsRequest = Initialize-V2BulkDeleteWorkGroupsRequest  -Ids null
 ```
 
 - Convert the resource to JSON

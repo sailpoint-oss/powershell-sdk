@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfileAllOf = Initialize-PSSailpointIdentityProfileAllOf  -Description My custom flat file profile `
+$IdentityProfileAllOf = Initialize-IdentityProfileAllOf  -Description My custom flat file profile `
  -Owner null `
  -Priority 10 `
  -AuthoritativeSource null `

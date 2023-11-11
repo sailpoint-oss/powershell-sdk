@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListWorkgroups200ResponseInner = Initialize-PSSailpointV2ListWorkgroups200ResponseInner  -ConnectionCount 2 `
+$ListWorkgroups200ResponseInner = Initialize-V2ListWorkgroups200ResponseInner  -ConnectionCount 2 `
  -Created 1641498673000 `
  -Description Phil Governance Group `
  -Id b0c131fa-5133-4efb-9bb2-e22529f44cad `

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseAccountAllOf = Initialize-PSSailpointBaseAccountAllOf  -AccountId john.doe `
+$BaseAccountAllOf = Initialize-BaseAccountAllOf  -AccountId john.doe `
  -Source null `
  -Disabled false `
  -Locked false `

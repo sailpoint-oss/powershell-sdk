@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProcessIdentitiesRequest = Initialize-PSSailpointBetaProcessIdentitiesRequest  -IdentityIds null
+$ProcessIdentitiesRequest = Initialize-BetaProcessIdentitiesRequest  -IdentityIds null
 ```
 
 - Convert the resource to JSON

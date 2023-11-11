@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAccountCorrelationConfig = Initialize-PSSailpointSourceAccountCorrelationConfig  -Type ACCOUNT_CORRELATION_CONFIG `
+$SourceAccountCorrelationConfig = Initialize-SourceAccountCorrelationConfig  -Type ACCOUNT_CORRELATION_CONFIG `
  -Id 2c9180855d191c59015d28583727245a `
  -Name Directory [source-62867] Account Correlation
 ```

@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetIdentity200Response = Initialize-PSSailpointCCGetIdentity200Response  -Id null `
+$GetIdentity200Response = Initialize-CCGetIdentity200Response  -Id null `
  -Alias null `
  -Uid null `
  -Name null `

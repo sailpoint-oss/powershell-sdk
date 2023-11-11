@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchAllOf = Initialize-PSSailpointSavedSearchAllOf  -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
+$SavedSearchAllOf = Initialize-SavedSearchAllOf  -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
  -Owner null
 ```
 

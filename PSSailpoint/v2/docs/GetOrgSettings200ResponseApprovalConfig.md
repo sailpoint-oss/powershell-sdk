@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetOrgSettings200ResponseApprovalConfig = Initialize-PSSailpointV2GetOrgSettings200ResponseApprovalConfig  -DaysTillEscalation null `
+$GetOrgSettings200ResponseApprovalConfig = Initialize-V2GetOrgSettings200ResponseApprovalConfig  -DaysTillEscalation null `
  -DaysBetweenReminders null `
  -MaxReminders null `
  -FallbackApprover null

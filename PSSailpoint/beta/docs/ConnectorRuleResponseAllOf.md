@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleResponseAllOf = Initialize-PSSailpointBetaConnectorRuleResponseAllOf  -Id 8113d48c0b914f17b4c6072d4dcb9dfe `
+$ConnectorRuleResponseAllOf = Initialize-BetaConnectorRuleResponseAllOf  -Id 8113d48c0b914f17b4c6072d4dcb9dfe `
  -Created 021-07-22T15:59:23Z `
  -Modified 021-07-22T15:59:23Z
 ```

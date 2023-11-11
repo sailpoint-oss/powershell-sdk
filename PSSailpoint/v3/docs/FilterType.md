@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FilterType = Initialize-PSSailpointFilterType 
+$FilterType = Initialize-FilterType 
 ```
 
 - Convert the resource to JSON

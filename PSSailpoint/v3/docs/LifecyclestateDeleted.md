@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LifecyclestateDeleted = Initialize-PSSailpointLifecyclestateDeleted  -Type LIFECYCLE_STATE `
+$LifecyclestateDeleted = Initialize-LifecyclestateDeleted  -Type LIFECYCLE_STATE `
  -Id 12345 `
  -Name Contractor Lifecycle
 ```

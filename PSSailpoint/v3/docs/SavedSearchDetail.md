@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchDetail = Initialize-PSSailpointSavedSearchDetail  -Public false `
+$SavedSearchDetail = Initialize-SavedSearchDetail  -Public false `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Indices [identities] `

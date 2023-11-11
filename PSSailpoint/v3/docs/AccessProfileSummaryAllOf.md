@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileSummaryAllOf = Initialize-PSSailpointAccessProfileSummaryAllOf  -Source null `
+$AccessProfileSummaryAllOf = Initialize-AccessProfileSummaryAllOf  -Source null `
  -Owner null `
  -Revocable true
 ```

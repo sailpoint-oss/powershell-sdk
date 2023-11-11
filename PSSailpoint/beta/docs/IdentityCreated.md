@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityCreated = Initialize-PSSailpointBetaIdentityCreated  -Identity null `
+$IdentityCreated = Initialize-BetaIdentityCreated  -Identity null `
  -Attributes {firstname&#x3D;John}
 ```
 

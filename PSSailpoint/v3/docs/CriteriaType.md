@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CriteriaType = Initialize-PSSailpointCriteriaType 
+$CriteriaType = Initialize-CriteriaType 
 ```
 
 - Convert the resource to JSON

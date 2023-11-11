@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkDeleteWorkGroups200Response = Initialize-PSSailpointV2BulkDeleteWorkGroups200Response  -Deleted null `
+$BulkDeleteWorkGroups200Response = Initialize-V2BulkDeleteWorkGroups200Response  -Deleted null `
  -InUse null `
  -NotFound null
 ```

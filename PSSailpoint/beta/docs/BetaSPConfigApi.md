@@ -24,14 +24,6 @@ This post will export objects from the tenant to a JSON configuration file. For 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 "ACCESS_PROFILE""ACCESS_PROFILE"
 $ObjectExportImportOptions = Initialize-ObjectExportImportOptions -IncludedIds "be9e116d-08e1-49fc-ab7f-fa585e96c9e4" -IncludedNames "Test Object"
 $ExportPayload = Initialize-ExportPayload -Description "Export Job 1 Test" -ExcludeTypes "ACCESS_PROFILE" -IncludeTypes "ACCESS_PROFILE""ACCESS_PROFILE" -ObjectOptions @{ key_example = $ObjectExportImportOptions } # ExportPayload | Export options control what will be included in the export.
@@ -77,14 +69,6 @@ This endpoint gets the export file resulting from the export job with the reques
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose results will be downloaded.
 
 # Download export job result.
@@ -128,14 +112,6 @@ This gets the status of the export job identified by the `id` parameter. The req
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose status will be returned.
 
 # Get export job status
@@ -179,14 +155,6 @@ This gets import file resulting from the import job with the requested id and do
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose results will be downloaded.
 
 # Download import job result
@@ -230,14 +198,6 @@ This gets the status of the import job identified by the `id` parameter. For mor
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose status will be returned.
 
 # Get import job status
@@ -283,14 +243,6 @@ This post will import objects from a JSON configuration file into a tenant. By d
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. (optional) (default to $false)
 "IDENTITY_OBJECT_CONFIG""IDENTITY_OBJECT_CONFIG"
@@ -341,14 +293,6 @@ This gets the list of object configurations which are known to the tenant export
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # Get config object details
 try {

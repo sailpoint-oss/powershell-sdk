@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountUncorrelatedAccount = Initialize-PSSailpointBetaAccountUncorrelatedAccount  -Type ACCOUNT `
+$AccountUncorrelatedAccount = Initialize-BetaAccountUncorrelatedAccount  -Type ACCOUNT `
  -Id 4dd497e3723e439991cb6d0e478375dd `
  -Name Sadie Jensen `
  -NativeIdentity cn&#x3D;john.doe,ou&#x3D;users,dc&#x3D;acme,dc&#x3D;com `

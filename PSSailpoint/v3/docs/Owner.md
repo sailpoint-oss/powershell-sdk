@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Owner = Initialize-PSSailpointOwner  -Id 2c91808568c529c60168cca6f90c1313 `
+$Owner = Initialize-Owner  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type null `
  -Email john.doe@sailpoint.com

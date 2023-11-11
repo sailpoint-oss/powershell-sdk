@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleExportResponseAllOf = Initialize-PSSailpointBetaRoleMiningPotentialRoleExportResponseAllOf  -ExportId 0c6cdb76-1227-4aaf-af21-192dbdfbfa04 `
+$RoleMiningPotentialRoleExportResponseAllOf = Initialize-BetaRoleMiningPotentialRoleExportResponseAllOf  -ExportId 0c6cdb76-1227-4aaf-af21-192dbdfbfa04 `
  -Status null
 ```
 

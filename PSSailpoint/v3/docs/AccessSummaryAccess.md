@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessSummaryAccess = Initialize-PSSailpointAccessSummaryAccess  -Type null `
+$AccessSummaryAccess = Initialize-AccessSummaryAccess  -Type null `
  -Id 2c9180867160846801719932c5153fb7 `
  -Name Entitlement for Company Database
 ```

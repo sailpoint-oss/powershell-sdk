@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetIdentity200ResponseAuth = Initialize-PSSailpointCCGetIdentity200ResponseAuth  -Service null `
+$GetIdentity200ResponseAuth = Initialize-CCGetIdentity200ResponseAuth  -Service null `
  -Encryption null
 ```
 

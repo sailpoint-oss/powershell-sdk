@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListApplications200ResponseInnerAccountServicePoliciesInner = Initialize-PSSailpointCCListApplications200ResponseInnerAccountServicePoliciesInner  -PolicyId null `
+$ListApplications200ResponseInnerAccountServicePoliciesInner = Initialize-CCListApplications200ResponseInnerAccountServicePoliciesInner  -PolicyId null `
  -PolicyName null `
  -Selectors null
 ```

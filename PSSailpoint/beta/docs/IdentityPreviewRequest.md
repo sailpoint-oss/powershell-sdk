@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityPreviewRequest = Initialize-PSSailpointBetaIdentityPreviewRequest  -IdentityId null `
+$IdentityPreviewRequest = Initialize-BetaIdentityPreviewRequest  -IdentityId null `
  -IdentityAttributeConfig null
 ```
 

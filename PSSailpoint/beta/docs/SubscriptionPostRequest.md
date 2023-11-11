@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubscriptionPostRequest = Initialize-PSSailpointBetaSubscriptionPostRequest  -Name Access request subscription `
+$SubscriptionPostRequest = Initialize-BetaSubscriptionPostRequest  -Name Access request subscription `
  -Description Access requested to site xyz `
  -TriggerId idn:access-requested `
  -Type null `

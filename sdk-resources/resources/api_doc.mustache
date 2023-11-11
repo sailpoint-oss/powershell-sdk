@@ -23,38 +23,6 @@ Method | HTTP request | Description
 
 ### Example
 ```powershell
-{{#hasAuthMethods}}
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-{{#authMethods}}
-{{#isBasic}}
-# Configure HTTP basic authorization: {{{name}}}
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-{{/isBasic}}
-{{#isApiKey}}
-# Configure API key authorization: {{{name}}}
-$Configuration.ApiKey.{{{keyParamName}}} = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.{{{keyParamName}}} = "Bearer"
-{{/isApiKey}}
-{{#isOAuth}}
-# Configure OAuth2 access token for authorization: {{{name}}}
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-{{/isOAuth}}
-{{#isHttpSignature}}
-# Configure HttpSignature for authorization :{{name}}
-$httpSigningParams = @{
-    KeyId = "xxxxxx1776876789ac747/xxxxxxx564612d31a62c01/xxxxxxxa1d7564612d31a66ee8"
-    KeyFilePath = "C:\SecretKey.txt"
-    HttpSigningHeader = @("(request-target)","Host","Date","Digest")
-    HashAlgorithm = "sha256"
-}
-Set-ConfigurationHttpSigning $httpSigningParams
-{{/isHttpSignature}}
-
-{{/authMethods}}
-{{/hasAuthMethods}}
 {{#allParams}}
 {{^isArray}}
 {{#isModel}}

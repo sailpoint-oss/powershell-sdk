@@ -58,7 +58,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetApplication200Response = Initialize-PSSailpointCCGetApplication200Response  -Id null `
+$GetApplication200Response = Initialize-CCGetApplication200Response  -Id null `
  -AppId null `
  -ServiceId null `
  -ServiceAppId null `

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RefreshIdentitiesRequest = Initialize-PSSailpointCCRefreshIdentitiesRequest  -VarFilter null `
+$RefreshIdentitiesRequest = Initialize-CCRefreshIdentitiesRequest  -VarFilter null `
  -RefreshArgs null
 ```
 

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Account = Initialize-PSSailpointAccount  -Id id12345 `
+$Account = Initialize-Account  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `

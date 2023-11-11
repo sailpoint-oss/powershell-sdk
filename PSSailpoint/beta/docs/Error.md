@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ModelError = Initialize-PSSailpointBetaModelError  -DetailCode Internal Server Error `
+$ModelError = Initialize-BetaModelError  -DetailCode Internal Server Error `
  -Messages null `
  -TrackingId 9cd03ef80e6a425eb6b11bdbb057cdb4
 ```

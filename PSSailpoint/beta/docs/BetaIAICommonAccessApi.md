@@ -20,14 +20,6 @@ This API is used to add roles/access profiles to the list of common access for a
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $CommonAccessItemAccess = Initialize-CommonAccessItemAccess -Id "MyId" -Type "ACCESS_PROFILE" -Name "MyName" -Description "MyDescription" -OwnerName "MyOwnerName" -OwnerId "MyOwnerId"
 $CommonAccessItemRequest = Initialize-CommonAccessItemRequest -Access $CommonAccessItemAccess -Status "CONFIRMED" # CommonAccessItemRequest | 
 
@@ -76,14 +68,6 @@ This endpoint returns the current common access for a customer. The returned ite
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -135,14 +119,6 @@ This submits an update request to the common access application. At this time th
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $CommonAccessIDStatus = Initialize-CommonAccessIDStatus -ConfirmedIds "MyConfirmedIds" -DeniedIds "MyDeniedIds" # CommonAccessIDStatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
 # Bulk update common access status

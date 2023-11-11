@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributePreview = Initialize-PSSailpointBetaIdentityAttributePreview  -Name email `
+$IdentityAttributePreview = Initialize-BetaIdentityAttributePreview  -Name email `
  -Value email@mail.com `
  -PreviousValue oldEmail@mail.com `
  -ErrorMessages null

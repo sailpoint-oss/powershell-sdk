@@ -23,14 +23,6 @@ This creates a new identity attribute.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Source1 = Initialize-Source1 -Type "rule" -Properties 
 $IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "IdentityNow Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
 
@@ -75,14 +67,6 @@ This deletes an identity attribute for a given technical name.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Name = "displayName" # String | The attribute's technical name.
 
 # Delete Identity Attribute
@@ -126,14 +110,6 @@ This deletes identity attributes for a given set of technical names.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityAttributeNames = Initialize-IdentityAttributeNames -Ids "name" # IdentityAttributeNames | 
 
 # Bulk delete Identity Attributes
@@ -177,14 +153,6 @@ This gets an identity attribute for a given technical name.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Name = "displayName" # String | The attribute's technical name.
 
 # Get Identity Attribute
@@ -231,14 +199,6 @@ This gets a collection of identity attributes.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IncludeSystem = $false # Boolean | Include ""system"" attributes in the response. (optional) (default to $false)
 $IncludeSilent = $false # Boolean | Include ""silent"" attributes in the response. (optional) (default to $false)
 $SearchableOnly = $false # Boolean | Include only ""searchable"" attributes in the response. (optional) (default to $false)
@@ -289,14 +249,6 @@ This updates an existing identity attribute.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Name = "displayName" # String | The attribute's technical name.
 $Source1 = Initialize-Source1 -Type "rule" -Properties 
 $IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "IdentityNow Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 

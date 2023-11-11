@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FullAccountAllOf = Initialize-PSSailpointBetaFullAccountAllOf  -Authoritative false `
+$FullAccountAllOf = Initialize-BetaFullAccountAllOf  -Authoritative false `
  -SystemAccount false `
  -Uncorrelated false `
  -Features ENABLE

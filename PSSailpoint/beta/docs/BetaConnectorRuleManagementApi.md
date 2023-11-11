@@ -23,14 +23,6 @@ Creates a new connector rule. A token with ORG_ADMIN authority is required to ca
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Argument = Initialize-Argument -Name "firstName" -Description "the first name of the identity" -Type "String"
 $ConnectorRuleCreateRequestSignature = Initialize-ConnectorRuleCreateRequestSignature -VarInput $Argument -Output $Argument
 
@@ -78,14 +70,6 @@ Deletes the connector rule specified by the given ID. A token with ORG_ADMIN aut
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete
 
 # Delete a Connector-Rule
@@ -129,14 +113,6 @@ Returns the connector rule specified by ID. A token with ORG_ADMIN authority is 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to retrieve
 
 # Connector-Rule by ID
@@ -179,14 +155,6 @@ Returns the list of connector rules. A token with ORG_ADMIN authority is require
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # List Connector Rules
 try {
@@ -227,14 +195,6 @@ Updates an existing connector rule with the one provided in the request body. No
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update
 $Argument = Initialize-Argument -Name "firstName" -Description "the first name of the identity" -Type "String"
 $ConnectorRuleCreateRequestSignature = Initialize-ConnectorRuleCreateRequestSignature -VarInput $Argument -Output $Argument
@@ -284,14 +244,6 @@ Returns a list of issues within the code to fix, if any. A token with ORG_ADMIN 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $SourceCode = Initialize-SourceCode -Version "1.0" -Script "return "Mr. " + firstName;" # SourceCode | The code to validate
 
 # Validate Connector Rule

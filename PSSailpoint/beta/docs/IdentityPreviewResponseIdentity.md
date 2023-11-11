@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityPreviewResponseIdentity = Initialize-PSSailpointBetaIdentityPreviewResponseIdentity  -Type IDENTITY `
+$IdentityPreviewResponseIdentity = Initialize-BetaIdentityPreviewResponseIdentity  -Type IDENTITY `
  -Id 2c4180a46faadee4016fb4e018c20626 `
  -Name Robert Robinson
 ```

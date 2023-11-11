@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestableObjectType = Initialize-PSSailpointBetaRequestableObjectType 
+$RequestableObjectType = Initialize-BetaRequestableObjectType 
 ```
 
 - Convert the resource to JSON

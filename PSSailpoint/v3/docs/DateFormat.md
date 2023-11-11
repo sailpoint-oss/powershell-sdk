@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateFormat = Initialize-PSSailpointDateFormat  -InputFormat null `
+$DateFormat = Initialize-DateFormat  -InputFormat null `
  -OutputFormat null `
  -RequiresPeriodicRefresh false `
  -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}

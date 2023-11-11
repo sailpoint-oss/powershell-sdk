@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NestedAggregation = Initialize-PSSailpointNestedAggregation  -Name id `
+$NestedAggregation = Initialize-NestedAggregation  -Name id `
  -Type access
 ```
 

@@ -19,14 +19,6 @@ This API returns the specified user's authentication system details. Requires se
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 
 # Auth User Details
@@ -71,14 +63,6 @@ Update an existing user in the authentication system with a PATCH request.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   ""capabilities""  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the 'adminAssignable' field from the output of list authorization-capabilities. Capabilities that have a legacy group ('legacyGroup' field) need to be patched using the legacyGroup name (e.g. 'ORG_ADMIN'). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. 'cam:new-role').  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of 'sp:auth-user:update' 

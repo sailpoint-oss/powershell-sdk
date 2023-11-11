@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributesChangedChangesInnerOldValue = Initialize-PSSailpointBetaIdentityAttributesChangedChangesInnerOldValue 
+$IdentityAttributesChangedChangesInnerOldValue = Initialize-BetaIdentityAttributesChangedChangesInnerOldValue 
 ```
 
 - Convert the resource to JSON

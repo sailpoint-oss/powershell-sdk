@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttribute = Initialize-PSSailpointBetaIdentityAttribute  -Name uid `
+$IdentityAttribute = Initialize-BetaIdentityAttribute  -Name uid `
  -DisplayName IdentityNow Username `
  -Standard true `
  -Type string `

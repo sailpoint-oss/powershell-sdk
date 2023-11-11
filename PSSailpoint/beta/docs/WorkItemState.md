@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkItemState = Initialize-PSSailpointBetaWorkItemState 
+$WorkItemState = Initialize-BetaWorkItemState 
 ```
 
 - Convert the resource to JSON

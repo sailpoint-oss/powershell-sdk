@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionScope = Initialize-PSSailpointBetaRoleMiningSessionScope  -IdentityIds [2c918090761a5aac0176215c46a62d58, 2c918090761a5aac01722015c46a62d42] `
+$RoleMiningSessionScope = Initialize-BetaRoleMiningSessionScope  -IdentityIds [2c918090761a5aac0176215c46a62d58, 2c918090761a5aac01722015c46a62d42] `
  -Criteria source.name:DataScienceDataset `
  -AttributeFilterCriteria {displayName&#x3D;{untranslated&#x3D;Location: Miami}, ariaLabel&#x3D;{untranslated&#x3D;Location: Miami}, data&#x3D;{displayName&#x3D;{translateKey&#x3D;IDN.IDENTITY_ATTRIBUTES.LOCATION}, name&#x3D;location, operator&#x3D;EQUALS, values&#x3D;[Miami]}}
 ```

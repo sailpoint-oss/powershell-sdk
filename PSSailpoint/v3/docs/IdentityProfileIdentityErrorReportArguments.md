@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfileIdentityErrorReportArguments = Initialize-PSSailpointIdentityProfileIdentityErrorReportArguments  -AuthoritativeSource 1234sourceId5678902 `
+$IdentityProfileIdentityErrorReportArguments = Initialize-IdentityProfileIdentityErrorReportArguments  -AuthoritativeSource 1234sourceId5678902 `
  -DefaultS3Bucket true `
  -S3Bucket the-dev-bucket
 ```

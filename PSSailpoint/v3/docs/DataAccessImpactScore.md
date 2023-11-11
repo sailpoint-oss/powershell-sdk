@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DataAccessImpactScore = Initialize-PSSailpointDataAccessImpactScore  -Value Medium
+$DataAccessImpactScore = Initialize-DataAccessImpactScore  -Value Medium
 ```
 
 - Convert the resource to JSON

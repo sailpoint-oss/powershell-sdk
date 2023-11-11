@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListWorkgroupMembers200ResponseInner = Initialize-PSSailpointV2ListWorkgroupMembers200ResponseInner  -Alias Jerry.Bennett `
+$ListWorkgroupMembers200ResponseInner = Initialize-V2ListWorkgroupMembers200ResponseInner  -Alias Jerry.Bennett `
  -Email Jerry.Bennett@sailpointdemo.com `
  -ExternalId 2c9180837dfe6949017e208e26027b23 `
  -Id 3497959 `

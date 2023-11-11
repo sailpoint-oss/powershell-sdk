@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseEntitlementAllOf = Initialize-PSSailpointBaseEntitlementAllOf  -Description The admin privilege `
+$BaseEntitlementAllOf = Initialize-BaseEntitlementAllOf  -Description The admin privilege `
  -Attribute admin `
  -Value true
 ```

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileDocument = Initialize-PSSailpointAccessProfileDocument  -Id 2c91808568c529c60168cca6f90c1313 `
+$AccessProfileDocument = Initialize-AccessProfileDocument  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type null `
  -Description The admin role `

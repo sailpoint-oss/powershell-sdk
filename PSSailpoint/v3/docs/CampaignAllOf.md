@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAllOf = Initialize-PSSailpointCampaignAllOf  -Created 2020-03-03T22:15:13.611Z `
+$CampaignAllOf = Initialize-CampaignAllOf  -Created 2020-03-03T22:15:13.611Z `
  -Modified 2020-03-03T22:20:12.674Z `
  -CorrelatedStatus CORRELATED `
  -VarFilter null `

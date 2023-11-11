@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListWorkgroupMembers200ResponseInner = Initialize-PSSailpointBetaListWorkgroupMembers200ResponseInner  -Type IDENTITY `
+$ListWorkgroupMembers200ResponseInner = Initialize-BetaListWorkgroupMembers200ResponseInner  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

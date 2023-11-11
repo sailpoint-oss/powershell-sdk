@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceFeature = Initialize-PSSailpointBetaSourceFeature 
+$SourceFeature = Initialize-BetaSourceFeature 
 ```
 
 - Convert the resource to JSON

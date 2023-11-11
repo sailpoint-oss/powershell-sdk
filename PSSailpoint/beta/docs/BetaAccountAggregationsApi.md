@@ -18,14 +18,6 @@ This API returns the status of an *in-progress* account aggregation, along with 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
 
 # In-progress Account Aggregation status

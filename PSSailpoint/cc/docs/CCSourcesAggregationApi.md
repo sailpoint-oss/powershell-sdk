@@ -22,14 +22,6 @@ Aggregates a delimited file for the given source.  This only works for file-base
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "MyId" # String | 
 $ContentType = "application/x-www-form-urlencoded" # String |  (optional)
 $DisableOptimization = $true # Boolean |  (optional)
@@ -81,14 +73,6 @@ Aggregates a delimited file for the given source.  This only works for file-base
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "MyId" # String | 
 $ContentType = "application/x-www-form-urlencoded" # String |  (optional)
 $File =  # System.IO.FileInfo |  (optional)

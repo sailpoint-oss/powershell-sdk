@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementSummaryAllOf = Initialize-PSSailpointEntitlementSummaryAllOf  -Source null `
+$EntitlementSummaryAllOf = Initialize-EntitlementSummaryAllOf  -Source null `
  -Privileged false `
  -Attribute memberOf `
  -Value CN&#x3D;Buyer,OU&#x3D;Groups,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;sailpointdemo,DC&#x3D;com `

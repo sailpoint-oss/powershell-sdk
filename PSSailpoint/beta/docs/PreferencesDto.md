@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PreferencesDto = Initialize-PSSailpointBetaPreferencesDto  -Key cloud_manual_work_item_summary `
+$PreferencesDto = Initialize-BetaPreferencesDto  -Key cloud_manual_work_item_summary `
  -Mediums [EMAIL] `
  -Modified 2020-05-15T14:37:06.909Z
 ```

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementDocument = Initialize-PSSailpointEntitlementDocument  -Id 2c91808568c529c60168cca6f90c1313 `
+$EntitlementDocument = Initialize-EntitlementDocument  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type null `
  -Description The admin privilege `

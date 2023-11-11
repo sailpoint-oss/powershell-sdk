@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateConnectorRequest = Initialize-PSSailpointCCCreateConnectorRequest  -Name My Connector `
+$CreateConnectorRequest = Initialize-CCCreateConnectorRequest  -Name My Connector `
  -Description My Connector `
  -ClassName sailpoint.connector.OpenConnectorAdapter `
  -DirectConnect true `

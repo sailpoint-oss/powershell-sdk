@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConditionRule = Initialize-PSSailpointBetaConditionRule  -SourceType ELEMENT `
+$ConditionRule = Initialize-BetaConditionRule  -SourceType ELEMENT `
  -Source department `
  -Operator EQ `
  -ValueType STRING `

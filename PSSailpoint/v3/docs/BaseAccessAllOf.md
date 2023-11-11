@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseAccessAllOf = Initialize-PSSailpointBaseAccessAllOf  -Description The admin role `
+$BaseAccessAllOf = Initialize-BaseAccessAllOf  -Description The admin role `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Synced 2018-06-25T20:22:28.104Z `

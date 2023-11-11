@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationSignedOff = Initialize-PSSailpointBetaCertificationSignedOff  -Certification null
+$CertificationSignedOff = Initialize-BetaCertificationSignedOff  -Certification null
 ```
 
 - Convert the resource to JSON

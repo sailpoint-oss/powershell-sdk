@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRequestAllOf = Initialize-PSSailpointBetaNonEmployeeRequestAllOf  -AccountName william.smith `
+$NonEmployeeRequestAllOf = Initialize-BetaNonEmployeeRequestAllOf  -AccountName william.smith `
  -FirstName William `
  -LastName Smith `
  -Email william.smith@example.com `

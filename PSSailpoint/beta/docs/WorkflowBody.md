@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowBody = Initialize-PSSailpointBetaWorkflowBody  -Name Send Email `
+$WorkflowBody = Initialize-BetaWorkflowBody  -Name Send Email `
  -Owner null `
  -Description Send an email to the identity who&#39;s attributes changed. `
  -Definition null `

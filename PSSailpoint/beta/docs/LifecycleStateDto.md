@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LifecycleStateDto = Initialize-PSSailpointBetaLifecycleStateDto  -StateName active `
+$LifecycleStateDto = Initialize-BetaLifecycleStateDto  -StateName active `
  -ManuallyUpdated true
 ```
 

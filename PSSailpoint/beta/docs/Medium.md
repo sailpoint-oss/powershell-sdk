@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Medium = Initialize-PSSailpointBetaMedium 
+$Medium = Initialize-BetaMedium 
 ```
 
 - Convert the resource to JSON

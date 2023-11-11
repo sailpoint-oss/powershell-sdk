@@ -18,14 +18,6 @@ This API is used to check if granting some additional accesses would cause the s
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityWithNewAccessAccessRefsInner = Initialize-IdentityWithNewAccessAccessRefsInner -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
 $IdentityWithNewAccess = Initialize-IdentityWithNewAccess -IdentityId "2c91808568c529c60168cca6f90c1313" -AccessRefs $IdentityWithNewAccessAccessRefsInner # IdentityWithNewAccess | 
 

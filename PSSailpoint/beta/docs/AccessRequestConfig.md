@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestConfig = Initialize-PSSailpointBetaAccessRequestConfig  -ApprovalsMustBeExternal true `
+$AccessRequestConfig = Initialize-BetaAccessRequestConfig  -ApprovalsMustBeExternal true `
  -AutoApprovalEnabled true `
  -RequestOnBehalfOfConfig null `
  -ApprovalReminderAndEscalationConfig null `

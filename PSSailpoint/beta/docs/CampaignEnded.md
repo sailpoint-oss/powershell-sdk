@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignEnded = Initialize-PSSailpointBetaCampaignEnded  -Campaign null
+$CampaignEnded = Initialize-BetaCampaignEnded  -Campaign null
 ```
 
 - Convert the resource to JSON

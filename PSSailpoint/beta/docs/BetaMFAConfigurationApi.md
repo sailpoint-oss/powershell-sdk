@@ -23,14 +23,6 @@ This API removes the configuration for the specified MFA method. A token with OR
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
 # Delete MFA method configuration
@@ -73,14 +65,6 @@ This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # Configuration of Duo MFA method
 try {
@@ -119,14 +103,6 @@ This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # Configuration of Okta MFA method
 try {
@@ -166,14 +142,6 @@ This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN aut
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $MfaDuoConfig = Initialize-MfaDuoConfig -MfaMethod "duo-web" -Enabled $true -VarHost "example.com" -AccessKey "qw123Y3QlA5UqocYpdU3rEkzrK2D497y" -IdentityAttribute "email" -ConfigProperties @{ key_example =  } # MfaDuoConfig | 
 
 # Set Duo MFA configuration
@@ -217,14 +185,6 @@ This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN au
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $MfaOktaConfig = Initialize-MfaOktaConfig -MfaMethod "okta-verify" -Enabled $true -VarHost "example.com" -AccessKey "qw123Y3QlA5UqocYpdU3rEkzrK2D497y" -IdentityAttribute "email" # MfaOktaConfig | 
 
 # Set Okta MFA configuration
@@ -268,14 +228,6 @@ This API validates that the configuration is valid and will properly authenticat
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
 # MFA method's test configuration

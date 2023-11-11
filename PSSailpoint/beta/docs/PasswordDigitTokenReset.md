@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordDigitTokenReset = Initialize-PSSailpointBetaPasswordDigitTokenReset  -UserId Abby.Smith `
+$PasswordDigitTokenReset = Initialize-BetaPasswordDigitTokenReset  -UserId Abby.Smith `
  -Length 8 `
  -DurationMinutes 5
 ```

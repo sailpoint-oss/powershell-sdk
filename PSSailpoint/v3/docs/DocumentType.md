@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DocumentType = Initialize-PSSailpointDocumentType 
+$DocumentType = Initialize-DocumentType 
 ```
 
 - Convert the resource to JSON

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateApplicationRequest = Initialize-PSSailpointCCCreateApplicationRequest  -Name My App `
+$CreateApplicationRequest = Initialize-CCCreateApplicationRequest  -Name My App `
  -Description null
 ```
 

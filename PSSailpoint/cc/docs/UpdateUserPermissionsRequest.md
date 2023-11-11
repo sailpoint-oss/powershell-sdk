@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UpdateUserPermissionsRequest = Initialize-PSSailpointCCUpdateUserPermissionsRequest  -Ids 71624,71625 `
+$UpdateUserPermissionsRequest = Initialize-CCUpdateUserPermissionsRequest  -Ids 71624,71625 `
  -IsAdmin 1 `
  -AdminType null
 ```

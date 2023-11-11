@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReassignmentTypeEnum = Initialize-PSSailpointBetaReassignmentTypeEnum 
+$ReassignmentTypeEnum = Initialize-BetaReassignmentTypeEnum 
 ```
 
 - Convert the resource to JSON

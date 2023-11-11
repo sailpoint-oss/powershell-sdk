@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Identity = Initialize-PSSailpointBetaIdentity  -Id id12345 `
+$Identity = Initialize-BetaIdentity  -Id id12345 `
  -Name aName `
  -Created 2023-01-03T21:16:22.432Z `
  -Modified 2023-01-03T21:16:22.432Z `

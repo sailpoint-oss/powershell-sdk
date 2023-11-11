@@ -58,7 +58,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListApplications200ResponseInner = Initialize-PSSailpointCCListApplications200ResponseInner  -Id null `
+$ListApplications200ResponseInner = Initialize-CCListApplications200ResponseInner  -Id null `
  -AppId null `
  -ServiceId null `
  -ServiceAppId null `

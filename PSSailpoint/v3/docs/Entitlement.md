@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Entitlement = Initialize-PSSailpointEntitlement  -Id 2c91808874ff91550175097daaec161c `
+$Entitlement = Initialize-Entitlement  -Id 2c91808874ff91550175097daaec161c `
  -Name LauncherTest2 `
  -Attribute memberOf `
  -Value CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `

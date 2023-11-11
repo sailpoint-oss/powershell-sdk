@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PublicIdentityAttributeConfig = Initialize-PSSailpointPublicIdentityAttributeConfig  -Key country `
+$PublicIdentityAttributeConfig = Initialize-PublicIdentityAttributeConfig  -Key country `
  -Name Country
 ```
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupConnectionDto = Initialize-PSSailpointBetaWorkgroupConnectionDto  -Object null `
+$WorkgroupConnectionDto = Initialize-BetaWorkgroupConnectionDto  -Object null `
  -ConnectionType AccessRequestReviewer
 ```
 

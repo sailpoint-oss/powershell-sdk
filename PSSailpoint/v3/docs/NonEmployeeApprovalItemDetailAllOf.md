@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeApprovalItemDetailAllOf = Initialize-PSSailpointNonEmployeeApprovalItemDetailAllOf  -NonEmployeeRequest null
+$NonEmployeeApprovalItemDetailAllOf = Initialize-NonEmployeeApprovalItemDetailAllOf  -NonEmployeeRequest null
 ```
 
 - Convert the resource to JSON

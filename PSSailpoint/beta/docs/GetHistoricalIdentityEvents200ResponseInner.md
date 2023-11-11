@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetHistoricalIdentityEvents200ResponseInner = Initialize-PSSailpointBetaGetHistoricalIdentityEvents200ResponseInner  -AccessItem null `
+$GetHistoricalIdentityEvents200ResponseInner = Initialize-BetaGetHistoricalIdentityEvents200ResponseInner  -AccessItem null `
  -IdentityId null `
  -EventType null `
  -Dt null `

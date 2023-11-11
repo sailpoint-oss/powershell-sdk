@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$StartInvocationInput = Initialize-PSSailpointBetaStartInvocationInput  -TriggerId idn:access-requested `
+$StartInvocationInput = Initialize-BetaStartInvocationInput  -TriggerId idn:access-requested `
  -VarInput {identityId&#x3D;201327fda1c44704ac01181e963d463c} `
  -ContentJson {workflowId&#x3D;1234}
 ```

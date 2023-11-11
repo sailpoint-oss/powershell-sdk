@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDeleted = Initialize-PSSailpointBetaIdentityDeleted  -Identity null `
+$IdentityDeleted = Initialize-BetaIdentityDeleted  -Identity null `
  -Attributes {firstname&#x3D;John}
 ```
 

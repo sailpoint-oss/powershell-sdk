@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VAClusterStatusChangeEventPreviousHealthCheckResult = Initialize-PSSailpointBetaVAClusterStatusChangeEventPreviousHealthCheckResult  -Message Test Connection failed with exception. Error message - java.lang Exception `
+$VAClusterStatusChangeEventPreviousHealthCheckResult = Initialize-BetaVAClusterStatusChangeEventPreviousHealthCheckResult  -Message Test Connection failed with exception. Error message - java.lang Exception `
  -ResultType SOURCE_STATE_ERROR_CLUSTER `
  -Status Failed
 ```

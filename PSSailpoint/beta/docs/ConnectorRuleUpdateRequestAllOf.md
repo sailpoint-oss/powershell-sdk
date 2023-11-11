@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleUpdateRequestAllOf = Initialize-PSSailpointBetaConnectorRuleUpdateRequestAllOf  -Id 8113d48c0b914f17b4c6072d4dcb9dfe
+$ConnectorRuleUpdateRequestAllOf = Initialize-BetaConnectorRuleUpdateRequestAllOf  -Id 8113d48c0b914f17b4c6072d4dcb9dfe
 ```
 
 - Convert the resource to JSON

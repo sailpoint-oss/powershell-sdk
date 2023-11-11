@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompletionStatus = Initialize-PSSailpointBetaCompletionStatus 
+$CompletionStatus = Initialize-BetaCompletionStatus 
 ```
 
 - Convert the resource to JSON

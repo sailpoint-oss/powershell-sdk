@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListApplications200ResponseInnerOwner = Initialize-PSSailpointCCListApplications200ResponseInnerOwner  -Id null `
+$ListApplications200ResponseInnerOwner = Initialize-CCListApplications200ResponseInnerOwner  -Id null `
  -Name null
 ```
 

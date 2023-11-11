@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Source = Initialize-PSSailpointSource  -Id 2c91808568c529c60168cca6f90c1324 `
+$Source = Initialize-Source  -Id 2c91808568c529c60168cca6f90c1324 `
  -Name My Source `
  -Description This is the corporate directory. `
  -Owner null `

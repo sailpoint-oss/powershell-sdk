@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestDynamicApproverRequestedBy = Initialize-PSSailpointBetaAccessRequestDynamicApproverRequestedBy  -Type IDENTITY `
+$AccessRequestDynamicApproverRequestedBy = Initialize-BetaAccessRequestDynamicApproverRequestedBy  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
 ```

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryAction = Initialize-PSSailpointBetaWorkflowLibraryAction  -Id sp:create-campaign `
+$WorkflowLibraryAction = Initialize-BetaWorkflowLibraryAction  -Id sp:create-campaign `
  -Name Create Certification Campaign `
  -Type ACTION `
  -Description Generates a certification campaign. `

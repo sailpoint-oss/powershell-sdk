@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileDocumentAllOf = Initialize-PSSailpointAccessProfileDocumentAllOf  -Source null `
+$AccessProfileDocumentAllOf = Initialize-AccessProfileDocumentAllOf  -Source null `
  -Entitlements null `
  -EntitlementCount 5 `
  -Tags [TAG_1, TAG_2]

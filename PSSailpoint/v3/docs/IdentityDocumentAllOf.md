@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDocumentAllOf = Initialize-PSSailpointIdentityDocumentAllOf  -FirstName Carol `
+$IdentityDocumentAllOf = Initialize-IdentityDocumentAllOf  -FirstName Carol `
  -LastName Adams `
  -DisplayName Carol.Adams `
  -Email Carol.Adams@sailpointdemo.com `

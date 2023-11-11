@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOf = Initialize-PSSailpointBetaAccountAllOf  -SourceId 2c9180835d2e5168015d32f890ca1581 `
+$AccountAllOf = Initialize-BetaAccountAllOf  -SourceId 2c9180835d2e5168015d32f890ca1581 `
  -SourceName Employees `
  -IdentityId 2c9180835d2e5168015d32f890ca1581 `
  -Attributes {firstName&#x3D;SailPoint, lastName&#x3D;Support, displayName&#x3D;SailPoint Support} `

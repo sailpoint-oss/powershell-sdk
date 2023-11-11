@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateDomainDkim405Response = Initialize-PSSailpointBetaCreateDomainDkim405Response  -ErrorName NotSupportedException `
+$CreateDomainDkim405Response = Initialize-BetaCreateDomainDkim405Response  -ErrorName NotSupportedException `
  -ErrorMessage Cannot consume content type `
  -TrackingId e7eab60924f64aa284175b9fa3309599
 ```

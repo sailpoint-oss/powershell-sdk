@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetOrgSettings200ResponseSystemNotificationConfig = Initialize-PSSailpointV2GetOrgSettings200ResponseSystemNotificationConfig  -Notifications null `
+$GetOrgSettings200ResponseSystemNotificationConfig = Initialize-V2GetOrgSettings200ResponseSystemNotificationConfig  -Notifications null `
  -RecipientType null
 ```
 

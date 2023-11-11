@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeSourceAllOf = Initialize-PSSailpointBetaNonEmployeeSourceAllOf  -Approvers null `
+$NonEmployeeSourceAllOf = Initialize-BetaNonEmployeeSourceAllOf  -Approvers null `
  -AccountManagers null `
  -Modified 2019-08-23T18:52:59.162Z `
  -Created 2019-08-23T18:40:35.772Z `

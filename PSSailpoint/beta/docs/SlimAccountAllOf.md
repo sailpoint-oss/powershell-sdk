@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SlimAccountAllOf = Initialize-PSSailpointBetaSlimAccountAllOf  -Uuid null `
+$SlimAccountAllOf = Initialize-BetaSlimAccountAllOf  -Uuid null `
  -NativeIdentity brandin.gray `
  -Description Brandin Gray the CEO of Silly Inc. `
  -Disabled false `

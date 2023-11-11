@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationReferenceAllOf = Initialize-PSSailpointBetaCertificationReferenceAllOf  -Reviewer null
+$CertificationReferenceAllOf = Initialize-BetaCertificationReferenceAllOf  -Reviewer null
 ```
 
 - Convert the resource to JSON

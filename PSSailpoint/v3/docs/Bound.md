@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Bound = Initialize-PSSailpointBound  -Value 1 `
+$Bound = Initialize-Bound  -Value 1 `
  -Inclusive false
 ```
 

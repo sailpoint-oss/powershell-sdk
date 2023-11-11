@@ -58,7 +58,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetIdentity200ResponseOrg = Initialize-PSSailpointCCGetIdentity200ResponseOrg  -Name null `
+$GetIdentity200ResponseOrg = Initialize-CCGetIdentity200ResponseOrg  -Name null `
  -ScriptName null `
  -Mode null `
  -NumQuestions null `

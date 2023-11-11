@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRecord = Initialize-PSSailpointBetaNonEmployeeRecord  -Id null `
+$NonEmployeeRecord = Initialize-BetaNonEmployeeRecord  -Id null `
  -AccountName null `
  -FirstName William `
  -LastName Smith `

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompletedApprovalState = Initialize-PSSailpointCompletedApprovalState 
+$CompletedApprovalState = Initialize-CompletedApprovalState 
 ```
 
 - Convert the resource to JSON

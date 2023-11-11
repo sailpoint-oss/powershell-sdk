@@ -21,14 +21,6 @@ The getMessageCatalogs API returns message catalog based on the language headers
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $CatalogId = "recommender" # String | The ID of the message catalog.
 
 # Get Message catalogs
@@ -72,14 +64,6 @@ The getRecommendations API returns recommendations based on the requested object
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $AccessItemRef = Initialize-AccessItemRef -Id "2c938083633d259901633d2623ec0375" -Type "ENTITLEMENT"
 $RecommendationRequest = Initialize-RecommendationRequest -IdentityId "2c938083633d259901633d25c68c00fa" -Item $AccessItemRef
 
@@ -125,14 +109,6 @@ Retrieves configuration attributes used by certification recommendations.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # Get certification recommendation config values
 try {
@@ -172,14 +148,6 @@ Updates configuration attributes used by certification recommendations.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $RecommendationConfigDto = Initialize-RecommendationConfigDto -RecommenderFeatures "MyRecommenderFeatures" -PeerGroupPercentageThreshold 0.5 -RunAutoSelectOnce $false -OnlyTuneThreshold $false # RecommendationConfigDto | 
 
 # Update certification recommendation config values

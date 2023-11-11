@@ -20,14 +20,6 @@ This API creates the custom password instructions for the specified page ID. A t
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $CustomPasswordInstruction = Initialize-CustomPasswordInstruction -PageId "change-password:enter-password" -PageContent "MyPageContent" -Locale "en" # CustomPasswordInstruction | 
 
 # Create Custom Password Instructions
@@ -72,14 +64,6 @@ This API delete the custom password instructions for the specified page ID. A to
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to delete.
 $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
 
@@ -126,14 +110,6 @@ This API returns the custom password instructions for the specified page ID. A t
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to query.
 $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
 

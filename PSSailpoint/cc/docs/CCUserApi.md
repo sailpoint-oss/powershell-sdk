@@ -17,14 +17,6 @@ Get Single Identity
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "5433236" # String | 
 
 # Get Single Identity
@@ -66,14 +58,6 @@ Update User Permissions
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $UpdateUserPermissionsRequest = Initialize-UpdateUserPermissionsRequest -Ids "71624,71625" -IsAdmin "1" -AdminType "ADMIN" # UpdateUserPermissionsRequest |  (optional)
 
 # Update User Permissions

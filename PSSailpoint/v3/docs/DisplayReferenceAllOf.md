@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DisplayReferenceAllOf = Initialize-PSSailpointDisplayReferenceAllOf  -DisplayName John Q. Doe
+$DisplayReferenceAllOf = Initialize-DisplayReferenceAllOf  -DisplayName John Q. Doe
 ```
 
 - Convert the resource to JSON

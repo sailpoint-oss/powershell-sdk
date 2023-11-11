@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommentDtoAuthor = Initialize-PSSailpointCommentDtoAuthor  -Type IDENTITY `
+$CommentDtoAuthor = Initialize-CommentDtoAuthor  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Adam Kennedy
 ```

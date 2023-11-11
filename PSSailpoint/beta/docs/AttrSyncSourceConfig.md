@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttrSyncSourceConfig = Initialize-PSSailpointBetaAttrSyncSourceConfig  -Source null `
+$AttrSyncSourceConfig = Initialize-BetaAttrSyncSourceConfig  -Source null `
  -Attributes [{name&#x3D;email, displayName&#x3D;Email, enabled&#x3D;true, target&#x3D;mail}, {name&#x3D;firstname, displayName&#x3D;First Name, enabled&#x3D;false, target&#x3D;givenName}]
 ```
 

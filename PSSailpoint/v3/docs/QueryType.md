@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$QueryType = Initialize-PSSailpointQueryType 
+$QueryType = Initialize-QueryType 
 ```
 
 - Convert the resource to JSON

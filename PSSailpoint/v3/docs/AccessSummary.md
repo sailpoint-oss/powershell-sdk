@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessSummary = Initialize-PSSailpointAccessSummary  -Access null `
+$AccessSummary = Initialize-AccessSummary  -Access null `
  -Entitlement null `
  -AccessProfile null `
  -Role null

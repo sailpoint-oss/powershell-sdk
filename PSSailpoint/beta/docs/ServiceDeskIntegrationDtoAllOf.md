@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationDtoAllOf = Initialize-PSSailpointBetaServiceDeskIntegrationDtoAllOf  -Description A very nice Service Desk integration `
+$ServiceDeskIntegrationDtoAllOf = Initialize-BetaServiceDeskIntegrationDtoAllOf  -Description A very nice Service Desk integration `
  -Type ServiceNowSDIM `
  -OwnerRef null `
  -ClusterRef null `

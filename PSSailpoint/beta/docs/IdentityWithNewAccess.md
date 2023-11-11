@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityWithNewAccess = Initialize-PSSailpointBetaIdentityWithNewAccess  -IdentityId 2c91808568c529c60168cca6f90c1313 `
+$IdentityWithNewAccess = Initialize-BetaIdentityWithNewAccess  -IdentityId 2c91808568c529c60168cca6f90c1313 `
  -AccessRefs [{type&#x3D;ENTITLEMENT, id&#x3D;2c918087682f9a86016839c050861ab1, name&#x3D;CN&#x3D;Information Access,OU&#x3D;test,OU&#x3D;test-service,DC&#x3D;TestAD,DC&#x3D;local}, {type&#x3D;ENTITLEMENT, id&#x3D;2c918087682f9a86016839c0509c1ab2, name&#x3D;CN&#x3D;Information Technology,OU&#x3D;test,OU&#x3D;test-service,DC&#x3D;TestAD,DC&#x3D;local}]
 ```
 

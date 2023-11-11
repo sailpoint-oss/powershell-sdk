@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommendationConfigDto = Initialize-PSSailpointBetaRecommendationConfigDto  -RecommenderFeatures [jobTitle, location, peer_group, department, active] `
+$RecommendationConfigDto = Initialize-BetaRecommendationConfigDto  -RecommenderFeatures [jobTitle, location, peer_group, department, active] `
  -PeerGroupPercentageThreshold 0.5 `
  -RunAutoSelectOnce false `
  -OnlyTuneThreshold false

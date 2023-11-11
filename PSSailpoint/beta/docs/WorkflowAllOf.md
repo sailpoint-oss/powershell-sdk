@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowAllOf = Initialize-PSSailpointBetaWorkflowAllOf  -Id d201c5e9-d37b-4aff-af14-66414f39d569 `
+$WorkflowAllOf = Initialize-BetaWorkflowAllOf  -Id d201c5e9-d37b-4aff-af14-66414f39d569 `
  -ExecutionCount 2 `
  -FailureCount 0 `
  -Created 2022-01-10T16:06:16.636381447Z `

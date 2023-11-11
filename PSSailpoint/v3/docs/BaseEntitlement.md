@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseEntitlement = Initialize-PSSailpointBaseEntitlement  -Id 2c91808568c529c60168cca6f90c1313 `
+$BaseEntitlement = Initialize-BaseEntitlement  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Description The admin privilege `
  -Attribute admin `

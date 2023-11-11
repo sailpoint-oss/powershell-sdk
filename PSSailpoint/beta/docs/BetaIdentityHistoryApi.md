@@ -34,14 +34,6 @@ This method gets a difference of count for each access item types for the given 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $Snapshot1 = "2007-03-01T13:00:00Z" # String | The snapshot 1 of identity (optional)
 $Snapshot2 = "2008-03-01T13:00:00Z" # String | The snapshot 2 of identity (optional)
@@ -104,14 +96,6 @@ This method gets a list of differences of specific accessType for the given iden
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $AccessType = "role" # String | The specific type which needs to be compared
 $AccessAssociated = $false # Boolean | Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added & removed (optional)
@@ -169,14 +153,6 @@ This method retrieves a specified identity Requires authorization scope of 'idn:
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 
 # Get latest snapshot of identity
@@ -226,14 +202,6 @@ This method retrieves all access events for the identity Requires authorization 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $From = "2007-03-01T13:00:00Z" # String | The optional instant from which to return the access events (optional)
 $EventTypes = "MyEventTypes" # String[] | An optional list of event types to return.  If null or empty, all events are returned (optional)
@@ -290,14 +258,6 @@ This method retrieves a specified identity snapshot at a given date Requires aut
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $Date = "2007-03-01T13:00:00Z" # String | The specified date
 
@@ -349,14 +309,6 @@ This method gets the summary for the event count for a specific identity by mont
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $Before = "2007-03-01T13:00:00Z" # String | The date before which snapshot summary is required (optional)
 $Interval = "day" # String | The interval indicating day or month. Defaults to month if not specified (optional)
@@ -412,14 +364,6 @@ This method retrieves start date of the identity Requires authorization scope of
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 
 # Gets the start date of the identity
@@ -467,14 +411,6 @@ This gets the list of identities for the customer. This list end point does not 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $StartsWithQuery = "Ada" # String | This param is used for starts-with search for first, last and display name of the identity (optional)
 $IsDeleted = $true # Boolean | Indicates if we want to only list down deleted identities or not. (optional)
 $IsActive = $true # Boolean | Indicates if we want to only list active or inactive identities. (optional)
@@ -527,14 +463,6 @@ This method retrieves a list of access item for the identity filtered by the acc
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $Type = "account" # String | The type of access item for the identity. If not provided, it defaults to account (optional)
 
@@ -582,14 +510,6 @@ This method retrieves the list of identity access items at a given date filterd 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $Date = "2007-03-01T13:00:00Z" # String | The specified date
 $Type = "account" # String | The access item type (optional)
@@ -642,14 +562,6 @@ This method retrieves all the snapshots for the identity Requires authorization 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $Start = "2007-03-01T13:00:00Z" # String | The specified start date (optional)
 $Interval = "day" # String | The interval indicating the range in day or month for the specified interval-name (optional)

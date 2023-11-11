@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ModifyWorkgroupMembersRequest = Initialize-PSSailpointV2ModifyWorkgroupMembersRequest  -Add null `
+$ModifyWorkgroupMembersRequest = Initialize-V2ModifyWorkgroupMembersRequest  -Add null `
  -Remove null
 ```
 

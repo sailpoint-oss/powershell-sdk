@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NameType = Initialize-PSSailpointNameType  -Name John Doe `
+$NameType = Initialize-NameType  -Name John Doe `
  -Type null
 ```
 

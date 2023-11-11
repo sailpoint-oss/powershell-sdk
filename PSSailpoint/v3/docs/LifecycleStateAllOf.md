@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LifecycleStateAllOf = Initialize-PSSailpointLifecycleStateAllOf  -Enabled true `
+$LifecycleStateAllOf = Initialize-LifecycleStateAllOf  -Enabled true `
  -TechnicalName Technical Name `
  -Description Lifecycle description `
  -IdentityCount 42 `

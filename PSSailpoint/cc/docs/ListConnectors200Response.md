@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListConnectors200Response = Initialize-PSSailpointCCListConnectors200Response  -Total null `
+$ListConnectors200Response = Initialize-CCListConnectors200Response  -Total null `
  -Items null
 ```
 

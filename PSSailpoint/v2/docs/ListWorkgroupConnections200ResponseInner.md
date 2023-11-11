@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListWorkgroupConnections200ResponseInner = Initialize-PSSailpointV2ListWorkgroupConnections200ResponseInner  -ConnectionType AccessRequestReviewer `
+$ListWorkgroupConnections200ResponseInner = Initialize-V2ListWorkgroupConnections200ResponseInner  -ConnectionType AccessRequestReviewer `
  -Description null `
  -Name Test Approval Scheme `
  -ObjectId 8c24b31fe23947b28e42691a4a6faaee `

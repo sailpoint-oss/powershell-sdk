@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementBulkUpdateRequest = Initialize-PSSailpointBetaEntitlementBulkUpdateRequest  -EntitlementIds [2c91808a7624751a01762f19d665220d, 2c91808a7624751a01762f19d67c220e, 2c91808a7624751a01762f19d692220f] `
+$EntitlementBulkUpdateRequest = Initialize-BetaEntitlementBulkUpdateRequest  -EntitlementIds [2c91808a7624751a01762f19d665220d, 2c91808a7624751a01762f19d67c220e, 2c91808a7624751a01762f19d692220f] `
  -JsonPatch [{op&#x3D;replace, path&#x3D;/privileged, value&#x3D;false}, {op&#x3D;replace, path&#x3D;/requestable, value&#x3D;false}]
 ```
 

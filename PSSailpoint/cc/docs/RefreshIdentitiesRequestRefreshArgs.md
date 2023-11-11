@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RefreshIdentitiesRequestRefreshArgs = Initialize-PSSailpointCCRefreshIdentitiesRequestRefreshArgs  -CorrelateEntitlements true `
+$RefreshIdentitiesRequestRefreshArgs = Initialize-CCRefreshIdentitiesRequestRefreshArgs  -CorrelateEntitlements true `
  -PromoteAttributes true `
  -RefreshManagerStatus false `
  -SynchronizeAttributes false `

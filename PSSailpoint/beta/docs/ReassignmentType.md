@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReassignmentType = Initialize-PSSailpointBetaReassignmentType 
+$ReassignmentType = Initialize-BetaReassignmentType 
 ```
 
 - Convert the resource to JSON

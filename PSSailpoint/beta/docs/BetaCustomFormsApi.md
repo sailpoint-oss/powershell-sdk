@@ -30,14 +30,6 @@ Creates a form definition.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value 
 
 $ConditionEffectConfig = Initialize-ConditionEffectConfig -DefaultValueLabel "Access to Remove" -Element "8110662963316867"
@@ -90,14 +82,6 @@ Generate JSON Schema dynamically.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormDefinitionDynamicSchemaRequestAttributes = Initialize-FormDefinitionDynamicSchemaRequestAttributes -FormDefinitionId "00000000-0000-0000-0000-000000000000"
 $FormDefinitionDynamicSchemaRequest = Initialize-FormDefinitionDynamicSchemaRequest -Attributes $FormDefinitionDynamicSchemaRequestAttributes -Description "A description" -Id "00000000-0000-0000-0000-000000000000" -Type "action" -VersionNumber 1 # FormDefinitionDynamicSchemaRequest | Body is the request payload to create a form definition dynamic schema (optional)
 
@@ -140,14 +124,6 @@ Creates a form instance.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormInstanceCreatedBy = Initialize-FormInstanceCreatedBy -Id "00000000-0000-0000-0000-000000000000" -Type "WORKFLOW_EXECUTION"
 $FormInstanceRecipient = Initialize-FormInstanceRecipient -Id "00000000-0000-0000-0000-000000000000" -Type "IDENTITY"
 $CreateFormInstanceRequest = Initialize-CreateFormInstanceRequest -CreatedBy $FormInstanceCreatedBy -Expire "2023-08-12T20:14:57.74486Z" -FormDefinitionId "00000000-0000-0000-0000-000000000000" -FormInput @{ key_example =  } -Recipients $FormInstanceRecipient -StandAloneForm $false -State "ASSIGNED" -Ttl 1571827560 # CreateFormInstanceRequest | Body is the request payload to create a form instance (optional)
@@ -193,14 +169,6 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
 
 # Deletes a form definition.
@@ -247,14 +215,6 @@ No parameters required.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
 $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
 $Filters = "name sw "my form"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
@@ -304,14 +264,6 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
 
 # Return a form definition.
@@ -355,14 +307,6 @@ Parameter `{formInstanceID}` should match a form instance ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instance ID
 
 # Returns a form instance.
@@ -404,14 +348,6 @@ Import form definitions from export.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormOwner = Initialize-FormOwner -Type "IDENTITY" -Id "00000000-0000-0000-0000-000000000000"
 $FormUsedBy = Initialize-FormUsedBy -Type "WORKFLOW" -Id "00000000-0000-0000-0000-000000000000"
 $FormDefinitionInput = Initialize-FormDefinitionInput -Id "00000000-0000-0000-0000-000000000000" -Type "STRING" -Label "input1" -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic"
@@ -470,14 +406,6 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
 $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
 
@@ -524,14 +452,6 @@ Parameter `{formInstanceID}` should match a form instance ID.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instance ID
 $Body = @{ key_example =  } # Map[] | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
 
@@ -580,14 +500,6 @@ No parameters required.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $Offset = 250 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
 $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
 $Filters = "name sw "my form"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
@@ -640,14 +552,6 @@ Parameter `{formInstanceID}` should match a form instance ID. Parameter `{formEl
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instance ID
 $FormElementID = "1" # String | Form element ID
 $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
@@ -696,14 +600,6 @@ No parameters required.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # List form instances by tenant.
 try {
@@ -742,14 +638,6 @@ No parameters required.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 
 # List predefined select options.
 try {
@@ -791,14 +679,6 @@ Preview form definition data source.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
 $Limit = 10 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
 $Filters = "label sw "my label"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, gt, sw, in*  **label**: *eq, gt, sw, in*  **subLabel**: *eq, gt, sw, in* (optional)

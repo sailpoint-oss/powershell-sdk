@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AggregationAllOf = Initialize-PSSailpointAggregationAllOf  -Status Success `
+$AggregationAllOf = Initialize-AggregationAllOf  -Status Success `
  -Duration 20 `
  -AvgDuration 20 `
  -ChangedAccounts 1 `

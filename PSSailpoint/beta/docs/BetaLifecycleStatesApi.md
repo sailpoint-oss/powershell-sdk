@@ -20,14 +20,6 @@ This endpoint returns a lifecycle state.  A token with ORG_ADMIN or API authorit
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityProfileId = "MyIdentityProfileId" # String | Identity Profile ID
 $LifecycleStateId = "MyLifecycleStateId" # String | Lifecycle State ID
 
@@ -75,14 +67,6 @@ This API updates individual lifecycle state fields using the [JSON Patch](https:
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityProfileId = "MyIdentityProfileId" # String | Identity Profile ID
 $LifecycleStateId = "MyLifecycleStateId" # String | Lifecycle State ID
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 

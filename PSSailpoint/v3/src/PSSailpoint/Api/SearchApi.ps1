@@ -237,7 +237,7 @@ Get a Document by ID
 Fetches a single document from the specified index, using the specified document ID.
 
 .PARAMETER Index
-The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
+The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
 
 .PARAMETER Id
 ID of the requested document.

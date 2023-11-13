@@ -51,8 +51,6 @@ docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesCreate.md
 docs/AccountAttributesCreateAttributes.md
-docs/AccountDocument.md
-docs/AccountDocumentAllOf.md
 docs/AccountRequest.md
 docs/AccountRequestInfo.md
 docs/AccountRequestResult.md
@@ -68,9 +66,6 @@ docs/AccountsExportReportArguments.md
 docs/ActivateCampaignOptions.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
-docs/Aggregation.md
-docs/AggregationAllOf.md
-docs/AggregationDocument.md
 docs/AggregationResult.md
 docs/AggregationType.md
 docs/Aggregations.md
@@ -633,8 +628,6 @@ src/PSSailpoint/Model/AccountAttribute.ps1
 src/PSSailpoint/Model/AccountAttributes.ps1
 src/PSSailpoint/Model/AccountAttributesCreate.ps1
 src/PSSailpoint/Model/AccountAttributesCreateAttributes.ps1
-src/PSSailpoint/Model/AccountDocument.ps1
-src/PSSailpoint/Model/AccountDocumentAllOf.ps1
 src/PSSailpoint/Model/AccountRequest.ps1
 src/PSSailpoint/Model/AccountRequestInfo.ps1
 src/PSSailpoint/Model/AccountRequestResult.ps1
@@ -648,9 +641,6 @@ src/PSSailpoint/Model/AccountsExportReportArguments.ps1
 src/PSSailpoint/Model/ActivateCampaignOptions.ps1
 src/PSSailpoint/Model/AdminReviewReassign.ps1
 src/PSSailpoint/Model/AdminReviewReassignReassignTo.ps1
-src/PSSailpoint/Model/Aggregation.ps1
-src/PSSailpoint/Model/AggregationAllOf.ps1
-src/PSSailpoint/Model/AggregationDocument.ps1
 src/PSSailpoint/Model/AggregationResult.ps1
 src/PSSailpoint/Model/AggregationType.ps1
 src/PSSailpoint/Model/Aggregations.ps1
@@ -1187,8 +1177,6 @@ tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesCreate.Tests.ps1
 tests/Model/AccountAttributesCreateAttributes.Tests.ps1
-tests/Model/AccountDocument.Tests.ps1
-tests/Model/AccountDocumentAllOf.Tests.ps1
 tests/Model/AccountRequest.Tests.ps1
 tests/Model/AccountRequestInfo.Tests.ps1
 tests/Model/AccountRequestResult.Tests.ps1
@@ -1202,9 +1190,6 @@ tests/Model/AccountsExportReportArguments.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
-tests/Model/Aggregation.Tests.ps1
-tests/Model/AggregationAllOf.Tests.ps1
-tests/Model/AggregationDocument.Tests.ps1
 tests/Model/AggregationResult.Tests.ps1
 tests/Model/AggregationType.Tests.ps1
 tests/Model/Aggregations.Tests.ps1

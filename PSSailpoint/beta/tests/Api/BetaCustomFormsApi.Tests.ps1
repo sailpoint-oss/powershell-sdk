@@ -22,6 +22,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCustomFormsApi' {
         }
     }
 
+    Context 'New-BetaFormDefinitionFileRequest' {
+        It 'Test New-BetaFormDefinitionFileRequest' {
+            #$TestResult = New-BetaFormDefinitionFileRequest -FormDefinitionID "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-BetaFormInstance' {
         It 'Test New-BetaFormInstance' {
             #$TestResult = New-BetaFormInstance -Body "TEST_VALUE"
@@ -46,6 +54,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCustomFormsApi' {
         }
     }
 
+    Context 'Get-BetaFileFromS3' {
+        It 'Test Get-BetaFileFromS3' {
+            #$TestResult = Get-BetaFileFromS3 -FormDefinitionID "TEST_VALUE" -FileID "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaFormDefinitionByKey' {
         It 'Test Get-BetaFormDefinitionByKey' {
             #$TestResult = Get-BetaFormDefinitionByKey -FormDefinitionID "TEST_VALUE"
@@ -57,6 +73,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCustomFormsApi' {
     Context 'Get-BetaFormInstanceByKey' {
         It 'Test Get-BetaFormInstanceByKey' {
             #$TestResult = Get-BetaFormInstanceByKey -FormInstanceID "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaFormInstanceFile' {
+        It 'Test Get-BetaFormInstanceFile' {
+            #$TestResult = Get-BetaFormInstanceFile -FormInstanceID "TEST_VALUE" -FileID "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

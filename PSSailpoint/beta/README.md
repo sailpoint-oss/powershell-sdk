@@ -126,11 +126,14 @@ Class | Method | HTTP request | Description
 *BetaConnectorsApi* | [**Get-BetaConnectorList**](docs/BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Gets connector list
 *BetaCustomFormsApi* | [**New-BetaFormDefinition**](docs/BetaCustomFormsApi.md#New-BetaFormDefinition) | **POST** /form-definitions | Creates a form definition.
 *BetaCustomFormsApi* | [**New-BetaFormDefinitionDynamicSchema**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
+*BetaCustomFormsApi* | [**New-BetaFormDefinitionFileRequest**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionFileRequest) | **POST** /form-definitions/{formDefinitionID}/upload | Upload new form definition file.
 *BetaCustomFormsApi* | [**New-BetaFormInstance**](docs/BetaCustomFormsApi.md#New-BetaFormInstance) | **POST** /form-instances | Creates a form instance.
 *BetaCustomFormsApi* | [**Remove-BetaFormDefinition**](docs/BetaCustomFormsApi.md#Remove-BetaFormDefinition) | **DELETE** /form-definitions/{formDefinitionID} | Deletes a form definition.
 *BetaCustomFormsApi* | [**Export-BetaFormDefinitionsByTenant**](docs/BetaCustomFormsApi.md#Export-BetaFormDefinitionsByTenant) | **GET** /form-definitions/export | List form definitions by tenant.
+*BetaCustomFormsApi* | [**Get-BetaFileFromS3**](docs/BetaCustomFormsApi.md#Get-BetaFileFromS3) | **GET** /form-definitions/{formDefinitionID}/file/{fileID} | Download definition file by fileId.
 *BetaCustomFormsApi* | [**Get-BetaFormDefinitionByKey**](docs/BetaCustomFormsApi.md#Get-BetaFormDefinitionByKey) | **GET** /form-definitions/{formDefinitionID} | Return a form definition.
 *BetaCustomFormsApi* | [**Get-BetaFormInstanceByKey**](docs/BetaCustomFormsApi.md#Get-BetaFormInstanceByKey) | **GET** /form-instances/{formInstanceID} | Returns a form instance.
+*BetaCustomFormsApi* | [**Get-BetaFormInstanceFile**](docs/BetaCustomFormsApi.md#Get-BetaFormInstanceFile) | **GET** /form-instances/{formInstanceID}/file/{fileID} | Download instance file by fileId.
 *BetaCustomFormsApi* | [**Import-BetaFormDefinitions**](docs/BetaCustomFormsApi.md#Import-BetaFormDefinitions) | **POST** /form-definitions/import | Import form definitions from export.
 *BetaCustomFormsApi* | [**Update-BetaFormDefinition**](docs/BetaCustomFormsApi.md#Update-BetaFormDefinition) | **PATCH** /form-definitions/{formDefinitionID} | Patch a form definition.
 *BetaCustomFormsApi* | [**Update-BetaFormInstance**](docs/BetaCustomFormsApi.md#Update-BetaFormInstance) | **PATCH** /form-instances/{formInstanceID} | Patch a form instance.
@@ -714,6 +717,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ConnectorRuleValidationResponseDetailsInner](docs/ConnectorRuleValidationResponseDetailsInner.md)
  - [PSSailpointBeta/Model.CorrelatedGovernanceEvent](docs/CorrelatedGovernanceEvent.md)
  - [PSSailpointBeta/Model.CreateDomainDkim405Response](docs/CreateDomainDkim405Response.md)
+ - [PSSailpointBeta/Model.CreateFormDefinitionFileRequestRequest](docs/CreateFormDefinitionFileRequestRequest.md)
  - [PSSailpointBeta/Model.CreateFormDefinitionRequest](docs/CreateFormDefinitionRequest.md)
  - [PSSailpointBeta/Model.CreateFormInstanceRequest](docs/CreateFormInstanceRequest.md)
  - [PSSailpointBeta/Model.CreateOAuthClientRequest](docs/CreateOAuthClientRequest.md)
@@ -776,6 +780,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.FormDefinitionDynamicSchemaRequest](docs/FormDefinitionDynamicSchemaRequest.md)
  - [PSSailpointBeta/Model.FormDefinitionDynamicSchemaRequestAttributes](docs/FormDefinitionDynamicSchemaRequestAttributes.md)
  - [PSSailpointBeta/Model.FormDefinitionDynamicSchemaResponse](docs/FormDefinitionDynamicSchemaResponse.md)
+ - [PSSailpointBeta/Model.FormDefinitionFileUploadResponse](docs/FormDefinitionFileUploadResponse.md)
  - [PSSailpointBeta/Model.FormDefinitionInput](docs/FormDefinitionInput.md)
  - [PSSailpointBeta/Model.FormDefinitionResponse](docs/FormDefinitionResponse.md)
  - [PSSailpointBeta/Model.FormDetails](docs/FormDetails.md)

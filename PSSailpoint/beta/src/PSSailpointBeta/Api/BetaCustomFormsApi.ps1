@@ -180,6 +180,94 @@ function New-BetaFormDefinitionDynamicSchema {
 <#
 .SYNOPSIS
 
+Upload new form definition file.
+
+.DESCRIPTION
+
+Parameter `{formDefinitionID}` should match a form definition ID.
+
+.PARAMETER FormDefinitionID
+FormDefinitionID  String specifying FormDefinitionID
+
+.PARAMETER File
+File specifying the multipart
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+FormDefinitionFileUploadResponse
+#>
+function New-BetaFormDefinitionFileRequest {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${FormDefinitionID},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${File},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-BetaFormDefinitionFileRequest' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data')
+
+        $LocalVarUri = '/form-definitions/{formDefinitionID}/upload'
+        if (!$FormDefinitionID) {
+            throw "Error! The required parameter `FormDefinitionID` missing when calling createFormDefinitionFileRequest."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{formDefinitionID}', [System.Web.HTTPUtility]::UrlEncode($FormDefinitionID))
+
+        if (!$File) {
+            throw "Error! The required parameter `File` missing when calling createFormDefinitionFileRequest."
+        }
+        $LocalVarFormParameters['file'] = $File
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "FormDefinitionFileUploadResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Creates a form instance.
 
 .DESCRIPTION
@@ -444,6 +532,102 @@ function Export-BetaFormDefinitionsByTenant {
 <#
 .SYNOPSIS
 
+Download definition file by fileId.
+
+.DESCRIPTION
+
+No description or notes available.
+
+.PARAMETER FormDefinitionID
+FormDefinitionID  Form definition ID
+
+.PARAMETER FileID
+FileID  String specifying the hashed name of the uploaded file we are retrieving.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, image/jpeg, image/png, application/octet-stream
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+System.IO.FileInfo
+#>
+function Get-BetaFileFromS3 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${FormDefinitionID},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${FileID},
+        [String]
+        [ValidateSet("application/json", "image/jpeg", "image/png", "application/octet-stream")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaFileFromS3' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'image/jpeg', 'image/png', 'application/octet-stream')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/form-definitions/{formDefinitionID}/file/{fileID}'
+        if (!$FormDefinitionID) {
+            throw "Error! The required parameter `FormDefinitionID` missing when calling getFileFromS3."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{formDefinitionID}', [System.Web.HTTPUtility]::UrlEncode($FormDefinitionID))
+        if (!$FileID) {
+            throw "Error! The required parameter `FileID` missing when calling getFileFromS3."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{fileID}', [System.Web.HTTPUtility]::UrlEncode($FileID))
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "System.IO.FileInfo" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Return a form definition.
 
 .DESCRIPTION
@@ -579,6 +763,102 @@ function Get-BetaFormInstanceByKey {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "FormInstanceResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Download instance file by fileId.
+
+.DESCRIPTION
+
+No description or notes available.
+
+.PARAMETER FormInstanceID
+FormInstanceID  Form instance ID
+
+.PARAMETER FileID
+FileID  String specifying the hashed name of the uploaded file we are retrieving.
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, image/jpeg, image/png, application/octet-stream
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+System.IO.FileInfo
+#>
+function Get-BetaFormInstanceFile {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${FormInstanceID},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${FileID},
+        [String]
+        [ValidateSet("application/json", "image/jpeg", "image/png", "application/octet-stream")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaFormInstanceFile' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'image/jpeg', 'image/png', 'application/octet-stream')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        $LocalVarUri = '/form-instances/{formInstanceID}/file/{fileID}'
+        if (!$FormInstanceID) {
+            throw "Error! The required parameter `FormInstanceID` missing when calling getFormInstanceFile."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{formInstanceID}', [System.Web.HTTPUtility]::UrlEncode($FormInstanceID))
+        if (!$FileID) {
+            throw "Error! The required parameter `FileID` missing when calling getFormInstanceFile."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{fileID}', [System.Web.HTTPUtility]::UrlEncode($FileID))
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "System.IO.FileInfo" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

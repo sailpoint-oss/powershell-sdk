@@ -219,7 +219,7 @@ Class | Method | HTTP request | Description
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
-*BetaIdentityAttributesApi* | [**New-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes/{name} | Create Identity Attribute
+*BetaIdentityAttributesApi* | [**New-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
 *BetaIdentityAttributesApi* | [**Remove-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#Remove-BetaIdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete Identity Attribute
 *BetaIdentityAttributesApi* | [**Remove-BetaIdentityAttributesInBulk**](docs/BetaIdentityAttributesApi.md#Remove-BetaIdentityAttributesInBulk) | **POST** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
 *BetaIdentityAttributesApi* | [**Get-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#Get-BetaIdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute

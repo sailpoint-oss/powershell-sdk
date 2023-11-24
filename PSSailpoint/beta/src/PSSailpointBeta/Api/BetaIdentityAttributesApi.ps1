@@ -54,7 +54,7 @@ function New-BetaIdentityAttribute {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/identity-attributes/{name}'
+        $LocalVarUri = '/identity-attributes'
 
         if (!$IdentityAttribute) {
             throw "Error! The required parameter `IdentityAttribute` missing when calling createIdentityAttribute."

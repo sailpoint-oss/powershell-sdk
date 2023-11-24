@@ -4,7 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes/{name} | Create Identity Attribute
+[**New-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
 [**Remove-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Remove-BetaIdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete Identity Attribute
 [**Remove-BetaIdentityAttributesInBulk**](BetaIdentityAttributesApi.md#Remove-BetaIdentityAttributesInBulk) | **POST** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
 [**Get-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Get-BetaIdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute

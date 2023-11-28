@@ -99,6 +99,28 @@ const fixFiles = function (myArray) {
       fileOut = [];
     }
 
+    if (file.includes("PasswordDictionaryApi.ps1")) {
+      for (const line of rawDataArra) {
+        if (line.includes("$LocalVarAccepts = @('text/plain', 'application/json')")) {
+          fileOut.push(line.replace("$LocalVarAccepts = @('text/plain', 'application/json')", "$LocalVarAccepts = @('text/plain')"));
+          madeChange = true;
+        }else if(line.includes("[String]")){
+          fileOut.push(line.replace("[String]", ""));
+          madeChange = true;
+        }else if(line.includes('[ValidateSet("text/plain", "application/json")]')){
+          fileOut.push(line.replace('[ValidateSet("text/plain", "application/json")]', ""));
+          madeChange = true;
+        }else if (line.includes("$ReturnType,")) {
+          fileOut.push(line.replace("$ReturnType,", ""));
+          madeChange = true;
+        } else {
+          fileOut.push(line);
+        }
+      }
+      rawDataArra = fileOut.slice();
+      fileOut = [];
+    }
+
     if (madeChange) {
       fs.writeFileSync(file, rawDataArra.join("\n"));
     }

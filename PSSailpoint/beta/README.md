@@ -255,6 +255,10 @@ Class | Method | HTTP request | Description
 *BetaMFAConfigurationApi* | [**Set-BetaMFADuoConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFADuoConfig) | **PUT** /mfa/duo-web/config | Set Duo MFA configuration
 *BetaMFAConfigurationApi* | [**Set-BetaMFAOktaConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *BetaMFAConfigurationApi* | [**Test-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
+*BetaMFAControllerApi* | [**New-BetaSendToken**](docs/BetaMFAControllerApi.md#New-BetaSendToken) | **POST** /mfa/token/send | Create and send user token
+*BetaMFAControllerApi* | [**Ping-BetaVerificationStatus**](docs/BetaMFAControllerApi.md#Ping-BetaVerificationStatus) | **POST** /mfa/{method}/poll | Polling MFA method by VerificationPollRequest
+*BetaMFAControllerApi* | [**Send-BetaKbaAnswers**](docs/BetaMFAControllerApi.md#Send-BetaKbaAnswers) | **POST** /mfa/kba/authenticate | Authenticate KBA provided MFA method
+*BetaMFAControllerApi* | [**Send-BetaTokenAuthRequest**](docs/BetaMFAControllerApi.md#Send-BetaTokenAuthRequest) | **POST** /mfa/token/authenticate | Authenticate Token provided MFA method
 *BetaManagedClientsApi* | [**Get-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Specified Managed Client Status.
 *BetaManagedClientsApi* | [**Update-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle status request from client
 *BetaManagedClustersApi* | [**Get-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Get-BetaClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster's log configuration
@@ -890,6 +894,10 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpointBeta/Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpointBeta/Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
+ - [PSSailpointBeta/Model.KbaAnswerRequest](docs/KbaAnswerRequest.md)
+ - [PSSailpointBeta/Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
+ - [PSSailpointBeta/Model.KbaAuthResponse](docs/KbaAuthResponse.md)
+ - [PSSailpointBeta/Model.KbaAuthResponseItem](docs/KbaAuthResponseItem.md)
  - [PSSailpointBeta/Model.LatestOutlierSummary](docs/LatestOutlierSummary.md)
  - [PSSailpointBeta/Model.LeftPad](docs/LeftPad.md)
  - [PSSailpointBeta/Model.LifecycleState](docs/LifecycleState.md)
@@ -1140,6 +1148,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.SelectorType](docs/SelectorType.md)
  - [PSSailpointBeta/Model.SelfImportExportDto](docs/SelfImportExportDto.md)
  - [PSSailpointBeta/Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
+ - [PSSailpointBeta/Model.SendTokenRequest](docs/SendTokenRequest.md)
+ - [PSSailpointBeta/Model.SendTokenResponse](docs/SendTokenResponse.md)
  - [PSSailpointBeta/Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
  - [PSSailpointBeta/Model.ServiceDeskIntegrationDtoAllOf](docs/ServiceDeskIntegrationDtoAllOf.md)
  - [PSSailpointBeta/Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)
@@ -1232,6 +1242,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.TestInvocation](docs/TestInvocation.md)
  - [PSSailpointBeta/Model.TestWorkflow200Response](docs/TestWorkflow200Response.md)
  - [PSSailpointBeta/Model.TestWorkflowRequest](docs/TestWorkflowRequest.md)
+ - [PSSailpointBeta/Model.TokenAuthRequest](docs/TokenAuthRequest.md)
+ - [PSSailpointBeta/Model.TokenAuthResponse](docs/TokenAuthResponse.md)
  - [PSSailpointBeta/Model.Transform](docs/Transform.md)
  - [PSSailpointBeta/Model.TransformAttributes](docs/TransformAttributes.md)
  - [PSSailpointBeta/Model.TransformDefinition](docs/TransformDefinition.md)
@@ -1257,6 +1269,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.ValidateFilterInputDto](docs/ValidateFilterInputDto.md)
  - [PSSailpointBeta/Model.ValidateFilterOutputDto](docs/ValidateFilterOutputDto.md)
  - [PSSailpointBeta/Model.Value](docs/Value.md)
+ - [PSSailpointBeta/Model.VerificationPollRequest](docs/VerificationPollRequest.md)
+ - [PSSailpointBeta/Model.VerificationResponse](docs/VerificationResponse.md)
  - [PSSailpointBeta/Model.ViolationContext](docs/ViolationContext.md)
  - [PSSailpointBeta/Model.ViolationContextPolicy](docs/ViolationContextPolicy.md)
  - [PSSailpointBeta/Model.ViolationContextPolicyAllOf](docs/ViolationContextPolicyAllOf.md)

@@ -36,6 +36,12 @@ The campaign's current status.
 The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
 .PARAMETER Created
 Created time of the campaign
+.PARAMETER TotalCertifications
+The total number of certifications in this campaign.
+.PARAMETER CompletedCertifications
+The number of completed certifications in this campaign.
+.PARAMETER Alerts
+A list of errors and warnings that have accumulated.
 .PARAMETER Modified
 Modified time of the campaign
 .PARAMETER VarFilter
@@ -48,12 +54,6 @@ No description available.
 No description available.
 .PARAMETER RoleCompositionCampaignInfo
 No description available.
-.PARAMETER Alerts
-A list of errors and warnings that have accumulated.
-.PARAMETER TotalCertifications
-The total number of certifications in this campaign.
-.PARAMETER CompletedCertifications
-The number of completed certifications in this campaign.
 .PARAMETER SourcesWithOrphanEntitlements
 A list of sources in the campaign that contain \""orphan entitlements\"" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
 .PARAMETER MandatoryCommentRequirement
@@ -103,32 +103,32 @@ function Initialize-BetaFullcampaign {
         [System.Nullable[System.DateTime]]
         ${Created},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${VarFilter},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${SunsetCommentsRequired} = $true,
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${SourceOwnerCampaignInfo},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${SearchCampaignInfo},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${RoleCompositionCampaignInfo},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${Alerts},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${TotalCertifications},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${CompletedCertifications},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Alerts},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Modified},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${VarFilter},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${SunsetCommentsRequired} = $true,
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${SourceOwnerCampaignInfo},
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${SearchCampaignInfo},
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${RoleCompositionCampaignInfo},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${SourcesWithOrphanEntitlements},
@@ -167,15 +167,15 @@ function Initialize-BetaFullcampaign {
             "status" = ${Status}
             "correlatedStatus" = ${CorrelatedStatus}
             "created" = ${Created}
+            "totalCertifications" = ${TotalCertifications}
+            "completedCertifications" = ${CompletedCertifications}
+            "alerts" = ${Alerts}
             "modified" = ${Modified}
             "filter" = ${VarFilter}
             "sunsetCommentsRequired" = ${SunsetCommentsRequired}
             "sourceOwnerCampaignInfo" = ${SourceOwnerCampaignInfo}
             "searchCampaignInfo" = ${SearchCampaignInfo}
             "roleCompositionCampaignInfo" = ${RoleCompositionCampaignInfo}
-            "alerts" = ${Alerts}
-            "totalCertifications" = ${TotalCertifications}
-            "completedCertifications" = ${CompletedCertifications}
             "sourcesWithOrphanEntitlements" = ${SourcesWithOrphanEntitlements}
             "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }
@@ -215,7 +215,7 @@ function ConvertFrom-BetaJsonToFullcampaign {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaFullcampaign
-        $AllProperties = ("id", "name", "description", "deadline", "type", "emailNotificationEnabled", "autoRevokeAllowed", "recommendationsEnabled", "status", "correlatedStatus", "created", "modified", "filter", "sunsetCommentsRequired", "sourceOwnerCampaignInfo", "searchCampaignInfo", "roleCompositionCampaignInfo", "alerts", "totalCertifications", "completedCertifications", "sourcesWithOrphanEntitlements", "mandatoryCommentRequirement")
+        $AllProperties = ("id", "name", "description", "deadline", "type", "emailNotificationEnabled", "autoRevokeAllowed", "recommendationsEnabled", "status", "correlatedStatus", "created", "totalCertifications", "completedCertifications", "alerts", "modified", "filter", "sunsetCommentsRequired", "sourceOwnerCampaignInfo", "searchCampaignInfo", "roleCompositionCampaignInfo", "sourcesWithOrphanEntitlements", "mandatoryCommentRequirement")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -292,6 +292,24 @@ function ConvertFrom-BetaJsonToFullcampaign {
             $Created = $JsonParameters.PSobject.Properties["created"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalCertifications"))) { #optional property not found
+            $TotalCertifications = $null
+        } else {
+            $TotalCertifications = $JsonParameters.PSobject.Properties["totalCertifications"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completedCertifications"))) { #optional property not found
+            $CompletedCertifications = $null
+        } else {
+            $CompletedCertifications = $JsonParameters.PSobject.Properties["completedCertifications"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "alerts"))) { #optional property not found
+            $Alerts = $null
+        } else {
+            $Alerts = $JsonParameters.PSobject.Properties["alerts"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
             $Modified = $null
         } else {
@@ -328,24 +346,6 @@ function ConvertFrom-BetaJsonToFullcampaign {
             $RoleCompositionCampaignInfo = $JsonParameters.PSobject.Properties["roleCompositionCampaignInfo"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "alerts"))) { #optional property not found
-            $Alerts = $null
-        } else {
-            $Alerts = $JsonParameters.PSobject.Properties["alerts"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalCertifications"))) { #optional property not found
-            $TotalCertifications = $null
-        } else {
-            $TotalCertifications = $JsonParameters.PSobject.Properties["totalCertifications"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completedCertifications"))) { #optional property not found
-            $CompletedCertifications = $null
-        } else {
-            $CompletedCertifications = $JsonParameters.PSobject.Properties["completedCertifications"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourcesWithOrphanEntitlements"))) { #optional property not found
             $SourcesWithOrphanEntitlements = $null
         } else {
@@ -370,15 +370,15 @@ function ConvertFrom-BetaJsonToFullcampaign {
             "status" = ${Status}
             "correlatedStatus" = ${CorrelatedStatus}
             "created" = ${Created}
+            "totalCertifications" = ${TotalCertifications}
+            "completedCertifications" = ${CompletedCertifications}
+            "alerts" = ${Alerts}
             "modified" = ${Modified}
             "filter" = ${VarFilter}
             "sunsetCommentsRequired" = ${SunsetCommentsRequired}
             "sourceOwnerCampaignInfo" = ${SourceOwnerCampaignInfo}
             "searchCampaignInfo" = ${SearchCampaignInfo}
             "roleCompositionCampaignInfo" = ${RoleCompositionCampaignInfo}
-            "alerts" = ${Alerts}
-            "totalCertifications" = ${TotalCertifications}
-            "completedCertifications" = ${CompletedCertifications}
             "sourcesWithOrphanEntitlements" = ${SourcesWithOrphanEntitlements}
             "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }

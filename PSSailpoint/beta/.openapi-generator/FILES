@@ -159,6 +159,7 @@ docs/BetaIdentityHistoryApi.md
 docs/BetaIdentityProfilesApi.md
 docs/BetaLifecycleStatesApi.md
 docs/BetaMFAConfigurationApi.md
+docs/BetaMFAControllerApi.md
 docs/BetaManagedClientsApi.md
 docs/BetaManagedClustersApi.md
 docs/BetaNonEmployeeLifecycleManagementApi.md
@@ -441,6 +442,10 @@ docs/InvocationStatusType.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
+docs/KbaAnswerRequest.md
+docs/KbaAnswerRequestItem.md
+docs/KbaAuthResponse.md
+docs/KbaAuthResponseItem.md
 docs/LatestOutlierSummary.md
 docs/LeftPad.md
 docs/LifecycleState.md
@@ -690,6 +695,8 @@ docs/Selector.md
 docs/SelectorType.md
 docs/SelfImportExportDto.md
 docs/SendTestNotificationRequestDto.md
+docs/SendTokenRequest.md
+docs/SendTokenResponse.md
 docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationDtoAllOf.md
 docs/ServiceDeskIntegrationTemplateDto.md
@@ -782,6 +789,8 @@ docs/TestExternalExecuteWorkflowRequest.md
 docs/TestInvocation.md
 docs/TestWorkflow200Response.md
 docs/TestWorkflowRequest.md
+docs/TokenAuthRequest.md
+docs/TokenAuthResponse.md
 docs/Transform.md
 docs/TransformAttributes.md
 docs/TransformDefinition.md
@@ -807,6 +816,8 @@ docs/VAClusterStatusChangeEventPreviousHealthCheckResult.md
 docs/ValidateFilterInputDto.md
 docs/ValidateFilterOutputDto.md
 docs/Value.md
+docs/VerificationPollRequest.md
+docs/VerificationResponse.md
 docs/ViolationContext.md
 docs/ViolationContextPolicy.md
 docs/ViolationContextPolicyAllOf.md
@@ -868,6 +879,7 @@ src/PSSailpointBeta/Api/BetaIdentityHistoryApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityProfilesApi.ps1
 src/PSSailpointBeta/Api/BetaLifecycleStatesApi.ps1
 src/PSSailpointBeta/Api/BetaMFAConfigurationApi.ps1
+src/PSSailpointBeta/Api/BetaMFAControllerApi.ps1
 src/PSSailpointBeta/Api/BetaManagedClientsApi.ps1
 src/PSSailpointBeta/Api/BetaManagedClustersApi.ps1
 src/PSSailpointBeta/Api/BetaNonEmployeeLifecycleManagementApi.ps1
@@ -1280,6 +1292,10 @@ src/PSSailpointBeta/Model/InvocationStatusType.ps1
 src/PSSailpointBeta/Model/JsonPatch.ps1
 src/PSSailpointBeta/Model/JsonPatchOperation.ps1
 src/PSSailpointBeta/Model/JsonPatchOperationValue.ps1
+src/PSSailpointBeta/Model/KbaAnswerRequest.ps1
+src/PSSailpointBeta/Model/KbaAnswerRequestItem.ps1
+src/PSSailpointBeta/Model/KbaAuthResponse.ps1
+src/PSSailpointBeta/Model/KbaAuthResponseItem.ps1
 src/PSSailpointBeta/Model/LatestOutlierSummary.ps1
 src/PSSailpointBeta/Model/LeftPad.ps1
 src/PSSailpointBeta/Model/LifecycleState.ps1
@@ -1530,6 +1546,8 @@ src/PSSailpointBeta/Model/Selector.ps1
 src/PSSailpointBeta/Model/SelectorType.ps1
 src/PSSailpointBeta/Model/SelfImportExportDto.ps1
 src/PSSailpointBeta/Model/SendTestNotificationRequestDto.ps1
+src/PSSailpointBeta/Model/SendTokenRequest.ps1
+src/PSSailpointBeta/Model/SendTokenResponse.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationDtoAllOf.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateDto.ps1
@@ -1622,6 +1640,8 @@ src/PSSailpointBeta/Model/TestExternalExecuteWorkflowRequest.ps1
 src/PSSailpointBeta/Model/TestInvocation.ps1
 src/PSSailpointBeta/Model/TestWorkflow200Response.ps1
 src/PSSailpointBeta/Model/TestWorkflowRequest.ps1
+src/PSSailpointBeta/Model/TokenAuthRequest.ps1
+src/PSSailpointBeta/Model/TokenAuthResponse.ps1
 src/PSSailpointBeta/Model/Transform.ps1
 src/PSSailpointBeta/Model/TransformAttributes.ps1
 src/PSSailpointBeta/Model/TransformDefinition.ps1
@@ -1647,6 +1667,8 @@ src/PSSailpointBeta/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.ps
 src/PSSailpointBeta/Model/ValidateFilterInputDto.ps1
 src/PSSailpointBeta/Model/ValidateFilterOutputDto.ps1
 src/PSSailpointBeta/Model/Value.ps1
+src/PSSailpointBeta/Model/VerificationPollRequest.ps1
+src/PSSailpointBeta/Model/VerificationResponse.ps1
 src/PSSailpointBeta/Model/ViolationContext.ps1
 src/PSSailpointBeta/Model/ViolationContextPolicy.ps1
 src/PSSailpointBeta/Model/ViolationContextPolicyAllOf.ps1
@@ -1715,6 +1737,7 @@ tests/Api/BetaIdentityHistoryApi.Tests.ps1
 tests/Api/BetaIdentityProfilesApi.Tests.ps1
 tests/Api/BetaLifecycleStatesApi.Tests.ps1
 tests/Api/BetaMFAConfigurationApi.Tests.ps1
+tests/Api/BetaMFAControllerApi.Tests.ps1
 tests/Api/BetaManagedClientsApi.Tests.ps1
 tests/Api/BetaManagedClustersApi.Tests.ps1
 tests/Api/BetaNonEmployeeLifecycleManagementApi.Tests.ps1
@@ -2126,6 +2149,10 @@ tests/Model/InvocationStatusType.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
+tests/Model/KbaAnswerRequest.Tests.ps1
+tests/Model/KbaAnswerRequestItem.Tests.ps1
+tests/Model/KbaAuthResponse.Tests.ps1
+tests/Model/KbaAuthResponseItem.Tests.ps1
 tests/Model/LatestOutlierSummary.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
@@ -2376,6 +2403,8 @@ tests/Model/Selector.Tests.ps1
 tests/Model/SelectorType.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
+tests/Model/SendTokenRequest.Tests.ps1
+tests/Model/SendTokenResponse.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDtoAllOf.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
@@ -2468,6 +2497,8 @@ tests/Model/TestExternalExecuteWorkflowRequest.Tests.ps1
 tests/Model/TestInvocation.Tests.ps1
 tests/Model/TestWorkflow200Response.Tests.ps1
 tests/Model/TestWorkflowRequest.Tests.ps1
+tests/Model/TokenAuthRequest.Tests.ps1
+tests/Model/TokenAuthResponse.Tests.ps1
 tests/Model/Transform.Tests.ps1
 tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformDefinition.Tests.ps1
@@ -2493,6 +2524,8 @@ tests/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.Tests.ps1
 tests/Model/ValidateFilterInputDto.Tests.ps1
 tests/Model/ValidateFilterOutputDto.Tests.ps1
 tests/Model/Value.Tests.ps1
+tests/Model/VerificationPollRequest.Tests.ps1
+tests/Model/VerificationResponse.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1
 tests/Model/ViolationContextPolicy.Tests.ps1
 tests/Model/ViolationContextPolicyAllOf.Tests.ps1

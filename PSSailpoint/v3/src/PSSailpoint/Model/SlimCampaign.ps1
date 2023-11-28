@@ -34,6 +34,14 @@ Enables IAI for this campaign. Accepts true even if the IAI product feature is o
 The campaign's current status.
 .PARAMETER CorrelatedStatus
 The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+.PARAMETER Created
+Created time of the campaign
+.PARAMETER TotalCertifications
+The total number of certifications in this campaign.
+.PARAMETER CompletedCertifications
+The number of completed certifications in this campaign.
+.PARAMETER Alerts
+A list of errors and warnings that have accumulated.
 .OUTPUTS
 
 SlimCampaign<PSCustomObject>
@@ -74,7 +82,19 @@ function Initialize-SlimCampaign {
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CORRELATED", "UNCORRELATED")]
         [String]
-        ${CorrelatedStatus}
+        ${CorrelatedStatus},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Created},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TotalCertifications},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${CompletedCertifications},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Alerts}
     )
 
     Process {
@@ -105,6 +125,10 @@ function Initialize-SlimCampaign {
             "recommendationsEnabled" = ${RecommendationsEnabled}
             "status" = ${Status}
             "correlatedStatus" = ${CorrelatedStatus}
+            "created" = ${Created}
+            "totalCertifications" = ${TotalCertifications}
+            "completedCertifications" = ${CompletedCertifications}
+            "alerts" = ${Alerts}
         }
 
 
@@ -142,7 +166,7 @@ function ConvertFrom-JsonToSlimCampaign {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SlimCampaign
-        $AllProperties = ("id", "name", "description", "deadline", "type", "emailNotificationEnabled", "autoRevokeAllowed", "recommendationsEnabled", "status", "correlatedStatus")
+        $AllProperties = ("id", "name", "description", "deadline", "type", "emailNotificationEnabled", "autoRevokeAllowed", "recommendationsEnabled", "status", "correlatedStatus", "created", "totalCertifications", "completedCertifications", "alerts")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -213,6 +237,30 @@ function ConvertFrom-JsonToSlimCampaign {
             $CorrelatedStatus = $JsonParameters.PSobject.Properties["correlatedStatus"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalCertifications"))) { #optional property not found
+            $TotalCertifications = $null
+        } else {
+            $TotalCertifications = $JsonParameters.PSobject.Properties["totalCertifications"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completedCertifications"))) { #optional property not found
+            $CompletedCertifications = $null
+        } else {
+            $CompletedCertifications = $JsonParameters.PSobject.Properties["completedCertifications"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "alerts"))) { #optional property not found
+            $Alerts = $null
+        } else {
+            $Alerts = $JsonParameters.PSobject.Properties["alerts"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -224,6 +272,10 @@ function ConvertFrom-JsonToSlimCampaign {
             "recommendationsEnabled" = ${RecommendationsEnabled}
             "status" = ${Status}
             "correlatedStatus" = ${CorrelatedStatus}
+            "created" = ${Created}
+            "totalCertifications" = ${TotalCertifications}
+            "completedCertifications" = ${CompletedCertifications}
+            "alerts" = ${Alerts}
         }
 
         return $PSO

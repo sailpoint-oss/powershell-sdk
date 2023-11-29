@@ -192,21 +192,40 @@ function Get-IDNAccessToken {
         Write-Debug $Script:Configuration["ClientId"]
         Write-Debug $Script:Configuration["ClientSecret"]
 
-            $HttpValues = [System.Web.HttpUtility]::ParseQueryString([String]::Empty)
-            $HttpValues.Add("grant_type","client_credentials")
-            $HttpValues.Add("client_id", $Script:Configuration["ClientId"])
-            $HttpValues.Add("client_secret",$Script:Configuration["ClientSecret"])
+            $multipartContent = [System.Net.Http.MultipartFormDataContent]::new()
+
+            #set grant type formdata value
+            $stringHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
+            $stringHeader.Name = "grant_type"
+            $stringContent = [System.Net.Http.StringContent]::new([string]"client_credentials")
+            $stringContent.Headers.ContentDisposition = $stringHeader
+            $multipartContent.Add($stringContent)
+
+            #set client id formdata value
+            $stringHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
+            $stringHeader.Name = "client_id"
+            $stringContent = [System.Net.Http.StringContent]::new([string]$Script:Configuration["ClientId"])
+            $stringContent.Headers.ContentDisposition = $stringHeader
+            $multipartContent.Add($stringContent)
+            #set client secret formdata value
+            $stringHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
+            $stringHeader.Name = "client_secret"
+            $stringContent = [System.Net.Http.StringContent]::new([string]$Script:Configuration["ClientSecret"])
+            $stringContent.Headers.ContentDisposition = $stringHeader
+            $multipartContent.Add($stringContent)
         
             # Build the request and load it with the query string.
             $UriBuilder = [System.UriBuilder]($Script:Configuration["TokenUrl"])
-            $UriBuilder.Query = $HttpValues.ToString()
-        
+          
             Write-Debug $UriBuilder.Uri
+
+            
         
             try {
                 if($null -eq $Script:Configuration["Proxy"]) {
                     $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
                                                 -Method "POST" `
+                                                -Body $multipartContent `
                                                 -ErrorAction Stop `
                                                 -UseBasicParsing
                 } else {
@@ -214,6 +233,7 @@ function Get-IDNAccessToken {
                     Write-Debug $Script:Configuration["Proxy"].GetProxy($UriBuilder.Uri)
                     $Response = Invoke-WebRequest -Uri $UriBuilder.Uri `
                                                 -Method "POST" `
+                                                -Body $multipartContent `
                                                 -ErrorAction Stop `
                                                 -UseBasicParsing `
                                                 -Proxy $Script:Configuration["Proxy"].GetProxy($UriBuilder.Uri) `

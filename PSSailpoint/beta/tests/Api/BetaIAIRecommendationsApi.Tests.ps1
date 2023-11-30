@@ -6,14 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIRecommendationsApi' {
-    Context 'Get-BetaMessageCatalogs' {
-        It 'Test Get-BetaMessageCatalogs' {
-            #$TestResult = Get-BetaMessageCatalogs -CatalogId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaRecommendations' {
         It 'Test Get-BetaRecommendations' {
             #$TestResult = Get-BetaRecommendations -RecommendationRequestDto "TEST_VALUE"

@@ -149,6 +149,7 @@ docs/BetaEntitlementsApi.md
 docs/BetaGovernanceGroupsApi.md
 docs/BetaIAIAccessRequestRecommendationsApi.md
 docs/BetaIAICommonAccessApi.md
+docs/BetaIAIMessageCatalogsApi.md
 docs/BetaIAIOutliersApi.md
 docs/BetaIAIPeerGroupStrategiesApi.md
 docs/BetaIAIRecommendationsApi.md
@@ -871,6 +872,7 @@ src/PSSailpointBeta/Api/BetaEntitlementsApi.ps1
 src/PSSailpointBeta/Api/BetaGovernanceGroupsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIAccessRequestRecommendationsApi.ps1
 src/PSSailpointBeta/Api/BetaIAICommonAccessApi.ps1
+src/PSSailpointBeta/Api/BetaIAIMessageCatalogsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIOutliersApi.ps1
 src/PSSailpointBeta/Api/BetaIAIPeerGroupStrategiesApi.ps1
 src/PSSailpointBeta/Api/BetaIAIRecommendationsApi.ps1
@@ -1731,6 +1733,7 @@ tests/Api/BetaEntitlementsApi.Tests.ps1
 tests/Api/BetaGovernanceGroupsApi.Tests.ps1
 tests/Api/BetaIAIAccessRequestRecommendationsApi.Tests.ps1
 tests/Api/BetaIAICommonAccessApi.Tests.ps1
+tests/Api/BetaIAIMessageCatalogsApi.Tests.ps1
 tests/Api/BetaIAIOutliersApi.Tests.ps1
 tests/Api/BetaIAIPeerGroupStrategiesApi.Tests.ps1
 tests/Api/BetaIAIRecommendationsApi.Tests.ps1

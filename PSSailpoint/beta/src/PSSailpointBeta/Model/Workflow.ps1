@@ -14,16 +14,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-Workflow ID. This is a UUID generated upon creation.
-.PARAMETER ExecutionCount
-The number of times this workflow has been executed.
-.PARAMETER FailureCount
-The number of times this workflow has failed during execution.
-.PARAMETER Created
-The date and time the workflow was created.
-.PARAMETER Creator
-No description available.
 .PARAMETER Name
 The name of the workflow
 .PARAMETER Owner
@@ -36,6 +26,16 @@ No description available.
 Enable or disable the workflow.  Workflows cannot be created in an enabled state.
 .PARAMETER Trigger
 No description available.
+.PARAMETER Id
+Workflow ID. This is a UUID generated upon creation.
+.PARAMETER ExecutionCount
+The number of times this workflow has been executed.
+.PARAMETER FailureCount
+The number of times this workflow has failed during execution.
+.PARAMETER Created
+The date and time the workflow was created.
+.PARAMETER Creator
+No description available.
 .OUTPUTS
 
 Workflow<PSCustomObject>
@@ -46,37 +46,37 @@ function Initialize-BetaWorkflow {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${ExecutionCount},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${FailureCount},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Creator},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Name},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Definition},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Trigger},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ExecutionCount},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${FailureCount},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Created},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Trigger}
+        ${Creator}
     )
 
     Process {
@@ -85,17 +85,17 @@ function Initialize-BetaWorkflow {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "executionCount" = ${ExecutionCount}
-            "failureCount" = ${FailureCount}
-            "created" = ${Created}
-            "creator" = ${Creator}
             "name" = ${Name}
             "owner" = ${Owner}
             "description" = ${Description}
             "definition" = ${Definition}
             "enabled" = ${Enabled}
             "trigger" = ${Trigger}
+            "id" = ${Id}
+            "executionCount" = ${ExecutionCount}
+            "failureCount" = ${FailureCount}
+            "created" = ${Created}
+            "creator" = ${Creator}
         }
 
 
@@ -133,41 +133,11 @@ function ConvertFrom-BetaJsonToWorkflow {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflow
-        $AllProperties = ("id", "executionCount", "failureCount", "created", "creator", "name", "owner", "description", "definition", "enabled", "trigger")
+        $AllProperties = ("name", "owner", "description", "definition", "enabled", "trigger", "id", "executionCount", "failureCount", "created", "creator")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "executionCount"))) { #optional property not found
-            $ExecutionCount = $null
-        } else {
-            $ExecutionCount = $JsonParameters.PSobject.Properties["executionCount"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "failureCount"))) { #optional property not found
-            $FailureCount = $null
-        } else {
-            $FailureCount = $JsonParameters.PSobject.Properties["failureCount"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
-            $Created = $null
-        } else {
-            $Created = $JsonParameters.PSobject.Properties["created"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creator"))) { #optional property not found
-            $Creator = $null
-        } else {
-            $Creator = $JsonParameters.PSobject.Properties["creator"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -206,18 +176,48 @@ function ConvertFrom-BetaJsonToWorkflow {
             $Trigger = $JsonParameters.PSobject.Properties["trigger"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "executionCount"))) { #optional property not found
+            $ExecutionCount = $null
+        } else {
+            $ExecutionCount = $JsonParameters.PSobject.Properties["executionCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "failureCount"))) { #optional property not found
+            $FailureCount = $null
+        } else {
+            $FailureCount = $JsonParameters.PSobject.Properties["failureCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "creator"))) { #optional property not found
+            $Creator = $null
+        } else {
+            $Creator = $JsonParameters.PSobject.Properties["creator"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "executionCount" = ${ExecutionCount}
-            "failureCount" = ${FailureCount}
-            "created" = ${Created}
-            "creator" = ${Creator}
             "name" = ${Name}
             "owner" = ${Owner}
             "description" = ${Description}
             "definition" = ${Definition}
             "enabled" = ${Enabled}
             "trigger" = ${Trigger}
+            "id" = ${Id}
+            "executionCount" = ${ExecutionCount}
+            "failureCount" = ${FailureCount}
+            "created" = ${Created}
+            "creator" = ${Creator}
         }
 
         return $PSO

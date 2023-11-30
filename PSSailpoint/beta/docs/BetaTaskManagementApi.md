@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaTaskManagementApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaTaskManagementApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-BetaTaskStatus**](BetaTaskManagementApi.md#Update-BetaTaskStatus) | **PATCH** /task-status/{id} | Update task status by ID
 
 
-<a name="Get-BetaPendingTaskHeaders"></a>
+<a id="Get-BetaPendingTaskHeaders"></a>
 # **Get-BetaPendingTaskHeaders**
 > void Get-BetaPendingTaskHeaders<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -68,7 +68,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPendingTasks"></a>
+<a id="Get-BetaPendingTasks"></a>
 # **Get-BetaPendingTasks**
 > TaskStatus[] Get-BetaPendingTasks<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTaskStatus"></a>
+<a id="Get-BetaTaskStatus"></a>
 # **Get-BetaTaskStatus**
 > TaskStatus Get-BetaTaskStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTaskStatusList"></a>
+<a id="Get-BetaTaskStatusList"></a>
 # **Get-BetaTaskStatusList**
 > TaskStatus[] Get-BetaTaskStatusList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaTaskStatus"></a>
+<a id="Update-BetaTaskStatus"></a>
 # **Update-BetaTaskStatus**
 > TaskStatus Update-BetaTaskStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

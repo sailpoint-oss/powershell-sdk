@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.AccessRequestApprovalsApi
+# PSSailpoint.PSSailpoint\Api.AccessRequestApprovalsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Deny-AccessRequest**](AccessRequestApprovalsApi.md#Deny-AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
 
 
-<a name="Approve-AccessRequest"></a>
+<a id="Approve-AccessRequest"></a>
 # **Approve-AccessRequest**
 > SystemCollectionsHashtable Approve-AccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ForwardAccessRequest"></a>
+<a id="Invoke-ForwardAccessRequest"></a>
 # **Invoke-ForwardAccessRequest**
 > SystemCollectionsHashtable Invoke-ForwardAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-AccessRequestApprovalSummary"></a>
+<a id="Get-AccessRequestApprovalSummary"></a>
 # **Get-AccessRequestApprovalSummary**
 > ApprovalSummary Get-AccessRequestApprovalSummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CompletedApprovals"></a>
+<a id="Get-CompletedApprovals"></a>
 # **Get-CompletedApprovals**
 > CompletedApproval[] Get-CompletedApprovals<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-PendingApprovals"></a>
+<a id="Get-PendingApprovals"></a>
 # **Get-PendingApprovals**
 > PendingApproval[] Get-PendingApprovals<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Deny-AccessRequest"></a>
+<a id="Deny-AccessRequest"></a>
 # **Deny-AccessRequest**
 > SystemCollectionsHashtable Deny-AccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>

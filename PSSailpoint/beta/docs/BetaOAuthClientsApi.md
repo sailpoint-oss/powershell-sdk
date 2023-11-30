@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaOAuthClientsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaOAuthClientsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-BetaOauthClient**](BetaOAuthClientsApi.md#Update-BetaOauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
 
 
-<a name="New-BetaOauthClient"></a>
+<a id="New-BetaOauthClient"></a>
 # **New-BetaOauthClient**
 > CreateOAuthClientResponse New-BetaOauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateOAuthClientRequest] <PSCustomObject><br>
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaOauthClient"></a>
+<a id="Remove-BetaOauthClient"></a>
 # **Remove-BetaOauthClient**
 > void Remove-BetaOauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -113,7 +113,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaOauthClient"></a>
+<a id="Get-BetaOauthClient"></a>
 # **Get-BetaOauthClient**
 > GetOAuthClientResponse Get-BetaOauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaOauthClients"></a>
+<a id="Get-BetaOauthClients"></a>
 # **Get-BetaOauthClients**
 > GetOAuthClientResponse[] Get-BetaOauthClients<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaOauthClient"></a>
+<a id="Update-BetaOauthClient"></a>
 # **Update-BetaOauthClient**
 > GetOAuthClientResponse Update-BetaOauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

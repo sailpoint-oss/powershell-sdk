@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaCustomPasswordInstructionsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaCustomPasswordInstructionsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Get-BetaCustomPasswordInstructions**](BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
 
 
-<a name="New-BetaCustomPasswordInstructions"></a>
+<a id="New-BetaCustomPasswordInstructions"></a>
 # **New-BetaCustomPasswordInstructions**
 > CustomPasswordInstruction New-BetaCustomPasswordInstructions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CustomPasswordInstruction] <PSCustomObject><br>
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaCustomPasswordInstructions"></a>
+<a id="Remove-BetaCustomPasswordInstructions"></a>
 # **Remove-BetaCustomPasswordInstructions**
 > void Remove-BetaCustomPasswordInstructions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PageId] <String><br>
@@ -114,7 +114,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCustomPasswordInstructions"></a>
+<a id="Get-BetaCustomPasswordInstructions"></a>
 # **Get-BetaCustomPasswordInstructions**
 > CustomPasswordInstruction Get-BetaCustomPasswordInstructions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PageId] <String><br>

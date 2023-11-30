@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaAccountUsagesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaAccountUsagesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-BetaUsagesByAccountId**](BetaAccountUsagesApi.md#Get-BetaUsagesByAccountId) | **GET** /account-usages/{accountId}/summaries | Returns account usage insights
 
 
-<a name="Get-BetaUsagesByAccountId"></a>
+<a id="Get-BetaUsagesByAccountId"></a>
 # **Get-BetaUsagesByAccountId**
 > AccountUsage[] Get-BetaUsagesByAccountId<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>

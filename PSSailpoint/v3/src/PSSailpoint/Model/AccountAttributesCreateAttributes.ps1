@@ -75,12 +75,14 @@ function ConvertFrom-JsonToAccountAttributesCreateAttributes {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
+        $AccountAttributesCreateAttributesAdditionalProperties = @{}
 
         # check if Json contains properties not defined in AccountAttributesCreateAttributes
         $AllProperties = ("sourceId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
+            # store undefined properties in additionalProperties
             if (!($AllProperties.Contains($name))) {
-                throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
+                $AccountAttributesCreateAttributesAdditionalProperties[$name] = $JsonParameters.PSobject.Properties[$name].value
             }
         }
 
@@ -96,6 +98,7 @@ function ConvertFrom-JsonToAccountAttributesCreateAttributes {
 
         $PSO = [PSCustomObject]@{
             "sourceId" = ${SourceId}
+            "AdditionalProperties" = $AccountAttributesCreateAttributesAdditionalProperties
         }
 
         return $PSO

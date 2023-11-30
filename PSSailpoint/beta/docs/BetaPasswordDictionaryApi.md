@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaPasswordDictionaryApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaPasswordDictionaryApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-BetaPasswordDictionary**](BetaPasswordDictionaryApi.md#Update-BetaPasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 
 
-<a name="Get-BetaPasswordDictionary"></a>
+<a id="Get-BetaPasswordDictionary"></a>
 # **Get-BetaPasswordDictionary**
 > String Get-BetaPasswordDictionary<br>
 
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaPasswordDictionary"></a>
+<a id="Update-BetaPasswordDictionary"></a>
 # **Update-BetaPasswordDictionary**
 > void Update-BetaPasswordDictionary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>

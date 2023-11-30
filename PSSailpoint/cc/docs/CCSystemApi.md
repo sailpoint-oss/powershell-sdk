@@ -1,4 +1,4 @@
-# PSSailpointCC.PSSailpointCC/Api.CCSystemApi
+# PSSailpointCC.PSSailpointCC\Api.CCSystemApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Invoke-CCRefreshIdentities**](CCSystemApi.md#Invoke-CCRefreshIdentities) | **POST** /cc/api/system/refreshIdentities | Refresh Identities
 
 
-<a name="Invoke-CCRefreshIdentities"></a>
+<a id="Invoke-CCRefreshIdentities"></a>
 # **Invoke-CCRefreshIdentities**
 > System.Collections.Hashtable Invoke-CCRefreshIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ContentType] <String><br>

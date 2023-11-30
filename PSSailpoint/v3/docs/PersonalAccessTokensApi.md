@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.PersonalAccessTokensApi
+# PSSailpoint.PSSailpoint\Api.PersonalAccessTokensApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Update-PersonalAccessToken**](PersonalAccessTokensApi.md#Update-PersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
 
 
-<a name="New-PersonalAccessToken"></a>
+<a id="New-PersonalAccessToken"></a>
 # **New-PersonalAccessToken**
 > CreatePersonalAccessTokenResponse New-PersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreatePersonalAccessTokenRequest] <PSCustomObject><br>
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-PersonalAccessToken"></a>
+<a id="Remove-PersonalAccessToken"></a>
 # **Remove-PersonalAccessToken**
 > void Remove-PersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -112,7 +112,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-PersonalAccessTokens"></a>
+<a id="Get-PersonalAccessTokens"></a>
 # **Get-PersonalAccessTokens**
 > GetPersonalAccessTokenResponse[] Get-PersonalAccessTokens<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-PersonalAccessToken"></a>
+<a id="Update-PersonalAccessToken"></a>
 # **Update-PersonalAccessToken**
 > GetPersonalAccessTokenResponse Update-PersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

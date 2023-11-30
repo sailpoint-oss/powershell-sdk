@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaConnectorsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaConnectorsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-BetaConnectorList**](BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Gets connector list
 
 
-<a name="Get-BetaConnectorList"></a>
+<a id="Get-BetaConnectorList"></a>
 # **Get-BetaConnectorList**
 > V3ConnectorDto[] Get-BetaConnectorList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>

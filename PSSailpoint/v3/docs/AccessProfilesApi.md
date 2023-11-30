@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.AccessProfilesApi
+# PSSailpoint.PSSailpoint\Api.AccessProfilesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**Update-AccessProfile**](AccessProfilesApi.md#Update-AccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
 
 
-<a name="New-AccessProfile"></a>
+<a id="New-AccessProfile"></a>
 # **New-AccessProfile**
 > AccessProfile New-AccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessProfile] <PSCustomObject><br>
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-AccessProfile"></a>
+<a id="Remove-AccessProfile"></a>
 # **Remove-AccessProfile**
 > void Remove-AccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -129,7 +129,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-AccessProfilesInBulk"></a>
+<a id="Remove-AccessProfilesInBulk"></a>
 # **Remove-AccessProfilesInBulk**
 > AccessProfileBulkDeleteResponse Remove-AccessProfilesInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessProfileBulkDeleteRequest] <PSCustomObject><br>
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-AccessProfile"></a>
+<a id="Get-AccessProfile"></a>
 # **Get-AccessProfile**
 > AccessProfile Get-AccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-AccessProfileEntitlements"></a>
+<a id="Get-AccessProfileEntitlements"></a>
 # **Get-AccessProfileEntitlements**
 > Entitlement[] Get-AccessProfileEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-AccessProfiles"></a>
+<a id="Get-AccessProfiles"></a>
 # **Get-AccessProfiles**
 > AccessProfile[] Get-AccessProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForSubadmin] <String><br>
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-AccessProfile"></a>
+<a id="Update-AccessProfile"></a>
 # **Update-AccessProfile**
 > AccessProfile Update-AccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

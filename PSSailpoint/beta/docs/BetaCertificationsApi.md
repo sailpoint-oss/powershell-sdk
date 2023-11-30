@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaCertificationsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaCertificationsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Submit-BetaReassignCertsAsync**](BetaCertificationsApi.md#Submit-BetaReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 
 
-<a name="Get-BetaIdentityCertificationItemPermissions"></a>
+<a id="Get-BetaIdentityCertificationItemPermissions"></a>
 # **Get-BetaIdentityCertificationItemPermissions**
 > PermissionDto[] Get-BetaIdentityCertificationItemPermissions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CertificationId] <String><br>
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityCertificationPendingTasks"></a>
+<a id="Get-BetaIdentityCertificationPendingTasks"></a>
 # **Get-BetaIdentityCertificationPendingTasks**
 > IdentityCertificationTask[] Get-BetaIdentityCertificationPendingTasks<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityCertificationTaskStatus"></a>
+<a id="Get-BetaIdentityCertificationTaskStatus"></a>
 # **Get-BetaIdentityCertificationTaskStatus**
 > IdentityCertificationTask Get-BetaIdentityCertificationTaskStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCertificationReviewers"></a>
+<a id="Get-BetaCertificationReviewers"></a>
 # **Get-BetaCertificationReviewers**
 > IdentityReferenceWithNameAndEmail[] Get-BetaCertificationReviewers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Submit-BetaReassignCertsAsync"></a>
+<a id="Submit-BetaReassignCertsAsync"></a>
 # **Submit-BetaReassignCertsAsync**
 > IdentityCertificationTask Submit-BetaReassignCertsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

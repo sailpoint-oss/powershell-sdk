@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.PasswordSyncGroupsApi
+# PSSailpoint.PSSailpoint\Api.PasswordSyncGroupsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-PasswordSyncGroup**](PasswordSyncGroupsApi.md#Update-PasswordSyncGroup) | **PUT** /password-sync-groups/{id} | Update Password Sync Group by ID
 
 
-<a name="New-PasswordSyncGroup"></a>
+<a id="New-PasswordSyncGroup"></a>
 # **New-PasswordSyncGroup**
 > PasswordSyncGroup New-PasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordSyncGroup] <PSCustomObject><br>
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-PasswordSyncGroup"></a>
+<a id="Remove-PasswordSyncGroup"></a>
 # **Remove-PasswordSyncGroup**
 > void Remove-PasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -113,7 +113,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-PasswordSyncGroup"></a>
+<a id="Get-PasswordSyncGroup"></a>
 # **Get-PasswordSyncGroup**
 > PasswordSyncGroup Get-PasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-PasswordSyncGroups"></a>
+<a id="Get-PasswordSyncGroups"></a>
 # **Get-PasswordSyncGroups**
 > PasswordSyncGroup[] Get-PasswordSyncGroups<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-PasswordSyncGroup"></a>
+<a id="Update-PasswordSyncGroup"></a>
 # **Update-PasswordSyncGroup**
 > PasswordSyncGroup Update-PasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

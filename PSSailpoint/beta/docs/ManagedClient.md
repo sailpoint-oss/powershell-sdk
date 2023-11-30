@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **LastSeen** | **System.DateTime** | When the ManagedClient was last seen by the server | [optional] [readonly] 
 **Name** | **String** | ManagedClient name | [optional] 
 **SinceLastSeen** | **String** | Milliseconds since the ManagedClient has polled the server | [optional] [readonly] 
-**Status** | [**ManagedClientStatusEnum**](ManagedClientStatusEnum.md) | Status of the ManagedClient | [optional] [readonly] 
+**Status** | [**ManagedClientStatusEnum**](ManagedClientStatusEnum.md) |  | [optional] [readonly] 
 **Type** | **String** | Type of the ManagedClient (VA, CCG) | 
 **VaDownloadUrl** | **String** | ManagedClient VA download URL | [optional] [readonly] 
 **VaVersion** | **String** | Version that the ManagedClient&#39;s VA is running | [optional] [readonly] 

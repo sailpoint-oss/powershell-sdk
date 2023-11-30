@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.PasswordManagementApi
+# PSSailpoint.PSSailpoint\Api.PasswordManagementApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Set-Password**](PasswordManagementApi.md#Set-Password) | **POST** /set-password | Set Identity&#39;s Password
 
 
-<a name="Get-PasswordChangeStatus"></a>
+<a id="Get-PasswordChangeStatus"></a>
 # **Get-PasswordChangeStatus**
 > PasswordStatus Get-PasswordChangeStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Search-PasswordInfo"></a>
+<a id="Search-PasswordInfo"></a>
 # **Search-PasswordInfo**
 > PasswordInfo Search-PasswordInfo<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordInfoQueryDTO] <PSCustomObject><br>
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-Password"></a>
+<a id="Set-Password"></a>
 # **Set-Password**
 > PasswordChangeResponse Set-Password<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordChangeRequest] <PSCustomObject><br>

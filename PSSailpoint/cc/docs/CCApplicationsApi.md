@@ -1,4 +1,4 @@
-# PSSailpointCC.PSSailpointCC/Api.CCApplicationsApi
+# PSSailpointCC.PSSailpointCC\Api.CCApplicationsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Update-CCApplication**](CCApplicationsApi.md#Update-CCApplication) | **POST** /cc/api/app/update/{id} | Update Application
 
 
-<a name="New-CCApplication"></a>
+<a id="New-CCApplication"></a>
 # **New-CCApplication**
 > System.Collections.Hashtable New-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateApplicationRequest] <PSCustomObject><br>
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-CCApplication"></a>
+<a id="Remove-CCApplication"></a>
 # **Remove-CCApplication**
 > void Remove-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -110,7 +110,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CCApplication"></a>
+<a id="Get-CCApplication"></a>
 # **Get-CCApplication**
 > GetApplication200Response Get-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CCApplicationAccessProfiles"></a>
+<a id="Get-CCApplicationAccessProfiles"></a>
 # **Get-CCApplicationAccessProfiles**
 > System.Collections.Hashtable Get-CCApplicationAccessProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -200,7 +200,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CCApplications"></a>
+<a id="Get-CCApplications"></a>
 # **Get-CCApplications**
 > ListApplications200ResponseInner[] Get-CCApplications<br>
 
@@ -244,7 +244,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-CCApplication"></a>
+<a id="Update-CCApplication"></a>
 # **Update-CCApplication**
 > System.Collections.Hashtable Update-CCApplication<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

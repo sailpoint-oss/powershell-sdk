@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaGovernanceGroupsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaGovernanceGroupsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**Update-BetaWorkgroupMembers**](BetaGovernanceGroupsApi.md#Update-BetaWorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-add | Add members to Governance Group
 
 
-<a name="New-BetaWorkgroup"></a>
+<a id="New-BetaWorkgroup"></a>
 # **New-BetaWorkgroup**
 > WorkgroupDto New-BetaWorkgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupDto] <PSCustomObject><br>
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaWorkgroup"></a>
+<a id="Remove-BetaWorkgroup"></a>
 # **Remove-BetaWorkgroup**
 > void Remove-BetaWorkgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -119,7 +119,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaWorkgroupMembers"></a>
+<a id="Remove-BetaWorkgroupMembers"></a>
 # **Remove-BetaWorkgroupMembers**
 > WorkgroupMemberDeleteItem[] Remove-BetaWorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaWorkgroupsInBulk"></a>
+<a id="Remove-BetaWorkgroupsInBulk"></a>
 # **Remove-BetaWorkgroupsInBulk**
 > WorkgroupDeleteItem[] Remove-BetaWorkgroupsInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupBulkDeleteRequest] <PSCustomObject><br>
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaWorkgroup"></a>
+<a id="Get-BetaWorkgroup"></a>
 # **Get-BetaWorkgroup**
 > WorkgroupDto Get-BetaWorkgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaConnections"></a>
+<a id="Get-BetaConnections"></a>
 # **Get-BetaConnections**
 > WorkgroupConnectionDto[] Get-BetaConnections<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaWorkgroupMembers"></a>
+<a id="Get-BetaWorkgroupMembers"></a>
 # **Get-BetaWorkgroupMembers**
 > ListWorkgroupMembers200ResponseInner[] Get-BetaWorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaWorkgroups"></a>
+<a id="Get-BetaWorkgroups"></a>
 # **Get-BetaWorkgroups**
 > WorkgroupDto[] Get-BetaWorkgroups<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaWorkgroup"></a>
+<a id="Update-BetaWorkgroup"></a>
 # **Update-BetaWorkgroup**
 > WorkgroupDto Update-BetaWorkgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaWorkgroupMembers"></a>
+<a id="Update-BetaWorkgroupMembers"></a>
 # **Update-BetaWorkgroupMembers**
 > WorkgroupMemberAddItem[] Update-BetaWorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>

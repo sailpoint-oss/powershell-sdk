@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaRequestableObjectsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaRequestableObjectsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-BetaRequestableObjects**](BetaRequestableObjectsApi.md#Get-BetaRequestableObjects) | **GET** /requestable-objects | Requestable Objects List
 
 
-<a name="Get-BetaRequestableObjects"></a>
+<a id="Get-BetaRequestableObjects"></a>
 # **Get-BetaRequestableObjects**
 > RequestableObject[] Get-BetaRequestableObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>

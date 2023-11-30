@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaManagedClustersApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaManagedClustersApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Send-BetaClientLogConfiguration**](BetaManagedClustersApi.md#Send-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster&#39;s log configuration
 
 
-<a name="Get-BetaClientLogConfiguration"></a>
+<a id="Get-BetaClientLogConfiguration"></a>
 # **Get-BetaClientLogConfiguration**
 > ClientLogConfiguration Get-BetaClientLogConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaManagedCluster"></a>
+<a id="Get-BetaManagedCluster"></a>
 # **Get-BetaManagedCluster**
 > ManagedCluster Get-BetaManagedCluster<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaManagedClusters"></a>
+<a id="Get-BetaManagedClusters"></a>
 # **Get-BetaManagedClusters**
 > ManagedCluster[] Get-BetaManagedClusters<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaClientLogConfiguration"></a>
+<a id="Send-BetaClientLogConfiguration"></a>
 # **Send-BetaClientLogConfiguration**
 > ClientLogConfiguration Send-BetaClientLogConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaTaggedObjectsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaTaggedObjectsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**Set-BetaTagsToManyObjects**](BetaTaggedObjectsApi.md#Set-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
 
 
-<a name="Remove-BetaTaggedObject"></a>
+<a id="Remove-BetaTaggedObject"></a>
 # **Remove-BetaTaggedObject**
 > void Remove-BetaTaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -68,7 +68,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaTagsToManyObject"></a>
+<a id="Remove-BetaTagsToManyObject"></a>
 # **Remove-BetaTagsToManyObject**
 > void Remove-BetaTagsToManyObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
@@ -120,7 +120,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTaggedObject"></a>
+<a id="Get-BetaTaggedObject"></a>
 # **Get-BetaTaggedObject**
 > TaggedObject Get-BetaTaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTaggedObjects"></a>
+<a id="Get-BetaTaggedObjects"></a>
 # **Get-BetaTaggedObjects**
 > TaggedObject[] Get-BetaTaggedObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTaggedObjectsByType"></a>
+<a id="Get-BetaTaggedObjectsByType"></a>
 # **Get-BetaTaggedObjectsByType**
 > TaggedObject[] Get-BetaTaggedObjectsByType<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaTaggedObject"></a>
+<a id="Send-BetaTaggedObject"></a>
 # **Send-BetaTaggedObject**
 > TaggedObject Send-BetaTaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaTagToObject"></a>
+<a id="Set-BetaTagToObject"></a>
 # **Set-BetaTagToObject**
 > void Set-BetaTagToObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaggedObject] <PSCustomObject><br>
@@ -407,7 +407,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaTagsToManyObjects"></a>
+<a id="Set-BetaTagsToManyObjects"></a>
 # **Set-BetaTagsToManyObjects**
 > BulkTaggedObject Set-BetaTagsToManyObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>

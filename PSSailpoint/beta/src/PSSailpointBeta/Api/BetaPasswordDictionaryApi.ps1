@@ -29,9 +29,9 @@ String
 function Get-BetaPasswordDictionary {
     [CmdletBinding()]
     Param (
-        [String]
-        [ValidateSet("text/plain", "application/json")]
-        $ReturnType,
+        
+        
+        
         [Switch]
         $WithHttpInfo
     )
@@ -50,7 +50,7 @@ function Get-BetaPasswordDictionary {
         $LocalVarBodyParameter = $null
 
         # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('text/plain', 'application/json')
+        $LocalVarAccepts = @('text/plain')
 
         if ($ReturnType) {
             # use the return type (MIME) provided by the user

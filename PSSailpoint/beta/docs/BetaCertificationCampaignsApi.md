@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaCertificationCampaignsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaCertificationCampaignsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 [**Update-BetaCampaign**](BetaCertificationCampaignsApi.md#Update-BetaCampaign) | **PATCH** /campaigns/{id} | Update a Campaign
 
 
-<a name="Complete-BetaCampaign"></a>
+<a id="Complete-BetaCampaign"></a>
 # **Complete-BetaCampaign**
 > SystemCollectionsHashtable Complete-BetaCampaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaCampaign"></a>
+<a id="New-BetaCampaign"></a>
 # **New-BetaCampaign**
 > Campaign New-BetaCampaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Campaign] <PSCustomObject><br>
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaCampaignTemplate"></a>
+<a id="New-BetaCampaignTemplate"></a>
 # **New-BetaCampaignTemplate**
 > CampaignTemplate New-BetaCampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignTemplate] <PSCustomObject><br>
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaCampaignTemplate"></a>
+<a id="Remove-BetaCampaignTemplate"></a>
 # **Remove-BetaCampaignTemplate**
 > void Remove-BetaCampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -250,7 +250,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaCampaignTemplateSchedule"></a>
+<a id="Remove-BetaCampaignTemplateSchedule"></a>
 # **Remove-BetaCampaignTemplateSchedule**
 > void Remove-BetaCampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -301,7 +301,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaCampaigns"></a>
+<a id="Remove-BetaCampaigns"></a>
 # **Remove-BetaCampaigns**
 > SystemCollectionsHashtable Remove-BetaCampaigns<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DeleteCampaignsRequest] <PSCustomObject><br>
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaActiveCampaigns"></a>
+<a id="Get-BetaActiveCampaigns"></a>
 # **Get-BetaActiveCampaigns**
 > GetActiveCampaigns200ResponseInner[] Get-BetaActiveCampaigns<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Detail] <String><br>
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCampaign"></a>
+<a id="Get-BetaCampaign"></a>
 # **Get-BetaCampaign**
 > Slimcampaign Get-BetaCampaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCampaignReports"></a>
+<a id="Get-BetaCampaignReports"></a>
 # **Get-BetaCampaignReports**
 > CampaignReport[] Get-BetaCampaignReports<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCampaignReportsConfig"></a>
+<a id="Get-BetaCampaignReportsConfig"></a>
 # **Get-BetaCampaignReportsConfig**
 > CampaignReportsConfig Get-BetaCampaignReportsConfig<br>
 
@@ -566,7 +566,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCampaignTemplate"></a>
+<a id="Get-BetaCampaignTemplate"></a>
 # **Get-BetaCampaignTemplate**
 > CampaignTemplate Get-BetaCampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCampaignTemplateSchedule"></a>
+<a id="Get-BetaCampaignTemplateSchedule"></a>
 # **Get-BetaCampaignTemplateSchedule**
 > Schedule Get-BetaCampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCampaignTemplates"></a>
+<a id="Get-BetaCampaignTemplates"></a>
 # **Get-BetaCampaignTemplates**
 > CampaignTemplate[] Get-BetaCampaignTemplates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -731,7 +731,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Move-Beta"></a>
+<a id="Move-Beta"></a>
 # **Move-Beta**
 > CertificationTask Move-Beta<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaCampaignTemplate"></a>
+<a id="Update-BetaCampaignTemplate"></a>
 # **Update-BetaCampaignTemplate**
 > CampaignTemplate Update-BetaCampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -841,7 +841,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaCampaignReportsConfig"></a>
+<a id="Set-BetaCampaignReportsConfig"></a>
 # **Set-BetaCampaignReportsConfig**
 > CampaignReportsConfig Set-BetaCampaignReportsConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignReportsConfig] <PSCustomObject><br>
@@ -892,7 +892,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaCampaignTemplateSchedule"></a>
+<a id="Set-BetaCampaignTemplateSchedule"></a>
 # **Set-BetaCampaignTemplateSchedule**
 > void Set-BetaCampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -949,7 +949,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-BetaCampaign"></a>
+<a id="Start-BetaCampaign"></a>
 # **Start-BetaCampaign**
 > SystemCollectionsHashtable Start-BetaCampaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -1003,7 +1003,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-BetaCampaignRemediationScan"></a>
+<a id="Start-BetaCampaignRemediationScan"></a>
 # **Start-BetaCampaignRemediationScan**
 > SystemCollectionsHashtable Start-BetaCampaignRemediationScan<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -1054,7 +1054,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-BetaCampaignReport"></a>
+<a id="Start-BetaCampaignReport"></a>
 # **Start-BetaCampaignReport**
 > SystemCollectionsHashtable Start-BetaCampaignReport<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -1108,7 +1108,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-BetaGenerateCampaignTemplate"></a>
+<a id="Start-BetaGenerateCampaignTemplate"></a>
 # **Start-BetaGenerateCampaignTemplate**
 > CampaignReference Start-BetaGenerateCampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -1159,7 +1159,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaCampaign"></a>
+<a id="Update-BetaCampaign"></a>
 # **Update-BetaCampaign**
 > Slimcampaign Update-BetaCampaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

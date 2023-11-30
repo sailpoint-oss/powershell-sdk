@@ -14,12 +14,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-The scheduled search ID.
-.PARAMETER Owner
-No description available.
-.PARAMETER OwnerId
-The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead. 
 .PARAMETER Name
 The name of the scheduled search. 
 .PARAMETER Description
@@ -27,9 +21,9 @@ The description of the scheduled search.
 .PARAMETER SavedSearchId
 The ID of the saved search that will be executed.
 .PARAMETER Created
-The date the scheduled search was initially created.
+A date-time in ISO-8601 format
 .PARAMETER Modified
-The last date the scheduled search was modified.
+A date-time in ISO-8601 format
 .PARAMETER Schedule
 No description available.
 .PARAMETER Recipients
@@ -40,6 +34,12 @@ Indicates if the scheduled search is enabled.
 Indicates if email generation should not be suppressed if search returns no results. 
 .PARAMETER DisplayQueryDetails
 Indicates if the generated email should include the query and search results preview (which could include PII). 
+.PARAMETER Id
+The scheduled search ID.
+.PARAMETER Owner
+No description available.
+.PARAMETER OwnerId
+The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead. 
 .OUTPUTS
 
 ScheduledSearch<PSCustomObject>
@@ -50,60 +50,48 @@ function Initialize-ScheduledSearch {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Owner},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${OwnerId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Name},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SavedSearchId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Schedule},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Recipients},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EmailEmptyResults} = $false,
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${DisplayQueryDetails} = $false
+        ${DisplayQueryDetails} = $false,
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Owner},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${OwnerId}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => ScheduledSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if ($null -eq $Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
-        if ($null -eq $Owner) {
-            throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
-        if ($null -eq $OwnerId) {
-            throw "invalid value for 'OwnerId', 'OwnerId' cannot be null."
-        }
 
         if ($null -eq $SavedSearchId) {
             throw "invalid value for 'SavedSearchId', 'SavedSearchId' cannot be null."
@@ -117,11 +105,20 @@ function Initialize-ScheduledSearch {
             throw "invalid value for 'Recipients', 'Recipients' cannot be null."
         }
 
+        if ($null -eq $Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
+        }
+
+        if ($null -eq $Owner) {
+            throw "invalid value for 'Owner', 'Owner' cannot be null."
+        }
+
+        if ($null -eq $OwnerId) {
+            throw "invalid value for 'OwnerId', 'OwnerId' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "owner" = ${Owner}
-            "ownerId" = ${OwnerId}
             "name" = ${Name}
             "description" = ${Description}
             "savedSearchId" = ${SavedSearchId}
@@ -132,6 +129,9 @@ function Initialize-ScheduledSearch {
             "enabled" = ${Enabled}
             "emailEmptyResults" = ${EmailEmptyResults}
             "displayQueryDetails" = ${DisplayQueryDetails}
+            "id" = ${Id}
+            "owner" = ${Owner}
+            "ownerId" = ${OwnerId}
         }
 
 
@@ -169,7 +169,7 @@ function ConvertFrom-JsonToScheduledSearch {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ScheduledSearch
-        $AllProperties = ("id", "owner", "ownerId", "name", "description", "savedSearchId", "created", "modified", "schedule", "recipients", "enabled", "emailEmptyResults", "displayQueryDetails")
+        $AllProperties = ("name", "description", "savedSearchId", "created", "modified", "schedule", "recipients", "enabled", "emailEmptyResults", "displayQueryDetails", "id", "owner", "ownerId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -177,25 +177,7 @@ function ConvertFrom-JsonToScheduledSearch {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'owner' missing."
-        } else {
-            $Owner = $JsonParameters.PSobject.Properties["owner"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'ownerId' missing."
-        } else {
-            $OwnerId = $JsonParameters.PSobject.Properties["ownerId"].value
+            throw "Error! Empty JSON cannot be serialized due to the required property 'savedSearchId' missing."
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "savedSearchId"))) {
@@ -214,6 +196,24 @@ function ConvertFrom-JsonToScheduledSearch {
             throw "Error! JSON cannot be serialized due to the required property 'recipients' missing."
         } else {
             $Recipients = $JsonParameters.PSobject.Properties["recipients"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'owner' missing."
+        } else {
+            $Owner = $JsonParameters.PSobject.Properties["owner"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'ownerId' missing."
+        } else {
+            $OwnerId = $JsonParameters.PSobject.Properties["ownerId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -259,9 +259,6 @@ function ConvertFrom-JsonToScheduledSearch {
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "owner" = ${Owner}
-            "ownerId" = ${OwnerId}
             "name" = ${Name}
             "description" = ${Description}
             "savedSearchId" = ${SavedSearchId}
@@ -272,6 +269,9 @@ function ConvertFrom-JsonToScheduledSearch {
             "enabled" = ${Enabled}
             "emailEmptyResults" = ${EmailEmptyResults}
             "displayQueryDetails" = ${DisplayQueryDetails}
+            "id" = ${Id}
+            "owner" = ${Owner}
+            "ownerId" = ${OwnerId}
         }
 
         return $PSO

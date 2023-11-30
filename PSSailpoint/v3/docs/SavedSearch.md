@@ -3,8 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The saved search ID.  | [optional] 
-**Owner** | [**TypedReference**](TypedReference.md) |  | [optional] 
 **Name** | **String** | The name of the saved search.  | [optional] 
 **Description** | **String** | The description of the saved search.  | [optional] 
 **Public** | **Boolean** | Indicates if the saved search is public.  | [optional] [default to $false]
@@ -16,14 +14,14 @@ Name | Type | Description | Notes
 **Fields** | **String[]** | The fields to be searched against in a multi-field query.  | [optional] 
 **Sort** | **String[]** | The fields to be used to sort the search results.  | [optional] 
 **Filters** | [**SavedSearchDetailFilters**](SavedSearchDetailFilters.md) |  | [optional] 
+**Id** | **String** | The saved search ID.  | [optional] 
+**Owner** | [**TypedReference**](TypedReference.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SavedSearch = Initialize-PSSailpointSavedSearch  -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
- -Owner null `
- -Name Disabled accounts `
+$SavedSearch = Initialize-PSSailpointSavedSearch  -Name Disabled accounts `
  -Description Disabled accounts `
  -Public false `
  -Created 2018-06-25T20:22:28.104Z `
@@ -33,7 +31,9 @@ $SavedSearch = Initialize-PSSailpointSavedSearch  -Id 0de46054-fe90-434a-b84e-c6
  -Query @accounts(disabled:true) `
  -Fields [disabled] `
  -Sort [displayName] `
- -Filters null
+ -Filters null `
+ -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
+ -Owner null
 ```
 
 - Convert the resource to JSON

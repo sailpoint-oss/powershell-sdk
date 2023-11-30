@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIAIOutliersApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIAIOutliersApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**Invoke-BetaUnIgnoreIdentityOutliers**](BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
 
 
-<a name="Export-BetaOutliersZip"></a>
+<a id="Export-BetaOutliersZip"></a>
 # **Export-BetaOutliersZip**
 > System.IO.FileInfo Export-BetaOutliersZip<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityOutlierSnapshots"></a>
+<a id="Get-BetaIdentityOutlierSnapshots"></a>
 # **Get-BetaIdentityOutlierSnapshots**
 > OutlierSummary[] Get-BetaIdentityOutlierSnapshots<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityOutliers"></a>
+<a id="Get-BetaIdentityOutliers"></a>
 # **Get-BetaIdentityOutliers**
 > Outlier[] Get-BetaIdentityOutliers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaLatestIdentityOutlierSnapshots"></a>
+<a id="Get-BetaLatestIdentityOutlierSnapshots"></a>
 # **Get-BetaLatestIdentityOutlierSnapshots**
 > LatestOutlierSummary[] Get-BetaLatestIdentityOutlierSnapshots<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaOutlierContributingFeatureSummary"></a>
+<a id="Get-BetaOutlierContributingFeatureSummary"></a>
 # **Get-BetaOutlierContributingFeatureSummary**
 > OutlierFeatureSummary Get-BetaOutlierContributingFeatureSummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OutlierFeatureId] <String><br>
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPeerGroupOutliersContributingFeatures"></a>
+<a id="Get-BetaPeerGroupOutliersContributingFeatures"></a>
 # **Get-BetaPeerGroupOutliersContributingFeatures**
 > OutlierContributingFeature[] Get-BetaPeerGroupOutliersContributingFeatures<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OutlierId] <String><br>
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaIgnoreIdentityOutliers"></a>
+<a id="Invoke-BetaIgnoreIdentityOutliers"></a>
 # **Invoke-BetaIgnoreIdentityOutliers**
 > void Invoke-BetaIgnoreIdentityOutliers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
@@ -414,7 +414,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaOutliersContributingFeatureAccessItems"></a>
+<a id="Get-BetaOutliersContributingFeatureAccessItems"></a>
 # **Get-BetaOutliersContributingFeatureAccessItems**
 > OutliersContributingFeatureAccessItems[] Get-BetaOutliersContributingFeatureAccessItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OutlierId] <String><br>
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaUnIgnoreIdentityOutliers"></a>
+<a id="Invoke-BetaUnIgnoreIdentityOutliers"></a>
 # **Invoke-BetaUnIgnoreIdentityOutliers**
 > void Invoke-BetaUnIgnoreIdentityOutliers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>

@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaMFAConfigurationApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaMFAConfigurationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Test-BetaMFAConfig**](BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | MFA method&#39;s test configuration
 
 
-<a name="Remove-BetaMFAConfig"></a>
+<a id="Remove-BetaMFAConfig"></a>
 # **Remove-BetaMFAConfig**
 > MfaOktaConfig Remove-BetaMFAConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Method] <String><br>
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaMFADuoConfig"></a>
+<a id="Get-BetaMFADuoConfig"></a>
 # **Get-BetaMFADuoConfig**
 > MfaDuoConfig Get-BetaMFADuoConfig<br>
 
@@ -109,7 +109,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaMFAOktaConfig"></a>
+<a id="Get-BetaMFAOktaConfig"></a>
 # **Get-BetaMFAOktaConfig**
 > MfaOktaConfig Get-BetaMFAOktaConfig<br>
 
@@ -155,7 +155,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaMFADuoConfig"></a>
+<a id="Set-BetaMFADuoConfig"></a>
 # **Set-BetaMFADuoConfig**
 > MfaDuoConfig Set-BetaMFADuoConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MfaDuoConfig] <PSCustomObject><br>
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaMFAOktaConfig"></a>
+<a id="Set-BetaMFAOktaConfig"></a>
 # **Set-BetaMFAOktaConfig**
 > MfaOktaConfig Set-BetaMFAOktaConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MfaOktaConfig] <PSCustomObject><br>
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Test-BetaMFAConfig"></a>
+<a id="Test-BetaMFAConfig"></a>
 # **Test-BetaMFAConfig**
 > MfaConfigTestResponse Test-BetaMFAConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Method] <String><br>

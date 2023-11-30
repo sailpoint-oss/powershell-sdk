@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaSegmentsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaSegmentsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-BetaSegment**](BetaSegmentsApi.md#Update-BetaSegment) | **PATCH** /segments/{id} | Update Segment
 
 
-<a name="New-BetaSegment"></a>
+<a id="New-BetaSegment"></a>
 # **New-BetaSegment**
 > Segment New-BetaSegment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Segment] <PSCustomObject><br>
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaSegment"></a>
+<a id="Remove-BetaSegment"></a>
 # **Remove-BetaSegment**
 > void Remove-BetaSegment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -120,7 +120,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSegment"></a>
+<a id="Get-BetaSegment"></a>
 # **Get-BetaSegment**
 > Segment Get-BetaSegment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSegments"></a>
+<a id="Get-BetaSegments"></a>
 # **Get-BetaSegments**
 > Segment[] Get-BetaSegments<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaSegment"></a>
+<a id="Update-BetaSegment"></a>
 # **Update-BetaSegment**
 > Segment Update-BetaSegment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

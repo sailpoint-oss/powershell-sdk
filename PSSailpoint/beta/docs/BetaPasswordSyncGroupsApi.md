@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaPasswordSyncGroupsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaPasswordSyncGroupsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-BetaPasswordSyncGroup**](BetaPasswordSyncGroupsApi.md#Update-BetaPasswordSyncGroup) | **PUT** /password-sync-groups/{id} | Update Password Sync Group by ID
 
 
-<a name="New-BetaPasswordSyncGroup"></a>
+<a id="New-BetaPasswordSyncGroup"></a>
 # **New-BetaPasswordSyncGroup**
 > PasswordSyncGroup New-BetaPasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordSyncGroup] <PSCustomObject><br>
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaPasswordSyncGroup"></a>
+<a id="Remove-BetaPasswordSyncGroup"></a>
 # **Remove-BetaPasswordSyncGroup**
 > void Remove-BetaPasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -113,7 +113,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPasswordSyncGroup"></a>
+<a id="Get-BetaPasswordSyncGroup"></a>
 # **Get-BetaPasswordSyncGroup**
 > PasswordSyncGroup Get-BetaPasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPasswordSyncGroups"></a>
+<a id="Get-BetaPasswordSyncGroups"></a>
 # **Get-BetaPasswordSyncGroups**
 > PasswordSyncGroup[] Get-BetaPasswordSyncGroups<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaPasswordSyncGroup"></a>
+<a id="Update-BetaPasswordSyncGroup"></a>
 # **Update-BetaPasswordSyncGroup**
 > PasswordSyncGroup Update-BetaPasswordSyncGroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

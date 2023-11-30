@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.CertificationCampaignsApi
+# PSSailpoint.PSSailpoint\Api.CertificationCampaignsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 [**Update-Campaign**](CertificationCampaignsApi.md#Update-Campaign) | **PATCH** /campaigns/{id} | Update a Campaign
 
 
-<a name="Complete-Campaign"></a>
+<a id="Complete-Campaign"></a>
 # **Complete-Campaign**
 > SystemCollectionsHashtable Complete-Campaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-Campaign"></a>
+<a id="New-Campaign"></a>
 # **New-Campaign**
 > Campaign New-Campaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Campaign] <PSCustomObject><br>
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-CampaignTemplate"></a>
+<a id="New-CampaignTemplate"></a>
 # **New-CampaignTemplate**
 > CampaignTemplate New-CampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignTemplate] <PSCustomObject><br>
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-CampaignTemplate"></a>
+<a id="Remove-CampaignTemplate"></a>
 # **Remove-CampaignTemplate**
 > void Remove-CampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -250,7 +250,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-CampaignTemplateSchedule"></a>
+<a id="Remove-CampaignTemplateSchedule"></a>
 # **Remove-CampaignTemplateSchedule**
 > void Remove-CampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -301,7 +301,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-Campaigns"></a>
+<a id="Remove-Campaigns"></a>
 # **Remove-Campaigns**
 > SystemCollectionsHashtable Remove-Campaigns<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignsDeleteRequest] <PSCustomObject><br>
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-ActiveCampaigns"></a>
+<a id="Get-ActiveCampaigns"></a>
 # **Get-ActiveCampaigns**
 > GetActiveCampaigns200ResponseInner[] Get-ActiveCampaigns<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Detail] <String><br>
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Campaign"></a>
+<a id="Get-Campaign"></a>
 # **Get-Campaign**
 > SlimCampaign Get-Campaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CampaignReports"></a>
+<a id="Get-CampaignReports"></a>
 # **Get-CampaignReports**
 > CampaignReport[] Get-CampaignReports<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CampaignReportsConfig"></a>
+<a id="Get-CampaignReportsConfig"></a>
 # **Get-CampaignReportsConfig**
 > CampaignReportsConfig Get-CampaignReportsConfig<br>
 
@@ -566,7 +566,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CampaignTemplate"></a>
+<a id="Get-CampaignTemplate"></a>
 # **Get-CampaignTemplate**
 > CampaignTemplate Get-CampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CampaignTemplateSchedule"></a>
+<a id="Get-CampaignTemplateSchedule"></a>
 # **Get-CampaignTemplateSchedule**
 > Schedule Get-CampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CampaignTemplates"></a>
+<a id="Get-CampaignTemplates"></a>
 # **Get-CampaignTemplates**
 > CampaignTemplate[] Get-CampaignTemplates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -731,7 +731,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Move-"></a>
+<a id="Move-"></a>
 # **Move-**
 > CertificationTask Move-<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-CampaignTemplate"></a>
+<a id="Update-CampaignTemplate"></a>
 # **Update-CampaignTemplate**
 > CampaignTemplate Update-CampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -841,7 +841,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-CampaignReportsConfig"></a>
+<a id="Set-CampaignReportsConfig"></a>
 # **Set-CampaignReportsConfig**
 > CampaignReportsConfig Set-CampaignReportsConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignReportsConfig] <PSCustomObject><br>
@@ -892,7 +892,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-CampaignTemplateSchedule"></a>
+<a id="Set-CampaignTemplateSchedule"></a>
 # **Set-CampaignTemplateSchedule**
 > void Set-CampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -949,7 +949,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-Campaign"></a>
+<a id="Start-Campaign"></a>
 # **Start-Campaign**
 > SystemCollectionsHashtable Start-Campaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -1003,7 +1003,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-CampaignRemediationScan"></a>
+<a id="Start-CampaignRemediationScan"></a>
 # **Start-CampaignRemediationScan**
 > SystemCollectionsHashtable Start-CampaignRemediationScan<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -1054,7 +1054,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-CampaignReport"></a>
+<a id="Start-CampaignReport"></a>
 # **Start-CampaignReport**
 > SystemCollectionsHashtable Start-CampaignReport<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -1108,7 +1108,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-GenerateCampaignTemplate"></a>
+<a id="Start-GenerateCampaignTemplate"></a>
 # **Start-GenerateCampaignTemplate**
 > CampaignReference Start-GenerateCampaignTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -1159,7 +1159,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-Campaign"></a>
+<a id="Update-Campaign"></a>
 # **Update-Campaign**
 > SlimCampaign Update-Campaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

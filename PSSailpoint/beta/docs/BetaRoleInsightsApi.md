@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaRoleInsightsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaRoleInsightsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**Get-BetaRoleInsightsSummary**](BetaRoleInsightsApi.md#Get-BetaRoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
 
 
-<a name="New-BetaRoleInsightRequests"></a>
+<a id="New-BetaRoleInsightRequests"></a>
 # **New-BetaRoleInsightRequests**
 > RoleInsightsResponse New-BetaRoleInsightRequests<br>
 
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDownloadRoleInsightsEntitlementsChanges"></a>
+<a id="Invoke-BetaDownloadRoleInsightsEntitlementsChanges"></a>
 # **Invoke-BetaDownloadRoleInsightsEntitlementsChanges**
 > String Invoke-BetaDownloadRoleInsightsEntitlementsChanges<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InsightId] <String><br>
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaEntitlementChangesIdentities"></a>
+<a id="Get-BetaEntitlementChangesIdentities"></a>
 # **Get-BetaEntitlementChangesIdentities**
 > RoleInsightsIdentities[] Get-BetaEntitlementChangesIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InsightId] <String><br>
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleInsight"></a>
+<a id="Get-BetaRoleInsight"></a>
 # **Get-BetaRoleInsight**
 > RoleInsight Get-BetaRoleInsight<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InsightId] <String><br>
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleInsights"></a>
+<a id="Get-BetaRoleInsights"></a>
 # **Get-BetaRoleInsights**
 > RoleInsight[] Get-BetaRoleInsights<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleInsightsCurrentEntitlements"></a>
+<a id="Get-BetaRoleInsightsCurrentEntitlements"></a>
 # **Get-BetaRoleInsightsCurrentEntitlements**
 > RoleInsightsEntitlement[] Get-BetaRoleInsightsCurrentEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InsightId] <String><br>
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleInsightsEntitlementsChanges"></a>
+<a id="Get-BetaRoleInsightsEntitlementsChanges"></a>
 # **Get-BetaRoleInsightsEntitlementsChanges**
 > RoleInsightsEntitlementChanges[] Get-BetaRoleInsightsEntitlementsChanges<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InsightId] <String><br>
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleInsightsRequests"></a>
+<a id="Get-BetaRoleInsightsRequests"></a>
 # **Get-BetaRoleInsightsRequests**
 > RoleInsightsResponse Get-BetaRoleInsightsRequests<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleInsightsSummary"></a>
+<a id="Get-BetaRoleInsightsSummary"></a>
 # **Get-BetaRoleInsightsSummary**
 > RoleInsightsSummary Get-BetaRoleInsightsSummary<br>
 

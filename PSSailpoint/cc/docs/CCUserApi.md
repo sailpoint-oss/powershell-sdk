@@ -1,4 +1,4 @@
-# PSSailpointCC.PSSailpointCC/Api.CCUserApi
+# PSSailpointCC.PSSailpointCC\Api.CCUserApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-CCUserPermissions**](CCUserApi.md#Update-CCUserPermissions) | **POST** /cc/api/user/updatePermissions | Update User Permissions
 
 
-<a name="Get-CCIdentity"></a>
+<a id="Get-CCIdentity"></a>
 # **Get-CCIdentity**
 > GetIdentity200Response Get-CCIdentity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-CCUserPermissions"></a>
+<a id="Update-CCUserPermissions"></a>
 # **Update-CCUserPermissions**
 > void Update-CCUserPermissions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UpdateUserPermissionsRequest] <PSCustomObject><br>

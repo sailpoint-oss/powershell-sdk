@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.IdentityProfilesApi
+# PSSailpoint.PSSailpoint\Api.IdentityProfilesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**Sync-IdentityProfile**](IdentityProfilesApi.md#Sync-IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 
 
-<a name="Remove-IdentityProfile"></a>
+<a id="Remove-IdentityProfile"></a>
 # **Remove-IdentityProfile**
 > TaskResultSimplified Remove-IdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-IdentityProfiles"></a>
+<a id="Remove-IdentityProfiles"></a>
 # **Remove-IdentityProfiles**
 > TaskResultSimplified Remove-IdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Export-IdentityProfiles"></a>
+<a id="Export-IdentityProfiles"></a>
 # **Export-IdentityProfiles**
 > IdentityProfileExportedObject[] Export-IdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-DefaultIdentityAttributeConfig"></a>
+<a id="Get-DefaultIdentityAttributeConfig"></a>
 # **Get-DefaultIdentityAttributeConfig**
 > IdentityAttributeConfig Get-DefaultIdentityAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentityProfile"></a>
+<a id="Get-IdentityProfile"></a>
 # **Get-IdentityProfile**
 > IdentityProfile Get-IdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Import-IdentityProfiles"></a>
+<a id="Import-IdentityProfiles"></a>
 # **Import-IdentityProfiles**
 > ObjectImportResult Import-IdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileExportedObject] <PSCustomObject[]><br>
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentityProfiles"></a>
+<a id="Get-IdentityProfiles"></a>
 # **Get-IdentityProfiles**
 > IdentityProfile[] Get-IdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Sync-IdentityProfile"></a>
+<a id="Sync-IdentityProfile"></a>
 # **Sync-IdentityProfile**
 > SystemCollectionsHashtable Sync-IdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>

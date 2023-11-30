@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaEntitlementsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaEntitlementsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**Update-BetaEntitlementsInBulk**](BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 
 
-<a name="Get-BetaEntitlement"></a>
+<a id="Get-BetaEntitlement"></a>
 # **Get-BetaEntitlement**
 > Entitlement Get-BetaEntitlement<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaEntitlementRequestConfig"></a>
+<a id="Get-BetaEntitlementRequestConfig"></a>
 # **Get-BetaEntitlementRequestConfig**
 > EntitlementRequestConfig Get-BetaEntitlementRequestConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaEntitlementChildren"></a>
+<a id="Get-BetaEntitlementChildren"></a>
 # **Get-BetaEntitlementChildren**
 > Entitlement[] Get-BetaEntitlementChildren<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaEntitlementParents"></a>
+<a id="Get-BetaEntitlementParents"></a>
 # **Get-BetaEntitlementParents**
 > Entitlement[] Get-BetaEntitlementParents<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaEntitlements"></a>
+<a id="Get-BetaEntitlements"></a>
 # **Get-BetaEntitlements**
 > Entitlement[] Get-BetaEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaEntitlement"></a>
+<a id="Update-BetaEntitlement"></a>
 # **Update-BetaEntitlement**
 > Entitlement Update-BetaEntitlement<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaEntitlementRequestConfig"></a>
+<a id="Send-BetaEntitlementRequestConfig"></a>
 # **Send-BetaEntitlementRequestConfig**
 > EntitlementRequestConfig Send-BetaEntitlementRequestConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaEntitlementsInBulk"></a>
+<a id="Update-BetaEntitlementsInBulk"></a>
 # **Update-BetaEntitlementsInBulk**
 > void Update-BetaEntitlementsInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EntitlementBulkUpdateRequest] <PSCustomObject><br>

@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.GlobalTenantSecuritySettingsApi
+# PSSailpoint.PSSailpoint\Api.GlobalTenantSecuritySettingsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Update-AuthOrgNetworkConfig**](GlobalTenantSecuritySettingsApi.md#Update-AuthOrgNetworkConfig) | **PATCH** /auth-org/network-config | Update security network configuration.
 
 
-<a name="New-AuthOrgNetworkConfig"></a>
+<a id="New-AuthOrgNetworkConfig"></a>
 # **New-AuthOrgNetworkConfig**
 > NetworkConfiguration New-AuthOrgNetworkConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-NetworkConfiguration] <PSCustomObject><br>
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-AuthOrgNetworkConfig"></a>
+<a id="Get-AuthOrgNetworkConfig"></a>
 # **Get-AuthOrgNetworkConfig**
 > NetworkConfiguration Get-AuthOrgNetworkConfig<br>
 
@@ -106,7 +106,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-AuthOrgNetworkConfig"></a>
+<a id="Update-AuthOrgNetworkConfig"></a>
 # **Update-AuthOrgNetworkConfig**
 > NetworkConfiguration Update-AuthOrgNetworkConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>

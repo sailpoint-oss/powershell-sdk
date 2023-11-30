@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.PublicIdentitiesConfigApi
+# PSSailpoint.PSSailpoint\Api.PublicIdentitiesConfigApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-PublicIdentityConfig**](PublicIdentitiesConfigApi.md#Update-PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
 
 
-<a name="Get-PublicIdentityConfig"></a>
+<a id="Get-PublicIdentityConfig"></a>
 # **Get-PublicIdentityConfig**
 > PublicIdentityConfig Get-PublicIdentityConfig<br>
 
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-PublicIdentityConfig"></a>
+<a id="Update-PublicIdentityConfig"></a>
 # **Update-PublicIdentityConfig**
 > PublicIdentityConfig Update-PublicIdentityConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PublicIdentityConfig] <PSCustomObject><br>

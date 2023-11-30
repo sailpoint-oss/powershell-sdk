@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaAccountActivitiesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaAccountActivitiesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Get-BetaAccountActivities**](BetaAccountActivitiesApi.md#Get-BetaAccountActivities) | **GET** /account-activities | List Account Activities
 
 
-<a name="Get-BetaAccountActivity"></a>
+<a id="Get-BetaAccountActivity"></a>
 # **Get-BetaAccountActivity**
 > CancelableAccountActivity Get-BetaAccountActivity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccountActivities"></a>
+<a id="Get-BetaAccountActivities"></a>
 # **Get-BetaAccountActivities**
 > CancelableAccountActivity[] Get-BetaAccountActivities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedFor] <String><br>

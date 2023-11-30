@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.AccountActivitiesApi
+# PSSailpoint.PSSailpoint\Api.AccountActivitiesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Get-AccountActivities**](AccountActivitiesApi.md#Get-AccountActivities) | **GET** /account-activities | List Account Activities
 
 
-<a name="Get-AccountActivity"></a>
+<a id="Get-AccountActivity"></a>
 # **Get-AccountActivity**
 > AccountActivity Get-AccountActivity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-AccountActivities"></a>
+<a id="Get-AccountActivities"></a>
 # **Get-AccountActivities**
 > AccountActivity[] Get-AccountActivities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedFor] <String><br>

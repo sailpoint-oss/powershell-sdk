@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaPasswordConfigurationApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaPasswordConfigurationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Send-BetaPasswordOrgConfig**](BetaPasswordConfigurationApi.md#Send-BetaPasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
 
 
-<a name="New-BetaPasswordOrgConfig"></a>
+<a id="New-BetaPasswordOrgConfig"></a>
 # **New-BetaPasswordOrgConfig**
 > PasswordOrgConfig New-BetaPasswordOrgConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordOrgConfig] <PSCustomObject><br>
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPasswordOrgConfig"></a>
+<a id="Get-BetaPasswordOrgConfig"></a>
 # **Get-BetaPasswordOrgConfig**
 > PasswordOrgConfig Get-BetaPasswordOrgConfig<br>
 
@@ -106,7 +106,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaPasswordOrgConfig"></a>
+<a id="Send-BetaPasswordOrgConfig"></a>
 # **Send-BetaPasswordOrgConfig**
 > PasswordOrgConfig Send-BetaPasswordOrgConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordOrgConfig] <PSCustomObject><br>

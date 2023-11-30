@@ -1,4 +1,4 @@
-# PSSailpointCC.PSSailpointCC/Api.CCAccountsApi
+# PSSailpointCC.PSSailpointCC\Api.CCAccountsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Remove-CCAccount**](CCAccountsApi.md#Remove-CCAccount) | **POST** /cc/api/account/remove/{id} | Remove Account
 
 
-<a name="Get-CCAccounts"></a>
+<a id="Get-CCAccounts"></a>
 # **Get-CCAccounts**
 > ListAccounts200ResponseInner[] Get-CCAccounts<br>
 
@@ -52,7 +52,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-CCAccount"></a>
+<a id="Remove-CCAccount"></a>
 # **Remove-CCAccount**
 > void Remove-CCAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

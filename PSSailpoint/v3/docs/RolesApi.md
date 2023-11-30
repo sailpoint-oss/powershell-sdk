@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.RolesApi
+# PSSailpoint.PSSailpoint\Api.RolesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**Update-Role**](RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
 
 
-<a name="New-Role"></a>
+<a id="New-Role"></a>
 # **New-Role**
 > Role New-Role<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Role] <PSCustomObject><br>
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BulkRoles"></a>
+<a id="Remove-BulkRoles"></a>
 # **Remove-BulkRoles**
 > TaskResultDto Remove-BulkRoles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleBulkDeleteRequest] <PSCustomObject><br>
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-Role"></a>
+<a id="Remove-Role"></a>
 # **Remove-Role**
 > void Remove-Role<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -186,7 +186,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Role"></a>
+<a id="Get-Role"></a>
 # **Get-Role**
 > Role Get-Role<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-RoleAssignedIdentities"></a>
+<a id="Get-RoleAssignedIdentities"></a>
 # **Get-RoleAssignedIdentities**
 > RoleIdentity[] Get-RoleAssignedIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Roles"></a>
+<a id="Get-Roles"></a>
 # **Get-Roles**
 > Role[] Get-Roles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForSubadmin] <String><br>
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-Role"></a>
+<a id="Update-Role"></a>
 # **Update-Role**
 > Role Update-Role<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

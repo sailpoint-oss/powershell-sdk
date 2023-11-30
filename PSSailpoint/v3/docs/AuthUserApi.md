@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.AuthUserApi
+# PSSailpoint.PSSailpoint\Api.AuthUserApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-AuthUser**](AuthUserApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
 
 
-<a name="Get-AuthUser"></a>
+<a id="Get-AuthUser"></a>
 # **Get-AuthUser**
 > AuthUser Get-AuthUser<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-AuthUser"></a>
+<a id="Update-AuthUser"></a>
 # **Update-AuthUser**
 > AuthUser Update-AuthUser<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

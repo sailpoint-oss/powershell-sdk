@@ -1,4 +1,4 @@
-# PSSailpointV2.PSSailpointV2/Api.V2GovernanceGroupsApi
+# PSSailpointV2.PSSailpointV2\Api.V2GovernanceGroupsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2*
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**Update-V2Workgroup**](V2GovernanceGroupsApi.md#Update-V2Workgroup) | **PATCH** /workgroups/{workgroupId} | Update Work Group By Id
 
 
-<a name="Invoke-V2BulkDeleteWorkGroups"></a>
+<a id="Invoke-V2BulkDeleteWorkGroups"></a>
 # **Invoke-V2BulkDeleteWorkGroups**
 > BulkDeleteWorkGroups200Response Invoke-V2BulkDeleteWorkGroups<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkDeleteWorkGroupsRequest] <PSCustomObject><br>
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-V2Workgroup"></a>
+<a id="New-V2Workgroup"></a>
 # **New-V2Workgroup**
 > ListWorkgroups200ResponseInner[] New-V2Workgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateWorkgroupRequest] <PSCustomObject><br>
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-V2Workgroup"></a>
+<a id="Remove-V2Workgroup"></a>
 # **Remove-V2Workgroup**
 > void Remove-V2Workgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
@@ -169,7 +169,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-V2Workgroup"></a>
+<a id="Get-V2Workgroup"></a>
 # **Get-V2Workgroup**
 > ListWorkgroups200ResponseInner Get-V2Workgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-V2WorkgroupConnections"></a>
+<a id="Get-V2WorkgroupConnections"></a>
 # **Get-V2WorkgroupConnections**
 > ListWorkgroupConnections200ResponseInner[] Get-V2WorkgroupConnections<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-V2WorkgroupMembers"></a>
+<a id="Get-V2WorkgroupMembers"></a>
 # **Get-V2WorkgroupMembers**
 > ListWorkgroupMembers200ResponseInner[] Get-V2WorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-V2Workgroups"></a>
+<a id="Get-V2Workgroups"></a>
 # **Get-V2Workgroups**
 > ListWorkgroups200ResponseInner[] Get-V2Workgroups<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Edit-V2WorkgroupMembers"></a>
+<a id="Edit-V2WorkgroupMembers"></a>
 # **Edit-V2WorkgroupMembers**
 > void Edit-V2WorkgroupMembers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>
@@ -442,7 +442,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-V2Workgroup"></a>
+<a id="Update-V2Workgroup"></a>
 # **Update-V2Workgroup**
 > ListWorkgroups200ResponseInner Update-V2Workgroup<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkgroupId] <String><br>

@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIAIAccessRequestRecommendationsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIAIAccessRequestRecommendationsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**Get-BetaMessageCatalogs**](BetaIAIAccessRequestRecommendationsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
 
 
-<a name="Add-BetaAccessRequestRecommendationsIgnoredItem"></a>
+<a id="Add-BetaAccessRequestRecommendationsIgnoredItem"></a>
 # **Add-BetaAccessRequestRecommendationsIgnoredItem**
 > AccessRequestRecommendationActionItemResponseDto Add-BetaAccessRequestRecommendationsIgnoredItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequestRecommendationActionItemDto] <PSCustomObject><br>
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Add-BetaAccessRequestRecommendationsRequestedItem"></a>
+<a id="Add-BetaAccessRequestRecommendationsRequestedItem"></a>
 # **Add-BetaAccessRequestRecommendationsRequestedItem**
 > AccessRequestRecommendationActionItemResponseDto Add-BetaAccessRequestRecommendationsRequestedItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequestRecommendationActionItemDto] <PSCustomObject><br>
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Add-BetaAccessRequestRecommendationsViewedItem"></a>
+<a id="Add-BetaAccessRequestRecommendationsViewedItem"></a>
 # **Add-BetaAccessRequestRecommendationsViewedItem**
 > AccessRequestRecommendationActionItemResponseDto Add-BetaAccessRequestRecommendationsViewedItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequestRecommendationActionItemDto] <PSCustomObject><br>
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Add-BetaAccessRequestRecommendationsViewedItems"></a>
+<a id="Add-BetaAccessRequestRecommendationsViewedItems"></a>
 # **Add-BetaAccessRequestRecommendationsViewedItems**
 > AccessRequestRecommendationActionItemResponseDto[] Add-BetaAccessRequestRecommendationsViewedItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequestRecommendationActionItemDto] <PSCustomObject[]><br>
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessRequestRecommendations"></a>
+<a id="Get-BetaAccessRequestRecommendations"></a>
 # **Get-BetaAccessRequestRecommendations**
 > AccessRequestRecommendationItemDetail[] Get-BetaAccessRequestRecommendations<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessRequestRecommendationsIgnoredItems"></a>
+<a id="Get-BetaAccessRequestRecommendationsIgnoredItems"></a>
 # **Get-BetaAccessRequestRecommendationsIgnoredItems**
 > AccessRequestRecommendationActionItemResponseDto[] Get-BetaAccessRequestRecommendationsIgnoredItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessRequestRecommendationsRequestedItems"></a>
+<a id="Get-BetaAccessRequestRecommendationsRequestedItems"></a>
 # **Get-BetaAccessRequestRecommendationsRequestedItems**
 > AccessRequestRecommendationActionItemResponseDto[] Get-BetaAccessRequestRecommendationsRequestedItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessRequestRecommendationsViewedItems"></a>
+<a id="Get-BetaAccessRequestRecommendationsViewedItems"></a>
 # **Get-BetaAccessRequestRecommendationsViewedItems**
 > AccessRequestRecommendationActionItemResponseDto[] Get-BetaAccessRequestRecommendationsViewedItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaMessageCatalogs"></a>
+<a id="Get-BetaMessageCatalogs"></a>
 # **Get-BetaMessageCatalogs**
 > MessageCatalogDto[] Get-BetaMessageCatalogs<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CatalogId] <String><br>

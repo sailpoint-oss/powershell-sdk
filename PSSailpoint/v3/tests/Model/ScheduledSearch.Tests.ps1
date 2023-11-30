@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'ScheduledSearch' {
     Context 'ScheduledSearch' {
         It 'Initialize-ScheduledSearch' {
             # a simple test to create an object
-            #$NewObject = Initialize-ScheduledSearch -Id "TEST_VALUE" -Owner "TEST_VALUE" -OwnerId "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -SavedSearchId "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Schedule "TEST_VALUE" -Recipients "TEST_VALUE" -Enabled "TEST_VALUE" -EmailEmptyResults "TEST_VALUE" -DisplayQueryDetails "TEST_VALUE"
+            #$NewObject = Initialize-ScheduledSearch -Name "TEST_VALUE" -Description "TEST_VALUE" -SavedSearchId "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Schedule "TEST_VALUE" -Recipients "TEST_VALUE" -Enabled "TEST_VALUE" -EmailEmptyResults "TEST_VALUE" -DisplayQueryDetails "TEST_VALUE" -Id "TEST_VALUE" -Owner "TEST_VALUE" -OwnerId "TEST_VALUE"
             #$NewObject | Should -BeOfType ScheduledSearch
             #$NewObject.property | Should -Be 0
         }

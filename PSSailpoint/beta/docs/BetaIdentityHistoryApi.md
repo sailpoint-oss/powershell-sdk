@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIdentityHistoryApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIdentityHistoryApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**Get-BetaIdentitySnapshots**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
 
 
-<a name="Compare-BetaIdentitySnapshots"></a>
+<a id="Compare-BetaIdentitySnapshots"></a>
 # **Compare-BetaIdentitySnapshots**
 > IdentityCompareResponse[] Compare-BetaIdentitySnapshots<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Compare-BetaIdentitySnapshotsAccessType"></a>
+<a id="Compare-BetaIdentitySnapshotsAccessType"></a>
 # **Compare-BetaIdentitySnapshotsAccessType**
 > AccessItemDiff[] Compare-BetaIdentitySnapshotsAccessType<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaHistoricalIdentity"></a>
+<a id="Get-BetaHistoricalIdentity"></a>
 # **Get-BetaHistoricalIdentity**
 > IdentityHistoryResponse Get-BetaHistoricalIdentity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaHistoricalIdentityEvents"></a>
+<a id="Get-BetaHistoricalIdentityEvents"></a>
 # **Get-BetaHistoricalIdentityEvents**
 > GetHistoricalIdentityEvents200ResponseInner[] Get-BetaHistoricalIdentityEvents<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentitySnapshot"></a>
+<a id="Get-BetaIdentitySnapshot"></a>
 # **Get-BetaIdentitySnapshot**
 > IdentityHistoryResponse Get-BetaIdentitySnapshot<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentitySnapshotSummary"></a>
+<a id="Get-BetaIdentitySnapshotSummary"></a>
 # **Get-BetaIdentitySnapshotSummary**
 > MetricResponse[] Get-BetaIdentitySnapshotSummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityStartDate"></a>
+<a id="Get-BetaIdentityStartDate"></a>
 # **Get-BetaIdentityStartDate**
 > String Get-BetaIdentityStartDate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaHistoricalIdentities"></a>
+<a id="Get-BetaHistoricalIdentities"></a>
 # **Get-BetaHistoricalIdentities**
 > IdentityListItem[] Get-BetaHistoricalIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-StartsWithQuery] <String><br>
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityAccessItems"></a>
+<a id="Get-BetaIdentityAccessItems"></a>
 # **Get-BetaIdentityAccessItems**
 > ListIdentityAccessItems200ResponseInner[] Get-BetaIdentityAccessItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentitySnapshotAccessItems"></a>
+<a id="Get-BetaIdentitySnapshotAccessItems"></a>
 # **Get-BetaIdentitySnapshotAccessItems**
 > ListIdentityAccessItems200ResponseInner[] Get-BetaIdentitySnapshotAccessItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentitySnapshots"></a>
+<a id="Get-BetaIdentitySnapshots"></a>
 # **Get-BetaIdentitySnapshots**
 > IdentitySnapshotSummaryResponse[] Get-BetaIdentitySnapshots<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

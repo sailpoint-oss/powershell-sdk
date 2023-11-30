@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.SODViolationsApi
+# PSSailpoint.PSSailpoint\Api.SODViolationsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Start-ViolationCheck**](SODViolationsApi.md#Start-ViolationCheck) | **POST** /sod-violations/check | Check SOD violations
 
 
-<a name="Start-PredictSodViolations"></a>
+<a id="Start-PredictSodViolations"></a>
 # **Start-PredictSodViolations**
 > ViolationPrediction Start-PredictSodViolations<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityWithNewAccess] <PSCustomObject><br>
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-ViolationCheck"></a>
+<a id="Start-ViolationCheck"></a>
 # **Start-ViolationCheck**
 > SodViolationCheck Start-ViolationCheck<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityWithNewAccess1] <PSCustomObject><br>
@@ -79,8 +79,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityWithNewAccess1AccessRefsInner = Initialize-IdentityWithNewAccess1AccessRefsInner -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
-$IdentityWithNewAccess1 = Initialize-IdentityWithNewAccess1 -IdentityId "2c91809050db617d0150e0bf3215385e" -AccessRefs $IdentityWithNewAccess1AccessRefsInner -ClientMetadata @{ key_example = "MyInner" } # IdentityWithNewAccess1 | 
+$EntitlementRef = Initialize-EntitlementRef -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
+$IdentityWithNewAccess1 = Initialize-IdentityWithNewAccess1 -IdentityId "2c91809050db617d0150e0bf3215385e" -AccessRefs $EntitlementRef -ClientMetadata @{ key_example = "MyInner" } # IdentityWithNewAccess1 | 
 
 # Check SOD violations
 try {

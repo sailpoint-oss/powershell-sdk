@@ -1,4 +1,4 @@
-# PSSailpointCC.PSSailpointCC/Api.CCSourcesAccountsApi
+# PSSailpointCC.PSSailpointCC\Api.CCSourcesAccountsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Export-CCAccountFeed**](CCSourcesAccountsApi.md#Export-CCAccountFeed) | **GET** /cc/api/source/exportAccountFeed/{id} | Export Account Feed
 
 
-<a name="Export-CCAccountFeed"></a>
+<a id="Export-CCAccountFeed"></a>
 # **Export-CCAccountFeed**
 > void Export-CCAccountFeed<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

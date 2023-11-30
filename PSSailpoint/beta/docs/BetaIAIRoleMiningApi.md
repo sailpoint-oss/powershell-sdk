@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIAIRoleMiningApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIAIRoleMiningApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -30,7 +30,7 @@ Method | HTTP request | Description
 [**Update-BetaEntitlementsPotentialRole**](BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 
 
-<a name="New-BetaPotentialRoleProvisionRequest"></a>
+<a id="New-BetaPotentialRoleProvisionRequest"></a>
 # **New-BetaPotentialRoleProvisionRequest**
 > RoleMiningPotentialRoleSummary New-BetaPotentialRoleProvisionRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaRoleMiningSessions"></a>
+<a id="New-BetaRoleMiningSessions"></a>
 # **New-BetaRoleMiningSessions**
 > RoleMiningSessionResponse New-BetaRoleMiningSessions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleMiningSessionDto] <PSCustomObject><br>
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaDownloadRoleMiningPotentialRoleZip"></a>
+<a id="Invoke-BetaDownloadRoleMiningPotentialRoleZip"></a>
 # **Invoke-BetaDownloadRoleMiningPotentialRoleZip**
 > System.IO.FileInfo Invoke-BetaDownloadRoleMiningPotentialRoleZip<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Export-BetaRoleMiningPotentialRole"></a>
+<a id="Export-BetaRoleMiningPotentialRole"></a>
 # **Export-BetaRoleMiningPotentialRole**
 > System.IO.FileInfo Export-BetaRoleMiningPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Export-BetaRoleMiningPotentialRoleAsync"></a>
+<a id="Export-BetaRoleMiningPotentialRoleAsync"></a>
 # **Export-BetaRoleMiningPotentialRoleAsync**
 > RoleMiningPotentialRoleExportResponse Export-BetaRoleMiningPotentialRoleAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Export-BetaRoleMiningPotentialRoleStatus"></a>
+<a id="Export-BetaRoleMiningPotentialRoleStatus"></a>
 # **Export-BetaRoleMiningPotentialRoleStatus**
 > RoleMiningPotentialRoleExportResponse Export-BetaRoleMiningPotentialRoleStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAllPotentialRoleSummaries"></a>
+<a id="Get-BetaAllPotentialRoleSummaries"></a>
 # **Get-BetaAllPotentialRoleSummaries**
 > RoleMiningPotentialRoleSummary[] Get-BetaAllPotentialRoleSummaries<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaEntitlementDistributionPotentialRole"></a>
+<a id="Get-BetaEntitlementDistributionPotentialRole"></a>
 # **Get-BetaEntitlementDistributionPotentialRole**
 > System.Collections.Hashtable Get-BetaEntitlementDistributionPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaEntitlementsPotentialRole"></a>
+<a id="Get-BetaEntitlementsPotentialRole"></a>
 # **Get-BetaEntitlementsPotentialRole**
 > RoleMiningEntitlement[] Get-BetaEntitlementsPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaExcludedEntitlementsPotentialRole"></a>
+<a id="Get-BetaExcludedEntitlementsPotentialRole"></a>
 # **Get-BetaExcludedEntitlementsPotentialRole**
 > RoleMiningEntitlement[] Get-BetaExcludedEntitlementsPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentitiesPotentialRole"></a>
+<a id="Get-BetaIdentitiesPotentialRole"></a>
 # **Get-BetaIdentitiesPotentialRole**
 > RoleMiningIdentity[] Get-BetaIdentitiesPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -702,7 +702,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPotentialRole"></a>
+<a id="Get-BetaPotentialRole"></a>
 # **Get-BetaPotentialRole**
 > RoleMiningPotentialRole Get-BetaPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -756,7 +756,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPotentialRoleApplications"></a>
+<a id="Get-BetaPotentialRoleApplications"></a>
 # **Get-BetaPotentialRoleApplications**
 > RoleMiningPotentialRoleApplication[] Get-BetaPotentialRoleApplications<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -819,7 +819,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPotentialRoleSourceIdentityUsage"></a>
+<a id="Get-BetaPotentialRoleSourceIdentityUsage"></a>
 # **Get-BetaPotentialRoleSourceIdentityUsage**
 > RoleMiningPotentialRoleSourceUsage[] Get-BetaPotentialRoleSourceIdentityUsage<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
@@ -885,7 +885,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPotentialRoleSummaries"></a>
+<a id="Get-BetaPotentialRoleSummaries"></a>
 # **Get-BetaPotentialRoleSummaries**
 > RoleMiningPotentialRoleSummary[] Get-BetaPotentialRoleSummaries<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -951,7 +951,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleMiningPotentialRole"></a>
+<a id="Get-BetaRoleMiningPotentialRole"></a>
 # **Get-BetaRoleMiningPotentialRole**
 > RoleMiningPotentialRole Get-BetaRoleMiningPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
@@ -1002,7 +1002,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleMiningSession"></a>
+<a id="Get-BetaRoleMiningSession"></a>
 # **Get-BetaRoleMiningSession**
 > RoleMiningSessionResponse Get-BetaRoleMiningSession<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleMiningSessionStatus"></a>
+<a id="Get-BetaRoleMiningSessionStatus"></a>
 # **Get-BetaRoleMiningSessionStatus**
 > RoleMiningSessionStatus Get-BetaRoleMiningSessionStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -1104,7 +1104,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleMiningSessions"></a>
+<a id="Get-BetaRoleMiningSessions"></a>
 # **Get-BetaRoleMiningSessions**
 > RoleMiningSessionDto[] Get-BetaRoleMiningSessions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
@@ -1167,7 +1167,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSavedPotentialRoles"></a>
+<a id="Get-BetaSavedPotentialRoles"></a>
 # **Get-BetaSavedPotentialRoles**
 > RoleMiningSessionDraftRoleDto[] Get-BetaSavedPotentialRoles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
@@ -1227,7 +1227,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaPotentialRole"></a>
+<a id="Update-BetaPotentialRole"></a>
 # **Update-BetaPotentialRole**
 > SystemCollectionsHashtable Update-BetaPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -1285,7 +1285,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaPotentialRole0"></a>
+<a id="Update-BetaPotentialRole0"></a>
 # **Update-BetaPotentialRole0**
 > SystemCollectionsHashtable Update-BetaPotentialRole0<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -1343,7 +1343,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaRoleMiningSession"></a>
+<a id="Update-BetaRoleMiningSession"></a>
 # **Update-BetaRoleMiningSession**
 > SystemCollectionsHashtable Update-BetaRoleMiningSession<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
@@ -1398,7 +1398,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaEntitlementsPotentialRole"></a>
+<a id="Update-BetaEntitlementsPotentialRole"></a>
 # **Update-BetaEntitlementsPotentialRole**
 > RoleMiningPotentialRole Update-BetaEntitlementsPotentialRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>

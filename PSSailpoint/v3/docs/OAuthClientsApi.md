@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.OAuthClientsApi
+# PSSailpoint.PSSailpoint\Api.OAuthClientsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-OauthClient**](OAuthClientsApi.md#Update-OauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
 
 
-<a name="New-OauthClient"></a>
+<a id="New-OauthClient"></a>
 # **New-OauthClient**
 > CreateOAuthClientResponse New-OauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateOAuthClientRequest] <PSCustomObject><br>
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-OauthClient"></a>
+<a id="Remove-OauthClient"></a>
 # **Remove-OauthClient**
 > void Remove-OauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -113,7 +113,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-OauthClient"></a>
+<a id="Get-OauthClient"></a>
 # **Get-OauthClient**
 > GetOAuthClientResponse Get-OauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-OauthClients"></a>
+<a id="Get-OauthClients"></a>
 # **Get-OauthClients**
 > GetOAuthClientResponse[] Get-OauthClients<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-OauthClient"></a>
+<a id="Update-OauthClient"></a>
 # **Update-OauthClient**
 > GetOAuthClientResponse Update-OauthClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

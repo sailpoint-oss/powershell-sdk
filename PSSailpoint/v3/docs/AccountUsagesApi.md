@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.AccountUsagesApi
+# PSSailpoint.PSSailpoint\Api.AccountUsagesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-UsagesByAccountId**](AccountUsagesApi.md#Get-UsagesByAccountId) | **GET** /account-usages/{accountId}/summaries | Returns account usage insights
 
 
-<a name="Get-UsagesByAccountId"></a>
+<a id="Get-UsagesByAccountId"></a>
 # **Get-UsagesByAccountId**
 > AccountUsage[] Get-UsagesByAccountId<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountId] <String><br>

@@ -1,4 +1,4 @@
-# PSSailpointV2.PSSailpointV2/Api.V2OrgApi
+# PSSailpointV2.PSSailpointV2\Api.V2OrgApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-V2OrgSettings**](V2OrgApi.md#Update-V2OrgSettings) | **PATCH** /org | Updates one or more org attributes.
 
 
-<a name="Get-V2OrgSettings"></a>
+<a id="Get-V2OrgSettings"></a>
 # **Get-V2OrgSettings**
 > GetOrgSettings200Response Get-V2OrgSettings<br>
 
@@ -46,7 +46,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-V2OrgSettings"></a>
+<a id="Update-V2OrgSettings"></a>
 # **Update-V2OrgSettings**
 > GetOrgSettings200Response Update-V2OrgSettings<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UpdateOrgSettingsRequest] <PSCustomObject><br>

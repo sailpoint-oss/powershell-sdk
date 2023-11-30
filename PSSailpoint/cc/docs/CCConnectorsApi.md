@@ -1,4 +1,4 @@
-# PSSailpointCC.PSSailpointCC/Api.CCConnectorsApi
+# PSSailpointCC.PSSailpointCC\Api.CCConnectorsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Get-CCConnectors**](CCConnectorsApi.md#Get-CCConnectors) | **GET** /cc/api/connector/list | List Connectors
 
 
-<a name="New-CCConnector"></a>
+<a id="New-CCConnector"></a>
 # **New-CCConnector**
 > void New-CCConnector<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ContentType] <String><br>
@@ -75,7 +75,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-CCConnector"></a>
+<a id="Remove-CCConnector"></a>
 # **Remove-CCConnector**
 > void Remove-CCConnector<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -124,7 +124,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Export-CCConnectorConfig"></a>
+<a id="Export-CCConnectorConfig"></a>
 # **Export-CCConnectorConfig**
 > void Export-CCConnectorConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -173,7 +173,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Import-CCConnectorConfig"></a>
+<a id="Import-CCConnectorConfig"></a>
 # **Import-CCConnectorConfig**
 > void Import-CCConnectorConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -225,7 +225,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CCConnectors"></a>
+<a id="Get-CCConnectors"></a>
 # **Get-CCConnectors**
 > ListConnectors200Response Get-CCConnectors<br>
 

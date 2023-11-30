@@ -543,7 +543,7 @@ function Get-AccessProfiles {
         $LocalVarBodyParameter = $null
 
         # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
+        $LocalVarAccepts = @('text/csv','application/json')
 
         $LocalVarUri = '/access-profiles'
 

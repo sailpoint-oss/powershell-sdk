@@ -226,7 +226,7 @@ function SelectHeaders {
     )
 
     foreach ($Header in $Headers) {
-        if (IsJsonMIME -MIME $Header) {
+        if (-not(IsJsonMIME -MIME $Header)) {
             return $Header
         }
     }

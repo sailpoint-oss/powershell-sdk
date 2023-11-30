@@ -257,7 +257,9 @@ Class | Method | HTTP request | Description
 *BetaMFAConfigurationApi* | [**Test-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
 *BetaMFAControllerApi* | [**New-BetaSendToken**](docs/BetaMFAControllerApi.md#New-BetaSendToken) | **POST** /mfa/token/send | Create and send user token
 *BetaMFAControllerApi* | [**Ping-BetaVerificationStatus**](docs/BetaMFAControllerApi.md#Ping-BetaVerificationStatus) | **POST** /mfa/{method}/poll | Polling MFA method by VerificationPollRequest
+*BetaMFAControllerApi* | [**Send-BetaDuoVerifyRequest**](docs/BetaMFAControllerApi.md#Send-BetaDuoVerifyRequest) | **POST** /mfa/duo-web/verify | Verifying authentication via Duo method
 *BetaMFAControllerApi* | [**Send-BetaKbaAnswers**](docs/BetaMFAControllerApi.md#Send-BetaKbaAnswers) | **POST** /mfa/kba/authenticate | Authenticate KBA provided MFA method
+*BetaMFAControllerApi* | [**Send-BetaOktaVerifyRequest**](docs/BetaMFAControllerApi.md#Send-BetaOktaVerifyRequest) | **POST** /mfa/okta-verify/verify | Verifying authentication via Okta method
 *BetaMFAControllerApi* | [**Send-BetaTokenAuthRequest**](docs/BetaMFAControllerApi.md#Send-BetaTokenAuthRequest) | **POST** /mfa/token/authenticate | Authenticate Token provided MFA method
 *BetaManagedClientsApi* | [**Get-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Get-BetaManagedClientStatus) | **GET** /managed-clients/{id}/status | Specified Managed Client Status.
 *BetaManagedClientsApi* | [**Update-BetaManagedClientStatus**](docs/BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle status request from client
@@ -745,6 +747,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.DomainAddress](docs/DomainAddress.md)
  - [PSSailpointBeta/Model.DomainStatusDto](docs/DomainStatusDto.md)
  - [PSSailpointBeta/Model.DtoType](docs/DtoType.md)
+ - [PSSailpointBeta/Model.DuoVerificationRequest](docs/DuoVerificationRequest.md)
  - [PSSailpointBeta/Model.E164phone](docs/E164phone.md)
  - [PSSailpointBeta/Model.EmailNotificationOption](docs/EmailNotificationOption.md)
  - [PSSailpointBeta/Model.EmailStatusDto](docs/EmailStatusDto.md)
@@ -982,6 +985,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta/Model.NotificationTemplateContext](docs/NotificationTemplateContext.md)
  - [PSSailpointBeta/Model.ObjectExportImportOptions](docs/ObjectExportImportOptions.md)
  - [PSSailpointBeta/Model.ObjectImportResult](docs/ObjectImportResult.md)
+ - [PSSailpointBeta/Model.OktaVerificationRequest](docs/OktaVerificationRequest.md)
  - [PSSailpointBeta/Model.OrgConfig](docs/OrgConfig.md)
  - [PSSailpointBeta/Model.Outlier](docs/Outlier.md)
  - [PSSailpointBeta/Model.OutlierContributingFeature](docs/OutlierContributingFeature.md)

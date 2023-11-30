@@ -22,9 +22,25 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaMFAControllerApi' {
         }
     }
 
+    Context 'Send-BetaDuoVerifyRequest' {
+        It 'Test Send-BetaDuoVerifyRequest' {
+            #$TestResult = Send-BetaDuoVerifyRequest -DuoVerificationRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Send-BetaKbaAnswers' {
         It 'Test Send-BetaKbaAnswers' {
             #$TestResult = Send-BetaKbaAnswers -KbaAnswerRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-BetaOktaVerifyRequest' {
+        It 'Test Send-BetaOktaVerifyRequest' {
+            #$TestResult = Send-BetaOktaVerifyRequest -OktaVerificationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

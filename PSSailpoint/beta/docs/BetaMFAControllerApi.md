@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSendToken**](BetaMFAControllerApi.md#New-BetaSendToken) | **POST** /mfa/token/send | Create and send user token
 [**Ping-BetaVerificationStatus**](BetaMFAControllerApi.md#Ping-BetaVerificationStatus) | **POST** /mfa/{method}/poll | Polling MFA method by VerificationPollRequest
+[**Send-BetaDuoVerifyRequest**](BetaMFAControllerApi.md#Send-BetaDuoVerifyRequest) | **POST** /mfa/duo-web/verify | Verifying authentication via Duo method
 [**Send-BetaKbaAnswers**](BetaMFAControllerApi.md#Send-BetaKbaAnswers) | **POST** /mfa/kba/authenticate | Authenticate KBA provided MFA method
+[**Send-BetaOktaVerifyRequest**](BetaMFAControllerApi.md#Send-BetaOktaVerifyRequest) | **POST** /mfa/okta-verify/verify | Verifying authentication via Okta method
 [**Send-BetaTokenAuthRequest**](BetaMFAControllerApi.md#Send-BetaTokenAuthRequest) | **POST** /mfa/token/authenticate | Authenticate Token provided MFA method
 
 
@@ -115,6 +117,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="Send-BetaDuoVerifyRequest"></a>
+# **Send-BetaDuoVerifyRequest**
+> VerificationResponse Send-BetaDuoVerifyRequest<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DuoVerificationRequest] <PSCustomObject><br>
+
+Verifying authentication via Duo method
+
+This API Authenticates the user via Duo-Web MFA method.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$DuoVerificationRequest = Initialize-DuoVerificationRequest -UserId "2c9180947f0ef465017f215cbcfd004b" -SignedResponse "AUTH|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjUzMDg5|f1f5f8ced5b340f3d303b05d0efa0e43b6a8f970:APP|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjU2NjE5|cb44cf44353f5127edcae31b1da0355f87357db2" # DuoVerificationRequest | 
+
+# Verifying authentication via Duo method
+try {
+    $Result = Send-BetaDuoVerifyRequest -DuoVerificationRequest $DuoVerificationRequest
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaDuoVerifyRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **DuoVerificationRequest** | [**DuoVerificationRequest**](DuoVerificationRequest.md)|  | 
+
+### Return type
+
+[**VerificationResponse**](VerificationResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="Send-BetaKbaAnswers"></a>
 # **Send-BetaKbaAnswers**
 > KbaAuthResponse Send-BetaKbaAnswers<br>
@@ -155,6 +208,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**KbaAuthResponse**](KbaAuthResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="Send-BetaOktaVerifyRequest"></a>
+# **Send-BetaOktaVerifyRequest**
+> VerificationResponse Send-BetaOktaVerifyRequest<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OktaVerificationRequest] <PSCustomObject><br>
+
+Verifying authentication via Okta method
+
+This API Authenticates the user via Okta-Verify MFA method. Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$OktaVerificationRequest = Initialize-OktaVerificationRequest -UserId "example@mail.com" # OktaVerificationRequest | 
+
+# Verifying authentication via Okta method
+try {
+    $Result = Send-BetaOktaVerifyRequest -OktaVerificationRequest $OktaVerificationRequest
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaOktaVerifyRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **OktaVerificationRequest** | [**OktaVerificationRequest**](OktaVerificationRequest.md)|  | 
+
+### Return type
+
+[**VerificationResponse**](VerificationResponse.md) (PSCustomObject)
 
 ### Authorization
 

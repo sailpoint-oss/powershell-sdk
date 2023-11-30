@@ -292,6 +292,7 @@ docs/DkimAttributes.md
 docs/DomainAddress.md
 docs/DomainStatusDto.md
 docs/DtoType.md
+docs/DuoVerificationRequest.md
 docs/E164phone.md
 docs/EmailNotificationOption.md
 docs/EmailStatusDto.md
@@ -529,6 +530,7 @@ docs/NonEmployeeSourceWithNECountAllOf.md
 docs/NotificationTemplateContext.md
 docs/ObjectExportImportOptions.md
 docs/ObjectImportResult.md
+docs/OktaVerificationRequest.md
 docs/OrgConfig.md
 docs/Outlier.md
 docs/OutlierContributingFeature.md
@@ -1143,6 +1145,7 @@ src/PSSailpointBeta/Model/DkimAttributes.ps1
 src/PSSailpointBeta/Model/DomainAddress.ps1
 src/PSSailpointBeta/Model/DomainStatusDto.ps1
 src/PSSailpointBeta/Model/DtoType.ps1
+src/PSSailpointBeta/Model/DuoVerificationRequest.ps1
 src/PSSailpointBeta/Model/E164phone.ps1
 src/PSSailpointBeta/Model/EmailNotificationOption.ps1
 src/PSSailpointBeta/Model/EmailStatusDto.ps1
@@ -1380,6 +1383,7 @@ src/PSSailpointBeta/Model/NonEmployeeSourceWithNECountAllOf.ps1
 src/PSSailpointBeta/Model/NotificationTemplateContext.ps1
 src/PSSailpointBeta/Model/ObjectExportImportOptions.ps1
 src/PSSailpointBeta/Model/ObjectImportResult.ps1
+src/PSSailpointBeta/Model/OktaVerificationRequest.ps1
 src/PSSailpointBeta/Model/OrgConfig.ps1
 src/PSSailpointBeta/Model/Outlier.ps1
 src/PSSailpointBeta/Model/OutlierContributingFeature.ps1
@@ -2000,6 +2004,7 @@ tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1
 tests/Model/DomainStatusDto.Tests.ps1
 tests/Model/DtoType.Tests.ps1
+tests/Model/DuoVerificationRequest.Tests.ps1
 tests/Model/E164phone.Tests.ps1
 tests/Model/EmailNotificationOption.Tests.ps1
 tests/Model/EmailStatusDto.Tests.ps1
@@ -2237,6 +2242,7 @@ tests/Model/NonEmployeeSourceWithNECountAllOf.Tests.ps1
 tests/Model/NotificationTemplateContext.Tests.ps1
 tests/Model/ObjectExportImportOptions.Tests.ps1
 tests/Model/ObjectImportResult.Tests.ps1
+tests/Model/OktaVerificationRequest.Tests.ps1
 tests/Model/OrgConfig.Tests.ps1
 tests/Model/Outlier.Tests.ps1
 tests/Model/OutlierContributingFeature.Tests.ps1

@@ -102,7 +102,7 @@ Delete Identity Attribute
 
 .DESCRIPTION
 
-This deletes an identity attribute for a given technical name.
+This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
 .PARAMETER Name
 The attribute's technical name.
@@ -176,7 +176,7 @@ Bulk delete Identity Attributes
 
 .DESCRIPTION
 
-This deletes identity attributes for a given set of technical names.
+This deletes identity attributes for a given set of names. Attributes that are currently mapped in an Identity Profile cannot be deleted.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
 .PARAMETER IdentityAttributeNames
 No description available.
@@ -444,7 +444,7 @@ Update Identity Attribute
 
 .DESCRIPTION
 
-This updates an existing identity attribute.
+This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
 
 .PARAMETER Name
 The attribute's technical name.

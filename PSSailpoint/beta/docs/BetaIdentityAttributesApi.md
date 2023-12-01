@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 Delete Identity Attribute
 
-This deletes an identity attribute for a given technical name.
+This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
 ### Example
 ```powershell
@@ -122,7 +122,7 @@ void (empty response body)
 
 Bulk delete Identity Attributes
 
-This deletes identity attributes for a given set of technical names.
+This deletes identity attributes for a given set of names. Attributes that are currently mapped in an Identity Profile cannot be deleted.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
 ### Example
 ```powershell
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 Update Identity Attribute
 
-This updates an existing identity attribute.
+This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
 
 ### Example
 ```powershell

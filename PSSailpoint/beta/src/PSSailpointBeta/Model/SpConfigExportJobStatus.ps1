@@ -26,12 +26,16 @@ The time until which the artifacts will be available for download.
 The time the job was started.
 .PARAMETER Modified
 The time of the last update to the job.
+.PARAMETER Description
+Optional user defined description/name for export job.
+.PARAMETER Completed
+The time the job was completed.
 .OUTPUTS
 
-SpConfigJob<PSCustomObject>
+SpConfigExportJobStatus<PSCustomObject>
 #>
 
-function Initialize-BetaSpConfigJob {
+function Initialize-BetaSpConfigExportJobStatus {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -53,11 +57,17 @@ function Initialize-BetaSpConfigJob {
         ${Created},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
-        ${Modified}
+        ${Modified},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [System.DateTime]
+        ${Completed}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaSpConfigJob' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaSpConfigExportJobStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $JobId) {
@@ -84,6 +94,14 @@ function Initialize-BetaSpConfigJob {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
+        if ($null -eq $Description) {
+            throw "invalid value for 'Description', 'Description' cannot be null."
+        }
+
+        if ($null -eq $Completed) {
+            throw "invalid value for 'Completed', 'Completed' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "jobId" = ${JobId}
@@ -92,6 +110,8 @@ function Initialize-BetaSpConfigJob {
             "expiration" = ${Expiration}
             "created" = ${Created}
             "modified" = ${Modified}
+            "description" = ${Description}
+            "completed" = ${Completed}
         }
 
 
@@ -102,11 +122,11 @@ function Initialize-BetaSpConfigJob {
 <#
 .SYNOPSIS
 
-Convert from JSON to SpConfigJob<PSCustomObject>
+Convert from JSON to SpConfigExportJobStatus<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SpConfigJob<PSCustomObject>
+Convert from JSON to SpConfigExportJobStatus<PSCustomObject>
 
 .PARAMETER Json
 
@@ -114,22 +134,22 @@ Json object
 
 .OUTPUTS
 
-SpConfigJob<PSCustomObject>
+SpConfigExportJobStatus<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSpConfigJob {
+function ConvertFrom-BetaJsonToSpConfigExportJobStatus {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSpConfigJob' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSpConfigExportJobStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSpConfigJob
-        $AllProperties = ("jobId", "status", "type", "expiration", "created", "modified")
+        # check if Json contains properties not defined in BetaSpConfigExportJobStatus
+        $AllProperties = ("jobId", "status", "type", "expiration", "created", "modified", "description", "completed")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -176,6 +196,18 @@ function ConvertFrom-BetaJsonToSpConfigJob {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'description' missing."
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completed"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'completed' missing."
+        } else {
+            $Completed = $JsonParameters.PSobject.Properties["completed"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "jobId" = ${JobId}
             "status" = ${Status}
@@ -183,6 +215,8 @@ function ConvertFrom-BetaJsonToSpConfigJob {
             "expiration" = ${Expiration}
             "created" = ${Created}
             "modified" = ${Modified}
+            "description" = ${Description}
+            "completed" = ${Completed}
         }
 
         return $PSO

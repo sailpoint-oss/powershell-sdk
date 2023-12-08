@@ -23,7 +23,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SpConfigJob
+SpConfigExportJob
 #>
 function Export-BetaSpConfig {
     [CmdletBinding()]
@@ -84,7 +84,7 @@ function Export-BetaSpConfig {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SpConfigJob" `
+                                -ReturnType "SpConfigExportJob" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -187,7 +187,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SpConfigJob
+SpConfigExportJobStatus
 #>
 function Get-BetaSpConfigExportStatus {
     [CmdletBinding()]
@@ -232,7 +232,7 @@ function Get-BetaSpConfigExportStatus {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SpConfigJob" `
+                                -ReturnType "SpConfigExportJobStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -335,7 +335,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SpConfigJob
+SpConfigImportJobStatus
 #>
 function Get-BetaSpConfigImportStatus {
     [CmdletBinding()]
@@ -380,7 +380,7 @@ function Get-BetaSpConfigImportStatus {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SpConfigJob" `
+                                -ReturnType "SpConfigImportJobStatus" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a id="Export-BetaSpConfig"></a>
 # **Export-BetaSpConfig**
-> SpConfigJob Export-BetaSpConfig<br>
+> SpConfigExportJob Export-BetaSpConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExportPayload] <PSCustomObject><br>
 
 Initiates configuration objects export job
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SpConfigJob**](SpConfigJob.md) (PSCustomObject)
+[**SpConfigExportJob**](SpConfigExportJob.md) (PSCustomObject)
 
 ### Authorization
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 <a id="Get-BetaSpConfigExportStatus"></a>
 # **Get-BetaSpConfigExportStatus**
-> SpConfigJob Get-BetaSpConfigExportStatus<br>
+> SpConfigExportJobStatus Get-BetaSpConfigExportStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get export job status
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SpConfigJob**](SpConfigJob.md) (PSCustomObject)
+[**SpConfigExportJobStatus**](SpConfigExportJobStatus.md) (PSCustomObject)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 <a id="Get-BetaSpConfigImportStatus"></a>
 # **Get-BetaSpConfigImportStatus**
-> SpConfigJob Get-BetaSpConfigImportStatus<br>
+> SpConfigImportJobStatus Get-BetaSpConfigImportStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get import job status
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SpConfigJob**](SpConfigJob.md) (PSCustomObject)
+[**SpConfigImportJobStatus**](SpConfigImportJobStatus.md) (PSCustomObject)
 
 ### Authorization
 

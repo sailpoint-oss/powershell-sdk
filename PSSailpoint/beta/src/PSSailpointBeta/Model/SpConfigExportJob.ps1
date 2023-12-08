@@ -26,12 +26,14 @@ The time until which the artifacts will be available for download.
 The time the job was started.
 .PARAMETER Modified
 The time of the last update to the job.
+.PARAMETER Description
+Optional user defined description/name for export job.
 .OUTPUTS
 
-SpConfigJob<PSCustomObject>
+SpConfigExportJob<PSCustomObject>
 #>
 
-function Initialize-BetaSpConfigJob {
+function Initialize-BetaSpConfigExportJob {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -53,11 +55,14 @@ function Initialize-BetaSpConfigJob {
         ${Created},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
-        ${Modified}
+        ${Modified},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaSpConfigJob' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaSpConfigExportJob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $JobId) {
@@ -84,6 +89,10 @@ function Initialize-BetaSpConfigJob {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
+        if ($null -eq $Description) {
+            throw "invalid value for 'Description', 'Description' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "jobId" = ${JobId}
@@ -92,6 +101,7 @@ function Initialize-BetaSpConfigJob {
             "expiration" = ${Expiration}
             "created" = ${Created}
             "modified" = ${Modified}
+            "description" = ${Description}
         }
 
 
@@ -102,11 +112,11 @@ function Initialize-BetaSpConfigJob {
 <#
 .SYNOPSIS
 
-Convert from JSON to SpConfigJob<PSCustomObject>
+Convert from JSON to SpConfigExportJob<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SpConfigJob<PSCustomObject>
+Convert from JSON to SpConfigExportJob<PSCustomObject>
 
 .PARAMETER Json
 
@@ -114,22 +124,22 @@ Json object
 
 .OUTPUTS
 
-SpConfigJob<PSCustomObject>
+SpConfigExportJob<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSpConfigJob {
+function ConvertFrom-BetaJsonToSpConfigExportJob {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSpConfigJob' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSpConfigExportJob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSpConfigJob
-        $AllProperties = ("jobId", "status", "type", "expiration", "created", "modified")
+        # check if Json contains properties not defined in BetaSpConfigExportJob
+        $AllProperties = ("jobId", "status", "type", "expiration", "created", "modified", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -176,6 +186,12 @@ function ConvertFrom-BetaJsonToSpConfigJob {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'description' missing."
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "jobId" = ${JobId}
             "status" = ${Status}
@@ -183,6 +199,7 @@ function ConvertFrom-BetaJsonToSpConfigJob {
             "expiration" = ${Expiration}
             "created" = ${Created}
             "modified" = ${Modified}
+            "description" = ${Description}
         }
 
         return $PSO

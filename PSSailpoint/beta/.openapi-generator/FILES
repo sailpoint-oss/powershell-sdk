@@ -144,6 +144,7 @@ docs/BetaEntitlementsApi.md
 docs/BetaGovernanceGroupsApi.md
 docs/BetaIAIAccessRequestRecommendationsApi.md
 docs/BetaIAICommonAccessApi.md
+docs/BetaIAIMessageCatalogsApi.md
 docs/BetaIAIOutliersApi.md
 docs/BetaIAIPeerGroupStrategiesApi.md
 docs/BetaIAIRecommendationsApi.md
@@ -723,7 +724,10 @@ docs/SourceUpdated.md
 docs/SourceUpdatedActor.md
 docs/SourceUsage.md
 docs/SourceUsageStatus.md
+docs/SpConfigExportJob.md
+docs/SpConfigExportJobStatus.md
 docs/SpConfigExportResults.md
+docs/SpConfigImportJobStatus.md
 docs/SpConfigImportResults.md
 docs/SpConfigJob.md
 docs/SpConfigMessage.md
@@ -839,6 +843,7 @@ src/PSSailpointBeta/Api/BetaEntitlementsApi.ps1
 src/PSSailpointBeta/Api/BetaGovernanceGroupsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIAccessRequestRecommendationsApi.ps1
 src/PSSailpointBeta/Api/BetaIAICommonAccessApi.ps1
+src/PSSailpointBeta/Api/BetaIAIMessageCatalogsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIOutliersApi.ps1
 src/PSSailpointBeta/Api/BetaIAIPeerGroupStrategiesApi.ps1
 src/PSSailpointBeta/Api/BetaIAIRecommendationsApi.ps1
@@ -1544,7 +1549,10 @@ src/PSSailpointBeta/Model/SourceUpdated.ps1
 src/PSSailpointBeta/Model/SourceUpdatedActor.ps1
 src/PSSailpointBeta/Model/SourceUsage.ps1
 src/PSSailpointBeta/Model/SourceUsageStatus.ps1
+src/PSSailpointBeta/Model/SpConfigExportJob.ps1
+src/PSSailpointBeta/Model/SpConfigExportJobStatus.ps1
 src/PSSailpointBeta/Model/SpConfigExportResults.ps1
+src/PSSailpointBeta/Model/SpConfigImportJobStatus.ps1
 src/PSSailpointBeta/Model/SpConfigImportResults.ps1
 src/PSSailpointBeta/Model/SpConfigJob.ps1
 src/PSSailpointBeta/Model/SpConfigMessage.ps1
@@ -1667,6 +1675,7 @@ tests/Api/BetaEntitlementsApi.Tests.ps1
 tests/Api/BetaGovernanceGroupsApi.Tests.ps1
 tests/Api/BetaIAIAccessRequestRecommendationsApi.Tests.ps1
 tests/Api/BetaIAICommonAccessApi.Tests.ps1
+tests/Api/BetaIAIMessageCatalogsApi.Tests.ps1
 tests/Api/BetaIAIOutliersApi.Tests.ps1
 tests/Api/BetaIAIPeerGroupStrategiesApi.Tests.ps1
 tests/Api/BetaIAIRecommendationsApi.Tests.ps1
@@ -2371,7 +2380,10 @@ tests/Model/SourceUpdated.Tests.ps1
 tests/Model/SourceUpdatedActor.Tests.ps1
 tests/Model/SourceUsage.Tests.ps1
 tests/Model/SourceUsageStatus.Tests.ps1
+tests/Model/SpConfigExportJob.Tests.ps1
+tests/Model/SpConfigExportJobStatus.Tests.ps1
 tests/Model/SpConfigExportResults.Tests.ps1
+tests/Model/SpConfigImportJobStatus.Tests.ps1
 tests/Model/SpConfigImportResults.Tests.ps1
 tests/Model/SpConfigJob.Tests.ps1
 tests/Model/SpConfigMessage.Tests.ps1

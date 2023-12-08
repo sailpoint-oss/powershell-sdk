@@ -70,12 +70,4 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIAIAccessRequestRecommendationsAp
         }
     }
 
-    Context 'Get-BetaMessageCatalogs' {
-        It 'Test Get-BetaMessageCatalogs' {
-            #$TestResult = Get-BetaMessageCatalogs -CatalogId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
 }

@@ -171,10 +171,10 @@ Class | Method | HTTP request | Description
 *BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaAccessRequestRecommendationsIgnoredItems**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List of Ignored Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaAccessRequestRecommendationsRequestedItems**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List of Requested Access Request Recommendations
 *BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaAccessRequestRecommendationsViewedItems**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaAccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List of Viewed Access Request Recommendations
-*BetaIAIAccessRequestRecommendationsApi* | [**Get-BetaMessageCatalogs**](docs/BetaIAIAccessRequestRecommendationsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
 *BetaIAICommonAccessApi* | [**New-BetaCommonAccess**](docs/BetaIAICommonAccessApi.md#New-BetaCommonAccess) | **POST** /common-access | Create common access items
 *BetaIAICommonAccessApi* | [**Get-BetaCommonAccess**](docs/BetaIAICommonAccessApi.md#Get-BetaCommonAccess) | **GET** /common-access | Get a paginated list of common access
 *BetaIAICommonAccessApi* | [**Update-BetaCommonAccessStatusInBulk**](docs/BetaIAICommonAccessApi.md#Update-BetaCommonAccessStatusInBulk) | **POST** /common-access/update-status | Bulk update common access status
+*BetaIAIMessageCatalogsApi* | [**Get-BetaMessageCatalogs**](docs/BetaIAIMessageCatalogsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
 *BetaIAIOutliersApi* | [**Export-BetaOutliersZip**](docs/BetaIAIOutliersApi.md#Export-BetaOutliersZip) | **GET** /outliers/export | IAI Identity Outliers Export
 *BetaIAIOutliersApi* | [**Get-BetaIdentityOutlierSnapshots**](docs/BetaIAIOutliersApi.md#Get-BetaIdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
 *BetaIAIOutliersApi* | [**Get-BetaIdentityOutliers**](docs/BetaIAIOutliersApi.md#Get-BetaIdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
@@ -185,7 +185,6 @@ Class | Method | HTTP request | Description
 *BetaIAIOutliersApi* | [**Get-BetaOutliersContributingFeatureAccessItems**](docs/BetaIAIOutliersApi.md#Get-BetaOutliersContributingFeatureAccessItems) | **GET** /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items | Gets a list of access items associated with each identity outlier contributing feature
 *BetaIAIOutliersApi* | [**Invoke-BetaUnIgnoreIdentityOutliers**](docs/BetaIAIOutliersApi.md#Invoke-BetaUnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
 *BetaIAIPeerGroupStrategiesApi* | [**Get-BetaPeerGroupOutliers**](docs/BetaIAIPeerGroupStrategiesApi.md#Get-BetaPeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
-*BetaIAIRecommendationsApi* | [**Get-BetaMessageCatalogs**](docs/BetaIAIRecommendationsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
 *BetaIAIRecommendationsApi* | [**Get-BetaRecommendations**](docs/BetaIAIRecommendationsApi.md#Get-BetaRecommendations) | **POST** /recommendations/request | Returns a Recommendation Based on Object
 *BetaIAIRecommendationsApi* | [**Get-BetaRecommendationsConfig**](docs/BetaIAIRecommendationsApi.md#Get-BetaRecommendationsConfig) | **GET** /recommendations/config | Get certification recommendation config values
 *BetaIAIRecommendationsApi* | [**Update-BetaRecommendationsConfig**](docs/BetaIAIRecommendationsApi.md#Update-BetaRecommendationsConfig) | **PUT** /recommendations/config | Update certification recommendation config values
@@ -1178,7 +1177,10 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.SourceUpdatedActor](docs/SourceUpdatedActor.md)
  - [PSSailpointBeta\Model.SourceUsage](docs/SourceUsage.md)
  - [PSSailpointBeta\Model.SourceUsageStatus](docs/SourceUsageStatus.md)
+ - [PSSailpointBeta\Model.SpConfigExportJob](docs/SpConfigExportJob.md)
+ - [PSSailpointBeta\Model.SpConfigExportJobStatus](docs/SpConfigExportJobStatus.md)
  - [PSSailpointBeta\Model.SpConfigExportResults](docs/SpConfigExportResults.md)
+ - [PSSailpointBeta\Model.SpConfigImportJobStatus](docs/SpConfigImportJobStatus.md)
  - [PSSailpointBeta\Model.SpConfigImportResults](docs/SpConfigImportResults.md)
  - [PSSailpointBeta\Model.SpConfigJob](docs/SpConfigJob.md)
  - [PSSailpointBeta\Model.SpConfigMessage](docs/SpConfigMessage.md)

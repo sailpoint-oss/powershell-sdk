@@ -1,4 +1,4 @@
-# PSSailpointCC.PSSailpointCC/Api.CCSourcesAggregationApi
+# PSSailpointCC.PSSailpointCC\Api.CCSourcesAggregationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-CCLoadEntitlements**](CCSourcesAggregationApi.md#Invoke-CCLoadEntitlements) | **POST** /cc/api/source/loadEntitlements/{id} | Account Aggregation (File)
 
 
-<a name="Invoke-CCLoadAccounts"></a>
+<a id="Invoke-CCLoadAccounts"></a>
 # **Invoke-CCLoadAccounts**
 > System.Collections.Hashtable Invoke-CCLoadAccounts<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-CCLoadEntitlements"></a>
+<a id="Invoke-CCLoadEntitlements"></a>
 # **Invoke-CCLoadEntitlements**
 > System.Collections.Hashtable Invoke-CCLoadEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

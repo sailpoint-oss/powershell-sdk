@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaConnectorRuleManagementApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaConnectorRuleManagementApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Confirm-BetaConnectorRule**](BetaConnectorRuleManagementApi.md#Confirm-BetaConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
 
 
-<a name="New-BetaConnectorRule"></a>
+<a id="New-BetaConnectorRule"></a>
 # **New-BetaConnectorRule**
 > ConnectorRuleResponse New-BetaConnectorRule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConnectorRuleCreateRequest] <PSCustomObject><br>
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaConnectorRule"></a>
+<a id="Remove-BetaConnectorRule"></a>
 # **Remove-BetaConnectorRule**
 > void Remove-BetaConnectorRule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -118,7 +118,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaConnectorRule"></a>
+<a id="Get-BetaConnectorRule"></a>
 # **Get-BetaConnectorRule**
 > ConnectorRuleResponse Get-BetaConnectorRule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaConnectorRuleList"></a>
+<a id="Get-BetaConnectorRuleList"></a>
 # **Get-BetaConnectorRuleList**
 > ConnectorRuleResponse[] Get-BetaConnectorRuleList<br>
 
@@ -215,7 +215,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaConnectorRule"></a>
+<a id="Update-BetaConnectorRule"></a>
 # **Update-BetaConnectorRule**
 > ConnectorRuleResponse Update-BetaConnectorRule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -240,7 +240,7 @@ $Argument = Initialize-Argument -Name "firstName" -Description "the first name o
 $ConnectorRuleCreateRequestSignature = Initialize-ConnectorRuleCreateRequestSignature -VarInput $Argument -Output $Argument
 
 $SourceCode = Initialize-SourceCode -Version "1.0" -Script "return "Mr. " + firstName;"
-$ConnectorRuleUpdateRequest = Initialize-ConnectorRuleUpdateRequest -Id "8113d48c0b914f17b4c6072d4dcb9dfe" -Name "WebServiceBeforeOperationRule" -Description "This rule does that" -Type "BuildMap" -Signature $ConnectorRuleCreateRequestSignature -SourceCode $SourceCode -Attributes # ConnectorRuleUpdateRequest | The connector rule with updated data (optional)
+$ConnectorRuleUpdateRequest = Initialize-ConnectorRuleUpdateRequest -Name "WebServiceBeforeOperationRule" -Description "This rule does that" -Type "BuildMap" -Signature $ConnectorRuleCreateRequestSignature -SourceCode $SourceCode -Attributes  -Id "8113d48c0b914f17b4c6072d4dcb9dfe" # ConnectorRuleUpdateRequest | The connector rule with updated data (optional)
 
 # Update a Connector Rule
 try {
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Confirm-BetaConnectorRule"></a>
+<a id="Confirm-BetaConnectorRule"></a>
 # **Confirm-BetaConnectorRule**
 > ConnectorRuleValidationResponse Confirm-BetaConnectorRule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceCode] <PSCustomObject><br>

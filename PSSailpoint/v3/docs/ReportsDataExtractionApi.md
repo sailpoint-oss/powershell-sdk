@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.ReportsDataExtractionApi
+# PSSailpoint.PSSailpoint\Api.ReportsDataExtractionApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Start-Report**](ReportsDataExtractionApi.md#Start-Report) | **POST** /reports/run | Run Report
 
 
-<a name="Suspend-Report"></a>
+<a id="Suspend-Report"></a>
 # **Suspend-Report**
 > void Suspend-Report<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -61,7 +61,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Report"></a>
+<a id="Get-Report"></a>
 # **Get-Report**
 > System.IO.FileInfo Get-Report<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskResultId] <String><br>
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-ReportResult"></a>
+<a id="Get-ReportResult"></a>
 # **Get-ReportResult**
 > ReportResults Get-ReportResult<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaskResultId] <String><br>
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-Report"></a>
+<a id="Start-Report"></a>
 # **Start-Report**
 > TaskResultDetails Start-Report<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReportDetails] <PSCustomObject><br>

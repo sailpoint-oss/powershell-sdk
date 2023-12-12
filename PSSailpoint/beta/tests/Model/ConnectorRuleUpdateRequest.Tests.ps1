@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaConnectorRuleUpdateRequest' {
     Context 'BetaConnectorRuleUpdateRequest' {
         It 'Initialize-BetaConnectorRuleUpdateRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaConnectorRuleUpdateRequest -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Signature "TEST_VALUE" -SourceCode "TEST_VALUE" -Attributes "TEST_VALUE"
+            #$NewObject = Initialize-BetaConnectorRuleUpdateRequest -Name "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Signature "TEST_VALUE" -SourceCode "TEST_VALUE" -Attributes "TEST_VALUE" -Id "TEST_VALUE"
             #$NewObject | Should -BeOfType ConnectorRuleUpdateRequest
             #$NewObject.property | Should -Be 0
         }

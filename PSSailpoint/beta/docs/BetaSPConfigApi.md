@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaSPConfigApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaSPConfigApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**Get-BetaSpConfigObjects**](BetaSPConfigApi.md#Get-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get config object details
 
 
-<a name="Export-BetaSpConfig"></a>
+<a id="Export-BetaSpConfig"></a>
 # **Export-BetaSpConfig**
 > SpConfigExportJob Export-BetaSpConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ExportPayload] <PSCustomObject><br>
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSpConfigExport"></a>
+<a id="Get-BetaSpConfigExport"></a>
 # **Get-BetaSpConfigExport**
 > SpConfigExportResults Get-BetaSpConfigExport<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSpConfigExportStatus"></a>
+<a id="Get-BetaSpConfigExportStatus"></a>
 # **Get-BetaSpConfigExportStatus**
 > SpConfigExportJobStatus Get-BetaSpConfigExportStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSpConfigImport"></a>
+<a id="Get-BetaSpConfigImport"></a>
 # **Get-BetaSpConfigImport**
 > SpConfigImportResults Get-BetaSpConfigImport<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSpConfigImportStatus"></a>
+<a id="Get-BetaSpConfigImportStatus"></a>
 # **Get-BetaSpConfigImportStatus**
 > SpConfigImportJobStatus Get-BetaSpConfigImportStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Import-BetaSpConfig"></a>
+<a id="Import-BetaSpConfig"></a>
 # **Import-BetaSpConfig**
 > SpConfigJob Import-BetaSpConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Data] <System.IO.FileInfo><br>
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSpConfigObjects"></a>
+<a id="Get-BetaSpConfigObjects"></a>
 # **Get-BetaSpConfigObjects**
 > SpConfigObject[] Get-BetaSpConfigObjects<br>
 

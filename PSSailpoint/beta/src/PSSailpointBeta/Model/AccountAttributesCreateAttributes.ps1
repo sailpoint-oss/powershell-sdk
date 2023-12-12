@@ -75,12 +75,14 @@ function ConvertFrom-BetaJsonToAccountAttributesCreateAttributes {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
+        $BetaAccountAttributesCreateAttributesAdditionalProperties = @{}
 
         # check if Json contains properties not defined in BetaAccountAttributesCreateAttributes
         $AllProperties = ("sourceId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
+            # store undefined properties in additionalProperties
             if (!($AllProperties.Contains($name))) {
-                throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
+                $BetaAccountAttributesCreateAttributesAdditionalProperties[$name] = $JsonParameters.PSobject.Properties[$name].value
             }
         }
 
@@ -96,6 +98,7 @@ function ConvertFrom-BetaJsonToAccountAttributesCreateAttributes {
 
         $PSO = [PSCustomObject]@{
             "sourceId" = ${SourceId}
+            "AdditionalProperties" = $BetaAccountAttributesCreateAttributesAdditionalProperties
         }
 
         return $PSO

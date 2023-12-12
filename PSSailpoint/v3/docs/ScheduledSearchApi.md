@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.ScheduledSearchApi
+# PSSailpoint.PSSailpoint\Api.ScheduledSearchApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Update-ScheduledSearch**](ScheduledSearchApi.md#Update-ScheduledSearch) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
 
 
-<a name="New-ScheduledSearch"></a>
+<a id="New-ScheduledSearch"></a>
 # **New-ScheduledSearch**
 > ScheduledSearch New-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateScheduledSearchRequest] <PSCustomObject><br>
@@ -36,7 +36,7 @@ $Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Int
 $Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
-$CreateScheduledSearchRequest = Initialize-CreateScheduledSearchRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # CreateScheduledSearchRequest | The scheduled search to persist.
+$CreateScheduledSearchRequest = Initialize-CreateScheduledSearchRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # CreateScheduledSearchRequest | The scheduled search to persist.
 
 # Create a new scheduled search
 try {
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-ScheduledSearch"></a>
+<a id="Remove-ScheduledSearch"></a>
 # **Remove-ScheduledSearch**
 > void Remove-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -119,7 +119,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-ScheduledSearch"></a>
+<a id="Get-ScheduledSearch"></a>
 # **Get-ScheduledSearch**
 > ScheduledSearch Get-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-ScheduledSearch"></a>
+<a id="Get-ScheduledSearch"></a>
 # **Get-ScheduledSearch**
 > ScheduledSearch[] Get-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-UnsubscribeScheduledSearch"></a>
+<a id="Invoke-UnsubscribeScheduledSearch"></a>
 # **Invoke-UnsubscribeScheduledSearch**
 > void Invoke-UnsubscribeScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -284,7 +284,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-ScheduledSearch"></a>
+<a id="Update-ScheduledSearch"></a>
 # **Update-ScheduledSearch**
 > ScheduledSearch Update-ScheduledSearch<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -305,14 +305,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-$ScheduledSearchAllOfOwner = Initialize-ScheduledSearchAllOfOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
-
 $Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
 $Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
 $Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "GMT-06:00"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
-$ScheduledSearch = Initialize-ScheduledSearch -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $ScheduledSearchAllOfOwner -OwnerId "2c9180867624cbd7017642d8c8c81f67" -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created $System.DateTime -Modified $System.DateTime -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # ScheduledSearch | The scheduled search to persist.
+$ScheduledSearchAllOfOwner = Initialize-ScheduledSearchAllOfOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
+$ScheduledSearch = Initialize-ScheduledSearch -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $ScheduledSearchAllOfOwner -OwnerId "2c9180867624cbd7017642d8c8c81f67" # ScheduledSearch | The scheduled search to persist.
 
 # Update an existing Scheduled Search
 try {

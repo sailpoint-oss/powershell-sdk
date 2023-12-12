@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.WorkItemsApi
+# PSSailpoint.PSSailpoint\Api.WorkItemsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**Submit-AccountSelection**](WorkItemsApi.md#Submit-AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
 
 
-<a name="Approve-ApprovalItem"></a>
+<a id="Approve-ApprovalItem"></a>
 # **Approve-ApprovalItem**
 > WorkItems Approve-ApprovalItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Approve-ApprovalItemsInBulk"></a>
+<a id="Approve-ApprovalItemsInBulk"></a>
 # **Approve-ApprovalItemsInBulk**
 > WorkItems Approve-ApprovalItemsInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Complete-WorkItem"></a>
+<a id="Complete-WorkItem"></a>
 # **Complete-WorkItem**
 > WorkItems Complete-WorkItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CompletedWorkItems"></a>
+<a id="Get-CompletedWorkItems"></a>
 # **Get-CompletedWorkItems**
 > WorkItems[] Get-CompletedWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CountCompletedWorkItems"></a>
+<a id="Get-CountCompletedWorkItems"></a>
 # **Get-CountCompletedWorkItems**
 > WorkItemsCount Get-CountCompletedWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CountWorkItems"></a>
+<a id="Get-CountWorkItems"></a>
 # **Get-CountWorkItems**
 > WorkItemsCount Get-CountWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-WorkItem"></a>
+<a id="Get-WorkItem"></a>
 # **Get-WorkItem**
 > WorkItems Get-WorkItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-WorkItemsSummary"></a>
+<a id="Get-WorkItemsSummary"></a>
 # **Get-WorkItemsSummary**
 > WorkItemsSummary Get-WorkItemsSummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-WorkItems"></a>
+<a id="Get-WorkItems"></a>
 # **Get-WorkItems**
 > WorkItems[] Get-WorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Deny-ApprovalItem"></a>
+<a id="Deny-ApprovalItem"></a>
 # **Deny-ApprovalItem**
 > WorkItems Deny-ApprovalItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -552,7 +552,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Deny-ApprovalItemsInBulk"></a>
+<a id="Deny-ApprovalItemsInBulk"></a>
 # **Deny-ApprovalItemsInBulk**
 > WorkItems Deny-ApprovalItemsInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Submit-AccountSelection"></a>
+<a id="Submit-AccountSelection"></a>
 # **Submit-AccountSelection**
 > WorkItems Submit-AccountSelection<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

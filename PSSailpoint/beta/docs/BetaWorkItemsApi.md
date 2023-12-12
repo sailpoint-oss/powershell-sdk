@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaWorkItemsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaWorkItemsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**Submit-BetaAccountSelection**](BetaWorkItemsApi.md#Submit-BetaAccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
 
 
-<a name="Approve-BetaApprovalItem"></a>
+<a id="Approve-BetaApprovalItem"></a>
 # **Approve-BetaApprovalItem**
 > WorkItems Approve-BetaApprovalItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Approve-BetaApprovalItemsInBulk"></a>
+<a id="Approve-BetaApprovalItemsInBulk"></a>
 # **Approve-BetaApprovalItemsInBulk**
 > WorkItems Approve-BetaApprovalItemsInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Complete-BetaWorkItem"></a>
+<a id="Complete-BetaWorkItem"></a>
 # **Complete-BetaWorkItem**
 > WorkItems Complete-BetaWorkItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaForwardWorkItem"></a>
+<a id="Invoke-BetaForwardWorkItem"></a>
 # **Invoke-BetaForwardWorkItem**
 > void Invoke-BetaForwardWorkItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -229,7 +229,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCompletedWorkItems"></a>
+<a id="Get-BetaCompletedWorkItems"></a>
 # **Get-BetaCompletedWorkItems**
 > WorkItems[] Get-BetaCompletedWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCountCompletedWorkItems"></a>
+<a id="Get-BetaCountCompletedWorkItems"></a>
 # **Get-BetaCountCompletedWorkItems**
 > WorkItemsCount[] Get-BetaCountCompletedWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCountWorkItems"></a>
+<a id="Get-BetaCountWorkItems"></a>
 # **Get-BetaCountWorkItems**
 > WorkItemsCount[] Get-BetaCountWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaWorkItem"></a>
+<a id="Get-BetaWorkItem"></a>
 # **Get-BetaWorkItem**
 > WorkItems[] Get-BetaWorkItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaWorkItemsSummary"></a>
+<a id="Get-BetaWorkItemsSummary"></a>
 # **Get-BetaWorkItemsSummary**
 > WorkItemsSummary[] Get-BetaWorkItemsSummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaWorkItems"></a>
+<a id="Get-BetaWorkItems"></a>
 # **Get-BetaWorkItems**
 > WorkItems[] Get-BetaWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Deny-BetaApprovalItem"></a>
+<a id="Deny-BetaApprovalItem"></a>
 # **Deny-BetaApprovalItem**
 > WorkItems Deny-BetaApprovalItem<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Deny-BetaApprovalItemsInBulk"></a>
+<a id="Deny-BetaApprovalItemsInBulk"></a>
 # **Deny-BetaApprovalItemsInBulk**
 > WorkItems Deny-BetaApprovalItemsInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Submit-BetaAccountSelection"></a>
+<a id="Submit-BetaAccountSelection"></a>
 # **Submit-BetaAccountSelection**
 > WorkItems Submit-BetaAccountSelection<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

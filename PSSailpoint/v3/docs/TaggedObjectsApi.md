@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.TaggedObjectsApi
+# PSSailpoint.PSSailpoint\Api.TaggedObjectsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**Set-TagsToManyObjects**](TaggedObjectsApi.md#Set-TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
 
 
-<a name="Remove-TaggedObject"></a>
+<a id="Remove-TaggedObject"></a>
 # **Remove-TaggedObject**
 > void Remove-TaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -68,7 +68,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-TagsToManyObject"></a>
+<a id="Remove-TagsToManyObject"></a>
 # **Remove-TagsToManyObject**
 > void Remove-TagsToManyObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
@@ -120,7 +120,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-TaggedObject"></a>
+<a id="Get-TaggedObject"></a>
 # **Get-TaggedObject**
 > TaggedObject Get-TaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-TaggedObjects"></a>
+<a id="Get-TaggedObjects"></a>
 # **Get-TaggedObjects**
 > TaggedObject[] Get-TaggedObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-TaggedObjectsByType"></a>
+<a id="Get-TaggedObjectsByType"></a>
 # **Get-TaggedObjectsByType**
 > TaggedObject[] Get-TaggedObjectsByType<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-TaggedObject"></a>
+<a id="Send-TaggedObject"></a>
 # **Send-TaggedObject**
 > TaggedObject Send-TaggedObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-TagToObject"></a>
+<a id="Set-TagToObject"></a>
 # **Set-TagToObject**
 > void Set-TagToObject<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TaggedObject] <PSCustomObject><br>
@@ -407,7 +407,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-TagsToManyObjects"></a>
+<a id="Set-TagsToManyObjects"></a>
 # **Set-TagsToManyObjects**
 > BulkTaggedObject Set-TagsToManyObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>

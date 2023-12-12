@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaPublicIdentitiesConfigApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaPublicIdentitiesConfigApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-BetaPublicIdentityConfig**](BetaPublicIdentitiesConfigApi.md#Update-BetaPublicIdentityConfig) | **PUT** /public-identities-config | Update Public Identity Config
 
 
-<a name="Get-BetaPublicIdentityConfig"></a>
+<a id="Get-BetaPublicIdentityConfig"></a>
 # **Get-BetaPublicIdentityConfig**
 > PublicIdentityConfig Get-BetaPublicIdentityConfig<br>
 
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaPublicIdentityConfig"></a>
+<a id="Update-BetaPublicIdentityConfig"></a>
 # **Update-BetaPublicIdentityConfig**
 > PublicIdentityConfig Update-BetaPublicIdentityConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PublicIdentityConfig] <PSCustomObject><br>

@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.CertificationCampaignFiltersApi
+# PSSailpoint.PSSailpoint\Api.CertificationCampaignFiltersApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-CampaignFilter**](CertificationCampaignFiltersApi.md#Update-CampaignFilter) | **POST** /campaign-filters/{id} | Updates a Campaign Filter
 
 
-<a name="New-CampaignFilter"></a>
+<a id="New-CampaignFilter"></a>
 # **New-CampaignFilter**
 > CampaignFilterDetails New-CampaignFilter<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignFilterDetails] <PSCustomObject><br>
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-CampaignFilters"></a>
+<a id="Remove-CampaignFilters"></a>
 # **Remove-CampaignFilters**
 > void Remove-CampaignFilters<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
@@ -114,7 +114,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CampaignFilterById"></a>
+<a id="Get-CampaignFilterById"></a>
 # **Get-CampaignFilterById**
 > CampaignFilterDetails[] Get-CampaignFilterById<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FilterId] <String><br>
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CampaignFilters"></a>
+<a id="Get-CampaignFilters"></a>
 # **Get-CampaignFilters**
 > CampaignFilterDetails[] Get-CampaignFilters<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-CampaignFilter"></a>
+<a id="Update-CampaignFilter"></a>
 # **Update-CampaignFilter**
 > CampaignFilterDetails Update-CampaignFilter<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FilterId] <String><br>

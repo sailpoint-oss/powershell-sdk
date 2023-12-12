@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessRequestId** | **String** | The unique ID of the access request. | 
-**RequestedFor** | [**AccessRequestPostApprovalRequestedFor**](AccessRequestPostApprovalRequestedFor.md) |  | 
+**RequestedFor** | [**AccessItemRequestedForDto**](AccessItemRequestedForDto.md) |  | 
 **RequestedItems** | [**AccessRequestPreApprovalRequestedItemsInner[]**](AccessRequestPreApprovalRequestedItemsInner.md) | Details of the access items being requested. | 
-**RequestedBy** | [**AccessRequestPostApprovalRequestedBy**](AccessRequestPostApprovalRequestedBy.md) |  | 
+**RequestedBy** | [**AccessItemRequesterDto**](AccessItemRequesterDto.md) |  | 
 
 ## Examples
 

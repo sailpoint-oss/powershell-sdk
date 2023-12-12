@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.PasswordDictionaryApi
+# PSSailpoint.PSSailpoint\Api.PasswordDictionaryApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-PasswordDictionary**](PasswordDictionaryApi.md#Update-PasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 
 
-<a name="Get-PasswordDictionary"></a>
+<a id="Get-PasswordDictionary"></a>
 # **Get-PasswordDictionary**
 > String Get-PasswordDictionary<br>
 
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-PasswordDictionary"></a>
+<a id="Update-PasswordDictionary"></a>
 # **Update-PasswordDictionary**
 > void Update-PasswordDictionary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>

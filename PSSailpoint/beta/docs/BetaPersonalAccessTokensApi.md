@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaPersonalAccessTokensApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaPersonalAccessTokensApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Update-BetaPersonalAccessToken**](BetaPersonalAccessTokensApi.md#Update-BetaPersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
 
 
-<a name="New-BetaPersonalAccessToken"></a>
+<a id="New-BetaPersonalAccessToken"></a>
 # **New-BetaPersonalAccessToken**
 > CreatePersonalAccessTokenResponse New-BetaPersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreatePersonalAccessTokenRequest] <PSCustomObject><br>
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaPersonalAccessToken"></a>
+<a id="Remove-BetaPersonalAccessToken"></a>
 # **Remove-BetaPersonalAccessToken**
 > void Remove-BetaPersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -112,7 +112,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPersonalAccessTokens"></a>
+<a id="Get-BetaPersonalAccessTokens"></a>
 # **Get-BetaPersonalAccessTokens**
 > GetPersonalAccessTokenResponse[] Get-BetaPersonalAccessTokens<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaPersonalAccessToken"></a>
+<a id="Update-BetaPersonalAccessToken"></a>
 # **Update-BetaPersonalAccessToken**
 > GetPersonalAccessTokenResponse Update-BetaPersonalAccessToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

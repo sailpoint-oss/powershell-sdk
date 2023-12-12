@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaTriggersApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaTriggersApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**Update-BetaSubscription**](BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
 
 
-<a name="Complete-BetaTriggerInvocation"></a>
+<a id="Complete-BetaTriggerInvocation"></a>
 # **Complete-BetaTriggerInvocation**
 > void Complete-BetaTriggerInvocation<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -70,7 +70,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaSubscription"></a>
+<a id="New-BetaSubscription"></a>
 # **New-BetaSubscription**
 > Subscription New-BetaSubscription<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SubscriptionPostRequest] <PSCustomObject><br>
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaSubscription"></a>
+<a id="Remove-BetaSubscription"></a>
 # **Remove-BetaSubscription**
 > void Remove-BetaSubscription<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -177,7 +177,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSubscriptions"></a>
+<a id="Get-BetaSubscriptions"></a>
 # **Get-BetaSubscriptions**
 > Subscription[] Get-BetaSubscriptions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTriggerInvocationStatus"></a>
+<a id="Get-BetaTriggerInvocationStatus"></a>
 # **Get-BetaTriggerInvocationStatus**
 > InvocationStatus[] Get-BetaTriggerInvocationStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTriggers"></a>
+<a id="Get-BetaTriggers"></a>
 # **Get-BetaTriggers**
 > Trigger[] Get-BetaTriggers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaSubscription"></a>
+<a id="Update-BetaSubscription"></a>
 # **Update-BetaSubscription**
 > Subscription Update-BetaSubscription<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-BetaTestTriggerInvocation"></a>
+<a id="Start-BetaTestTriggerInvocation"></a>
 # **Start-BetaTestTriggerInvocation**
 > Invocation[] Start-BetaTestTriggerInvocation<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TestInvocation] <PSCustomObject><br>
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Test-BetaSubscriptionFilter"></a>
+<a id="Test-BetaSubscriptionFilter"></a>
 # **Test-BetaSubscriptionFilter**
 > ValidateFilterOutputDto Test-BetaSubscriptionFilter<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ValidateFilterInputDto] <PSCustomObject><br>
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaSubscription"></a>
+<a id="Update-BetaSubscription"></a>
 # **Update-BetaSubscription**
 > Subscription Update-BetaSubscription<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

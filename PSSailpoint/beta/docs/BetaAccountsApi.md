@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaAccountsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaAccountsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**Update-BetaAccount**](BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
 
 
-<a name="New-BetaAccount"></a>
+<a id="New-BetaAccount"></a>
 # **New-BetaAccount**
 > AccountsAsyncResult New-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccountAttributesCreate] <PSCustomObject><br>
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaAccount"></a>
+<a id="Remove-BetaAccount"></a>
 # **Remove-BetaAccount**
 > AccountsAsyncResult Remove-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Disable-BetaAccount"></a>
+<a id="Disable-BetaAccount"></a>
 # **Disable-BetaAccount**
 > AccountsAsyncResult Disable-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Disable-BetaAccountForIdentity"></a>
+<a id="Disable-BetaAccountForIdentity"></a>
 # **Disable-BetaAccountForIdentity**
 > SystemCollectionsHashtable Disable-BetaAccountForIdentity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Disable-BetaAccountsForIdentities"></a>
+<a id="Disable-BetaAccountsForIdentities"></a>
 # **Disable-BetaAccountsForIdentities**
 > BulkIdentitiesAccountsResponse[] Disable-BetaAccountsForIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentitiesAccountsBulkRequest] <PSCustomObject><br>
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Enable-BetaAccount"></a>
+<a id="Enable-BetaAccount"></a>
 # **Enable-BetaAccount**
 > AccountsAsyncResult Enable-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Enable-BetaAccountForIdentity"></a>
+<a id="Enable-BetaAccountForIdentity"></a>
 # **Enable-BetaAccountForIdentity**
 > SystemCollectionsHashtable Enable-BetaAccountForIdentity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Enable-BetaAccountsForIdentities"></a>
+<a id="Enable-BetaAccountsForIdentities"></a>
 # **Enable-BetaAccountsForIdentities**
 > BulkIdentitiesAccountsResponse[] Enable-BetaAccountsForIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentitiesAccountsBulkRequest] <PSCustomObject><br>
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccount"></a>
+<a id="Get-BetaAccount"></a>
 # **Get-BetaAccount**
 > Account Get-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccountEntitlements"></a>
+<a id="Get-BetaAccountEntitlements"></a>
 # **Get-BetaAccountEntitlements**
 > Entitlement[] Get-BetaAccountEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -546,7 +546,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccounts"></a>
+<a id="Get-BetaAccounts"></a>
 # **Get-BetaAccounts**
 > ListAccounts200ResponseInner[] Get-BetaAccounts<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DetailLevel] <String><br>
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaAccount"></a>
+<a id="Send-BetaAccount"></a>
 # **Send-BetaAccount**
 > AccountsAsyncResult Send-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaReloadAccount"></a>
+<a id="Invoke-BetaReloadAccount"></a>
 # **Invoke-BetaReloadAccount**
 > AccountsAsyncResult Invoke-BetaReloadAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -717,7 +717,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Unlock-BetaAccount"></a>
+<a id="Unlock-BetaAccount"></a>
 # **Unlock-BetaAccount**
 > AccountsAsyncResult Unlock-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaAccount"></a>
+<a id="Update-BetaAccount"></a>
 # **Update-BetaAccount**
 > SystemCollectionsHashtable Update-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

@@ -39,7 +39,7 @@ ManagedClient name
 .PARAMETER SinceLastSeen
 Milliseconds since the ManagedClient has polled the server
 .PARAMETER Status
-Status of the ManagedClient
+No description available.
 .PARAMETER Type
 Type of the ManagedClient (VA, CCG)
 .PARAMETER VaDownloadUrl
@@ -93,6 +93,7 @@ function Initialize-BetaManagedClient {
         [String]
         ${SinceLastSeen},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("NORMAL", "UNDEFINED", "NOT_CONFIGURED", "CONFIGURING", "WARNING", "ERROR", "FAILED")]
         [PSCustomObject]
         ${Status},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]

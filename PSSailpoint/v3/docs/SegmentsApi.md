@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.SegmentsApi
+# PSSailpoint.PSSailpoint\Api.SegmentsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-Segment**](SegmentsApi.md#Update-Segment) | **PATCH** /segments/{id} | Update Segment
 
 
-<a name="New-Segment"></a>
+<a id="New-Segment"></a>
 # **New-Segment**
 > Segment New-Segment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Segment] <PSCustomObject><br>
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-Segment"></a>
+<a id="Remove-Segment"></a>
 # **Remove-Segment**
 > void Remove-Segment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -120,7 +120,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Segment"></a>
+<a id="Get-Segment"></a>
 # **Get-Segment**
 > Segment Get-Segment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Segments"></a>
+<a id="Get-Segments"></a>
 # **Get-Segments**
 > Segment[] Get-Segments<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-Segment"></a>
+<a id="Update-Segment"></a>
 # **Update-Segment**
 > Segment Update-Segment<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaManagedClientsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaManagedClientsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-BetaManagedClientStatus**](BetaManagedClientsApi.md#Update-BetaManagedClientStatus) | **POST** /managed-clients/{id}/status | Handle status request from client
 
 
-<a name="Get-BetaManagedClientStatus"></a>
+<a id="Get-BetaManagedClientStatus"></a>
 # **Get-BetaManagedClientStatus**
 > ManagedClientStatus Get-BetaManagedClientStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaManagedClientStatus"></a>
+<a id="Update-BetaManagedClientStatus"></a>
 # **Update-BetaManagedClientStatus**
 > ManagedClientStatusAggResponse Update-BetaManagedClientStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

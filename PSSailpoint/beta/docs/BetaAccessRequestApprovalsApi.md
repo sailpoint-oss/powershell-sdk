@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaAccessRequestApprovalsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaAccessRequestApprovalsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Deny-BetaAccessRequest**](BetaAccessRequestApprovalsApi.md#Deny-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
 
 
-<a name="Approve-BetaAccessRequest"></a>
+<a id="Approve-BetaAccessRequest"></a>
 # **Approve-BetaAccessRequest**
 > SystemCollectionsHashtable Approve-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BetaForwardAccessRequest"></a>
+<a id="Invoke-BetaForwardAccessRequest"></a>
 # **Invoke-BetaForwardAccessRequest**
 > SystemCollectionsHashtable Invoke-BetaForwardAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessRequestApprovalSummary"></a>
+<a id="Get-BetaAccessRequestApprovalSummary"></a>
 # **Get-BetaAccessRequestApprovalSummary**
 > ApprovalSummary Get-BetaAccessRequestApprovalSummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCompletedApprovals"></a>
+<a id="Get-BetaCompletedApprovals"></a>
 # **Get-BetaCompletedApprovals**
 > CompletedApproval[] Get-BetaCompletedApprovals<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaPendingApprovals"></a>
+<a id="Get-BetaPendingApprovals"></a>
 # **Get-BetaPendingApprovals**
 > PendingApproval[] Get-BetaPendingApprovals<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Deny-BetaAccessRequest"></a>
+<a id="Deny-BetaAccessRequest"></a>
 # **Deny-BetaAccessRequest**
 > SystemCollectionsHashtable Deny-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>

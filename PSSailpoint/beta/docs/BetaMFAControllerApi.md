@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaMFAControllerApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaMFAControllerApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Send-BetaTokenAuthRequest**](BetaMFAControllerApi.md#Send-BetaTokenAuthRequest) | **POST** /mfa/token/authenticate | Authenticate Token provided MFA method
 
 
-<a name="New-BetaSendToken"></a>
+<a id="New-BetaSendToken"></a>
 # **New-BetaSendToken**
 > SendTokenResponse New-BetaSendToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SendTokenRequest] <PSCustomObject><br>
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Ping-BetaVerificationStatus"></a>
+<a id="Ping-BetaVerificationStatus"></a>
 # **Ping-BetaVerificationStatus**
 > VerificationResponse Ping-BetaVerificationStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Method] <String><br>
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaDuoVerifyRequest"></a>
+<a id="Send-BetaDuoVerifyRequest"></a>
 # **Send-BetaDuoVerifyRequest**
 > VerificationResponse Send-BetaDuoVerifyRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DuoVerificationRequest] <PSCustomObject><br>
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaKbaAnswers"></a>
+<a id="Send-BetaKbaAnswers"></a>
 # **Send-BetaKbaAnswers**
 > KbaAuthResponse Send-BetaKbaAnswers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-KbaAnswerRequest] <PSCustomObject><br>
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaOktaVerifyRequest"></a>
+<a id="Send-BetaOktaVerifyRequest"></a>
 # **Send-BetaOktaVerifyRequest**
 > VerificationResponse Send-BetaOktaVerifyRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OktaVerificationRequest] <PSCustomObject><br>
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaTokenAuthRequest"></a>
+<a id="Send-BetaTokenAuthRequest"></a>
 # **Send-BetaTokenAuthRequest**
 > TokenAuthResponse Send-BetaTokenAuthRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TokenAuthRequest] <PSCustomObject><br>

@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.SearchApi
+# PSSailpoint.PSSailpoint\Api.SearchApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Search-Post**](SearchApi.md#Search-Post) | **POST** /search | Perform Search
 
 
-<a name="Search-Aggregate"></a>
+<a id="Search-Aggregate"></a>
 # **Search-Aggregate**
 > AggregationResult Search-Aggregate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <PSCustomObject><br>
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Search-Count"></a>
+<a id="Search-Count"></a>
 # **Search-Count**
 > void Search-Count<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <PSCustomObject><br>
@@ -167,7 +167,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Search-Get"></a>
+<a id="Search-Get"></a>
 # **Search-Get**
 > SystemCollectionsHashtable Search-Get<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Index] <String><br>
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Search-Post"></a>
+<a id="Search-Post"></a>
 # **Search-Post**
 > SystemCollectionsHashtable[] Search-Post<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Search] <PSCustomObject><br>

@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.CertificationsApi
+# PSSailpoint.PSSailpoint\Api.CertificationsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**Submit-ReassignCertsAsync**](CertificationsApi.md#Submit-ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 
 
-<a name="Get-CertificationTask"></a>
+<a id="Get-CertificationTask"></a>
 # **Get-CertificationTask**
 > CertificationTask Get-CertificationTask<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentityCertification"></a>
+<a id="Get-IdentityCertification"></a>
 # **Get-IdentityCertification**
 > IdentityCertificationDto Get-IdentityCertification<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentityCertificationItemPermissions"></a>
+<a id="Get-IdentityCertificationItemPermissions"></a>
 # **Get-IdentityCertificationItemPermissions**
 > PermissionDto[] Get-IdentityCertificationItemPermissions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CertificationId] <String><br>
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-PendingCertificationTasks"></a>
+<a id="Get-PendingCertificationTasks"></a>
 # **Get-PendingCertificationTasks**
 > CertificationTask[] Get-PendingCertificationTasks<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReviewerIdentity] <String><br>
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-CertificationReviewers"></a>
+<a id="Get-CertificationReviewers"></a>
 # **Get-CertificationReviewers**
 > IdentityReferenceWithNameAndEmail[] Get-CertificationReviewers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentityAccessReviewItems"></a>
+<a id="Get-IdentityAccessReviewItems"></a>
 # **Get-IdentityAccessReviewItems**
 > AccessReviewItem[] Get-IdentityAccessReviewItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentityCertifications"></a>
+<a id="Get-IdentityCertifications"></a>
 # **Get-IdentityCertifications**
 > IdentityCertificationDto[] Get-IdentityCertifications<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ReviewerIdentity] <String><br>
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Select-IdentityDecision"></a>
+<a id="Select-IdentityDecision"></a>
 # **Select-IdentityDecision**
 > IdentityCertificationDto Select-IdentityDecision<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ReassignIdentityCertifications"></a>
+<a id="Invoke-ReassignIdentityCertifications"></a>
 # **Invoke-ReassignIdentityCertifications**
 > IdentityCertificationDto Invoke-ReassignIdentityCertifications<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-SignOffIdentityCertification"></a>
+<a id="Invoke-SignOffIdentityCertification"></a>
 # **Invoke-SignOffIdentityCertification**
 > IdentityCertificationDto Invoke-SignOffIdentityCertification<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -616,7 +616,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Submit-ReassignCertsAsync"></a>
+<a id="Submit-ReassignCertsAsync"></a>
 # **Submit-ReassignCertsAsync**
 > CertificationTask Submit-ReassignCertsAsync<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

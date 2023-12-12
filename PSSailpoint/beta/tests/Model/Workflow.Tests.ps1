@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaWorkflow' {
     Context 'BetaWorkflow' {
         It 'Initialize-BetaWorkflow' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaWorkflow -Id "TEST_VALUE" -ExecutionCount "TEST_VALUE" -FailureCount "TEST_VALUE" -Created "TEST_VALUE" -Creator "TEST_VALUE" -Name "TEST_VALUE" -Owner "TEST_VALUE" -Description "TEST_VALUE" -Definition "TEST_VALUE" -Enabled "TEST_VALUE" -Trigger "TEST_VALUE"
+            #$NewObject = Initialize-BetaWorkflow -Name "TEST_VALUE" -Owner "TEST_VALUE" -Description "TEST_VALUE" -Definition "TEST_VALUE" -Enabled "TEST_VALUE" -Trigger "TEST_VALUE" -Id "TEST_VALUE" -ExecutionCount "TEST_VALUE" -FailureCount "TEST_VALUE" -Created "TEST_VALUE" -Creator "TEST_VALUE"
             #$NewObject | Should -BeOfType Workflow
             #$NewObject.property | Should -Be 0
         }

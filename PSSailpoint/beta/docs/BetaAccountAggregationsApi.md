@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaAccountAggregationsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaAccountAggregationsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-BetaAccountAggregationStatus**](BetaAccountAggregationsApi.md#Get-BetaAccountAggregationStatus) | **GET** /account-aggregations/{id}/status | In-progress Account Aggregation status
 
 
-<a name="Get-BetaAccountAggregationStatus"></a>
+<a id="Get-BetaAccountAggregationStatus"></a>
 # **Get-BetaAccountAggregationStatus**
 > AccountAggregationStatus Get-BetaAccountAggregationStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

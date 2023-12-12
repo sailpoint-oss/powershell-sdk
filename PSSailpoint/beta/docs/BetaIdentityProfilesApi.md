@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIdentityProfilesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIdentityProfilesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**Update-BetaIdentityProfile**](BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
 
 
-<a name="New-BetaIdentityProfile"></a>
+<a id="New-BetaIdentityProfile"></a>
 # **New-BetaIdentityProfile**
 > IdentityProfile New-BetaIdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfile] <PSCustomObject><br>
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaIdentityProfile"></a>
+<a id="Remove-BetaIdentityProfile"></a>
 # **Remove-BetaIdentityProfile**
 > TaskResultSimplified Remove-BetaIdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaIdentityProfiles"></a>
+<a id="Remove-BetaIdentityProfiles"></a>
 # **Remove-BetaIdentityProfiles**
 > TaskResultSimplified Remove-BetaIdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <String[]><br>
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Export-BetaIdentityProfiles"></a>
+<a id="Export-BetaIdentityProfiles"></a>
 # **Export-BetaIdentityProfiles**
 > IdentityProfileExportedObject[] Export-BetaIdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaIdentityPreview"></a>
+<a id="New-BetaIdentityPreview"></a>
 # **New-BetaIdentityPreview**
 > IdentityPreviewResponse New-BetaIdentityPreview<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityPreviewRequest] <PSCustomObject><br>
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaDefaultIdentityAttributeConfig"></a>
+<a id="Get-BetaDefaultIdentityAttributeConfig"></a>
 # **Get-BetaDefaultIdentityAttributeConfig**
 > IdentityAttributeConfig Get-BetaDefaultIdentityAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityProfile"></a>
+<a id="Get-BetaIdentityProfile"></a>
 # **Get-BetaIdentityProfile**
 > IdentityProfile Get-BetaIdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Import-BetaIdentityProfiles"></a>
+<a id="Import-BetaIdentityProfiles"></a>
 # **Import-BetaIdentityProfiles**
 > ObjectImportResult Import-BetaIdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileExportedObject] <PSCustomObject[]><br>
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityProfiles"></a>
+<a id="Get-BetaIdentityProfiles"></a>
 # **Get-BetaIdentityProfiles**
 > IdentityProfile[] Get-BetaIdentityProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Sync-BetaIdentityProfile"></a>
+<a id="Sync-BetaIdentityProfile"></a>
 # **Sync-BetaIdentityProfile**
 > SystemCollectionsHashtable Sync-BetaIdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
@@ -580,7 +580,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaIdentityProfile"></a>
+<a id="Update-BetaIdentityProfile"></a>
 # **Update-BetaIdentityProfile**
 > IdentityProfile Update-BetaIdentityProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>

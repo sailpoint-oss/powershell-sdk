@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.SourceUsagesApi
+# PSSailpoint.PSSailpoint\Api.SourceUsagesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Get-UsagesBySourceId**](SourceUsagesApi.md#Get-UsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
 
 
-<a name="Get-StatusBySourceId"></a>
+<a id="Get-StatusBySourceId"></a>
 # **Get-StatusBySourceId**
 > SourceUsageStatus Get-StatusBySourceId<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-UsagesBySourceId"></a>
+<a id="Get-UsagesBySourceId"></a>
 # **Get-UsagesBySourceId**
 > SourceUsage[] Get-UsagesBySourceId<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>

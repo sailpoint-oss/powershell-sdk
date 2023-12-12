@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.CertificationSummariesApi
+# PSSailpoint.PSSailpoint\Api.CertificationSummariesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Get-IdentitySummary**](CertificationSummariesApi.md#Get-IdentitySummary) | **GET** /certifications/{id}/identity-summaries/{identitySummaryId} | Summary for Identity
 
 
-<a name="Get-IdentityAccessSummaries"></a>
+<a id="Get-IdentityAccessSummaries"></a>
 # **Get-IdentityAccessSummaries**
 > AccessSummary[] Get-IdentityAccessSummaries<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentityDecisionSummary"></a>
+<a id="Get-IdentityDecisionSummary"></a>
 # **Get-IdentityDecisionSummary**
 > IdentityCertDecisionSummary Get-IdentityDecisionSummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentitySummaries"></a>
+<a id="Get-IdentitySummaries"></a>
 # **Get-IdentitySummaries**
 > CertificationIdentitySummary[] Get-IdentitySummaries<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-IdentitySummary"></a>
+<a id="Get-IdentitySummary"></a>
 # **Get-IdentitySummary**
 > CertificationIdentitySummary Get-IdentitySummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

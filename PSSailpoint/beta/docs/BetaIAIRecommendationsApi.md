@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIAIRecommendationsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIAIRecommendationsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Update-BetaRecommendationsConfig**](BetaIAIRecommendationsApi.md#Update-BetaRecommendationsConfig) | **PUT** /recommendations/config | Update certification recommendation config values
 
 
-<a name="Get-BetaRecommendations"></a>
+<a id="Get-BetaRecommendations"></a>
 # **Get-BetaRecommendations**
 > RecommendationResponseDto Get-BetaRecommendations<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RecommendationRequestDto] <PSCustomObject><br>
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRecommendationsConfig"></a>
+<a id="Get-BetaRecommendationsConfig"></a>
 # **Get-BetaRecommendationsConfig**
 > RecommendationConfigDto Get-BetaRecommendationsConfig<br>
 
@@ -109,7 +109,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaRecommendationsConfig"></a>
+<a id="Update-BetaRecommendationsConfig"></a>
 # **Update-BetaRecommendationsConfig**
 > RecommendationConfigDto Update-BetaRecommendationsConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RecommendationConfigDto] <PSCustomObject><br>

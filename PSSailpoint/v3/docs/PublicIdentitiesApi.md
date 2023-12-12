@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.PublicIdentitiesApi
+# PSSailpoint.PSSailpoint\Api.PublicIdentitiesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-PublicIdentities**](PublicIdentitiesApi.md#Get-PublicIdentities) | **GET** /public-identities | Get a list of public identities
 
 
-<a name="Get-PublicIdentities"></a>
+<a id="Get-PublicIdentities"></a>
 # **Get-PublicIdentities**
 > PublicIdentity[] Get-PublicIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>

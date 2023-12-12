@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaLifecycleStatesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaLifecycleStatesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Update-BetaLifecycleStates**](BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 
 
-<a name="Get-BetaLifecycleStates"></a>
+<a id="Get-BetaLifecycleStates"></a>
 # **Get-BetaLifecycleStates**
 > LifecycleState Get-BetaLifecycleStates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaLifecycleStates"></a>
+<a id="Update-BetaLifecycleStates"></a>
 # **Update-BetaLifecycleStates**
 > LifecycleState Update-BetaLifecycleStates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>

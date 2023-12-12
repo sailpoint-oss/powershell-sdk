@@ -14,8 +14,6 @@ No summary available.
 
 ConnectorRuleUpdateRequest
 
-.PARAMETER Id
-the ID of the rule to update
 .PARAMETER Name
 the name of the rule
 .PARAMETER Description
@@ -28,6 +26,8 @@ No description available.
 No description available.
 .PARAMETER Attributes
 a map of string to objects
+.PARAMETER Id
+the ID of the rule to update
 .OUTPUTS
 
 ConnectorRuleUpdateRequest<PSCustomObject>
@@ -38,35 +38,31 @@ function Initialize-BetaConnectorRuleUpdateRequest {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
+        ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("BuildMap", "ConnectorAfterCreate", "ConnectorAfterDelete", "ConnectorAfterModify", "ConnectorBeforeCreate", "ConnectorBeforeDelete", "ConnectorBeforeModify", "JDBCBuildMap", "JDBCOperationProvisioning", "JDBCProvision", "PeopleSoftHRMSBuildMap", "PeopleSoftHRMSOperationProvisioning", "PeopleSoftHRMSProvision", "RACFPermissionCustomization", "SAPBuildMap", "SapHrManagerRule", "SapHrOperationProvisioning", "SapHrProvision", "SuccessFactorsOperationProvisioning", "WebServiceAfterOperationRule", "WebServiceBeforeOperationRule")]
         [String]
         ${Type},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Signature},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${SourceCode},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Attributes}
+        ${Attributes},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaConnectorRuleUpdateRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if ($null -eq $Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
 
         if ($null -eq $Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
@@ -88,15 +84,19 @@ function Initialize-BetaConnectorRuleUpdateRequest {
             throw "invalid value for 'SourceCode', 'SourceCode' cannot be null."
         }
 
+        if ($null -eq $Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
             "type" = ${Type}
             "signature" = ${Signature}
             "sourceCode" = ${SourceCode}
             "attributes" = ${Attributes}
+            "id" = ${Id}
         }
 
 
@@ -134,7 +134,7 @@ function ConvertFrom-BetaJsonToConnectorRuleUpdateRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaConnectorRuleUpdateRequest
-        $AllProperties = ("id", "name", "description", "type", "signature", "sourceCode", "attributes")
+        $AllProperties = ("name", "description", "type", "signature", "sourceCode", "attributes", "id")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -142,13 +142,7 @@ function ConvertFrom-BetaJsonToConnectorRuleUpdateRequest {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
@@ -167,6 +161,12 @@ function ConvertFrom-BetaJsonToConnectorRuleUpdateRequest {
             throw "Error! JSON cannot be serialized due to the required property 'sourceCode' missing."
         } else {
             $SourceCode = $JsonParameters.PSobject.Properties["sourceCode"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -188,13 +188,13 @@ function ConvertFrom-BetaJsonToConnectorRuleUpdateRequest {
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
             "type" = ${Type}
             "signature" = ${Signature}
             "sourceCode" = ${SourceCode}
             "attributes" = ${Attributes}
+            "id" = ${Id}
         }
 
         return $PSO

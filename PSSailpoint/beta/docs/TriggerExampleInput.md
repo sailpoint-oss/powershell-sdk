@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessRequestId** | **String** | The unique ID of the access request. | 
-**RequestedFor** | [**AccessRequestPostApprovalRequestedFor**](AccessRequestPostApprovalRequestedFor.md) |  | 
+**RequestedFor** | [**AccessItemRequestedForDto**](AccessItemRequestedForDto.md) |  | 
 **RequestedItems** | [**AccessRequestPreApprovalRequestedItemsInner[]**](AccessRequestPreApprovalRequestedItemsInner.md) | Details of the access items being requested. | 
-**RequestedBy** | [**AccessRequestPostApprovalRequestedBy**](AccessRequestPostApprovalRequestedBy.md) |  | 
+**RequestedBy** | [**AccessItemRequesterDto**](AccessItemRequesterDto.md) |  | 
 **RequestedItemsStatus** | [**AccessRequestPostApprovalRequestedItemsStatusInner[]**](AccessRequestPostApprovalRequestedItemsStatusInner.md) | Details on the outcome of each access item. | 
 **Source** | [**AccountUncorrelatedSource**](AccountUncorrelatedSource.md) |  | 
 **Status** | [**SystemCollectionsHashtable**](.md) | The overall status of the collection. | 
@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 **IdentityId** | **String** | The ID of the identity that is correlated with this account. | 
 **IdentityName** | **String** | The name of the identity that is correlated with this account. | 
 **Name** | **String** | The user friendly name of the source. | 
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of the object that initiated this event. | 
+**Type** | **String** | The connection type of the source. | 
 **Created** | **System.DateTime** | The date and time the status change occurred. | 
 **Connector** | **String** | The connector type used to connect to the source. | 
 **Actor** | [**SourceUpdatedActor**](SourceUpdatedActor.md) |  | 
@@ -97,7 +97,7 @@ $TriggerExampleInput = Initialize-PSSailpointBetaTriggerExampleInput  -AccessReq
  -IdentityId ee769173319b41d19ccec6c235423237b `
  -IdentityName john.doe `
  -Name Corporate Active Directory `
- -Type CLUSTER `
+ -Type DIRECT_CONNECT `
  -Created 2020-06-29T22:01:50.474Z `
  -Connector active-directory `
  -Actor null `

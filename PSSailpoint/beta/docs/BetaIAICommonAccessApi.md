@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIAICommonAccessApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIAICommonAccessApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Update-BetaCommonAccessStatusInBulk**](BetaIAICommonAccessApi.md#Update-BetaCommonAccessStatusInBulk) | **POST** /common-access/update-status | Bulk update common access status
 
 
-<a name="New-BetaCommonAccess"></a>
+<a id="New-BetaCommonAccess"></a>
 # **New-BetaCommonAccess**
 > CommonAccessItemResponse New-BetaCommonAccess<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommonAccessItemRequest] <PSCustomObject><br>
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaCommonAccess"></a>
+<a id="Get-BetaCommonAccess"></a>
 # **Get-BetaCommonAccess**
 > CommonAccessResponse[] Get-BetaCommonAccess<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaCommonAccessStatusInBulk"></a>
+<a id="Update-BetaCommonAccessStatusInBulk"></a>
 # **Update-BetaCommonAccessStatusInBulk**
 > SystemCollectionsHashtable Update-BetaCommonAccessStatusInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommonAccessIDStatus] <PSCustomObject[]><br>

@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaSourceUsagesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaSourceUsagesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Get-BetaUsagesBySourceId**](BetaSourceUsagesApi.md#Get-BetaUsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
 
 
-<a name="Get-BetaStatusBySourceId"></a>
+<a id="Get-BetaStatusBySourceId"></a>
 # **Get-BetaStatusBySourceId**
 > SourceUsageStatus Get-BetaStatusBySourceId<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaUsagesBySourceId"></a>
+<a id="Get-BetaUsagesBySourceId"></a>
 # **Get-BetaUsagesBySourceId**
 > SourceUsage[] Get-BetaUsagesBySourceId<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>

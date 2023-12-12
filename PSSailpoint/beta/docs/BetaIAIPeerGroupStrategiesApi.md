@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIAIPeerGroupStrategiesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIAIPeerGroupStrategiesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-BetaPeerGroupOutliers**](BetaIAIPeerGroupStrategiesApi.md#Get-BetaPeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
 
 
-<a name="Get-BetaPeerGroupOutliers"></a>
+<a id="Get-BetaPeerGroupOutliers"></a>
 # **Get-BetaPeerGroupOutliers**
 > PeerGroupMember[] Get-BetaPeerGroupOutliers<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Strategy] <String><br>

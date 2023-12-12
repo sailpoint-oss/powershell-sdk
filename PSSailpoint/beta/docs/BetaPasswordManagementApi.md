@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaPasswordManagementApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaPasswordManagementApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Set-BetaIdentityPassword**](BetaPasswordManagementApi.md#Set-BetaIdentityPassword) | **POST** /set-password | Set Identity&#39;s Password
 
 
-<a name="New-BetaDigitToken"></a>
+<a id="New-BetaDigitToken"></a>
 # **New-BetaDigitToken**
 > PasswordDigitToken New-BetaDigitToken<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordDigitTokenReset] <PSCustomObject><br>
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityPasswordChangeStatus"></a>
+<a id="Get-BetaIdentityPasswordChangeStatus"></a>
 # **Get-BetaIdentityPasswordChangeStatus**
 > PasswordStatus Get-BetaIdentityPasswordChangeStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Search-BetaPasswordInfo"></a>
+<a id="Search-BetaPasswordInfo"></a>
 # **Search-BetaPasswordInfo**
 > PasswordInfo Search-BetaPasswordInfo<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordInfoQueryDTO] <PSCustomObject><br>
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaIdentityPassword"></a>
+<a id="Set-BetaIdentityPassword"></a>
 # **Set-BetaIdentityPassword**
 > PasswordChangeResponse Set-BetaIdentityPassword<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordChangeRequest] <PSCustomObject><br>

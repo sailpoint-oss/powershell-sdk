@@ -14,10 +14,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-The saved search ID. 
-.PARAMETER Owner
-No description available.
 .PARAMETER Name
 The name of the saved search. 
 .PARAMETER Description
@@ -40,6 +36,10 @@ The fields to be searched against in a multi-field query.
 The fields to be used to sort the search results. 
 .PARAMETER Filters
 No description available.
+.PARAMETER Id
+The saved search ID. 
+.PARAMETER Owner
+No description available.
 .OUTPUTS
 
 SavedSearch<PSCustomObject>
@@ -50,43 +50,43 @@ function Initialize-SavedSearch {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Owner},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Name},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Public} = $false,
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Indices},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Columns},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Query},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Fields},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Sort},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Filters},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Filters}
+        ${Owner}
     )
 
     Process {
@@ -103,8 +103,6 @@ function Initialize-SavedSearch {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "owner" = ${Owner}
             "name" = ${Name}
             "description" = ${Description}
             "public" = ${Public}
@@ -116,6 +114,8 @@ function Initialize-SavedSearch {
             "fields" = ${Fields}
             "sort" = ${Sort}
             "filters" = ${Filters}
+            "id" = ${Id}
+            "owner" = ${Owner}
         }
 
 
@@ -153,7 +153,7 @@ function ConvertFrom-JsonToSavedSearch {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SavedSearch
-        $AllProperties = ("id", "owner", "name", "description", "public", "created", "modified", "indices", "columns", "query", "fields", "sort", "filters")
+        $AllProperties = ("name", "description", "public", "created", "modified", "indices", "columns", "query", "fields", "sort", "filters", "id", "owner")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -174,18 +174,6 @@ function ConvertFrom-JsonToSavedSearch {
             throw "Error! JSON cannot be serialized due to the required property 'query' missing."
         } else {
             $Query = $JsonParameters.PSobject.Properties["query"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
-            $Owner = $null
-        } else {
-            $Owner = $JsonParameters.PSobject.Properties["owner"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -242,9 +230,19 @@ function ConvertFrom-JsonToSavedSearch {
             $Filters = $JsonParameters.PSobject.Properties["filters"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
+            $Owner = $null
+        } else {
+            $Owner = $JsonParameters.PSobject.Properties["owner"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "owner" = ${Owner}
             "name" = ${Name}
             "description" = ${Description}
             "public" = ${Public}
@@ -256,6 +254,8 @@ function ConvertFrom-JsonToSavedSearch {
             "fields" = ${Fields}
             "sort" = ${Sort}
             "filters" = ${Filters}
+            "id" = ${Id}
+            "owner" = ${Owner}
         }
 
         return $PSO

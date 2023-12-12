@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaAccessRequestsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaAccessRequestsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Set-BetaAccessRequestConfig**](BetaAccessRequestsApi.md#Set-BetaAccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 
 
-<a name="Suspend-BetaAccessRequest"></a>
+<a id="Suspend-BetaAccessRequest"></a>
 # **Suspend-BetaAccessRequest**
 > SystemCollectionsHashtable Suspend-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CancelAccessRequest] <PSCustomObject><br>
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Close-BetaAccessRequest"></a>
+<a id="Close-BetaAccessRequest"></a>
 # **Close-BetaAccessRequest**
 > SystemCollectionsHashtable Close-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CloseAccessRequest] <PSCustomObject><br>
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaAccessRequest"></a>
+<a id="New-BetaAccessRequest"></a>
 # **New-BetaAccessRequest**
 > SystemCollectionsHashtable New-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequest] <PSCustomObject><br>
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessRequestConfig"></a>
+<a id="Get-BetaAccessRequestConfig"></a>
 # **Get-BetaAccessRequestConfig**
 > AccessRequestConfig Get-BetaAccessRequestConfig<br>
 
@@ -212,7 +212,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessRequestStatus"></a>
+<a id="Get-BetaAccessRequestStatus"></a>
 # **Get-BetaAccessRequestStatus**
 > RequestedItemStatus[] Get-BetaAccessRequestStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestedFor] <String><br>
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Set-BetaAccessRequestConfig"></a>
+<a id="Set-BetaAccessRequestConfig"></a>
 # **Set-BetaAccessRequestConfig**
 > AccessRequestConfig Set-BetaAccessRequestConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequestConfig] <PSCustomObject><br>

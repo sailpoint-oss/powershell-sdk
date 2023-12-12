@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaServiceDeskIntegrationApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaServiceDeskIntegrationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**Update-BetaStatusCheckDetails**](BetaServiceDeskIntegrationApi.md#Update-BetaStatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
 
 
-<a name="New-BetaServiceDeskIntegration"></a>
+<a id="New-BetaServiceDeskIntegration"></a>
 # **New-BetaServiceDeskIntegration**
 > ServiceDeskIntegrationDto New-BetaServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ServiceDeskIntegrationDto] <PSCustomObject><br>
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaServiceDeskIntegration"></a>
+<a id="Remove-BetaServiceDeskIntegration"></a>
 # **Remove-BetaServiceDeskIntegration**
 > void Remove-BetaServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -127,7 +127,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaServiceDeskIntegration"></a>
+<a id="Get-BetaServiceDeskIntegration"></a>
 # **Get-BetaServiceDeskIntegration**
 > ServiceDeskIntegrationDto Get-BetaServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaServiceDeskIntegrationList"></a>
+<a id="Get-BetaServiceDeskIntegrationList"></a>
 # **Get-BetaServiceDeskIntegrationList**
 > ServiceDeskIntegrationDto[] Get-BetaServiceDeskIntegrationList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaServiceDeskIntegrationTemplate"></a>
+<a id="Get-BetaServiceDeskIntegrationTemplate"></a>
 # **Get-BetaServiceDeskIntegrationTemplate**
 > ServiceDeskIntegrationTemplateDto Get-BetaServiceDeskIntegrationTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaServiceDeskIntegrationTypes"></a>
+<a id="Get-BetaServiceDeskIntegrationTypes"></a>
 # **Get-BetaServiceDeskIntegrationTypes**
 > ServiceDeskIntegrationTemplateType[] Get-BetaServiceDeskIntegrationTypes<br>
 
@@ -338,7 +338,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaStatusCheckDetails"></a>
+<a id="Get-BetaStatusCheckDetails"></a>
 # **Get-BetaStatusCheckDetails**
 > QueuedCheckConfigDetails Get-BetaStatusCheckDetails<br>
 
@@ -384,7 +384,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaServiceDeskIntegration"></a>
+<a id="Update-BetaServiceDeskIntegration"></a>
 # **Update-BetaServiceDeskIntegration**
 > ServiceDeskIntegrationDto Update-BetaServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaServiceDeskIntegration"></a>
+<a id="Send-BetaServiceDeskIntegration"></a>
 # **Send-BetaServiceDeskIntegration**
 > ServiceDeskIntegrationDto Send-BetaServiceDeskIntegration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaStatusCheckDetails"></a>
+<a id="Update-BetaStatusCheckDetails"></a>
 # **Update-BetaStatusCheckDetails**
 > QueuedCheckConfigDetails Update-BetaStatusCheckDetails<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-QueuedCheckConfigDetails] <PSCustomObject><br>

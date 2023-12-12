@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.RequestableObjectsApi
+# PSSailpoint.PSSailpoint\Api.RequestableObjectsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-RequestableObjects**](RequestableObjectsApi.md#Get-RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
 
 
-<a name="Get-RequestableObjects"></a>
+<a id="Get-RequestableObjects"></a>
 # **Get-RequestableObjects**
 > RequestableObject[] Get-RequestableObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>

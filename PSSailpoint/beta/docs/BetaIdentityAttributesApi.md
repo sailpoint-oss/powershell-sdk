@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIdentityAttributesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIdentityAttributesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Send-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Send-BetaIdentityAttribute) | **PUT** /identity-attributes/{name} | Update Identity Attribute
 
 
-<a name="New-BetaIdentityAttribute"></a>
+<a id="New-BetaIdentityAttribute"></a>
 # **New-BetaIdentityAttribute**
 > IdentityAttribute New-BetaIdentityAttribute<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityAttribute] <PSCustomObject><br>
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaIdentityAttribute"></a>
+<a id="Remove-BetaIdentityAttribute"></a>
 # **Remove-BetaIdentityAttribute**
 > void Remove-BetaIdentityAttribute<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
@@ -115,7 +115,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaIdentityAttributesInBulk"></a>
+<a id="Remove-BetaIdentityAttributesInBulk"></a>
 # **Remove-BetaIdentityAttributesInBulk**
 > void Remove-BetaIdentityAttributesInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityAttributeNames] <PSCustomObject><br>
@@ -166,7 +166,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityAttribute"></a>
+<a id="Get-BetaIdentityAttribute"></a>
 # **Get-BetaIdentityAttribute**
 > IdentityAttribute Get-BetaIdentityAttribute<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityAttributes"></a>
+<a id="Get-BetaIdentityAttributes"></a>
 # **Get-BetaIdentityAttributes**
 > IdentityAttribute[] Get-BetaIdentityAttributes<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeSystem] <System.Nullable[Boolean]><br>
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaIdentityAttribute"></a>
+<a id="Send-BetaIdentityAttribute"></a>
 # **Send-BetaIdentityAttribute**
 > IdentityAttribute Send-BetaIdentityAttribute<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>

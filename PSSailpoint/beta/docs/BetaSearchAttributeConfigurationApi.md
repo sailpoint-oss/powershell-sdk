@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaSearchAttributeConfigurationApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaSearchAttributeConfigurationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Update-BetaSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update the details of a specific extended search attribute in IdentityNow.
 
 
-<a name="New-BetaSearchAttributeConfig"></a>
+<a id="New-BetaSearchAttributeConfig"></a>
 # **New-BetaSearchAttributeConfig**
 > SystemCollectionsHashtable New-BetaSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SearchAttributeConfig] <PSCustomObject><br>
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaSearchAttributeConfig"></a>
+<a id="Remove-BetaSearchAttributeConfig"></a>
 # **Remove-BetaSearchAttributeConfig**
 > void Remove-BetaSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
@@ -113,7 +113,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSearchAttributeConfig"></a>
+<a id="Get-BetaSearchAttributeConfig"></a>
 # **Get-BetaSearchAttributeConfig**
 > SearchAttributeConfig[] Get-BetaSearchAttributeConfig<br>
 
@@ -159,7 +159,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaSingleSearchAttributeConfig"></a>
+<a id="Get-BetaSingleSearchAttributeConfig"></a>
 # **Get-BetaSingleSearchAttributeConfig**
 > SearchAttributeConfig[] Get-BetaSingleSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaSearchAttributeConfig"></a>
+<a id="Update-BetaSearchAttributeConfig"></a>
 # **Update-BetaSearchAttributeConfig**
 > SearchAttributeConfig Update-BetaSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>

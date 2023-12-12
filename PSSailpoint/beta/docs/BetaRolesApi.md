@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaRolesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaRolesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**Update-BetaRole**](BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
 
 
-<a name="Invoke-BetaBulkDeleteRoles"></a>
+<a id="Invoke-BetaBulkDeleteRoles"></a>
 # **Invoke-BetaBulkDeleteRoles**
 > TaskResultDto Invoke-BetaBulkDeleteRoles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleBulkDeleteRequest] <PSCustomObject><br>
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaRole"></a>
+<a id="New-BetaRole"></a>
 # **New-BetaRole**
 > Role New-BetaRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Role] <PSCustomObject><br>
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaRole"></a>
+<a id="Remove-BetaRole"></a>
 # **Remove-BetaRole**
 > void Remove-BetaRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -186,7 +186,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRole"></a>
+<a id="Get-BetaRole"></a>
 # **Get-BetaRole**
 > Role Get-BetaRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoleAssignedIdentities"></a>
+<a id="Get-BetaRoleAssignedIdentities"></a>
 # **Get-BetaRoleAssignedIdentities**
 > RoleIdentity[] Get-BetaRoleAssignedIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaRoles"></a>
+<a id="Get-BetaRoles"></a>
 # **Get-BetaRoles**
 > Role[] Get-BetaRoles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForSubadmin] <String><br>
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaRole"></a>
+<a id="Update-BetaRole"></a>
 # **Update-BetaRole**
 > Role Update-BetaRole<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

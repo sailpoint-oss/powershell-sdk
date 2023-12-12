@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.PasswordConfigurationApi
+# PSSailpoint.PSSailpoint\Api.PasswordConfigurationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Send-PasswordOrgConfig**](PasswordConfigurationApi.md#Send-PasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
 
 
-<a name="New-PasswordOrgConfig"></a>
+<a id="New-PasswordOrgConfig"></a>
 # **New-PasswordOrgConfig**
 > PasswordOrgConfig New-PasswordOrgConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordOrgConfig] <PSCustomObject><br>
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-PasswordOrgConfig"></a>
+<a id="Get-PasswordOrgConfig"></a>
 # **Get-PasswordOrgConfig**
 > PasswordOrgConfig Get-PasswordOrgConfig<br>
 
@@ -106,7 +106,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-PasswordOrgConfig"></a>
+<a id="Send-PasswordOrgConfig"></a>
 # **Send-PasswordOrgConfig**
 > PasswordOrgConfig Send-PasswordOrgConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordOrgConfig] <PSCustomObject><br>

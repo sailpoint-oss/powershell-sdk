@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaNotificationsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaNotificationsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**Send-BetaTestNotification**](BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
 
 
-<a name="New-BetaDomainDkim"></a>
+<a id="New-BetaDomainDkim"></a>
 # **New-BetaDomainDkim**
 > DomainStatusDto New-BetaDomainDkim<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DomainAddress] <PSCustomObject><br>
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaNotificationTemplate"></a>
+<a id="New-BetaNotificationTemplate"></a>
 # **New-BetaNotificationTemplate**
 > TemplateDto New-BetaNotificationTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TemplateDto] <PSCustomObject><br>
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="New-BetaVerifiedFromAddress"></a>
+<a id="New-BetaVerifiedFromAddress"></a>
 # **New-BetaVerifiedFromAddress**
 > EmailStatusDto New-BetaVerifiedFromAddress<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-EmailStatusDto] <PSCustomObject><br>
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaNotificationTemplatesInBulk"></a>
+<a id="Remove-BetaNotificationTemplatesInBulk"></a>
 # **Remove-BetaNotificationTemplatesInBulk**
 > void Remove-BetaNotificationTemplatesInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-TemplateBulkDeleteDto] <PSCustomObject[]><br>
@@ -226,7 +226,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaVerifiedFromAddress"></a>
+<a id="Remove-BetaVerifiedFromAddress"></a>
 # **Remove-BetaVerifiedFromAddress**
 > void Remove-BetaVerifiedFromAddress<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -277,7 +277,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaDkimAttributes"></a>
+<a id="Get-BetaDkimAttributes"></a>
 # **Get-BetaDkimAttributes**
 > DkimAttributes[] Get-BetaDkimAttributes<br>
 
@@ -323,7 +323,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaMailFromAttributes"></a>
+<a id="Get-BetaMailFromAttributes"></a>
 # **Get-BetaMailFromAttributes**
 > MailFromAttributes Get-BetaMailFromAttributes<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaNotificationPreference"></a>
+<a id="Get-BetaNotificationPreference"></a>
 # **Get-BetaNotificationPreference**
 > PreferencesDto Get-BetaNotificationPreference<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Key] <String><br>
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaNotificationTemplate"></a>
+<a id="Get-BetaNotificationTemplate"></a>
 # **Get-BetaNotificationTemplate**
 > TemplateDto[] Get-BetaNotificationTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaNotificationsTemplateContext"></a>
+<a id="Get-BetaNotificationsTemplateContext"></a>
 # **Get-BetaNotificationsTemplateContext**
 > NotificationTemplateContext[] Get-BetaNotificationsTemplateContext<br>
 
@@ -522,7 +522,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaFromAddresses"></a>
+<a id="Get-BetaFromAddresses"></a>
 # **Get-BetaFromAddresses**
 > EmailStatusDto[] Get-BetaFromAddresses<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -585,7 +585,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaNotificationTemplateDefaults"></a>
+<a id="Get-BetaNotificationTemplateDefaults"></a>
 # **Get-BetaNotificationTemplateDefaults**
 > TemplateDtoDefault[] Get-BetaNotificationTemplateDefaults<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaNotificationTemplates"></a>
+<a id="Get-BetaNotificationTemplates"></a>
 # **Get-BetaNotificationTemplates**
 > TemplateDto[] Get-BetaNotificationTemplates<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -699,7 +699,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaMailFromAttributes"></a>
+<a id="Send-BetaMailFromAttributes"></a>
 # **Send-BetaMailFromAttributes**
 > MailFromAttributes Send-BetaMailFromAttributes<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MailFromAttributesDto] <PSCustomObject><br>
@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaNotificationPreference"></a>
+<a id="Send-BetaNotificationPreference"></a>
 # **Send-BetaNotificationPreference**
 > PreferencesDto Send-BetaNotificationPreference<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Key] <String><br>
@@ -804,7 +804,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Send-BetaTestNotification"></a>
+<a id="Send-BetaTestNotification"></a>
 # **Send-BetaTestNotification**
 > void Send-BetaTestNotification<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SendTestNotificationRequestDto] <PSCustomObject><br>

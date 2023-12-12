@@ -21,9 +21,9 @@ The description of the scheduled search.
 .PARAMETER SavedSearchId
 The ID of the saved search that will be executed.
 .PARAMETER Created
-The date the scheduled search was initially created.
+A date-time in ISO-8601 format
 .PARAMETER Modified
-The last date the scheduled search was modified.
+A date-time in ISO-8601 format
 .PARAMETER Schedule
 No description available.
 .PARAMETER Recipients

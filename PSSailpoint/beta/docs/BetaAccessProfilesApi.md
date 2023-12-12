@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaAccessProfilesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaAccessProfilesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**Update-BetaAccessProfile**](BetaAccessProfilesApi.md#Update-BetaAccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
 
 
-<a name="New-BetaAccessProfile"></a>
+<a id="New-BetaAccessProfile"></a>
 # **New-BetaAccessProfile**
 > AccessProfile New-BetaAccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessProfile] <PSCustomObject><br>
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaAccessProfile"></a>
+<a id="Remove-BetaAccessProfile"></a>
 # **Remove-BetaAccessProfile**
 > void Remove-BetaAccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -129,7 +129,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaAccessProfilesInBulk"></a>
+<a id="Remove-BetaAccessProfilesInBulk"></a>
 # **Remove-BetaAccessProfilesInBulk**
 > AccessProfileBulkDeleteResponse Remove-BetaAccessProfilesInBulk<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessProfileBulkDeleteRequest] <PSCustomObject><br>
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessProfile"></a>
+<a id="Get-BetaAccessProfile"></a>
 # **Get-BetaAccessProfile**
 > AccessProfile Get-BetaAccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessProfileEntitlements"></a>
+<a id="Get-BetaAccessProfileEntitlements"></a>
 # **Get-BetaAccessProfileEntitlements**
 > Entitlement[] Get-BetaAccessProfileEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaAccessProfiles"></a>
+<a id="Get-BetaAccessProfiles"></a>
 # **Get-BetaAccessProfiles**
 > AccessProfile[] Get-BetaAccessProfiles<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForSubadmin] <String><br>
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaAccessProfile"></a>
+<a id="Update-BetaAccessProfile"></a>
 # **Update-BetaAccessProfile**
 > AccessProfile Update-BetaAccessProfile<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIdentitiesApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIdentitiesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Sync-BetahronizeAttributesForIdentity**](BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 
 
-<a name="Remove-BetaIdentity"></a>
+<a id="Remove-BetaIdentity"></a>
 # **Remove-BetaIdentity**
 > void Remove-BetaIdentity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -63,7 +63,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentity"></a>
+<a id="Get-BetaIdentity"></a>
 # **Get-BetaIdentity**
 > Identity Get-BetaIdentity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentityOwnershipDetails"></a>
+<a id="Get-BetaIdentityOwnershipDetails"></a>
 # **Get-BetaIdentityOwnershipDetails**
 > IdentityOwnershipAssociationDetails Get-BetaIdentityOwnershipDetails<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaIdentities"></a>
+<a id="Get-BetaIdentities"></a>
 # **Get-BetaIdentities**
 > Identity[] Get-BetaIdentities<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Start-BetaIdentityProcessing"></a>
+<a id="Start-BetaIdentityProcessing"></a>
 # **Start-BetaIdentityProcessing**
 > TaskResultResponse Start-BetaIdentityProcessing<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ProcessIdentitiesRequest] <PSCustomObject><br>
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Sync-BetahronizeAttributesForIdentity"></a>
+<a id="Sync-BetahronizeAttributesForIdentity"></a>
 # **Sync-BetahronizeAttributesForIdentity**
 > IdentitySyncJob Sync-BetahronizeAttributesForIdentity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>

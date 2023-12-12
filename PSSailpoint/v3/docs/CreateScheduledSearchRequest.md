@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **Name** | **String** | The name of the scheduled search.  | [optional] 
 **Description** | **String** | The description of the scheduled search.  | [optional] 
 **SavedSearchId** | **String** | The ID of the saved search that will be executed. | 
-**Created** | **System.DateTime** | The date the scheduled search was initially created. | [optional] [readonly] 
-**Modified** | **System.DateTime** | The last date the scheduled search was modified. | [optional] [readonly] 
+**Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] [readonly] 
+**Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] [readonly] 
 **Schedule** | [**Schedule1**](Schedule1.md) |  | 
 **Recipients** | [**SearchScheduleRecipientsInner[]**](SearchScheduleRecipientsInner.md) | A list of identities that should receive the scheduled search report via email. | 
 **Enabled** | **Boolean** | Indicates if the scheduled search is enabled.  | [optional] [default to $false]
@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 $CreateScheduledSearchRequest = Initialize-PSSailpointCreateScheduledSearchRequest  -Name Daily disabled accounts `
  -Description Daily disabled accounts `
  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
- -Created null `
- -Modified null `
+ -Created 2018-06-25T20:22:28.104Z `
+ -Modified 2018-06-25T20:22:28.104Z `
  -Schedule null `
  -Recipients null `
  -Enabled false `

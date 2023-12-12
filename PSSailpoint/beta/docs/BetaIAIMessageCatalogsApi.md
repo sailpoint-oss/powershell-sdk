@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaIAIMessageCatalogsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaIAIMessageCatalogsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**Get-BetaMessageCatalogs**](BetaIAIMessageCatalogsApi.md#Get-BetaMessageCatalogs) | **GET** /translation-catalogs/{catalog-id} | Get Message catalogs
 
 
-<a name="Get-BetaMessageCatalogs"></a>
+<a id="Get-BetaMessageCatalogs"></a>
 # **Get-BetaMessageCatalogs**
 > MessageCatalogDto[] Get-BetaMessageCatalogs<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CatalogId] <String><br>

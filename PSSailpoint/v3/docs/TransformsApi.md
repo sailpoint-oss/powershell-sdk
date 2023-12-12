@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint/Api.TransformsApi
+# PSSailpoint.PSSailpoint\Api.TransformsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-Transform**](TransformsApi.md#Update-Transform) | **PUT** /transforms/{id} | Update a transform
 
 
-<a name="New-Transform"></a>
+<a id="New-Transform"></a>
 # **New-Transform**
 > TransformRead New-Transform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Transform] <PSCustomObject><br>
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-Transform"></a>
+<a id="Remove-Transform"></a>
 # **Remove-Transform**
 > void Remove-Transform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -121,7 +121,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Transform"></a>
+<a id="Get-Transform"></a>
 # **Get-Transform**
 > TransformRead Get-Transform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-Transforms"></a>
+<a id="Get-Transforms"></a>
 # **Get-Transforms**
 > TransformRead[] Get-Transforms<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-Transform"></a>
+<a id="Update-Transform"></a>
 # **Update-Transform**
 > TransformRead Update-Transform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

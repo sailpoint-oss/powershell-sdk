@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaOrgConfigApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaOrgConfigApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Update-BetaOrgConfig**](BetaOrgConfigApi.md#Update-BetaOrgConfig) | **PATCH** /org-config | Patch an Org configuration property
 
 
-<a name="Get-BetaOrgConfig"></a>
+<a id="Get-BetaOrgConfig"></a>
 # **Get-BetaOrgConfig**
 > OrgConfig Get-BetaOrgConfig<br>
 
@@ -55,7 +55,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaValidTimeZones"></a>
+<a id="Get-BetaValidTimeZones"></a>
 # **Get-BetaValidTimeZones**
 > String[] Get-BetaValidTimeZones<br>
 
@@ -101,7 +101,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaOrgConfig"></a>
+<a id="Update-BetaOrgConfig"></a>
 # **Update-BetaOrgConfig**
 > OrgConfig Update-BetaOrgConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>

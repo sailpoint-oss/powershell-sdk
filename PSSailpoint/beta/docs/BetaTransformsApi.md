@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta/Api.BetaTransformsApi
+# PSSailpointBeta.PSSailpointBeta\Api.BetaTransformsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**Update-BetaTransform**](BetaTransformsApi.md#Update-BetaTransform) | **PUT** /transforms/{id} | Update a transform
 
 
-<a name="New-BetaTransform"></a>
+<a id="New-BetaTransform"></a>
 # **New-BetaTransform**
 > TransformRead New-BetaTransform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Transform] <PSCustomObject><br>
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Remove-BetaTransform"></a>
+<a id="Remove-BetaTransform"></a>
 # **Remove-BetaTransform**
 > void Remove-BetaTransform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -121,7 +121,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTransform"></a>
+<a id="Get-BetaTransform"></a>
 # **Get-BetaTransform**
 > TransformRead Get-BetaTransform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Get-BetaTransforms"></a>
+<a id="Get-BetaTransforms"></a>
 # **Get-BetaTransforms**
 > TransformRead[] Get-BetaTransforms<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Update-BetaTransform"></a>
+<a id="Update-BetaTransform"></a>
 # **Update-BetaTransform**
 > TransformRead Update-BetaTransform<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>

@@ -58,6 +58,7 @@ docs/AccountsApi.md
 docs/AccountsAsyncResult.md
 docs/AccountsExportReportArguments.md
 docs/ActivateCampaignOptions.md
+docs/ActivityInsights.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
 docs/AggregationResult.md
@@ -588,6 +589,7 @@ src/PSSailpoint/Model/AccountUsage.ps1
 src/PSSailpoint/Model/AccountsAsyncResult.ps1
 src/PSSailpoint/Model/AccountsExportReportArguments.ps1
 src/PSSailpoint/Model/ActivateCampaignOptions.ps1
+src/PSSailpoint/Model/ActivityInsights.ps1
 src/PSSailpoint/Model/AdminReviewReassign.ps1
 src/PSSailpoint/Model/AdminReviewReassignReassignTo.ps1
 src/PSSailpoint/Model/AggregationResult.ps1
@@ -1092,6 +1094,7 @@ tests/Model/AccountUsage.Tests.ps1
 tests/Model/AccountsAsyncResult.Tests.ps1
 tests/Model/AccountsExportReportArguments.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
+tests/Model/ActivityInsights.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
 tests/Model/AggregationResult.Tests.ps1

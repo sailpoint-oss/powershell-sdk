@@ -30,6 +30,8 @@ The account name
 When the account was created
 .PARAMETER Modified
 When the account was last modified
+.PARAMETER ActivityInsights
+No description available.
 .OUTPUTS
 
 ReviewableEntitlementAccount<PSCustomObject>
@@ -62,7 +64,10 @@ function Initialize-ReviewableEntitlementAccount {
         ${Created},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${Modified}
+        ${Modified},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ActivityInsights}
     )
 
     Process {
@@ -79,6 +84,7 @@ function Initialize-ReviewableEntitlementAccount {
             "name" = ${Name}
             "created" = ${Created}
             "modified" = ${Modified}
+            "activityInsights" = ${ActivityInsights}
         }
 
 
@@ -116,7 +122,7 @@ function ConvertFrom-JsonToReviewableEntitlementAccount {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ReviewableEntitlementAccount
-        $AllProperties = ("nativeIdentity", "disabled", "locked", "type", "id", "name", "created", "modified")
+        $AllProperties = ("nativeIdentity", "disabled", "locked", "type", "id", "name", "created", "modified", "activityInsights")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -171,6 +177,12 @@ function ConvertFrom-JsonToReviewableEntitlementAccount {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "activityInsights"))) { #optional property not found
+            $ActivityInsights = $null
+        } else {
+            $ActivityInsights = $JsonParameters.PSobject.Properties["activityInsights"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "nativeIdentity" = ${NativeIdentity}
             "disabled" = ${Disabled}
@@ -180,6 +192,7 @@ function ConvertFrom-JsonToReviewableEntitlementAccount {
             "name" = ${Name}
             "created" = ${Created}
             "modified" = ${Modified}
+            "activityInsights" = ${ActivityInsights}
         }
 
         return $PSO

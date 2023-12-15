@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Name** | **String** | The account name | [optional] 
 **Created** | **System.DateTime** | When the account was created | [optional] 
 **Modified** | **System.DateTime** | When the account was last modified | [optional] 
+**ActivityInsights** | [**ActivityInsights**](ActivityInsights.md) |  | [optional] 
 
 ## Examples
 
@@ -23,7 +24,8 @@ $ReviewableEntitlementAccount = Initialize-PSSailpointReviewableEntitlementAccou
  -Id 2c9180857182305e0171993737eb29e6 `
  -Name Alison Ferguso `
  -Created 2020-04-20T20:11:05.067Z `
- -Modified 2020-05-20T18:57:16.987Z
+ -Modified 2020-05-20T18:57:16.987Z `
+ -ActivityInsights null
 ```
 
 - Convert the resource to JSON

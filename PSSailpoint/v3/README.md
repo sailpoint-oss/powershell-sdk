@@ -370,6 +370,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.AccountsAsyncResult](docs/AccountsAsyncResult.md)
  - [PSSailpoint\Model.AccountsExportReportArguments](docs/AccountsExportReportArguments.md)
  - [PSSailpoint\Model.ActivateCampaignOptions](docs/ActivateCampaignOptions.md)
+ - [PSSailpoint\Model.ActivityInsights](docs/ActivityInsights.md)
  - [PSSailpoint\Model.AdminReviewReassign](docs/AdminReviewReassign.md)
  - [PSSailpoint\Model.AdminReviewReassignReassignTo](docs/AdminReviewReassignReassignTo.md)
  - [PSSailpoint\Model.AggregationResult](docs/AggregationResult.md)

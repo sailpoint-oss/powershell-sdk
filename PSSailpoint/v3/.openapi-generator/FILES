@@ -92,6 +92,7 @@ docs/BaseAccount.md
 docs/BaseCommonDto.md
 docs/BaseDocument.md
 docs/BaseEntitlement.md
+docs/BaseReferenceDto.md
 docs/BeforeProvisioningRuleDto.md
 docs/Bound.md
 docs/BucketAggregation.md
@@ -622,6 +623,7 @@ src/PSSailpoint/Model/BaseAccount.ps1
 src/PSSailpoint/Model/BaseCommonDto.ps1
 src/PSSailpoint/Model/BaseDocument.ps1
 src/PSSailpoint/Model/BaseEntitlement.ps1
+src/PSSailpoint/Model/BaseReferenceDto.ps1
 src/PSSailpoint/Model/BeforeProvisioningRuleDto.ps1
 src/PSSailpoint/Model/Bound.ps1
 src/PSSailpoint/Model/BucketAggregation.ps1
@@ -1127,6 +1129,7 @@ tests/Model/BaseAccount.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseDocument.Tests.ps1
 tests/Model/BaseEntitlement.Tests.ps1
+tests/Model/BaseReferenceDto.Tests.ps1
 tests/Model/BeforeProvisioningRuleDto.Tests.ps1
 tests/Model/Bound.Tests.ps1
 tests/Model/BucketAggregation.Tests.ps1

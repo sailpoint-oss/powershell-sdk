@@ -50,6 +50,10 @@ The unique ID of the account as determined by the account schema
 Indicates if the account has been manually correlated to an identity
 .PARAMETER HasEntitlements
 Indicates if the account has entitlements
+.PARAMETER Identity
+No description available.
+.PARAMETER SourceOwner
+No description available.
 .OUTPUTS
 
 Account<PSCustomObject>
@@ -111,7 +115,13 @@ function Initialize-Account {
         ${ManuallyCorrelated},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [Boolean]
-        ${HasEntitlements}
+        ${HasEntitlements},
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Identity},
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${SourceOwner}
     )
 
     Process {
@@ -186,6 +196,8 @@ function Initialize-Account {
             "uuid" = ${Uuid}
             "manuallyCorrelated" = ${ManuallyCorrelated}
             "hasEntitlements" = ${HasEntitlements}
+            "identity" = ${Identity}
+            "sourceOwner" = ${SourceOwner}
         }
 
 
@@ -223,7 +235,7 @@ function ConvertFrom-JsonToAccount {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Account
-        $AllProperties = ("id", "name", "created", "modified", "sourceId", "sourceName", "identityId", "attributes", "authoritative", "description", "disabled", "locked", "nativeIdentity", "systemAccount", "uncorrelated", "uuid", "manuallyCorrelated", "hasEntitlements")
+        $AllProperties = ("id", "name", "created", "modified", "sourceId", "sourceName", "identityId", "attributes", "authoritative", "description", "disabled", "locked", "nativeIdentity", "systemAccount", "uncorrelated", "uuid", "manuallyCorrelated", "hasEntitlements", "identity", "sourceOwner")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -342,6 +354,18 @@ function ConvertFrom-JsonToAccount {
             $Uuid = $JsonParameters.PSobject.Properties["uuid"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identity"))) { #optional property not found
+            $Identity = $null
+        } else {
+            $Identity = $JsonParameters.PSobject.Properties["identity"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceOwner"))) { #optional property not found
+            $SourceOwner = $null
+        } else {
+            $SourceOwner = $JsonParameters.PSobject.Properties["sourceOwner"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -361,6 +385,8 @@ function ConvertFrom-JsonToAccount {
             "uuid" = ${Uuid}
             "manuallyCorrelated" = ${ManuallyCorrelated}
             "hasEntitlements" = ${HasEntitlements}
+            "identity" = ${Identity}
+            "sourceOwner" = ${SourceOwner}
         }
 
         return $PSO

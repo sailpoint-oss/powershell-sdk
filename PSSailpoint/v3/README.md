@@ -403,6 +403,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.BaseCommonDto](docs/BaseCommonDto.md)
  - [PSSailpoint\Model.BaseDocument](docs/BaseDocument.md)
  - [PSSailpoint\Model.BaseEntitlement](docs/BaseEntitlement.md)
+ - [PSSailpoint\Model.BaseReferenceDto](docs/BaseReferenceDto.md)
  - [PSSailpoint\Model.BeforeProvisioningRuleDto](docs/BeforeProvisioningRuleDto.md)
  - [PSSailpoint\Model.Bound](docs/Bound.md)
  - [PSSailpoint\Model.BucketAggregation](docs/BucketAggregation.md)

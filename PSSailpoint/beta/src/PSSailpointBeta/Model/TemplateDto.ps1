@@ -164,7 +164,7 @@ function ConvertFrom-BetaJsonToTemplateDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaTemplateDto
-        $AllProperties = ("key", "name", "medium", "locale", "subject", "header", "body", "footer", "from", "replyTo", "description", "id", "created", "modified")
+        $AllProperties = ("key", "name", "medium", "locale", "subject", "header", "body", "footer", "from", "replyTo", "description", "id", "created", "modified", "slackTemplate", "teamsTemplate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"

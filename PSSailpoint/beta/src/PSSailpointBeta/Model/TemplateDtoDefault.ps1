@@ -134,7 +134,7 @@ function ConvertFrom-BetaJsonToTemplateDtoDefault {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaTemplateDtoDefault
-        $AllProperties = ("key", "name", "medium", "locale", "subject", "header", "body", "footer", "from", "replyTo", "description")
+        $AllProperties = ("key", "name", "medium", "locale", "subject", "header", "body", "footer", "from", "replyTo", "description", "slackTemplate", "teamsTemplate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"

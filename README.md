@@ -1,175 +1,32 @@
-# PowerShell SDK
+## About the project
 
-## Description
+This repository contains the complete build, with assets, for the SailPoint PowerShell SDK. 
+The PowerShell SDK allows you to use PowerShell to interact with the SailPoint APIs and other resources to customize and extend your SailPoint platform. 
 
-A PowerShell Module for accessing the SailPoint IdentityNow REST API's.
+## Documentation 
 
-## Installation
-
-> This module requires PowerShell version 6.2 or greater.
-
-In order to read the yaml configuration file you will need to install the PSYaml Module.
-
-```powershell
-Install-Module -Name PSYaml -RequiredVersion 1.0.2
-```
-
-Install the main module.
-
-```powershell
-Install-Module -Name PSSailpoint
-```
-
-## Proxy configuration
-
-To use a proxy server, add the following configuration to your script.
-
-```powershell
-$Proxy = New-Object System.Net.WebProxy("https://test.proxy.com:8080")
-
-Set-DefaultConfiguration -Proxy $Proxy
-```
-
-## Create a configuration file or save your configuration as environment variables
-
-You can create a local configuration file using the [CLI tool](https://github.com/sailpoint-oss/sailpoint-cli#configuration) or you can store your configuration in environment variables
-
-* SAIL_BASE_URL
-* SAIL_CLIENT_ID
-* SAIL_CLIENT_SECRET
+To get started with the PowerShell SDK and learn about its various functionalities, refer to the [documentation](https://developer.sailpoint.com/idn/tools/sdk/powershell) on https://developer.sailpoint.com. 
 
 ## Examples
 
-### List Accounts with sourceId `f4e73766efdf4dc6acdeed179606d694`
+In addition to the examples shown in the [documentation](https://developer.sailpoint.com/idn/tools/sdk/powershell), you can find more uses of the PowerShell SDK in the [examples](./example/).
 
-```powershell
-$Limit = 250
-$Offset = 0
-$Count = $true
-$Filters = 'sourceId eq "f4e73766efdf4dc6acdeed179606d694"'
+## Contributing 
 
-# Accounts List
-try {
-    
-    Get-Accounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
+The SailPoint Developer Relations Team is always actively working to improve the SailPoint PowerShell SDK to make it as useful as possible to the SailPoint Developer Community. 
+This means adding and maintaining new resources and functionalities for the SDK.
+The most valuable resource of all, however, is the community itself! 
+We greatly appreciate any input, feedback, and direct contributions you can provide to the PowerShell SDK, big or small. 
 
-} catch {
-    Write-Host ("Exception occurred when calling Get-Accounts: {0}" -f $_.ErrorDetails)
-    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
-}
-```
+Refer to our [contribution guidelines](./CONTRIBUTING.md) to learn more about the different ways you can contribute to the SDK. 
 
----
+Before you contribute, you [must sign our CLA](https://cla-assistant.io/sailpoint-oss/developer.sailpoint.com).
 
-### Search IdentityNow for all Identities
+## License
 
-```powershell
-$Json = @"
-{
-	"indices": [
-		"identities"
-	],
-	"query": {
-		"query": "*",
-		"fields": [
-		"name"
-		]
-	}
-	}
-"@
+Distributed under the MIT License. Refer to [the license](./LICENSE) for more information.
 
-$Search = ConvertFrom-JsonToSearch -Json $Json
+## Code of Conduct
 
-try {
-    Search-Post -Search $Search
-} catch {
-    Write-Host ("Exception occurred when calling Search-Post: {0}" -f $_.ErrorDetails)
-    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
-}
-```
+We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community. Read our [code of conduct](./CODE_OF_CONDUCT.md) to learn more.
 
----
-
-### Create a new Lookup transform
-
-```powershell
-# Create transform
-$JSON = @"
-{
-    "name": "New Transform",
-    "type": "lookup",
-    "attributes" : {
-        "table" : {
-            "USA": "Americas",
-            "FRA": "EMEA",
-            "AUS": "APAC",
-            "default": "Unknown Region"
-        }
-    }
-}
-"@
-
-$Transform = ConvertFrom-JsonToTransform -Json $JSON
-
- try {
-    New-Transform -Transform $Transform
-} catch {
-    Write-Host ("Exception occurred when calling New-Transform: {0}" -f $_.ErrorDetails)
-    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
-}
-```
-
----
-
-### Get a list of Accounts with pagination
-
-```powershell
-
-$Parameters = @{
-    "Filters" = 'name co "Andrew"'
-}
-
-# Accounts List
-try {
-
-    Invoke-Paginate -Function "Get-Accounts" -Increment 250 -Limit 1000 -InitialOffset 0 -Parameters $Parameters
-
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-Paginate: {0}" -f $_.ErrorDetails)
-    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
-}
-```
-
----
-
-### Get a list of Identities using search with pagination
-
-```powershell
-$JSON = @"
-{
-	"indices": [
-		"identities"
-	],
-	"query": {
-		"query": "*",
-		"fields": [
-		"name"
-		]
-	},
-	"sort": [
-		"-displayName"
-	]
-	}
-"@
-
-$Search = ConvertFrom-JsonToSearch -Json $JSON
-
-try {
-
-    Invoke-PaginateSearch -Increment 50 -Limit 10000 -Search $Search
-
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-PaginateSearch: {0}" -f $_.ErrorDetails)
-    Write-Host ("Response headers: {0}" -f $_.Exception.Response.Headers)
-}
-```

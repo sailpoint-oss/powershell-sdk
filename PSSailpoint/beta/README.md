@@ -1053,6 +1053,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ReviewReassign](docs/ReviewReassign.md)
  - [PSSailpointBeta\Model.Reviewer](docs/Reviewer.md)
  - [PSSailpointBeta\Model.Revocability](docs/Revocability.md)
+ - [PSSailpointBeta\Model.RevocabilityForRole](docs/RevocabilityForRole.md)
  - [PSSailpointBeta\Model.RightPad](docs/RightPad.md)
  - [PSSailpointBeta\Model.Role](docs/Role.md)
  - [PSSailpointBeta\Model.RoleAssignmentSourceType](docs/RoleAssignmentSourceType.md)

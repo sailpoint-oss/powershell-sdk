@@ -370,6 +370,7 @@ docs/ReviewableEntitlementAccount.md
 docs/ReviewableRole.md
 docs/Reviewer.md
 docs/Revocability.md
+docs/RevocabilityForRole.md
 docs/RightPad.md
 docs/Role.md
 docs/RoleAssignmentSourceType.md
@@ -883,6 +884,7 @@ src/PSSailpoint/Model/ReviewableEntitlementAccount.ps1
 src/PSSailpoint/Model/ReviewableRole.ps1
 src/PSSailpoint/Model/Reviewer.ps1
 src/PSSailpoint/Model/Revocability.ps1
+src/PSSailpoint/Model/RevocabilityForRole.ps1
 src/PSSailpoint/Model/RightPad.ps1
 src/PSSailpoint/Model/Role.ps1
 src/PSSailpoint/Model/RoleAssignmentSourceType.ps1
@@ -1389,6 +1391,7 @@ tests/Model/ReviewableEntitlementAccount.Tests.ps1
 tests/Model/ReviewableRole.Tests.ps1
 tests/Model/Reviewer.Tests.ps1
 tests/Model/Revocability.Tests.ps1
+tests/Model/RevocabilityForRole.Tests.ps1
 tests/Model/RightPad.Tests.ps1
 tests/Model/Role.Tests.ps1
 tests/Model/RoleAssignmentSourceType.Tests.ps1

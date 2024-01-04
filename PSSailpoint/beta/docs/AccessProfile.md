@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **Description** | **String** | Information about the Access Profile | [optional] 
 **Created** | **System.DateTime** | Date the Access Profile was created | [optional] [readonly] 
 **Modified** | **System.DateTime** | Date the Access Profile was last modified. | [optional] [readonly] 
-**Enabled** | **Boolean** | Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement. | [optional] 
+**Enabled** | **Boolean** | Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement. | [optional] [default to $true]
 **Owner** | [**OwnerReference**](OwnerReference.md) |  | 
 **Source** | [**AccessProfileSourceRef**](AccessProfileSourceRef.md) |  | 
 **Entitlements** | [**EntitlementRef[]**](EntitlementRef.md) | A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement. | [optional] 
-**Requestable** | **Boolean** | Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value  **false** in this field results in a 400 error. | [optional] 
+**Requestable** | **Boolean** | Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value  **false** in this field results in a 400 error. | [optional] [default to $true]
 **AccessRequestConfig** | [**Requestability**](Requestability.md) |  | [optional] 
 **RevocationRequestConfig** | [**Revocability**](Revocability.md) |  | [optional] 
 **Segments** | **String[]** | List of IDs of segments, if any, to which this Access Profile is assigned. | [optional] 

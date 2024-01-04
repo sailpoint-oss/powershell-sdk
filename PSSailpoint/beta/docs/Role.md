@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Enabled** | **Boolean** | Whether the Role is enabled or not. | [optional] [default to $false]
 **Requestable** | **Boolean** | Whether the Role can be the target of access requests. | [optional] [default to $false]
 **AccessRequestConfig** | [**RequestabilityForRole**](RequestabilityForRole.md) |  | [optional] 
-**RevocationRequestConfig** | [**Revocability**](Revocability.md) |  | [optional] 
+**RevocationRequestConfig** | [**RevocabilityForRole**](RevocabilityForRole.md) |  | [optional] 
 **Segments** | **String[]** | List of IDs of segments, if any, to which this Role is assigned. | [optional] 
 
 ## Examples

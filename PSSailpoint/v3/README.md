@@ -663,6 +663,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ReviewableRole](docs/ReviewableRole.md)
  - [PSSailpoint\Model.Reviewer](docs/Reviewer.md)
  - [PSSailpoint\Model.Revocability](docs/Revocability.md)
+ - [PSSailpoint\Model.RevocabilityForRole](docs/RevocabilityForRole.md)
  - [PSSailpoint\Model.RightPad](docs/RightPad.md)
  - [PSSailpoint\Model.Role](docs/Role.md)
  - [PSSailpoint\Model.RoleAssignmentSourceType](docs/RoleAssignmentSourceType.md)

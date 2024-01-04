@@ -49,10 +49,9 @@ $RoleMembershipSelector = Initialize-RoleMembershipSelector -Type "STANDARD" -Cr
 $ApprovalSchemeForRole = Initialize-ApprovalSchemeForRole -ApproverType "OWNER" -ApproverId "46c79819-a69f-49a2-becb-12c971ae66c6"
 $RequestabilityForRole = Initialize-RequestabilityForRole -CommentsRequired $true -DenialCommentsRequired $true -ApprovalSchemes $ApprovalSchemeForRole
 
-$AccessProfileApprovalScheme = Initialize-AccessProfileApprovalScheme -ApproverType "APP_OWNER" -ApproverId "46c79819-a69f-49a2-becb-12c971ae66c6"
-$Revocability = Initialize-Revocability -CommentsRequired $false -DenialCommentsRequired $false -ApprovalSchemes $AccessProfileApprovalScheme
+$RevocabilityForRole = Initialize-RevocabilityForRole -CommentsRequired $false -DenialCommentsRequired $false -ApprovalSchemes $ApprovalSchemeForRole
 
-$Role = Initialize-Role -Id "2c918086749d78830174a1a40e121518" -Name "Role 2567" -Created (Get-Date) -Modified (Get-Date) -Description "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor." -Owner $OwnerReference -AccessProfiles $AccessProfileRef -Membership $RoleMembershipSelector -LegacyMembershipInfo @{ key_example =  } -Enabled $true -Requestable $true -AccessRequestConfig $RequestabilityForRole -RevocationRequestConfig $Revocability -Segments "MySegments" # Role | 
+$Role = Initialize-Role -Id "2c918086749d78830174a1a40e121518" -Name "Role 2567" -Created (Get-Date) -Modified (Get-Date) -Description "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor." -Owner $OwnerReference -AccessProfiles $AccessProfileRef -Membership $RoleMembershipSelector -LegacyMembershipInfo @{ key_example =  } -Enabled $true -Requestable $true -AccessRequestConfig $RequestabilityForRole -RevocationRequestConfig $RevocabilityForRole -Segments "MySegments" # Role | 
 
 # Create a Role
 try {

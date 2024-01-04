@@ -19,13 +19,13 @@ Whether the requester of the containing object must provide comments justifying 
 .PARAMETER DenialCommentsRequired
 Whether an approver must provide comments when denying the request
 .PARAMETER ApprovalSchemes
-List describing the steps in approving the request
+List describing the steps in approving the revocation request
 .OUTPUTS
 
-Requestability<PSCustomObject>
+RevocabilityForRole<PSCustomObject>
 #>
 
-function Initialize-BetaRequestability {
+function Initialize-BetaRevocabilityForRole {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -40,7 +40,7 @@ function Initialize-BetaRequestability {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaRequestability' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaRevocabilityForRole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -58,11 +58,11 @@ function Initialize-BetaRequestability {
 <#
 .SYNOPSIS
 
-Convert from JSON to Requestability<PSCustomObject>
+Convert from JSON to RevocabilityForRole<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Requestability<PSCustomObject>
+Convert from JSON to RevocabilityForRole<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,21 +70,21 @@ Json object
 
 .OUTPUTS
 
-Requestability<PSCustomObject>
+RevocabilityForRole<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToRequestability {
+function ConvertFrom-BetaJsonToRevocabilityForRole {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaRequestability' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaRevocabilityForRole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaRequestability
+        # check if Json contains properties not defined in BetaRevocabilityForRole
         $AllProperties = ("commentsRequired", "denialCommentsRequired", "approvalSchemes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

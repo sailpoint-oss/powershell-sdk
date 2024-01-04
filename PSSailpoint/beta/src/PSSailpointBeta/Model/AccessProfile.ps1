@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Access Profile
 
 .PARAMETER Id
 The ID of the Access Profile
@@ -67,7 +67,7 @@ function Initialize-BetaAccessProfile {
         ${Modified},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Enabled},
+        ${Enabled} = $true,
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
@@ -79,7 +79,7 @@ function Initialize-BetaAccessProfile {
         ${Entitlements},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Requestable},
+        ${Requestable} = $true,
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AccessRequestConfig},

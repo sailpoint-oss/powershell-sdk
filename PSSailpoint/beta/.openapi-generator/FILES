@@ -600,6 +600,7 @@ docs/ResourceObjectsResponse.md
 docs/ReviewReassign.md
 docs/Reviewer.md
 docs/Revocability.md
+docs/RevocabilityForRole.md
 docs/RightPad.md
 docs/Role.md
 docs/RoleAssignmentSourceType.md
@@ -1425,6 +1426,7 @@ src/PSSailpointBeta/Model/ResourceObjectsResponse.ps1
 src/PSSailpointBeta/Model/ReviewReassign.ps1
 src/PSSailpointBeta/Model/Reviewer.ps1
 src/PSSailpointBeta/Model/Revocability.ps1
+src/PSSailpointBeta/Model/RevocabilityForRole.ps1
 src/PSSailpointBeta/Model/RightPad.ps1
 src/PSSailpointBeta/Model/Role.ps1
 src/PSSailpointBeta/Model/RoleAssignmentSourceType.ps1
@@ -2256,6 +2258,7 @@ tests/Model/ResourceObjectsResponse.Tests.ps1
 tests/Model/ReviewReassign.Tests.ps1
 tests/Model/Reviewer.Tests.ps1
 tests/Model/Revocability.Tests.ps1
+tests/Model/RevocabilityForRole.Tests.ps1
 tests/Model/RightPad.Tests.ps1
 tests/Model/Role.Tests.ps1
 tests/Model/RoleAssignmentSourceType.Tests.ps1

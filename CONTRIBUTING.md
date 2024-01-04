@@ -101,7 +101,7 @@ Someone will then review the pull request and merge it in!
 :::note
 
 Some files in the PowerShell SDK are auto-generated, so you cannot directly make changes to them (your changes would be overwritten). 
-These are the auto-generated files you cannot modify: 
+These are the auto-generated files (found within the 'PSSailpoint' folder) you cannot modify: 
 
 - The 'beta' folder containing the Beta API specifications
 - The 'cc' folder containing the CC API specifications

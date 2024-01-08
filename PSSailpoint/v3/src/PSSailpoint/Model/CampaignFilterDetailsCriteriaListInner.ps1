@@ -31,7 +31,7 @@ function Initialize-CampaignFilterDetailsCriteriaListInner {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("COMPOSITE", "ROLE", "IDENTITY", "IDENTITY_ATTRIBUTE", "ENTITLEMENT", "INVALID_CERTIFIABLE_ENTITY", "ACCESS_PROFILE", "SOURCE", "ACCOUNT", "INVALID_CERTIFIABLE_BUNDLE", "AGGREGATED_ENTITLEMENT")]
+        [ValidateSet("COMPOSITE", "ROLE", "IDENTITY", "IDENTITY_ATTRIBUTE", "ENTITLEMENT", "ACCESS_PROFILE", "SOURCE", "ACCOUNT", "AGGREGATED_ENTITLEMENT")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

@@ -12,7 +12,7 @@ Enum CriteriaType.
 
 .DESCRIPTION
 
-Type of the criteria in the filter.
+Type of the criteria in the filter. The `COMPOSITE` filter can contain multiple filters in an AND/OR relationship.
 #>
 
 enum CriteriaType {
@@ -26,16 +26,12 @@ enum CriteriaType {
     IDENTITY_ATTRIBUTE
     # enum value: "ENTITLEMENT"
     ENTITLEMENT
-    # enum value: "INVALID_CERTIFIABLE_ENTITY"
-    INVALID_CERTIFIABLE_ENTITY
     # enum value: "ACCESS_PROFILE"
     ACCESS_PROFILE
     # enum value: "SOURCE"
     SOURCE
     # enum value: "ACCOUNT"
     ACCOUNT
-    # enum value: "INVALID_CERTIFIABLE_BUNDLE"
-    INVALID_CERTIFIABLE_BUNDLE
     # enum value: "AGGREGATED_ENTITLEMENT"
     AGGREGATED_ENTITLEMENT
 }

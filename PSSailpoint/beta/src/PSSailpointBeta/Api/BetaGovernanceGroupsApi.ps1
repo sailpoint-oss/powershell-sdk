@@ -782,7 +782,7 @@ Patch a Governance Group
 
 .DESCRIPTION
 
-This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+This API updates an existing governance group by ID.  The following fields and objects are patchable:   * name   * description   * owner  A token with API or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
 ID of the Governance Group

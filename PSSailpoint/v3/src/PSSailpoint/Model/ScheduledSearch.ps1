@@ -31,7 +31,7 @@ A list of identities that should receive the scheduled search report via email.
 .PARAMETER Enabled
 Indicates if the scheduled search is enabled. 
 .PARAMETER EmailEmptyResults
-Indicates if email generation should not be suppressed if search returns no results. 
+Indicates if email generation should occur when search returns no results. 
 .PARAMETER DisplayQueryDetails
 Indicates if the generated email should include the query and search results preview (which could include PII). 
 .PARAMETER Id

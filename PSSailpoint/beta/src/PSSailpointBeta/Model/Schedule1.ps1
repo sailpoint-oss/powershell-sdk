@@ -23,7 +23,7 @@ No description available.
 .PARAMETER Expiration
 A date-time in ISO-8601 format
 .PARAMETER TimeZoneId
-The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org's default timezone is used.
+The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org's default timezone is used.
 .OUTPUTS
 
 Schedule1<PSCustomObject>

@@ -3,7 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Public** | **Boolean** | Indicates if the saved search is public.  | [optional] [default to $false]
 **Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **Indices** | [**Index[]**](Index.md) | The names of the Elasticsearch indices in which to search.  | 
@@ -17,8 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchDetail = Initialize-PSSailpointSavedSearchDetail  -Public false `
- -Created 2018-06-25T20:22:28.104Z `
+$SavedSearchDetail = Initialize-PSSailpointSavedSearchDetail  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Indices [identities] `
  -Columns {identity&#x3D;[{field&#x3D;displayName, header&#x3D;Display Name}, {field&#x3D;e-mail, header&#x3D;Work Email}]} `

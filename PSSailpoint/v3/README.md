@@ -237,7 +237,7 @@ Class | Method | HTTP request | Description
 *SavedSearchApi* | [**Remove-SavedSearch**](docs/SavedSearchApi.md#Remove-SavedSearch) | **DELETE** /saved-searches/{id} | Delete document by ID
 *SavedSearchApi* | [**Invoke-ExecuteSavedSearch**](docs/SavedSearchApi.md#Invoke-ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
 *SavedSearchApi* | [**Get-SavedSearch**](docs/SavedSearchApi.md#Get-SavedSearch) | **GET** /saved-searches/{id} | Return saved search by ID
-*SavedSearchApi* | [**Get-SavedSearches**](docs/SavedSearchApi.md#Get-SavedSearches) | **GET** /saved-searches | Return a list of Saved Searches
+*SavedSearchApi* | [**Get-SavedSearches**](docs/SavedSearchApi.md#Get-SavedSearches) | **GET** /saved-searches | A list of Saved Searches
 *SavedSearchApi* | [**Send-SavedSearch**](docs/SavedSearchApi.md#Send-SavedSearch) | **PUT** /saved-searches/{id} | Updates an existing saved search 
 *ScheduledSearchApi* | [**New-ScheduledSearch**](docs/ScheduledSearchApi.md#New-ScheduledSearch) | **POST** /scheduled-searches | Create a new scheduled search
 *ScheduledSearchApi* | [**Remove-ScheduledSearch**](docs/ScheduledSearchApi.md#Remove-ScheduledSearch) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search

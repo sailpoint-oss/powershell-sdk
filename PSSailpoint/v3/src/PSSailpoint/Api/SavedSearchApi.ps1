@@ -346,7 +346,7 @@ function Get-SavedSearch {
 <#
 .SYNOPSIS
 
-Return a list of Saved Searches
+A list of Saved Searches
 
 .DESCRIPTION
 
@@ -362,7 +362,7 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **publiic**: *eq*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*
 
 .PARAMETER WithHttpInfo
 

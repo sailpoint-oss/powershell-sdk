@@ -14,8 +14,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER Public
-Indicates if the saved search is public. 
 .PARAMETER Created
 A date-time in ISO-8601 format
 .PARAMETER Modified
@@ -41,30 +39,27 @@ function Initialize-SavedSearchDetail {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Public} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Indices},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Columns},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Query},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Fields},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Sort},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Filters}
     )
@@ -83,7 +78,6 @@ function Initialize-SavedSearchDetail {
 
 
         $PSO = [PSCustomObject]@{
-            "public" = ${Public}
             "created" = ${Created}
             "modified" = ${Modified}
             "indices" = ${Indices}
@@ -129,7 +123,7 @@ function ConvertFrom-JsonToSavedSearchDetail {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SavedSearchDetail
-        $AllProperties = ("public", "created", "modified", "indices", "columns", "query", "fields", "sort", "filters")
+        $AllProperties = ("created", "modified", "indices", "columns", "query", "fields", "sort", "filters")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -150,12 +144,6 @@ function ConvertFrom-JsonToSavedSearchDetail {
             throw "Error! JSON cannot be serialized due to the required property 'query' missing."
         } else {
             $Query = $JsonParameters.PSobject.Properties["query"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "public"))) { #optional property not found
-            $Public = $null
-        } else {
-            $Public = $JsonParameters.PSobject.Properties["public"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
@@ -195,7 +183,6 @@ function ConvertFrom-JsonToSavedSearchDetail {
         }
 
         $PSO = [PSCustomObject]@{
-            "public" = ${Public}
             "created" = ${Created}
             "modified" = ${Modified}
             "indices" = ${Indices}

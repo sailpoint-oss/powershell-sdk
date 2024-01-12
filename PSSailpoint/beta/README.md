@@ -673,6 +673,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.CloseAccessRequest](docs/CloseAccessRequest.md)
  - [PSSailpointBeta\Model.Comment](docs/Comment.md)
  - [PSSailpointBeta\Model.CommentDto](docs/CommentDto.md)
+ - [PSSailpointBeta\Model.CommentDto1](docs/CommentDto1.md)
  - [PSSailpointBeta\Model.CommentDtoAuthor](docs/CommentDtoAuthor.md)
  - [PSSailpointBeta\Model.CommonAccessIDStatus](docs/CommonAccessIDStatus.md)
  - [PSSailpointBeta\Model.CommonAccessItemAccess](docs/CommonAccessItemAccess.md)

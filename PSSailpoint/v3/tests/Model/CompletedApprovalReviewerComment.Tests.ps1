@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'CompletedApprovalReviewerComment' {
     Context 'CompletedApprovalReviewerComment' {
         It 'Initialize-CompletedApprovalReviewerComment' {
             # a simple test to create an object
-            #$NewObject = Initialize-CompletedApprovalReviewerComment -Comment "TEST_VALUE" -Author "TEST_VALUE" -Created "TEST_VALUE"
+            #$NewObject = Initialize-CompletedApprovalReviewerComment -Comment "TEST_VALUE" -Created "TEST_VALUE"
             #$NewObject | Should -BeOfType CompletedApprovalReviewerComment
             #$NewObject.property | Should -Be 0
         }

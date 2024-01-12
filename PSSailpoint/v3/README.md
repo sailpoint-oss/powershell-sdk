@@ -439,7 +439,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.Column](docs/Column.md)
  - [PSSailpoint\Model.Comment](docs/Comment.md)
  - [PSSailpoint\Model.CommentDto](docs/CommentDto.md)
- - [PSSailpoint\Model.CommentDtoAuthor](docs/CommentDtoAuthor.md)
  - [PSSailpoint\Model.CompletedApproval](docs/CompletedApproval.md)
  - [PSSailpoint\Model.CompletedApprovalReviewerComment](docs/CompletedApprovalReviewerComment.md)
  - [PSSailpoint\Model.CompletedApprovalState](docs/CompletedApprovalState.md)

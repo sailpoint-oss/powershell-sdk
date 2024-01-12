@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | When the request was created. | [optional] 
 **Requester** | [**AccessItemRequester**](AccessItemRequester.md) |  | [optional] 
 **RequestedFor** | [**AccessItemRequestedFor**](AccessItemRequestedFor.md) |  | [optional] 
-**RequesterComment** | [**CommentDto**](CommentDto.md) |  | [optional] 
+**RequesterComment** | [**CommentDto1**](CommentDto1.md) |  | [optional] 
 **SodViolationContext** | [**SodViolationContextCheckCompleted**](SodViolationContextCheckCompleted.md) |  | [optional] 
 **ProvisioningDetails** | [**ProvisioningDetails**](ProvisioningDetails.md) |  | [optional] 
 **PreApprovalTriggerDetails** | [**PreApprovalTriggerDetails**](PreApprovalTriggerDetails.md) |  | [optional] 

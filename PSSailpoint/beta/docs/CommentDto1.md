@@ -1,4 +1,4 @@
-# CommentDto
+# CommentDto1
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommentDto = Initialize-PSSailpointCommentDto  -Comment This is a comment. `
+$CommentDto1 = Initialize-PSSailpointBetaCommentDto1  -Comment This is a comment. `
  -Created 2017-07-11T18:45:37.098Z
 ```
 
 - Convert the resource to JSON
 ```powershell
-$CommentDto | ConvertTo-JSON
+$CommentDto1 | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -16,8 +16,6 @@ The approval's reviewer's comment.
 
 .PARAMETER Comment
 Comment content.
-.PARAMETER Author
-No description available.
 .PARAMETER Created
 Date and time comment was created.
 .OUTPUTS
@@ -32,9 +30,6 @@ function Initialize-CompletedApprovalReviewerComment {
         [String]
         ${Comment},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Author},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created}
     )
@@ -46,7 +41,6 @@ function Initialize-CompletedApprovalReviewerComment {
 
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
-            "author" = ${Author}
             "created" = ${Created}
         }
 
@@ -85,7 +79,7 @@ function ConvertFrom-JsonToCompletedApprovalReviewerComment {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CompletedApprovalReviewerComment
-        $AllProperties = ("comment", "author", "created")
+        $AllProperties = ("comment", "created")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -98,12 +92,6 @@ function ConvertFrom-JsonToCompletedApprovalReviewerComment {
             $Comment = $JsonParameters.PSobject.Properties["comment"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "author"))) { #optional property not found
-            $Author = $null
-        } else {
-            $Author = $JsonParameters.PSobject.Properties["author"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
             $Created = $null
         } else {
@@ -112,7 +100,6 @@ function ConvertFrom-JsonToCompletedApprovalReviewerComment {
 
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
-            "author" = ${Author}
             "created" = ${Created}
         }
 

@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | **String** | Comment content. | [optional] 
-**Author** | [**CommentDtoAuthor**](CommentDtoAuthor.md) |  | [optional] 
 **Created** | **System.DateTime** | Date and time comment was created. | [optional] 
 
 ## Examples
@@ -12,7 +11,6 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $CompletedApprovalReviewerComment = Initialize-PSSailpointCompletedApprovalReviewerComment  -Comment This is a comment. `
- -Author null `
  -Created 2017-07-11T18:45:37.098Z
 ```
 

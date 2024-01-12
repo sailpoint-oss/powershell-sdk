@@ -132,7 +132,6 @@ docs/ClientType.md
 docs/Column.md
 docs/Comment.md
 docs/CommentDto.md
-docs/CommentDtoAuthor.md
 docs/CompletedApproval.md
 docs/CompletedApprovalReviewerComment.md
 docs/CompletedApprovalState.md
@@ -660,7 +659,6 @@ src/PSSailpoint/Model/ClientType.ps1
 src/PSSailpoint/Model/Column.ps1
 src/PSSailpoint/Model/Comment.ps1
 src/PSSailpoint/Model/CommentDto.ps1
-src/PSSailpoint/Model/CommentDtoAuthor.ps1
 src/PSSailpoint/Model/CompletedApproval.ps1
 src/PSSailpoint/Model/CompletedApprovalReviewerComment.ps1
 src/PSSailpoint/Model/CompletedApprovalState.ps1
@@ -1167,7 +1165,6 @@ tests/Model/ClientType.Tests.ps1
 tests/Model/Column.Tests.ps1
 tests/Model/Comment.Tests.ps1
 tests/Model/CommentDto.Tests.ps1
-tests/Model/CommentDtoAuthor.Tests.ps1
 tests/Model/CompletedApproval.Tests.ps1
 tests/Model/CompletedApprovalReviewerComment.Tests.ps1
 tests/Model/CompletedApprovalState.Tests.ps1

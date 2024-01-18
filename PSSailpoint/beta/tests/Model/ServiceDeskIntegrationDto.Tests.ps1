@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaServiceDeskIntegrationDto' {
     Context 'BetaServiceDeskIntegrationDto' {
         It 'Initialize-BetaServiceDeskIntegrationDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaServiceDeskIntegrationDto -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -OwnerRef "TEST_VALUE" -ClusterRef "TEST_VALUE" -Cluster "TEST_VALUE" -ManagedSources "TEST_VALUE" -ProvisioningConfig "TEST_VALUE" -Attributes "TEST_VALUE" -BeforeProvisioningRule "TEST_VALUE"
+            #$NewObject = Initialize-BetaServiceDeskIntegrationDto -Name "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -OwnerRef "TEST_VALUE" -ClusterRef "TEST_VALUE" -Cluster "TEST_VALUE" -ManagedSources "TEST_VALUE" -ProvisioningConfig "TEST_VALUE" -Attributes "TEST_VALUE" -BeforeProvisioningRule "TEST_VALUE"
             #$NewObject | Should -BeOfType ServiceDeskIntegrationDto
             #$NewObject.property | Should -Be 0
         }

@@ -3,28 +3,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | System-generated unique ID of the Object | [optional] [readonly] 
-**Name** | **String** | Name of the Object | 
-**Created** | **System.DateTime** | Creation date of the Object | [optional] [readonly] 
-**Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
-**Description** | **String** | Description of the Service Desk integration. | 
-**Type** | **String** | Service Desk integration types  - ServiceNowSDIM - ServiceNow  | [default to "ServiceNowSDIM"]
+**Name** | **String** | Service Desk integration&#39;s name. The name must be unique. | 
+**Description** | **String** | Service Desk integration&#39;s description. | 
+**Type** | **String** | Service Desk integration types:  - ServiceNowSDIM - ServiceNow  | [default to "ServiceNowSDIM"]
 **OwnerRef** | [**OwnerDto**](OwnerDto.md) |  | [optional] 
 **ClusterRef** | [**SourceClusterDto**](SourceClusterDto.md) |  | [optional] 
-**Cluster** | **String** | ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
+**Cluster** | **String** | Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
 **ManagedSources** | **String[]** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility). | [optional] 
 **ProvisioningConfig** | [**ProvisioningConfig**](ProvisioningConfig.md) |  | [optional] 
-**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | Attributes of the Service Desk integration.  Validation constraints enforced by the implementation. | 
+**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | Service Desk integration&#39;s attributes. Validation constraints enforced by the implementation. | 
 **BeforeProvisioningRule** | [**BeforeProvisioningRuleDto**](BeforeProvisioningRuleDto.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationDto = Initialize-PSSailpointBetaServiceDeskIntegrationDto  -Id id12345 `
- -Name aName `
- -Created 2023-01-03T21:16:22.432Z `
- -Modified 2023-01-03T21:16:22.432Z `
+$ServiceDeskIntegrationDto = Initialize-PSSailpointBetaServiceDeskIntegrationDto  -Name Service Desk Integration Name `
  -Description A very nice Service Desk integration `
  -Type ServiceNowSDIM `
  -OwnerRef null `

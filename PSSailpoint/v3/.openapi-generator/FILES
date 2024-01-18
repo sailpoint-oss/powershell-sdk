@@ -424,7 +424,6 @@ docs/Selector.md
 docs/SelectorType.md
 docs/ServiceDeskIntegrationApi.md
 docs/ServiceDeskIntegrationDto.md
-docs/ServiceDeskIntegrationDtoAllOfOwnerRef.md
 docs/ServiceDeskIntegrationTemplateDto.md
 docs/ServiceDeskIntegrationTemplateType.md
 docs/ServiceDeskSource.md
@@ -929,7 +928,6 @@ src/PSSailpoint/Model/Segment.ps1
 src/PSSailpoint/Model/Selector.ps1
 src/PSSailpoint/Model/SelectorType.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationDto.ps1
-src/PSSailpoint/Model/ServiceDeskIntegrationDtoAllOfOwnerRef.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationTemplateDto.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationTemplateType.ps1
 src/PSSailpoint/Model/ServiceDeskSource.ps1
@@ -1435,7 +1433,6 @@ tests/Model/Segment.Tests.ps1
 tests/Model/Selector.Tests.ps1
 tests/Model/SelectorType.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
-tests/Model/ServiceDeskIntegrationDtoAllOfOwnerRef.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
 tests/Model/ServiceDeskSource.Tests.ps1

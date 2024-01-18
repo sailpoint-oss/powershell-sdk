@@ -709,7 +709,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.Selector](docs/Selector.md)
  - [PSSailpoint\Model.SelectorType](docs/SelectorType.md)
  - [PSSailpoint\Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
- - [PSSailpoint\Model.ServiceDeskIntegrationDtoAllOfOwnerRef](docs/ServiceDeskIntegrationDtoAllOfOwnerRef.md)
  - [PSSailpoint\Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)
  - [PSSailpoint\Model.ServiceDeskIntegrationTemplateType](docs/ServiceDeskIntegrationTemplateType.md)
  - [PSSailpoint\Model.ServiceDeskSource](docs/ServiceDeskSource.md)

@@ -14,30 +14,24 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-System-generated unique ID of the Object
 .PARAMETER Name
-Name of the Object
-.PARAMETER Created
-Creation date of the Object
-.PARAMETER Modified
-Last modification date of the Object
+Service Desk integration's name. The name must be unique.
 .PARAMETER Description
-Description of the Service Desk integration.
+Service Desk integration's description.
 .PARAMETER Type
-Service Desk integration types  - ServiceNowSDIM - ServiceNow 
+Service Desk integration types:  - ServiceNowSDIM - ServiceNow 
 .PARAMETER OwnerRef
 No description available.
 .PARAMETER ClusterRef
 No description available.
 .PARAMETER Cluster
-ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
+Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
 .PARAMETER ManagedSources
 Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
 .PARAMETER ProvisioningConfig
 No description available.
 .PARAMETER Attributes
-Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
+Service Desk integration's attributes. Validation constraints enforced by the implementation.
 .PARAMETER BeforeProvisioningRule
 No description available.
 .OUTPUTS
@@ -50,41 +44,32 @@ function Initialize-BetaServiceDeskIntegrationDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
+        ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Description},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type} = "ServiceNowSDIM",
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OwnerRef},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ClusterRef},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Cluster},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${ManagedSources},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ProvisioningConfig},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${BeforeProvisioningRule}
     )
@@ -111,10 +96,7 @@ function Initialize-BetaServiceDeskIntegrationDto {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "description" = ${Description}
             "type" = ${Type}
             "ownerRef" = ${OwnerRef}
@@ -161,7 +143,7 @@ function ConvertFrom-BetaJsonToServiceDeskIntegrationDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaServiceDeskIntegrationDto
-        $AllProperties = ("id", "name", "created", "modified", "description", "type", "ownerRef", "clusterRef", "cluster", "managedSources", "provisioningConfig", "attributes", "beforeProvisioningRule")
+        $AllProperties = ("name", "description", "type", "ownerRef", "clusterRef", "cluster", "managedSources", "provisioningConfig", "attributes", "beforeProvisioningRule")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -194,24 +176,6 @@ function ConvertFrom-BetaJsonToServiceDeskIntegrationDto {
             throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
         } else {
             $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
-            $Created = $null
-        } else {
-            $Created = $JsonParameters.PSobject.Properties["created"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
-            $Modified = $null
-        } else {
-            $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerRef"))) { #optional property not found
@@ -251,10 +215,7 @@ function ConvertFrom-BetaJsonToServiceDeskIntegrationDto {
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "description" = ${Description}
             "type" = ${Type}
             "ownerRef" = ${OwnerRef}

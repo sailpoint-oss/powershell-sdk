@@ -34,7 +34,7 @@ function Initialize-BetaProvisioningConfig {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${UniversalManager},
+        ${UniversalManager} = $false,
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ManagedResourceRefs},
@@ -43,7 +43,7 @@ function Initialize-BetaProvisioningConfig {
         ${PlanInitializerScript},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${NoProvisioningRequests},
+        ${NoProvisioningRequests} = $false,
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ProvisioningRequestExpiration}

@@ -988,6 +988,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
  - [PSSailpointBeta\Model.PatOwner](docs/PatOwner.md)
  - [PSSailpointBeta\Model.PatchPotentialRoleRequestInner](docs/PatchPotentialRoleRequestInner.md)
+ - [PSSailpointBeta\Model.PatchServiceDeskIntegrationRequest](docs/PatchServiceDeskIntegrationRequest.md)
  - [PSSailpointBeta\Model.PeerGroupMember](docs/PeerGroupMember.md)
  - [PSSailpointBeta\Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpointBeta\Model.PendingApprovalAction](docs/PendingApprovalAction.md)

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'ReviewableRole' {
     Context 'ReviewableRole' {
         It 'Initialize-ReviewableRole' {
             # a simple test to create an object
-            #$NewObject = Initialize-ReviewableRole -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Privileged "TEST_VALUE" -Owner "TEST_VALUE" -Revocable "TEST_VALUE" -EndDate "TEST_VALUE" -AccessProfiles "TEST_VALUE"
+            #$NewObject = Initialize-ReviewableRole -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Privileged "TEST_VALUE" -Owner "TEST_VALUE" -Revocable "TEST_VALUE" -EndDate "TEST_VALUE" -AccessProfiles "TEST_VALUE" -Entitlements "TEST_VALUE"
             #$NewObject | Should -BeOfType ReviewableRole
             #$NewObject.property | Should -Be 0
         }

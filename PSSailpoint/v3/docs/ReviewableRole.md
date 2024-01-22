@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Revocable** | **Boolean** | Indicates whether the Role can be revoked or requested | [optional] 
 **EndDate** | **System.DateTime** | The date when a user&#39;s access expires. | [optional] 
 **AccessProfiles** | [**ReviewableAccessProfile[]**](ReviewableAccessProfile.md) | The list of Access Profiles associated with this Role | [optional] 
+**Entitlements** | [**ReviewableEntitlement[]**](ReviewableEntitlement.md) | The list of entitlements associated with this Role | [optional] 
 
 ## Examples
 
@@ -23,7 +24,8 @@ $ReviewableRole = Initialize-PSSailpointReviewableRole  -Id 2c91808a7190d06e0171
  -Owner null `
  -Revocable false `
  -EndDate 2021-12-25T00:00Z `
- -AccessProfiles null
+ -AccessProfiles null `
+ -Entitlements null
 ```
 
 - Convert the resource to JSON

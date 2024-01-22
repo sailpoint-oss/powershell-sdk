@@ -30,6 +30,8 @@ Indicates whether the Role can be revoked or requested
 The date when a user's access expires.
 .PARAMETER AccessProfiles
 The list of Access Profiles associated with this Role
+.PARAMETER Entitlements
+The list of entitlements associated with this Role
 .OUTPUTS
 
 ReviewableRole<PSCustomObject>
@@ -61,7 +63,10 @@ function Initialize-ReviewableRole {
         ${EndDate},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${AccessProfiles}
+        ${AccessProfiles},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Entitlements}
     )
 
     Process {
@@ -78,6 +83,7 @@ function Initialize-ReviewableRole {
             "revocable" = ${Revocable}
             "endDate" = ${EndDate}
             "accessProfiles" = ${AccessProfiles}
+            "entitlements" = ${Entitlements}
         }
 
 
@@ -115,7 +121,7 @@ function ConvertFrom-JsonToReviewableRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ReviewableRole
-        $AllProperties = ("id", "name", "description", "privileged", "owner", "revocable", "endDate", "accessProfiles")
+        $AllProperties = ("id", "name", "description", "privileged", "owner", "revocable", "endDate", "accessProfiles", "entitlements")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -170,6 +176,12 @@ function ConvertFrom-JsonToReviewableRole {
             $AccessProfiles = $JsonParameters.PSobject.Properties["accessProfiles"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlements"))) { #optional property not found
+            $Entitlements = $null
+        } else {
+            $Entitlements = $JsonParameters.PSobject.Properties["entitlements"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -179,6 +191,7 @@ function ConvertFrom-JsonToReviewableRole {
             "revocable" = ${Revocable}
             "endDate" = ${EndDate}
             "accessProfiles" = ${AccessProfiles}
+            "entitlements" = ${Entitlements}
         }
 
         return $PSO

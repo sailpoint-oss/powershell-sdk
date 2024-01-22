@@ -12,16 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
+A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902).  Only `replace` operations are accepted by this endpoint.
 
 .PARAMETER Operations
 Operations to be applied
 .OUTPUTS
 
-JsonPatch<PSCustomObject>
+PatchServiceDeskIntegrationRequest<PSCustomObject>
 #>
 
-function Initialize-JsonPatch {
+function Initialize-PatchServiceDeskIntegrationRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-JsonPatch {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => JsonPatch' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => PatchServiceDeskIntegrationRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -46,11 +46,11 @@ function Initialize-JsonPatch {
 <#
 .SYNOPSIS
 
-Convert from JSON to JsonPatch<PSCustomObject>
+Convert from JSON to PatchServiceDeskIntegrationRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to JsonPatch<PSCustomObject>
+Convert from JSON to PatchServiceDeskIntegrationRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -58,21 +58,21 @@ Json object
 
 .OUTPUTS
 
-JsonPatch<PSCustomObject>
+PatchServiceDeskIntegrationRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToJsonPatch {
+function ConvertFrom-JsonToPatchServiceDeskIntegrationRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => JsonPatch' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => PatchServiceDeskIntegrationRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in JsonPatch
+        # check if Json contains properties not defined in PatchServiceDeskIntegrationRequest
         $AllProperties = ("operations")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

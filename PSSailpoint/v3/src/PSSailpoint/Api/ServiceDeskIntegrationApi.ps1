@@ -571,8 +571,8 @@ Update an existing ServiceDeskIntegration by ID with a PATCH request.
 .PARAMETER Id
 ID of the Service Desk integration to update
 
-.PARAMETER JsonPatch
-A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * `beforeProvisioningRule`   * `description`   * `ownerRef`  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+.PARAMETER PatchServiceDeskIntegrationRequest
+A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
 
 .PARAMETER WithHttpInfo
 
@@ -590,7 +590,7 @@ function Update-ServiceDeskIntegration {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${JsonPatch},
+        ${PatchServiceDeskIntegrationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -620,14 +620,14 @@ function Update-ServiceDeskIntegration {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$JsonPatch) {
-            throw "Error! The required parameter `JsonPatch` missing when calling patchServiceDeskIntegration."
+        if (!$PatchServiceDeskIntegrationRequest) {
+            throw "Error! The required parameter `PatchServiceDeskIntegrationRequest` missing when calling patchServiceDeskIntegration."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $PatchServiceDeskIntegrationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
+            $LocalVarBodyParameter = $PatchServiceDeskIntegrationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

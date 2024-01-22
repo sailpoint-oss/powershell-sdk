@@ -229,7 +229,6 @@ docs/ImportObject.md
 docs/Index.md
 docs/IndexOf.md
 docs/InnerHit.md
-docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
 docs/LeftPad.md
@@ -304,6 +303,7 @@ docs/PasswordStatus.md
 docs/PasswordSyncGroup.md
 docs/PasswordSyncGroupsApi.md
 docs/PatOwner.md
+docs/PatchServiceDeskIntegrationRequest.md
 docs/PendingApproval.md
 docs/PendingApprovalAction.md
 docs/PendingApprovalOwner.md
@@ -751,7 +751,6 @@ src/PSSailpoint/Model/ImportObject.ps1
 src/PSSailpoint/Model/Index.ps1
 src/PSSailpoint/Model/IndexOf.ps1
 src/PSSailpoint/Model/InnerHit.ps1
-src/PSSailpoint/Model/JsonPatch.ps1
 src/PSSailpoint/Model/JsonPatchOperation.ps1
 src/PSSailpoint/Model/JsonPatchOperationValue.ps1
 src/PSSailpoint/Model/LeftPad.ps1
@@ -821,6 +820,7 @@ src/PSSailpoint/Model/PasswordOrgConfig.ps1
 src/PSSailpoint/Model/PasswordStatus.ps1
 src/PSSailpoint/Model/PasswordSyncGroup.ps1
 src/PSSailpoint/Model/PatOwner.ps1
+src/PSSailpoint/Model/PatchServiceDeskIntegrationRequest.ps1
 src/PSSailpoint/Model/PendingApproval.ps1
 src/PSSailpoint/Model/PendingApprovalAction.ps1
 src/PSSailpoint/Model/PendingApprovalOwner.ps1
@@ -1256,7 +1256,6 @@ tests/Model/ImportObject.Tests.ps1
 tests/Model/Index.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
 tests/Model/InnerHit.Tests.ps1
-tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
@@ -1326,6 +1325,7 @@ tests/Model/PasswordOrgConfig.Tests.ps1
 tests/Model/PasswordStatus.Tests.ps1
 tests/Model/PasswordSyncGroup.Tests.ps1
 tests/Model/PatOwner.Tests.ps1
+tests/Model/PatchServiceDeskIntegrationRequest.Tests.ps1
 tests/Model/PendingApproval.Tests.ps1
 tests/Model/PendingApprovalAction.Tests.ps1
 tests/Model/PendingApprovalOwner.Tests.ps1

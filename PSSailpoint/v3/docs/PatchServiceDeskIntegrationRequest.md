@@ -1,4 +1,4 @@
-# JsonPatch
+# PatchServiceDeskIntegrationRequest
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$JsonPatch = Initialize-PSSailpointJsonPatch  -Operations null
+$PatchServiceDeskIntegrationRequest = Initialize-PSSailpointPatchServiceDeskIntegrationRequest  -Operations null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$JsonPatch | ConvertTo-JSON
+$PatchServiceDeskIntegrationRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

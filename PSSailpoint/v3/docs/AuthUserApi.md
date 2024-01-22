@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Auth User Details
 
-This API returns the specified user's authentication system details. Requires security scope of:  'sp:auth-user:read'
+Return the specified user's authentication system details.
 
 ### Example
 ```powershell
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 Auth User Update
 
-Update an existing user in the authentication system with a PATCH request.
+Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A '400.1.1 Illegal update attempt' detail code indicates that you attempted to PATCH a field that is not allowed.
 
 ### Example
 ```powershell
@@ -81,7 +81,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   ""capabilities""  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the 'adminAssignable' field from the output of list authorization-capabilities. Capabilities that have a legacy group ('legacyGroup' field) need to be patched using the legacyGroup name (e.g. 'ORG_ADMIN'). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. 'cam:new-role').  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of 'sp:auth-user:update' 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 # Auth User Update
 try {
@@ -97,7 +97,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| Identity ID | 
- **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   &quot;&quot;capabilities&quot;&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the &#39;adminAssignable&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (&#39;legacyGroup&#39; field) need to be patched using the legacyGroup name (e.g. &#39;ORG_ADMIN&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. &#39;cam:new-role&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of &#39;sp:auth-user:update&#39;  | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
 
 ### Return type
 

@@ -19,11 +19,11 @@ Tenant name.
 .PARAMETER Id
 Identity ID.
 .PARAMETER Uid
-Identity unique identitifier.
+Identity's unique identitifier.
 .PARAMETER VarProfile
-ID of the auth profile associated with this auth user.
+ID of the auth profile associated with the auth user.
 .PARAMETER IdentificationNumber
-Auth user employee number.
+Auth user's employee number.
 .PARAMETER Email
 Auth user's email.
 .PARAMETER Phone
@@ -41,13 +41,13 @@ Auth user's name in displayed format.
 .PARAMETER Alias
 Auth user's alias.
 .PARAMETER LastPasswordChangeDate
-the date of last password change
+Date of last password change.
 .PARAMETER LastLoginTimestamp
 Timestamp of the last login (long type value).
 .PARAMETER CurrentLoginTimestamp
 Timestamp of the current login (long type value).
 .PARAMETER Capabilities
-Array of capabilities for this auth user.
+Array of the auth user's capabilities.
 .OUTPUTS
 
 AuthUser<PSCustomObject>
@@ -105,6 +105,7 @@ function Initialize-AuthUser {
         [System.Nullable[Int64]]
         ${CurrentLoginTimestamp},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CERT_ADMIN", "CLOUD_GOV_ADMIN", "CLOUD_GOV_USER", "DASHBOARD", "HELPDESK", "ORG_ADMIN", "REPORT_ADMIN", "ROLE_ADMIN", "ROLE_SUBADMIN", "SAAS_MANAGEMENT_ADMIN", "SAAS_MANAGEMENT_READER", "SOURCE_ADMIN", "SOURCE_SUBADMIN", "das:ui-administrator", "das:ui-compliance_manager", "das:ui-auditor", "das:ui-data-scope", "sp:aic-dashboard-read", "sp:aic-dashboard-write")]
         [String[]]
         ${Capabilities}
     )

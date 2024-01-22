@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Tenant** | **String** | Tenant name. | [optional] 
 **Id** | **String** | Identity ID. | [optional] 
-**Uid** | **String** | Identity unique identitifier. | [optional] 
-**VarProfile** | **String** | ID of the auth profile associated with this auth user. | [optional] 
-**IdentificationNumber** | **String** | Auth user employee number. | [optional] 
+**Uid** | **String** | Identity&#39;s unique identitifier. | [optional] 
+**VarProfile** | **String** | ID of the auth profile associated with the auth user. | [optional] 
+**IdentificationNumber** | **String** | Auth user&#39;s employee number. | [optional] 
 **Email** | **String** | Auth user&#39;s email. | [optional] 
 **Phone** | **String** | Auth user&#39;s phone number. | [optional] 
 **WorkPhone** | **String** | Auth user&#39;s work phone number. | [optional] 
@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **Lastname** | **String** | Auth user&#39;s last name. | [optional] 
 **DisplayName** | **String** | Auth user&#39;s name in displayed format. | [optional] 
 **Alias** | **String** | Auth user&#39;s alias. | [optional] 
-**LastPasswordChangeDate** | **String** | the date of last password change | [optional] 
+**LastPasswordChangeDate** | **String** | Date of last password change. | [optional] 
 **LastLoginTimestamp** | **Int64** | Timestamp of the last login (long type value). | [optional] 
 **CurrentLoginTimestamp** | **Int64** | Timestamp of the current login (long type value). | [optional] 
-**Capabilities** | **String[]** | Array of capabilities for this auth user. | [optional] 
+**Capabilities** | **String[]** | Array of the auth user&#39;s capabilities. | [optional] 
 
 ## Examples
 

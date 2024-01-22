@@ -372,7 +372,7 @@ function Get-TaggedObjects {
 <#
 .SYNOPSIS
 
-List Tagged Objects
+List Tagged Objects by Type
 
 .DESCRIPTION
 
@@ -405,7 +405,7 @@ function Get-TaggedObjectsByType {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [ValidateSet("ROLE", "IDENTITY", "SOD_POLICY")]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
         [String]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]

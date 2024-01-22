@@ -17,9 +17,9 @@ No description available.
 .PARAMETER Type
 DTO type
 .PARAMETER Id
-ID of the object to which this reference applies
+ID of the object this reference applies to
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Human-readable display name of the object this reference applies to
 .OUTPUTS
 
 TaggedObjectDto<PSCustomObject>

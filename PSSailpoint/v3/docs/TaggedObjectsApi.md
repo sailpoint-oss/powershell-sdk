@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Remove-TagsToManyObject**](TaggedObjectsApi.md#Remove-TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 [**Get-TaggedObject**](TaggedObjectsApi.md#Get-TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 [**Get-TaggedObjects**](TaggedObjectsApi.md#Get-TaggedObjects) | **GET** /tagged-objects | List Tagged Objects
-[**Get-TaggedObjectsByType**](TaggedObjectsApi.md#Get-TaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
+[**Get-TaggedObjectsByType**](TaggedObjectsApi.md#Get-TaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects by Type
 [**Send-TaggedObject**](TaggedObjectsApi.md#Send-TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 [**Set-TagToObject**](TaggedObjectsApi.md#Set-TagToObject) | **POST** /tagged-objects | Add Tag to Object
 [**Set-TagsToManyObjects**](TaggedObjectsApi.md#Set-TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 
-List Tagged Objects
+List Tagged Objects by Type
 
 This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
 
@@ -257,13 +257,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Type = "ROLE" # String | The type of tagged object to retrieve.
+$Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = "objectRef.id eq "2c91808568c529c60168cca6f90c1313"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional)
 
-# List Tagged Objects
+# List Tagged Objects by Type
 try {
     $Result = Get-TaggedObjectsByType -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
 } catch {

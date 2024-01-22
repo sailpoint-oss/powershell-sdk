@@ -295,7 +295,7 @@ Class | Method | HTTP request | Description
 *TaggedObjectsApi* | [**Remove-TagsToManyObject**](docs/TaggedObjectsApi.md#Remove-TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *TaggedObjectsApi* | [**Get-TaggedObject**](docs/TaggedObjectsApi.md#Get-TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *TaggedObjectsApi* | [**Get-TaggedObjects**](docs/TaggedObjectsApi.md#Get-TaggedObjects) | **GET** /tagged-objects | List Tagged Objects
-*TaggedObjectsApi* | [**Get-TaggedObjectsByType**](docs/TaggedObjectsApi.md#Get-TaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
+*TaggedObjectsApi* | [**Get-TaggedObjectsByType**](docs/TaggedObjectsApi.md#Get-TaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects by Type
 *TaggedObjectsApi* | [**Send-TaggedObject**](docs/TaggedObjectsApi.md#Send-TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 *TaggedObjectsApi* | [**Set-TagToObject**](docs/TaggedObjectsApi.md#Set-TagToObject) | **POST** /tagged-objects | Add Tag to Object
 *TaggedObjectsApi* | [**Set-TagsToManyObjects**](docs/TaggedObjectsApi.md#Set-TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects

@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | DTO type | [optional] 
-**Id** | **String** | ID of the object to which this reference applies | [optional] 
-**Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
+**Id** | **String** | ID of the object this reference applies to | [optional] 
+**Name** | **String** | Human-readable display name of the object this reference applies to | [optional] 
 
 ## Examples
 

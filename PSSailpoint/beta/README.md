@@ -446,7 +446,7 @@ Class | Method | HTTP request | Description
 *BetaTaggedObjectsApi* | [**Remove-BetaTagsToManyObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObjects**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
-*BetaTaggedObjectsApi* | [**Get-BetaTaggedObjectsByType**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects
+*BetaTaggedObjectsApi* | [**Get-BetaTaggedObjectsByType**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects by Type
 *BetaTaggedObjectsApi* | [**Send-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Send-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 *BetaTaggedObjectsApi* | [**Set-BetaTagToObject**](docs/BetaTaggedObjectsApi.md#Set-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 *BetaTaggedObjectsApi* | [**Set-BetaTagsToManyObjects**](docs/BetaTaggedObjectsApi.md#Set-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects

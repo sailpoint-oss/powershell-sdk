@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 **ConnectorName** | **String** | The name of the connector that was chosen on source creation | [optional] 
 **ConnectionType** | **String** | The type of connection (direct or file) | [optional] 
 **ConnectorImplementationId** | **String** | The connector implementation id | [optional] 
+**Created** | **System.DateTime** | The date-time when the source was created | [optional] 
+**Modified** | **System.DateTime** | The date-time when the source was last modified | [optional] 
 
 ## Examples
 
@@ -61,7 +63,9 @@ $Source = Initialize-PSSailpointBetaSource  -Id 2c91808568c529c60168cca6f90c1324
  -ConnectorId active-directory `
  -ConnectorName Active Directory `
  -ConnectionType file `
- -ConnectorImplementationId delimited-file
+ -ConnectorImplementationId delimited-file `
+ -Created 2022-02-08T14:50:03.827Z `
+ -Modified 2024-01-23T18:08:50.897Z
 ```
 
 - Convert the resource to JSON

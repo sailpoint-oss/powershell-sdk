@@ -68,6 +68,10 @@ The name of the connector that was chosen on source creation
 The type of connection (direct or file)
 .PARAMETER ConnectorImplementationId
 The connector implementation id
+.PARAMETER Created
+The date-time when the source was created
+.PARAMETER Modified
+The date-time when the source was last modified
 .OUTPUTS
 
 Source<PSCustomObject>
@@ -156,7 +160,13 @@ function Initialize-Source {
         ${ConnectionType},
         [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ConnectorImplementationId}
+        ${ConnectorImplementationId},
+        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Created},
+        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Modified}
     )
 
     Process {
@@ -204,6 +214,8 @@ function Initialize-Source {
             "connectorName" = ${ConnectorName}
             "connectionType" = ${ConnectionType}
             "connectorImplementationId" = ${ConnectorImplementationId}
+            "created" = ${Created}
+            "modified" = ${Modified}
         }
 
 
@@ -241,7 +253,7 @@ function ConvertFrom-JsonToSource {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Source
-        $AllProperties = ("id", "name", "description", "owner", "cluster", "accountCorrelationConfig", "accountCorrelationRule", "managerCorrelationMapping", "managerCorrelationRule", "beforeProvisioningRule", "schemas", "passwordPolicies", "features", "type", "connector", "connectorClass", "connectorAttributes", "deleteThreshold", "authoritative", "managementWorkgroup", "healthy", "status", "since", "connectorId", "connectorName", "connectionType", "connectorImplementationId")
+        $AllProperties = ("id", "name", "description", "owner", "cluster", "accountCorrelationConfig", "accountCorrelationRule", "managerCorrelationMapping", "managerCorrelationRule", "beforeProvisioningRule", "schemas", "passwordPolicies", "features", "type", "connector", "connectorClass", "connectorAttributes", "deleteThreshold", "authoritative", "managementWorkgroup", "healthy", "status", "since", "connectorId", "connectorName", "connectionType", "connectorImplementationId", "created", "modified")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -414,6 +426,18 @@ function ConvertFrom-JsonToSource {
             $ConnectorImplementationId = $JsonParameters.PSobject.Properties["connectorImplementationId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -442,6 +466,8 @@ function ConvertFrom-JsonToSource {
             "connectorName" = ${ConnectorName}
             "connectionType" = ${ConnectionType}
             "connectorImplementationId" = ${ConnectorImplementationId}
+            "created" = ${Created}
+            "modified" = ${Modified}
         }
 
         return $PSO

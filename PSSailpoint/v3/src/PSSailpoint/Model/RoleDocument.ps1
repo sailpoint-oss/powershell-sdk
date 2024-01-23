@@ -42,6 +42,14 @@ No description available.
 No description available.
 .PARAMETER Tags
 No description available.
+.PARAMETER Segments
+No description available.
+.PARAMETER SegmentCount
+No description available.
+.PARAMETER Entitlements
+No description available.
+.PARAMETER EntitlementCount
+No description available.
 .OUTPUTS
 
 RoleDocument<PSCustomObject>
@@ -92,7 +100,19 @@ function Initialize-RoleDocument {
         ${AccessProfileCount},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Tags}
+        ${Tags},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Segments},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${SegmentCount},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Entitlements},
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${EntitlementCount}
     )
 
     Process {
@@ -127,6 +147,10 @@ function Initialize-RoleDocument {
             "accessProfiles" = ${AccessProfiles}
             "accessProfileCount" = ${AccessProfileCount}
             "tags" = ${Tags}
+            "segments" = ${Segments}
+            "segmentCount" = ${SegmentCount}
+            "entitlements" = ${Entitlements}
+            "entitlementCount" = ${EntitlementCount}
         }
 
 
@@ -164,7 +188,7 @@ function ConvertFrom-JsonToRoleDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RoleDocument
-        $AllProperties = ("id", "name", "_type", "description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "accessProfiles", "accessProfileCount", "tags")
+        $AllProperties = ("id", "name", "_type", "description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "accessProfiles", "accessProfileCount", "tags", "segments", "segmentCount", "entitlements", "entitlementCount")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -259,6 +283,30 @@ function ConvertFrom-JsonToRoleDocument {
             $Tags = $JsonParameters.PSobject.Properties["tags"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "segments"))) { #optional property not found
+            $Segments = $null
+        } else {
+            $Segments = $JsonParameters.PSobject.Properties["segments"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "segmentCount"))) { #optional property not found
+            $SegmentCount = $null
+        } else {
+            $SegmentCount = $JsonParameters.PSobject.Properties["segmentCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlements"))) { #optional property not found
+            $Entitlements = $null
+        } else {
+            $Entitlements = $JsonParameters.PSobject.Properties["entitlements"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlementCount"))) { #optional property not found
+            $EntitlementCount = $null
+        } else {
+            $EntitlementCount = $JsonParameters.PSobject.Properties["entitlementCount"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -274,6 +322,10 @@ function ConvertFrom-JsonToRoleDocument {
             "accessProfiles" = ${AccessProfiles}
             "accessProfileCount" = ${AccessProfileCount}
             "tags" = ${Tags}
+            "segments" = ${Segments}
+            "segmentCount" = ${SegmentCount}
+            "entitlements" = ${Entitlements}
+            "entitlementCount" = ${EntitlementCount}
         }
 
         return $PSO

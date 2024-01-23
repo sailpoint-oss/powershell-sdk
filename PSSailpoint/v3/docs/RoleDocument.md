@@ -17,6 +17,10 @@ Name | Type | Description | Notes
 **AccessProfiles** | [**Reference1[]**](Reference1.md) |  | [optional] 
 **AccessProfileCount** | **Int32** |  | [optional] 
 **Tags** | **String[]** |  | [optional] 
+**Segments** | [**Reference1[]**](Reference1.md) |  | [optional] 
+**SegmentCount** | **Int32** |  | [optional] 
+**Entitlements** | [**AccessProfileRole[]**](AccessProfileRole.md) |  | [optional] 
+**EntitlementCount** | **Int32** |  | [optional] 
 
 ## Examples
 
@@ -35,7 +39,11 @@ $RoleDocument = Initialize-PSSailpointRoleDocument  -Id 2c91808568c529c60168cca6
  -Owner null `
  -AccessProfiles null `
  -AccessProfileCount null `
- -Tags [TAG_1, TAG_2]
+ -Tags [TAG_1, TAG_2] `
+ -Segments null `
+ -SegmentCount 1 `
+ -Entitlements null `
+ -EntitlementCount 3
 ```
 
 - Convert the resource to JSON

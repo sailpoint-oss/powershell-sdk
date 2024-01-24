@@ -102,7 +102,7 @@ Enables auditing for current report download. Will create an audit event and sen
 
 .PARAMETER ReturnType
 
-Select the return type (optional): application/octet-stream, application/json
+Select the return type (optional): application/csv, application/pdf, application/json
 
 .PARAMETER WithHttpInfo
 
@@ -129,7 +129,7 @@ function Get-Report {
         [System.Nullable[Boolean]]
         ${Auditable},
         [String]
-        [ValidateSet("application/octet-stream", "application/json")]
+        [ValidateSet("application/csv", "application/pdf", "application/json")]
         $ReturnType,
         [Switch]
         $WithHttpInfo
@@ -149,7 +149,7 @@ function Get-Report {
         $LocalVarBodyParameter = $null
 
         # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/octet-stream', 'application/json')
+        $LocalVarAccepts = @('application/csv', 'application/pdf', 'application/json')
 
         if ($ReturnType) {
             # use the return type (MIME) provided by the user

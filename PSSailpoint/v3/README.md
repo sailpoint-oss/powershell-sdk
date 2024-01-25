@@ -186,7 +186,7 @@ Class | Method | HTTP request | Description
 *PasswordConfigurationApi* | [**Get-PasswordOrgConfig**](docs/PasswordConfigurationApi.md#Get-PasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
 *PasswordConfigurationApi* | [**Send-PasswordOrgConfig**](docs/PasswordConfigurationApi.md#Send-PasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
 *PasswordDictionaryApi* | [**Get-PasswordDictionary**](docs/PasswordDictionaryApi.md#Get-PasswordDictionary) | **GET** /password-dictionary | Get Password Dictionary
-*PasswordDictionaryApi* | [**Update-PasswordDictionary**](docs/PasswordDictionaryApi.md#Update-PasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
+*PasswordDictionaryApi* | [**Send-PasswordDictionary**](docs/PasswordDictionaryApi.md#Send-PasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 *PasswordManagementApi* | [**Get-PasswordChangeStatus**](docs/PasswordManagementApi.md#Get-PasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
 *PasswordManagementApi* | [**Search-PasswordInfo**](docs/PasswordManagementApi.md#Search-PasswordInfo) | **POST** /query-password-info | Query Password Info
 *PasswordManagementApi* | [**Set-Password**](docs/PasswordManagementApi.md#Set-Password) | **POST** /set-password | Set Identity's Password
@@ -621,6 +621,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.PublicIdentity](docs/PublicIdentity.md)
  - [PSSailpoint\Model.PublicIdentityAttributeConfig](docs/PublicIdentityAttributeConfig.md)
  - [PSSailpoint\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
+ - [PSSailpoint\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
  - [PSSailpoint\Model.Query](docs/Query.md)
  - [PSSailpoint\Model.QueryResultFilter](docs/QueryResultFilter.md)
  - [PSSailpoint\Model.QueryType](docs/QueryType.md)
@@ -765,7 +766,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.TypeAheadQuery](docs/TypeAheadQuery.md)
  - [PSSailpoint\Model.TypedReference](docs/TypedReference.md)
  - [PSSailpoint\Model.UUIDGenerator](docs/UUIDGenerator.md)
- - [PSSailpoint\Model.UpdatePasswordDictionaryRequest](docs/UpdatePasswordDictionaryRequest.md)
  - [PSSailpoint\Model.Upper](docs/Upper.md)
  - [PSSailpoint\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint\Model.Value](docs/Value.md)

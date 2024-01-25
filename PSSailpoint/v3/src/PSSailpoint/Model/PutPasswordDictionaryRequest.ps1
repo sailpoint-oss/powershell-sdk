@@ -18,10 +18,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-UpdatePasswordDictionaryRequest<PSCustomObject>
+PutPasswordDictionaryRequest<PSCustomObject>
 #>
 
-function Initialize-UpdatePasswordDictionaryRequest {
+function Initialize-PutPasswordDictionaryRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-UpdatePasswordDictionaryRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => UpdatePasswordDictionaryRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => PutPasswordDictionaryRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -46,11 +46,11 @@ function Initialize-UpdatePasswordDictionaryRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to UpdatePasswordDictionaryRequest<PSCustomObject>
+Convert from JSON to PutPasswordDictionaryRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to UpdatePasswordDictionaryRequest<PSCustomObject>
+Convert from JSON to PutPasswordDictionaryRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -58,21 +58,21 @@ Json object
 
 .OUTPUTS
 
-UpdatePasswordDictionaryRequest<PSCustomObject>
+PutPasswordDictionaryRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToUpdatePasswordDictionaryRequest {
+function ConvertFrom-JsonToPutPasswordDictionaryRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => UpdatePasswordDictionaryRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => PutPasswordDictionaryRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in UpdatePasswordDictionaryRequest
+        # check if Json contains properties not defined in PutPasswordDictionaryRequest
         $AllProperties = ("file")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

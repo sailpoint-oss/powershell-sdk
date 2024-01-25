@@ -326,7 +326,7 @@ Class | Method | HTTP request | Description
 *BetaPasswordConfigurationApi* | [**Get-BetaPasswordOrgConfig**](docs/BetaPasswordConfigurationApi.md#Get-BetaPasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
 *BetaPasswordConfigurationApi* | [**Send-BetaPasswordOrgConfig**](docs/BetaPasswordConfigurationApi.md#Send-BetaPasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
 *BetaPasswordDictionaryApi* | [**Get-BetaPasswordDictionary**](docs/BetaPasswordDictionaryApi.md#Get-BetaPasswordDictionary) | **GET** /password-dictionary | Get Password Dictionary
-*BetaPasswordDictionaryApi* | [**Update-BetaPasswordDictionary**](docs/BetaPasswordDictionaryApi.md#Update-BetaPasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
+*BetaPasswordDictionaryApi* | [**Send-BetaPasswordDictionary**](docs/BetaPasswordDictionaryApi.md#Send-BetaPasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
 *BetaPasswordManagementApi* | [**New-BetaDigitToken**](docs/BetaPasswordManagementApi.md#New-BetaDigitToken) | **POST** /generate-password-reset-token/digit | Generate a digit token
 *BetaPasswordManagementApi* | [**Get-BetaIdentityPasswordChangeStatus**](docs/BetaPasswordManagementApi.md#Get-BetaIdentityPasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
 *BetaPasswordManagementApi* | [**Search-BetaPasswordInfo**](docs/BetaPasswordManagementApi.md#Search-BetaPasswordInfo) | **POST** /query-password-info | Query Password Info
@@ -1017,6 +1017,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ProvisioningState](docs/ProvisioningState.md)
  - [PSSailpointBeta\Model.PublicIdentityAttributeConfig](docs/PublicIdentityAttributeConfig.md)
  - [PSSailpointBeta\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
+ - [PSSailpointBeta\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
  - [PSSailpointBeta\Model.QueuedCheckConfigDetails](docs/QueuedCheckConfigDetails.md)
  - [PSSailpointBeta\Model.RandomAlphaNumeric](docs/RandomAlphaNumeric.md)
  - [PSSailpointBeta\Model.RandomNumeric](docs/RandomNumeric.md)
@@ -1237,7 +1238,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.TriggerType](docs/TriggerType.md)
  - [PSSailpointBeta\Model.Trim](docs/Trim.md)
  - [PSSailpointBeta\Model.UUIDGenerator](docs/UUIDGenerator.md)
- - [PSSailpointBeta\Model.UpdatePasswordDictionaryRequest](docs/UpdatePasswordDictionaryRequest.md)
  - [PSSailpointBeta\Model.Upper](docs/Upper.md)
  - [PSSailpointBeta\Model.UsageType](docs/UsageType.md)
  - [PSSailpointBeta\Model.V3ConnectorDto](docs/V3ConnectorDto.md)

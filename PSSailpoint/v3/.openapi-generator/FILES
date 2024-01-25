@@ -326,6 +326,7 @@ docs/PublicIdentitiesConfigApi.md
 docs/PublicIdentity.md
 docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityConfig.md
+docs/PutPasswordDictionaryRequest.md
 docs/Query.md
 docs/QueryResultFilter.md
 docs/QueryType.md
@@ -484,7 +485,6 @@ docs/Trim.md
 docs/TypeAheadQuery.md
 docs/TypedReference.md
 docs/UUIDGenerator.md
-docs/UpdatePasswordDictionaryRequest.md
 docs/Upper.md
 docs/UsageType.md
 docs/Value.md
@@ -840,6 +840,7 @@ src/PSSailpoint/Model/ProvisioningState.ps1
 src/PSSailpoint/Model/PublicIdentity.ps1
 src/PSSailpoint/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpoint/Model/PublicIdentityConfig.ps1
+src/PSSailpoint/Model/PutPasswordDictionaryRequest.ps1
 src/PSSailpoint/Model/Query.ps1
 src/PSSailpoint/Model/QueryResultFilter.ps1
 src/PSSailpoint/Model/QueryType.ps1
@@ -984,7 +985,6 @@ src/PSSailpoint/Model/Trim.ps1
 src/PSSailpoint/Model/TypeAheadQuery.ps1
 src/PSSailpoint/Model/TypedReference.ps1
 src/PSSailpoint/Model/UUIDGenerator.ps1
-src/PSSailpoint/Model/UpdatePasswordDictionaryRequest.ps1
 src/PSSailpoint/Model/Upper.ps1
 src/PSSailpoint/Model/UsageType.ps1
 src/PSSailpoint/Model/Value.ps1
@@ -1345,6 +1345,7 @@ tests/Model/ProvisioningState.Tests.ps1
 tests/Model/PublicIdentity.Tests.ps1
 tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
+tests/Model/PutPasswordDictionaryRequest.Tests.ps1
 tests/Model/Query.Tests.ps1
 tests/Model/QueryResultFilter.Tests.ps1
 tests/Model/QueryType.Tests.ps1
@@ -1489,7 +1490,6 @@ tests/Model/Trim.Tests.ps1
 tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
-tests/Model/UpdatePasswordDictionaryRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/Value.Tests.ps1

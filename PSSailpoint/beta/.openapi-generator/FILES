@@ -564,6 +564,7 @@ docs/ProvisioningPolicyDto.md
 docs/ProvisioningState.md
 docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityConfig.md
+docs/PutPasswordDictionaryRequest.md
 docs/QueuedCheckConfigDetails.md
 docs/RandomAlphaNumeric.md
 docs/RandomNumeric.md
@@ -784,7 +785,6 @@ docs/TriggerExampleOutput.md
 docs/TriggerType.md
 docs/Trim.md
 docs/UUIDGenerator.md
-docs/UpdatePasswordDictionaryRequest.md
 docs/Upper.md
 docs/UsageType.md
 docs/V3ConnectorDto.md
@@ -1392,6 +1392,7 @@ src/PSSailpointBeta/Model/ProvisioningPolicyDto.ps1
 src/PSSailpointBeta/Model/ProvisioningState.ps1
 src/PSSailpointBeta/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpointBeta/Model/PublicIdentityConfig.ps1
+src/PSSailpointBeta/Model/PutPasswordDictionaryRequest.ps1
 src/PSSailpointBeta/Model/QueuedCheckConfigDetails.ps1
 src/PSSailpointBeta/Model/RandomAlphaNumeric.ps1
 src/PSSailpointBeta/Model/RandomNumeric.ps1
@@ -1612,7 +1613,6 @@ src/PSSailpointBeta/Model/TriggerExampleOutput.ps1
 src/PSSailpointBeta/Model/TriggerType.ps1
 src/PSSailpointBeta/Model/Trim.ps1
 src/PSSailpointBeta/Model/UUIDGenerator.ps1
-src/PSSailpointBeta/Model/UpdatePasswordDictionaryRequest.ps1
 src/PSSailpointBeta/Model/Upper.ps1
 src/PSSailpointBeta/Model/UsageType.ps1
 src/PSSailpointBeta/Model/V3ConnectorDto.ps1
@@ -2226,6 +2226,7 @@ tests/Model/ProvisioningPolicyDto.Tests.ps1
 tests/Model/ProvisioningState.Tests.ps1
 tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
+tests/Model/PutPasswordDictionaryRequest.Tests.ps1
 tests/Model/QueuedCheckConfigDetails.Tests.ps1
 tests/Model/RandomAlphaNumeric.Tests.ps1
 tests/Model/RandomNumeric.Tests.ps1
@@ -2446,7 +2447,6 @@ tests/Model/TriggerExampleOutput.Tests.ps1
 tests/Model/TriggerType.Tests.ps1
 tests/Model/Trim.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
-tests/Model/UpdatePasswordDictionaryRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1

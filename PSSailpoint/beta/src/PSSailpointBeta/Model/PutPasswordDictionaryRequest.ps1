@@ -18,10 +18,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-UpdatePasswordDictionaryRequest<PSCustomObject>
+PutPasswordDictionaryRequest<PSCustomObject>
 #>
 
-function Initialize-BetaUpdatePasswordDictionaryRequest {
+function Initialize-BetaPutPasswordDictionaryRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-BetaUpdatePasswordDictionaryRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaUpdatePasswordDictionaryRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaPutPasswordDictionaryRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -46,11 +46,11 @@ function Initialize-BetaUpdatePasswordDictionaryRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to UpdatePasswordDictionaryRequest<PSCustomObject>
+Convert from JSON to PutPasswordDictionaryRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to UpdatePasswordDictionaryRequest<PSCustomObject>
+Convert from JSON to PutPasswordDictionaryRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -58,21 +58,21 @@ Json object
 
 .OUTPUTS
 
-UpdatePasswordDictionaryRequest<PSCustomObject>
+PutPasswordDictionaryRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToUpdatePasswordDictionaryRequest {
+function ConvertFrom-BetaJsonToPutPasswordDictionaryRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaUpdatePasswordDictionaryRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaPutPasswordDictionaryRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaUpdatePasswordDictionaryRequest
+        # check if Json contains properties not defined in BetaPutPasswordDictionaryRequest
         $AllProperties = ("file")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

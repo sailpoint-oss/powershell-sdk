@@ -1,4 +1,4 @@
-# UpdatePasswordDictionaryRequest
+# PutPasswordDictionaryRequest
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UpdatePasswordDictionaryRequest = Initialize-PSSailpointUpdatePasswordDictionaryRequest  -File null
+$PutPasswordDictionaryRequest = Initialize-PSSailpointPutPasswordDictionaryRequest  -File null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$UpdatePasswordDictionaryRequest | ConvertTo-JSON
+$PutPasswordDictionaryRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -86,6 +86,11 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
 *AuthUserApi* | [**Get-AuthUser**](docs/AuthUserApi.md#Get-AuthUser) | **GET** /auth-users/{id} | Auth User Details
 *AuthUserApi* | [**Update-AuthUser**](docs/AuthUserApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
+*BrandingApi* | [**New-BrandingItem**](docs/BrandingApi.md#New-BrandingItem) | **POST** /brandings | Create a branding item
+*BrandingApi* | [**Remove-Branding**](docs/BrandingApi.md#Remove-Branding) | **DELETE** /brandings/{name} | Delete a branding item
+*BrandingApi* | [**Get-Branding**](docs/BrandingApi.md#Get-Branding) | **GET** /brandings/{name} | Get a branding item
+*BrandingApi* | [**Get-BrandingList**](docs/BrandingApi.md#Get-BrandingList) | **GET** /brandings | List of branding items
+*BrandingApi* | [**Set-BrandingItem**](docs/BrandingApi.md#Set-BrandingItem) | **PUT** /brandings/{name} | Update a branding item
 *CertificationCampaignFiltersApi* | [**New-CampaignFilter**](docs/CertificationCampaignFiltersApi.md#New-CampaignFilter) | **POST** /campaign-filters | Create a Campaign Filter
 *CertificationCampaignFiltersApi* | [**Remove-CampaignFilters**](docs/CertificationCampaignFiltersApi.md#Remove-CampaignFilters) | **POST** /campaign-filters/delete | Deletes Campaign Filters
 *CertificationCampaignFiltersApi* | [**Get-CampaignFilterById**](docs/CertificationCampaignFiltersApi.md#Get-CampaignFilterById) | **GET** /campaign-filters/{id} | Get Campaign Filter by ID
@@ -406,6 +411,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.BaseReferenceDto](docs/BaseReferenceDto.md)
  - [PSSailpoint\Model.BeforeProvisioningRuleDto](docs/BeforeProvisioningRuleDto.md)
  - [PSSailpoint\Model.Bound](docs/Bound.md)
+ - [PSSailpoint\Model.BrandingItem](docs/BrandingItem.md)
+ - [PSSailpoint\Model.BrandingItemCreate](docs/BrandingItemCreate.md)
  - [PSSailpoint\Model.BucketAggregation](docs/BucketAggregation.md)
  - [PSSailpoint\Model.BucketType](docs/BucketType.md)
  - [PSSailpoint\Model.BulkTaggedObject](docs/BulkTaggedObject.md)

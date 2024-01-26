@@ -95,6 +95,9 @@ docs/BaseEntitlement.md
 docs/BaseReferenceDto.md
 docs/BeforeProvisioningRuleDto.md
 docs/Bound.md
+docs/BrandingApi.md
+docs/BrandingItem.md
+docs/BrandingItemCreate.md
 docs/BucketAggregation.md
 docs/BucketType.md
 docs/BulkTaggedObject.md
@@ -507,6 +510,7 @@ src/PSSailpoint/Api/AccountActivitiesApi.ps1
 src/PSSailpoint/Api/AccountUsagesApi.ps1
 src/PSSailpoint/Api/AccountsApi.ps1
 src/PSSailpoint/Api/AuthUserApi.ps1
+src/PSSailpoint/Api/BrandingApi.ps1
 src/PSSailpoint/Api/CertificationCampaignFiltersApi.ps1
 src/PSSailpoint/Api/CertificationCampaignsApi.ps1
 src/PSSailpoint/Api/CertificationSummariesApi.ps1
@@ -625,6 +629,8 @@ src/PSSailpoint/Model/BaseEntitlement.ps1
 src/PSSailpoint/Model/BaseReferenceDto.ps1
 src/PSSailpoint/Model/BeforeProvisioningRuleDto.ps1
 src/PSSailpoint/Model/Bound.ps1
+src/PSSailpoint/Model/BrandingItem.ps1
+src/PSSailpoint/Model/BrandingItemCreate.ps1
 src/PSSailpoint/Model/BucketAggregation.ps1
 src/PSSailpoint/Model/BucketType.ps1
 src/PSSailpoint/Model/BulkTaggedObject.ps1
@@ -1013,6 +1019,7 @@ tests/Api/AccountActivitiesApi.Tests.ps1
 tests/Api/AccountUsagesApi.Tests.ps1
 tests/Api/AccountsApi.Tests.ps1
 tests/Api/AuthUserApi.Tests.ps1
+tests/Api/BrandingApi.Tests.ps1
 tests/Api/CertificationCampaignFiltersApi.Tests.ps1
 tests/Api/CertificationCampaignsApi.Tests.ps1
 tests/Api/CertificationSummariesApi.Tests.ps1
@@ -1130,6 +1137,8 @@ tests/Model/BaseEntitlement.Tests.ps1
 tests/Model/BaseReferenceDto.Tests.ps1
 tests/Model/BeforeProvisioningRuleDto.Tests.ps1
 tests/Model/Bound.Tests.ps1
+tests/Model/BrandingItem.Tests.ps1
+tests/Model/BrandingItemCreate.Tests.ps1
 tests/Model/BucketAggregation.Tests.ps1
 tests/Model/BucketType.Tests.ps1
 tests/Model/BulkTaggedObject.Tests.ps1

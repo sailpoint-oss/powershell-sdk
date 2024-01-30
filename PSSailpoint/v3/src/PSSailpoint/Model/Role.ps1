@@ -28,6 +28,8 @@ A human-readable description of the Role
 No description available.
 .PARAMETER AccessProfiles
 No description available.
+.PARAMETER Entitlements
+No description available.
 .PARAMETER Membership
 No description available.
 .PARAMETER LegacyMembershipInfo
@@ -72,24 +74,27 @@ function Initialize-Role {
         [PSCustomObject[]]
         ${AccessProfiles},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Entitlements},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Membership},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${LegacyMembershipInfo},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Enabled} = $false,
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Requestable} = $false,
+        ${Enabled} = $false,
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${AccessRequestConfig},
+        [System.Nullable[Boolean]]
+        ${Requestable} = $false,
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${RevocationRequestConfig},
+        ${AccessRequestConfig},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${RevocationRequestConfig},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Segments}
     )
@@ -119,6 +124,7 @@ function Initialize-Role {
             "description" = ${Description}
             "owner" = ${Owner}
             "accessProfiles" = ${AccessProfiles}
+            "Entitlements" = ${Entitlements}
             "membership" = ${Membership}
             "legacyMembershipInfo" = ${LegacyMembershipInfo}
             "enabled" = ${Enabled}
@@ -163,7 +169,7 @@ function ConvertFrom-JsonToRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Role
-        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments")
+        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "Entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -216,6 +222,12 @@ function ConvertFrom-JsonToRole {
             $AccessProfiles = $JsonParameters.PSobject.Properties["accessProfiles"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "Entitlements"))) { #optional property not found
+            $Entitlements = $null
+        } else {
+            $Entitlements = $JsonParameters.PSobject.Properties["Entitlements"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "membership"))) { #optional property not found
             $Membership = $null
         } else {
@@ -266,6 +278,7 @@ function ConvertFrom-JsonToRole {
             "description" = ${Description}
             "owner" = ${Owner}
             "accessProfiles" = ${AccessProfiles}
+            "Entitlements" = ${Entitlements}
             "membership" = ${Membership}
             "legacyMembershipInfo" = ${LegacyMembershipInfo}
             "enabled" = ${Enabled}

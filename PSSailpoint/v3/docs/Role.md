@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Description** | **String** | A human-readable description of the Role | [optional] 
 **Owner** | [**OwnerReference**](OwnerReference.md) |  | 
 **AccessProfiles** | [**AccessProfileRef[]**](AccessProfileRef.md) |  | [optional] 
+**Entitlements** | [**EntitlementRef[]**](EntitlementRef.md) |  | [optional] 
 **Membership** | [**RoleMembershipSelector**](RoleMembershipSelector.md) |  | [optional] 
 **LegacyMembershipInfo** | [**System.Collections.Hashtable**](AnyType.md) | This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration. | [optional] 
 **Enabled** | **Boolean** | Whether the Role is enabled or not. | [optional] [default to $false]
@@ -29,6 +30,7 @@ $Role = Initialize-PSSailpointRole  -Id 2c918086749d78830174a1a40e121518 `
  -Description Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor. `
  -Owner null `
  -AccessProfiles null `
+ -Entitlements null `
  -Membership null `
  -LegacyMembershipInfo {type&#x3D;IDENTITY_LIST} `
  -Enabled true `

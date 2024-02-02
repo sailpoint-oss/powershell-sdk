@@ -14,16 +14,22 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-The unique ID of the referenced object.
-.PARAMETER Name
-The human readable name of the referenced object.
+.PARAMETER HasPermissions
+Indicates whether the entitlement has permissions.
 .PARAMETER Description
-A description of the entitlement
+Entitlement's description.
 .PARAMETER Attribute
-The name of the entitlement attribute
+Entitlement attribute's name.
 .PARAMETER Value
-The value of the entitlement
+Entitlement's value.
+.PARAMETER Schema
+Entitlement's schema.
+.PARAMETER Privileged
+Indicates whether the entitlement is privileged.
+.PARAMETER Id
+Entitlement's ID.
+.PARAMETER Name
+Entitlement's name.
 .OUTPUTS
 
 BaseEntitlement<PSCustomObject>
@@ -33,20 +39,29 @@ function Initialize-BaseEntitlement {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
+        [System.Nullable[Boolean]]
+        ${HasPermissions} = $false,
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
+        ${Description},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Attribute},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Attribute},
+        ${Value},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Value}
+        ${Schema},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Privileged} = $false,
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name}
     )
 
     Process {
@@ -55,11 +70,14 @@ function Initialize-BaseEntitlement {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
+            "hasPermissions" = ${HasPermissions}
             "description" = ${Description}
             "attribute" = ${Attribute}
             "value" = ${Value}
+            "schema" = ${Schema}
+            "privileged" = ${Privileged}
+            "id" = ${Id}
+            "name" = ${Name}
         }
 
 
@@ -97,23 +115,17 @@ function ConvertFrom-JsonToBaseEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BaseEntitlement
-        $AllProperties = ("id", "name", "description", "attribute", "value")
+        $AllProperties = ("hasPermissions", "description", "attribute", "value", "schema", "privileged", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "hasPermissions"))) { #optional property not found
+            $HasPermissions = $null
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
+            $HasPermissions = $JsonParameters.PSobject.Properties["hasPermissions"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -134,12 +146,39 @@ function ConvertFrom-JsonToBaseEntitlement {
             $Value = $JsonParameters.PSobject.Properties["value"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "schema"))) { #optional property not found
+            $Schema = $null
+        } else {
+            $Schema = $JsonParameters.PSobject.Properties["schema"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privileged"))) { #optional property not found
+            $Privileged = $null
+        } else {
+            $Privileged = $JsonParameters.PSobject.Properties["privileged"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
+            "hasPermissions" = ${HasPermissions}
             "description" = ${Description}
             "attribute" = ${Attribute}
             "value" = ${Value}
+            "schema" = ${Schema}
+            "privileged" = ${Privileged}
+            "id" = ${Id}
+            "name" = ${Name}
         }
 
         return $PSO

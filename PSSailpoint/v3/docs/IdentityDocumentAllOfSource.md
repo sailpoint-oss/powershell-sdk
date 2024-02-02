@@ -1,22 +1,22 @@
-# NameType
+# IdentityDocumentAllOfSource
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** | the actor or target name | [optional] 
-**Type** | [**DtoType**](DtoType.md) |  | [optional] 
+**Id** | **String** | ID of identity&#39;s source. | [optional] 
+**Name** | **String** | Display name of identity&#39;s source. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$NameType = Initialize-PSSailpointNameType  -Name John Doe `
- -Type null
+$IdentityDocumentAllOfSource = Initialize-PSSailpointIdentityDocumentAllOfSource  -Id 2c91808b6e9e6fb8016eec1a2b6f7b5f `
+ -Name ODS-HR-Employees
 ```
 
 - Convert the resource to JSON
 ```powershell
-$NameType | ConvertTo-JSON
+$IdentityDocumentAllOfSource | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

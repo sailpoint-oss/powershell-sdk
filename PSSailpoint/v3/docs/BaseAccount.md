@@ -5,15 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The unique ID of the referenced object. | [optional] 
 **Name** | **String** | The human readable name of the referenced object. | [optional] 
-**AccountId** | **String** | The ID of the account | [optional] 
+**AccountId** | **String** | Account ID. | [optional] 
 **Source** | [**AccountSource**](AccountSource.md) |  | [optional] 
-**Disabled** | **Boolean** | Indicates if the account is disabled | [optional] 
-**Locked** | **Boolean** | Indicates if the account is locked | [optional] 
-**Privileged** | **Boolean** |  | [optional] 
-**ManuallyCorrelated** | **Boolean** | Indicates if the account has been manually correlated to an identity | [optional] 
+**Disabled** | **Boolean** | Indicates whether the account is disabled. | [optional] [default to $false]
+**Locked** | **Boolean** | Indicates whether the account is locked. | [optional] [default to $false]
+**Privileged** | **Boolean** | Indicates whether the account is privileged. | [optional] [default to $false]
+**ManuallyCorrelated** | **Boolean** | Indicates whether the account has been manually correlated to an identity. | [optional] [default to $false]
 **PasswordLastSet** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**EntitlementAttributes** | [**System.Collections.Hashtable**](AnyType.md) | a map or dictionary of key/value pairs | [optional] 
-**Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
+**EntitlementAttributes** | [**System.Collections.Hashtable**](AnyType.md) | Map or dictionary of key/value pairs. | [optional] 
+**Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
 
 ## Examples
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 ```powershell
 $BaseAccount = Initialize-PSSailpointBaseAccount  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
- -AccountId john.doe `
+ -AccountId John.Doe `
  -Source null `
  -Disabled false `
  -Locked false `

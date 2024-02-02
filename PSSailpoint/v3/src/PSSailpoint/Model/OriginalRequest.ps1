@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER AccountId
-the account id
+Account ID.
 .PARAMETER AttributeRequests
-No description available.
+Attribute changes requested for account.
 .PARAMETER Op
-the operation that was used
+Operation used.
 .PARAMETER Source
 No description available.
 .OUTPUTS

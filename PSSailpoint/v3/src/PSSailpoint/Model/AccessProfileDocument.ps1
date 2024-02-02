@@ -12,38 +12,38 @@ No summary available.
 
 .DESCRIPTION
 
-This is more of a complete representation of an access profile.  
+More complete representation of an access profile.  
 
 .PARAMETER Id
-The unique ID of the referenced object.
+Access profile's ID.
 .PARAMETER Name
-The human readable name of the referenced object.
-.PARAMETER Type
-No description available.
+Access profile's name.
 .PARAMETER Description
-The description of the access item
+Access item's description.
 .PARAMETER Created
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Modified
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was last modified.
 .PARAMETER Synced
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
 .PARAMETER Enabled
-No description available.
+Indicates whether the access item is currently enabled.
 .PARAMETER Requestable
-Indicates if the access can be requested
+Indicates whether the access item can be requested.
 .PARAMETER RequestCommentsRequired
-Indicates if comments are required when requesting access
+Indicates whether comments are required for requests to access the item.
 .PARAMETER Owner
 No description available.
+.PARAMETER Type
+Access profile's document type.  This enum represents the currently supported document types. Additional values may be added in the future without notice.
 .PARAMETER Source
 No description available.
 .PARAMETER Entitlements
-No description available.
+Entitlements the access profile has access to.
 .PARAMETER EntitlementCount
-No description available.
+Number of entitlements.
 .PARAMETER Tags
-No description available.
+Tags that have been applied to the object.
 .OUTPUTS
 
 AccessProfileDocument<PSCustomObject>
@@ -59,33 +59,33 @@ function Initialize-AccessProfileDocument {
         [String]
         ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
-        [PSCustomObject]
-        ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Synced},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Enabled} = $false,
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Enabled},
+        ${Requestable} = $true,
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Requestable},
+        ${RequestCommentsRequired} = $false,
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${RequestCommentsRequired},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
+        [String]
+        ${Type},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
@@ -120,7 +120,6 @@ function Initialize-AccessProfileDocument {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -129,6 +128,7 @@ function Initialize-AccessProfileDocument {
             "requestable" = ${Requestable}
             "requestCommentsRequired" = ${RequestCommentsRequired}
             "owner" = ${Owner}
+            "_type" = ${Type}
             "source" = ${Source}
             "entitlements" = ${Entitlements}
             "entitlementCount" = ${EntitlementCount}
@@ -170,7 +170,7 @@ function ConvertFrom-JsonToAccessProfileDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessProfileDocument
-        $AllProperties = ("id", "name", "_type", "description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "source", "entitlements", "entitlementCount", "tags")
+        $AllProperties = ("id", "name", "description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "_type", "source", "entitlements", "entitlementCount", "tags")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -274,7 +274,6 @@ function ConvertFrom-JsonToAccessProfileDocument {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -283,6 +282,7 @@ function ConvertFrom-JsonToAccessProfileDocument {
             "requestable" = ${Requestable}
             "requestCommentsRequired" = ${RequestCommentsRequired}
             "owner" = ${Owner}
+            "_type" = ${Type}
             "source" = ${Source}
             "entitlements" = ${Entitlements}
             "entitlementCount" = ${EntitlementCount}

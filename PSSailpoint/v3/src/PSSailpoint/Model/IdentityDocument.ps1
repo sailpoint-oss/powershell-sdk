@@ -21,65 +21,67 @@ The human readable name of the referenced object.
 .PARAMETER Type
 No description available.
 .PARAMETER DisplayName
-The display name of the identity
+Identity's display name.
 .PARAMETER FirstName
-The first name of the identity
+Identity's first name.
 .PARAMETER LastName
-The last name of the identity
+Identity's last name.
 .PARAMETER Email
-The identity's primary email address
+Identity's primary email address.
 .PARAMETER Created
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Modified
-A date-time in ISO-8601 format
-.PARAMETER Synced
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was last modified.
 .PARAMETER Phone
-The phone number of the identity
+Identity's phone number.
+.PARAMETER Synced
+ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
 .PARAMETER Inactive
-Indicates if the identity is inactive
+Indicates whether the identity is inactive.
 .PARAMETER Protected
-No description available.
+Indicates whether the identity is protected.
 .PARAMETER Status
-The identity's status in SailPoint
+Identity's status in SailPoint.
 .PARAMETER EmployeeNumber
-No description available.
+Identity's employee number.
 .PARAMETER Manager
 No description available.
 .PARAMETER IsManager
-Indicates if this identity is a manager of other identities
+Indicates whether the identity is a manager of other identities.
 .PARAMETER IdentityProfile
 No description available.
 .PARAMETER Source
 No description available.
 .PARAMETER Attributes
-a map or dictionary of key/value pairs
+Map or dictionary of key/value pairs.
 .PARAMETER ProcessingState
-No description available.
+Identity's processing state.
 .PARAMETER ProcessingDetails
 No description available.
 .PARAMETER Accounts
-List of accounts associated with the identity
+List of accounts associated with the identity.
 .PARAMETER AccountCount
-Number of accounts associated with the identity
+Number of accounts associated with the identity.
 .PARAMETER Apps
-The list of applications the identity has access to
+List of applications the identity has access to.
 .PARAMETER AppCount
-The number of applications the identity has access to
+Number of applications the identity has access to.
 .PARAMETER Access
-The list of access items assigned to the identity
+List of access items assigned to the identity.
 .PARAMETER AccessCount
-The number of access items assigned to the identity
-.PARAMETER AccessProfileCount
-The number of access profiles assigned to the identity
+Number of access items assigned to the identity.
 .PARAMETER EntitlementCount
-The number of entitlements assigned to the identity
+Number of entitlements assigned to the identity.
 .PARAMETER RoleCount
-The number of roles assigned to the identity
+Number of roles assigned to the identity.
+.PARAMETER AccessProfileCount
+Number of access profiles assigned to the identity.
 .PARAMETER Owns
-No description available.
+Access items the identity owns.
+.PARAMETER OwnsCount
+Number of access items the identity owns.
 .PARAMETER Tags
-No description available.
+Tags that have been applied to the object.
 .OUTPUTS
 
 IdentityDocument<PSCustomObject>
@@ -117,17 +119,17 @@ function Initialize-IdentityDocument {
         [System.Nullable[System.DateTime]]
         ${Modified},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Synced},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Phone},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Synced},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Inactive},
+        ${Inactive} = $false,
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Protected},
+        ${Protected} = $false,
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
@@ -175,17 +177,20 @@ function Initialize-IdentityDocument {
         ${AccessCount},
         [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${AccessProfileCount},
+        ${EntitlementCount},
         [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${EntitlementCount},
+        ${RoleCount},
         [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${RoleCount},
+        ${AccessProfileCount},
         [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${Owns},
         [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${OwnsCount},
+        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Tags}
     )
@@ -217,8 +222,8 @@ function Initialize-IdentityDocument {
             "email" = ${Email}
             "created" = ${Created}
             "modified" = ${Modified}
-            "synced" = ${Synced}
             "phone" = ${Phone}
+            "synced" = ${Synced}
             "inactive" = ${Inactive}
             "protected" = ${Protected}
             "status" = ${Status}
@@ -236,10 +241,11 @@ function Initialize-IdentityDocument {
             "appCount" = ${AppCount}
             "access" = ${Access}
             "accessCount" = ${AccessCount}
-            "accessProfileCount" = ${AccessProfileCount}
             "entitlementCount" = ${EntitlementCount}
             "roleCount" = ${RoleCount}
+            "accessProfileCount" = ${AccessProfileCount}
             "owns" = ${Owns}
+            "ownsCount" = ${OwnsCount}
             "tags" = ${Tags}
         }
 
@@ -278,7 +284,7 @@ function ConvertFrom-JsonToIdentityDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IdentityDocument
-        $AllProperties = ("id", "name", "_type", "displayName", "firstName", "lastName", "email", "created", "modified", "synced", "phone", "inactive", "protected", "status", "employeeNumber", "manager", "isManager", "identityProfile", "source", "attributes", "processingState", "processingDetails", "accounts", "accountCount", "apps", "appCount", "access", "accessCount", "accessProfileCount", "entitlementCount", "roleCount", "owns", "tags")
+        $AllProperties = ("id", "name", "_type", "displayName", "firstName", "lastName", "email", "created", "modified", "phone", "synced", "inactive", "protected", "status", "employeeNumber", "manager", "isManager", "identityProfile", "source", "attributes", "processingState", "processingDetails", "accounts", "accountCount", "apps", "appCount", "access", "accessCount", "entitlementCount", "roleCount", "accessProfileCount", "owns", "ownsCount", "tags")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -343,16 +349,16 @@ function ConvertFrom-JsonToIdentityDocument {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "synced"))) { #optional property not found
-            $Synced = $null
-        } else {
-            $Synced = $JsonParameters.PSobject.Properties["synced"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "phone"))) { #optional property not found
             $Phone = $null
         } else {
             $Phone = $JsonParameters.PSobject.Properties["phone"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "synced"))) { #optional property not found
+            $Synced = $null
+        } else {
+            $Synced = $JsonParameters.PSobject.Properties["synced"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "inactive"))) { #optional property not found
@@ -457,12 +463,6 @@ function ConvertFrom-JsonToIdentityDocument {
             $AccessCount = $JsonParameters.PSobject.Properties["accessCount"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessProfileCount"))) { #optional property not found
-            $AccessProfileCount = $null
-        } else {
-            $AccessProfileCount = $JsonParameters.PSobject.Properties["accessProfileCount"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlementCount"))) { #optional property not found
             $EntitlementCount = $null
         } else {
@@ -475,10 +475,22 @@ function ConvertFrom-JsonToIdentityDocument {
             $RoleCount = $JsonParameters.PSobject.Properties["roleCount"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessProfileCount"))) { #optional property not found
+            $AccessProfileCount = $null
+        } else {
+            $AccessProfileCount = $JsonParameters.PSobject.Properties["accessProfileCount"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "owns"))) { #optional property not found
             $Owns = $null
         } else {
             $Owns = $JsonParameters.PSobject.Properties["owns"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownsCount"))) { #optional property not found
+            $OwnsCount = $null
+        } else {
+            $OwnsCount = $JsonParameters.PSobject.Properties["ownsCount"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tags"))) { #optional property not found
@@ -497,8 +509,8 @@ function ConvertFrom-JsonToIdentityDocument {
             "email" = ${Email}
             "created" = ${Created}
             "modified" = ${Modified}
-            "synced" = ${Synced}
             "phone" = ${Phone}
+            "synced" = ${Synced}
             "inactive" = ${Inactive}
             "protected" = ${Protected}
             "status" = ${Status}
@@ -516,10 +528,11 @@ function ConvertFrom-JsonToIdentityDocument {
             "appCount" = ${AppCount}
             "access" = ${Access}
             "accessCount" = ${AccessCount}
-            "accessProfileCount" = ${AccessProfileCount}
             "entitlementCount" = ${EntitlementCount}
             "roleCount" = ${RoleCount}
+            "accessProfileCount" = ${AccessProfileCount}
             "owns" = ${Owns}
+            "ownsCount" = ${OwnsCount}
             "tags" = ${Tags}
         }
 

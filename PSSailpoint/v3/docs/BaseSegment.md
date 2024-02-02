@@ -1,24 +1,22 @@
-# AttributeRequest
+# BaseSegment
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** | Attribute name. | [optional] 
-**Op** | **String** | Operation to perform on attribute. | [optional] 
-**Value** | **String** | Value of attribute. | [optional] 
+**Id** | **String** | Segment&#39;s unique ID. | [optional] 
+**Name** | **String** | Segment&#39;s display name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AttributeRequest = Initialize-PSSailpointAttributeRequest  -Name groups `
- -Op Add `
- -Value 3203537556531076
+$BaseSegment = Initialize-PSSailpointBaseSegment  -Id b009b6e3-b56d-41d9-8735-cb532ea0b017 `
+ -Name Test Segment
 ```
 
 - Convert the resource to JSON
 ```powershell
-$AttributeRequest | ConvertTo-JSON
+$BaseSegment | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

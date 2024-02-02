@@ -19,19 +19,19 @@ The unique ID of the referenced object.
 .PARAMETER Name
 The human readable name of the referenced object.
 .PARAMETER Description
-The description of the access item
+Access item's description.
 .PARAMETER Created
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Modified
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was last modified.
 .PARAMETER Synced
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
 .PARAMETER Enabled
-No description available.
+Indicates whether the access item is currently enabled.
 .PARAMETER Requestable
-Indicates if the access can be requested
+Indicates whether the access item can be requested.
 .PARAMETER RequestCommentsRequired
-Indicates if comments are required when requesting access
+Indicates whether comments are required for requests to access the item.
 .PARAMETER Owner
 No description available.
 .OUTPUTS
@@ -62,13 +62,13 @@ function Initialize-BaseAccess {
         ${Synced},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Enabled},
+        ${Enabled} = $false,
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Requestable},
+        ${Requestable} = $true,
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${RequestCommentsRequired},
+        ${RequestCommentsRequired} = $false,
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner}

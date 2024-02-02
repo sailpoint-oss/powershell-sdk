@@ -21,37 +21,37 @@ No description available.
 .PARAMETER Type
 No description available.
 .PARAMETER Action
-The type of action that this activity performed
+Type of action performed in the activity.
 .PARAMETER Created
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Modified
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was last modified.
 .PARAMETER Stage
-The current stage of the activity
+Activity's current stage.
 .PARAMETER Origin
-No description available.
+Activity's origin.
 .PARAMETER Status
-the current status of the activity
+Activity's current status.
 .PARAMETER Requester
 No description available.
 .PARAMETER Recipient
 No description available.
 .PARAMETER TrackingNumber
-No description available.
+Account activity's tracking number.
 .PARAMETER Errors
-No description available.
+Errors provided by the source while completing account actions.
 .PARAMETER Warnings
-No description available.
+Warnings provided by the source while completing account actions.
 .PARAMETER Approvals
-No description available.
+Approvals performed on an item during activity.
 .PARAMETER OriginalRequests
-No description available.
+Original actions that triggered all individual source actions related to the account action.
 .PARAMETER ExpansionItems
-No description available.
+Controls that translated the attribute requests into actual provisioning actions on the source.
 .PARAMETER AccountRequests
-No description available.
+Account data for each individual source action triggered by the original requests.
 .PARAMETER Sources
-No description available.
+Sources involved in the account activity.
 .OUTPUTS
 
 AccountActivitySearchedItem<PSCustomObject>

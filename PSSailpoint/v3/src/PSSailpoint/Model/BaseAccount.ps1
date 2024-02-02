@@ -19,23 +19,23 @@ The unique ID of the referenced object.
 .PARAMETER Name
 The human readable name of the referenced object.
 .PARAMETER AccountId
-The ID of the account
+Account ID.
 .PARAMETER Source
 No description available.
 .PARAMETER Disabled
-Indicates if the account is disabled
+Indicates whether the account is disabled.
 .PARAMETER Locked
-Indicates if the account is locked
+Indicates whether the account is locked.
 .PARAMETER Privileged
-No description available.
+Indicates whether the account is privileged.
 .PARAMETER ManuallyCorrelated
-Indicates if the account has been manually correlated to an identity
+Indicates whether the account has been manually correlated to an identity.
 .PARAMETER PasswordLastSet
 A date-time in ISO-8601 format
 .PARAMETER EntitlementAttributes
-a map or dictionary of key/value pairs
+Map or dictionary of key/value pairs.
 .PARAMETER Created
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was created.
 .OUTPUTS
 
 BaseAccount<PSCustomObject>
@@ -58,16 +58,16 @@ function Initialize-BaseAccount {
         ${Source},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Disabled},
+        ${Disabled} = $false,
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Locked},
+        ${Locked} = $false,
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Privileged},
+        ${Privileged} = $false,
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${ManuallyCorrelated},
+        ${ManuallyCorrelated} = $false,
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${PasswordLastSet},

@@ -21,35 +21,35 @@ No description available.
 .PARAMETER Type
 No description available.
 .PARAMETER Created
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Synced
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
 .PARAMETER Action
-The action that was performed
+Name of the event as it's displayed in audit reports.
 .PARAMETER Type
-The type of event
+Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings.
 .PARAMETER Actor
-No description available.
+Name of the actor that generated the event.
 .PARAMETER Target
-No description available.
+Name of the target, or recipient, of the event.
 .PARAMETER Stack
-No description available.
+The event's stack.
 .PARAMETER TrackingNumber
-No description available.
+ID of the group of events.
 .PARAMETER IpAddress
-No description available.
+Target system's IP address.
 .PARAMETER Details
-No description available.
+ID of event's details.
 .PARAMETER Attributes
-No description available.
+Attributes involved in the event.
 .PARAMETER Objects
-No description available.
+Objects the event is happening to.
 .PARAMETER Operation
-No description available.
+Operation, or action, performed during the event.
 .PARAMETER Status
-No description available.
+Event status. Refer to [Event Statuses](https://documentation.sailpoint.com/saas/help/search/index.html#event-statuses) for a list of event statuses and their meanings.
 .PARAMETER TechnicalName
-No description available.
+Event's normalized name. This normalized name always follows the pattern of 'objects_operation_status'.
 .OUTPUTS
 
 ModelEvent<PSCustomObject>
@@ -72,7 +72,7 @@ function Initialize-ModelEvent {
         [System.Nullable[System.DateTime]]
         ${Created},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
+        [String]
         ${Synced},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -81,10 +81,10 @@ function Initialize-ModelEvent {
         [String]
         ${Type},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Actor},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Target},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]

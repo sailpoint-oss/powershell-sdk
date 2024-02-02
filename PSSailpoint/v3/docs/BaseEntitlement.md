@@ -3,21 +3,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The unique ID of the referenced object. | [optional] 
-**Name** | **String** | The human readable name of the referenced object. | [optional] 
-**Description** | **String** | A description of the entitlement | [optional] 
-**Attribute** | **String** | The name of the entitlement attribute | [optional] 
-**Value** | **String** | The value of the entitlement | [optional] 
+**HasPermissions** | **Boolean** | Indicates whether the entitlement has permissions. | [optional] [default to $false]
+**Description** | **String** | Entitlement&#39;s description. | [optional] 
+**Attribute** | **String** | Entitlement attribute&#39;s name. | [optional] 
+**Value** | **String** | Entitlement&#39;s value. | [optional] 
+**Schema** | **String** | Entitlement&#39;s schema. | [optional] 
+**Privileged** | **Boolean** | Indicates whether the entitlement is privileged. | [optional] [default to $false]
+**Id** | **String** | Entitlement&#39;s ID. | [optional] 
+**Name** | **String** | Entitlement&#39;s name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$BaseEntitlement = Initialize-PSSailpointBaseEntitlement  -Id 2c91808568c529c60168cca6f90c1313 `
- -Name John Doe `
- -Description The admin privilege `
- -Attribute admin `
- -Value true
+$BaseEntitlement = Initialize-PSSailpointBaseEntitlement  -HasPermissions false `
+ -Description Cloud engineering `
+ -Attribute memberOf `
+ -Value CN&#x3D;Cloud Engineering,DC&#x3D;sailpoint,DC&#x3D;COM `
+ -Schema group `
+ -Privileged false `
+ -Id 2c918084575812550157589064f33b89 `
+ -Name CN&#x3D;Cloud Engineering,DC&#x3D;sailpoint,DC&#x3D;COM
 ```
 
 - Convert the resource to JSON

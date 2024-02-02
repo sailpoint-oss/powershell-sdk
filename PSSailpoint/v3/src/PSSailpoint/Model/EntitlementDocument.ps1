@@ -15,31 +15,35 @@ No summary available.
 Entitlement
 
 .PARAMETER Id
-The unique ID of the referenced object.
+No description available.
 .PARAMETER Name
-The human readable name of the referenced object.
+No description available.
 .PARAMETER Type
 No description available.
-.PARAMETER Description
-A description of the entitlement
-.PARAMETER Attribute
-The name of the entitlement attribute
-.PARAMETER Value
-The value of the entitlement
 .PARAMETER Modified
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the time when the object was last modified.
 .PARAMETER Synced
-A date-time in ISO-8601 format
+ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
 .PARAMETER DisplayName
-The display name of the entitlement
+Entitlement's display name.
 .PARAMETER Source
 No description available.
+.PARAMETER Segments
+Segments with the role.
+.PARAMETER SegmentCount
+Number of segments with the role.
+.PARAMETER Requestable
+Indicates whether the entitlement is requestable.
+.PARAMETER CloudGoverned
+Indicates whether the entitlement is cloud governed.
+.PARAMETER Created
+ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Privileged
-No description available.
+Indicates whether the entitlement is privileged.
 .PARAMETER IdentityCount
-No description available.
+Number of identities who have access to the entitlement.
 .PARAMETER Tags
-No description available.
+Tags that have been applied to the object.
 .OUTPUTS
 
 EntitlementDocument<PSCustomObject>
@@ -59,33 +63,39 @@ function Initialize-EntitlementDocument {
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Attribute},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Value},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${Synced},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Segments},
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${SegmentCount},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Requestable} = $false,
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Privileged},
+        ${CloudGoverned} = $false,
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Created},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Privileged} = $false,
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${IdentityCount},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Tags}
     )
@@ -111,13 +121,15 @@ function Initialize-EntitlementDocument {
             "id" = ${Id}
             "name" = ${Name}
             "_type" = ${Type}
-            "description" = ${Description}
-            "attribute" = ${Attribute}
-            "value" = ${Value}
             "modified" = ${Modified}
             "synced" = ${Synced}
             "displayName" = ${DisplayName}
             "source" = ${Source}
+            "segments" = ${Segments}
+            "segmentCount" = ${SegmentCount}
+            "requestable" = ${Requestable}
+            "cloudGoverned" = ${CloudGoverned}
+            "created" = ${Created}
             "privileged" = ${Privileged}
             "identityCount" = ${IdentityCount}
             "tags" = ${Tags}
@@ -158,7 +170,7 @@ function ConvertFrom-JsonToEntitlementDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EntitlementDocument
-        $AllProperties = ("id", "name", "_type", "description", "attribute", "value", "modified", "synced", "displayName", "source", "privileged", "identityCount", "tags")
+        $AllProperties = ("id", "name", "_type", "modified", "synced", "displayName", "source", "segments", "segmentCount", "requestable", "cloudGoverned", "created", "privileged", "identityCount", "tags")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -187,24 +199,6 @@ function ConvertFrom-JsonToEntitlementDocument {
             $Type = $JsonParameters.PSobject.Properties["_type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attribute"))) { #optional property not found
-            $Attribute = $null
-        } else {
-            $Attribute = $JsonParameters.PSobject.Properties["attribute"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "value"))) { #optional property not found
-            $Value = $null
-        } else {
-            $Value = $JsonParameters.PSobject.Properties["value"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
             $Modified = $null
         } else {
@@ -229,6 +223,36 @@ function ConvertFrom-JsonToEntitlementDocument {
             $Source = $JsonParameters.PSobject.Properties["source"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "segments"))) { #optional property not found
+            $Segments = $null
+        } else {
+            $Segments = $JsonParameters.PSobject.Properties["segments"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "segmentCount"))) { #optional property not found
+            $SegmentCount = $null
+        } else {
+            $SegmentCount = $JsonParameters.PSobject.Properties["segmentCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestable"))) { #optional property not found
+            $Requestable = $null
+        } else {
+            $Requestable = $JsonParameters.PSobject.Properties["requestable"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cloudGoverned"))) { #optional property not found
+            $CloudGoverned = $null
+        } else {
+            $CloudGoverned = $JsonParameters.PSobject.Properties["cloudGoverned"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "privileged"))) { #optional property not found
             $Privileged = $null
         } else {
@@ -251,13 +275,15 @@ function ConvertFrom-JsonToEntitlementDocument {
             "id" = ${Id}
             "name" = ${Name}
             "_type" = ${Type}
-            "description" = ${Description}
-            "attribute" = ${Attribute}
-            "value" = ${Value}
             "modified" = ${Modified}
             "synced" = ${Synced}
             "displayName" = ${DisplayName}
             "source" = ${Source}
+            "segments" = ${Segments}
+            "segmentCount" = ${SegmentCount}
+            "requestable" = ${Requestable}
+            "cloudGoverned" = ${CloudGoverned}
+            "created" = ${Created}
             "privileged" = ${Privileged}
             "identityCount" = ${IdentityCount}
             "tags" = ${Tags}

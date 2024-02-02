@@ -14,6 +14,7 @@ docs/AccessProfileApprovalScheme.md
 docs/AccessProfileBulkDeleteRequest.md
 docs/AccessProfileBulkDeleteResponse.md
 docs/AccessProfileDocument.md
+docs/AccessProfileDocumentAllOfSource.md
 docs/AccessProfileEntitlement.md
 docs/AccessProfileRef.md
 docs/AccessProfileRole.md
@@ -88,11 +89,14 @@ docs/AuthUserApi.md
 docs/Base64Decode.md
 docs/Base64Encode.md
 docs/BaseAccess.md
+docs/BaseAccessAllOfOwner.md
+docs/BaseAccessProfile.md
 docs/BaseAccount.md
 docs/BaseCommonDto.md
 docs/BaseDocument.md
 docs/BaseEntitlement.md
 docs/BaseReferenceDto.md
+docs/BaseSegment.md
 docs/BeforeProvisioningRuleDto.md
 docs/Bound.md
 docs/BrandingApi.md
@@ -170,6 +174,7 @@ docs/E164phone.md
 docs/EmailNotificationOption.md
 docs/Entitlement.md
 docs/EntitlementDocument.md
+docs/EntitlementDocumentAllOfSource.md
 docs/EntitlementDto.md
 docs/EntitlementRef.md
 docs/EntitlementRequestConfig.md
@@ -213,6 +218,9 @@ docs/IdentityAttributeTransform.md
 docs/IdentityCertDecisionSummary.md
 docs/IdentityCertificationDto.md
 docs/IdentityDocument.md
+docs/IdentityDocumentAllOfIdentityProfile.md
+docs/IdentityDocumentAllOfManager.md
+docs/IdentityDocumentAllOfSource.md
 docs/IdentityExceptionReportReference.md
 docs/IdentityProfile.md
 docs/IdentityProfileAllOfAuthoritativeSource.md
@@ -252,7 +260,6 @@ docs/MetricAggregation.md
 docs/MetricType.md
 docs/MultiPolicyRequest.md
 docs/NameNormalizer.md
-docs/NameType.md
 docs/NamedConstructs.md
 docs/NestedAggregation.md
 docs/NetworkConfiguration.md
@@ -288,7 +295,6 @@ docs/ObjectImportResult.md
 docs/Operation.md
 docs/OriginalRequest.md
 docs/OrphanUncorrelatedReportArguments.md
-docs/Owner.md
 docs/OwnerDto.md
 docs/OwnerReference.md
 docs/OwnerReferenceSegments.md
@@ -418,7 +424,6 @@ docs/SearchApi.md
 docs/SearchArguments.md
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
-docs/SearchIdentityReference.md
 docs/SearchSchedule.md
 docs/SearchScheduleRecipientsInner.md
 docs/SectionDetails.md
@@ -555,6 +560,7 @@ src/PSSailpoint/Model/AccessProfileApprovalScheme.ps1
 src/PSSailpoint/Model/AccessProfileBulkDeleteRequest.ps1
 src/PSSailpoint/Model/AccessProfileBulkDeleteResponse.ps1
 src/PSSailpoint/Model/AccessProfileDocument.ps1
+src/PSSailpoint/Model/AccessProfileDocumentAllOfSource.ps1
 src/PSSailpoint/Model/AccessProfileEntitlement.ps1
 src/PSSailpoint/Model/AccessProfileRef.ps1
 src/PSSailpoint/Model/AccessProfileRole.ps1
@@ -622,11 +628,14 @@ src/PSSailpoint/Model/AuthUser.ps1
 src/PSSailpoint/Model/Base64Decode.ps1
 src/PSSailpoint/Model/Base64Encode.ps1
 src/PSSailpoint/Model/BaseAccess.ps1
+src/PSSailpoint/Model/BaseAccessAllOfOwner.ps1
+src/PSSailpoint/Model/BaseAccessProfile.ps1
 src/PSSailpoint/Model/BaseAccount.ps1
 src/PSSailpoint/Model/BaseCommonDto.ps1
 src/PSSailpoint/Model/BaseDocument.ps1
 src/PSSailpoint/Model/BaseEntitlement.ps1
 src/PSSailpoint/Model/BaseReferenceDto.ps1
+src/PSSailpoint/Model/BaseSegment.ps1
 src/PSSailpoint/Model/BeforeProvisioningRuleDto.ps1
 src/PSSailpoint/Model/Bound.ps1
 src/PSSailpoint/Model/BrandingItem.ps1
@@ -699,6 +708,7 @@ src/PSSailpoint/Model/E164phone.ps1
 src/PSSailpoint/Model/EmailNotificationOption.ps1
 src/PSSailpoint/Model/Entitlement.ps1
 src/PSSailpoint/Model/EntitlementDocument.ps1
+src/PSSailpoint/Model/EntitlementDocumentAllOfSource.ps1
 src/PSSailpoint/Model/EntitlementDto.ps1
 src/PSSailpoint/Model/EntitlementRef.ps1
 src/PSSailpoint/Model/EntitlementRequestConfig.ps1
@@ -739,6 +749,9 @@ src/PSSailpoint/Model/IdentityAttributeTransform.ps1
 src/PSSailpoint/Model/IdentityCertDecisionSummary.ps1
 src/PSSailpoint/Model/IdentityCertificationDto.ps1
 src/PSSailpoint/Model/IdentityDocument.ps1
+src/PSSailpoint/Model/IdentityDocumentAllOfIdentityProfile.ps1
+src/PSSailpoint/Model/IdentityDocumentAllOfManager.ps1
+src/PSSailpoint/Model/IdentityDocumentAllOfSource.ps1
 src/PSSailpoint/Model/IdentityExceptionReportReference.ps1
 src/PSSailpoint/Model/IdentityProfile.ps1
 src/PSSailpoint/Model/IdentityProfileAllOfAuthoritativeSource.ps1
@@ -778,7 +791,6 @@ src/PSSailpoint/Model/ModelEvent.ps1
 src/PSSailpoint/Model/ModelFilter.ps1
 src/PSSailpoint/Model/MultiPolicyRequest.ps1
 src/PSSailpoint/Model/NameNormalizer.ps1
-src/PSSailpoint/Model/NameType.ps1
 src/PSSailpoint/Model/NamedConstructs.ps1
 src/PSSailpoint/Model/NestedAggregation.ps1
 src/PSSailpoint/Model/NetworkConfiguration.ps1
@@ -812,7 +824,6 @@ src/PSSailpoint/Model/ObjectImportResult.ps1
 src/PSSailpoint/Model/Operation.ps1
 src/PSSailpoint/Model/OriginalRequest.ps1
 src/PSSailpoint/Model/OrphanUncorrelatedReportArguments.ps1
-src/PSSailpoint/Model/Owner.ps1
 src/PSSailpoint/Model/OwnerDto.ps1
 src/PSSailpoint/Model/OwnerReference.ps1
 src/PSSailpoint/Model/OwnerReferenceSegments.ps1
@@ -927,7 +938,6 @@ src/PSSailpoint/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint/Model/SearchArguments.ps1
 src/PSSailpoint/Model/SearchExportReportArguments.ps1
 src/PSSailpoint/Model/SearchFilterType.ps1
-src/PSSailpoint/Model/SearchIdentityReference.ps1
 src/PSSailpoint/Model/SearchSchedule.ps1
 src/PSSailpoint/Model/SearchScheduleRecipientsInner.ps1
 src/PSSailpoint/Model/SectionDetails.ps1
@@ -1063,6 +1073,7 @@ tests/Model/AccessProfileApprovalScheme.Tests.ps1
 tests/Model/AccessProfileBulkDeleteRequest.Tests.ps1
 tests/Model/AccessProfileBulkDeleteResponse.Tests.ps1
 tests/Model/AccessProfileDocument.Tests.ps1
+tests/Model/AccessProfileDocumentAllOfSource.Tests.ps1
 tests/Model/AccessProfileEntitlement.Tests.ps1
 tests/Model/AccessProfileRef.Tests.ps1
 tests/Model/AccessProfileRole.Tests.ps1
@@ -1130,11 +1141,14 @@ tests/Model/AuthUser.Tests.ps1
 tests/Model/Base64Decode.Tests.ps1
 tests/Model/Base64Encode.Tests.ps1
 tests/Model/BaseAccess.Tests.ps1
+tests/Model/BaseAccessAllOfOwner.Tests.ps1
+tests/Model/BaseAccessProfile.Tests.ps1
 tests/Model/BaseAccount.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseDocument.Tests.ps1
 tests/Model/BaseEntitlement.Tests.ps1
 tests/Model/BaseReferenceDto.Tests.ps1
+tests/Model/BaseSegment.Tests.ps1
 tests/Model/BeforeProvisioningRuleDto.Tests.ps1
 tests/Model/Bound.Tests.ps1
 tests/Model/BrandingItem.Tests.ps1
@@ -1207,6 +1221,7 @@ tests/Model/E164phone.Tests.ps1
 tests/Model/EmailNotificationOption.Tests.ps1
 tests/Model/Entitlement.Tests.ps1
 tests/Model/EntitlementDocument.Tests.ps1
+tests/Model/EntitlementDocumentAllOfSource.Tests.ps1
 tests/Model/EntitlementDto.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
 tests/Model/EntitlementRequestConfig.Tests.ps1
@@ -1247,6 +1262,9 @@ tests/Model/IdentityAttributeTransform.Tests.ps1
 tests/Model/IdentityCertDecisionSummary.Tests.ps1
 tests/Model/IdentityCertificationDto.Tests.ps1
 tests/Model/IdentityDocument.Tests.ps1
+tests/Model/IdentityDocumentAllOfIdentityProfile.Tests.ps1
+tests/Model/IdentityDocumentAllOfManager.Tests.ps1
+tests/Model/IdentityDocumentAllOfSource.Tests.ps1
 tests/Model/IdentityExceptionReportReference.Tests.ps1
 tests/Model/IdentityProfile.Tests.ps1
 tests/Model/IdentityProfileAllOfAuthoritativeSource.Tests.ps1
@@ -1286,7 +1304,6 @@ tests/Model/ModelEvent.Tests.ps1
 tests/Model/ModelFilter.Tests.ps1
 tests/Model/MultiPolicyRequest.Tests.ps1
 tests/Model/NameNormalizer.Tests.ps1
-tests/Model/NameType.Tests.ps1
 tests/Model/NamedConstructs.Tests.ps1
 tests/Model/NestedAggregation.Tests.ps1
 tests/Model/NetworkConfiguration.Tests.ps1
@@ -1320,7 +1337,6 @@ tests/Model/ObjectImportResult.Tests.ps1
 tests/Model/Operation.Tests.ps1
 tests/Model/OriginalRequest.Tests.ps1
 tests/Model/OrphanUncorrelatedReportArguments.Tests.ps1
-tests/Model/Owner.Tests.ps1
 tests/Model/OwnerDto.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
 tests/Model/OwnerReferenceSegments.Tests.ps1
@@ -1435,7 +1451,6 @@ tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
 tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
-tests/Model/SearchIdentityReference.Tests.ps1
 tests/Model/SearchSchedule.Tests.ps1
 tests/Model/SearchScheduleRecipientsInner.Tests.ps1
 tests/Model/SectionDetails.Tests.ps1

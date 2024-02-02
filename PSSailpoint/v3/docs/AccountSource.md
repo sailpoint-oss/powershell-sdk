@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The unique ID of the referenced object. | [optional] 
 **Name** | **String** | The human readable name of the referenced object. | [optional] 
-**Type** | **String** | the type of source returned | [optional] 
+**Type** | **String** | Type of source returned. | [optional] 
 
 ## Examples
 

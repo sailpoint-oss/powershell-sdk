@@ -1,24 +1,22 @@
-# AttributeRequest
+# BaseAccessProfile
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** | Attribute name. | [optional] 
-**Op** | **String** | Operation to perform on attribute. | [optional] 
-**Value** | **String** | Value of attribute. | [optional] 
+**Id** | **String** | Access profile&#39;s unique ID. | [optional] 
+**Name** | **String** | Access profile&#39;s display name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AttributeRequest = Initialize-PSSailpointAttributeRequest  -Name groups `
- -Op Add `
- -Value 3203537556531076
+$BaseAccessProfile = Initialize-PSSailpointBaseAccessProfile  -Id 2c91809c6faade77016fb4f0b63407ae `
+ -Name Admin Access
 ```
 
 - Convert the resource to JSON
 ```powershell
-$AttributeRequest | ConvertTo-JSON
+$BaseAccessProfile | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

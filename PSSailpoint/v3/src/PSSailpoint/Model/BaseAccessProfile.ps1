@@ -14,40 +14,34 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+Access profile's unique ID.
 .PARAMETER Name
-Attribute name.
-.PARAMETER Op
-Operation to perform on attribute.
-.PARAMETER Value
-Value of attribute.
+Access profile's display name.
 .OUTPUTS
 
-AttributeRequest<PSCustomObject>
+BaseAccessProfile<PSCustomObject>
 #>
 
-function Initialize-AttributeRequest {
+function Initialize-BaseAccessProfile {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Op},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Value}
+        ${Name}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => AttributeRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => BaseAccessProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
-            "op" = ${Op}
-            "value" = ${Value}
         }
 
 
@@ -58,11 +52,11 @@ function Initialize-AttributeRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to AttributeRequest<PSCustomObject>
+Convert from JSON to BaseAccessProfile<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AttributeRequest<PSCustomObject>
+Convert from JSON to BaseAccessProfile<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,26 +64,32 @@ Json object
 
 .OUTPUTS
 
-AttributeRequest<PSCustomObject>
+BaseAccessProfile<PSCustomObject>
 #>
-function ConvertFrom-JsonToAttributeRequest {
+function ConvertFrom-JsonToBaseAccessProfile {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => AttributeRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => BaseAccessProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in AttributeRequest
-        $AllProperties = ("name", "op", "value")
+        # check if Json contains properties not defined in BaseAccessProfile
+        $AllProperties = ("id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -98,22 +98,9 @@ function ConvertFrom-JsonToAttributeRequest {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "op"))) { #optional property not found
-            $Op = $null
-        } else {
-            $Op = $JsonParameters.PSobject.Properties["op"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "value"))) { #optional property not found
-            $Value = $null
-        } else {
-            $Value = $JsonParameters.PSobject.Properties["value"].value
-        }
-
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
-            "op" = ${Op}
-            "value" = ${Value}
         }
 
         return $PSO

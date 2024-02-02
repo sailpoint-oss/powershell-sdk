@@ -12,20 +12,18 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Identity's identity profile.
 
 .PARAMETER Id
-The unique ID of the referenced object.
+Identity profile's ID.
 .PARAMETER Name
-The human readable name of the referenced object.
-.PARAMETER Type
-Type of source returned.
+Identity profile's name.
 .OUTPUTS
 
-AccountSource<PSCustomObject>
+IdentityDocumentAllOfIdentityProfile<PSCustomObject>
 #>
 
-function Initialize-AccountSource {
+function Initialize-IdentityDocumentAllOfIdentityProfile {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -33,21 +31,17 @@ function Initialize-AccountSource {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Type}
+        ${Name}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => AccountSource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => IdentityDocumentAllOfIdentityProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "type" = ${Type}
         }
 
 
@@ -58,11 +52,11 @@ function Initialize-AccountSource {
 <#
 .SYNOPSIS
 
-Convert from JSON to AccountSource<PSCustomObject>
+Convert from JSON to IdentityDocumentAllOfIdentityProfile<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AccountSource<PSCustomObject>
+Convert from JSON to IdentityDocumentAllOfIdentityProfile<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,22 +64,22 @@ Json object
 
 .OUTPUTS
 
-AccountSource<PSCustomObject>
+IdentityDocumentAllOfIdentityProfile<PSCustomObject>
 #>
-function ConvertFrom-JsonToAccountSource {
+function ConvertFrom-JsonToIdentityDocumentAllOfIdentityProfile {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => AccountSource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => IdentityDocumentAllOfIdentityProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in AccountSource
-        $AllProperties = ("id", "name", "type")
+        # check if Json contains properties not defined in IdentityDocumentAllOfIdentityProfile
+        $AllProperties = ("id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -104,16 +98,9 @@ function ConvertFrom-JsonToAccountSource {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "type" = ${Type}
         }
 
         return $PSO

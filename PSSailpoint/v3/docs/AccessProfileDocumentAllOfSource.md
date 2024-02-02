@@ -1,24 +1,22 @@
-# AttributeRequest
+# AccessProfileDocumentAllOfSource
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** | Attribute name. | [optional] 
-**Op** | **String** | Operation to perform on attribute. | [optional] 
-**Value** | **String** | Value of attribute. | [optional] 
+**Id** | **String** | Source&#39;s ID. | [optional] 
+**Name** | **String** | Source&#39;s name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AttributeRequest = Initialize-PSSailpointAttributeRequest  -Name groups `
- -Op Add `
- -Value 3203537556531076
+$AccessProfileDocumentAllOfSource = Initialize-PSSailpointAccessProfileDocumentAllOfSource  -Id ff8081815757d4fb0157588f3d9d008f `
+ -Name Employees
 ```
 
 - Convert the resource to JSON
 ```powershell
-$AttributeRequest | ConvertTo-JSON
+$AccessProfileDocumentAllOfSource | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

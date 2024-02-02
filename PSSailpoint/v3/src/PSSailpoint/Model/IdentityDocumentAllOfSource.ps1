@@ -12,22 +12,18 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Identity's source.
 
 .PARAMETER Id
-The unique ID of the referenced object.
+ID of identity's source.
 .PARAMETER Name
-The human readable name of the referenced object.
-.PARAMETER Type
-No description available.
-.PARAMETER Email
-The email of the identity
+Display name of identity's source.
 .OUTPUTS
 
-Owner<PSCustomObject>
+IdentityDocumentAllOfSource<PSCustomObject>
 #>
 
-function Initialize-Owner {
+function Initialize-IdentityDocumentAllOfSource {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -35,26 +31,17 @@ function Initialize-Owner {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
-        [PSCustomObject]
-        ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Email}
+        ${Name}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => Owner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => IdentityDocumentAllOfSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "type" = ${Type}
-            "email" = ${Email}
         }
 
 
@@ -65,11 +52,11 @@ function Initialize-Owner {
 <#
 .SYNOPSIS
 
-Convert from JSON to Owner<PSCustomObject>
+Convert from JSON to IdentityDocumentAllOfSource<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Owner<PSCustomObject>
+Convert from JSON to IdentityDocumentAllOfSource<PSCustomObject>
 
 .PARAMETER Json
 
@@ -77,22 +64,22 @@ Json object
 
 .OUTPUTS
 
-Owner<PSCustomObject>
+IdentityDocumentAllOfSource<PSCustomObject>
 #>
-function ConvertFrom-JsonToOwner {
+function ConvertFrom-JsonToIdentityDocumentAllOfSource {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => Owner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => IdentityDocumentAllOfSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in Owner
-        $AllProperties = ("id", "name", "type", "email")
+        # check if Json contains properties not defined in IdentityDocumentAllOfSource
+        $AllProperties = ("id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -111,23 +98,9 @@ function ConvertFrom-JsonToOwner {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "email"))) { #optional property not found
-            $Email = $null
-        } else {
-            $Email = $JsonParameters.PSobject.Properties["email"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "type" = ${Type}
-            "email" = ${Email}
         }
 
         return $PSO

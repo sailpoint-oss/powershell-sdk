@@ -6,21 +6,21 @@ Name | Type | Description | Notes
 **Id** | **String** |  | 
 **Name** | **String** |  | 
 **Type** | [**DocumentType**](DocumentType.md) |  | 
-**Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Synced** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**Action** | **String** | The action that was performed | [optional] 
-**Type** | **String** | The type of event | [optional] 
-**Actor** | [**NameType**](NameType.md) |  | [optional] 
-**Target** | [**NameType**](NameType.md) |  | [optional] 
-**Stack** | **String** |  | [optional] 
-**TrackingNumber** | **String** |  | [optional] 
-**IpAddress** | **String** |  | [optional] 
-**Details** | **String** |  | [optional] 
-**Attributes** | [**System.Collections.Hashtable**](AnyType.md) |  | [optional] 
-**Objects** | **String[]** |  | [optional] 
-**Operation** | **String** |  | [optional] 
-**Status** | **String** |  | [optional] 
-**TechnicalName** | **String** |  | [optional] 
+**Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
+**Synced** | **String** | ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the &#x60;synced&#x60; time and the time when the updated data is actually available in the search API.  | [optional] 
+**Action** | **String** | Name of the event as it&#39;s displayed in audit reports. | [optional] 
+**Type** | **String** | Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings. | [optional] 
+**Actor** | **String** | Name of the actor that generated the event. | [optional] 
+**Target** | **String** | Name of the target, or recipient, of the event. | [optional] 
+**Stack** | **String** | The event&#39;s stack. | [optional] 
+**TrackingNumber** | **String** | ID of the group of events. | [optional] 
+**IpAddress** | **String** | Target system&#39;s IP address. | [optional] 
+**Details** | **String** | ID of event&#39;s details. | [optional] 
+**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | Attributes involved in the event. | [optional] 
+**Objects** | **String[]** | Objects the event is happening to. | [optional] 
+**Operation** | **String** | Operation, or action, performed during the event. | [optional] 
+**Status** | **String** | Event status. Refer to [Event Statuses](https://documentation.sailpoint.com/saas/help/search/index.html#event-statuses) for a list of event statuses and their meanings. | [optional] 
+**TechnicalName** | **String** | Event&#39;s normalized name. This normalized name always follows the pattern of &#39;objects_operation_status&#39;. | [optional] 
 
 ## Examples
 
@@ -30,11 +30,11 @@ $EventDocument = Initialize-PSSailpointEventDocument  -Id 2c91808375d8e80a0175e1
  -Name john.doe `
  -Type null `
  -Created 2018-06-25T20:22:28.104Z `
- -Synced 2018-06-25T20:22:28.104Z `
+ -Synced null `
  -Action update `
  -Type SYSTEM_CONFIG `
- -Actor null `
- -Target null `
+ -Actor System `
+ -Target Carol.Adams `
  -Stack tpe `
  -TrackingNumber 63f891e0735f4cc8bf1968144a1e7440 `
  -IpAddress 52.52.97.85 `

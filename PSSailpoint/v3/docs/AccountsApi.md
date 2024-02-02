@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 Delete Account
 
-This API submits an account delete task and returns the task ID. This operation can only be used on Flat File Sources. Any attempt to execute this request on the source of other type will result in an error response with a status code of 400. A token with ORG_ADMIN authority is required to call this API.
+Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the ""DelimitedFile"" type.**
 
 ### Example
 ```powershell
@@ -87,7 +87,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
 # Delete Account
 try {
@@ -102,7 +102,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The account ID | 
+ **Id** | **String**| Account ID. | 
 
 ### Return type
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 Account Details
 
-This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
+Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -246,7 +246,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
 # Account Details
 try {
@@ -261,7 +261,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The account ID | 
+ **Id** | **String**| Account ID. | 
 
 ### Return type
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 Update Account
 
-This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: The PUT Account API is designated only for Delimited File sources.**
+Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the ""DelimitedFile"" type.**
 
 ### Example
 ```powershell
@@ -421,7 +421,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 $AccountAttributes = Initialize-AccountAttributes -Attributes @{ key_example =  } # AccountAttributes | 
 
 # Update Account
@@ -437,7 +437,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The account ID | 
+ **Id** | **String**| Account ID. | 
  **AccountAttributes** | [**AccountAttributes**](AccountAttributes.md)|  | 
 
 ### Return type
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 Update Account
 
-Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields cannot be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
+Use this API to update the account with a PATCH request. This endpoint can only modify these fields: * `identityId` * `manuallyCorrelated` The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -580,7 +580,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
@@ -597,7 +597,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The account ID | 
+ **Id** | **String**| Account ID. | 
  **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
 
 ### Return type

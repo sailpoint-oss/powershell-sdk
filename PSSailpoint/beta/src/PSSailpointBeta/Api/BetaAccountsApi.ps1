@@ -102,10 +102,10 @@ Delete Account
 
 .DESCRIPTION
 
-This API submits an account delete task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the ""DelimitedFile"" type.**
 
 .PARAMETER Id
-The account ID
+Account ID.
 
 .PARAMETER WithHttpInfo
 
@@ -704,10 +704,10 @@ Account Details
 
 .DESCRIPTION
 
-This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
+Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
-The account ID
+Account ID.
 
 .PARAMETER WithHttpInfo
 
@@ -1007,10 +1007,10 @@ Update Account
 
 .DESCRIPTION
 
-This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the ""DelimitedFile"" type.**
 
 .PARAMETER Id
-The account ID
+Account ID.
 
 .PARAMETER AccountAttributes
 No description available.
@@ -1281,10 +1281,10 @@ Update Account
 
 .DESCRIPTION
 
-This updates account details.   A token with ORG_ADMIN authority is required to call this API.
+Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
-The account ID
+Account ID.
 
 .PARAMETER RequestBody
 A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.

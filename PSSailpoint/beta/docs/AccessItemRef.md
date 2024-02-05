@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The ID of the access item for which to retrieve the recommendation | [optional] 
-**Type** | **String** | The type of the access item. | [optional] 
+**Id** | **String** | ID of the access item to retrieve the recommendation for. | [optional] 
+**Type** | **String** | Access item&#39;s type. | [optional] 
 
 ## Examples
 

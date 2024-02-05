@@ -129,6 +129,7 @@ docs/BearerTokenAuthConfig.md
 docs/BeforeProvisioningRuleDto.md
 docs/BetaAccessProfilesApi.md
 docs/BetaAccessRequestApprovalsApi.md
+docs/BetaAccessRequestIdentityMetricsApi.md
 docs/BetaAccessRequestsApi.md
 docs/BetaAccountActivitiesApi.md
 docs/BetaAccountAggregationsApi.md
@@ -831,6 +832,7 @@ docs/WorkgroupMemberAddItem.md
 docs/WorkgroupMemberDeleteItem.md
 src/PSSailpointBeta/Api/BetaAccessProfilesApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestApprovalsApi.ps1
+src/PSSailpointBeta/Api/BetaAccessRequestIdentityMetricsApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestsApi.ps1
 src/PSSailpointBeta/Api/BetaAccountActivitiesApi.ps1
 src/PSSailpointBeta/Api/BetaAccountAggregationsApi.ps1
@@ -1666,6 +1668,7 @@ src/PSSailpointBeta/Private/Out-DebugParameter.ps1
 src/PSSailpointBeta/en-US/about_PSSailpointBeta.help.txt
 tests/Api/BetaAccessProfilesApi.Tests.ps1
 tests/Api/BetaAccessRequestApprovalsApi.Tests.ps1
+tests/Api/BetaAccessRequestIdentityMetricsApi.Tests.ps1
 tests/Api/BetaAccessRequestsApi.Tests.ps1
 tests/Api/BetaAccountActivitiesApi.Tests.ps1
 tests/Api/BetaAccountAggregationsApi.Tests.ps1

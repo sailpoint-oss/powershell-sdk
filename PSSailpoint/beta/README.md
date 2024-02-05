@@ -65,6 +65,7 @@ Class | Method | HTTP request | Description
 *BetaAccessRequestApprovalsApi* | [**Get-BetaCompletedApprovals**](docs/BetaAccessRequestApprovalsApi.md#Get-BetaCompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 *BetaAccessRequestApprovalsApi* | [**Get-BetaPendingApprovals**](docs/BetaAccessRequestApprovalsApi.md#Get-BetaPendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
 *BetaAccessRequestApprovalsApi* | [**Deny-BetaAccessRequest**](docs/BetaAccessRequestApprovalsApi.md#Deny-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
+*BetaAccessRequestIdentityMetricsApi* | [**Get-BetaAccessRequestIdentityMetrics**](docs/BetaAccessRequestIdentityMetricsApi.md#Get-BetaAccessRequestIdentityMetrics) | **GET** /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type} | Return access request identity metrics
 *BetaAccessRequestsApi* | [**Suspend-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#Suspend-BetaAccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 *BetaAccessRequestsApi* | [**Close-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#Close-BetaAccessRequest) | **POST** /access-requests/close | Close Access Request
 *BetaAccessRequestsApi* | [**New-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#New-BetaAccessRequest) | **POST** /access-requests | Submit an Access Request

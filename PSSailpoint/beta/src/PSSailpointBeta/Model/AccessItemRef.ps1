@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-The ID of the access item for which to retrieve the recommendation
+ID of the access item to retrieve the recommendation for.
 .PARAMETER Type
-The type of the access item.
+Access item's type.
 .OUTPUTS
 
 AccessItemRef<PSCustomObject>

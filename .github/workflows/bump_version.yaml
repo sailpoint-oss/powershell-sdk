@@ -22,14 +22,13 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
 
-    
       - name: Checkout API Specs Repo
         uses: actions/checkout@v3
         with:
           repository: sailpoint-oss/api-specs
           path: api-specs
           ref: main
-      
+
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -63,12 +62,9 @@ jobs:
       - name: Update config files with new version
         id: updateVersion
         run: |
-          yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/cc-config.yaml
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2-config.yaml
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/beta-config.yaml
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v3-config.yaml
-
-
 
       ## Update Build.ps1 file with new version
       - name: Update Build.ps1 ModuleVersion
@@ -86,7 +82,7 @@ jobs:
           rm -rf ./PSSailpoint/v3
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g powershell -o PSSailpoint/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml
           node sdk-resources/postscript.js ./PSSailpoint/v3
-      
+
       - name: Build Beta SDK
         id: buildBeta
         if: steps.buildV3.outcome == 'success'
@@ -94,7 +90,7 @@ jobs:
           rm -rf ./PSSailpoint/beta
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g powershell -o PSSailpoint/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml
           node sdk-resources/postscript.js ./PSSailpoint/beta
-      
+
       - name: Build V2 SDK
         id: buildV2
         if: steps.buildBeta.outcome == 'success'
@@ -102,23 +98,15 @@ jobs:
           rm -rf ./PSSailpoint/v2
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2.yaml -g powershell -o PSSailpoint/v2 --global-property skipFormModel=false --config sdk-resources/v2-config.yaml
 
-      - name: Build CC SDK
-        id: buildCC
-        if: steps.buildV2.outcome == 'success'
-        run: |
-          rm -rf ./PSSailpoint/cc
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.cc.yaml -g powershell -o PSSailpoint/cc --global-property skipFormModel=false --config sdk-resources/cc-config.yaml
-          node sdk-resources/postscript.js ./PSSailpoint/cc
-
       - name: After SDK Build
         id: buildSDK
-        if: steps.buildCC.outcome == 'success'
+        if: steps.buildV2.outcome == 'success'
         shell: pwsh
         run: |
           $DebugPreference="Continue"
           ./PSSailpoint/Build.ps1
           Import-Module -Name '.\PSSailpoint' -Verbose
-        
+
       - name: Commit changes and create new version tag
         if: steps.buildSDK.outcome == 'success'
         uses: stefanzweifel/git-auto-commit-action@v4
@@ -127,8 +115,6 @@ jobs:
           tagging_message: ${{ github.event.inputs.version }}
           commit_user_name: developer-relations-sp
           commit_user_email: devrel-service@sailpoint.com
-
-
 
       - name: Create Draft Release
         id: createRelease
@@ -140,4 +126,3 @@ jobs:
           release_name: v${{ github.event.inputs.version }}
           draft: false
           prerelease: false
-

@@ -11,7 +11,8 @@
 try {
     Add-Type -AssemblyName System.Web -ErrorAction Ignore | Out-Null
     Add-Type -AssemblyName System.Net -ErrorAction Ignore | Out-Null
-} catch {
+}
+catch {
     Write-Verbose $_
 }
 
@@ -21,7 +22,7 @@ $ErrorActionPreference = 'Stop'
 # store the API client's configuration
 $Script:Configuration = [System.Collections.HashTable]@{}
 
-$Script:CmdletBindingParameters = @('Verbose','Debug','ErrorAction','WarningAction','InformationAction','ErrorVariable','WarningVariable','InformationVariable','OutVariable','OutBuffer','PipelineVariable')
+$Script:CmdletBindingParameters = @('Verbose', 'Debug', 'ErrorAction', 'WarningAction', 'InformationAction', 'ErrorVariable', 'WarningVariable', 'InformationVariable', 'OutVariable', 'OutBuffer', 'PipelineVariable')
 
 
 $V3API = @( Get-ChildItem -Path "$PSScriptRoot\v3\src\PSSailpoint\Api\*.ps1" )
@@ -39,13 +40,9 @@ $V2Client = @( Get-ChildItem -Path "$PSScriptRoot\v2\src\PSSailpointV2\Client\*.
 $V2Model = @( Get-ChildItem -Path "$PSScriptRoot\v2\src\PSSailpointV2\Model\*.ps1" )
 $V2Private = @( Get-ChildItem -Path "$PSScriptRoot\v2\src\PSSailpointV2\Private\*.ps1" )
 
-$CCAPI = @( Get-ChildItem -Path "$PSScriptRoot\cc\src\PSSailpointCC\Api\*.ps1" )
-$CCClient = @( Get-ChildItem -Path "$PSScriptRoot\cc\src\PSSailpointCC\Client\*.ps1" )
-$CCModel = @( Get-ChildItem -Path "$PSScriptRoot\cc\src\PSSailpointCC\Model\*.ps1" )
-$CCPrivate = @( Get-ChildItem -Path "$PSScriptRoot\cc\src\PSSailpointCC\Private\*.ps1" )
 
 
-Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $BetaClient + $BetaModel + $BetaPrivate + $V2API + $V2Client + $V2Model + $V2Private + $CCAPI + $CCClient + $CCModel + $CCPrivate)) {
+Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $BetaClient + $BetaModel + $BetaPrivate + $V2API + $V2Client + $V2Model + $V2Private)) {
     Try {
         . $import.fullname
     }

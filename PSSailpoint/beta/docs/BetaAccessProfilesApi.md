@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**Get-BetaAccessProfileEntitlements**](BetaAccessProfilesApi.md#Get-BetaAccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile&#39;s Entitlements
 [**Get-BetaAccessProfiles**](BetaAccessProfilesApi.md#Get-BetaAccessProfiles) | **GET** /access-profiles | List Access Profiles
 [**Update-BetaAccessProfile**](BetaAccessProfilesApi.md#Update-BetaAccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
+[**Update-BetaAccessProfilesInBulk**](BetaAccessProfilesApi.md#Update-BetaAccessProfilesInBulk) | **POST** /access-profiles/bulk-update-requestable | Update Access Profile(s) requestable field.
 
 
 <a id="New-BetaAccessProfile"></a>
@@ -420,6 +421,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-BetaAccessProfilesInBulk"></a>
+# **Update-BetaAccessProfilesInBulk**
+> AccessProfileUpdateItem[] Update-BetaAccessProfilesInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessProfileBulkUpdateRequestInner] <PSCustomObject[]><br>
+
+Update Access Profile(s) requestable field.
+
+This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated. >  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$AccessProfileBulkUpdateRequestInner = Initialize-AccessProfileBulkUpdateRequestInner -Id "464ae7bf-791e-49fd-b746-06a2e4a8" -Requestable $false # AccessProfileBulkUpdateRequestInner[] | 
+
+# Update Access Profile(s) requestable field.
+try {
+    $Result = Update-BetaAccessProfilesInBulk -AccessProfileBulkUpdateRequestInner $AccessProfileBulkUpdateRequestInner
+} catch {
+    Write-Host ("Exception occurred when calling Update-BetaAccessProfilesInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **AccessProfileBulkUpdateRequestInner** | [**AccessProfileBulkUpdateRequestInner[]**](AccessProfileBulkUpdateRequestInner.md)|  | 
+
+### Return type
+
+[**AccessProfileUpdateItem[]**](AccessProfileUpdateItem.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

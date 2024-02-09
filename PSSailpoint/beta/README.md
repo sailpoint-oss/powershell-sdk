@@ -59,6 +59,7 @@ Class | Method | HTTP request | Description
 *BetaAccessProfilesApi* | [**Get-BetaAccessProfileEntitlements**](docs/BetaAccessProfilesApi.md#Get-BetaAccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile's Entitlements
 *BetaAccessProfilesApi* | [**Get-BetaAccessProfiles**](docs/BetaAccessProfilesApi.md#Get-BetaAccessProfiles) | **GET** /access-profiles | List Access Profiles
 *BetaAccessProfilesApi* | [**Update-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#Update-BetaAccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
+*BetaAccessProfilesApi* | [**Update-BetaAccessProfilesInBulk**](docs/BetaAccessProfilesApi.md#Update-BetaAccessProfilesInBulk) | **POST** /access-profiles/bulk-update-requestable | Update Access Profile(s) requestable field.
 *BetaAccessRequestApprovalsApi* | [**Approve-BetaAccessRequest**](docs/BetaAccessRequestApprovalsApi.md#Approve-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
 *BetaAccessRequestApprovalsApi* | [**Invoke-BetaForwardAccessRequest**](docs/BetaAccessRequestApprovalsApi.md#Invoke-BetaForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval to a new owner.
 *BetaAccessRequestApprovalsApi* | [**Get-BetaAccessRequestApprovalSummary**](docs/BetaAccessRequestApprovalsApi.md#Get-BetaAccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of pending, approved and rejected access requests approvals
@@ -540,8 +541,10 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.AccessProfileApprovalScheme](docs/AccessProfileApprovalScheme.md)
  - [PSSailpointBeta\Model.AccessProfileBulkDeleteRequest](docs/AccessProfileBulkDeleteRequest.md)
  - [PSSailpointBeta\Model.AccessProfileBulkDeleteResponse](docs/AccessProfileBulkDeleteResponse.md)
+ - [PSSailpointBeta\Model.AccessProfileBulkUpdateRequestInner](docs/AccessProfileBulkUpdateRequestInner.md)
  - [PSSailpointBeta\Model.AccessProfileRef](docs/AccessProfileRef.md)
  - [PSSailpointBeta\Model.AccessProfileSourceRef](docs/AccessProfileSourceRef.md)
+ - [PSSailpointBeta\Model.AccessProfileUpdateItem](docs/AccessProfileUpdateItem.md)
  - [PSSailpointBeta\Model.AccessProfileUsage](docs/AccessProfileUsage.md)
  - [PSSailpointBeta\Model.AccessProfileUsageUsedByInner](docs/AccessProfileUsageUsedByInner.md)
  - [PSSailpointBeta\Model.AccessRecommendationMessage](docs/AccessRecommendationMessage.md)
@@ -1240,6 +1243,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.TriggerType](docs/TriggerType.md)
  - [PSSailpointBeta\Model.Trim](docs/Trim.md)
  - [PSSailpointBeta\Model.UUIDGenerator](docs/UUIDGenerator.md)
+ - [PSSailpointBeta\Model.UpdateAccessProfilesInBulk412Response](docs/UpdateAccessProfilesInBulk412Response.md)
  - [PSSailpointBeta\Model.Upper](docs/Upper.md)
  - [PSSailpointBeta\Model.UsageType](docs/UsageType.md)
  - [PSSailpointBeta\Model.V3ConnectorDto](docs/V3ConnectorDto.md)

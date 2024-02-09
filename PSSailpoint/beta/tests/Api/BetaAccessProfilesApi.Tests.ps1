@@ -62,4 +62,12 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccessProfilesApi' {
         }
     }
 
+    Context 'Update-BetaAccessProfilesInBulk' {
+        It 'Test Update-BetaAccessProfilesInBulk' {
+            #$TestResult = Update-BetaAccessProfilesInBulk -AccessProfileBulkUpdateRequestInner "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

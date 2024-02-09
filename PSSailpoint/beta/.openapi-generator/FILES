@@ -26,8 +26,10 @@ docs/AccessProfile.md
 docs/AccessProfileApprovalScheme.md
 docs/AccessProfileBulkDeleteRequest.md
 docs/AccessProfileBulkDeleteResponse.md
+docs/AccessProfileBulkUpdateRequestInner.md
 docs/AccessProfileRef.md
 docs/AccessProfileSourceRef.md
+docs/AccessProfileUpdateItem.md
 docs/AccessProfileUsage.md
 docs/AccessProfileUsageUsedByInner.md
 docs/AccessRecommendationMessage.md
@@ -786,6 +788,7 @@ docs/TriggerExampleOutput.md
 docs/TriggerType.md
 docs/Trim.md
 docs/UUIDGenerator.md
+docs/UpdateAccessProfilesInBulk412Response.md
 docs/Upper.md
 docs/UsageType.md
 docs/V3ConnectorDto.md
@@ -915,8 +918,10 @@ src/PSSailpointBeta/Model/AccessProfile.ps1
 src/PSSailpointBeta/Model/AccessProfileApprovalScheme.ps1
 src/PSSailpointBeta/Model/AccessProfileBulkDeleteRequest.ps1
 src/PSSailpointBeta/Model/AccessProfileBulkDeleteResponse.ps1
+src/PSSailpointBeta/Model/AccessProfileBulkUpdateRequestInner.ps1
 src/PSSailpointBeta/Model/AccessProfileRef.ps1
 src/PSSailpointBeta/Model/AccessProfileSourceRef.ps1
+src/PSSailpointBeta/Model/AccessProfileUpdateItem.ps1
 src/PSSailpointBeta/Model/AccessProfileUsage.ps1
 src/PSSailpointBeta/Model/AccessProfileUsageUsedByInner.ps1
 src/PSSailpointBeta/Model/AccessRecommendationMessage.ps1
@@ -1615,6 +1620,7 @@ src/PSSailpointBeta/Model/TriggerExampleOutput.ps1
 src/PSSailpointBeta/Model/TriggerType.ps1
 src/PSSailpointBeta/Model/Trim.ps1
 src/PSSailpointBeta/Model/UUIDGenerator.ps1
+src/PSSailpointBeta/Model/UpdateAccessProfilesInBulk412Response.ps1
 src/PSSailpointBeta/Model/Upper.ps1
 src/PSSailpointBeta/Model/UsageType.ps1
 src/PSSailpointBeta/Model/V3ConnectorDto.ps1
@@ -1750,8 +1756,10 @@ tests/Model/AccessProfile.Tests.ps1
 tests/Model/AccessProfileApprovalScheme.Tests.ps1
 tests/Model/AccessProfileBulkDeleteRequest.Tests.ps1
 tests/Model/AccessProfileBulkDeleteResponse.Tests.ps1
+tests/Model/AccessProfileBulkUpdateRequestInner.Tests.ps1
 tests/Model/AccessProfileRef.Tests.ps1
 tests/Model/AccessProfileSourceRef.Tests.ps1
+tests/Model/AccessProfileUpdateItem.Tests.ps1
 tests/Model/AccessProfileUsage.Tests.ps1
 tests/Model/AccessProfileUsageUsedByInner.Tests.ps1
 tests/Model/AccessRecommendationMessage.Tests.ps1
@@ -2450,6 +2458,7 @@ tests/Model/TriggerExampleOutput.Tests.ps1
 tests/Model/TriggerType.Tests.ps1
 tests/Model/Trim.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
+tests/Model/UpdateAccessProfilesInBulk412Response.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1

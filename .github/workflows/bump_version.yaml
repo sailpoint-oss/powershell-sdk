@@ -62,7 +62,6 @@ jobs:
       - name: Update config files with new version
         id: updateVersion
         run: |
-          yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2-config.yaml
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/beta-config.yaml
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v3-config.yaml
 
@@ -91,16 +90,9 @@ jobs:
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g powershell -o PSSailpoint/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml
           node sdk-resources/postscript.js ./PSSailpoint/beta
 
-      - name: Build V2 SDK
-        id: buildV2
-        if: steps.buildBeta.outcome == 'success'
-        run: |
-          rm -rf ./PSSailpoint/v2
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2.yaml -g powershell -o PSSailpoint/v2 --global-property skipFormModel=false --config sdk-resources/v2-config.yaml
-
       - name: After SDK Build
         id: buildSDK
-        if: steps.buildV2.outcome == 'success'
+        if: steps.buildBeta.outcome == 'success'
         shell: pwsh
         run: |
           $DebugPreference="Continue"

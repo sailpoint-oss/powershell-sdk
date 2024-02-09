@@ -93,11 +93,3 @@ Describe 'Beta' {
 
 }
 
-Describe 'V2' {
-    It 'Returns results for Get-Workgroups' {
-        $Response = Get-V2Workgroups -WithHttpInfo
-
-        $Response.Response | Should -Not -BeNullOrEmpty
-        $Response.StatusCode | Should -Be 200
-    }
-}

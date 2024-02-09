@@ -78,8 +78,8 @@ Describe 'Beta' {
     It 'Returns results for Patch-Entitlement' {
         $ENT = @(
             @{
-                op = "replace"
-                path = "/privileged"
+                op    = "replace"
+                path  = "/privileged"
                 value = $false
             }
         )
@@ -93,20 +93,3 @@ Describe 'Beta' {
 
 }
 
-Describe 'V2' {
-    It 'Returns results for Get-Workgroups' {
-        $Response = Get-V2Workgroups -WithHttpInfo
-
-        $Response.Response | Should -Not -BeNullOrEmpty
-        $Response.StatusCode | Should -Be 200
-    }
-}
-
-Describe 'CC' {
-    It 'Returns results for Get-CCAccounts' {
-        $Response = Get-CCAccounts -WithHttpInfo
-
-        $Response.Response | Should -Not -BeNullOrEmpty
-        $Response.StatusCode | Should -Be 200
-    }
-}

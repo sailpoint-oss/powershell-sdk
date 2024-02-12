@@ -306,20 +306,52 @@ function ConvertFrom-BetaJsonToTriggerExampleInput {
             Write-Debug "Failed to match 'SavedSearchComplete' defined in oneOf (BetaTriggerExampleInput). Proceeding to the next one if any."
         }
 
-        # try to match SourceAccount defined in the oneOf schemas
+        # try to match SourceAccountCreated defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-BetaJsonToSourceAccount $Json
+            $matchInstance = ConvertFrom-BetaJsonToSourceAccountCreated $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "SourceAccount"
+                    $matchType = "SourceAccountCreated"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'SourceAccount' defined in oneOf (BetaTriggerExampleInput). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SourceAccountCreated' defined in oneOf (BetaTriggerExampleInput). Proceeding to the next one if any."
+        }
+
+        # try to match SourceAccountDeleted defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-BetaJsonToSourceAccountDeleted $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "SourceAccountDeleted"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'SourceAccountDeleted' defined in oneOf (BetaTriggerExampleInput). Proceeding to the next one if any."
+        }
+
+        # try to match SourceAccountUpdated defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-BetaJsonToSourceAccountUpdated $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "SourceAccountUpdated"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'SourceAccountUpdated' defined in oneOf (BetaTriggerExampleInput). Proceeding to the next one if any."
         }
 
         # try to match SourceCreated defined in the oneOf schemas
@@ -387,15 +419,15 @@ function ConvertFrom-BetaJsonToTriggerExampleInput {
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountUncorrelated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, ProvisioningCompleted, SavedSearchComplete, SourceAccount, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountUncorrelated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, ProvisioningCompleted, SavedSearchComplete, SourceAccountCreated, SourceAccountDeleted, SourceAccountUpdated, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("AccessRequestDynamicApprover", "AccessRequestPostApproval", "AccessRequestPreApproval", "AccountAggregationCompleted", "AccountAttributesChanged", "AccountCorrelated", "AccountUncorrelated", "AccountsCollectedForAggregation", "CampaignActivated", "CampaignEnded", "CampaignGenerated", "CertificationSignedOff", "IdentityAttributesChanged", "IdentityCreated", "IdentityDeleted", "ProvisioningCompleted", "SavedSearchComplete", "SourceAccount", "SourceCreated", "SourceDeleted", "SourceUpdated", "VAClusterStatusChangeEvent")
+                "OneOfSchemas" = @("AccessRequestDynamicApprover", "AccessRequestPostApproval", "AccessRequestPreApproval", "AccountAggregationCompleted", "AccountAttributesChanged", "AccountCorrelated", "AccountUncorrelated", "AccountsCollectedForAggregation", "CampaignActivated", "CampaignEnded", "CampaignGenerated", "CertificationSignedOff", "IdentityAttributesChanged", "IdentityCreated", "IdentityDeleted", "ProvisioningCompleted", "SavedSearchComplete", "SourceAccountCreated", "SourceAccountDeleted", "SourceAccountUpdated", "SourceCreated", "SourceDeleted", "SourceUpdated", "VAClusterStatusChangeEvent")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountUncorrelated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, ProvisioningCompleted, SavedSearchComplete, SourceAccount, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountUncorrelated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, ProvisioningCompleted, SavedSearchComplete, SourceAccountCreated, SourceAccountDeleted, SourceAccountUpdated, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
         }
     }
 }

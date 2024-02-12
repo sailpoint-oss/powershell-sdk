@@ -32,10 +32,10 @@ The name of the identity that is correlated with this account.
 The attributes of the account. The contents of attributes depends on the account schema for the source.
 .OUTPUTS
 
-SourceAccount<PSCustomObject>
+SourceAccountUpdated<PSCustomObject>
 #>
 
-function Initialize-BetaSourceAccount {
+function Initialize-BetaSourceAccountUpdated {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
@@ -65,7 +65,7 @@ function Initialize-BetaSourceAccount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaSourceAccount' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaSourceAccountUpdated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($null -eq $Id) {
@@ -116,11 +116,11 @@ function Initialize-BetaSourceAccount {
 <#
 .SYNOPSIS
 
-Convert from JSON to SourceAccount<PSCustomObject>
+Convert from JSON to SourceAccountUpdated<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SourceAccount<PSCustomObject>
+Convert from JSON to SourceAccountUpdated<PSCustomObject>
 
 .PARAMETER Json
 
@@ -128,21 +128,21 @@ Json object
 
 .OUTPUTS
 
-SourceAccount<PSCustomObject>
+SourceAccountUpdated<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSourceAccount {
+function ConvertFrom-BetaJsonToSourceAccountUpdated {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSourceAccount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSourceAccountUpdated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSourceAccount
+        # check if Json contains properties not defined in BetaSourceAccountUpdated
         $AllProperties = ("uuid", "id", "nativeIdentifier", "sourceId", "sourceName", "identityId", "identityName", "attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

@@ -1,4 +1,4 @@
-# SourceAccount
+# SourceAccountUpdated
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAccount = Initialize-PSSailpointBetaSourceAccount  -Uuid b7264868-7201-415f-9118-b581d431c688 `
+$SourceAccountUpdated = Initialize-PSSailpointBetaSourceAccountUpdated  -Uuid b7264868-7201-415f-9118-b581d431c688 `
  -Id ee769173319b41d19ccec35ba52f237b `
  -NativeIdentifier E009 `
  -SourceId 2c918082814e693601816e09471b29b6 `
@@ -28,7 +28,7 @@ $SourceAccount = Initialize-PSSailpointBetaSourceAccount  -Uuid b7264868-7201-41
 
 - Convert the resource to JSON
 ```powershell
-$SourceAccount | ConvertTo-JSON
+$SourceAccountUpdated | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

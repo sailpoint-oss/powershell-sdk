@@ -124,7 +124,7 @@ function Initialize-Role {
             "description" = ${Description}
             "owner" = ${Owner}
             "accessProfiles" = ${AccessProfiles}
-            "Entitlements" = ${Entitlements}
+            "entitlements" = ${Entitlements}
             "membership" = ${Membership}
             "legacyMembershipInfo" = ${LegacyMembershipInfo}
             "enabled" = ${Enabled}
@@ -169,7 +169,7 @@ function ConvertFrom-JsonToRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Role
-        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "Entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments")
+        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -222,10 +222,10 @@ function ConvertFrom-JsonToRole {
             $AccessProfiles = $JsonParameters.PSobject.Properties["accessProfiles"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "Entitlements"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlements"))) { #optional property not found
             $Entitlements = $null
         } else {
-            $Entitlements = $JsonParameters.PSobject.Properties["Entitlements"].value
+            $Entitlements = $JsonParameters.PSobject.Properties["entitlements"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "membership"))) { #optional property not found
@@ -278,7 +278,7 @@ function ConvertFrom-JsonToRole {
             "description" = ${Description}
             "owner" = ${Owner}
             "accessProfiles" = ${AccessProfiles}
-            "Entitlements" = ${Entitlements}
+            "entitlements" = ${Entitlements}
             "membership" = ${Membership}
             "legacyMembershipInfo" = ${LegacyMembershipInfo}
             "enabled" = ${Enabled}

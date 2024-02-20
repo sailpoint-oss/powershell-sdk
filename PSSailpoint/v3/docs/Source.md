@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Cluster** | [**SourceCluster**](SourceCluster.md) |  | [optional] 
 **AccountCorrelationConfig** | [**SourceAccountCorrelationConfig**](SourceAccountCorrelationConfig.md) |  | [optional] 
 **AccountCorrelationRule** | [**SourceAccountCorrelationRule**](SourceAccountCorrelationRule.md) |  | [optional] 
-**ManagerCorrelationMapping** | [**ManagerCorrelationMapping**](ManagerCorrelationMapping.md) |  | [optional] 
+**ManagerCorrelationMapping** | [**SourceManagerCorrelationMapping**](SourceManagerCorrelationMapping.md) |  | [optional] 
 **ManagerCorrelationRule** | [**SourceManagerCorrelationRule**](SourceManagerCorrelationRule.md) |  | [optional] 
 **BeforeProvisioningRule** | [**SourceBeforeProvisioningRule**](SourceBeforeProvisioningRule.md) |  | [optional] 
 **Schemas** | [**SourceSchemasInner[]**](SourceSchemasInner.md) | List of references to Schema objects | [optional] 

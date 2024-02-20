@@ -26,6 +26,8 @@ No description available.
 The date and time, down to the millisecond, when this personal access token was created.
 .PARAMETER LastUsed
 The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed.
+.PARAMETER Managed
+If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows.
 .OUTPUTS
 
 GetPersonalAccessTokenResponse<PSCustomObject>
@@ -51,7 +53,10 @@ function Initialize-BetaGetPersonalAccessTokenResponse {
         ${Created},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${LastUsed}
+        ${LastUsed},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Managed} = $false
     )
 
     Process {
@@ -82,6 +87,7 @@ function Initialize-BetaGetPersonalAccessTokenResponse {
             "owner" = ${Owner}
             "created" = ${Created}
             "lastUsed" = ${LastUsed}
+            "managed" = ${Managed}
         }
 
 
@@ -119,7 +125,7 @@ function ConvertFrom-BetaJsonToGetPersonalAccessTokenResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaGetPersonalAccessTokenResponse
-        $AllProperties = ("id", "name", "scope", "owner", "created", "lastUsed")
+        $AllProperties = ("id", "name", "scope", "owner", "created", "lastUsed", "managed")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -166,6 +172,12 @@ function ConvertFrom-BetaJsonToGetPersonalAccessTokenResponse {
             $LastUsed = $JsonParameters.PSobject.Properties["lastUsed"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "managed"))) { #optional property not found
+            $Managed = $null
+        } else {
+            $Managed = $JsonParameters.PSobject.Properties["managed"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -173,6 +185,7 @@ function ConvertFrom-BetaJsonToGetPersonalAccessTokenResponse {
             "owner" = ${Owner}
             "created" = ${Created}
             "lastUsed" = ${LastUsed}
+            "managed" = ${Managed}
         }
 
         return $PSO

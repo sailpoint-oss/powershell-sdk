@@ -3,7 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InternalName** | [**ConfigTypeEnum**](ConfigTypeEnum.md) |  | [optional] 
+**Priority** | **Int32** |  | [optional] 
+**InternalName** | [**ConfigTypeEnumCamel**](ConfigTypeEnumCamel.md) |  | [optional] 
+**InternalNameCamel** | [**ConfigTypeEnum**](ConfigTypeEnum.md) |  | [optional] 
 **DisplayName** | **String** | Human readable display name of the type to be shown on UI | [optional] 
 **Description** | **String** | Description of the type of work to be reassigned, displayed by the UI. | [optional] 
 
@@ -11,7 +13,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigType = Initialize-PSSailpointBetaConfigType  -InternalName null `
+$ConfigType = Initialize-PSSailpointBetaConfigType  -Priority 1 `
+ -InternalName null `
+ -InternalNameCamel null `
  -DisplayName Access Requests `
  -Description Reassign Access Request Work Items for an identity
 ```

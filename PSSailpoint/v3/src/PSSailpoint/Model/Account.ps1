@@ -54,6 +54,8 @@ Indicates if the account has entitlements
 No description available.
 .PARAMETER SourceOwner
 No description available.
+.PARAMETER Features
+A string list containing the owning source's features
 .OUTPUTS
 
 Account<PSCustomObject>
@@ -121,7 +123,10 @@ function Initialize-Account {
         ${Identity},
         [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${SourceOwner}
+        ${SourceOwner},
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Features}
     )
 
     Process {
@@ -198,6 +203,7 @@ function Initialize-Account {
             "hasEntitlements" = ${HasEntitlements}
             "identity" = ${Identity}
             "sourceOwner" = ${SourceOwner}
+            "features" = ${Features}
         }
 
 
@@ -235,7 +241,7 @@ function ConvertFrom-JsonToAccount {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Account
-        $AllProperties = ("id", "name", "created", "modified", "sourceId", "sourceName", "identityId", "attributes", "authoritative", "description", "disabled", "locked", "nativeIdentity", "systemAccount", "uncorrelated", "uuid", "manuallyCorrelated", "hasEntitlements", "identity", "sourceOwner")
+        $AllProperties = ("id", "name", "created", "modified", "sourceId", "sourceName", "identityId", "attributes", "authoritative", "description", "disabled", "locked", "nativeIdentity", "systemAccount", "uncorrelated", "uuid", "manuallyCorrelated", "hasEntitlements", "identity", "sourceOwner", "features")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -366,6 +372,12 @@ function ConvertFrom-JsonToAccount {
             $SourceOwner = $JsonParameters.PSobject.Properties["sourceOwner"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "features"))) { #optional property not found
+            $Features = $null
+        } else {
+            $Features = $JsonParameters.PSobject.Properties["features"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -387,6 +399,7 @@ function ConvertFrom-JsonToAccount {
             "hasEntitlements" = ${HasEntitlements}
             "identity" = ${Identity}
             "sourceOwner" = ${SourceOwner}
+            "features" = ${Features}
         }
 
         return $PSO

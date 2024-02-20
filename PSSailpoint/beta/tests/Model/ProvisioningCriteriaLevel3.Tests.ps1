@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaProvisioningCriteriaLevel3' {
     Context 'BetaProvisioningCriteriaLevel3' {
         It 'Initialize-BetaProvisioningCriteriaLevel3' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaProvisioningCriteriaLevel3 -Operation "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE"
+            #$NewObject = Initialize-BetaProvisioningCriteriaLevel3 -Operation "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -Children "TEST_VALUE"
             #$NewObject | Should -BeOfType ProvisioningCriteriaLevel3
             #$NewObject.property | Should -Be 0
         }

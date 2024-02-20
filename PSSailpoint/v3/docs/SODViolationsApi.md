@@ -79,8 +79,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$EntitlementRef = Initialize-EntitlementRef -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
-$IdentityWithNewAccess1 = Initialize-IdentityWithNewAccess1 -IdentityId "2c91809050db617d0150e0bf3215385e" -AccessRefs $EntitlementRef -ClientMetadata @{ key_example = "MyInner" } # IdentityWithNewAccess1 | 
+$EntitlementRef1 = Initialize-EntitlementRef1 -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
+$IdentityWithNewAccess1 = Initialize-IdentityWithNewAccess1 -IdentityId "2c91809050db617d0150e0bf3215385e" -AccessRefs $EntitlementRef1 -ClientMetadata @{ key_example = "MyInner" } # IdentityWithNewAccess1 | 
 
 # Check SOD violations
 try {

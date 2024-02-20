@@ -31,11 +31,10 @@ function Initialize-CampaignFilterDetailsCriteriaListInner {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("COMPOSITE", "ROLE", "IDENTITY", "IDENTITY_ATTRIBUTE", "ENTITLEMENT", "ACCESS_PROFILE", "SOURCE", "ACCOUNT", "AGGREGATED_ENTITLEMENT")]
+        [ValidateSet("COMPOSITE", "ROLE", "IDENTITY", "IDENTITY_ATTRIBUTE", "ENTITLEMENT", "ACCESS_PROFILE", "SOURCE", "ACCOUNT", "AGGREGATED_ENTITLEMENT", "INVALID_CERTIFIABLE_ENTITY")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EQUALS", "NOT_EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH", "AND", "OR")]
         [PSCustomObject]
         ${Operation},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
@@ -56,14 +55,6 @@ function Initialize-CampaignFilterDetailsCriteriaListInner {
 
         if ($null -eq $Operation) {
             throw "invalid value for 'Operation', 'Operation' cannot be null."
-        }
-
-        if ($null -eq $Property) {
-            throw "invalid value for 'Property', 'Property' cannot be null."
-        }
-
-        if ($null -eq $Value) {
-            throw "invalid value for 'Value', 'Value' cannot be null."
         }
 
 

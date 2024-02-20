@@ -24,5 +24,7 @@ enum ScheduleType {
     MONTHLY
     # enum value: "CALENDAR"
     CALENDAR
+    # enum value: "ANNUALLY"
+    ANNUALLY
 }
 

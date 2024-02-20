@@ -14,8 +14,14 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+Unique identifier for the Service Desk integration
 .PARAMETER Name
 Service Desk integration's name. The name must be unique.
+.PARAMETER Created
+The date and time the Service Desk integration was created
+.PARAMETER Modified
+The date and time the Service Desk integration was last modified
 .PARAMETER Description
 Service Desk integration's description.
 .PARAMETER Type
@@ -44,32 +50,41 @@ function Initialize-ServiceDeskIntegrationDto {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
+        ${Name},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Type} = "ServiceNowSDIM",
+        [System.Nullable[System.DateTime]]
+        ${Created},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${OwnerRef},
+        [System.Nullable[System.DateTime]]
+        ${Modified},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${ClusterRef},
+        [String]
+        ${Description},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Cluster},
+        ${Type} = "ServiceNowSDIM",
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${ManagedSources},
+        [PSCustomObject]
+        ${OwnerRef},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${ProvisioningConfig},
+        ${ClusterRef},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Cluster},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${ManagedSources},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ProvisioningConfig},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${BeforeProvisioningRule}
     )
@@ -96,7 +111,10 @@ function Initialize-ServiceDeskIntegrationDto {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
+            "created" = ${Created}
+            "modified" = ${Modified}
             "description" = ${Description}
             "type" = ${Type}
             "ownerRef" = ${OwnerRef}
@@ -143,7 +161,7 @@ function ConvertFrom-JsonToServiceDeskIntegrationDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ServiceDeskIntegrationDto
-        $AllProperties = ("name", "description", "type", "ownerRef", "clusterRef", "cluster", "managedSources", "provisioningConfig", "attributes", "beforeProvisioningRule")
+        $AllProperties = ("id", "name", "created", "modified", "description", "type", "ownerRef", "clusterRef", "cluster", "managedSources", "provisioningConfig", "attributes", "beforeProvisioningRule")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -176,6 +194,24 @@ function ConvertFrom-JsonToServiceDeskIntegrationDto {
             throw "Error! JSON cannot be serialized due to the required property 'attributes' missing."
         } else {
             $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerRef"))) { #optional property not found
@@ -215,7 +251,10 @@ function ConvertFrom-JsonToServiceDeskIntegrationDto {
         }
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
+            "created" = ${Created}
+            "modified" = ${Modified}
             "description" = ${Description}
             "type" = ${Type}
             "ownerRef" = ${OwnerRef}

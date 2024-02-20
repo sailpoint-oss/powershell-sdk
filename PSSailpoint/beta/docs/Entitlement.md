@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **Requestable** | **Boolean** | True if the entitlement is requestable | [optional] [default to $false]
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | A map of free-form key-value pairs from the source system | [optional] 
 **Source** | [**EntitlementSource**](EntitlementSource.md) |  | [optional] 
-**Owner** | [**OwnerReferenceDto**](OwnerReferenceDto.md) |  | [optional] 
+**Owner** | [**EntitlementOwner**](EntitlementOwner.md) |  | [optional] 
 **DirectPermissions** | [**PermissionDto[]**](PermissionDto.md) |  | [optional] 
 **Segments** | **String[]** | List of IDs of segments, if any, to which this Entitlement is assigned. | [optional] 
-**ManuallyUpdatedFields** | [**ManuallyUpdatedFieldsDTO**](ManuallyUpdatedFieldsDTO.md) |  | [optional] 
+**ManuallyUpdatedFields** | [**EntitlementManuallyUpdatedFields**](EntitlementManuallyUpdatedFields.md) |  | [optional] 
 
 ## Examples
 

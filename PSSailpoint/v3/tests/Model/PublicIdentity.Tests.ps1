@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'PublicIdentity' {
     Context 'PublicIdentity' {
         It 'Initialize-PublicIdentity' {
             # a simple test to create an object
-            #$NewObject = Initialize-PublicIdentity -Id "TEST_VALUE" -Name "TEST_VALUE" -Alias "TEST_VALUE" -Email "TEST_VALUE" -Status "TEST_VALUE" -Manager "TEST_VALUE" -Attributes "TEST_VALUE"
+            #$NewObject = Initialize-PublicIdentity -Id "TEST_VALUE" -Name "TEST_VALUE" -Alias "TEST_VALUE" -Email "TEST_VALUE" -Status "TEST_VALUE" -IdentityState "TEST_VALUE" -Manager "TEST_VALUE" -Attributes "TEST_VALUE"
             #$NewObject | Should -BeOfType PublicIdentity
             #$NewObject.property | Should -Be 0
         }

@@ -33,11 +33,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $OwnerReferenceSegments = Initialize-OwnerReferenceSegments -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
 
 $Value = Initialize-Value -Type "STRING" -Value "Austin"
-$Expression = Initialize-Expression -Operator "AND" -Attribute "location" -Value $Value -Children $Value
 
-$VisibilityCriteria = Initialize-VisibilityCriteria -Expression $Expression
+$ExpressionChildrenInner = Initialize-ExpressionChildrenInner -Operator "AND" -Attribute "location" -Value $Value -Children "MyChildren"
 
-$Segment = Initialize-Segment -Id "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -Name "segment-xyz" -Created (Get-Date) -Modified (Get-Date) -Description "This segment represents xyz" -Owner $OwnerReferenceSegments -VisibilityCriteria $VisibilityCriteria -Active $true # Segment | 
+$Expression = Initialize-Expression -Operator "AND" -Attribute "location" -Value $Value -Children $ExpressionChildrenInner
+
+$SegmentVisibilityCriteria = Initialize-SegmentVisibilityCriteria -Expression $Expression
+
+$Segment = Initialize-Segment -Id "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" -Name "segment-xyz" -Created (Get-Date) -Modified (Get-Date) -Description "This segment represents xyz" -Owner $OwnerReferenceSegments -VisibilityCriteria $SegmentVisibilityCriteria -Active $true # Segment | 
 
 # Create Segment
 try {

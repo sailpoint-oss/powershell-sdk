@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'Schedule1' {
     Context 'Schedule1' {
         It 'Initialize-Schedule1' {
             # a simple test to create an object
-            #$NewObject = Initialize-Schedule1 -Type "TEST_VALUE" -Days "TEST_VALUE" -Hours "TEST_VALUE" -Expiration "TEST_VALUE" -TimeZoneId "TEST_VALUE"
+            #$NewObject = Initialize-Schedule1 -Type "TEST_VALUE" -Months "TEST_VALUE" -Days "TEST_VALUE" -Hours "TEST_VALUE" -Expiration "TEST_VALUE" -TimeZoneId "TEST_VALUE"
             #$NewObject | Should -BeOfType Schedule1
             #$NewObject.property | Should -Be 0
         }

@@ -36,7 +36,7 @@ $Range = Initialize-Range -Lower $Bound -Upper $Bound
 
 $SavedSearchDetailFilters = Initialize-SavedSearchDetailFilters -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
-$CreateSavedSearchRequest = Initialize-CreateSavedSearchRequest -Name "Disabled accounts" -Description "Disabled accounts" -Created (Get-Date) -Modified (Get-Date) -Indices "accessprofiles" -Columns @{ key_example = $Column = Initialize-Column -Field "email" -Header "Work Email" } -Query "@accounts(disabled:true)" -Fields "MyFields" -Sort "MySort" -Filters $SavedSearchDetailFilters # CreateSavedSearchRequest | The saved search to persist.
+$CreateSavedSearchRequest = Initialize-CreateSavedSearchRequest -Name "Disabled accounts" -Description "Disabled accounts" -Created (Get-Date) -Modified (Get-Date) -Indices "accessprofiles" -Columns @{ key_example = $Column = Initialize-Column -Field "email" -Header "Work Email" } -Query "@accounts(disabled:true)" -Fields "MyFields" -OrderBy @{ key_example = "MyInner" } -Sort "MySort" -Filters $SavedSearchDetailFilters # CreateSavedSearchRequest | The saved search to persist.
 
 # Create a saved search
 try {
@@ -312,7 +312,7 @@ $Range = Initialize-Range -Lower $Bound -Upper $Bound
 $SavedSearchDetailFilters = Initialize-SavedSearchDetailFilters -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
 $TypedReference = Initialize-TypedReference -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c91808568c529c60168cca6f90c1313"
-$SavedSearch = Initialize-SavedSearch -Name "Disabled accounts" -Description "Disabled accounts" -Created (Get-Date) -Modified (Get-Date) -Indices "accessprofiles" -Columns @{ key_example = $Column = Initialize-Column -Field "email" -Header "Work Email" } -Query "@accounts(disabled:true)" -Fields "MyFields" -Sort "MySort" -Filters $SavedSearchDetailFilters -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $TypedReference # SavedSearch | The saved search to persist.
+$SavedSearch = Initialize-SavedSearch -Name "Disabled accounts" -Description "Disabled accounts" -Created (Get-Date) -Modified (Get-Date) -Indices "accessprofiles" -Columns @{ key_example = $Column = Initialize-Column -Field "email" -Header "Work Email" } -Query "@accounts(disabled:true)" -Fields "MyFields" -OrderBy @{ key_example = "MyInner" } -Sort "MySort" -Filters $SavedSearchDetailFilters -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $TypedReference -OwnerId "2c91808568c529c60168cca6f90c1313" -Public $false # SavedSearch | The saved search to persist.
 
 # Updates an existing saved search 
 try {

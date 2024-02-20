@@ -67,7 +67,7 @@ function Initialize-BetaIdentity {
         [String]
         ${EmailAddress},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ERROR", "OK")]
+        [ValidateSet("ERROR", "OK", "")]
         [String]
         ${ProcessingState},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]

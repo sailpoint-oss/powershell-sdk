@@ -20,5 +20,7 @@ enum RequestableObjectType {
     ACCESS_PROFILE
     # enum value: "ROLE"
     ROLE
+    # enum value: "ENTITLEMENT"
+    ENTITLEMENT
 }
 

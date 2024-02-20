@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | The time when the segment is modified. | [optional] 
 **Description** | **String** | The segment&#39;s optional description. | [optional] 
 **Owner** | [**OwnerReferenceSegments**](OwnerReferenceSegments.md) |  | [optional] 
-**VisibilityCriteria** | [**VisibilityCriteria**](VisibilityCriteria.md) |  | [optional] 
+**VisibilityCriteria** | [**SegmentVisibilityCriteria**](SegmentVisibilityCriteria.md) |  | [optional] 
 **Active** | **Boolean** | This boolean indicates whether the segment is currently active. Inactive segments have no effect. | [optional] [default to $false]
 
 ## Examples

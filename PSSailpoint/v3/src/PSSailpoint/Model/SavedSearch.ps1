@@ -30,6 +30,8 @@ The columns to be returned (specifies the order in which they will be presented)
 The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
 .PARAMETER Fields
 The fields to be searched against in a multi-field query. 
+.PARAMETER OrderBy
+Sort by index. This takes precedence over the `sort` property. 
 .PARAMETER Sort
 The fields to be used to sort the search results. 
 .PARAMETER Filters
@@ -38,6 +40,10 @@ No description available.
 The saved search ID. 
 .PARAMETER Owner
 No description available.
+.PARAMETER OwnerId
+The ID of the identity that owns this saved search.
+.PARAMETER Public
+Whether this saved search is visible to anyone but the owner. This field will always be false as there is no way to set a saved search as public at this time.
 .OUTPUTS
 
 SavedSearch<PSCustomObject>
@@ -71,17 +77,26 @@ function Initialize-SavedSearch {
         [String[]]
         ${Fields},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${OrderBy},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Sort},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Filters},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Owner}
+        ${Owner},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${OwnerId},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Public} = $false
     )
 
     Process {
@@ -106,10 +121,13 @@ function Initialize-SavedSearch {
             "columns" = ${Columns}
             "query" = ${Query}
             "fields" = ${Fields}
+            "orderBy" = ${OrderBy}
             "sort" = ${Sort}
             "filters" = ${Filters}
             "id" = ${Id}
             "owner" = ${Owner}
+            "ownerId" = ${OwnerId}
+            "public" = ${Public}
         }
 
 
@@ -147,7 +165,7 @@ function ConvertFrom-JsonToSavedSearch {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SavedSearch
-        $AllProperties = ("name", "description", "created", "modified", "indices", "columns", "query", "fields", "sort", "filters", "id", "owner")
+        $AllProperties = ("name", "description", "created", "modified", "indices", "columns", "query", "fields", "orderBy", "sort", "filters", "id", "owner", "ownerId", "public")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -206,6 +224,12 @@ function ConvertFrom-JsonToSavedSearch {
             $Fields = $JsonParameters.PSobject.Properties["fields"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "orderBy"))) { #optional property not found
+            $OrderBy = $null
+        } else {
+            $OrderBy = $JsonParameters.PSobject.Properties["orderBy"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sort"))) { #optional property not found
             $Sort = $null
         } else {
@@ -230,6 +254,18 @@ function ConvertFrom-JsonToSavedSearch {
             $Owner = $JsonParameters.PSobject.Properties["owner"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerId"))) { #optional property not found
+            $OwnerId = $null
+        } else {
+            $OwnerId = $JsonParameters.PSobject.Properties["ownerId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "public"))) { #optional property not found
+            $Public = $null
+        } else {
+            $Public = $JsonParameters.PSobject.Properties["public"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "description" = ${Description}
@@ -239,10 +275,13 @@ function ConvertFrom-JsonToSavedSearch {
             "columns" = ${Columns}
             "query" = ${Query}
             "fields" = ${Fields}
+            "orderBy" = ${OrderBy}
             "sort" = ${Sort}
             "filters" = ${Filters}
             "id" = ${Id}
             "owner" = ${Owner}
+            "ownerId" = ${OwnerId}
+            "public" = ${Public}
         }
 
         return $PSO

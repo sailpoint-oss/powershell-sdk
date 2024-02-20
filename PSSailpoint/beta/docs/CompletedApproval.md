@@ -24,6 +24,9 @@ Name | Type | Description | Notes
 **RemoveDateUpdateRequested** | **Boolean** | If true, then the request was to change the remove date or sunset date. | [optional] [default to $false]
 **CurrentRemoveDate** | **System.DateTime** | The remove date or sunset date that was assigned at the time of the request. | [optional] 
 **SodViolationContext** | [**SodViolationContextCheckCompleted1**](SodViolationContextCheckCompleted1.md) |  | [optional] 
+**PreApprovalTriggerResult** | [**CompletedApprovalPreApprovalTriggerResult**](CompletedApprovalPreApprovalTriggerResult.md) |  | [optional] 
+**ClientMetadata** | **System.Collections.Hashtable** | Arbitrary key-value pairs provided during the request. | [optional] 
+**RequestedAccounts** | **String** |  | [optional] 
 
 ## Examples
 
@@ -49,7 +52,10 @@ $CompletedApproval = Initialize-PSSailpointBetaCompletedApproval  -Id 2c93808363
  -RemoveDate 2020-07-11T00:00Z `
  -RemoveDateUpdateRequested true `
  -CurrentRemoveDate 2020-07-11T00:00Z `
- -SodViolationContext null
+ -SodViolationContext null `
+ -PreApprovalTriggerResult null `
+ -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1} `
+ -RequestedAccounts null
 ```
 
 - Convert the resource to JSON

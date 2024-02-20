@@ -41,7 +41,7 @@ $Requestability = Initialize-Requestability -CommentsRequired $true -DenialComme
 
 $Revocability = Initialize-Revocability -ApprovalSchemes $AccessProfileApprovalScheme
 
-$ProvisioningCriteriaLevel3 = Initialize-ProvisioningCriteriaLevel3 -Operation "EQUALS" -Attribute "email" -Value "carlee.cert1c9f9b6fd@mailinator.com"
+$ProvisioningCriteriaLevel3 = Initialize-ProvisioningCriteriaLevel3 -Operation "EQUALS" -Attribute "email" -Value "carlee.cert1c9f9b6fd@mailinator.com" -Children "MyChildren"
 $ProvisioningCriteriaLevel2 = Initialize-ProvisioningCriteriaLevel2 -Operation "EQUALS" -Attribute "email" -Value "carlee.cert1c9f9b6fd@mailinator.com" -Children $ProvisioningCriteriaLevel3
 
 $ProvisioningCriteriaLevel1 = Initialize-ProvisioningCriteriaLevel1 -Operation "EQUALS" -Attribute "email" -Value "carlee.cert1c9f9b6fd@mailinator.com" -Children $ProvisioningCriteriaLevel2

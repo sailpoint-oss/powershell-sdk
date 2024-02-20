@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'SavedSearchDetail' {
     Context 'SavedSearchDetail' {
         It 'Initialize-SavedSearchDetail' {
             # a simple test to create an object
-            #$NewObject = Initialize-SavedSearchDetail -Created "TEST_VALUE" -Modified "TEST_VALUE" -Indices "TEST_VALUE" -Columns "TEST_VALUE" -Query "TEST_VALUE" -Fields "TEST_VALUE" -Sort "TEST_VALUE" -Filters "TEST_VALUE"
+            #$NewObject = Initialize-SavedSearchDetail -Created "TEST_VALUE" -Modified "TEST_VALUE" -Indices "TEST_VALUE" -Columns "TEST_VALUE" -Query "TEST_VALUE" -Fields "TEST_VALUE" -OrderBy "TEST_VALUE" -Sort "TEST_VALUE" -Filters "TEST_VALUE"
             #$NewObject | Should -BeOfType SavedSearchDetail
             #$NewObject.property | Should -Be 0
         }

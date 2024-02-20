@@ -28,5 +28,7 @@ enum WorkItemState {
     PENDING
     # enum value: "CANCELED"
     CANCELED
+    # enum value: "null"
+    null
 }
 

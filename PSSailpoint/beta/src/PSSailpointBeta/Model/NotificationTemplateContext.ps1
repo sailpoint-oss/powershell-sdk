@@ -29,7 +29,7 @@ function Initialize-BetaNotificationTemplateContext {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [System.Collections.Hashtable]
         ${Attributes},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]

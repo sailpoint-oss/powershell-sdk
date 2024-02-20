@@ -12,12 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The approval's reviewer's comment.
+No description available.
 
 .PARAMETER Comment
 Comment content.
 .PARAMETER Created
 Date and time comment was created.
+.PARAMETER Author
+No description available.
 .OUTPUTS
 
 CompletedApprovalReviewerComment<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-CompletedApprovalReviewerComment {
         ${Comment},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${Created}
+        ${Created},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Author}
     )
 
     Process {
@@ -42,6 +47,7 @@ function Initialize-CompletedApprovalReviewerComment {
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
             "created" = ${Created}
+            "author" = ${Author}
         }
 
 
@@ -79,7 +85,7 @@ function ConvertFrom-JsonToCompletedApprovalReviewerComment {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CompletedApprovalReviewerComment
-        $AllProperties = ("comment", "created")
+        $AllProperties = ("comment", "created", "author")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -98,9 +104,16 @@ function ConvertFrom-JsonToCompletedApprovalReviewerComment {
             $Created = $JsonParameters.PSobject.Properties["created"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "author"))) { #optional property not found
+            $Author = $null
+        } else {
+            $Author = $JsonParameters.PSobject.Properties["author"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
             "created" = ${Created}
+            "author" = ${Author}
         }
 
         return $PSO

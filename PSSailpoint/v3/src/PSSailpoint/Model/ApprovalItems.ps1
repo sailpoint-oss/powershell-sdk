@@ -55,7 +55,6 @@ function Initialize-ApprovalItems {
         [String]
         ${Value},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED")]
         [PSCustomObject]
         ${State}
     )

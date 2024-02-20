@@ -70,7 +70,7 @@ function Initialize-BetaCancelableAccountActivity {
         [System.Nullable[System.DateTime]]
         ${Completed},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SUCCESS", "FAILURE", "INCOMPLETE", "PENDING")]
+        [ValidateSet("SUCCESS", "FAILURE", "INCOMPLETE", "PENDING", "")]
         [PSCustomObject]
         ${CompletionStatus},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]

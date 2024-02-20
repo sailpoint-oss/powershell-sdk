@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 <a id="Get-BetaNotificationsTemplateContext"></a>
 # **Get-BetaNotificationsTemplateContext**
-> NotificationTemplateContext[] Get-BetaNotificationsTemplateContext<br>
+> NotificationTemplateContext Get-BetaNotificationsTemplateContext<br>
 
 Get Notification Template Context
 
@@ -509,7 +509,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**NotificationTemplateContext[]**](NotificationTemplateContext.md) (PSCustomObject)
+[**NotificationTemplateContext**](NotificationTemplateContext.md) (PSCustomObject)
 
 ### Authorization
 

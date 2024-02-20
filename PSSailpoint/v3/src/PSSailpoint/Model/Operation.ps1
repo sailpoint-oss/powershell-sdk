@@ -30,5 +30,7 @@ enum Operation {
     AND
     # enum value: "OR"
     OR
+    # enum value: "null"
+    null
 }
 

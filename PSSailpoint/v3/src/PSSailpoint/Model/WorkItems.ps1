@@ -35,9 +35,9 @@ No description available.
 .PARAMETER Type
 No description available.
 .PARAMETER RemediationItems
-No description available.
+A list of remediation items
 .PARAMETER ApprovalItems
-No description available.
+A list of items that need to be approved
 .PARAMETER Name
 The work item name
 .PARAMETER Completed
@@ -81,18 +81,18 @@ function Initialize-WorkItems {
         [String]
         ${Description},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED")]
+        [ValidateSet("Finished", "Rejected", "Returned", "Expired", "Pending", "Canceled")]
         [PSCustomObject]
         ${State},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("UNKNOWN", "GENERIC", "CERTIFICATION", "REMEDIATION", "DELEGATION", "APPROVAL", "VIOLATIONREVIEW", "FORM", "POLICYVIOLATION", "CHALLENGE", "IMPACTANALYSIS", "SIGNOFF", "EVENT", "MANUALACTION", "TEST")]
+        [ValidateSet("Generic", "Certification", "Remediation", "Delegation", "Approval", "ViolationReview", "Form", "PolicyVioloation", "Challenge", "ImpactAnalysis", "Signoff", "Event", "ManualAction", "Test")]
         [PSCustomObject]
         ${Type},
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${RemediationItems},
         [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${ApprovalItems},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]

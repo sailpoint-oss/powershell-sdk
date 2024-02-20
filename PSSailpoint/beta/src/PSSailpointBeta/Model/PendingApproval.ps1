@@ -76,7 +76,7 @@ function Initialize-BetaPendingApproval {
         [System.Nullable[System.DateTime]]
         ${RequestCreated},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS")]
+        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS", "")]
         [PSCustomObject]
         ${RequestType},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]

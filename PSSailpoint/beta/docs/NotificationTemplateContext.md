@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | [**SystemCollectionsHashtable**](.md) | A JSON object that stores the context. | [optional] 
+**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | A JSON object that stores the context. | [optional] 
 **Created** | **System.DateTime** | When the global context was created | [optional] 
 **Modified** | **System.DateTime** | When the global context was last modified | [optional] 
 

@@ -55,7 +55,7 @@ function Initialize-BetaApprovalItemDetails {
         [String]
         ${Value},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED")]
+        [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED", "")]
         [PSCustomObject]
         ${State}
     )

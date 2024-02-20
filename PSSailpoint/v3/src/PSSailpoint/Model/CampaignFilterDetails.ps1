@@ -67,10 +67,6 @@ function Initialize-CampaignFilterDetails {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if ($null -eq $Owner) {
-            throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
         if ($null -eq $Mode) {
             throw "invalid value for 'Mode', 'Mode' cannot be null."
         }

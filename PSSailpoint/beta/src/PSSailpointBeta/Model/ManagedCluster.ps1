@@ -60,6 +60,10 @@ List of clients in a cluster
 Number of services bound to a cluster
 .PARAMETER CcId
 CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished
+.PARAMETER CreatedAt
+The date/time this cluster was created
+.PARAMETER UpdatedAt
+The date/time this cluster was last updated
 .OUTPUTS
 
 ManagedCluster<PSCustomObject>
@@ -138,7 +142,13 @@ function Initialize-BetaManagedCluster {
         ${ServiceCount} = 0,
         [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CcId} = "0"
+        ${CcId} = "0",
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${CreatedAt},
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${UpdatedAt}
     )
 
     Process {
@@ -178,6 +188,8 @@ function Initialize-BetaManagedCluster {
             "clientIds" = ${ClientIds}
             "serviceCount" = ${ServiceCount}
             "ccId" = ${CcId}
+            "createdAt" = ${CreatedAt}
+            "updatedAt" = ${UpdatedAt}
         }
 
 
@@ -215,7 +227,7 @@ function ConvertFrom-BetaJsonToManagedCluster {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaManagedCluster
-        $AllProperties = ("id", "name", "pod", "org", "type", "configuration", "keyPair", "attributes", "description", "redis", "clientType", "ccgVersion", "pinnedConfig", "logConfiguration", "operational", "status", "publicKeyCertificate", "publicKeyThumbprint", "publicKey", "alertKey", "clientIds", "serviceCount", "ccId")
+        $AllProperties = ("id", "name", "pod", "org", "type", "configuration", "keyPair", "attributes", "description", "redis", "clientType", "ccgVersion", "pinnedConfig", "logConfiguration", "operational", "status", "publicKeyCertificate", "publicKeyThumbprint", "publicKey", "alertKey", "clientIds", "serviceCount", "ccId", "createdAt", "updatedAt")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -364,6 +376,18 @@ function ConvertFrom-BetaJsonToManagedCluster {
             $CcId = $JsonParameters.PSobject.Properties["ccId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdAt"))) { #optional property not found
+            $CreatedAt = $null
+        } else {
+            $CreatedAt = $JsonParameters.PSobject.Properties["createdAt"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "updatedAt"))) { #optional property not found
+            $UpdatedAt = $null
+        } else {
+            $UpdatedAt = $JsonParameters.PSobject.Properties["updatedAt"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -388,6 +412,8 @@ function ConvertFrom-BetaJsonToManagedCluster {
             "clientIds" = ${ClientIds}
             "serviceCount" = ${ServiceCount}
             "ccId" = ${CcId}
+            "createdAt" = ${CreatedAt}
+            "updatedAt" = ${UpdatedAt}
         }
 
         return $PSO

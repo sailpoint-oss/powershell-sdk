@@ -109,6 +109,7 @@ docs/ApprovalScheme.md
 docs/ApprovalSchemeForRole.md
 docs/ApprovalStatus.md
 docs/ApprovalStatusDto.md
+docs/ApprovalStatusDtoCurrentOwner.md
 docs/ApprovalStatusDtoOriginalOwner.md
 docs/ApprovalSummary.md
 docs/Argument.md
@@ -126,6 +127,7 @@ docs/Base64Decode.md
 docs/Base64Encode.md
 docs/BaseCommonDto.md
 docs/BaseCommonDto1.md
+docs/BaseReferenceDto.md
 docs/BasicAuthConfig.md
 docs/BearerTokenAuthConfig.md
 docs/BeforeProvisioningRuleDto.md
@@ -224,6 +226,7 @@ docs/CloseAccessRequest.md
 docs/Comment.md
 docs/CommentDto.md
 docs/CommentDto1.md
+docs/CommentDto1Author.md
 docs/CommentDtoAuthor.md
 docs/CommonAccessIDStatus.md
 docs/CommonAccessItemAccess.md
@@ -236,6 +239,7 @@ docs/CompleteCampaignOptions.md
 docs/CompleteInvocation.md
 docs/CompleteInvocationInput.md
 docs/CompletedApproval.md
+docs/CompletedApprovalPreApprovalTriggerResult.md
 docs/CompletedApprovalReviewedBy.md
 docs/CompletedApprovalReviewerComment.md
 docs/CompletedApprovalState.md
@@ -248,6 +252,7 @@ docs/Conditional.md
 docs/ConfigObject.md
 docs/ConfigType.md
 docs/ConfigTypeEnum.md
+docs/ConfigTypeEnumCamel.md
 docs/ConfigurationDetailsResponse.md
 docs/ConfigurationItemRequest.md
 docs/ConfigurationItemResponse.md
@@ -296,6 +301,8 @@ docs/Entitlement.md
 docs/EntitlementAccessRequestConfig.md
 docs/EntitlementApprovalScheme.md
 docs/EntitlementBulkUpdateRequest.md
+docs/EntitlementManuallyUpdatedFields.md
+docs/EntitlementOwner.md
 docs/EntitlementRef.md
 docs/EntitlementRequestConfig.md
 docs/EntitlementRequestConfig1.md
@@ -346,7 +353,6 @@ docs/FormItemDetails.md
 docs/FormOwner.md
 docs/FormUsedBy.md
 docs/ForwardApprovalDto.md
-docs/FullAccount.md
 docs/Fullcampaign.md
 docs/FullcampaignAllOfFilter.md
 docs/FullcampaignAllOfRoleCompositionCampaignInfo.md
@@ -393,6 +399,7 @@ docs/IdentityCreated.md
 docs/IdentityCreatedIdentity.md
 docs/IdentityDeleted.md
 docs/IdentityDeletedIdentity.md
+docs/IdentityDtoLifecycleState.md
 docs/IdentityDtoManagerRef.md
 docs/IdentityEntities.md
 docs/IdentityEntitiesIdentityEntity.md
@@ -443,7 +450,6 @@ docs/LifecycleState.md
 docs/LifecycleStateDto.md
 docs/ListAccessProfiles401Response.md
 docs/ListAccessProfiles429Response.md
-docs/ListAccounts200ResponseInner.md
 docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/ListFormDefinitionsByTenantResponse.md
 docs/ListFormElementDataByElementIDResponse.md
@@ -598,7 +604,12 @@ docs/RequestableObjectReference.md
 docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
 docs/RequestedItemStatus.md
+docs/RequestedItemStatusCancelledRequestDetails.md
+docs/RequestedItemStatusPreApprovalTriggerDetails.md
+docs/RequestedItemStatusProvisioningDetails.md
 docs/RequestedItemStatusRequestState.md
+docs/RequestedItemStatusRequesterComment.md
+docs/RequestedItemStatusSodViolationContext.md
 docs/ResourceBundleMessage.md
 docs/ResourceObject.md
 docs/ResourceObjectsRequest.md
@@ -664,6 +675,7 @@ docs/Schedule.md
 docs/Schedule1.md
 docs/Schedule1Days.md
 docs/Schedule1Hours.md
+docs/Schedule1Months.md
 docs/ScheduleDays.md
 docs/ScheduleHours.md
 docs/ScheduleMonths.md
@@ -685,7 +697,6 @@ docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationTemplateDto.md
 docs/ServiceDeskIntegrationTemplateType.md
 docs/ServiceDeskSource.md
-docs/SlimAccount.md
 docs/Slimcampaign.md
 docs/SodExemptCriteria.md
 docs/SodExemptCriteria1.md
@@ -1003,6 +1014,7 @@ src/PSSailpointBeta/Model/ApprovalScheme.ps1
 src/PSSailpointBeta/Model/ApprovalSchemeForRole.ps1
 src/PSSailpointBeta/Model/ApprovalStatus.ps1
 src/PSSailpointBeta/Model/ApprovalStatusDto.ps1
+src/PSSailpointBeta/Model/ApprovalStatusDtoCurrentOwner.ps1
 src/PSSailpointBeta/Model/ApprovalStatusDtoOriginalOwner.ps1
 src/PSSailpointBeta/Model/ApprovalSummary.ps1
 src/PSSailpointBeta/Model/Argument.ps1
@@ -1020,6 +1032,7 @@ src/PSSailpointBeta/Model/Base64Decode.ps1
 src/PSSailpointBeta/Model/Base64Encode.ps1
 src/PSSailpointBeta/Model/BaseCommonDto.ps1
 src/PSSailpointBeta/Model/BaseCommonDto1.ps1
+src/PSSailpointBeta/Model/BaseReferenceDto.ps1
 src/PSSailpointBeta/Model/BasicAuthConfig.ps1
 src/PSSailpointBeta/Model/BearerTokenAuthConfig.ps1
 src/PSSailpointBeta/Model/BeforeProvisioningRuleDto.ps1
@@ -1058,6 +1071,7 @@ src/PSSailpointBeta/Model/CloseAccessRequest.ps1
 src/PSSailpointBeta/Model/Comment.ps1
 src/PSSailpointBeta/Model/CommentDto.ps1
 src/PSSailpointBeta/Model/CommentDto1.ps1
+src/PSSailpointBeta/Model/CommentDto1Author.ps1
 src/PSSailpointBeta/Model/CommentDtoAuthor.ps1
 src/PSSailpointBeta/Model/CommonAccessIDStatus.ps1
 src/PSSailpointBeta/Model/CommonAccessItemAccess.ps1
@@ -1070,6 +1084,7 @@ src/PSSailpointBeta/Model/CompleteCampaignOptions.ps1
 src/PSSailpointBeta/Model/CompleteInvocation.ps1
 src/PSSailpointBeta/Model/CompleteInvocationInput.ps1
 src/PSSailpointBeta/Model/CompletedApproval.ps1
+src/PSSailpointBeta/Model/CompletedApprovalPreApprovalTriggerResult.ps1
 src/PSSailpointBeta/Model/CompletedApprovalReviewedBy.ps1
 src/PSSailpointBeta/Model/CompletedApprovalReviewerComment.ps1
 src/PSSailpointBeta/Model/CompletedApprovalState.ps1
@@ -1082,6 +1097,7 @@ src/PSSailpointBeta/Model/Conditional.ps1
 src/PSSailpointBeta/Model/ConfigObject.ps1
 src/PSSailpointBeta/Model/ConfigType.ps1
 src/PSSailpointBeta/Model/ConfigTypeEnum.ps1
+src/PSSailpointBeta/Model/ConfigTypeEnumCamel.ps1
 src/PSSailpointBeta/Model/ConfigurationDetailsResponse.ps1
 src/PSSailpointBeta/Model/ConfigurationItemRequest.ps1
 src/PSSailpointBeta/Model/ConfigurationItemResponse.ps1
@@ -1130,6 +1146,8 @@ src/PSSailpointBeta/Model/Entitlement.ps1
 src/PSSailpointBeta/Model/EntitlementAccessRequestConfig.ps1
 src/PSSailpointBeta/Model/EntitlementApprovalScheme.ps1
 src/PSSailpointBeta/Model/EntitlementBulkUpdateRequest.ps1
+src/PSSailpointBeta/Model/EntitlementManuallyUpdatedFields.ps1
+src/PSSailpointBeta/Model/EntitlementOwner.ps1
 src/PSSailpointBeta/Model/EntitlementRef.ps1
 src/PSSailpointBeta/Model/EntitlementRequestConfig.ps1
 src/PSSailpointBeta/Model/EntitlementRequestConfig1.ps1
@@ -1179,7 +1197,6 @@ src/PSSailpointBeta/Model/FormItemDetails.ps1
 src/PSSailpointBeta/Model/FormOwner.ps1
 src/PSSailpointBeta/Model/FormUsedBy.ps1
 src/PSSailpointBeta/Model/ForwardApprovalDto.ps1
-src/PSSailpointBeta/Model/FullAccount.ps1
 src/PSSailpointBeta/Model/Fullcampaign.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfFilter.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfRoleCompositionCampaignInfo.ps1
@@ -1226,6 +1243,7 @@ src/PSSailpointBeta/Model/IdentityCreated.ps1
 src/PSSailpointBeta/Model/IdentityCreatedIdentity.ps1
 src/PSSailpointBeta/Model/IdentityDeleted.ps1
 src/PSSailpointBeta/Model/IdentityDeletedIdentity.ps1
+src/PSSailpointBeta/Model/IdentityDtoLifecycleState.ps1
 src/PSSailpointBeta/Model/IdentityDtoManagerRef.ps1
 src/PSSailpointBeta/Model/IdentityEntities.ps1
 src/PSSailpointBeta/Model/IdentityEntitiesIdentityEntity.ps1
@@ -1276,7 +1294,6 @@ src/PSSailpointBeta/Model/LifecycleState.ps1
 src/PSSailpointBeta/Model/LifecycleStateDto.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles401Response.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles429Response.ps1
-src/PSSailpointBeta/Model/ListAccounts200ResponseInner.ps1
 src/PSSailpointBeta/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpointBeta/Model/ListFormDefinitionsByTenantResponse.ps1
 src/PSSailpointBeta/Model/ListFormElementDataByElementIDResponse.ps1
@@ -1432,7 +1449,12 @@ src/PSSailpointBeta/Model/RequestableObjectReference.ps1
 src/PSSailpointBeta/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpointBeta/Model/RequestableObjectType.ps1
 src/PSSailpointBeta/Model/RequestedItemStatus.ps1
+src/PSSailpointBeta/Model/RequestedItemStatusCancelledRequestDetails.ps1
+src/PSSailpointBeta/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
+src/PSSailpointBeta/Model/RequestedItemStatusProvisioningDetails.ps1
 src/PSSailpointBeta/Model/RequestedItemStatusRequestState.ps1
+src/PSSailpointBeta/Model/RequestedItemStatusRequesterComment.ps1
+src/PSSailpointBeta/Model/RequestedItemStatusSodViolationContext.ps1
 src/PSSailpointBeta/Model/ResourceBundleMessage.ps1
 src/PSSailpointBeta/Model/ResourceObject.ps1
 src/PSSailpointBeta/Model/ResourceObjectsRequest.ps1
@@ -1498,6 +1520,7 @@ src/PSSailpointBeta/Model/Schedule.ps1
 src/PSSailpointBeta/Model/Schedule1.ps1
 src/PSSailpointBeta/Model/Schedule1Days.ps1
 src/PSSailpointBeta/Model/Schedule1Hours.ps1
+src/PSSailpointBeta/Model/Schedule1Months.ps1
 src/PSSailpointBeta/Model/ScheduleDays.ps1
 src/PSSailpointBeta/Model/ScheduleHours.ps1
 src/PSSailpointBeta/Model/ScheduleMonths.ps1
@@ -1519,7 +1542,6 @@ src/PSSailpointBeta/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateType.ps1
 src/PSSailpointBeta/Model/ServiceDeskSource.ps1
-src/PSSailpointBeta/Model/SlimAccount.ps1
 src/PSSailpointBeta/Model/Slimcampaign.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria1.ps1
@@ -1843,6 +1865,7 @@ tests/Model/ApprovalScheme.Tests.ps1
 tests/Model/ApprovalSchemeForRole.Tests.ps1
 tests/Model/ApprovalStatus.Tests.ps1
 tests/Model/ApprovalStatusDto.Tests.ps1
+tests/Model/ApprovalStatusDtoCurrentOwner.Tests.ps1
 tests/Model/ApprovalStatusDtoOriginalOwner.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
 tests/Model/Argument.Tests.ps1
@@ -1860,6 +1883,7 @@ tests/Model/Base64Decode.Tests.ps1
 tests/Model/Base64Encode.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseCommonDto1.Tests.ps1
+tests/Model/BaseReferenceDto.Tests.ps1
 tests/Model/BasicAuthConfig.Tests.ps1
 tests/Model/BearerTokenAuthConfig.Tests.ps1
 tests/Model/BeforeProvisioningRuleDto.Tests.ps1
@@ -1898,6 +1922,7 @@ tests/Model/CloseAccessRequest.Tests.ps1
 tests/Model/Comment.Tests.ps1
 tests/Model/CommentDto.Tests.ps1
 tests/Model/CommentDto1.Tests.ps1
+tests/Model/CommentDto1Author.Tests.ps1
 tests/Model/CommentDtoAuthor.Tests.ps1
 tests/Model/CommonAccessIDStatus.Tests.ps1
 tests/Model/CommonAccessItemAccess.Tests.ps1
@@ -1910,6 +1935,7 @@ tests/Model/CompleteCampaignOptions.Tests.ps1
 tests/Model/CompleteInvocation.Tests.ps1
 tests/Model/CompleteInvocationInput.Tests.ps1
 tests/Model/CompletedApproval.Tests.ps1
+tests/Model/CompletedApprovalPreApprovalTriggerResult.Tests.ps1
 tests/Model/CompletedApprovalReviewedBy.Tests.ps1
 tests/Model/CompletedApprovalReviewerComment.Tests.ps1
 tests/Model/CompletedApprovalState.Tests.ps1
@@ -1922,6 +1948,7 @@ tests/Model/Conditional.Tests.ps1
 tests/Model/ConfigObject.Tests.ps1
 tests/Model/ConfigType.Tests.ps1
 tests/Model/ConfigTypeEnum.Tests.ps1
+tests/Model/ConfigTypeEnumCamel.Tests.ps1
 tests/Model/ConfigurationDetailsResponse.Tests.ps1
 tests/Model/ConfigurationItemRequest.Tests.ps1
 tests/Model/ConfigurationItemResponse.Tests.ps1
@@ -1970,6 +1997,8 @@ tests/Model/Entitlement.Tests.ps1
 tests/Model/EntitlementAccessRequestConfig.Tests.ps1
 tests/Model/EntitlementApprovalScheme.Tests.ps1
 tests/Model/EntitlementBulkUpdateRequest.Tests.ps1
+tests/Model/EntitlementManuallyUpdatedFields.Tests.ps1
+tests/Model/EntitlementOwner.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
 tests/Model/EntitlementRequestConfig.Tests.ps1
 tests/Model/EntitlementRequestConfig1.Tests.ps1
@@ -2019,7 +2048,6 @@ tests/Model/FormItemDetails.Tests.ps1
 tests/Model/FormOwner.Tests.ps1
 tests/Model/FormUsedBy.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
-tests/Model/FullAccount.Tests.ps1
 tests/Model/Fullcampaign.Tests.ps1
 tests/Model/FullcampaignAllOfFilter.Tests.ps1
 tests/Model/FullcampaignAllOfRoleCompositionCampaignInfo.Tests.ps1
@@ -2066,6 +2094,7 @@ tests/Model/IdentityCreated.Tests.ps1
 tests/Model/IdentityCreatedIdentity.Tests.ps1
 tests/Model/IdentityDeleted.Tests.ps1
 tests/Model/IdentityDeletedIdentity.Tests.ps1
+tests/Model/IdentityDtoLifecycleState.Tests.ps1
 tests/Model/IdentityDtoManagerRef.Tests.ps1
 tests/Model/IdentityEntities.Tests.ps1
 tests/Model/IdentityEntitiesIdentityEntity.Tests.ps1
@@ -2116,7 +2145,6 @@ tests/Model/LifecycleState.Tests.ps1
 tests/Model/LifecycleStateDto.Tests.ps1
 tests/Model/ListAccessProfiles401Response.Tests.ps1
 tests/Model/ListAccessProfiles429Response.Tests.ps1
-tests/Model/ListAccounts200ResponseInner.Tests.ps1
 tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/ListFormDefinitionsByTenantResponse.Tests.ps1
 tests/Model/ListFormElementDataByElementIDResponse.Tests.ps1
@@ -2272,7 +2300,12 @@ tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
+tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
+tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1
+tests/Model/RequestedItemStatusProvisioningDetails.Tests.ps1
 tests/Model/RequestedItemStatusRequestState.Tests.ps1
+tests/Model/RequestedItemStatusRequesterComment.Tests.ps1
+tests/Model/RequestedItemStatusSodViolationContext.Tests.ps1
 tests/Model/ResourceBundleMessage.Tests.ps1
 tests/Model/ResourceObject.Tests.ps1
 tests/Model/ResourceObjectsRequest.Tests.ps1
@@ -2338,6 +2371,7 @@ tests/Model/Schedule.Tests.ps1
 tests/Model/Schedule1.Tests.ps1
 tests/Model/Schedule1Days.Tests.ps1
 tests/Model/Schedule1Hours.Tests.ps1
+tests/Model/Schedule1Months.Tests.ps1
 tests/Model/ScheduleDays.Tests.ps1
 tests/Model/ScheduleHours.Tests.ps1
 tests/Model/ScheduleMonths.Tests.ps1
@@ -2359,7 +2393,6 @@ tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
 tests/Model/ServiceDeskSource.Tests.ps1
-tests/Model/SlimAccount.Tests.ps1
 tests/Model/Slimcampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodExemptCriteria1.Tests.ps1

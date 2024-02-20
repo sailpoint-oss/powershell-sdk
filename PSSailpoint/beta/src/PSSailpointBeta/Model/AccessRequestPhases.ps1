@@ -44,11 +44,11 @@ function Initialize-BetaAccessRequestPhases {
         [String]
         ${Name},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("PENDING", "EXECUTING", "COMPLETED", "CANCELLED")]
+        [ValidateSet("PENDING", "EXECUTING", "COMPLETED", "CANCELLED", "NOT_EXECUTED")]
         [String]
         ${State},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SUCCESSFUL", "FAILED")]
+        [ValidateSet("SUCCESSFUL", "FAILED", "")]
         [String]
         ${Result},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]

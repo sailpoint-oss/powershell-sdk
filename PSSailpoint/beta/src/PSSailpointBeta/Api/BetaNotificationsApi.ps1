@@ -741,7 +741,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-NotificationTemplateContext[]
+NotificationTemplateContext
 #>
 function Get-BetaNotificationsTemplateContext {
     [CmdletBinding()]
@@ -779,7 +779,7 @@ function Get-BetaNotificationsTemplateContext {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "NotificationTemplateContext[]" `
+                                -ReturnType "NotificationTemplateContext" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

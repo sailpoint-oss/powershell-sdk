@@ -14,9 +14,9 @@ No summary available.
 
 No description available.
 
-.PARAMETER AccountAttribute
+.PARAMETER AccountAttributeName
 Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager's identity.
-.PARAMETER IdentityAttribute
+.PARAMETER IdentityAttributeName
 Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
 .OUTPUTS
 
@@ -28,10 +28,10 @@ function Initialize-ManagerCorrelationMapping {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccountAttribute},
+        ${AccountAttributeName},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${IdentityAttribute}
+        ${IdentityAttributeName}
     )
 
     Process {
@@ -40,8 +40,8 @@ function Initialize-ManagerCorrelationMapping {
 
 
         $PSO = [PSCustomObject]@{
-            "accountAttribute" = ${AccountAttribute}
-            "identityAttribute" = ${IdentityAttribute}
+            "accountAttributeName" = ${AccountAttributeName}
+            "identityAttributeName" = ${IdentityAttributeName}
         }
 
 
@@ -79,28 +79,28 @@ function ConvertFrom-JsonToManagerCorrelationMapping {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ManagerCorrelationMapping
-        $AllProperties = ("accountAttribute", "identityAttribute")
+        $AllProperties = ("accountAttributeName", "identityAttributeName")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountAttribute"))) { #optional property not found
-            $AccountAttribute = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountAttributeName"))) { #optional property not found
+            $AccountAttributeName = $null
         } else {
-            $AccountAttribute = $JsonParameters.PSobject.Properties["accountAttribute"].value
+            $AccountAttributeName = $JsonParameters.PSobject.Properties["accountAttributeName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityAttribute"))) { #optional property not found
-            $IdentityAttribute = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityAttributeName"))) { #optional property not found
+            $IdentityAttributeName = $null
         } else {
-            $IdentityAttribute = $JsonParameters.PSobject.Properties["identityAttribute"].value
+            $IdentityAttributeName = $JsonParameters.PSobject.Properties["identityAttributeName"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "accountAttribute" = ${AccountAttribute}
-            "identityAttribute" = ${IdentityAttribute}
+            "accountAttributeName" = ${AccountAttributeName}
+            "identityAttributeName" = ${IdentityAttributeName}
         }
 
         return $PSO

@@ -72,7 +72,7 @@ function Initialize-RequestedItemStatus {
         [String]
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT")]
+        [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT", "")]
         [String]
         ${Type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
@@ -95,7 +95,7 @@ function Initialize-RequestedItemStatus {
         [String]
         ${AccountActivityItemId},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS")]
+        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS", "")]
         [PSCustomObject]
         ${RequestType},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]

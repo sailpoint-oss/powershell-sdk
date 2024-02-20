@@ -56,6 +56,12 @@ If true, then the request was to change the remove date or sunset date.
 The remove date or sunset date that was assigned at the time of the request.
 .PARAMETER SodViolationContext
 No description available.
+.PARAMETER PreApprovalTriggerResult
+No description available.
+.PARAMETER ClientMetadata
+Arbitrary key-value pairs provided during the request.
+.PARAMETER RequestedAccounts
+No description available.
 .OUTPUTS
 
 CompletedApproval<PSCustomObject>
@@ -80,7 +86,7 @@ function Initialize-CompletedApproval {
         [System.Nullable[System.DateTime]]
         ${RequestCreated},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS")]
+        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS", "")]
         [PSCustomObject]
         ${RequestType},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
@@ -128,7 +134,16 @@ function Initialize-CompletedApproval {
         ${CurrentRemoveDate},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${SodViolationContext}
+        ${SodViolationContext},
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${PreApprovalTriggerResult},
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${ClientMetadata},
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${RequestedAccounts}
     )
 
     Process {
@@ -166,6 +181,9 @@ function Initialize-CompletedApproval {
             "removeDateUpdateRequested" = ${RemoveDateUpdateRequested}
             "currentRemoveDate" = ${CurrentRemoveDate}
             "sodViolationContext" = ${SodViolationContext}
+            "preApprovalTriggerResult" = ${PreApprovalTriggerResult}
+            "clientMetadata" = ${ClientMetadata}
+            "requestedAccounts" = ${RequestedAccounts}
         }
 
 
@@ -203,7 +221,7 @@ function ConvertFrom-JsonToCompletedApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CompletedApproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext")
+        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -336,6 +354,24 @@ function ConvertFrom-JsonToCompletedApproval {
             $SodViolationContext = $JsonParameters.PSobject.Properties["sodViolationContext"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "preApprovalTriggerResult"))) { #optional property not found
+            $PreApprovalTriggerResult = $null
+        } else {
+            $PreApprovalTriggerResult = $JsonParameters.PSobject.Properties["preApprovalTriggerResult"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "clientMetadata"))) { #optional property not found
+            $ClientMetadata = $null
+        } else {
+            $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedAccounts"))) { #optional property not found
+            $RequestedAccounts = $null
+        } else {
+            $RequestedAccounts = $JsonParameters.PSobject.Properties["requestedAccounts"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -358,6 +394,9 @@ function ConvertFrom-JsonToCompletedApproval {
             "removeDateUpdateRequested" = ${RemoveDateUpdateRequested}
             "currentRemoveDate" = ${CurrentRemoveDate}
             "sodViolationContext" = ${SodViolationContext}
+            "preApprovalTriggerResult" = ${PreApprovalTriggerResult}
+            "clientMetadata" = ${ClientMetadata}
+            "requestedAccounts" = ${RequestedAccounts}
         }
 
         return $PSO

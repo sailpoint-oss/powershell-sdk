@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'ManagerCorrelationMapping' {
     Context 'ManagerCorrelationMapping' {
         It 'Initialize-ManagerCorrelationMapping' {
             # a simple test to create an object
-            #$NewObject = Initialize-ManagerCorrelationMapping -AccountAttribute "TEST_VALUE" -IdentityAttribute "TEST_VALUE"
+            #$NewObject = Initialize-ManagerCorrelationMapping -AccountAttributeName "TEST_VALUE" -IdentityAttributeName "TEST_VALUE"
             #$NewObject | Should -BeOfType ManagerCorrelationMapping
             #$NewObject.property | Should -Be 0
         }

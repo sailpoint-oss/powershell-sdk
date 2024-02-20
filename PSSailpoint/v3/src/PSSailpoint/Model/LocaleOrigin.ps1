@@ -20,5 +20,7 @@ enum LocaleOrigin {
     DEFAULT
     # enum value: "REQUEST"
     REQUEST
+    # enum value: "null"
+    null
 }
 

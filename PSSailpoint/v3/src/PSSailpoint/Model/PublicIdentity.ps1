@@ -24,6 +24,8 @@ Alternate unique identifier for the identity.
 Email address of identity.
 .PARAMETER Status
 The lifecycle status for the identity
+.PARAMETER IdentityState
+The current state of the identity, which determines how Identity Security Cloud interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features. 
 .PARAMETER Manager
 No description available.
 .PARAMETER Attributes
@@ -52,9 +54,13 @@ function Initialize-PublicIdentity {
         [String]
         ${Status},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACTIVE", "INACTIVE_SHORT_TERM", "INACTIVE_LONG_TERM", "")]
+        [String]
+        ${IdentityState},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Manager},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Attributes}
     )
@@ -70,6 +76,7 @@ function Initialize-PublicIdentity {
             "alias" = ${Alias}
             "email" = ${Email}
             "status" = ${Status}
+            "identityState" = ${IdentityState}
             "manager" = ${Manager}
             "attributes" = ${Attributes}
         }
@@ -109,7 +116,7 @@ function ConvertFrom-JsonToPublicIdentity {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PublicIdentity
-        $AllProperties = ("id", "name", "alias", "email", "status", "manager", "attributes")
+        $AllProperties = ("id", "name", "alias", "email", "status", "identityState", "manager", "attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -146,6 +153,12 @@ function ConvertFrom-JsonToPublicIdentity {
             $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityState"))) { #optional property not found
+            $IdentityState = $null
+        } else {
+            $IdentityState = $JsonParameters.PSobject.Properties["identityState"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "manager"))) { #optional property not found
             $Manager = $null
         } else {
@@ -164,6 +177,7 @@ function ConvertFrom-JsonToPublicIdentity {
             "alias" = ${Alias}
             "email" = ${Email}
             "status" = ${Status}
+            "identityState" = ${IdentityState}
             "manager" = ${Manager}
             "attributes" = ${Attributes}
         }

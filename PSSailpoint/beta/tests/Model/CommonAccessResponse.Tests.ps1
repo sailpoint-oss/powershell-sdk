@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaCommonAccessResponse' {
     Context 'BetaCommonAccessResponse' {
         It 'Initialize-BetaCommonAccessResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaCommonAccessResponse -Access "TEST_VALUE" -Status "TEST_VALUE" -LastUpdated "TEST_VALUE" -ReviewedByUser "TEST_VALUE" -LastReviewed "TEST_VALUE"
+            #$NewObject = Initialize-BetaCommonAccessResponse -Id "TEST_VALUE" -Access "TEST_VALUE" -Status "TEST_VALUE" -LastUpdated "TEST_VALUE" -ReviewedByUser "TEST_VALUE" -LastReviewed "TEST_VALUE" -CreatedByUser "TEST_VALUE"
             #$NewObject | Should -BeOfType CommonAccessResponse
             #$NewObject.property | Should -Be 0
         }

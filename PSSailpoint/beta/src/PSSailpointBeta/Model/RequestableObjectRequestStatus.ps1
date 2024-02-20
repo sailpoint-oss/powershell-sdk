@@ -22,5 +22,7 @@ enum RequestableObjectRequestStatus {
     PENDING
     # enum value: "ASSIGNED"
     ASSIGNED
+    # enum value: "null"
+    null
 }
 

@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **ClientIds** | **String[]** | List of clients in a cluster | [optional] 
 **ServiceCount** | **Int32** | Number of services bound to a cluster | [optional] [default to 0]
 **CcId** | **String** | CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished | [optional] [default to "0"]
+**CreatedAt** | **System.DateTime** | The date/time this cluster was created | [optional] 
+**UpdatedAt** | **System.DateTime** | The date/time this cluster was last updated | [optional] 
 
 ## Examples
 
@@ -53,7 +55,9 @@ $ManagedCluster = Initialize-PSSailpointBetaManagedCluster  -Id aClusterId `
  -AlertKey LIMITED_RESOURCES `
  -ClientIds [1244, 1245] `
  -ServiceCount 6 `
- -CcId 1533
+ -CcId 1533 `
+ -CreatedAt 2023-08-04T20:48:01.865Z `
+ -UpdatedAt 2023-08-04T20:48:01.865Z
 ```
 
 - Convert the resource to JSON

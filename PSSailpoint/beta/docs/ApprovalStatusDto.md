@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Forwarded** | **Boolean** | True if the request for this item was forwarded from one owner to another. | [optional] [default to $false]
 **OriginalOwner** | [**ApprovalStatusDtoOriginalOwner**](ApprovalStatusDtoOriginalOwner.md) |  | [optional] 
-**CurrentOwner** | [**AccessItemReviewedBy**](AccessItemReviewedBy.md) |  | [optional] 
+**CurrentOwner** | [**ApprovalStatusDtoCurrentOwner**](ApprovalStatusDtoCurrentOwner.md) |  | [optional] 
 **Modified** | **System.DateTime** | Time at which item was modified. | [optional] 
 **Status** | [**ManualWorkItemState**](ManualWorkItemState.md) |  | [optional] 
 **Scheme** | [**ApprovalScheme**](ApprovalScheme.md) |  | [optional] 

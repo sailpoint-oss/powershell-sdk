@@ -21,6 +21,9 @@ Name | Type | Description | Notes
 **Uuid** | **String** | The unique ID of the account as determined by the account schema | [optional] 
 **ManuallyCorrelated** | **Boolean** | Indicates if the account has been manually correlated to an identity | 
 **HasEntitlements** | **Boolean** | Indicates if the account has entitlements | 
+**Identity** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**SourceOwner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Features** | **String** | A string list containing the owning source&#39;s features | [optional] 
 
 ## Examples
 
@@ -43,7 +46,10 @@ $Account = Initialize-PSSailpointBetaAccount  -Id id12345 `
  -Uncorrelated false `
  -Uuid slpt.support `
  -ManuallyCorrelated false `
- -HasEntitlements true
+ -HasEntitlements true `
+ -Identity null `
+ -SourceOwner null `
+ -Features ENABLE
 ```
 
 - Convert the resource to JSON

@@ -32,7 +32,7 @@ function Initialize-ErrorMessageDto {
         [String]
         ${Locale},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("DEFAULT", "REQUEST")]
+        [ValidateSet("DEFAULT", "REQUEST", "")]
         [PSCustomObject]
         ${LocaleOrigin},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]

@@ -31,9 +31,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
+$Schedule1Months = Initialize-Schedule1Months -Type "LIST" -Values "MyValues" -Interval 3
 $Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
 $Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
+$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Schedule1Months -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
 $CreateScheduledSearchRequest = Initialize-CreateScheduledSearchRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # CreateScheduledSearchRequest | The scheduled search to persist.
@@ -305,9 +306,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+$Schedule1Months = Initialize-Schedule1Months -Type "LIST" -Values "MyValues" -Interval 3
 $Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
 $Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
+$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Schedule1Months -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
 $ScheduledSearchAllOfOwner = Initialize-ScheduledSearchAllOfOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"

@@ -14,6 +14,8 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+Unique ID of the common access item
 .PARAMETER Access
 No description available.
 .PARAMETER Status
@@ -24,6 +26,8 @@ No description available.
 true if user has confirmed or denied status
 .PARAMETER LastReviewed
 No description available.
+.PARAMETER CreatedByUser
+No description available.
 .OUTPUTS
 
 CommonAccessResponse<PSCustomObject>
@@ -33,20 +37,26 @@ function Initialize-BetaCommonAccessResponse {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Access},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${LastUpdated},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ReviewedByUser},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${LastReviewed}
+        ${LastReviewed},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${CreatedByUser} = $false
     )
 
     Process {
@@ -55,11 +65,13 @@ function Initialize-BetaCommonAccessResponse {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "access" = ${Access}
             "status" = ${Status}
             "lastUpdated" = ${LastUpdated}
             "reviewedByUser" = ${ReviewedByUser}
             "lastReviewed" = ${LastReviewed}
+            "createdByUser" = ${CreatedByUser}
         }
 
 
@@ -97,11 +109,17 @@ function ConvertFrom-BetaJsonToCommonAccessResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCommonAccessResponse
-        $AllProperties = ("access", "status", "lastUpdated", "reviewedByUser", "lastReviewed")
+        $AllProperties = ("id", "access", "status", "lastUpdated", "reviewedByUser", "lastReviewed", "createdByUser")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "access"))) { #optional property not found
@@ -134,12 +152,20 @@ function ConvertFrom-BetaJsonToCommonAccessResponse {
             $LastReviewed = $JsonParameters.PSobject.Properties["lastReviewed"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdByUser"))) { #optional property not found
+            $CreatedByUser = $null
+        } else {
+            $CreatedByUser = $JsonParameters.PSobject.Properties["createdByUser"].value
+        }
+
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "access" = ${Access}
             "status" = ${Status}
             "lastUpdated" = ${LastUpdated}
             "reviewedByUser" = ${ReviewedByUser}
             "lastReviewed" = ${LastReviewed}
+            "createdByUser" = ${CreatedByUser}
         }
 
         return $PSO

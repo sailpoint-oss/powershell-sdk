@@ -5,13 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | **String** | Comment content. | [optional] 
 **Created** | **System.DateTime** | Date and time comment was created. | [optional] 
+**Author** | [**CommentDtoAuthor**](CommentDtoAuthor.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $CompletedApprovalReviewerComment = Initialize-PSSailpointCompletedApprovalReviewerComment  -Comment This is a comment. `
- -Created 2017-07-11T18:45:37.098Z
+ -Created 2017-07-11T18:45:37.098Z `
+ -Author null
 ```
 
 - Convert the resource to JSON

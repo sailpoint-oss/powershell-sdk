@@ -70,7 +70,7 @@ function Initialize-BetaOutlier {
         [System.Nullable[Double]]
         ${Score},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("MANUAL", "AUTOMATIC")]
+        [ValidateSet("MANUAL", "AUTOMATIC", "")]
         [String]
         ${UnignoreType},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]

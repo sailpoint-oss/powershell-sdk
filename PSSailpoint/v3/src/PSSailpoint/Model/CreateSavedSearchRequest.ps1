@@ -30,6 +30,8 @@ The columns to be returned (specifies the order in which they will be presented)
 The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
 .PARAMETER Fields
 The fields to be searched against in a multi-field query. 
+.PARAMETER OrderBy
+Sort by index. This takes precedence over the `sort` property. 
 .PARAMETER Sort
 The fields to be used to sort the search results. 
 .PARAMETER Filters
@@ -67,9 +69,12 @@ function Initialize-CreateSavedSearchRequest {
         [String[]]
         ${Fields},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${OrderBy},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Sort},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Filters}
     )
@@ -96,6 +101,7 @@ function Initialize-CreateSavedSearchRequest {
             "columns" = ${Columns}
             "query" = ${Query}
             "fields" = ${Fields}
+            "orderBy" = ${OrderBy}
             "sort" = ${Sort}
             "filters" = ${Filters}
         }
@@ -135,7 +141,7 @@ function ConvertFrom-JsonToCreateSavedSearchRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CreateSavedSearchRequest
-        $AllProperties = ("name", "description", "created", "modified", "indices", "columns", "query", "fields", "sort", "filters")
+        $AllProperties = ("name", "description", "created", "modified", "indices", "columns", "query", "fields", "orderBy", "sort", "filters")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -194,6 +200,12 @@ function ConvertFrom-JsonToCreateSavedSearchRequest {
             $Fields = $JsonParameters.PSobject.Properties["fields"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "orderBy"))) { #optional property not found
+            $OrderBy = $null
+        } else {
+            $OrderBy = $JsonParameters.PSobject.Properties["orderBy"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sort"))) { #optional property not found
             $Sort = $null
         } else {
@@ -215,6 +227,7 @@ function ConvertFrom-JsonToCreateSavedSearchRequest {
             "columns" = ${Columns}
             "query" = ${Query}
             "fields" = ${Fields}
+            "orderBy" = ${OrderBy}
             "sort" = ${Sort}
             "filters" = ${Filters}
         }

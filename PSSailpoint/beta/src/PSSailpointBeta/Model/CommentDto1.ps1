@@ -18,6 +18,8 @@ No description available.
 Comment content.
 .PARAMETER Created
 Date and time comment was created.
+.PARAMETER Author
+No description available.
 .OUTPUTS
 
 CommentDto1<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-BetaCommentDto1 {
         ${Comment},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${Created}
+        ${Created},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Author}
     )
 
     Process {
@@ -42,6 +47,7 @@ function Initialize-BetaCommentDto1 {
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
             "created" = ${Created}
+            "author" = ${Author}
         }
 
 
@@ -79,7 +85,7 @@ function ConvertFrom-BetaJsonToCommentDto1 {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCommentDto1
-        $AllProperties = ("comment", "created")
+        $AllProperties = ("comment", "created", "author")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -98,9 +104,16 @@ function ConvertFrom-BetaJsonToCommentDto1 {
             $Created = $JsonParameters.PSobject.Properties["created"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "author"))) { #optional property not found
+            $Author = $null
+        } else {
+            $Author = $JsonParameters.PSobject.Properties["author"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
             "created" = ${Created}
+            "author" = ${Author}
         }
 
         return $PSO

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **IsManager** | **Boolean** | Whether this identity is a manager of another identity | [optional] [default to $false]
 **LastRefresh** | **System.DateTime** | The last time the identity was refreshed by the system | [optional] 
 **Attributes** | [**SystemCollectionsHashtable**](.md) | A map with the identity attributes for the identity | [optional] 
-**LifecycleState** | [**LifecycleStateDto**](LifecycleStateDto.md) |  | [optional] 
+**LifecycleState** | [**IdentityDtoLifecycleState**](IdentityDtoLifecycleState.md) |  | [optional] 
 
 ## Examples
 

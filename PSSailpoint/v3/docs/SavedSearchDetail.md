@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Columns** | [**System.Collections.Hashtable**](Array.md) | The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_.  | [optional] 
 **Query** | **String** | The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL.  | 
 **Fields** | **String[]** | The fields to be searched against in a multi-field query.  | [optional] 
+**OrderBy** | [**System.Collections.Hashtable**](Array.md) | Sort by index. This takes precedence over the &#x60;sort&#x60; property.  | [optional] 
 **Sort** | **String[]** | The fields to be used to sort the search results.  | [optional] 
 **Filters** | [**SavedSearchDetailFilters**](SavedSearchDetailFilters.md) |  | [optional] 
 
@@ -22,6 +23,7 @@ $SavedSearchDetail = Initialize-PSSailpointSavedSearchDetail  -Created 2018-06-2
  -Columns {identity&#x3D;[{field&#x3D;displayName, header&#x3D;Display Name}, {field&#x3D;e-mail, header&#x3D;Work Email}]} `
  -Query @accounts(disabled:true) `
  -Fields [disabled] `
+ -OrderBy {identity&#x3D;[lastName, firstName], role&#x3D;[name]} `
  -Sort [displayName] `
  -Filters null
 ```

@@ -22,6 +22,8 @@ The date the bulk outlier detection ran/snapshot was created
 Total number of outliers for the customer making the request
 .PARAMETER TotalIdentities
 Total number of identities for the customer making the request
+.PARAMETER TotalIgnored
+No description available.
 .OUTPUTS
 
 OutlierSummary<PSCustomObject>
@@ -42,7 +44,10 @@ function Initialize-BetaOutlierSummary {
         ${TotalOutliers},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${TotalIdentities}
+        ${TotalIdentities},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TotalIgnored} = 0
     )
 
     Process {
@@ -55,6 +60,7 @@ function Initialize-BetaOutlierSummary {
             "snapshotDate" = ${SnapshotDate}
             "totalOutliers" = ${TotalOutliers}
             "totalIdentities" = ${TotalIdentities}
+            "totalIgnored" = ${TotalIgnored}
         }
 
 
@@ -92,7 +98,7 @@ function ConvertFrom-BetaJsonToOutlierSummary {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaOutlierSummary
-        $AllProperties = ("type", "snapshotDate", "totalOutliers", "totalIdentities")
+        $AllProperties = ("type", "snapshotDate", "totalOutliers", "totalIdentities", "totalIgnored")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,11 +129,18 @@ function ConvertFrom-BetaJsonToOutlierSummary {
             $TotalIdentities = $JsonParameters.PSobject.Properties["totalIdentities"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalIgnored"))) { #optional property not found
+            $TotalIgnored = $null
+        } else {
+            $TotalIgnored = $JsonParameters.PSobject.Properties["totalIgnored"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "snapshotDate" = ${SnapshotDate}
             "totalOutliers" = ${TotalOutliers}
             "totalIdentities" = ${TotalIdentities}
+            "totalIgnored" = ${TotalIgnored}
         }
 
         return $PSO

@@ -30,7 +30,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation "EQUALS" -Property "displayName" -Value "Allie"
+$Operation = Initialize-Operation 
+$CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation $Operation -Property "displayName" -Value "Allie"
+
 $CampaignFilterDetails = Initialize-CampaignFilterDetails -Id "e9f9a1397b842fd5a65842087040d3ac" -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on specified property of Identity Attribute." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | 
 
 # Create a Campaign Filter
@@ -167,7 +169,7 @@ Name | Type | Description  | Notes
 
 <a id="Get-CampaignFilters"></a>
 # **Get-CampaignFilters**
-> CampaignFilterDetails[] Get-CampaignFilters<br>
+> ListCampaignFilters200Response Get-CampaignFilters<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Start] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeSystemFilters] <System.Nullable[Boolean]><br>
@@ -209,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CampaignFilterDetails[]**](CampaignFilterDetails.md) (PSCustomObject)
+[**ListCampaignFilters200Response**](ListCampaignFilters200Response.md) (PSCustomObject)
 
 ### Authorization
 
@@ -243,7 +245,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $FilterId = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter being modified.
-$CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation "EQUALS" -Property "displayName" -Value "Allie"
+$Operation = Initialize-Operation 
+$CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation $Operation -Property "displayName" -Value "Allie"
+
 $CampaignFilterDetails = Initialize-CampaignFilterDetails -Id "e9f9a1397b842fd5a65842087040d3ac" -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on specified property of Identity Attribute." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | A campaign filter details with updated field values.
 
 # Updates a Campaign Filter

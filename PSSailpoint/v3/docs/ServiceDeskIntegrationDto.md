@@ -3,7 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** | Unique identifier for the Service Desk integration | [optional] 
 **Name** | **String** | Service Desk integration&#39;s name. The name must be unique. | 
+**Created** | **System.DateTime** | The date and time the Service Desk integration was created | [optional] 
+**Modified** | **System.DateTime** | The date and time the Service Desk integration was last modified | [optional] 
 **Description** | **String** | Service Desk integration&#39;s description. | 
 **Type** | **String** | Service Desk integration types:  - ServiceNowSDIM - ServiceNow  | [default to "ServiceNowSDIM"]
 **OwnerRef** | [**OwnerDto**](OwnerDto.md) |  | [optional] 
@@ -18,7 +21,10 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationDto = Initialize-PSSailpointServiceDeskIntegrationDto  -Name Service Desk Integration Name `
+$ServiceDeskIntegrationDto = Initialize-PSSailpointServiceDeskIntegrationDto  -Id 62945a496ef440189b1f03e3623411c8 `
+ -Name Service Desk Integration Name `
+ -Created 2024-01-17T18:45:25.994Z `
+ -Modified 2024-02-18T18:45:25.994Z `
  -Description A very nice Service Desk integration `
  -Type ServiceNowSDIM `
  -OwnerRef null `

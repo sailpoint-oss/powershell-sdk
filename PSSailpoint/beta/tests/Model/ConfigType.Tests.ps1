@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaConfigType' {
     Context 'BetaConfigType' {
         It 'Initialize-BetaConfigType' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaConfigType -InternalName "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE"
+            #$NewObject = Initialize-BetaConfigType -Priority "TEST_VALUE" -InternalName "TEST_VALUE" -InternalNameCamel "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE"
             #$NewObject | Should -BeOfType ConfigType
             #$NewObject.property | Should -Be 0
         }

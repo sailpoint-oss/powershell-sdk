@@ -29,7 +29,7 @@ function Initialize-SodViolationContextCheckCompleted {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SUCCESS", "ERROR")]
+        [ValidateSet("SUCCESS", "ERROR", "")]
         [String]
         ${State},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

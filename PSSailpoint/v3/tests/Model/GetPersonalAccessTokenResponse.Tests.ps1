@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'GetPersonalAccessTokenResponse' {
     Context 'GetPersonalAccessTokenResponse' {
         It 'Initialize-GetPersonalAccessTokenResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-GetPersonalAccessTokenResponse -Id "TEST_VALUE" -Name "TEST_VALUE" -Scope "TEST_VALUE" -Owner "TEST_VALUE" -Created "TEST_VALUE" -LastUsed "TEST_VALUE"
+            #$NewObject = Initialize-GetPersonalAccessTokenResponse -Id "TEST_VALUE" -Name "TEST_VALUE" -Scope "TEST_VALUE" -Owner "TEST_VALUE" -Created "TEST_VALUE" -LastUsed "TEST_VALUE" -Managed "TEST_VALUE"
             #$NewObject | Should -BeOfType GetPersonalAccessTokenResponse
             #$NewObject.property | Should -Be 0
         }

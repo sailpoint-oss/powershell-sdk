@@ -14,7 +14,11 @@ No summary available.
 
 Type of Reassignment Configuration.
 
+.PARAMETER Priority
+No description available.
 .PARAMETER InternalName
+No description available.
+.PARAMETER InternalNameCamel
 No description available.
 .PARAMETER DisplayName
 Human readable display name of the type to be shown on UI
@@ -29,13 +33,20 @@ function Initialize-BetaConfigType {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCESS_REQUESTS", "CERTIFICATIONS", "MANUAL_TASKS")]
+        [System.Nullable[Int32]]
+        ${Priority},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("accessRequests", "certifications", "manualTasks")]
         [PSCustomObject]
         ${InternalName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACCESS_REQUESTS", "CERTIFICATIONS", "MANUAL_TASKS")]
+        [PSCustomObject]
+        ${InternalNameCamel},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description}
     )
@@ -46,7 +57,9 @@ function Initialize-BetaConfigType {
 
 
         $PSO = [PSCustomObject]@{
+            "priority" = ${Priority}
             "internalName" = ${InternalName}
+            "internalNameCamel" = ${InternalNameCamel}
             "displayName" = ${DisplayName}
             "description" = ${Description}
         }
@@ -86,17 +99,29 @@ function ConvertFrom-BetaJsonToConfigType {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaConfigType
-        $AllProperties = ("internalName", "displayName", "description")
+        $AllProperties = ("priority", "internalName", "internalNameCamel", "displayName", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "priority"))) { #optional property not found
+            $Priority = $null
+        } else {
+            $Priority = $JsonParameters.PSobject.Properties["priority"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "internalName"))) { #optional property not found
             $InternalName = $null
         } else {
             $InternalName = $JsonParameters.PSobject.Properties["internalName"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "internalNameCamel"))) { #optional property not found
+            $InternalNameCamel = $null
+        } else {
+            $InternalNameCamel = $JsonParameters.PSobject.Properties["internalNameCamel"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
@@ -112,7 +137,9 @@ function ConvertFrom-BetaJsonToConfigType {
         }
 
         $PSO = [PSCustomObject]@{
+            "priority" = ${Priority}
             "internalName" = ${InternalName}
+            "internalNameCamel" = ${InternalNameCamel}
             "displayName" = ${DisplayName}
             "description" = ${Description}
         }

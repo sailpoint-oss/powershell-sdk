@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **HasEntitlements** | **Boolean** | Indicates if the account has entitlements | 
 **Identity** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **SourceOwner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Features** | **String** | A string list containing the owning source&#39;s features | [optional] 
 
 ## Examples
 
@@ -47,7 +48,8 @@ $Account = Initialize-PSSailpointAccount  -Id id12345 `
  -ManuallyCorrelated false `
  -HasEntitlements true `
  -Identity null `
- -SourceOwner null
+ -SourceOwner null `
+ -Features ENABLE
 ```
 
 - Convert the resource to JSON

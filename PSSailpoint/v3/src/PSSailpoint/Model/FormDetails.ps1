@@ -25,7 +25,7 @@ The form subtitle.
 .PARAMETER TargetUser
 The name of the user that should be shown this form
 .PARAMETER Sections
-No description available.
+Sections of the form
 .OUTPUTS
 
 FormDetails<PSCustomObject>
@@ -50,7 +50,7 @@ function Initialize-FormDetails {
         [String]
         ${TargetUser},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${Sections}
     )
 

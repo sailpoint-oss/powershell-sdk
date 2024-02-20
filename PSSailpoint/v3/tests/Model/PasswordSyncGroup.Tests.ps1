@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'PasswordSyncGroup' {
     Context 'PasswordSyncGroup' {
         It 'Initialize-PasswordSyncGroup' {
             # a simple test to create an object
-            #$NewObject = Initialize-PasswordSyncGroup -Id "TEST_VALUE" -Name "TEST_VALUE" -PasswordPolicyId "TEST_VALUE" -SourceIds "TEST_VALUE"
+            #$NewObject = Initialize-PasswordSyncGroup -Id "TEST_VALUE" -Name "TEST_VALUE" -PasswordPolicyId "TEST_VALUE" -SourceIds "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE"
             #$NewObject | Should -BeOfType PasswordSyncGroup
             #$NewObject.property | Should -Be 0
         }

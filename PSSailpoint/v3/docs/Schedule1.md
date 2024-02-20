@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | [**ScheduleType**](ScheduleType.md) |  | 
+**Months** | [**Schedule1Months**](Schedule1Months.md) |  | [optional] 
 **Days** | [**Schedule1Days**](Schedule1Days.md) |  | [optional] 
 **Hours** | [**Schedule1Hours**](Schedule1Hours.md) |  | 
 **Expiration** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Schedule1 = Initialize-PSSailpointSchedule1  -Type null `
+ -Months null `
  -Days null `
  -Hours null `
  -Expiration 2018-06-25T20:22:28.104Z `

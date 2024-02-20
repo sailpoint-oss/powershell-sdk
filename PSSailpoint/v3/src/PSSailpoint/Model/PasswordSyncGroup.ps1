@@ -22,6 +22,10 @@ Name of the sync group
 ID of the password policy
 .PARAMETER SourceIds
 List of password managed sources IDs
+.PARAMETER Created
+The date and time this sync group was created
+.PARAMETER Modified
+The date and time this sync group was last modified
 .OUTPUTS
 
 PasswordSyncGroup<PSCustomObject>
@@ -41,7 +45,13 @@ function Initialize-PasswordSyncGroup {
         ${PasswordPolicyId},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${SourceIds}
+        ${SourceIds},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Created},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Modified}
     )
 
     Process {
@@ -54,6 +64,8 @@ function Initialize-PasswordSyncGroup {
             "name" = ${Name}
             "passwordPolicyId" = ${PasswordPolicyId}
             "sourceIds" = ${SourceIds}
+            "created" = ${Created}
+            "modified" = ${Modified}
         }
 
 
@@ -91,7 +103,7 @@ function ConvertFrom-JsonToPasswordSyncGroup {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PasswordSyncGroup
-        $AllProperties = ("id", "name", "passwordPolicyId", "sourceIds")
+        $AllProperties = ("id", "name", "passwordPolicyId", "sourceIds", "created", "modified")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -122,11 +134,25 @@ function ConvertFrom-JsonToPasswordSyncGroup {
             $SourceIds = $JsonParameters.PSobject.Properties["sourceIds"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
             "passwordPolicyId" = ${PasswordPolicyId}
             "sourceIds" = ${SourceIds}
+            "created" = ${Created}
+            "modified" = ${Modified}
         }
 
         return $PSO

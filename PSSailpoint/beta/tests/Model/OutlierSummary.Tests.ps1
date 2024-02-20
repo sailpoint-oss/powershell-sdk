@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaOutlierSummary' {
     Context 'BetaOutlierSummary' {
         It 'Initialize-BetaOutlierSummary' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaOutlierSummary -Type "TEST_VALUE" -SnapshotDate "TEST_VALUE" -TotalOutliers "TEST_VALUE" -TotalIdentities "TEST_VALUE"
+            #$NewObject = Initialize-BetaOutlierSummary -Type "TEST_VALUE" -SnapshotDate "TEST_VALUE" -TotalOutliers "TEST_VALUE" -TotalIdentities "TEST_VALUE" -TotalIgnored "TEST_VALUE"
             #$NewObject | Should -BeOfType OutlierSummary
             #$NewObject.property | Should -Be 0
         }

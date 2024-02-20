@@ -133,6 +133,18 @@ Class | Method | HTTP request | Description
 *CertificationsApi* | [**Invoke-ReassignIdentityCertifications**](docs/CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 *CertificationsApi* | [**Invoke-SignOffIdentityCertification**](docs/CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
 *CertificationsApi* | [**Submit-ReassignCertsAsync**](docs/CertificationsApi.md#Submit-ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
+*ConnectorsApi* | [**New-CustomConnector**](docs/ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create custom connector
+*ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | 
+*ConnectorsApi* | [**Get-Connector**](docs/ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | 
+*ConnectorsApi* | [**Get-ConnectorCorrelationConfig**](docs/ConnectorsApi.md#Get-ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | 
+*ConnectorsApi* | [**Get-ConnectorSourceConfig**](docs/ConnectorsApi.md#Get-ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | 
+*ConnectorsApi* | [**Get-ConnectorSourceTemplate**](docs/ConnectorsApi.md#Get-ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | 
+*ConnectorsApi* | [**Get-ConnectorTranslations**](docs/ConnectorsApi.md#Get-ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | 
+*ConnectorsApi* | [**Send-CorrelationConfig**](docs/ConnectorsApi.md#Send-CorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | 
+*ConnectorsApi* | [**Send-SourceConfig**](docs/ConnectorsApi.md#Send-SourceConfig) | **PUT** /connectors/{scriptName}/source-config | 
+*ConnectorsApi* | [**Send-SourceTemplate**](docs/ConnectorsApi.md#Send-SourceTemplate) | **PUT** /connectors/{scriptName}/source-template | 
+*ConnectorsApi* | [**Send-Translations**](docs/ConnectorsApi.md#Send-Translations) | **PUT** /connectors/{scriptName}/translations/{locale} | 
+*ConnectorsApi* | [**Update-Connector**](docs/ConnectorsApi.md#Update-Connector) | **PATCH** /connectors/{scriptName} | 
 *GlobalTenantSecuritySettingsApi* | [**New-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#New-AuthOrgNetworkConfig) | **POST** /auth-org/network-config | Create security network configuration.
 *GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgNetworkConfig) | **GET** /auth-org/network-config | Get security network configuration.
 *GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgNetworkConfig) | **PATCH** /auth-org/network-config | Update security network configuration.
@@ -457,6 +469,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.Concatenation](docs/Concatenation.md)
  - [PSSailpoint\Model.Conditional](docs/Conditional.md)
  - [PSSailpoint\Model.ConflictingAccessCriteria](docs/ConflictingAccessCriteria.md)
+ - [PSSailpoint\Model.ConnectorDetail](docs/ConnectorDetail.md)
  - [PSSailpoint\Model.CreateOAuthClientRequest](docs/CreateOAuthClientRequest.md)
  - [PSSailpoint\Model.CreateOAuthClientResponse](docs/CreateOAuthClientResponse.md)
  - [PSSailpoint\Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
@@ -634,7 +647,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.PublicIdentity](docs/PublicIdentity.md)
  - [PSSailpoint\Model.PublicIdentityAttributeConfig](docs/PublicIdentityAttributeConfig.md)
  - [PSSailpoint\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
+ - [PSSailpoint\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)
  - [PSSailpoint\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
+ - [PSSailpoint\Model.PutSourceConfigRequest](docs/PutSourceConfigRequest.md)
+ - [PSSailpoint\Model.PutSourceTemplateRequest](docs/PutSourceTemplateRequest.md)
  - [PSSailpoint\Model.Query](docs/Query.md)
  - [PSSailpoint\Model.QueryResultFilter](docs/QueryResultFilter.md)
  - [PSSailpoint\Model.QueryType](docs/QueryType.md)
@@ -778,8 +794,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.TypeAheadQuery](docs/TypeAheadQuery.md)
  - [PSSailpoint\Model.TypedReference](docs/TypedReference.md)
  - [PSSailpoint\Model.UUIDGenerator](docs/UUIDGenerator.md)
+ - [PSSailpoint\Model.UpdateDetail](docs/UpdateDetail.md)
  - [PSSailpoint\Model.Upper](docs/Upper.md)
  - [PSSailpoint\Model.UsageType](docs/UsageType.md)
+ - [PSSailpoint\Model.V3ConnectorDto](docs/V3ConnectorDto.md)
+ - [PSSailpoint\Model.V3CreateConnectorDto](docs/V3CreateConnectorDto.md)
  - [PSSailpoint\Model.Value](docs/Value.md)
  - [PSSailpoint\Model.ViolationContext](docs/ViolationContext.md)
  - [PSSailpoint\Model.ViolationContextPolicy](docs/ViolationContextPolicy.md)

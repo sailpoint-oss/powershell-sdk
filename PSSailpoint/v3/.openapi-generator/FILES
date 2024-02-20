@@ -146,6 +146,8 @@ docs/CompletionStatus.md
 docs/Concatenation.md
 docs/Conditional.md
 docs/ConflictingAccessCriteria.md
+docs/ConnectorDetail.md
+docs/ConnectorsApi.md
 docs/CreateOAuthClientRequest.md
 docs/CreateOAuthClientResponse.md
 docs/CreatePersonalAccessTokenRequest.md
@@ -335,7 +337,10 @@ docs/PublicIdentitiesConfigApi.md
 docs/PublicIdentity.md
 docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityConfig.md
+docs/PutCorrelationConfigRequest.md
 docs/PutPasswordDictionaryRequest.md
+docs/PutSourceConfigRequest.md
+docs/PutSourceTemplateRequest.md
 docs/Query.md
 docs/QueryResultFilter.md
 docs/QueryType.md
@@ -493,8 +498,11 @@ docs/Trim.md
 docs/TypeAheadQuery.md
 docs/TypedReference.md
 docs/UUIDGenerator.md
+docs/UpdateDetail.md
 docs/Upper.md
 docs/UsageType.md
+docs/V3ConnectorDto.md
+docs/V3CreateConnectorDto.md
 docs/Value.md
 docs/ViolationContext.md
 docs/ViolationContextPolicy.md
@@ -520,6 +528,7 @@ src/PSSailpoint/Api/CertificationCampaignFiltersApi.ps1
 src/PSSailpoint/Api/CertificationCampaignsApi.ps1
 src/PSSailpoint/Api/CertificationSummariesApi.ps1
 src/PSSailpoint/Api/CertificationsApi.ps1
+src/PSSailpoint/Api/ConnectorsApi.ps1
 src/PSSailpoint/Api/GlobalTenantSecuritySettingsApi.ps1
 src/PSSailpoint/Api/IdentityProfilesApi.ps1
 src/PSSailpoint/Api/LifecycleStatesApi.ps1
@@ -680,6 +689,7 @@ src/PSSailpoint/Model/CompletionStatus.ps1
 src/PSSailpoint/Model/Concatenation.ps1
 src/PSSailpoint/Model/Conditional.ps1
 src/PSSailpoint/Model/ConflictingAccessCriteria.ps1
+src/PSSailpoint/Model/ConnectorDetail.ps1
 src/PSSailpoint/Model/CreateOAuthClientRequest.ps1
 src/PSSailpoint/Model/CreateOAuthClientResponse.ps1
 src/PSSailpoint/Model/CreatePersonalAccessTokenRequest.ps1
@@ -857,7 +867,10 @@ src/PSSailpoint/Model/ProvisioningState.ps1
 src/PSSailpoint/Model/PublicIdentity.ps1
 src/PSSailpoint/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpoint/Model/PublicIdentityConfig.ps1
+src/PSSailpoint/Model/PutCorrelationConfigRequest.ps1
 src/PSSailpoint/Model/PutPasswordDictionaryRequest.ps1
+src/PSSailpoint/Model/PutSourceConfigRequest.ps1
+src/PSSailpoint/Model/PutSourceTemplateRequest.ps1
 src/PSSailpoint/Model/Query.ps1
 src/PSSailpoint/Model/QueryResultFilter.ps1
 src/PSSailpoint/Model/QueryType.ps1
@@ -1001,8 +1014,11 @@ src/PSSailpoint/Model/Trim.ps1
 src/PSSailpoint/Model/TypeAheadQuery.ps1
 src/PSSailpoint/Model/TypedReference.ps1
 src/PSSailpoint/Model/UUIDGenerator.ps1
+src/PSSailpoint/Model/UpdateDetail.ps1
 src/PSSailpoint/Model/Upper.ps1
 src/PSSailpoint/Model/UsageType.ps1
+src/PSSailpoint/Model/V3ConnectorDto.ps1
+src/PSSailpoint/Model/V3CreateConnectorDto.ps1
 src/PSSailpoint/Model/Value.ps1
 src/PSSailpoint/Model/ViolationContext.ps1
 src/PSSailpoint/Model/ViolationContextPolicy.ps1
@@ -1034,6 +1050,7 @@ tests/Api/CertificationCampaignFiltersApi.Tests.ps1
 tests/Api/CertificationCampaignsApi.Tests.ps1
 tests/Api/CertificationSummariesApi.Tests.ps1
 tests/Api/CertificationsApi.Tests.ps1
+tests/Api/ConnectorsApi.Tests.ps1
 tests/Api/GlobalTenantSecuritySettingsApi.Tests.ps1
 tests/Api/IdentityProfilesApi.Tests.ps1
 tests/Api/LifecycleStatesApi.Tests.ps1
@@ -1193,6 +1210,7 @@ tests/Model/CompletionStatus.Tests.ps1
 tests/Model/Concatenation.Tests.ps1
 tests/Model/Conditional.Tests.ps1
 tests/Model/ConflictingAccessCriteria.Tests.ps1
+tests/Model/ConnectorDetail.Tests.ps1
 tests/Model/CreateOAuthClientRequest.Tests.ps1
 tests/Model/CreateOAuthClientResponse.Tests.ps1
 tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
@@ -1370,7 +1388,10 @@ tests/Model/ProvisioningState.Tests.ps1
 tests/Model/PublicIdentity.Tests.ps1
 tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
+tests/Model/PutCorrelationConfigRequest.Tests.ps1
 tests/Model/PutPasswordDictionaryRequest.Tests.ps1
+tests/Model/PutSourceConfigRequest.Tests.ps1
+tests/Model/PutSourceTemplateRequest.Tests.ps1
 tests/Model/Query.Tests.ps1
 tests/Model/QueryResultFilter.Tests.ps1
 tests/Model/QueryType.Tests.ps1
@@ -1514,8 +1535,11 @@ tests/Model/Trim.Tests.ps1
 tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
+tests/Model/UpdateDetail.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
+tests/Model/V3ConnectorDto.Tests.ps1
+tests/Model/V3CreateConnectorDto.Tests.ps1
 tests/Model/Value.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1
 tests/Model/ViolationContextPolicy.Tests.ps1

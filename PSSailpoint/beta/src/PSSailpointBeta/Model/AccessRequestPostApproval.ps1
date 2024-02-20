@@ -17,7 +17,7 @@ No description available.
 .PARAMETER AccessRequestId
 The unique ID of the access request.
 .PARAMETER RequestedFor
-No description available.
+Identities access was requested for.
 .PARAMETER RequestedItemsStatus
 Details on the outcome of each access item.
 .PARAMETER RequestedBy
@@ -34,7 +34,7 @@ function Initialize-BetaAccessRequestPostApproval {
         [String]
         ${AccessRequestId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${RequestedFor},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
@@ -54,6 +54,14 @@ function Initialize-BetaAccessRequestPostApproval {
 
         if ($null -eq $RequestedFor) {
             throw "invalid value for 'RequestedFor', 'RequestedFor' cannot be null."
+        }
+
+        if ($RequestedFor.length -gt 10) {
+            throw "invalid value for 'RequestedFor', number of items must be less than or equal to 10."
+        }
+
+        if ($RequestedFor.length -lt 1) {
+            throw "invalid value for 'RequestedFor', number of items must be greater than or equal to 1."
         }
 
         if ($null -eq $RequestedItemsStatus) {

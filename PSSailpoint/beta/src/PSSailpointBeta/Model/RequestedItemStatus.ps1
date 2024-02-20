@@ -39,7 +39,7 @@ When the request was created.
 .PARAMETER Requester
 No description available.
 .PARAMETER RequestedFor
-No description available.
+Identities access was requested for.
 .PARAMETER RequesterComment
 No description available.
 .PARAMETER SodViolationContext
@@ -108,7 +108,7 @@ function Initialize-BetaRequestedItemStatus {
         [PSCustomObject]
         ${Requester},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${RequestedFor},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -133,7 +133,7 @@ function Initialize-BetaRequestedItemStatus {
         ${RemoveDate},
         [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Cancelable},
+        ${Cancelable} = $false,
         [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccessRequestId},
@@ -145,6 +145,14 @@ function Initialize-BetaRequestedItemStatus {
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaRequestedItemStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$RequestedFor -and $RequestedFor.length -gt 10) {
+            throw "invalid value for 'RequestedFor', number of items must be less than or equal to 10."
+        }
+
+        if (!$RequestedFor -and $RequestedFor.length -lt 1) {
+            throw "invalid value for 'RequestedFor', number of items must be greater than or equal to 1."
+        }
 
 
         $PSO = [PSCustomObject]@{

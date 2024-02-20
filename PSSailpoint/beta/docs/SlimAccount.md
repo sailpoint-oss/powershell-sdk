@@ -27,7 +27,7 @@ $SlimAccount = Initialize-PSSailpointBetaSlimAccount  -Id id12345 `
  -Name aName `
  -Created 2023-01-03T21:16:22.432Z `
  -Modified 2023-01-03T21:16:22.432Z `
- -Uuid null `
+ -Uuid 2c9180857893f12901789445619b0366 `
  -NativeIdentity brandin.gray `
  -Description Brandin Gray the CEO of Silly Inc. `
  -Disabled false `

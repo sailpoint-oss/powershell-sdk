@@ -29,7 +29,7 @@ No description available.
 .PARAMETER Requester
 No description available.
 .PARAMETER RequestedFor
-No description available.
+Identities access was requested for.
 .PARAMETER Owner
 No description available.
 .PARAMETER RequestedObject
@@ -83,7 +83,7 @@ function Initialize-BetaPendingApproval {
         [PSCustomObject]
         ${Requester},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${RequestedFor},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -102,7 +102,7 @@ function Initialize-BetaPendingApproval {
         ${ForwardHistory},
         [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${CommentRequiredWhenRejected},
+        ${CommentRequiredWhenRejected} = $false,
         [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APPROVED", "REJECTED", "FORWARDED")]
         [PSCustomObject]
@@ -112,7 +112,7 @@ function Initialize-BetaPendingApproval {
         ${RemoveDate},
         [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${RemoveDateUpdateRequested},
+        ${RemoveDateUpdateRequested} = $false,
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${CurrentRemoveDate},
@@ -124,6 +124,14 @@ function Initialize-BetaPendingApproval {
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaPendingApproval' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$RequestedFor -and $RequestedFor.length -gt 10) {
+            throw "invalid value for 'RequestedFor', number of items must be less than or equal to 10."
+        }
+
+        if (!$RequestedFor -and $RequestedFor.length -lt 1) {
+            throw "invalid value for 'RequestedFor', number of items must be greater than or equal to 1."
+        }
 
 
         $PSO = [PSCustomObject]@{

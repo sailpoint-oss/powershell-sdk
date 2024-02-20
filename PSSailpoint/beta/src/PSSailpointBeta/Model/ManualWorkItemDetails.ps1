@@ -36,7 +36,7 @@ function Initialize-BetaManualWorkItemDetails {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Forwarded},
+        ${Forwarded} = $false,
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OriginalOwner},

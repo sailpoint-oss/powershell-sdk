@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | When the request was last modified. | [optional] 
 **Created** | **System.DateTime** | When the request was created. | [optional] 
 **Requester** | [**AccessItemRequester**](AccessItemRequester.md) |  | [optional] 
-**RequestedFor** | [**AccessItemRequestedFor**](AccessItemRequestedFor.md) |  | [optional] 
+**RequestedFor** | [**AccessItemRequestedFor[]**](AccessItemRequestedFor.md) | Identities access was requested for. | [optional] 
 **RequesterComment** | [**CommentDto1**](CommentDto1.md) |  | [optional] 
 **SodViolationContext** | [**SodViolationContextCheckCompleted**](SodViolationContextCheckCompleted.md) |  | [optional] 
 **ProvisioningDetails** | [**ProvisioningDetails**](ProvisioningDetails.md) |  | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **AccessRequestPhases** | [**AccessRequestPhases[]**](AccessRequestPhases.md) | A list of Phases that the Access Request has gone through in order, to help determine the status of the request. | [optional] 
 **Description** | **String** | Description associated to the requested object. | [optional] 
 **RemoveDate** | **System.DateTime** | When the role access is scheduled for removal. | [optional] 
-**Cancelable** | **Boolean** | True if the request can be canceled. | [optional] 
+**Cancelable** | **Boolean** | True if the request can be canceled. | [optional] [default to $false]
 **AccessRequestId** | **String** | This is the account activity id. | [optional] 
 **ClientMetadata** | **System.Collections.Hashtable** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
 

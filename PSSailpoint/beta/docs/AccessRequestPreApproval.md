@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessRequestId** | **String** | The unique ID of the access request. | 
-**RequestedFor** | [**AccessItemRequestedForDto**](AccessItemRequestedForDto.md) |  | 
+**RequestedFor** | [**AccessItemRequestedForDto[]**](AccessItemRequestedForDto.md) | Identities access was requested for. | 
 **RequestedItems** | [**AccessRequestPreApprovalRequestedItemsInner[]**](AccessRequestPreApprovalRequestedItemsInner.md) | Details of the access items being requested. | 
 **RequestedBy** | [**AccessItemRequesterDto**](AccessItemRequesterDto.md) |  | 
 

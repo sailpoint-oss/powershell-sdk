@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Existing** | **Boolean** | If the entitlement already belonged to the user or not. | [optional] 
+**Existing** | **Boolean** | If the entitlement already belonged to the user or not. | [optional] [default to $false]
 **Type** | [**DtoType**](DtoType.md) |  | [optional] 
 **Id** | **String** | Entitlement ID | [optional] 
 **Name** | **String** | Entitlement name | [optional] 

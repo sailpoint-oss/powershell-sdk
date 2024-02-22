@@ -28,7 +28,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityId = "7025c863-c270-4ba6-beea-edf3cb091573" # String | Identity's ID.
+$IdentityId = "7025c863-c270-4ba6-beea-edf3cb091573" # String | Manager's identity ID.
 $RequestedObjectId = "2db501be-f0fb-4cc5-a695-334133c52891" # String | Requested access item's ID.
 $Type = "ENTITLEMENT" # String | Requested access item's type.
 
@@ -45,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityId** | **String**| Identity&#39;s ID. | 
+ **IdentityId** | **String**| Manager&#39;s identity ID. | 
  **RequestedObjectId** | **String**| Requested access item&#39;s ID. | 
  **Type** | **String**| Requested access item&#39;s type. | 
 

@@ -15,7 +15,7 @@ Return access request identity metrics
 Use this API to return information access metrics.
 
 .PARAMETER IdentityId
-Identity's ID.
+Manager's identity ID.
 
 .PARAMETER RequestedObjectId
 Requested access item's ID.

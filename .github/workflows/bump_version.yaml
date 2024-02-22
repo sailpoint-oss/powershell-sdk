@@ -103,8 +103,8 @@ jobs:
         if: steps.buildSDK.outcome == 'success'
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Bump version to ${{ github.event.inputs.version }}
-          tagging_message: ${{ github.event.inputs.version }}
+          commit_message: Bump version to v${{ github.event.inputs.version }}
+          tagging_message: v${{ github.event.inputs.version }}
           commit_user_name: developer-relations-sp
           commit_user_email: devrel-service@sailpoint.com
 

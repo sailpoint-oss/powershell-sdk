@@ -72,7 +72,7 @@ jobs:
         run: |
           LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           cd PSSailpoint
-          sed -e "s/ModuleVersion = '$LATEST_TAG'/ModuleVersion = '${{ github.event.inputs.version }}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
+          sed -e "s/ModuleVersion     = '$LATEST_TAG'/ModuleVersion = '${{ github.event.inputs.version }}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
 
       - name: Build V3 SDK
         id: buildV3

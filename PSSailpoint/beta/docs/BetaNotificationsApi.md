@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**Get-BetaNotificationTemplateDefaults**](BetaNotificationsApi.md#Get-BetaNotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
 [**Get-BetaNotificationTemplates**](BetaNotificationsApi.md#Get-BetaNotificationTemplates) | **GET** /notification-templates | List Notification Templates
 [**Send-BetaMailFromAttributes**](BetaNotificationsApi.md#Send-BetaMailFromAttributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
-[**Send-BetaNotificationPreference**](BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite the preferences for the given notification key.
+[**Send-BetaNotificationPreference**](BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite preferences notification key.
 [**Send-BetaTestNotification**](BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
 
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 Bulk Delete Notification Templates
 
-This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
+This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
 
 ### Example
 ```powershell
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 Get Notification Preferences for tenant.
 
-Returns the notification preferences for tenant.  Note that if the key doesn't exist, then a 404 will be returned. Request will require the following legacy roles:  ORG_ADMIN and API
+Returns the notification preferences for tenant.  Note that if the key doesn't exist, then a 404 will be returned.
 
 ### Example
 ```powershell
@@ -393,7 +393,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Key = "MyKey" # String | The notification key.
+$Key = "cloud_manual_work_item_summary" # String | The notification key.
 
 # Get Notification Preferences for tenant.
 try {
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 
 Get Notification Template Context
 
-The notification service (Hermes) maintains metadata to construct the notification templates or supply any information during the event propagation.  The data-store where this information is retrieved is  called ""Global Context"" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).  Regarding authorization, the access token contains the tenant and will grant access to the one requested. Requires the following security scope:  idn:notification-templates:read
+The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called ""Global Context"" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).
 
 ### Example
 ```powershell
@@ -594,7 +594,7 @@ Name | Type | Description  | Notes
 
 List Notification Template Defaults
 
-This lists the default templates used for notifications, such as emails from IdentityNow. Since this is a beta feature, it doesn't include all the templates.
+This lists the default templates used for notifications, such as emails from IdentityNow.
 
 ### Example
 ```powershell
@@ -608,7 +608,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Filters = "MyFilters" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+$Filters = "key eq "cloud_manual_work_item_summary"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
 # List Notification Template Defaults
 try {
@@ -651,7 +651,7 @@ Name | Type | Description  | Notes
 
 List Notification Templates
 
-This lists the templates that you have modified for your site. Since this is a beta feature, it doesn't include all your modified templates.
+This lists the templates that you have modified for your site.
 
 ### Example
 ```powershell
@@ -756,9 +756,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Key] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PreferencesDto] <PSCustomObject><br>
 
-Overwrite the preferences for the given notification key.
+Overwrite preferences notification key.
 
-In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
+Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.
 
 ### Example
 ```powershell
@@ -770,10 +770,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Key = "MyKey" # String | The notification key.
+$Key = "cloud_manual_work_item_summary" # String | The notification key.
 $PreferencesDto = Initialize-PreferencesDto -Key "cloud_manual_work_item_summary" -Mediums "EMAIL" -Modified (Get-Date) # PreferencesDto | 
 
-# Overwrite the preferences for the given notification key.
+# Overwrite preferences notification key.
 try {
     $Result = Send-BetaNotificationPreference -Key $Key -PreferencesDto $PreferencesDto
 } catch {

@@ -314,7 +314,7 @@ Class | Method | HTTP request | Description
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplateDefaults**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplates**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplates) | **GET** /notification-templates | List Notification Templates
 *BetaNotificationsApi* | [**Send-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Send-BetaMailFromAttributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
-*BetaNotificationsApi* | [**Send-BetaNotificationPreference**](docs/BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite the preferences for the given notification key.
+*BetaNotificationsApi* | [**Send-BetaNotificationPreference**](docs/BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite preferences notification key.
 *BetaNotificationsApi* | [**Send-BetaTestNotification**](docs/BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
 *BetaOAuthClientsApi* | [**New-BetaOauthClient**](docs/BetaOAuthClientsApi.md#New-BetaOauthClient) | **POST** /oauth-clients | Create OAuth Client
 *BetaOAuthClientsApi* | [**Remove-BetaOauthClient**](docs/BetaOAuthClientsApi.md#Remove-BetaOauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client

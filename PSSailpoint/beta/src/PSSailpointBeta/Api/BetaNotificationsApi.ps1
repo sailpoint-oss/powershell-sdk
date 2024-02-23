@@ -282,7 +282,7 @@ Bulk Delete Notification Templates
 
 .DESCRIPTION
 
-This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
+This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
 
 .PARAMETER TemplateBulkDeleteDto
 No description available.
@@ -585,7 +585,7 @@ Get Notification Preferences for tenant.
 
 .DESCRIPTION
 
-Returns the notification preferences for tenant.  Note that if the key doesn't exist, then a 404 will be returned. Request will require the following legacy roles:  ORG_ADMIN and API
+Returns the notification preferences for tenant.  Note that if the key doesn't exist, then a 404 will be returned.
 
 .PARAMETER Key
 The notification key.
@@ -733,7 +733,7 @@ Get Notification Template Context
 
 .DESCRIPTION
 
-The notification service (Hermes) maintains metadata to construct the notification templates or supply any information during the event propagation.  The data-store where this information is retrieved is  called ""Global Context"" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).  Regarding authorization, the access token contains the tenant and will grant access to the one requested. Requires the following security scope:  idn:notification-templates:read
+The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called ""Global Context"" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).
 
 .PARAMETER WithHttpInfo
 
@@ -911,7 +911,7 @@ List Notification Template Defaults
 
 .DESCRIPTION
 
-This lists the default templates used for notifications, such as emails from IdentityNow. Since this is a beta feature, it doesn't include all the templates.
+This lists the default templates used for notifications, such as emails from IdentityNow.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1005,7 +1005,7 @@ List Notification Templates
 
 .DESCRIPTION
 
-This lists the templates that you have modified for your site. Since this is a beta feature, it doesn't include all your modified templates.
+This lists the templates that you have modified for your site.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1185,11 +1185,11 @@ function Send-BetaMailFromAttributes {
 <#
 .SYNOPSIS
 
-Overwrite the preferences for the given notification key.
+Overwrite preferences notification key.
 
 .DESCRIPTION
 
-In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
+Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.
 
 .PARAMETER Key
 The notification key.

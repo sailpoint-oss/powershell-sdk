@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **CreatedBy** | [**FormInstanceCreatedBy**](FormInstanceCreatedBy.md) |  | 
 **Expire** | **String** | Expire is required | 
 **FormDefinitionId** | **String** | FormDefinitionID is the id of the form definition that created this form | 
-**FormInput** | [**System.Collections.Hashtable**](SystemCollectionsHashtable.md) | FormInput is an object of form input labels to value | [optional] 
+**FormInput** | [**System.Collections.Hashtable**](AnyType.md) | FormInput is an object of form input labels to value | [optional] 
 **Recipients** | [**FormInstanceRecipient[]**](FormInstanceRecipient.md) | Recipients is required | 
 **StandAloneForm** | **Boolean** | StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form | [optional] [default to $false]
 **State** | **String** | State is required, if not present initial state is FormInstanceStateAssigned ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled | [optional] 

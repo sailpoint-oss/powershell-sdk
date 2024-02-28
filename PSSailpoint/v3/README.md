@@ -333,6 +333,24 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**Deny-ApprovalItem**](docs/WorkItemsApi.md#Deny-ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
 *WorkItemsApi* | [**Deny-ApprovalItemsInBulk**](docs/WorkItemsApi.md#Deny-ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
 *WorkItemsApi* | [**Submit-AccountSelection**](docs/WorkItemsApi.md#Submit-AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
+*WorkflowsApi* | [**Suspend-WorkflowExecution**](docs/WorkflowsApi.md#Suspend-WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
+*WorkflowsApi* | [**New-ExternalExecuteWorkflow**](docs/WorkflowsApi.md#New-ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
+*WorkflowsApi* | [**New-Workflow**](docs/WorkflowsApi.md#New-Workflow) | **POST** /workflows/{id} | Create Workflow
+*WorkflowsApi* | [**New-WorkflowExternalTrigger**](docs/WorkflowsApi.md#New-WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
+*WorkflowsApi* | [**Remove-Workflow**](docs/WorkflowsApi.md#Remove-Workflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
+*WorkflowsApi* | [**Get-Workflow**](docs/WorkflowsApi.md#Get-Workflow) | **GET** /workflows/{id} | Get Workflow By Id
+*WorkflowsApi* | [**Get-WorkflowExecution**](docs/WorkflowsApi.md#Get-WorkflowExecution) | **GET** /workflow-executions/{id} | Get a Workflow Execution
+*WorkflowsApi* | [**Get-WorkflowExecutionHistory**](docs/WorkflowsApi.md#Get-WorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get Workflow Execution History
+*WorkflowsApi* | [**Get-CompleteWorkflowLibrary**](docs/WorkflowsApi.md#Get-CompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
+*WorkflowsApi* | [**Get-WorkflowExecutions**](docs/WorkflowsApi.md#Get-WorkflowExecutions) | **GET** /workflows/{id}/executions | List Workflow Executions
+*WorkflowsApi* | [**Get-WorkflowLibraryActions**](docs/WorkflowsApi.md#Get-WorkflowLibraryActions) | **GET** /workflow-library/actions | List Workflow Library Actions
+*WorkflowsApi* | [**Get-WorkflowLibraryOperators**](docs/WorkflowsApi.md#Get-WorkflowLibraryOperators) | **GET** /workflow-library/operators | List Workflow Library Operators
+*WorkflowsApi* | [**Get-WorkflowLibraryTriggers**](docs/WorkflowsApi.md#Get-WorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List Workflow Library Triggers
+*WorkflowsApi* | [**Get-Workflows**](docs/WorkflowsApi.md#Get-Workflows) | **GET** /workflows | List Workflows
+*WorkflowsApi* | [**Update-Workflow**](docs/WorkflowsApi.md#Update-Workflow) | **PATCH** /workflows/{id} | Patch Workflow
+*WorkflowsApi* | [**Send-Workflow**](docs/WorkflowsApi.md#Send-Workflow) | **PUT** /workflows/{id} | Update Workflow
+*WorkflowsApi* | [**Test-ExternalExecuteWorkflow**](docs/WorkflowsApi.md#Test-ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id}/test | Test Workflow via External Trigger
+*WorkflowsApi* | [**Test-Workflow**](docs/WorkflowsApi.md#Test-Workflow) | **POST** /workflows/{id}/test | Test Workflow By Id
 
 
 ## Documentation for Models
@@ -474,12 +492,15 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.Conditional](docs/Conditional.md)
  - [PSSailpoint\Model.ConflictingAccessCriteria](docs/ConflictingAccessCriteria.md)
  - [PSSailpoint\Model.ConnectorDetail](docs/ConnectorDetail.md)
+ - [PSSailpoint\Model.CreateExternalExecuteWorkflow200Response](docs/CreateExternalExecuteWorkflow200Response.md)
+ - [PSSailpoint\Model.CreateExternalExecuteWorkflowRequest](docs/CreateExternalExecuteWorkflowRequest.md)
  - [PSSailpoint\Model.CreateOAuthClientRequest](docs/CreateOAuthClientRequest.md)
  - [PSSailpoint\Model.CreateOAuthClientResponse](docs/CreateOAuthClientResponse.md)
  - [PSSailpoint\Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
  - [PSSailpoint\Model.CreatePersonalAccessTokenResponse](docs/CreatePersonalAccessTokenResponse.md)
  - [PSSailpoint\Model.CreateSavedSearchRequest](docs/CreateSavedSearchRequest.md)
  - [PSSailpoint\Model.CreateScheduledSearchRequest](docs/CreateScheduledSearchRequest.md)
+ - [PSSailpoint\Model.CreateWorkflowRequest](docs/CreateWorkflowRequest.md)
  - [PSSailpoint\Model.CriteriaType](docs/CriteriaType.md)
  - [PSSailpoint\Model.DataAccess](docs/DataAccess.md)
  - [PSSailpoint\Model.DataAccessCategoriesInner](docs/DataAccessCategoriesInner.md)
@@ -511,6 +532,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.EntitlementSummary](docs/EntitlementSummary.md)
  - [PSSailpoint\Model.ErrorMessageDto](docs/ErrorMessageDto.md)
  - [PSSailpoint\Model.ErrorResponseDto](docs/ErrorResponseDto.md)
+ - [PSSailpoint\Model.EventAttributes](docs/EventAttributes.md)
  - [PSSailpoint\Model.EventDocument](docs/EventDocument.md)
  - [PSSailpoint\Model.ExceptionAccessCriteria](docs/ExceptionAccessCriteria.md)
  - [PSSailpoint\Model.ExceptionCriteria](docs/ExceptionCriteria.md)
@@ -520,6 +542,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ExpansionItem](docs/ExpansionItem.md)
  - [PSSailpoint\Model.Expression](docs/Expression.md)
  - [PSSailpoint\Model.ExpressionChildrenInner](docs/ExpressionChildrenInner.md)
+ - [PSSailpoint\Model.ExternalAttributes](docs/ExternalAttributes.md)
  - [PSSailpoint\Model.FieldDetailsDto](docs/FieldDetailsDto.md)
  - [PSSailpoint\Model.FilterAggregation](docs/FilterAggregation.md)
  - [PSSailpoint\Model.FilterType](docs/FilterType.md)
@@ -574,6 +597,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ListAccessProfiles401Response](docs/ListAccessProfiles401Response.md)
  - [PSSailpoint\Model.ListAccessProfiles429Response](docs/ListAccessProfiles429Response.md)
  - [PSSailpoint\Model.ListCampaignFilters200Response](docs/ListCampaignFilters200Response.md)
+ - [PSSailpoint\Model.ListCompleteWorkflowLibrary200ResponseInner](docs/ListCompleteWorkflowLibrary200ResponseInner.md)
  - [PSSailpoint\Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpoint\Model.Lookup](docs/Lookup.md)
  - [PSSailpoint\Model.Lower](docs/Lower.md)
@@ -735,6 +759,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ScheduleHours](docs/ScheduleHours.md)
  - [PSSailpoint\Model.ScheduleMonths](docs/ScheduleMonths.md)
  - [PSSailpoint\Model.ScheduleType](docs/ScheduleType.md)
+ - [PSSailpoint\Model.ScheduledAttributes](docs/ScheduledAttributes.md)
  - [PSSailpoint\Model.ScheduledSearch](docs/ScheduledSearch.md)
  - [PSSailpoint\Model.ScheduledSearchAllOfOwner](docs/ScheduledSearchAllOfOwner.md)
  - [PSSailpoint\Model.ScheduledSearchName](docs/ScheduledSearchName.md)
@@ -799,6 +824,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.TaskResultDetailsReturnsInner](docs/TaskResultDetailsReturnsInner.md)
  - [PSSailpoint\Model.TaskResultDto](docs/TaskResultDto.md)
  - [PSSailpoint\Model.TaskResultSimplified](docs/TaskResultSimplified.md)
+ - [PSSailpoint\Model.TestExternalExecuteWorkflow200Response](docs/TestExternalExecuteWorkflow200Response.md)
+ - [PSSailpoint\Model.TestExternalExecuteWorkflowRequest](docs/TestExternalExecuteWorkflowRequest.md)
+ - [PSSailpoint\Model.TestWorkflow200Response](docs/TestWorkflow200Response.md)
+ - [PSSailpoint\Model.TestWorkflowRequest](docs/TestWorkflowRequest.md)
  - [PSSailpoint\Model.TextQuery](docs/TextQuery.md)
  - [PSSailpoint\Model.Transform](docs/Transform.md)
  - [PSSailpoint\Model.TransformAttributes](docs/TransformAttributes.md)
@@ -828,6 +857,20 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.WorkItemsCount](docs/WorkItemsCount.md)
  - [PSSailpoint\Model.WorkItemsForm](docs/WorkItemsForm.md)
  - [PSSailpoint\Model.WorkItemsSummary](docs/WorkItemsSummary.md)
+ - [PSSailpoint\Model.Workflow](docs/Workflow.md)
+ - [PSSailpoint\Model.WorkflowAllOfCreator](docs/WorkflowAllOfCreator.md)
+ - [PSSailpoint\Model.WorkflowBody](docs/WorkflowBody.md)
+ - [PSSailpoint\Model.WorkflowBodyOwner](docs/WorkflowBodyOwner.md)
+ - [PSSailpoint\Model.WorkflowDefinition](docs/WorkflowDefinition.md)
+ - [PSSailpoint\Model.WorkflowExecution](docs/WorkflowExecution.md)
+ - [PSSailpoint\Model.WorkflowExecutionEvent](docs/WorkflowExecutionEvent.md)
+ - [PSSailpoint\Model.WorkflowLibraryAction](docs/WorkflowLibraryAction.md)
+ - [PSSailpoint\Model.WorkflowLibraryFormFields](docs/WorkflowLibraryFormFields.md)
+ - [PSSailpoint\Model.WorkflowLibraryOperator](docs/WorkflowLibraryOperator.md)
+ - [PSSailpoint\Model.WorkflowLibraryTrigger](docs/WorkflowLibraryTrigger.md)
+ - [PSSailpoint\Model.WorkflowOAuthClient](docs/WorkflowOAuthClient.md)
+ - [PSSailpoint\Model.WorkflowTrigger](docs/WorkflowTrigger.md)
+ - [PSSailpoint\Model.WorkflowTriggerAttributes](docs/WorkflowTriggerAttributes.md)
 
 
 <a id="documentation-for-authorization"></a>

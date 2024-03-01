@@ -123,6 +123,9 @@ docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
 docs/AttributesChanged.md
 docs/AuditDetails.md
+docs/AuthProfile.md
+docs/AuthProfileRequest.md
+docs/AuthProfileSummary.md
 docs/Base64Decode.md
 docs/Base64Encode.md
 docs/BaseCommonDto.md
@@ -139,6 +142,7 @@ docs/BetaAccountActivitiesApi.md
 docs/BetaAccountAggregationsApi.md
 docs/BetaAccountUsagesApi.md
 docs/BetaAccountsApi.md
+docs/BetaAuthProfileApi.md
 docs/BetaCertificationCampaignsApi.md
 docs/BetaCertificationsApi.md
 docs/BetaConnectorRuleManagementApi.md
@@ -854,6 +858,7 @@ src/PSSailpointBeta/Api/BetaAccountActivitiesApi.ps1
 src/PSSailpointBeta/Api/BetaAccountAggregationsApi.ps1
 src/PSSailpointBeta/Api/BetaAccountUsagesApi.ps1
 src/PSSailpointBeta/Api/BetaAccountsApi.ps1
+src/PSSailpointBeta/Api/BetaAuthProfileApi.ps1
 src/PSSailpointBeta/Api/BetaCertificationCampaignsApi.ps1
 src/PSSailpointBeta/Api/BetaCertificationsApi.ps1
 src/PSSailpointBeta/Api/BetaConnectorRuleManagementApi.ps1
@@ -1028,6 +1033,9 @@ src/PSSailpointBeta/Model/AttributeDefinitionSchema.ps1
 src/PSSailpointBeta/Model/AttributeDefinitionType.ps1
 src/PSSailpointBeta/Model/AttributesChanged.ps1
 src/PSSailpointBeta/Model/AuditDetails.ps1
+src/PSSailpointBeta/Model/AuthProfile.ps1
+src/PSSailpointBeta/Model/AuthProfileRequest.ps1
+src/PSSailpointBeta/Model/AuthProfileSummary.ps1
 src/PSSailpointBeta/Model/Base64Decode.ps1
 src/PSSailpointBeta/Model/Base64Encode.ps1
 src/PSSailpointBeta/Model/BaseCommonDto.ps1
@@ -1706,6 +1714,7 @@ tests/Api/BetaAccountActivitiesApi.Tests.ps1
 tests/Api/BetaAccountAggregationsApi.Tests.ps1
 tests/Api/BetaAccountUsagesApi.Tests.ps1
 tests/Api/BetaAccountsApi.Tests.ps1
+tests/Api/BetaAuthProfileApi.Tests.ps1
 tests/Api/BetaCertificationCampaignsApi.Tests.ps1
 tests/Api/BetaCertificationsApi.Tests.ps1
 tests/Api/BetaConnectorRuleManagementApi.Tests.ps1
@@ -1879,6 +1888,9 @@ tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
 tests/Model/AttributesChanged.Tests.ps1
 tests/Model/AuditDetails.Tests.ps1
+tests/Model/AuthProfile.Tests.ps1
+tests/Model/AuthProfileRequest.Tests.ps1
+tests/Model/AuthProfileSummary.Tests.ps1
 tests/Model/Base64Decode.Tests.ps1
 tests/Model/Base64Encode.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1

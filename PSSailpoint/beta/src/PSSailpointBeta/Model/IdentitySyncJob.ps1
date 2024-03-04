@@ -28,14 +28,14 @@ IdentitySyncJob<PSCustomObject>
 function Initialize-BetaIdentitySyncJob {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("QUEUED", "IN_PROGRESS", "SUCCESS", "ERROR")]
         [String]
         ${Status},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Payload}
     )
@@ -44,15 +44,15 @@ function Initialize-BetaIdentitySyncJob {
         'Creating PSCustomObject: PSSailpointBeta => BetaIdentitySyncJob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Status) {
+        if (!$Status) {
             throw "invalid value for 'Status', 'Status' cannot be null."
         }
 
-        if ($null -eq $Payload) {
+        if (!$Payload) {
             throw "invalid value for 'Payload', 'Payload' cannot be null."
         }
 
@@ -62,7 +62,6 @@ function Initialize-BetaIdentitySyncJob {
             "status" = ${Status}
             "payload" = ${Payload}
         }
-
 
         return $PSO
     }

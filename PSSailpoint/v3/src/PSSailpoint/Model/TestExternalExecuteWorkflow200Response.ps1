@@ -24,7 +24,7 @@ TestExternalExecuteWorkflow200Response<PSCustomObject>
 function Initialize-TestExternalExecuteWorkflow200Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Payload}
     )
@@ -37,7 +37,6 @@ function Initialize-TestExternalExecuteWorkflow200Response {
         $PSO = [PSCustomObject]@{
             "payload" = ${Payload}
         }
-
 
         return $PSO
     }

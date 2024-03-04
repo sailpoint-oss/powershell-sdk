@@ -26,10 +26,10 @@ AccessRequestRecommendationActionItemDto<PSCustomObject>
 function Initialize-BetaAccessRequestRecommendationActionItemDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Access}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaAccessRequestRecommendationActionItemDto {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessRequestRecommendationActionItemDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $IdentityId) {
+        if (!$IdentityId) {
             throw "invalid value for 'IdentityId', 'IdentityId' cannot be null."
         }
 
-        if ($null -eq $Access) {
+        if (!$Access) {
             throw "invalid value for 'Access', 'Access' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaAccessRequestRecommendationActionItemDto {
             "identityId" = ${IdentityId}
             "access" = ${Access}
         }
-
 
         return $PSO
     }

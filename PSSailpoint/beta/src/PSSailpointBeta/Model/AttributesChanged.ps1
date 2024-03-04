@@ -30,16 +30,16 @@ AttributesChanged<PSCustomObject>
 function Initialize-BetaAttributesChanged {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Changes},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EventType},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Dt}
     )
@@ -55,7 +55,6 @@ function Initialize-BetaAttributesChanged {
             "identityId" = ${IdentityId}
             "dt" = ${Dt}
         }
-
 
         return $PSO
     }

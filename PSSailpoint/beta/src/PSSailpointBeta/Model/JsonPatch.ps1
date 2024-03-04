@@ -24,7 +24,7 @@ JsonPatch<PSCustomObject>
 function Initialize-BetaJsonPatch {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Operations}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaJsonPatch {
         $PSO = [PSCustomObject]@{
             "operations" = ${Operations}
         }
-
 
         return $PSO
     }

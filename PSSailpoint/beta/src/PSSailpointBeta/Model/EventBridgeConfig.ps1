@@ -26,10 +26,10 @@ EventBridgeConfig<PSCustomObject>
 function Initialize-BetaEventBridgeConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AwsAccount},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AwsRegion}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaEventBridgeConfig {
         'Creating PSCustomObject: PSSailpointBeta => BetaEventBridgeConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $AwsAccount) {
+        if (!$AwsAccount) {
             throw "invalid value for 'AwsAccount', 'AwsAccount' cannot be null."
         }
 
-        if ($null -eq $AwsRegion) {
+        if (!$AwsRegion) {
             throw "invalid value for 'AwsRegion', 'AwsRegion' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaEventBridgeConfig {
             "awsAccount" = ${AwsAccount}
             "awsRegion" = ${AwsRegion}
         }
-
 
         return $PSO
     }

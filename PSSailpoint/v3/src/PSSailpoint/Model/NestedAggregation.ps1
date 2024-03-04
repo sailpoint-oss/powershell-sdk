@@ -26,10 +26,10 @@ NestedAggregation<PSCustomObject>
 function Initialize-NestedAggregation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type}
     )
@@ -38,11 +38,11 @@ function Initialize-NestedAggregation {
         'Creating PSCustomObject: PSSailpoint => NestedAggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-NestedAggregation {
             "name" = ${Name}
             "type" = ${Type}
         }
-
 
         return $PSO
     }

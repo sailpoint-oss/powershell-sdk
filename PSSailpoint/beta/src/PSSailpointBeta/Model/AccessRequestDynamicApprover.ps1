@@ -30,16 +30,16 @@ AccessRequestDynamicApprover<PSCustomObject>
 function Initialize-BetaAccessRequestDynamicApprover {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccessRequestId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${RequestedFor},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${RequestedItems},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequestedBy}
     )
@@ -48,11 +48,11 @@ function Initialize-BetaAccessRequestDynamicApprover {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessRequestDynamicApprover' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $AccessRequestId) {
+        if (!$AccessRequestId) {
             throw "invalid value for 'AccessRequestId', 'AccessRequestId' cannot be null."
         }
 
-        if ($null -eq $RequestedFor) {
+        if (!$RequestedFor) {
             throw "invalid value for 'RequestedFor', 'RequestedFor' cannot be null."
         }
 
@@ -64,7 +64,7 @@ function Initialize-BetaAccessRequestDynamicApprover {
             throw "invalid value for 'RequestedFor', number of items must be greater than or equal to 1."
         }
 
-        if ($null -eq $RequestedItems) {
+        if (!$RequestedItems) {
             throw "invalid value for 'RequestedItems', 'RequestedItems' cannot be null."
         }
 
@@ -76,7 +76,7 @@ function Initialize-BetaAccessRequestDynamicApprover {
             throw "invalid value for 'RequestedItems', number of items must be greater than or equal to 1."
         }
 
-        if ($null -eq $RequestedBy) {
+        if (!$RequestedBy) {
             throw "invalid value for 'RequestedBy', 'RequestedBy' cannot be null."
         }
 
@@ -87,7 +87,6 @@ function Initialize-BetaAccessRequestDynamicApprover {
             "requestedItems" = ${RequestedItems}
             "requestedBy" = ${RequestedBy}
         }
-
 
         return $PSO
     }

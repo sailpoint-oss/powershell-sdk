@@ -24,7 +24,7 @@ ExceptionCriteria<PSCustomObject>
 function Initialize-ExceptionCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${CriteriaList}
     )
@@ -37,7 +37,6 @@ function Initialize-ExceptionCriteria {
         $PSO = [PSCustomObject]@{
             "criteriaList" = ${CriteriaList}
         }
-
 
         return $PSO
     }

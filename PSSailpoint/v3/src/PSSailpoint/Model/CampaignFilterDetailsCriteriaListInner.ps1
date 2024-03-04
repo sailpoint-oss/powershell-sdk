@@ -30,17 +30,17 @@ CampaignFilterDetailsCriteriaListInner<PSCustomObject>
 function Initialize-CampaignFilterDetailsCriteriaListInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("COMPOSITE", "ROLE", "IDENTITY", "IDENTITY_ATTRIBUTE", "ENTITLEMENT", "ACCESS_PROFILE", "SOURCE", "ACCOUNT", "AGGREGATED_ENTITLEMENT", "INVALID_CERTIFIABLE_ENTITY")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Operation},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Property},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Value}
     )
@@ -49,11 +49,11 @@ function Initialize-CampaignFilterDetailsCriteriaListInner {
         'Creating PSCustomObject: PSSailpoint => CampaignFilterDetailsCriteriaListInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Operation) {
+        if (!$Operation) {
             throw "invalid value for 'Operation', 'Operation' cannot be null."
         }
 
@@ -64,7 +64,6 @@ function Initialize-CampaignFilterDetailsCriteriaListInner {
             "property" = ${Property}
             "value" = ${Value}
         }
-
 
         return $PSO
     }

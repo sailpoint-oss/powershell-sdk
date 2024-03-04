@@ -24,7 +24,7 @@ PutPasswordDictionaryRequest<PSCustomObject>
 function Initialize-PutPasswordDictionaryRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${File}
     )
@@ -37,7 +37,6 @@ function Initialize-PutPasswordDictionaryRequest {
         $PSO = [PSCustomObject]@{
             "file" = ${File}
         }
-
 
         return $PSO
     }

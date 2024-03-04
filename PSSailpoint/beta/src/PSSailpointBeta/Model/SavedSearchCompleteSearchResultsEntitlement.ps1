@@ -28,13 +28,13 @@ SavedSearchCompleteSearchResultsEntitlement<PSCustomObject>
 function Initialize-BetaSavedSearchCompleteSearchResultsEntitlement {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Count},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Noun},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[][]]
         ${Preview}
     )
@@ -43,15 +43,15 @@ function Initialize-BetaSavedSearchCompleteSearchResultsEntitlement {
         'Creating PSCustomObject: PSSailpointBeta => BetaSavedSearchCompleteSearchResultsEntitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Count) {
+        if (!$Count) {
             throw "invalid value for 'Count', 'Count' cannot be null."
         }
 
-        if ($null -eq $Noun) {
+        if (!$Noun) {
             throw "invalid value for 'Noun', 'Noun' cannot be null."
         }
 
-        if ($null -eq $Preview) {
+        if (!$Preview) {
             throw "invalid value for 'Preview', 'Preview' cannot be null."
         }
 
@@ -61,7 +61,6 @@ function Initialize-BetaSavedSearchCompleteSearchResultsEntitlement {
             "noun" = ${Noun}
             "preview" = ${Preview}
         }
-
 
         return $PSO
     }

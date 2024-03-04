@@ -28,14 +28,14 @@ MetricAggregation<PSCustomObject>
 function Initialize-MetricAggregation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("COUNT", "UNIQUE_COUNT", "AVG", "SUM", "MEDIAN", "MIN", "MAX")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Field}
     )
@@ -44,11 +44,11 @@ function Initialize-MetricAggregation {
         'Creating PSCustomObject: PSSailpoint => MetricAggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Field) {
+        if (!$Field) {
             throw "invalid value for 'Field', 'Field' cannot be null."
         }
 
@@ -58,7 +58,6 @@ function Initialize-MetricAggregation {
             "type" = ${Type}
             "field" = ${Field}
         }
-
 
         return $PSO
     }

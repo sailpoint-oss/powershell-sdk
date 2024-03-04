@@ -26,10 +26,10 @@ DuoVerificationRequest<PSCustomObject>
 function Initialize-BetaDuoVerificationRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${UserId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SignedResponse}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaDuoVerificationRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaDuoVerificationRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $UserId) {
+        if (!$UserId) {
             throw "invalid value for 'UserId', 'UserId' cannot be null."
         }
 
-        if ($null -eq $SignedResponse) {
+        if (!$SignedResponse) {
             throw "invalid value for 'SignedResponse', 'SignedResponse' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaDuoVerificationRequest {
             "userId" = ${UserId}
             "signedResponse" = ${SignedResponse}
         }
-
 
         return $PSO
     }

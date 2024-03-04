@@ -38,29 +38,29 @@ InvocationStatus<PSCustomObject>
 function Initialize-BetaInvocationStatus {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TriggerId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SubscriptionId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("TEST", "REAL_TIME")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Created},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Completed},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${StartInvocationInput},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${CompleteInvocationInput}
     )
@@ -69,27 +69,27 @@ function Initialize-BetaInvocationStatus {
         'Creating PSCustomObject: PSSailpointBeta => BetaInvocationStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $TriggerId) {
+        if (!$TriggerId) {
             throw "invalid value for 'TriggerId', 'TriggerId' cannot be null."
         }
 
-        if ($null -eq $SubscriptionId) {
+        if (!$SubscriptionId) {
             throw "invalid value for 'SubscriptionId', 'SubscriptionId' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Created) {
+        if (!$Created) {
             throw "invalid value for 'Created', 'Created' cannot be null."
         }
 
-        if ($null -eq $StartInvocationInput) {
+        if (!$StartInvocationInput) {
             throw "invalid value for 'StartInvocationInput', 'StartInvocationInput' cannot be null."
         }
 
@@ -104,7 +104,6 @@ function Initialize-BetaInvocationStatus {
             "startInvocationInput" = ${StartInvocationInput}
             "completeInvocationInput" = ${CompleteInvocationInput}
         }
-
 
         return $PSO
     }

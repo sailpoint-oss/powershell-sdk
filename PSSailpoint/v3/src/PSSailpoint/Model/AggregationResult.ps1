@@ -26,10 +26,10 @@ AggregationResult<PSCustomObject>
 function Initialize-AggregationResult {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Aggregations},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Hits}
     )
@@ -43,7 +43,6 @@ function Initialize-AggregationResult {
             "aggregations" = ${Aggregations}
             "hits" = ${Hits}
         }
-
 
         return $PSO
     }

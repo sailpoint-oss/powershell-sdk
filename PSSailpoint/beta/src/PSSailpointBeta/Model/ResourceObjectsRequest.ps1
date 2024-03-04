@@ -26,10 +26,10 @@ ResourceObjectsRequest<PSCustomObject>
 function Initialize-BetaResourceObjectsRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ObjectType} = "account",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${MaxCount} = 25
     )
@@ -43,7 +43,6 @@ function Initialize-BetaResourceObjectsRequest {
             "objectType" = ${ObjectType}
             "maxCount" = ${MaxCount}
         }
-
 
         return $PSO
     }

@@ -28,13 +28,13 @@ NetworkConfiguration<PSCustomObject>
 function Initialize-NetworkConfiguration {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Range},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Geolocation},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Whitelisted} = $false
     )
@@ -49,7 +49,6 @@ function Initialize-NetworkConfiguration {
             "geolocation" = ${Geolocation}
             "whitelisted" = ${Whitelisted}
         }
-
 
         return $PSO
     }

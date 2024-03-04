@@ -30,16 +30,16 @@ TextQuery<PSCustomObject>
 function Initialize-TextQuery {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Terms},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Fields},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${MatchAny} = $false,
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Contains} = $false
     )
@@ -48,11 +48,11 @@ function Initialize-TextQuery {
         'Creating PSCustomObject: PSSailpoint => TextQuery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Terms) {
+        if (!$Terms) {
             throw "invalid value for 'Terms', 'Terms' cannot be null."
         }
 
-        if ($null -eq $Fields) {
+        if (!$Fields) {
             throw "invalid value for 'Fields', 'Fields' cannot be null."
         }
 
@@ -63,7 +63,6 @@ function Initialize-TextQuery {
             "matchAny" = ${MatchAny}
             "contains" = ${Contains}
         }
-
 
         return $PSO
     }

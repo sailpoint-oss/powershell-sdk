@@ -26,10 +26,10 @@ SpConfigImportResults<PSCustomObject>
 function Initialize-BetaSpConfigImportResults {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Results},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ExportJobId}
     )
@@ -38,7 +38,7 @@ function Initialize-BetaSpConfigImportResults {
         'Creating PSCustomObject: PSSailpointBeta => BetaSpConfigImportResults' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Results) {
+        if (!$Results) {
             throw "invalid value for 'Results', 'Results' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-BetaSpConfigImportResults {
             "results" = ${Results}
             "exportJobId" = ${ExportJobId}
         }
-
 
         return $PSO
     }

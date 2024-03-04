@@ -26,10 +26,10 @@ IdentityAttributeTransform<PSCustomObject>
 function Initialize-BetaIdentityAttributeTransform {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityAttributeName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${TransformDefinition}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaIdentityAttributeTransform {
             "identityAttributeName" = ${IdentityAttributeName}
             "transformDefinition" = ${TransformDefinition}
         }
-
 
         return $PSO
     }

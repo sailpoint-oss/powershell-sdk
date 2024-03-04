@@ -26,10 +26,10 @@ LifecycleStateDto<PSCustomObject>
 function Initialize-BetaLifecycleStateDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StateName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${ManuallyUpdated}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaLifecycleStateDto {
         'Creating PSCustomObject: PSSailpointBeta => BetaLifecycleStateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $StateName) {
+        if (!$StateName) {
             throw "invalid value for 'StateName', 'StateName' cannot be null."
         }
 
-        if ($null -eq $ManuallyUpdated) {
+        if (!$ManuallyUpdated) {
             throw "invalid value for 'ManuallyUpdated', 'ManuallyUpdated' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaLifecycleStateDto {
             "stateName" = ${StateName}
             "manuallyUpdated" = ${ManuallyUpdated}
         }
-
 
         return $PSO
     }

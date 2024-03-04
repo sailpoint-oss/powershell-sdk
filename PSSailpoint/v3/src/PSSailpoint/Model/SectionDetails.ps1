@@ -28,13 +28,13 @@ SectionDetails<PSCustomObject>
 function Initialize-SectionDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Label},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${FormItems}
     )
@@ -49,7 +49,6 @@ function Initialize-SectionDetails {
             "label" = ${Label}
             "formItems" = ${FormItems}
         }
-
 
         return $PSO
     }

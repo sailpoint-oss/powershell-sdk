@@ -24,7 +24,7 @@ MultiPolicyRequest<PSCustomObject>
 function Initialize-MultiPolicyRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${FilteredPolicyList}
     )
@@ -37,7 +37,6 @@ function Initialize-MultiPolicyRequest {
         $PSO = [PSCustomObject]@{
             "filteredPolicyList" = ${FilteredPolicyList}
         }
-
 
         return $PSO
     }

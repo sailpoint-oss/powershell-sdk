@@ -26,10 +26,10 @@ IdentityDeleted<PSCustomObject>
 function Initialize-BetaIdentityDeleted {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaIdentityDeleted {
         'Creating PSCustomObject: PSSailpointBeta => BetaIdentityDeleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Identity) {
+        if (!$Identity) {
             throw "invalid value for 'Identity', 'Identity' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaIdentityDeleted {
             "identity" = ${Identity}
             "attributes" = ${Attributes}
         }
-
 
         return $PSO
     }

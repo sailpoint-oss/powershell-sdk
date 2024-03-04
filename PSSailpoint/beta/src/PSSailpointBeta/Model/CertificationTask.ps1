@@ -36,28 +36,28 @@ CertificationTask<PSCustomObject>
 function Initialize-BetaCertificationTask {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("REASSIGN", "ADMIN_REASSIGN", "COMPLETE_CERTIFICATION", "FINISH_CERTIFICATION", "COMPLETE_CAMPAIGN", "ACTIVATE_CAMPAIGN", "CAMPAIGN_CREATE", "CAMPAIGN_DELETE")]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CERTIFICATION", "CAMPAIGN")]
         [String]
         ${TargetType},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TargetId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("QUEUED", "IN_PROGRESS", "SUCCESS", "ERROR")]
         [String]
         ${Status},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Errors},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created}
     )
@@ -76,7 +76,6 @@ function Initialize-BetaCertificationTask {
             "errors" = ${Errors}
             "created" = ${Created}
         }
-
 
         return $PSO
     }

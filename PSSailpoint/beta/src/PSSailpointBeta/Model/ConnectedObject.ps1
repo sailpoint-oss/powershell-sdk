@@ -30,17 +30,17 @@ ConnectedObject<PSCustomObject>
 function Initialize-BetaConnectedObject {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_PROFILE", "ROLE", "SOD_POLICY", "SOURCE")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description}
     )
@@ -56,7 +56,6 @@ function Initialize-BetaConnectedObject {
             "name" = ${Name}
             "description" = ${Description}
         }
-
 
         return $PSO
     }

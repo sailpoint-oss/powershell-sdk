@@ -26,10 +26,10 @@ BaseReferenceDto<PSCustomObject>
 function Initialize-BetaBaseReferenceDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaBaseReferenceDto {
             "id" = ${Id}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

@@ -36,26 +36,26 @@ DateCompare<PSCustomObject>
 function Initialize-BetaDateCompare {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${FirstDate},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${SecondDate},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("LT", "LTE", "GT", "GTE")]
         [String]
         ${Operator},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PositiveCondition},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NegativeCondition},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarInput}
     )
@@ -64,23 +64,23 @@ function Initialize-BetaDateCompare {
         'Creating PSCustomObject: PSSailpointBeta => BetaDateCompare' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $FirstDate) {
+        if (!$FirstDate) {
             throw "invalid value for 'FirstDate', 'FirstDate' cannot be null."
         }
 
-        if ($null -eq $SecondDate) {
+        if (!$SecondDate) {
             throw "invalid value for 'SecondDate', 'SecondDate' cannot be null."
         }
 
-        if ($null -eq $Operator) {
+        if (!$Operator) {
             throw "invalid value for 'Operator', 'Operator' cannot be null."
         }
 
-        if ($null -eq $PositiveCondition) {
+        if (!$PositiveCondition) {
             throw "invalid value for 'PositiveCondition', 'PositiveCondition' cannot be null."
         }
 
-        if ($null -eq $NegativeCondition) {
+        if (!$NegativeCondition) {
             throw "invalid value for 'NegativeCondition', 'NegativeCondition' cannot be null."
         }
 
@@ -94,7 +94,6 @@ function Initialize-BetaDateCompare {
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

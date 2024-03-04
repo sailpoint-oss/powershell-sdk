@@ -32,19 +32,19 @@ DomainStatusDto<PSCustomObject>
 function Initialize-BetaDomainStatusDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Domain},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${DkimEnabled},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${DkimTokens},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DkimVerificationStatus}
     )
@@ -61,7 +61,6 @@ function Initialize-BetaDomainStatusDto {
             "dkimTokens" = ${DkimTokens}
             "dkimVerificationStatus" = ${DkimVerificationStatus}
         }
-
 
         return $PSO
     }

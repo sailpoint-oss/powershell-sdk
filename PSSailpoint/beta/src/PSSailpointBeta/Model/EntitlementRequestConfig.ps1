@@ -24,7 +24,7 @@ EntitlementRequestConfig<PSCustomObject>
 function Initialize-BetaEntitlementRequestConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AccessRequestConfig}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaEntitlementRequestConfig {
         $PSO = [PSCustomObject]@{
             "accessRequestConfig" = ${AccessRequestConfig}
         }
-
 
         return $PSO
     }

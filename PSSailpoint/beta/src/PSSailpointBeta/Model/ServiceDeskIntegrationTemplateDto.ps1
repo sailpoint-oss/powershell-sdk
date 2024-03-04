@@ -14,14 +14,8 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-System-generated unique ID of the Object
 .PARAMETER Name
 Name of the Object
-.PARAMETER Created
-Creation date of the Object
-.PARAMETER Modified
-Last modification date of the Object
 .PARAMETER Type
 The 'type' property specifies the type of the Service Desk integration template.
 .PARAMETER Attributes
@@ -36,25 +30,16 @@ ServiceDeskIntegrationTemplateDto<PSCustomObject>
 function Initialize-BetaServiceDeskIntegrationTemplateDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type} = "Web Service SDIM",
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ProvisioningConfig}
     )
@@ -63,33 +48,29 @@ function Initialize-BetaServiceDeskIntegrationTemplateDto {
         'Creating PSCustomObject: PSSailpointBeta => BetaServiceDeskIntegrationTemplateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
-        if ($null -eq $ProvisioningConfig) {
+        if (!$ProvisioningConfig) {
             throw "invalid value for 'ProvisioningConfig', 'ProvisioningConfig' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "type" = ${Type}
             "attributes" = ${Attributes}
             "provisioningConfig" = ${ProvisioningConfig}
         }
-
 
         return $PSO
     }

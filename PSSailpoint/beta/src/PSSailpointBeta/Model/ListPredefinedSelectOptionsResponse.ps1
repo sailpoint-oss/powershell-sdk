@@ -24,7 +24,7 @@ ListPredefinedSelectOptionsResponse<PSCustomObject>
 function Initialize-BetaListPredefinedSelectOptionsResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Results}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaListPredefinedSelectOptionsResponse {
         $PSO = [PSCustomObject]@{
             "results" = ${Results}
         }
-
 
         return $PSO
     }

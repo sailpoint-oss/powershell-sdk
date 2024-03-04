@@ -26,10 +26,10 @@ EventAttributes<PSCustomObject>
 function Initialize-EventAttributes {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${VarFilter}
     )
@@ -38,7 +38,7 @@ function Initialize-EventAttributes {
         'Creating PSCustomObject: PSSailpoint => EventAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-EventAttributes {
             "id" = ${Id}
             "filter.$" = ${VarFilter}
         }
-
 
         return $PSO
     }

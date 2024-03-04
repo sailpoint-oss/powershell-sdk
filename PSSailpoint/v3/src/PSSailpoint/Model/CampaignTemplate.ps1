@@ -20,12 +20,6 @@ Id of the campaign template
 This template's name. Has no bearing on generated campaigns' names.
 .PARAMETER Description
 This template's description. Has no bearing on generated campaigns' descriptions.
-.PARAMETER Created
-Creation date of Campaign Template
-.PARAMETER Modified
-Modification date of Campaign Template
-.PARAMETER Scheduled
-Indicates if this campaign template has been scheduled.
 .PARAMETER OwnerRef
 No description available.
 .PARAMETER DeadlineDuration
@@ -40,31 +34,22 @@ CampaignTemplate<PSCustomObject>
 function Initialize-CampaignTemplate {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
-        ${Created},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
-        ${Modified},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Scheduled} = $false,
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OwnerRef},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DeadlineDuration},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Campaign}
     )
@@ -73,23 +58,15 @@ function Initialize-CampaignTemplate {
         'Creating PSCustomObject: PSSailpoint => CampaignTemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Description) {
+        if (!$Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if ($null -eq $Created) {
-            throw "invalid value for 'Created', 'Created' cannot be null."
-        }
-
-        if ($null -eq $Modified) {
-            throw "invalid value for 'Modified', 'Modified' cannot be null."
-        }
-
-        if ($null -eq $Campaign) {
+        if (!$Campaign) {
             throw "invalid value for 'Campaign', 'Campaign' cannot be null."
         }
 
@@ -98,14 +75,10 @@ function Initialize-CampaignTemplate {
             "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
-            "created" = ${Created}
-            "modified" = ${Modified}
-            "scheduled" = ${Scheduled}
             "ownerRef" = ${OwnerRef}
             "deadlineDuration" = ${DeadlineDuration}
             "campaign" = ${Campaign}
         }
-
 
         return $PSO
     }

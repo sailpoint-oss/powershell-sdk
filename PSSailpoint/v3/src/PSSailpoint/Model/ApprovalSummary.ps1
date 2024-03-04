@@ -28,13 +28,13 @@ ApprovalSummary<PSCustomObject>
 function Initialize-ApprovalSummary {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Pending},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Approved},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Rejected}
     )
@@ -49,7 +49,6 @@ function Initialize-ApprovalSummary {
             "approved" = ${Approved}
             "rejected" = ${Rejected}
         }
-
 
         return $PSO
     }

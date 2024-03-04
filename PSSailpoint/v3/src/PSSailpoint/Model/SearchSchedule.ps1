@@ -16,10 +16,6 @@ No description available.
 
 .PARAMETER SavedSearchId
 The ID of the saved search that will be executed.
-.PARAMETER Created
-A date-time in ISO-8601 format
-.PARAMETER Modified
-A date-time in ISO-8601 format
 .PARAMETER Schedule
 No description available.
 .PARAMETER Recipients
@@ -38,28 +34,22 @@ SearchSchedule<PSCustomObject>
 function Initialize-SearchSchedule {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SavedSearchId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Schedule},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Recipients},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EmailEmptyResults} = $false,
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayQueryDetails} = $false
     )
@@ -68,30 +58,27 @@ function Initialize-SearchSchedule {
         'Creating PSCustomObject: PSSailpoint => SearchSchedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $SavedSearchId) {
+        if (!$SavedSearchId) {
             throw "invalid value for 'SavedSearchId', 'SavedSearchId' cannot be null."
         }
 
-        if ($null -eq $Schedule) {
+        if (!$Schedule) {
             throw "invalid value for 'Schedule', 'Schedule' cannot be null."
         }
 
-        if ($null -eq $Recipients) {
+        if (!$Recipients) {
             throw "invalid value for 'Recipients', 'Recipients' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
             "savedSearchId" = ${SavedSearchId}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "schedule" = ${Schedule}
             "recipients" = ${Recipients}
             "enabled" = ${Enabled}
             "emailEmptyResults" = ${EmailEmptyResults}
             "displayQueryDetails" = ${DisplayQueryDetails}
         }
-
 
         return $PSO
     }

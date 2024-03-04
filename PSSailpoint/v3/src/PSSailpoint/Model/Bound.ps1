@@ -26,10 +26,10 @@ Bound<PSCustomObject>
 function Initialize-Bound {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Value},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Inclusive} = $false
     )
@@ -38,7 +38,7 @@ function Initialize-Bound {
         'Creating PSCustomObject: PSSailpoint => Bound' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Value) {
+        if (!$Value) {
             throw "invalid value for 'Value', 'Value' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-Bound {
             "value" = ${Value}
             "inclusive" = ${Inclusive}
         }
-
 
         return $PSO
     }

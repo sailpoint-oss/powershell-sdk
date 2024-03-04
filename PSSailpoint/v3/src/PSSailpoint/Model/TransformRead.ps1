@@ -32,20 +32,20 @@ TransformRead<PSCustomObject>
 function Initialize-TransformRead {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("accountAttribute", "base64Decode", "base64Encode", "concat", "conditional", "dateCompare", "dateFormat", "dateMath", "decomposeDiacriticalMarks", "e164phone", "firstValid", "rule", "identityAttribute", "indexOf", "iso3166", "lastIndexOf", "leftPad", "lookup", "lower", "normalizeNames", "randomAlphaNumeric", "randomNumeric", "reference", "replaceAll", "replace", "rightPad", "split", "static", "substring", "trim", "upper", "usernameGenerator", "uuid")]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Internal} = $false
     )
@@ -54,7 +54,7 @@ function Initialize-TransformRead {
         'Creating PSCustomObject: PSSailpoint => TransformRead' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -66,15 +66,15 @@ function Initialize-TransformRead {
             throw "invalid value for 'Name', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Internal) {
+        if (!$Internal) {
             throw "invalid value for 'Internal', 'Internal' cannot be null."
         }
 
@@ -86,7 +86,6 @@ function Initialize-TransformRead {
             "id" = ${Id}
             "internal" = ${Internal}
         }
-
 
         return $PSO
     }

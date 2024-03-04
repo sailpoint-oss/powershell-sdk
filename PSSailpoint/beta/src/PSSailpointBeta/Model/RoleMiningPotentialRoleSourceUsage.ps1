@@ -30,16 +30,16 @@ RoleMiningPotentialRoleSourceUsage<PSCustomObject>
 function Initialize-BetaRoleMiningPotentialRoleSourceUsage {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Email},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${UsageCount}
     )
@@ -55,7 +55,6 @@ function Initialize-BetaRoleMiningPotentialRoleSourceUsage {
             "email" = ${Email}
             "usageCount" = ${UsageCount}
         }
-
 
         return $PSO
     }

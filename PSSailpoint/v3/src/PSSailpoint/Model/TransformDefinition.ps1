@@ -26,10 +26,10 @@ TransformDefinition<PSCustomObject>
 function Initialize-TransformDefinition {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes}
     )
@@ -43,7 +43,6 @@ function Initialize-TransformDefinition {
             "type" = ${Type}
             "attributes" = ${Attributes}
         }
-
 
         return $PSO
     }

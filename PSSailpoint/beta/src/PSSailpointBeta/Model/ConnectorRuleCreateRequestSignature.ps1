@@ -26,10 +26,10 @@ ConnectorRuleCreateRequestSignature<PSCustomObject>
 function Initialize-BetaConnectorRuleCreateRequestSignature {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${VarInput},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Output}
     )
@@ -38,7 +38,7 @@ function Initialize-BetaConnectorRuleCreateRequestSignature {
         'Creating PSCustomObject: PSSailpointBeta => BetaConnectorRuleCreateRequestSignature' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $VarInput) {
+        if (!$VarInput) {
             throw "invalid value for 'VarInput', 'VarInput' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-BetaConnectorRuleCreateRequestSignature {
             "input" = ${VarInput}
             "output" = ${Output}
         }
-
 
         return $PSO
     }

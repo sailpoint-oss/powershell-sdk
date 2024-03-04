@@ -26,10 +26,10 @@ InnerHit<PSCustomObject>
 function Initialize-InnerHit {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Query},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type}
     )
@@ -38,11 +38,11 @@ function Initialize-InnerHit {
         'Creating PSCustomObject: PSSailpoint => InnerHit' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Query) {
+        if (!$Query) {
             throw "invalid value for 'Query', 'Query' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-InnerHit {
             "query" = ${Query}
             "type" = ${Type}
         }
-
 
         return $PSO
     }

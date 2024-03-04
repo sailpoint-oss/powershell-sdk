@@ -30,17 +30,17 @@ ExpressionChildrenInner<PSCustomObject>
 function Initialize-ExpressionChildrenInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("AND", "EQUALS")]
         [String]
         ${Operator},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Attribute},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Value},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Children}
     )
@@ -56,7 +56,6 @@ function Initialize-ExpressionChildrenInner {
             "value" = ${Value}
             "children" = ${Children}
         }
-
 
         return $PSO
     }

@@ -28,13 +28,13 @@ IdentityWithNewAccess1<PSCustomObject>
 function Initialize-IdentityWithNewAccess1 {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccessRefs},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${ClientMetadata}
     )
@@ -43,11 +43,11 @@ function Initialize-IdentityWithNewAccess1 {
         'Creating PSCustomObject: PSSailpoint => IdentityWithNewAccess1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $IdentityId) {
+        if (!$IdentityId) {
             throw "invalid value for 'IdentityId', 'IdentityId' cannot be null."
         }
 
-        if ($null -eq $AccessRefs) {
+        if (!$AccessRefs) {
             throw "invalid value for 'AccessRefs', 'AccessRefs' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-IdentityWithNewAccess1 {
             "accessRefs" = ${AccessRefs}
             "clientMetadata" = ${ClientMetadata}
         }
-
 
         return $PSO
     }

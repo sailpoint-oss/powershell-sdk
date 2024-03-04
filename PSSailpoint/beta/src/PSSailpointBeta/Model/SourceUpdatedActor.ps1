@@ -28,14 +28,14 @@ SourceUpdatedActor<PSCustomObject>
 function Initialize-BetaSourceUpdatedActor {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -44,11 +44,11 @@ function Initialize-BetaSourceUpdatedActor {
         'Creating PSCustomObject: PSSailpointBeta => BetaSourceUpdatedActor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -58,7 +58,6 @@ function Initialize-BetaSourceUpdatedActor {
             "id" = ${Id}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

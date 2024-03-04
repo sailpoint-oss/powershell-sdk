@@ -32,19 +32,19 @@ NonEmployeeBulkUploadJob<PSCustomObject>
 function Initialize-NonEmployeeBulkUploadJob {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PENDING", "IN_PROGRESS", "COMPLETED", "ERROR")]
         [String]
         ${Status}
@@ -62,7 +62,6 @@ function Initialize-NonEmployeeBulkUploadJob {
             "modified" = ${Modified}
             "status" = ${Status}
         }
-
 
         return $PSO
     }

@@ -24,7 +24,7 @@ SourceUsageStatus<PSCustomObject>
 function Initialize-SourceUsageStatus {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("COMPLETE", "INCOMPLETE")]
         [String]
         ${Status}
@@ -38,7 +38,6 @@ function Initialize-SourceUsageStatus {
         $PSO = [PSCustomObject]@{
             "status" = ${Status}
         }
-
 
         return $PSO
     }

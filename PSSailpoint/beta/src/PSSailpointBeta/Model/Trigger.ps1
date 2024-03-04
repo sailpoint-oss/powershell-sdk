@@ -38,29 +38,29 @@ Trigger<PSCustomObject>
 function Initialize-BetaTrigger {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("REQUEST_RESPONSE", "FIRE_AND_FORGET")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${InputSchema},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ExampleInput},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OutputSchema},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ExampleOutput}
     )
@@ -69,23 +69,23 @@ function Initialize-BetaTrigger {
         'Creating PSCustomObject: PSSailpointBeta => BetaTrigger' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $InputSchema) {
+        if (!$InputSchema) {
             throw "invalid value for 'InputSchema', 'InputSchema' cannot be null."
         }
 
-        if ($null -eq $ExampleInput) {
+        if (!$ExampleInput) {
             throw "invalid value for 'ExampleInput', 'ExampleInput' cannot be null."
         }
 
@@ -100,7 +100,6 @@ function Initialize-BetaTrigger {
             "outputSchema" = ${OutputSchema}
             "exampleOutput" = ${ExampleOutput}
         }
-
 
         return $PSO
     }

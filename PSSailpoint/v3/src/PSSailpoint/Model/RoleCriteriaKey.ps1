@@ -28,14 +28,14 @@ RoleCriteriaKey<PSCustomObject>
 function Initialize-RoleCriteriaKey {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY", "ACCOUNT", "ENTITLEMENT")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Property},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceId}
     )
@@ -44,11 +44,11 @@ function Initialize-RoleCriteriaKey {
         'Creating PSCustomObject: PSSailpoint => RoleCriteriaKey' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Property) {
+        if (!$Property) {
             throw "invalid value for 'Property', 'Property' cannot be null."
         }
 
@@ -58,7 +58,6 @@ function Initialize-RoleCriteriaKey {
             "property" = ${Property}
             "sourceId" = ${SourceId}
         }
-
 
         return $PSO
     }

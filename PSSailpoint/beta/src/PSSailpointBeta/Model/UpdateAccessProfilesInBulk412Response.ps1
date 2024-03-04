@@ -24,7 +24,7 @@ UpdateAccessProfilesInBulk412Response<PSCustomObject>
 function Initialize-BetaUpdateAccessProfilesInBulk412Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Message}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaUpdateAccessProfilesInBulk412Response {
         $PSO = [PSCustomObject]@{
             "message" = ${Message}
         }
-
 
         return $PSO
     }

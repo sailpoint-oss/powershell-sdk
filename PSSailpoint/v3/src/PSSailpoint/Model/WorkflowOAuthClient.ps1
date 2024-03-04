@@ -28,13 +28,13 @@ WorkflowOAuthClient<PSCustomObject>
 function Initialize-WorkflowOAuthClient {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Secret},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Url}
     )
@@ -49,7 +49,6 @@ function Initialize-WorkflowOAuthClient {
             "secret" = ${Secret}
             "url" = ${Url}
         }
-
 
         return $PSO
     }

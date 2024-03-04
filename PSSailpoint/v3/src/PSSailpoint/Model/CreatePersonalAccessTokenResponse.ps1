@@ -34,22 +34,22 @@ CreatePersonalAccessTokenResponse<PSCustomObject>
 function Initialize-CreatePersonalAccessTokenResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Secret},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Scope},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Created}
     )
@@ -58,23 +58,23 @@ function Initialize-CreatePersonalAccessTokenResponse {
         'Creating PSCustomObject: PSSailpoint => CreatePersonalAccessTokenResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Secret) {
+        if (!$Secret) {
             throw "invalid value for 'Secret', 'Secret' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Owner) {
+        if (!$Owner) {
             throw "invalid value for 'Owner', 'Owner' cannot be null."
         }
 
-        if ($null -eq $Created) {
+        if (!$Created) {
             throw "invalid value for 'Created', 'Created' cannot be null."
         }
 
@@ -87,7 +87,6 @@ function Initialize-CreatePersonalAccessTokenResponse {
             "owner" = ${Owner}
             "created" = ${Created}
         }
-
 
         return $PSO
     }

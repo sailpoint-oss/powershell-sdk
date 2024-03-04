@@ -30,16 +30,16 @@ ObjectImportResult<PSCustomObject>
 function Initialize-BetaObjectImportResult {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Infos},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Warnings},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Errors},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ImportedObjects}
     )
@@ -48,19 +48,19 @@ function Initialize-BetaObjectImportResult {
         'Creating PSCustomObject: PSSailpointBeta => BetaObjectImportResult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Infos) {
+        if (!$Infos) {
             throw "invalid value for 'Infos', 'Infos' cannot be null."
         }
 
-        if ($null -eq $Warnings) {
+        if (!$Warnings) {
             throw "invalid value for 'Warnings', 'Warnings' cannot be null."
         }
 
-        if ($null -eq $Errors) {
+        if (!$Errors) {
             throw "invalid value for 'Errors', 'Errors' cannot be null."
         }
 
-        if ($null -eq $ImportedObjects) {
+        if (!$ImportedObjects) {
             throw "invalid value for 'ImportedObjects', 'ImportedObjects' cannot be null."
         }
 
@@ -71,7 +71,6 @@ function Initialize-BetaObjectImportResult {
             "errors" = ${Errors}
             "importedObjects" = ${ImportedObjects}
         }
-
 
         return $PSO
     }

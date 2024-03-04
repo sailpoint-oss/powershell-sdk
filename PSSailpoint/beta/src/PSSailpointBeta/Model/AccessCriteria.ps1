@@ -26,10 +26,10 @@ AccessCriteria<PSCustomObject>
 function Initialize-BetaAccessCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${CriteriaList}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaAccessCriteria {
             "name" = ${Name}
             "criteriaList" = ${CriteriaList}
         }
-
 
         return $PSO
     }

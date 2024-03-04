@@ -30,16 +30,16 @@ LeftPad<PSCustomObject>
 function Initialize-LeftPad {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Length},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Padding},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarInput}
     )
@@ -48,7 +48,7 @@ function Initialize-LeftPad {
         'Creating PSCustomObject: PSSailpoint => LeftPad' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Length) {
+        if (!$Length) {
             throw "invalid value for 'Length', 'Length' cannot be null."
         }
 
@@ -59,7 +59,6 @@ function Initialize-LeftPad {
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

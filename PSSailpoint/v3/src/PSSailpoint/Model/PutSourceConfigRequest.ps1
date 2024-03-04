@@ -24,7 +24,7 @@ PutSourceConfigRequest<PSCustomObject>
 function Initialize-PutSourceConfigRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${File}
     )
@@ -33,7 +33,7 @@ function Initialize-PutSourceConfigRequest {
         'Creating PSCustomObject: PSSailpoint => PutSourceConfigRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $File) {
+        if (!$File) {
             throw "invalid value for 'File', 'File' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-PutSourceConfigRequest {
         $PSO = [PSCustomObject]@{
             "file" = ${File}
         }
-
 
         return $PSO
     }

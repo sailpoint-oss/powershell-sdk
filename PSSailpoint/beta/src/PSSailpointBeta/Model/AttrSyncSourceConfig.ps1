@@ -26,10 +26,10 @@ AttrSyncSourceConfig<PSCustomObject>
 function Initialize-BetaAttrSyncSourceConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Attributes}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaAttrSyncSourceConfig {
         'Creating PSCustomObject: PSSailpointBeta => BetaAttrSyncSourceConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Source) {
+        if (!$Source) {
             throw "invalid value for 'Source', 'Source' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaAttrSyncSourceConfig {
             "source" = ${Source}
             "attributes" = ${Attributes}
         }
-
 
         return $PSO
     }

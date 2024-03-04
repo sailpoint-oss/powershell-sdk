@@ -28,14 +28,14 @@ ManualWorkItemDetailsOriginalOwner<PSCustomObject>
 function Initialize-BetaManualWorkItemDetailsOriginalOwner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("GOVERNANCE_GROUP", "IDENTITY")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -50,7 +50,6 @@ function Initialize-BetaManualWorkItemDetailsOriginalOwner {
             "id" = ${Id}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

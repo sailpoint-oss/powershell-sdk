@@ -26,10 +26,10 @@ ReassignmentReference<PSCustomObject>
 function Initialize-ReassignmentReference {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("TARGET_SUMMARY", "ITEM", "IDENTITY_SUMMARY")]
         [String]
         ${Type}
@@ -39,11 +39,11 @@ function Initialize-ReassignmentReference {
         'Creating PSCustomObject: PSSailpoint => ReassignmentReference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
@@ -52,7 +52,6 @@ function Initialize-ReassignmentReference {
             "id" = ${Id}
             "type" = ${Type}
         }
-
 
         return $PSO
     }

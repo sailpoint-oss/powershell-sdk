@@ -24,7 +24,7 @@ AccessRecommendationMessage<PSCustomObject>
 function Initialize-BetaAccessRecommendationMessage {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Interpretation}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaAccessRecommendationMessage {
         $PSO = [PSCustomObject]@{
             "interpretation" = ${Interpretation}
         }
-
 
         return $PSO
     }

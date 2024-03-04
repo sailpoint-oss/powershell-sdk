@@ -30,16 +30,16 @@ AttrSyncSourceAttributeConfig<PSCustomObject>
 function Initialize-BetaAttrSyncSourceAttributeConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Enabled},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Target}
     )
@@ -48,19 +48,19 @@ function Initialize-BetaAttrSyncSourceAttributeConfig {
         'Creating PSCustomObject: PSSailpointBeta => BetaAttrSyncSourceAttributeConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $DisplayName) {
+        if (!$DisplayName) {
             throw "invalid value for 'DisplayName', 'DisplayName' cannot be null."
         }
 
-        if ($null -eq $Enabled) {
+        if (!$Enabled) {
             throw "invalid value for 'Enabled', 'Enabled' cannot be null."
         }
 
-        if ($null -eq $Target) {
+        if (!$Target) {
             throw "invalid value for 'Target', 'Target' cannot be null."
         }
 
@@ -71,7 +71,6 @@ function Initialize-BetaAttrSyncSourceAttributeConfig {
             "enabled" = ${Enabled}
             "target" = ${Target}
         }
-
 
         return $PSO
     }

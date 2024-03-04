@@ -26,10 +26,10 @@ IdentitySyncPayload<PSCustomObject>
 function Initialize-BetaIdentitySyncPayload {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DataJson}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaIdentitySyncPayload {
         'Creating PSCustomObject: PSSailpointBeta => BetaIdentitySyncPayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $DataJson) {
+        if (!$DataJson) {
             throw "invalid value for 'DataJson', 'DataJson' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaIdentitySyncPayload {
             "type" = ${Type}
             "dataJson" = ${DataJson}
         }
-
 
         return $PSO
     }

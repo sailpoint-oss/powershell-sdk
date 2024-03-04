@@ -14,16 +14,10 @@ No summary available.
 
 Access Profile
 
-.PARAMETER Id
-The ID of the Access Profile
 .PARAMETER Name
 Name of the Access Profile
 .PARAMETER Description
 Information about the Access Profile
-.PARAMETER Created
-Date the Access Profile was created
-.PARAMETER Modified
-Date the Access Profile was last modified.
 .PARAMETER Enabled
 Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement.
 .PARAMETER Owner
@@ -50,46 +44,37 @@ AccessProfile<PSCustomObject>
 function Initialize-AccessProfile {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $true,
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Entitlements},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Requestable} = $true,
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AccessRequestConfig},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RevocationRequestConfig},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Segments},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ProvisioningCriteria}
     )
@@ -98,25 +83,22 @@ function Initialize-AccessProfile {
         'Creating PSCustomObject: PSSailpoint => AccessProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Owner) {
+        if (!$Owner) {
             throw "invalid value for 'Owner', 'Owner' cannot be null."
         }
 
-        if ($null -eq $Source) {
+        if (!$Source) {
             throw "invalid value for 'Source', 'Source' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "enabled" = ${Enabled}
             "owner" = ${Owner}
             "source" = ${Source}
@@ -127,7 +109,6 @@ function Initialize-AccessProfile {
             "segments" = ${Segments}
             "provisioningCriteria" = ${ProvisioningCriteria}
         }
-
 
         return $PSO
     }

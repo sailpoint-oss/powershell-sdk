@@ -28,13 +28,13 @@ ConfigObject<PSCustomObject>
 function Initialize-BetaConfigObject {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Version},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Self},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Object}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaConfigObject {
             "self" = ${Self}
             "object" = ${Object}
         }
-
 
         return $PSO
     }

@@ -24,7 +24,7 @@ DomainAddress<PSCustomObject>
 function Initialize-BetaDomainAddress {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Domain}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaDomainAddress {
         $PSO = [PSCustomObject]@{
             "domain" = ${Domain}
         }
-
 
         return $PSO
     }

@@ -28,13 +28,13 @@ WorkItemForward<PSCustomObject>
 function Initialize-BetaWorkItemForward {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TargetOwnerId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${SendNotifications} = $true
     )
@@ -43,11 +43,11 @@ function Initialize-BetaWorkItemForward {
         'Creating PSCustomObject: PSSailpointBeta => BetaWorkItemForward' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $TargetOwnerId) {
+        if (!$TargetOwnerId) {
             throw "invalid value for 'TargetOwnerId', 'TargetOwnerId' cannot be null."
         }
 
-        if ($null -eq $Comment) {
+        if (!$Comment) {
             throw "invalid value for 'Comment', 'Comment' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-BetaWorkItemForward {
             "comment" = ${Comment}
             "sendNotifications" = ${SendNotifications}
         }
-
 
         return $PSO
     }

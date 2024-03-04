@@ -28,13 +28,13 @@ SpConfigMessage<PSCustomObject>
 function Initialize-BetaSpConfigMessage {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Key},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Text},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Details}
     )
@@ -43,15 +43,15 @@ function Initialize-BetaSpConfigMessage {
         'Creating PSCustomObject: PSSailpointBeta => BetaSpConfigMessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Key) {
+        if (!$Key) {
             throw "invalid value for 'Key', 'Key' cannot be null."
         }
 
-        if ($null -eq $Text) {
+        if (!$Text) {
             throw "invalid value for 'Text', 'Text' cannot be null."
         }
 
-        if ($null -eq $Details) {
+        if (!$Details) {
             throw "invalid value for 'Details', 'Details' cannot be null."
         }
 
@@ -61,7 +61,6 @@ function Initialize-BetaSpConfigMessage {
             "text" = ${Text}
             "details" = ${Details}
         }
-
 
         return $PSO
     }

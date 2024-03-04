@@ -30,16 +30,16 @@ Replace<PSCustomObject>
 function Initialize-BetaReplace {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Regex},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Replacement},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarInput}
     )
@@ -48,11 +48,11 @@ function Initialize-BetaReplace {
         'Creating PSCustomObject: PSSailpointBeta => BetaReplace' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Regex) {
+        if (!$Regex) {
             throw "invalid value for 'Regex', 'Regex' cannot be null."
         }
 
-        if ($null -eq $Replacement) {
+        if (!$Replacement) {
             throw "invalid value for 'Replacement', 'Replacement' cannot be null."
         }
 
@@ -63,7 +63,6 @@ function Initialize-BetaReplace {
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

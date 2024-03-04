@@ -24,7 +24,7 @@ CreateExternalExecuteWorkflowRequest<PSCustomObject>
 function Initialize-CreateExternalExecuteWorkflowRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarInput}
     )
@@ -37,7 +37,6 @@ function Initialize-CreateExternalExecuteWorkflowRequest {
         $PSO = [PSCustomObject]@{
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

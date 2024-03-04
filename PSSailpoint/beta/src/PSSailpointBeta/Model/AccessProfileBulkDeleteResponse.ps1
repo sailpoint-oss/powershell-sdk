@@ -28,13 +28,13 @@ AccessProfileBulkDeleteResponse<PSCustomObject>
 function Initialize-BetaAccessProfileBulkDeleteResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TaskId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Pending},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${InUse}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaAccessProfileBulkDeleteResponse {
             "pending" = ${Pending}
             "inUse" = ${InUse}
         }
-
 
         return $PSO
     }

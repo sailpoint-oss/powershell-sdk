@@ -34,22 +34,22 @@ ApprovalForwardHistory<PSCustomObject>
 function Initialize-ApprovalForwardHistory {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OldApproverName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NewApproverName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ForwarderName},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANUAL_REASSIGNMENT", "AUTOMATIC_REASSIGNMENT", "AUTO_ESCALATION", "SELF_REVIEW_DELEGATION")]
         [PSCustomObject]
         ${ReassignmentType}
@@ -68,7 +68,6 @@ function Initialize-ApprovalForwardHistory {
             "forwarderName" = ${ForwarderName}
             "reassignmentType" = ${ReassignmentType}
         }
-
 
         return $PSO
     }

@@ -30,16 +30,16 @@ DateMath<PSCustomObject>
 function Initialize-DateMath {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Expression},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RoundUp} = $false,
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarInput}
     )
@@ -48,7 +48,7 @@ function Initialize-DateMath {
         'Creating PSCustomObject: PSSailpoint => DateMath' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Expression) {
+        if (!$Expression) {
             throw "invalid value for 'Expression', 'Expression' cannot be null."
         }
 
@@ -59,7 +59,6 @@ function Initialize-DateMath {
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

@@ -28,13 +28,13 @@ RevocabilityForRole<PSCustomObject>
 function Initialize-RevocabilityForRole {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CommentsRequired} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DenialCommentsRequired} = $false,
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes}
     )
@@ -49,7 +49,6 @@ function Initialize-RevocabilityForRole {
             "denialCommentsRequired" = ${DenialCommentsRequired}
             "approvalSchemes" = ${ApprovalSchemes}
         }
-
 
         return $PSO
     }

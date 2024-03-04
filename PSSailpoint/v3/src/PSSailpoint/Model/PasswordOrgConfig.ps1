@@ -30,16 +30,16 @@ PasswordOrgConfig<PSCustomObject>
 function Initialize-PasswordOrgConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CustomInstructionsEnabled} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DigitTokenEnabled} = $false,
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${DigitTokenDurationMinutes} = 5,
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${DigitTokenLength} = 6
     )
@@ -71,7 +71,6 @@ function Initialize-PasswordOrgConfig {
             "digitTokenDurationMinutes" = ${DigitTokenDurationMinutes}
             "digitTokenLength" = ${DigitTokenLength}
         }
-
 
         return $PSO
     }

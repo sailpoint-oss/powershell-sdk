@@ -30,16 +30,16 @@ SearchFormDefinitionsByTenant400Response<PSCustomObject>
 function Initialize-BetaSearchFormDefinitionsByTenant400Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DetailCode},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Messages},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${StatusCode},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TrackingId}
     )
@@ -55,7 +55,6 @@ function Initialize-BetaSearchFormDefinitionsByTenant400Response {
             "statusCode" = ${StatusCode}
             "trackingId" = ${TrackingId}
         }
-
 
         return $PSO
     }

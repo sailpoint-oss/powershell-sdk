@@ -28,13 +28,13 @@ AccessRequestPreApproval1<PSCustomObject>
 function Initialize-BetaAccessRequestPreApproval1 {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Approved},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Approver}
     )
@@ -43,15 +43,15 @@ function Initialize-BetaAccessRequestPreApproval1 {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessRequestPreApproval1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Approved) {
+        if (!$Approved) {
             throw "invalid value for 'Approved', 'Approved' cannot be null."
         }
 
-        if ($null -eq $Comment) {
+        if (!$Comment) {
             throw "invalid value for 'Comment', 'Comment' cannot be null."
         }
 
-        if ($null -eq $Approver) {
+        if (!$Approver) {
             throw "invalid value for 'Approver', 'Approver' cannot be null."
         }
 
@@ -61,7 +61,6 @@ function Initialize-BetaAccessRequestPreApproval1 {
             "comment" = ${Comment}
             "approver" = ${Approver}
         }
-
 
         return $PSO
     }

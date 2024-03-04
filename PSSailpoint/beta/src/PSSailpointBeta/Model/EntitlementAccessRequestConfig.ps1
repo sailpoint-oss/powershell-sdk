@@ -28,13 +28,13 @@ EntitlementAccessRequestConfig<PSCustomObject>
 function Initialize-BetaEntitlementAccessRequestConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequestCommentRequired} = $false,
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DenialCommentRequired} = $false
     )
@@ -49,7 +49,6 @@ function Initialize-BetaEntitlementAccessRequestConfig {
             "requestCommentRequired" = ${RequestCommentRequired}
             "denialCommentRequired" = ${DenialCommentRequired}
         }
-
 
         return $PSO
     }

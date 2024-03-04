@@ -30,16 +30,16 @@ PeerGroupMember<PSCustomObject>
 function Initialize-BetaPeerGroupMember {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PeerGroupId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes}
     )
@@ -55,7 +55,6 @@ function Initialize-BetaPeerGroupMember {
             "peer_group_id" = ${PeerGroupId}
             "attributes" = ${Attributes}
         }
-
 
         return $PSO
     }

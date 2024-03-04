@@ -24,8 +24,6 @@ Human-readable name of the SOD policy violation report result.
 Status of a SOD policy violation report.
 .PARAMETER ReportType
 No description available.
-.PARAMETER LastRunAt
-The most recent date and time this report was run
 .OUTPUTS
 
 CampaignReport<PSCustomObject>
@@ -34,34 +32,31 @@ CampaignReport<PSCustomObject>
 function Initialize-CampaignReport {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("REPORT_RESULT")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SUCCESS", "WARNING", "ERROR", "TERMINATED", "TEMP_ERROR", "PENDING")]
         [String]
         ${Status},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CAMPAIGN_COMPOSITION_REPORT", "CAMPAIGN_REMEDIATION_STATUS_REPORT", "CAMPAIGN_STATUS_REPORT", "CERTIFICATION_SIGNOFF_REPORT")]
         [PSCustomObject]
-        ${ReportType},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${LastRunAt}
+        ${ReportType}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => CampaignReport' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $ReportType) {
+        if (!$ReportType) {
             throw "invalid value for 'ReportType', 'ReportType' cannot be null."
         }
 
@@ -72,9 +67,7 @@ function Initialize-CampaignReport {
             "name" = ${Name}
             "status" = ${Status}
             "reportType" = ${ReportType}
-            "lastRunAt" = ${LastRunAt}
         }
-
 
         return $PSO
     }

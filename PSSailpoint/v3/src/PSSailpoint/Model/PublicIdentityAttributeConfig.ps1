@@ -26,10 +26,10 @@ PublicIdentityAttributeConfig<PSCustomObject>
 function Initialize-PublicIdentityAttributeConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Key},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -43,7 +43,6 @@ function Initialize-PublicIdentityAttributeConfig {
             "key" = ${Key}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

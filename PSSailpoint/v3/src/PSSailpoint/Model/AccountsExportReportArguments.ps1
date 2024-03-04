@@ -30,16 +30,16 @@ AccountsExportReportArguments<PSCustomObject>
 function Initialize-AccountsExportReportArguments {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Application},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${DefaultS3Bucket},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${S3Bucket}
     )
@@ -48,15 +48,15 @@ function Initialize-AccountsExportReportArguments {
         'Creating PSCustomObject: PSSailpoint => AccountsExportReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Application) {
+        if (!$Application) {
             throw "invalid value for 'Application', 'Application' cannot be null."
         }
 
-        if ($null -eq $SourceName) {
+        if (!$SourceName) {
             throw "invalid value for 'SourceName', 'SourceName' cannot be null."
         }
 
-        if ($null -eq $DefaultS3Bucket) {
+        if (!$DefaultS3Bucket) {
             throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
         }
 
@@ -67,7 +67,6 @@ function Initialize-AccountsExportReportArguments {
             "defaultS3Bucket" = ${DefaultS3Bucket}
             "s3Bucket" = ${S3Bucket}
         }
-
 
         return $PSO
     }

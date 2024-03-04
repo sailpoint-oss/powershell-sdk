@@ -14,8 +14,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-Id of the campaign
 .PARAMETER Name
 The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
 .PARAMETER Description
@@ -30,18 +28,8 @@ Enables email notification for this campaign
 Allows auto revoke for this campaign
 .PARAMETER RecommendationsEnabled
 Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
-.PARAMETER Status
-The campaign's current status.
 .PARAMETER CorrelatedStatus
 The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
-.PARAMETER Created
-Created time of the campaign
-.PARAMETER TotalCertifications
-The total number of certifications in this campaign.
-.PARAMETER CompletedCertifications
-The number of completed certifications in this campaign.
-.PARAMETER Alerts
-A list of errors and warnings that have accumulated.
 .OUTPUTS
 
 Slimcampaign<PSCustomObject>
@@ -50,72 +38,52 @@ Slimcampaign<PSCustomObject>
 function Initialize-BetaSlimcampaign {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Deadline},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANAGER", "SOURCE_OWNER", "SEARCH", "ROLE_COMPOSITION")]
         [String]
         ${Type},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EmailNotificationEnabled} = $false,
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${AutoRevokeAllowed} = $false,
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RecommendationsEnabled} = $false,
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("PENDING", "STAGED", "CANCELING", "ACTIVATING", "ACTIVE", "COMPLETING", "COMPLETED", "ERROR", "ARCHIVED")]
-        [String]
-        ${Status},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CORRELATED", "UNCORRELATED")]
         [String]
-        ${CorrelatedStatus},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${TotalCertifications},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${CompletedCertifications},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${Alerts}
+        ${CorrelatedStatus}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaSlimcampaign' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Description) {
+        if (!$Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
             "deadline" = ${Deadline}
@@ -123,14 +91,8 @@ function Initialize-BetaSlimcampaign {
             "emailNotificationEnabled" = ${EmailNotificationEnabled}
             "autoRevokeAllowed" = ${AutoRevokeAllowed}
             "recommendationsEnabled" = ${RecommendationsEnabled}
-            "status" = ${Status}
             "correlatedStatus" = ${CorrelatedStatus}
-            "created" = ${Created}
-            "totalCertifications" = ${TotalCertifications}
-            "completedCertifications" = ${CompletedCertifications}
-            "alerts" = ${Alerts}
         }
-
 
         return $PSO
     }

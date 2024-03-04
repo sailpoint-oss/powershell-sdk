@@ -28,13 +28,13 @@ NotificationTemplateContext<PSCustomObject>
 function Initialize-BetaNotificationTemplateContext {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaNotificationTemplateContext {
             "created" = ${Created}
             "modified" = ${Modified}
         }
-
 
         return $PSO
     }

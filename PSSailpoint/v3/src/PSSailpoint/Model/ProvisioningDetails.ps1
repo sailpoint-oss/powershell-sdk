@@ -24,7 +24,7 @@ ProvisioningDetails<PSCustomObject>
 function Initialize-ProvisioningDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OrderedSubPhaseReferences}
     )
@@ -37,7 +37,6 @@ function Initialize-ProvisioningDetails {
         $PSO = [PSCustomObject]@{
             "orderedSubPhaseReferences" = ${OrderedSubPhaseReferences}
         }
-
 
         return $PSO
     }

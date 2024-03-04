@@ -38,28 +38,28 @@ ProvisioningCompleted<PSCustomObject>
 function Initialize-BetaProvisioningCompleted {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TrackingNumber},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Sources},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Action},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Errors},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Warnings},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Recipient},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Requester},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccountRequests}
     )
@@ -68,19 +68,19 @@ function Initialize-BetaProvisioningCompleted {
         'Creating PSCustomObject: PSSailpointBeta => BetaProvisioningCompleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $TrackingNumber) {
+        if (!$TrackingNumber) {
             throw "invalid value for 'TrackingNumber', 'TrackingNumber' cannot be null."
         }
 
-        if ($null -eq $Sources) {
+        if (!$Sources) {
             throw "invalid value for 'Sources', 'Sources' cannot be null."
         }
 
-        if ($null -eq $Recipient) {
+        if (!$Recipient) {
             throw "invalid value for 'Recipient', 'Recipient' cannot be null."
         }
 
-        if ($null -eq $AccountRequests) {
+        if (!$AccountRequests) {
             throw "invalid value for 'AccountRequests', 'AccountRequests' cannot be null."
         }
 
@@ -95,7 +95,6 @@ function Initialize-BetaProvisioningCompleted {
             "requester" = ${Requester}
             "accountRequests" = ${AccountRequests}
         }
-
 
         return $PSO
     }

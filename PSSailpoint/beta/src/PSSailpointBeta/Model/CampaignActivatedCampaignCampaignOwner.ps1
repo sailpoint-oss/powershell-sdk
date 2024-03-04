@@ -28,13 +28,13 @@ CampaignActivatedCampaignCampaignOwner<PSCustomObject>
 function Initialize-BetaCampaignActivatedCampaignCampaignOwner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Email}
     )
@@ -43,15 +43,15 @@ function Initialize-BetaCampaignActivatedCampaignCampaignOwner {
         'Creating PSCustomObject: PSSailpointBeta => BetaCampaignActivatedCampaignCampaignOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $DisplayName) {
+        if (!$DisplayName) {
             throw "invalid value for 'DisplayName', 'DisplayName' cannot be null."
         }
 
-        if ($null -eq $Email) {
+        if (!$Email) {
             throw "invalid value for 'Email', 'Email' cannot be null."
         }
 
@@ -61,7 +61,6 @@ function Initialize-BetaCampaignActivatedCampaignCampaignOwner {
             "displayName" = ${DisplayName}
             "email" = ${Email}
         }
-
 
         return $PSO
     }

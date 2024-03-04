@@ -34,23 +34,23 @@ ManualWorkItemDetails<PSCustomObject>
 function Initialize-ManualWorkItemDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Forwarded} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OriginalOwner},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${CurrentOwner},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PENDING", "APPROVED", "REJECTED", "EXPIRED", "CANCELLED", "ARCHIVED")]
         [PSCustomObject]
         ${Status},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ForwardHistory}
     )
@@ -68,7 +68,6 @@ function Initialize-ManualWorkItemDetails {
             "status" = ${Status}
             "forwardHistory" = ${ForwardHistory}
         }
-
 
         return $PSO
     }

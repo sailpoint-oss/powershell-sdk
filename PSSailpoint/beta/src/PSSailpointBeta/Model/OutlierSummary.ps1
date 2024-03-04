@@ -32,20 +32,20 @@ OutlierSummary<PSCustomObject>
 function Initialize-BetaOutlierSummary {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("LOW_SIMILARITY", "STRUCTURAL")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${SnapshotDate},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${TotalOutliers},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${TotalIdentities},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${TotalIgnored} = 0
     )
@@ -62,7 +62,6 @@ function Initialize-BetaOutlierSummary {
             "totalIdentities" = ${TotalIdentities}
             "totalIgnored" = ${TotalIgnored}
         }
-
 
         return $PSO
     }

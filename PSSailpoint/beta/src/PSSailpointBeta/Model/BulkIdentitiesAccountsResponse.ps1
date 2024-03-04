@@ -28,13 +28,13 @@ BulkIdentitiesAccountsResponse<PSCustomObject>
 function Initialize-BetaBulkIdentitiesAccountsResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${StatusCode},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Message}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaBulkIdentitiesAccountsResponse {
             "statusCode" = ${StatusCode}
             "message" = ${Message}
         }
-
 
         return $PSO
     }

@@ -24,7 +24,7 @@ CertificationSignedOff<PSCustomObject>
 function Initialize-BetaCertificationSignedOff {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Certification}
     )
@@ -33,7 +33,7 @@ function Initialize-BetaCertificationSignedOff {
         'Creating PSCustomObject: PSSailpointBeta => BetaCertificationSignedOff' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Certification) {
+        if (!$Certification) {
             throw "invalid value for 'Certification', 'Certification' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-BetaCertificationSignedOff {
         $PSO = [PSCustomObject]@{
             "certification" = ${Certification}
         }
-
 
         return $PSO
     }

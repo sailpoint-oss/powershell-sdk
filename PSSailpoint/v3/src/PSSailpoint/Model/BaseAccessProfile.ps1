@@ -26,10 +26,10 @@ BaseAccessProfile<PSCustomObject>
 function Initialize-BaseAccessProfile {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -43,7 +43,6 @@ function Initialize-BaseAccessProfile {
             "id" = ${Id}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

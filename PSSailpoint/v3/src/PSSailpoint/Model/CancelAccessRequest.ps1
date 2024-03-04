@@ -26,10 +26,10 @@ CancelAccessRequest<PSCustomObject>
 function Initialize-CancelAccessRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountActivityId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment}
     )
@@ -38,11 +38,11 @@ function Initialize-CancelAccessRequest {
         'Creating PSCustomObject: PSSailpoint => CancelAccessRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $AccountActivityId) {
+        if (!$AccountActivityId) {
             throw "invalid value for 'AccountActivityId', 'AccountActivityId' cannot be null."
         }
 
-        if ($null -eq $Comment) {
+        if (!$Comment) {
             throw "invalid value for 'Comment', 'Comment' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-CancelAccessRequest {
             "accountActivityId" = ${AccountActivityId}
             "comment" = ${Comment}
         }
-
 
         return $PSO
     }

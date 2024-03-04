@@ -28,14 +28,14 @@ SourcePasswordPoliciesInner<PSCustomObject>
 function Initialize-BetaSourcePasswordPoliciesInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PASSWORD_POLICY")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -50,7 +50,6 @@ function Initialize-BetaSourcePasswordPoliciesInner {
             "id" = ${Id}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

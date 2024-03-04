@@ -34,24 +34,24 @@ SpConfigJob<PSCustomObject>
 function Initialize-BetaSpConfigJob {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${JobId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("NOT_STARTED", "IN_PROGRESS", "COMPLETE", "CANCELLED", "FAILED")]
         [String]
         ${Status},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("EXPORT", "IMPORT")]
         [String]
         ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Expiration},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Created},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Modified}
     )
@@ -60,27 +60,27 @@ function Initialize-BetaSpConfigJob {
         'Creating PSCustomObject: PSSailpointBeta => BetaSpConfigJob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $JobId) {
+        if (!$JobId) {
             throw "invalid value for 'JobId', 'JobId' cannot be null."
         }
 
-        if ($null -eq $Status) {
+        if (!$Status) {
             throw "invalid value for 'Status', 'Status' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Expiration) {
+        if (!$Expiration) {
             throw "invalid value for 'Expiration', 'Expiration' cannot be null."
         }
 
-        if ($null -eq $Created) {
+        if (!$Created) {
             throw "invalid value for 'Created', 'Created' cannot be null."
         }
 
-        if ($null -eq $Modified) {
+        if (!$Modified) {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
@@ -93,7 +93,6 @@ function Initialize-BetaSpConfigJob {
             "created" = ${Created}
             "modified" = ${Modified}
         }
-
 
         return $PSO
     }

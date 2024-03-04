@@ -18,8 +18,6 @@ This determines who remediation tasks will be assigned to. Remediation tasks are
 Legal Remediator Type
 .PARAMETER Id
 The ID of the remediator.
-.PARAMETER Name
-The name of the remediator.
 .OUTPUTS
 
 FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef<PSCustomObject>
@@ -28,27 +26,24 @@ FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef<PSCustomObject>
 function Initialize-BetaFullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name}
+        ${Id}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaFullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
@@ -56,9 +51,7 @@ function Initialize-BetaFullcampaignAllOfRoleCompositionCampaignInfoRemediatorRe
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
-            "name" = ${Name}
         }
-
 
         return $PSO
     }

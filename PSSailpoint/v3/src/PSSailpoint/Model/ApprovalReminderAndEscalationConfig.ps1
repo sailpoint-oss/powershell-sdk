@@ -30,16 +30,16 @@ ApprovalReminderAndEscalationConfig<PSCustomObject>
 function Initialize-ApprovalReminderAndEscalationConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${DaysUntilEscalation},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${DaysBetweenReminders},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${MaxReminders},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${FallbackApproverRef}
     )
@@ -59,7 +59,6 @@ function Initialize-ApprovalReminderAndEscalationConfig {
             "maxReminders" = ${MaxReminders}
             "fallbackApproverRef" = ${FallbackApproverRef}
         }
-
 
         return $PSO
     }

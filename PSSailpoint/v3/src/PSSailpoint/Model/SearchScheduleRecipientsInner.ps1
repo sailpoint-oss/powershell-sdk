@@ -26,11 +26,11 @@ SearchScheduleRecipientsInner<PSCustomObject>
 function Initialize-SearchScheduleRecipientsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )
@@ -39,11 +39,11 @@ function Initialize-SearchScheduleRecipientsInner {
         'Creating PSCustomObject: PSSailpoint => SearchScheduleRecipientsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
@@ -52,7 +52,6 @@ function Initialize-SearchScheduleRecipientsInner {
             "type" = ${Type}
             "id" = ${Id}
         }
-
 
         return $PSO
     }

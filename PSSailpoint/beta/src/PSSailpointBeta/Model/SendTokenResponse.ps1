@@ -28,14 +28,14 @@ SendTokenResponse<PSCustomObject>
 function Initialize-BetaSendTokenResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SUCCESS", "FAILED")]
         [String]
         ${Status},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ErrorMessage}
     )
@@ -50,7 +50,6 @@ function Initialize-BetaSendTokenResponse {
             "status" = ${Status}
             "errorMessage" = ${ErrorMessage}
         }
-
 
         return $PSO
     }

@@ -30,16 +30,16 @@ EmailNotificationOption<PSCustomObject>
 function Initialize-BetaEmailNotificationOption {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${NotifyManagers},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${NotifyAllAdmins},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${NotifySpecificUsers},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${EmailAddressList}
     )
@@ -55,7 +55,6 @@ function Initialize-BetaEmailNotificationOption {
             "notifySpecificUsers" = ${NotifySpecificUsers}
             "emailAddressList" = ${EmailAddressList}
         }
-
 
         return $PSO
     }

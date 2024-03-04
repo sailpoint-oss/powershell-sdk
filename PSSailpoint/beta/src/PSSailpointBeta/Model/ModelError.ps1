@@ -28,13 +28,13 @@ ModelError<PSCustomObject>
 function Initialize-BetaModelError {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DetailCode},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Messages},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TrackingId}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaModelError {
             "messages" = ${Messages}
             "trackingId" = ${TrackingId}
         }
-
 
         return $PSO
     }

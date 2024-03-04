@@ -14,22 +14,10 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-lifecycle stat id.
-.PARAMETER Name
-Lifecycle-state name.
-.PARAMETER TechnicalName
-The technical name for lifecycle state. This is for internal use.
 .PARAMETER Description
 Lifecycle state description.
-.PARAMETER Created
-Lifecycle state created date.
-.PARAMETER Modified
-Lifecycle state modified date.
 .PARAMETER Enabled
 Whether the lifecycle state is enabled or disabled.
-.PARAMETER IdentityCount
-Number of identities that have the lifecycle state.
 .PARAMETER EmailNotificationOption
 No description available.
 .PARAMETER AccountActions
@@ -44,37 +32,19 @@ LifecycleState<PSCustomObject>
 function Initialize-BetaLifecycleState {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TechnicalName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${IdentityCount},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${EmailNotificationOption},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccountActions},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${AccessProfileIds}
     )
@@ -85,19 +55,12 @@ function Initialize-BetaLifecycleState {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "technicalName" = ${TechnicalName}
             "description" = ${Description}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "enabled" = ${Enabled}
-            "identityCount" = ${IdentityCount}
             "emailNotificationOption" = ${EmailNotificationOption}
             "accountActions" = ${AccountActions}
             "accessProfileIds" = ${AccessProfileIds}
         }
-
 
         return $PSO
     }

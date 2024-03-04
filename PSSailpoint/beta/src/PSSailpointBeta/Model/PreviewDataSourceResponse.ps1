@@ -24,7 +24,7 @@ PreviewDataSourceResponse<PSCustomObject>
 function Initialize-BetaPreviewDataSourceResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Results}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaPreviewDataSourceResponse {
         $PSO = [PSCustomObject]@{
             "results" = ${Results}
         }
-
 
         return $PSO
     }

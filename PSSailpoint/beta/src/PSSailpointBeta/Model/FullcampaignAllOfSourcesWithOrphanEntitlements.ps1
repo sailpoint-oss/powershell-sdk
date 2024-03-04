@@ -28,14 +28,14 @@ FullcampaignAllOfSourcesWithOrphanEntitlements<PSCustomObject>
 function Initialize-BetaFullcampaignAllOfSourcesWithOrphanEntitlements {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE")]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -50,7 +50,6 @@ function Initialize-BetaFullcampaignAllOfSourcesWithOrphanEntitlements {
             "type" = ${Type}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

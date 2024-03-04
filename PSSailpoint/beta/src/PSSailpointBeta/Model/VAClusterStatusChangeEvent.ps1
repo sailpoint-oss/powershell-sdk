@@ -32,20 +32,20 @@ VAClusterStatusChangeEvent<PSCustomObject>
 function Initialize-BetaVAClusterStatusChangeEvent {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Created},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE", "CLUSTER")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Application},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${HealthCheckResult},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${PreviousHealthCheckResult}
     )
@@ -54,23 +54,23 @@ function Initialize-BetaVAClusterStatusChangeEvent {
         'Creating PSCustomObject: PSSailpointBeta => BetaVAClusterStatusChangeEvent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Created) {
+        if (!$Created) {
             throw "invalid value for 'Created', 'Created' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Application) {
+        if (!$Application) {
             throw "invalid value for 'Application', 'Application' cannot be null."
         }
 
-        if ($null -eq $HealthCheckResult) {
+        if (!$HealthCheckResult) {
             throw "invalid value for 'HealthCheckResult', 'HealthCheckResult' cannot be null."
         }
 
-        if ($null -eq $PreviousHealthCheckResult) {
+        if (!$PreviousHealthCheckResult) {
             throw "invalid value for 'PreviousHealthCheckResult', 'PreviousHealthCheckResult' cannot be null."
         }
 
@@ -82,7 +82,6 @@ function Initialize-BetaVAClusterStatusChangeEvent {
             "healthCheckResult" = ${HealthCheckResult}
             "previousHealthCheckResult" = ${PreviousHealthCheckResult}
         }
-
 
         return $PSO
     }

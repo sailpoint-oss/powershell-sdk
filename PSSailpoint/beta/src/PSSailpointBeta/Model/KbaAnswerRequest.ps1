@@ -24,7 +24,7 @@ KbaAnswerRequest<PSCustomObject>
 function Initialize-BetaKbaAnswerRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Answers}
     )
@@ -33,7 +33,7 @@ function Initialize-BetaKbaAnswerRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaKbaAnswerRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Answers) {
+        if (!$Answers) {
             throw "invalid value for 'Answers', 'Answers' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-BetaKbaAnswerRequest {
         $PSO = [PSCustomObject]@{
             "answers" = ${Answers}
         }
-
 
         return $PSO
     }

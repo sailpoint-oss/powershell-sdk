@@ -30,17 +30,17 @@ FilterAggregation<PSCustomObject>
 function Initialize-FilterAggregation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("TERM")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Field},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Value}
     )
@@ -49,15 +49,15 @@ function Initialize-FilterAggregation {
         'Creating PSCustomObject: PSSailpoint => FilterAggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Field) {
+        if (!$Field) {
             throw "invalid value for 'Field', 'Field' cannot be null."
         }
 
-        if ($null -eq $Value) {
+        if (!$Value) {
             throw "invalid value for 'Value', 'Value' cannot be null."
         }
 
@@ -68,7 +68,6 @@ function Initialize-FilterAggregation {
             "field" = ${Field}
             "value" = ${Value}
         }
-
 
         return $PSO
     }

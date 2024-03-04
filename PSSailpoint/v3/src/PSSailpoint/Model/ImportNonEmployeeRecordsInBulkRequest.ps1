@@ -24,7 +24,7 @@ ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
 function Initialize-ImportNonEmployeeRecordsInBulkRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${VarData}
     )
@@ -33,7 +33,7 @@ function Initialize-ImportNonEmployeeRecordsInBulkRequest {
         'Creating PSCustomObject: PSSailpoint => ImportNonEmployeeRecordsInBulkRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $VarData) {
+        if (!$VarData) {
             throw "invalid value for 'VarData', 'VarData' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-ImportNonEmployeeRecordsInBulkRequest {
         $PSO = [PSCustomObject]@{
             "data" = ${VarData}
         }
-
 
         return $PSO
     }

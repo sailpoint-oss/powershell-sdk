@@ -26,10 +26,10 @@ ImportSpConfigRequest<PSCustomObject>
 function Initialize-BetaImportSpConfigRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${VarData},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Options}
     )
@@ -38,7 +38,7 @@ function Initialize-BetaImportSpConfigRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaImportSpConfigRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $VarData) {
+        if (!$VarData) {
             throw "invalid value for 'VarData', 'VarData' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-BetaImportSpConfigRequest {
             "data" = ${VarData}
             "options" = ${Options}
         }
-
 
         return $PSO
     }

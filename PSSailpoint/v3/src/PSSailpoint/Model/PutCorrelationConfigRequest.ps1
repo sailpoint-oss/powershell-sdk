@@ -24,7 +24,7 @@ PutCorrelationConfigRequest<PSCustomObject>
 function Initialize-PutCorrelationConfigRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${File}
     )
@@ -33,7 +33,7 @@ function Initialize-PutCorrelationConfigRequest {
         'Creating PSCustomObject: PSSailpoint => PutCorrelationConfigRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $File) {
+        if (!$File) {
             throw "invalid value for 'File', 'File' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-PutCorrelationConfigRequest {
         $PSO = [PSCustomObject]@{
             "file" = ${File}
         }
-
 
         return $PSO
     }

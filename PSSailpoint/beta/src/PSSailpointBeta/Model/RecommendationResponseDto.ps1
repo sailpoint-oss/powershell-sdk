@@ -24,7 +24,7 @@ RecommendationResponseDto<PSCustomObject>
 function Initialize-BetaRecommendationResponseDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Response}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaRecommendationResponseDto {
         $PSO = [PSCustomObject]@{
             "response" = ${Response}
         }
-
 
         return $PSO
     }

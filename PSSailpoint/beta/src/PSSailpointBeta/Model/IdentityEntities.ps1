@@ -24,7 +24,7 @@ IdentityEntities<PSCustomObject>
 function Initialize-BetaIdentityEntities {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${IdentityEntity}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaIdentityEntities {
         $PSO = [PSCustomObject]@{
             "identityEntity" = ${IdentityEntity}
         }
-
 
         return $PSO
     }

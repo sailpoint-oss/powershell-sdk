@@ -28,14 +28,14 @@ CustomPasswordInstruction<PSCustomObject>
 function Initialize-BetaCustomPasswordInstruction {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("change-password:enter-password", "change-password:finish", "flow-selection:select", "forget-username:user-email", "mfa:enter-code", "mfa:enter-kba", "mfa:select", "reset-password:enter-password", "reset-password:enter-username", "reset-password:finish", "unlock-account:enter-username", "unlock-account:finish")]
         [String]
         ${PageId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PageContent},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Locale}
     )
@@ -50,7 +50,6 @@ function Initialize-BetaCustomPasswordInstruction {
             "pageContent" = ${PageContent}
             "locale" = ${Locale}
         }
-
 
         return $PSO
     }

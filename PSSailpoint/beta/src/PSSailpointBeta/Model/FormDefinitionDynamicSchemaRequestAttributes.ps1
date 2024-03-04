@@ -24,7 +24,7 @@ FormDefinitionDynamicSchemaRequestAttributes<PSCustomObject>
 function Initialize-BetaFormDefinitionDynamicSchemaRequestAttributes {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FormDefinitionId}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaFormDefinitionDynamicSchemaRequestAttributes {
         $PSO = [PSCustomObject]@{
             "formDefinitionId" = ${FormDefinitionId}
         }
-
 
         return $PSO
     }

@@ -48,44 +48,44 @@ CertificationDto<PSCustomObject>
 function Initialize-BetaCertificationDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${CampaignRef},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("STAGED", "ACTIVE", "SIGNED")]
         [PSCustomObject]
         ${Phase},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Due},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Signed},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Reviewer},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Reassignment},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${HasErrors},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ErrorMessage},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Completed},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${DecisionsMade},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${DecisionsTotal},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${EntitiesCompleted},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${EntitiesTotal}
     )
@@ -94,47 +94,47 @@ function Initialize-BetaCertificationDto {
         'Creating PSCustomObject: PSSailpointBeta => BetaCertificationDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $CampaignRef) {
+        if (!$CampaignRef) {
             throw "invalid value for 'CampaignRef', 'CampaignRef' cannot be null."
         }
 
-        if ($null -eq $Phase) {
+        if (!$Phase) {
             throw "invalid value for 'Phase', 'Phase' cannot be null."
         }
 
-        if ($null -eq $Due) {
+        if (!$Due) {
             throw "invalid value for 'Due', 'Due' cannot be null."
         }
 
-        if ($null -eq $Signed) {
+        if (!$Signed) {
             throw "invalid value for 'Signed', 'Signed' cannot be null."
         }
 
-        if ($null -eq $Reviewer) {
+        if (!$Reviewer) {
             throw "invalid value for 'Reviewer', 'Reviewer' cannot be null."
         }
 
-        if ($null -eq $HasErrors) {
+        if (!$HasErrors) {
             throw "invalid value for 'HasErrors', 'HasErrors' cannot be null."
         }
 
-        if ($null -eq $Completed) {
+        if (!$Completed) {
             throw "invalid value for 'Completed', 'Completed' cannot be null."
         }
 
-        if ($null -eq $DecisionsMade) {
+        if (!$DecisionsMade) {
             throw "invalid value for 'DecisionsMade', 'DecisionsMade' cannot be null."
         }
 
-        if ($null -eq $DecisionsTotal) {
+        if (!$DecisionsTotal) {
             throw "invalid value for 'DecisionsTotal', 'DecisionsTotal' cannot be null."
         }
 
-        if ($null -eq $EntitiesCompleted) {
+        if (!$EntitiesCompleted) {
             throw "invalid value for 'EntitiesCompleted', 'EntitiesCompleted' cannot be null."
         }
 
-        if ($null -eq $EntitiesTotal) {
+        if (!$EntitiesTotal) {
             throw "invalid value for 'EntitiesTotal', 'EntitiesTotal' cannot be null."
         }
 
@@ -154,7 +154,6 @@ function Initialize-BetaCertificationDto {
             "entitiesCompleted" = ${EntitiesCompleted}
             "entitiesTotal" = ${EntitiesTotal}
         }
-
 
         return $PSO
     }

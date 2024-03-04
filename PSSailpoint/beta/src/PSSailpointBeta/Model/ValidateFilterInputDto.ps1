@@ -26,10 +26,10 @@ ValidateFilterInputDto<PSCustomObject>
 function Initialize-BetaValidateFilterInputDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarInput},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${VarFilter}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaValidateFilterInputDto {
         'Creating PSCustomObject: PSSailpointBeta => BetaValidateFilterInputDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $VarInput) {
+        if (!$VarInput) {
             throw "invalid value for 'VarInput', 'VarInput' cannot be null."
         }
 
-        if ($null -eq $VarFilter) {
+        if (!$VarFilter) {
             throw "invalid value for 'VarFilter', 'VarFilter' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaValidateFilterInputDto {
             "input" = ${VarInput}
             "filter" = ${VarFilter}
         }
-
 
         return $PSO
     }

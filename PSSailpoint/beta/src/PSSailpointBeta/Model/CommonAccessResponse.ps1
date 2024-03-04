@@ -20,12 +20,8 @@ Unique ID of the common access item
 No description available.
 .PARAMETER Status
 CONFIRMED or DENIED
-.PARAMETER LastUpdated
-No description available.
 .PARAMETER ReviewedByUser
 true if user has confirmed or denied status
-.PARAMETER LastReviewed
-No description available.
 .PARAMETER CreatedByUser
 No description available.
 .OUTPUTS
@@ -36,25 +32,19 @@ CommonAccessResponse<PSCustomObject>
 function Initialize-BetaCommonAccessResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Access},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${LastUpdated},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ReviewedByUser},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${LastReviewed},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CreatedByUser} = $false
     )
@@ -68,12 +58,9 @@ function Initialize-BetaCommonAccessResponse {
             "id" = ${Id}
             "access" = ${Access}
             "status" = ${Status}
-            "lastUpdated" = ${LastUpdated}
             "reviewedByUser" = ${ReviewedByUser}
-            "lastReviewed" = ${LastReviewed}
             "createdByUser" = ${CreatedByUser}
         }
-
 
         return $PSO
     }

@@ -32,19 +32,19 @@ AccountAttributesChangedAccount<PSCustomObject>
 function Initialize-BetaAccountAttributesChangedAccount {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Uuid},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NativeIdentity},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCOUNT")]
         [PSCustomObject]
         ${Type}
@@ -54,19 +54,19 @@ function Initialize-BetaAccountAttributesChangedAccount {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccountAttributesChangedAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $NativeIdentity) {
+        if (!$NativeIdentity) {
             throw "invalid value for 'NativeIdentity', 'NativeIdentity' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
@@ -78,7 +78,6 @@ function Initialize-BetaAccountAttributesChangedAccount {
             "nativeIdentity" = ${NativeIdentity}
             "type" = ${Type}
         }
-
 
         return $PSO
     }

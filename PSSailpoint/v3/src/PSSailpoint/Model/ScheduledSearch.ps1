@@ -20,10 +20,6 @@ The name of the scheduled search.
 The description of the scheduled search. 
 .PARAMETER SavedSearchId
 The ID of the saved search that will be executed.
-.PARAMETER Created
-A date-time in ISO-8601 format
-.PARAMETER Modified
-A date-time in ISO-8601 format
 .PARAMETER Schedule
 No description available.
 .PARAMETER Recipients
@@ -34,12 +30,8 @@ Indicates if the scheduled search is enabled.
 Indicates if email generation should occur when search returns no results. 
 .PARAMETER DisplayQueryDetails
 Indicates if the generated email should include the query and search results preview (which could include PII). 
-.PARAMETER Id
-The scheduled search ID.
 .PARAMETER Owner
 No description available.
-.PARAMETER OwnerId
-The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead. 
 .OUTPUTS
 
 ScheduledSearch<PSCustomObject>
@@ -48,73 +40,53 @@ ScheduledSearch<PSCustomObject>
 function Initialize-ScheduledSearch {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SavedSearchId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Schedule},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Recipients},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EmailEmptyResults} = $false,
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayQueryDetails} = $false,
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Owner},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${OwnerId}
+        ${Owner}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => ScheduledSearch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $SavedSearchId) {
+        if (!$SavedSearchId) {
             throw "invalid value for 'SavedSearchId', 'SavedSearchId' cannot be null."
         }
 
-        if ($null -eq $Schedule) {
+        if (!$Schedule) {
             throw "invalid value for 'Schedule', 'Schedule' cannot be null."
         }
 
-        if ($null -eq $Recipients) {
+        if (!$Recipients) {
             throw "invalid value for 'Recipients', 'Recipients' cannot be null."
         }
 
-        if ($null -eq $Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
-        if ($null -eq $Owner) {
+        if (!$Owner) {
             throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
-        if ($null -eq $OwnerId) {
-            throw "invalid value for 'OwnerId', 'OwnerId' cannot be null."
         }
 
 
@@ -122,18 +94,13 @@ function Initialize-ScheduledSearch {
             "name" = ${Name}
             "description" = ${Description}
             "savedSearchId" = ${SavedSearchId}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "schedule" = ${Schedule}
             "recipients" = ${Recipients}
             "enabled" = ${Enabled}
             "emailEmptyResults" = ${EmailEmptyResults}
             "displayQueryDetails" = ${DisplayQueryDetails}
-            "id" = ${Id}
             "owner" = ${Owner}
-            "ownerId" = ${OwnerId}
         }
-
 
         return $PSO
     }

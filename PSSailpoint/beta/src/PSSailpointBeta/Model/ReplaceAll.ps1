@@ -28,13 +28,13 @@ ReplaceAll<PSCustomObject>
 function Initialize-BetaReplaceAll {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Table},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarInput}
     )
@@ -43,7 +43,7 @@ function Initialize-BetaReplaceAll {
         'Creating PSCustomObject: PSSailpointBeta => BetaReplaceAll' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Table) {
+        if (!$Table) {
             throw "invalid value for 'Table', 'Table' cannot be null."
         }
 
@@ -53,7 +53,6 @@ function Initialize-BetaReplaceAll {
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

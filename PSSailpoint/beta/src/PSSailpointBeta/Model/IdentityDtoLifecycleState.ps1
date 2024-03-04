@@ -26,10 +26,10 @@ IdentityDtoLifecycleState<PSCustomObject>
 function Initialize-BetaIdentityDtoLifecycleState {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StateName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${ManuallyUpdated}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaIdentityDtoLifecycleState {
         'Creating PSCustomObject: PSSailpointBeta => BetaIdentityDtoLifecycleState' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $StateName) {
+        if (!$StateName) {
             throw "invalid value for 'StateName', 'StateName' cannot be null."
         }
 
-        if ($null -eq $ManuallyUpdated) {
+        if (!$ManuallyUpdated) {
             throw "invalid value for 'ManuallyUpdated', 'ManuallyUpdated' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaIdentityDtoLifecycleState {
             "stateName" = ${StateName}
             "manuallyUpdated" = ${ManuallyUpdated}
         }
-
 
         return $PSO
     }

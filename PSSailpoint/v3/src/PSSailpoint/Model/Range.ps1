@@ -26,10 +26,10 @@ Range<PSCustomObject>
 function Initialize-Range {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Lower},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Upper}
     )
@@ -43,7 +43,6 @@ function Initialize-Range {
             "lower" = ${Lower}
             "upper" = ${Upper}
         }
-
 
         return $PSO
     }

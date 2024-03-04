@@ -26,10 +26,10 @@ KbaAuthResponse<PSCustomObject>
 function Initialize-BetaKbaAuthResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${KbaAuthResponseItems},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PENDING", "SUCCESS", "FAILED", "LOCKOUT", "NOT_ENOUGH_DATA")]
         [String]
         ${Status}
@@ -44,7 +44,6 @@ function Initialize-BetaKbaAuthResponse {
             "kbaAuthResponseItems" = ${KbaAuthResponseItems}
             "status" = ${Status}
         }
-
 
         return $PSO
     }

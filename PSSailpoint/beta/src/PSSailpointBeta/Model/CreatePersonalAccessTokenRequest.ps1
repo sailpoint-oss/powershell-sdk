@@ -26,10 +26,10 @@ CreatePersonalAccessTokenRequest<PSCustomObject>
 function Initialize-BetaCreatePersonalAccessTokenRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Scope}
     )
@@ -38,7 +38,7 @@ function Initialize-BetaCreatePersonalAccessTokenRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaCreatePersonalAccessTokenRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-BetaCreatePersonalAccessTokenRequest {
             "name" = ${Name}
             "scope" = ${Scope}
         }
-
 
         return $PSO
     }

@@ -26,10 +26,10 @@ ListCampaignFilters200Response<PSCustomObject>
 function Initialize-ListCampaignFilters200Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Items},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Count}
     )
@@ -43,7 +43,6 @@ function Initialize-ListCampaignFilters200Response {
             "items" = ${Items}
             "count" = ${Count}
         }
-
 
         return $PSO
     }

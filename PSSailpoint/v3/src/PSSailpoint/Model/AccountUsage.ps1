@@ -26,10 +26,10 @@ AccountUsage<PSCustomObject>
 function Initialize-AccountUsage {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Date},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${Count}
     )
@@ -43,7 +43,6 @@ function Initialize-AccountUsage {
             "date" = ${Date}
             "count" = ${Count}
         }
-
 
         return $PSO
     }

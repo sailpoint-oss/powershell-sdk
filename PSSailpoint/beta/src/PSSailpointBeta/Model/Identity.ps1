@@ -14,14 +14,8 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-System-generated unique ID of the Object
 .PARAMETER Name
 Name of the Object
-.PARAMETER Created
-Creation date of the Object
-.PARAMETER Modified
-Last modification date of the Object
 .PARAMETER Alias
 Alternate unique identifier for the identity
 .PARAMETER EmailAddress
@@ -48,45 +42,36 @@ Identity<PSCustomObject>
 function Initialize-BetaIdentity {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Alias},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EmailAddress},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ERROR", "OK", "")]
         [String]
         ${ProcessingState},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("UNREGISTERED", "REGISTERED", "PENDING", "WARNING", "DISABLED", "ACTIVE", "DEACTIVATED", "TERMINATED", "ERROR", "LOCKED")]
         [String]
         ${IdentityStatus},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ManagerRef},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsManager} = $false,
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${LastRefresh},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${LifecycleState}
     )
@@ -95,16 +80,13 @@ function Initialize-BetaIdentity {
         'Creating PSCustomObject: PSSailpointBeta => BetaIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "alias" = ${Alias}
             "emailAddress" = ${EmailAddress}
             "processingState" = ${ProcessingState}
@@ -115,7 +97,6 @@ function Initialize-BetaIdentity {
             "attributes" = ${Attributes}
             "lifecycleState" = ${LifecycleState}
         }
-
 
         return $PSO
     }

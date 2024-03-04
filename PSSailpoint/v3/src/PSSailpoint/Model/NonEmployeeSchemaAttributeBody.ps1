@@ -34,22 +34,22 @@ NonEmployeeSchemaAttributeBody<PSCustomObject>
 function Initialize-NonEmployeeSchemaAttributeBody {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Label},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TechnicalName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${HelpText},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Placeholder},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Required}
     )
@@ -58,15 +58,15 @@ function Initialize-NonEmployeeSchemaAttributeBody {
         'Creating PSCustomObject: PSSailpoint => NonEmployeeSchemaAttributeBody' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Label) {
+        if (!$Label) {
             throw "invalid value for 'Label', 'Label' cannot be null."
         }
 
-        if ($null -eq $TechnicalName) {
+        if (!$TechnicalName) {
             throw "invalid value for 'TechnicalName', 'TechnicalName' cannot be null."
         }
 
@@ -79,7 +79,6 @@ function Initialize-NonEmployeeSchemaAttributeBody {
             "placeholder" = ${Placeholder}
             "required" = ${Required}
         }
-
 
         return $PSO
     }

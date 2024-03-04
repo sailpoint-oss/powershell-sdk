@@ -28,13 +28,13 @@ TaskResultResponse<PSCustomObject>
 function Initialize-BetaTaskResultResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaTaskResultResponse {
             "id" = ${Id}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

@@ -26,11 +26,11 @@ ConnectorRuleValidationResponse<PSCustomObject>
 function Initialize-BetaConnectorRuleValidationResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("OK", "ERROR")]
         [String]
         ${State},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Details}
     )
@@ -39,11 +39,11 @@ function Initialize-BetaConnectorRuleValidationResponse {
         'Creating PSCustomObject: PSSailpointBeta => BetaConnectorRuleValidationResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $State) {
+        if (!$State) {
             throw "invalid value for 'State', 'State' cannot be null."
         }
 
-        if ($null -eq $Details) {
+        if (!$Details) {
             throw "invalid value for 'Details', 'Details' cannot be null."
         }
 
@@ -52,7 +52,6 @@ function Initialize-BetaConnectorRuleValidationResponse {
             "state" = ${State}
             "details" = ${Details}
         }
-
 
         return $PSO
     }

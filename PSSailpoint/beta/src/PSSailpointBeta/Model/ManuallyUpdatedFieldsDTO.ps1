@@ -26,10 +26,10 @@ ManuallyUpdatedFieldsDTO<PSCustomObject>
 function Initialize-BetaManuallyUpdatedFieldsDTO {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DISPLAYNAME} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DESCRIPTION} = $false
     )
@@ -43,7 +43,6 @@ function Initialize-BetaManuallyUpdatedFieldsDTO {
             "DISPLAY_NAME" = ${DISPLAYNAME}
             "DESCRIPTION" = ${DESCRIPTION}
         }
-
 
         return $PSO
     }

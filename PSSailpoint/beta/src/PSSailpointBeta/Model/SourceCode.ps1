@@ -26,10 +26,10 @@ SourceCode<PSCustomObject>
 function Initialize-BetaSourceCode {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Version},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Script}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaSourceCode {
         'Creating PSCustomObject: PSSailpointBeta => BetaSourceCode' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Version) {
+        if (!$Version) {
             throw "invalid value for 'Version', 'Version' cannot be null."
         }
 
-        if ($null -eq $Script) {
+        if (!$Script) {
             throw "invalid value for 'Script', 'Script' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaSourceCode {
             "version" = ${Version}
             "script" = ${Script}
         }
-
 
         return $PSO
     }

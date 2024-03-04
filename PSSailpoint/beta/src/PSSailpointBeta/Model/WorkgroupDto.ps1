@@ -16,16 +16,10 @@ No description available.
 
 .PARAMETER Owner
 No description available.
-.PARAMETER Id
-Governance group ID.
 .PARAMETER Name
 Governance group name.
 .PARAMETER Description
 Governance group description.
-.PARAMETER MemberCount
-Number of members in the governance group.
-.PARAMETER ConnectionCount
-Number of connections in the governance group.
 .OUTPUTS
 
 WorkgroupDto<PSCustomObject>
@@ -34,24 +28,15 @@ WorkgroupDto<PSCustomObject>
 function Initialize-BetaWorkgroupDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int64]]
-        ${MemberCount},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int64]]
-        ${ConnectionCount}
+        ${Description}
     )
 
     Process {
@@ -61,13 +46,9 @@ function Initialize-BetaWorkgroupDto {
 
         $PSO = [PSCustomObject]@{
             "owner" = ${Owner}
-            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
-            "memberCount" = ${MemberCount}
-            "connectionCount" = ${ConnectionCount}
         }
-
 
         return $PSO
     }

@@ -28,13 +28,13 @@ RequestedItemStatusPreApprovalTriggerDetails<PSCustomObject>
 function Initialize-BetaRequestedItemStatusPreApprovalTriggerDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Reviewer},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APPROVED", "REJECTED")]
         [String]
         ${Decision}
@@ -50,7 +50,6 @@ function Initialize-BetaRequestedItemStatusPreApprovalTriggerDetails {
             "reviewer" = ${Reviewer}
             "decision" = ${Decision}
         }
-
 
         return $PSO
     }

@@ -26,11 +26,11 @@ FormUsedBy<PSCustomObject>
 function Initialize-BetaFormUsedBy {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("WORKFLOW", "SOURCE")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )
@@ -44,7 +44,6 @@ function Initialize-BetaFormUsedBy {
             "type" = ${Type}
             "id" = ${Id}
         }
-
 
         return $PSO
     }

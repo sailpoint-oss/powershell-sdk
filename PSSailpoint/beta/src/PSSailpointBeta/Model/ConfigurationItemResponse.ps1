@@ -26,10 +26,10 @@ ConfigurationItemResponse<PSCustomObject>
 function Initialize-BetaConfigurationItemResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ConfigDetails}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaConfigurationItemResponse {
             "identity" = ${Identity}
             "configDetails" = ${ConfigDetails}
         }
-
 
         return $PSO
     }

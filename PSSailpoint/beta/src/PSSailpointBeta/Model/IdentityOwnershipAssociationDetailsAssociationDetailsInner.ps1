@@ -26,10 +26,10 @@ IdentityOwnershipAssociationDetailsAssociationDetailsInner<PSCustomObject>
 function Initialize-BetaIdentityOwnershipAssociationDetailsAssociationDetailsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AssociationType},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Entities}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaIdentityOwnershipAssociationDetailsAssociationDetailsInn
             "associationType" = ${AssociationType}
             "entities" = ${Entities}
         }
-
 
         return $PSO
     }

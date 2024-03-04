@@ -24,7 +24,7 @@ ListAccessProfiles429Response<PSCustomObject>
 function Initialize-BetaListAccessProfiles429Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Message}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaListAccessProfiles429Response {
         $PSO = [PSCustomObject]@{
             "message" = ${Message}
         }
-
 
         return $PSO
     }

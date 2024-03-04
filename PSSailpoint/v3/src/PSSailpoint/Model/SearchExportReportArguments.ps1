@@ -36,25 +36,25 @@ SearchExportReportArguments<PSCustomObject>
 function Initialize-SearchExportReportArguments {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Indices},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Filters},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Query},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IncludeNested} = $true,
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Sort},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${DefaultS3Bucket},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${S3Bucket}
     )
@@ -63,11 +63,11 @@ function Initialize-SearchExportReportArguments {
         'Creating PSCustomObject: PSSailpoint => SearchExportReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Query) {
+        if (!$Query) {
             throw "invalid value for 'Query', 'Query' cannot be null."
         }
 
-        if ($null -eq $DefaultS3Bucket) {
+        if (!$DefaultS3Bucket) {
             throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
         }
 
@@ -81,7 +81,6 @@ function Initialize-SearchExportReportArguments {
             "defaultS3Bucket" = ${DefaultS3Bucket}
             "s3Bucket" = ${S3Bucket}
         }
-
 
         return $PSO
     }

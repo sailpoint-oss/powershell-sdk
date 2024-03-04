@@ -28,13 +28,13 @@ AccessReviewReassignment<PSCustomObject>
 function Initialize-AccessReviewReassignment {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Reassign},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ReassignTo},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Reason}
     )
@@ -43,15 +43,15 @@ function Initialize-AccessReviewReassignment {
         'Creating PSCustomObject: PSSailpoint => AccessReviewReassignment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Reassign) {
+        if (!$Reassign) {
             throw "invalid value for 'Reassign', 'Reassign' cannot be null."
         }
 
-        if ($null -eq $ReassignTo) {
+        if (!$ReassignTo) {
             throw "invalid value for 'ReassignTo', 'ReassignTo' cannot be null."
         }
 
-        if ($null -eq $Reason) {
+        if (!$Reason) {
             throw "invalid value for 'Reason', 'Reason' cannot be null."
         }
 
@@ -61,7 +61,6 @@ function Initialize-AccessReviewReassignment {
             "reassignTo" = ${ReassignTo}
             "reason" = ${Reason}
         }
-
 
         return $PSO
     }

@@ -28,13 +28,13 @@ ServiceDeskIntegrationTemplateType<PSCustomObject>
 function Initialize-BetaServiceDeskIntegrationTemplateType {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ScriptName}
     )
@@ -43,11 +43,11 @@ function Initialize-BetaServiceDeskIntegrationTemplateType {
         'Creating PSCustomObject: PSSailpointBeta => BetaServiceDeskIntegrationTemplateType' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $ScriptName) {
+        if (!$ScriptName) {
             throw "invalid value for 'ScriptName', 'ScriptName' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-BetaServiceDeskIntegrationTemplateType {
             "type" = ${Type}
             "scriptName" = ${ScriptName}
         }
-
 
         return $PSO
     }

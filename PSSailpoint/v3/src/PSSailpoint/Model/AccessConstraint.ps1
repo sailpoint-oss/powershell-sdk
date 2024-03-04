@@ -28,14 +28,14 @@ AccessConstraint<PSCustomObject>
 function Initialize-AccessConstraint {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ENTITLEMENT", "ACCESS_PROFILE", "ROLE")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Ids},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ALL", "SELECTED")]
         [String]
         ${Operator}
@@ -45,11 +45,11 @@ function Initialize-AccessConstraint {
         'Creating PSCustomObject: PSSailpoint => AccessConstraint' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Operator) {
+        if (!$Operator) {
             throw "invalid value for 'Operator', 'Operator' cannot be null."
         }
 
@@ -59,7 +59,6 @@ function Initialize-AccessConstraint {
             "ids" = ${Ids}
             "operator" = ${Operator}
         }
-
 
         return $PSO
     }

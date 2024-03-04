@@ -34,22 +34,22 @@ NonEmployeeSourceRequestBody<PSCustomObject>
 function Initialize-NonEmployeeSourceRequestBody {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ManagementWorkgroup},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Approvers},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccountManagers}
     )
@@ -58,15 +58,15 @@ function Initialize-NonEmployeeSourceRequestBody {
         'Creating PSCustomObject: PSSailpoint => NonEmployeeSourceRequestBody' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Description) {
+        if (!$Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if ($null -eq $Owner) {
+        if (!$Owner) {
             throw "invalid value for 'Owner', 'Owner' cannot be null."
         }
 
@@ -87,7 +87,6 @@ function Initialize-NonEmployeeSourceRequestBody {
             "approvers" = ${Approvers}
             "accountManagers" = ${AccountManagers}
         }
-
 
         return $PSO
     }

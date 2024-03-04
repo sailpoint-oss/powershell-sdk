@@ -24,7 +24,7 @@ SodViolationContextConflictingAccessCriteriaLeftCriteria<PSCustomObject>
 function Initialize-BetaSodViolationContextConflictingAccessCriteriaLeftCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${CriteriaList}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaSodViolationContextConflictingAccessCriteriaLeftCriteria
         $PSO = [PSCustomObject]@{
             "criteriaList" = ${CriteriaList}
         }
-
 
         return $PSO
     }

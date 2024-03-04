@@ -26,10 +26,10 @@ ManagedClusterQueue<PSCustomObject>
 function Initialize-BetaManagedClusterQueue {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Region}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaManagedClusterQueue {
             "name" = ${Name}
             "region" = ${Region}
         }
-
 
         return $PSO
     }

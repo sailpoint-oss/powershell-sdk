@@ -28,13 +28,13 @@ AccessRequestResponse<PSCustomObject>
 function Initialize-BetaAccessRequestResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequesterId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequesterName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Items}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaAccessRequestResponse {
             "requesterName" = ${RequesterName}
             "items" = ${Items}
         }
-
 
         return $PSO
     }

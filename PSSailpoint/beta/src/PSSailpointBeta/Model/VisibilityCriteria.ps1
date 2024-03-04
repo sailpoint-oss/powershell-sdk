@@ -24,7 +24,7 @@ VisibilityCriteria<PSCustomObject>
 function Initialize-BetaVisibilityCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Expression}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaVisibilityCriteria {
         $PSO = [PSCustomObject]@{
             "expression" = ${Expression}
         }
-
 
         return $PSO
     }

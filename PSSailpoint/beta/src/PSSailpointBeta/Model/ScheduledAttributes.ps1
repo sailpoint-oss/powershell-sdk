@@ -24,7 +24,7 @@ ScheduledAttributes<PSCustomObject>
 function Initialize-BetaScheduledAttributes {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CronString}
     )
@@ -33,7 +33,7 @@ function Initialize-BetaScheduledAttributes {
         'Creating PSCustomObject: PSSailpointBeta => BetaScheduledAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $CronString) {
+        if (!$CronString) {
             throw "invalid value for 'CronString', 'CronString' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-BetaScheduledAttributes {
         $PSO = [PSCustomObject]@{
             "cronString" = ${CronString}
         }
-
 
         return $PSO
     }

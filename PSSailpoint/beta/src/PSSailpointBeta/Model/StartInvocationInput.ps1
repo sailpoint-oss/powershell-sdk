@@ -28,13 +28,13 @@ StartInvocationInput<PSCustomObject>
 function Initialize-BetaStartInvocationInput {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TriggerId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarInput},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ContentJson}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaStartInvocationInput {
             "input" = ${VarInput}
             "contentJson" = ${ContentJson}
         }
-
 
         return $PSO
     }

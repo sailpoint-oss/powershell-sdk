@@ -44,38 +44,38 @@ Subscription<PSCustomObject>
 function Initialize-BetaSubscription {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TriggerId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TriggerName},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("HTTP", "EVENTBRIDGE", "INLINE", "SCRIPT", "WORKFLOW")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ResponseDeadline} = "PT1H",
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${HttpConfig},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${EventBridgeConfig},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Enabled} = $true,
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${VarFilter}
     )
@@ -84,31 +84,31 @@ function Initialize-BetaSubscription {
         'Creating PSCustomObject: PSSailpointBeta => BetaSubscription' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $TriggerId) {
+        if (!$TriggerId) {
             throw "invalid value for 'TriggerId', 'TriggerId' cannot be null."
         }
 
-        if ($null -eq $TriggerName) {
+        if (!$TriggerName) {
             throw "invalid value for 'TriggerName', 'TriggerName' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $ResponseDeadline) {
+        if (!$ResponseDeadline) {
             throw "invalid value for 'ResponseDeadline', 'ResponseDeadline' cannot be null."
         }
 
-        if ($null -eq $Enabled) {
+        if (!$Enabled) {
             throw "invalid value for 'Enabled', 'Enabled' cannot be null."
         }
 
@@ -126,7 +126,6 @@ function Initialize-BetaSubscription {
             "enabled" = ${Enabled}
             "filter" = ${VarFilter}
         }
-
 
         return $PSO
     }

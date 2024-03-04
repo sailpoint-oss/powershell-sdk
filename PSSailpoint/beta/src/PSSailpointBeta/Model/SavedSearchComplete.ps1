@@ -36,25 +36,25 @@ SavedSearchComplete<PSCustomObject>
 function Initialize-BetaSavedSearchComplete {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FileName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OwnerEmail},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OwnerName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Query},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SearchName},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${SearchResults},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SignedS3Url}
     )
@@ -63,31 +63,31 @@ function Initialize-BetaSavedSearchComplete {
         'Creating PSCustomObject: PSSailpointBeta => BetaSavedSearchComplete' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $FileName) {
+        if (!$FileName) {
             throw "invalid value for 'FileName', 'FileName' cannot be null."
         }
 
-        if ($null -eq $OwnerEmail) {
+        if (!$OwnerEmail) {
             throw "invalid value for 'OwnerEmail', 'OwnerEmail' cannot be null."
         }
 
-        if ($null -eq $OwnerName) {
+        if (!$OwnerName) {
             throw "invalid value for 'OwnerName', 'OwnerName' cannot be null."
         }
 
-        if ($null -eq $Query) {
+        if (!$Query) {
             throw "invalid value for 'Query', 'Query' cannot be null."
         }
 
-        if ($null -eq $SearchName) {
+        if (!$SearchName) {
             throw "invalid value for 'SearchName', 'SearchName' cannot be null."
         }
 
-        if ($null -eq $SearchResults) {
+        if (!$SearchResults) {
             throw "invalid value for 'SearchResults', 'SearchResults' cannot be null."
         }
 
-        if ($null -eq $SignedS3Url) {
+        if (!$SignedS3Url) {
             throw "invalid value for 'SignedS3Url', 'SignedS3Url' cannot be null."
         }
 
@@ -101,7 +101,6 @@ function Initialize-BetaSavedSearchComplete {
             "searchResults" = ${SearchResults}
             "signedS3Url" = ${SignedS3Url}
         }
-
 
         return $PSO
     }

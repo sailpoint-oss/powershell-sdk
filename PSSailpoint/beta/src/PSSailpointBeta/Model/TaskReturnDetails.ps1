@@ -26,10 +26,10 @@ TaskReturnDetails<PSCustomObject>
 function Initialize-BetaTaskReturnDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AttributeName}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaTaskReturnDetails {
         'Creating PSCustomObject: PSSailpointBeta => BetaTaskReturnDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $AttributeName) {
+        if (!$AttributeName) {
             throw "invalid value for 'AttributeName', 'AttributeName' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaTaskReturnDetails {
             "name" = ${Name}
             "attributeName" = ${AttributeName}
         }
-
 
         return $PSO
     }

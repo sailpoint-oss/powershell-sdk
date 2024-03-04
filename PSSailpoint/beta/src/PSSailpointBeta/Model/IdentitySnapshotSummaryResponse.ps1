@@ -24,7 +24,7 @@ IdentitySnapshotSummaryResponse<PSCustomObject>
 function Initialize-BetaIdentitySnapshotSummaryResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Snapshot}
     )

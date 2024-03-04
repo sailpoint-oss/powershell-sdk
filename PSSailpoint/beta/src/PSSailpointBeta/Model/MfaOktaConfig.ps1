@@ -32,19 +32,19 @@ MfaOktaConfig<PSCustomObject>
 function Initialize-BetaMfaOktaConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${MfaMethod},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${VarHost},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccessKey},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityAttribute}
     )

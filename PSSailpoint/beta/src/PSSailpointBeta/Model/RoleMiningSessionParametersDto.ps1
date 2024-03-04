@@ -40,33 +40,33 @@ RoleMiningSessionParametersDto<PSCustomObject>
 function Initialize-BetaRoleMiningSessionParametersDto {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${MinNumIdentitiesInPotentialRole},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${PruneThreshold},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Saved} = $true,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Scope},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CREATED", "UPDATED", "IDENTITIES_OBTAINED", "PRUNE_THRESHOLD_OBTAINED", "POTENTIAL_ROLES_PROCESSING", "POTENTIAL_ROLES_CREATED")]
         [PSCustomObject]
         ${State},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANUAL", "AUTO_RM")]
         [PSCustomObject]
         ${ScopingMethod}

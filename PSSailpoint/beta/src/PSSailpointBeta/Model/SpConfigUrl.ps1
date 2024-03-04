@@ -26,10 +26,10 @@ SpConfigUrl<PSCustomObject>
 function Initialize-BetaSpConfigUrl {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Url},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Query}
     )

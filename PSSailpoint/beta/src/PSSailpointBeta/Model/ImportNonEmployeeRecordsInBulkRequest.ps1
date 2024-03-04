@@ -24,7 +24,7 @@ ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
 function Initialize-BetaImportNonEmployeeRecordsInBulkRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${VarData}
     )

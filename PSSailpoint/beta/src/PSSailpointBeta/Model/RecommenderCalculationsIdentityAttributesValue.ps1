@@ -24,7 +24,7 @@ RecommenderCalculationsIdentityAttributesValue<PSCustomObject>
 function Initialize-BetaRecommenderCalculationsIdentityAttributesValue {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Value}
     )

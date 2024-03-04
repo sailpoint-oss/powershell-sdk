@@ -44,37 +44,37 @@ SpConfigObject<PSCustomObject>
 function Initialize-BetaSpConfigObject {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ObjectType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ResolveByIdUrl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ResolveByNameUrl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ExportUrl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ExportRight},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ExportLimit},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ImportUrl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ImportRight},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ImportLimit},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${ReferenceExtractors},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${SignatureRequired} = $false
     )

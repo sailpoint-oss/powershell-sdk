@@ -26,10 +26,10 @@ EvaluateResponse<PSCustomObject>
 function Initialize-BetaEvaluateResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ReassignToId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${LookupTrail}
     )

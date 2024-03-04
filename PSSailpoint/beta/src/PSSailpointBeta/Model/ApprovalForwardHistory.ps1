@@ -34,22 +34,22 @@ ApprovalForwardHistory<PSCustomObject>
 function Initialize-BetaApprovalForwardHistory {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OldApproverName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NewApproverName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ForwarderName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANUAL_REASSIGNMENT", "AUTOMATIC_REASSIGNMENT", "AUTO_ESCALATION", "SELF_REVIEW_DELEGATION")]
         [PSCustomObject]
         ${ReassignmentType}

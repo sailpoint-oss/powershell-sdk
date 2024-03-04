@@ -28,14 +28,14 @@ OrphanUncorrelatedReportArguments<PSCustomObject>
 function Initialize-OrphanUncorrelatedReportArguments {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CSV", "PDF")]
         [String[]]
         ${SelectedFormats},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${DefaultS3Bucket},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${S3Bucket}
     )

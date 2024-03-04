@@ -44,37 +44,37 @@ RoleMiningSessionResponse<PSCustomObject>
 function Initialize-BetaRoleMiningSessionResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Scope},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${MinNumIdentitiesInPotentialRole},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${PrescribedPruneThreshold},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${PruneThreshold},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${PotentialRoleCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${PotentialRolesReadyCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Status},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${CreatedDate},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ModifiedDate},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
         ${Type}

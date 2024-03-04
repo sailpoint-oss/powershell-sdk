@@ -72,81 +72,81 @@ ManagedCluster<PSCustomObject>
 function Initialize-BetaManagedCluster {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Pod},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Org},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("idn", "iai")]
         [PSCustomObject]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Configuration},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${KeyPair},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Redis},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CCG", "VA", "INTERNAL", "IIQ_HARVESTER", "")]
         [PSCustomObject]
         ${ClientType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CcgVersion},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${PinnedConfig} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${LogConfiguration},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Operational} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PublicKeyCertificate},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PublicKeyThumbprint},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PublicKey},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AlertKey},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${ClientIds},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ServiceCount} = 0,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CcId} = "0",
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${CreatedAt},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${UpdatedAt}
     )

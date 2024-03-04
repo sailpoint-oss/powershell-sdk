@@ -26,10 +26,10 @@ IdentityPreviewResponse<PSCustomObject>
 function Initialize-BetaIdentityPreviewResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${PreviewAttributes}
     )

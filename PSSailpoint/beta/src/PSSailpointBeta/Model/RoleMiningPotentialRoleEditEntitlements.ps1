@@ -26,10 +26,10 @@ RoleMiningPotentialRoleEditEntitlements<PSCustomObject>
 function Initialize-BetaRoleMiningPotentialRoleEditEntitlements {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Ids},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Exclude}
     )

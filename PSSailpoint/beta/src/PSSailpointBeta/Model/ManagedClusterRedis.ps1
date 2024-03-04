@@ -26,10 +26,10 @@ ManagedClusterRedis<PSCustomObject>
 function Initialize-BetaManagedClusterRedis {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RedisHost},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${RedisPort}
     )

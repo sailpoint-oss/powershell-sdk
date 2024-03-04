@@ -24,7 +24,7 @@ UUIDGenerator<PSCustomObject>
 function Initialize-UUIDGenerator {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false
     )

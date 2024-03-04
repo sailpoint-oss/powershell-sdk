@@ -28,13 +28,13 @@ ActivityInsights<PSCustomObject>
 function Initialize-ActivityInsights {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountID},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${UsageDays},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("COMPLETE", "UNKNOWN")]
         [String]
         ${UsageDaysState}

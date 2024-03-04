@@ -28,14 +28,14 @@ ImportObject<PSCustomObject>
 function Initialize-BetaImportObject {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY_OBJECT_CONFIG", "IDENTITY_PROFILE", "RULE", "SOURCE", "TRANSFORM", "TRIGGER_SUBSCRIPTION")]
         [String]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )

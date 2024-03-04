@@ -32,19 +32,19 @@ LifecycleState<PSCustomObject>
 function Initialize-BetaLifecycleState {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${EmailNotificationOption},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccountActions},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${AccessProfileIds}
     )

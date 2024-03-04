@@ -28,13 +28,13 @@ RevocabilityForRole<PSCustomObject>
 function Initialize-BetaRevocabilityForRole {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CommentsRequired} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DenialCommentsRequired} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes}
     )

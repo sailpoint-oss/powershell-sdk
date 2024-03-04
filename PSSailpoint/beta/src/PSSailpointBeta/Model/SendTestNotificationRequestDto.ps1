@@ -28,14 +28,14 @@ SendTestNotificationRequestDto<PSCustomObject>
 function Initialize-BetaSendTestNotificationRequestDto {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Key},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("EMAIL", "SLACK", "TEAMS")]
         [String]
         ${Medium},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Context}
     )

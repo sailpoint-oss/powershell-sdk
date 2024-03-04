@@ -26,10 +26,10 @@ EntitlementBulkUpdateRequest<PSCustomObject>
 function Initialize-BetaEntitlementBulkUpdateRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${EntitlementIds},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${JsonPatch}
     )

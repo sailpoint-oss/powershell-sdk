@@ -26,10 +26,10 @@ PasswordInfoQueryDTO<PSCustomObject>
 function Initialize-PasswordInfoQueryDTO {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${UserName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceName}
     )

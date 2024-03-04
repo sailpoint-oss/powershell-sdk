@@ -48,43 +48,43 @@ Role<PSCustomObject>
 function Initialize-BetaRole {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccessProfiles},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Entitlements},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Membership},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${LegacyMembershipInfo},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Requestable} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AccessRequestConfig},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RevocationRequestConfig},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Segments}
     )

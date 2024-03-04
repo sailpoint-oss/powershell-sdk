@@ -26,10 +26,10 @@ TransformDefinition1<PSCustomObject>
 function Initialize-BetaTransformDefinition1 {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes}
     )

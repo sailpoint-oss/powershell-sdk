@@ -26,11 +26,11 @@ WorkflowTrigger<PSCustomObject>
 function Initialize-WorkflowTrigger {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("EVENT", "EXTERNAL", "SCHEDULED")]
         [String]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes}
     )

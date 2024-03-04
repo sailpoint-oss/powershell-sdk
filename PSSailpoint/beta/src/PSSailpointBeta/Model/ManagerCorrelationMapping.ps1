@@ -26,10 +26,10 @@ ManagerCorrelationMapping<PSCustomObject>
 function Initialize-BetaManagerCorrelationMapping {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountAttribute},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityAttribute}
     )

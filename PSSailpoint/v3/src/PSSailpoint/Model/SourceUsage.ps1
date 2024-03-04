@@ -26,10 +26,10 @@ SourceUsage<PSCustomObject>
 function Initialize-SourceUsage {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Date},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${Count}
     )

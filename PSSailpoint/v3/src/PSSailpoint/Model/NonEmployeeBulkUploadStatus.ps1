@@ -24,7 +24,7 @@ NonEmployeeBulkUploadStatus<PSCustomObject>
 function Initialize-NonEmployeeBulkUploadStatus {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PENDING", "IN_PROGRESS", "COMPLETED", "ERROR")]
         [String]
         ${Status}

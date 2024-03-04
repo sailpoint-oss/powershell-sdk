@@ -26,10 +26,10 @@ RoleMiningPotentialRoleExportRequest<PSCustomObject>
 function Initialize-BetaRoleMiningPotentialRoleExportRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${MinEntitlementPopularity},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IncludeCommonAccess}
     )

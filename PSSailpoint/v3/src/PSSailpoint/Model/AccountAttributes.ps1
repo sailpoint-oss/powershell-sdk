@@ -24,7 +24,7 @@ AccountAttributes<PSCustomObject>
 function Initialize-AccountAttributes {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes}
     )

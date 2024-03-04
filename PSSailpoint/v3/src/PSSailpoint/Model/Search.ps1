@@ -54,54 +54,54 @@ Search<PSCustomObject>
 function Initialize-Search {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Indices},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("DSL", "SAILPOINT", "TEXT", "TYPEAHEAD")]
         [PSCustomObject]
         ${QueryType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[String]]
         ${QueryVersion},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Query},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${QueryDsl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${TextQuery},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${TypeAheadQuery},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IncludeNested} = $true,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${QueryResultFilter},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("DSL", "SAILPOINT")]
         [PSCustomObject]
         ${AggregationType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[String]]
         ${AggregationsVersion},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AggregationsDsl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Aggregations},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Sort},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SearchAfter},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Filters}
     )

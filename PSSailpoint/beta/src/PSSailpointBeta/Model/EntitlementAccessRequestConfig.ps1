@@ -28,13 +28,13 @@ EntitlementAccessRequestConfig<PSCustomObject>
 function Initialize-BetaEntitlementAccessRequestConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequestCommentRequired} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DenialCommentRequired} = $false
     )

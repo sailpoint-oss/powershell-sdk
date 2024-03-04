@@ -24,7 +24,7 @@ RequestedItemStatusProvisioningDetails<PSCustomObject>
 function Initialize-RequestedItemStatusProvisioningDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OrderedSubPhaseReferences}
     )

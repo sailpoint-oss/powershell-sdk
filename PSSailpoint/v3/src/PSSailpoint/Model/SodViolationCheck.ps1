@@ -24,7 +24,7 @@ SodViolationCheck<PSCustomObject>
 function Initialize-SodViolationCheck {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestId}
     )

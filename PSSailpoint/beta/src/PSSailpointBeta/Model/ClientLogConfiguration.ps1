@@ -32,20 +32,20 @@ ClientLogConfiguration<PSCustomObject>
 function Initialize-BetaClientLogConfiguration {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ClientId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${DurationMinutes},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Expiration},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("false", "FATAL", "ERROR", "WARN", "INFO", "DEBUG", "TRACE")]
         [PSCustomObject]
         ${RootLevel},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${LogLevels}
     )

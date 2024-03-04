@@ -78,88 +78,88 @@ Source<PSCustomObject>
 function Initialize-Source {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Cluster},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AccountCorrelationConfig},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AccountCorrelationRule},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ManagerCorrelationMapping},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ManagerCorrelationRule},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${BeforeProvisioningRule},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Schemas},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${PasswordPolicies},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Features},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Connector},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ConnectorClass},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ConnectorAttributes},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${DeleteThreshold},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Authoritative} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ManagementWorkgroup},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Healthy} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Since},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ConnectorId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ConnectorName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ConnectionType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ConnectorImplementationId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified}
     )

@@ -26,11 +26,11 @@ ApprovalSchemeForRole<PSCustomObject>
 function Initialize-BetaApprovalSchemeForRole {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("OWNER", "MANAGER", "GOVERNANCE_GROUP")]
         [String]
         ${ApproverType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ApproverId}
     )

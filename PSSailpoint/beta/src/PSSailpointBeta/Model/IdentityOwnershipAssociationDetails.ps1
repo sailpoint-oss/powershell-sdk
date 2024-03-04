@@ -24,7 +24,7 @@ IdentityOwnershipAssociationDetails<PSCustomObject>
 function Initialize-BetaIdentityOwnershipAssociationDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AssociationDetails}
     )

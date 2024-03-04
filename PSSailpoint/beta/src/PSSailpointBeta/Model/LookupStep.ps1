@@ -28,13 +28,13 @@ LookupStep<PSCustomObject>
 function Initialize-BetaLookupStep {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ReassignedToId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ReassignedFromId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANUAL_REASSIGNMENT,", "AUTOMATIC_REASSIGNMENT,", "AUTO_ESCALATION,", "SELF_REVIEW_DELEGATION")]
         [PSCustomObject]
         ${ReassignmentType}

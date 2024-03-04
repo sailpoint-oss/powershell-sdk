@@ -26,11 +26,11 @@ FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef<PSCustomObject>
 function Initialize-BetaFullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY")]
         [String]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )

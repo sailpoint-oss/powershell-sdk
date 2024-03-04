@@ -26,10 +26,10 @@ PostExternalExecuteWorkflow200Response<PSCustomObject>
 function Initialize-BetaPostExternalExecuteWorkflow200Response {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${WorkflowExecutionId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Message}
     )

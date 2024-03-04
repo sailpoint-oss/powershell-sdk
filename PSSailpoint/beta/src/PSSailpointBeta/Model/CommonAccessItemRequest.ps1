@@ -26,10 +26,10 @@ CommonAccessItemRequest<PSCustomObject>
 function Initialize-BetaCommonAccessItemRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Access},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CONFIRMED", "DENIED")]
         [PSCustomObject]
         ${Status}

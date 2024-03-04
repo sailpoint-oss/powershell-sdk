@@ -50,48 +50,48 @@ Fullcampaign<PSCustomObject>
 function Initialize-BetaFullcampaign {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Deadline},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANAGER", "SOURCE_OWNER", "SEARCH", "ROLE_COMPOSITION")]
         [String]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EmailNotificationEnabled} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${AutoRevokeAllowed} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RecommendationsEnabled} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CORRELATED", "UNCORRELATED")]
         [PSCustomObject]
         ${CorrelatedStatus},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarFilter},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${SunsetCommentsRequired} = $true,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${SourceOwnerCampaignInfo},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${SearchCampaignInfo},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RoleCompositionCampaignInfo},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ALL_DECISIONS", "REVOKE_ONLY_DECISIONS", "NO_DECISIONS")]
         [String]
         ${MandatoryCommentRequirement}

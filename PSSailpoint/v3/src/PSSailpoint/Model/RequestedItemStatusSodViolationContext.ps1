@@ -28,14 +28,14 @@ RequestedItemStatusSodViolationContext<PSCustomObject>
 function Initialize-RequestedItemStatusSodViolationContext {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SUCCESS", "ERROR", "")]
         [String]
         ${State},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Uuid},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ViolationCheckResult}
     )

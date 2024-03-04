@@ -28,14 +28,14 @@ TaggedObjectDto<PSCustomObject>
 function Initialize-BetaTaggedObjectDto {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
         [String]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )

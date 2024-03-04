@@ -26,10 +26,10 @@ ListFormInstancesByTenantResponse<PSCustomObject>
 function Initialize-BetaListFormInstancesByTenantResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${Count},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Results}
     )

@@ -26,10 +26,10 @@ PasswordChangeResponse<PSCustomObject>
 function Initialize-BetaPasswordChangeResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IN_PROGRESS", "FINISHED", "FAILED")]
         [String]
         ${State}

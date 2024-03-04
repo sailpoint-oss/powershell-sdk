@@ -28,13 +28,13 @@ BulkTaggedObject<PSCustomObject>
 function Initialize-BetaBulkTaggedObject {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ObjectRefs},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Tags},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APPEND", "MERGE")]
         [String]
         ${Operation} = "APPEND"

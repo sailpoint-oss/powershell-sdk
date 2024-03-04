@@ -24,7 +24,7 @@ PatchServiceDeskIntegrationRequest<PSCustomObject>
 function Initialize-BetaPatchServiceDeskIntegrationRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Operations}
     )

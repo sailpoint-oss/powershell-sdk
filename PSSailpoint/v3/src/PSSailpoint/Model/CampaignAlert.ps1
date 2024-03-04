@@ -26,11 +26,11 @@ CampaignAlert<PSCustomObject>
 function Initialize-CampaignAlert {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ERROR", "WARN", "INFO")]
         [String]
         ${Level},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Localizations}
     )

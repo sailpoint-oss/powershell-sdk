@@ -26,10 +26,10 @@ AccessProfileBulkDeleteRequest<PSCustomObject>
 function Initialize-BetaAccessProfileBulkDeleteRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${AccessProfileIds},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${BestEffortOnly}
     )

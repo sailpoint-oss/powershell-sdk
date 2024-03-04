@@ -24,7 +24,7 @@ BaseCommonDto1<PSCustomObject>
 function Initialize-BetaBaseCommonDto1 {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )

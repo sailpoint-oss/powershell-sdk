@@ -90,107 +90,107 @@ IdentityDocument<PSCustomObject>
 function Initialize-IdentityDocument {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
         [PSCustomObject]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FirstName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LastName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Email},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Phone},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Synced},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Inactive} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Protected} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EmployeeNumber},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Manager},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsManager},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${IdentityProfile},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ProcessingState},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 21, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ProcessingDetails},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 22, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Accounts},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 23, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${AccountCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 24, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Apps},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 25, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${AppCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 26, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Access},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 27, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${AccessCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 28, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${EntitlementCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 29, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${RoleCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 30, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${AccessProfileCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 31, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Owns},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 32, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${OwnsCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 33, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Tags}
     )

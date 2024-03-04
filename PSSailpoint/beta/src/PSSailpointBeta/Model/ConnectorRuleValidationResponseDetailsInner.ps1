@@ -28,13 +28,13 @@ ConnectorRuleValidationResponseDetailsInner<PSCustomObject>
 function Initialize-BetaConnectorRuleValidationResponseDetailsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Line},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Column},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Messsage}
     )

@@ -32,19 +32,19 @@ WorkflowLibraryFormFields<PSCustomObject>
 function Initialize-WorkflowLibraryFormFields {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${HelpText},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Label},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Required} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("text", "textarea", "boolean", "email", "url", "number", "json", "checkbox", "jsonpath", "select", "multiType", "duration", "toggle", "identityPicker", "governanceGroupPicker", "string", "object", "array", "secret", "keyValuePairs", "emailPicker", "advancedToggle")]
         [PSCustomObject]
         ${Type}

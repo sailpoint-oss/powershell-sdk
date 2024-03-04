@@ -26,10 +26,10 @@ EntitlementManuallyUpdatedFields<PSCustomObject>
 function Initialize-BetaEntitlementManuallyUpdatedFields {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DISPLAYNAME} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DESCRIPTION} = $false
     )

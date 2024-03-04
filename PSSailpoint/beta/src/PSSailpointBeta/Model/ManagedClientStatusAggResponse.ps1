@@ -30,18 +30,18 @@ ManagedClientStatusAggResponse<PSCustomObject>
 function Initialize-BetaManagedClientStatusAggResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Body},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("NORMAL", "UNDEFINED", "NOT_CONFIGURED", "CONFIGURING", "WARNING", "ERROR", "FAILED")]
         [PSCustomObject]
         ${Status},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CCG", "VA", "INTERNAL", "IIQ_HARVESTER", "")]
         [PSCustomObject]
         ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Timestamp}
     )

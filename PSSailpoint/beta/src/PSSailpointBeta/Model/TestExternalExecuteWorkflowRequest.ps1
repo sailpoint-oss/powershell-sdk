@@ -24,7 +24,7 @@ TestExternalExecuteWorkflowRequest<PSCustomObject>
 function Initialize-BetaTestExternalExecuteWorkflowRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarInput}
     )

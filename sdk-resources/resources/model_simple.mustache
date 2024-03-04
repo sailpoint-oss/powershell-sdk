@@ -30,7 +30,7 @@ function Initialize-{{{apiNamePrefix}}}{{{classname}}} {
 {{#discardReadOnly}}
     {{#allVars}}
     {{^isReadOnly}}
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = {{vendorExtensions.x-index}}, ValueFromPipelineByPropertyName = $true)]
         {{#pattern}}
         [ValidatePattern("{{{.}}}")]
         {{/pattern}}

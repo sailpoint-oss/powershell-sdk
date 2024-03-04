@@ -28,13 +28,13 @@ TokenAuthRequest<PSCustomObject>
 function Initialize-BetaTokenAuthRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Token},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${UserAlias},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SMS_PERSONAL", "VOICE_PERSONAL", "SMS_WORK", "VOICE_WORK", "EMAIL_WORK", "EMAIL_PERSONAL")]
         [String]
         ${DeliveryType}

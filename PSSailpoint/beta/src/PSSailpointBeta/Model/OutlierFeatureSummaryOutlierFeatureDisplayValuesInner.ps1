@@ -28,13 +28,13 @@ OutlierFeatureSummaryOutlierFeatureDisplayValuesInner<PSCustomObject>
 function Initialize-BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Value},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("INTEGER", "FLOAT")]
         [String]
         ${ValueType}

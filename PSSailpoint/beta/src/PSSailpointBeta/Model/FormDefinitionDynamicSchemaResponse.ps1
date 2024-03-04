@@ -24,7 +24,7 @@ FormDefinitionDynamicSchemaResponse<PSCustomObject>
 function Initialize-BetaFormDefinitionDynamicSchemaResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${OutputSchema}
     )

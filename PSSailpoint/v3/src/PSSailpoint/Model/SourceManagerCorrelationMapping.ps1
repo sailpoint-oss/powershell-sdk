@@ -26,10 +26,10 @@ SourceManagerCorrelationMapping<PSCustomObject>
 function Initialize-SourceManagerCorrelationMapping {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountAttributeName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityAttributeName}
     )

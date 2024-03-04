@@ -28,13 +28,13 @@ AccountRequestInfo<PSCustomObject>
 function Initialize-AccountRequestInfo {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestedObjectId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestedObjectName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT")]
         [PSCustomObject]
         ${RequestedObjectType}

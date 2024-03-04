@@ -24,7 +24,7 @@ RoleBulkDeleteRequest<PSCustomObject>
 function Initialize-BetaRoleBulkDeleteRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${RoleIds}
     )

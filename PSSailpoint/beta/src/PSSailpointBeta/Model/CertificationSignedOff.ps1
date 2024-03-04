@@ -24,7 +24,7 @@ CertificationSignedOff<PSCustomObject>
 function Initialize-BetaCertificationSignedOff {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Certification}
     )

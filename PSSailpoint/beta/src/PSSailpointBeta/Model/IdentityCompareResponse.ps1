@@ -24,7 +24,7 @@ IdentityCompareResponse<PSCustomObject>
 function Initialize-BetaIdentityCompareResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${AccessItemDiff}
     )

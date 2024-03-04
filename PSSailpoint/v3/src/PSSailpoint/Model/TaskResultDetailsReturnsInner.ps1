@@ -26,10 +26,10 @@ TaskResultDetailsReturnsInner<PSCustomObject>
 function Initialize-TaskResultDetailsReturnsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayLabel},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AttributeName}
     )

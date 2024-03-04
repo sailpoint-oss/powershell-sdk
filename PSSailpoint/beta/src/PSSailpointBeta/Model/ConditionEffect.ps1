@@ -26,11 +26,11 @@ ConditionEffect<PSCustomObject>
 function Initialize-BetaConditionEffect {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("HIDE", "SHOW", "DISABLE", "ENABLE", "REQUIRE", "OPTIONAL", "SUBMIT_MESSAGE", "SUBMIT_NOTIFICATION", "SET_DEFAULT_VALUE")]
         [String]
         ${EffectType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Config}
     )

@@ -26,11 +26,11 @@ AccountStatusChangedStatusChange<PSCustomObject>
 function Initialize-BetaAccountStatusChangedStatusChange {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("enabled", "disabled", "locked")]
         [String]
         ${PreviousStatus},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("enabled", "disabled", "locked")]
         [String]
         ${NewStatus}

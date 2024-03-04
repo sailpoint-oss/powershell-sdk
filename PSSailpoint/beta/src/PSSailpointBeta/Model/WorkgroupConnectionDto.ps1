@@ -26,10 +26,10 @@ WorkgroupConnectionDto<PSCustomObject>
 function Initialize-BetaWorkgroupConnectionDto {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Object},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("AccessRequestReviewer", "Owner", "ManagementWorkgroup")]
         [String]
         ${ConnectionType}

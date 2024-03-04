@@ -24,7 +24,7 @@ PutSourceTemplateRequest<PSCustomObject>
 function Initialize-PutSourceTemplateRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${File}
     )

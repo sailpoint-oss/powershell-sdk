@@ -34,22 +34,22 @@ GenerateRandomString<PSCustomObject>
 function Initialize-GenerateRandomString {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Operation},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${IncludeNumbers},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${IncludeSpecialChars},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Length},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh}
     )
@@ -58,23 +58,23 @@ function Initialize-GenerateRandomString {
         'Creating PSCustomObject: PSSailpoint => GenerateRandomString' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Operation) {
+        if (!$Operation) {
             throw "invalid value for 'Operation', 'Operation' cannot be null."
         }
 
-        if ($null -eq $IncludeNumbers) {
+        if (!$IncludeNumbers) {
             throw "invalid value for 'IncludeNumbers', 'IncludeNumbers' cannot be null."
         }
 
-        if ($null -eq $IncludeSpecialChars) {
+        if (!$IncludeSpecialChars) {
             throw "invalid value for 'IncludeSpecialChars', 'IncludeSpecialChars' cannot be null."
         }
 
-        if ($null -eq $Length) {
+        if (!$Length) {
             throw "invalid value for 'Length', 'Length' cannot be null."
         }
 
@@ -87,7 +87,6 @@ function Initialize-GenerateRandomString {
             "length" = ${Length}
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
         }
-
 
         return $PSO
     }

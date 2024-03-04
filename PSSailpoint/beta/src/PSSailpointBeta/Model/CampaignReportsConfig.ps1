@@ -24,7 +24,7 @@ CampaignReportsConfig<PSCustomObject>
 function Initialize-BetaCampaignReportsConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${IdentityAttributeColumns}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaCampaignReportsConfig {
         $PSO = [PSCustomObject]@{
             "identityAttributeColumns" = ${IdentityAttributeColumns}
         }
-
 
         return $PSO
     }

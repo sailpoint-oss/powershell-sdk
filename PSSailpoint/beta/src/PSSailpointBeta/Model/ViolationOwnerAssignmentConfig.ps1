@@ -26,11 +26,11 @@ ViolationOwnerAssignmentConfig<PSCustomObject>
 function Initialize-BetaViolationOwnerAssignmentConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANAGER", "STATIC", "")]
         [String]
         ${AssignmentRule},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OwnerRef}
     )
@@ -44,7 +44,6 @@ function Initialize-BetaViolationOwnerAssignmentConfig {
             "assignmentRule" = ${AssignmentRule}
             "ownerRef" = ${OwnerRef}
         }
-
 
         return $PSO
     }

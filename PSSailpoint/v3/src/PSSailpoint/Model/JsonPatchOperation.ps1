@@ -28,14 +28,14 @@ JsonPatchOperation<PSCustomObject>
 function Initialize-JsonPatchOperation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("add", "remove", "replace", "move", "copy", "test")]
         [String]
         ${Op},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Path},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Value}
     )
@@ -44,11 +44,11 @@ function Initialize-JsonPatchOperation {
         'Creating PSCustomObject: PSSailpoint => JsonPatchOperation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Op) {
+        if (!$Op) {
             throw "invalid value for 'Op', 'Op' cannot be null."
         }
 
-        if ($null -eq $Path) {
+        if (!$Path) {
             throw "invalid value for 'Path', 'Path' cannot be null."
         }
 
@@ -58,7 +58,6 @@ function Initialize-JsonPatchOperation {
             "path" = ${Path}
             "value" = ${Value}
         }
-
 
         return $PSO
     }

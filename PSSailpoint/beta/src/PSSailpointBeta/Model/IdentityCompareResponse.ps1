@@ -24,7 +24,7 @@ IdentityCompareResponse<PSCustomObject>
 function Initialize-BetaIdentityCompareResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${AccessItemDiff}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaIdentityCompareResponse {
         $PSO = [PSCustomObject]@{
             "accessItemDiff" = ${AccessItemDiff}
         }
-
 
         return $PSO
     }

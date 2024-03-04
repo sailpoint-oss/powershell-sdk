@@ -28,13 +28,13 @@ TokenAuthRequest<PSCustomObject>
 function Initialize-BetaTokenAuthRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Token},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${UserAlias},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SMS_PERSONAL", "VOICE_PERSONAL", "SMS_WORK", "VOICE_WORK", "EMAIL_WORK", "EMAIL_PERSONAL")]
         [String]
         ${DeliveryType}
@@ -44,15 +44,15 @@ function Initialize-BetaTokenAuthRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaTokenAuthRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Token) {
+        if (!$Token) {
             throw "invalid value for 'Token', 'Token' cannot be null."
         }
 
-        if ($null -eq $UserAlias) {
+        if (!$UserAlias) {
             throw "invalid value for 'UserAlias', 'UserAlias' cannot be null."
         }
 
-        if ($null -eq $DeliveryType) {
+        if (!$DeliveryType) {
             throw "invalid value for 'DeliveryType', 'DeliveryType' cannot be null."
         }
 
@@ -62,7 +62,6 @@ function Initialize-BetaTokenAuthRequest {
             "userAlias" = ${UserAlias}
             "deliveryType" = ${DeliveryType}
         }
-
 
         return $PSO
     }

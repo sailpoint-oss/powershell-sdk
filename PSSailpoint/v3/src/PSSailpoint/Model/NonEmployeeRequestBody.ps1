@@ -42,34 +42,34 @@ NonEmployeeRequestBody<PSCustomObject>
 function Initialize-NonEmployeeRequestBody {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FirstName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LastName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Email},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Phone},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Manager},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarData},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${StartDate},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${EndDate}
     )
@@ -78,39 +78,39 @@ function Initialize-NonEmployeeRequestBody {
         'Creating PSCustomObject: PSSailpoint => NonEmployeeRequestBody' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $AccountName) {
+        if (!$AccountName) {
             throw "invalid value for 'AccountName', 'AccountName' cannot be null."
         }
 
-        if ($null -eq $FirstName) {
+        if (!$FirstName) {
             throw "invalid value for 'FirstName', 'FirstName' cannot be null."
         }
 
-        if ($null -eq $LastName) {
+        if (!$LastName) {
             throw "invalid value for 'LastName', 'LastName' cannot be null."
         }
 
-        if ($null -eq $Email) {
+        if (!$Email) {
             throw "invalid value for 'Email', 'Email' cannot be null."
         }
 
-        if ($null -eq $Phone) {
+        if (!$Phone) {
             throw "invalid value for 'Phone', 'Phone' cannot be null."
         }
 
-        if ($null -eq $Manager) {
+        if (!$Manager) {
             throw "invalid value for 'Manager', 'Manager' cannot be null."
         }
 
-        if ($null -eq $SourceId) {
+        if (!$SourceId) {
             throw "invalid value for 'SourceId', 'SourceId' cannot be null."
         }
 
-        if ($null -eq $StartDate) {
+        if (!$StartDate) {
             throw "invalid value for 'StartDate', 'StartDate' cannot be null."
         }
 
-        if ($null -eq $EndDate) {
+        if (!$EndDate) {
             throw "invalid value for 'EndDate', 'EndDate' cannot be null."
         }
 
@@ -127,7 +127,6 @@ function Initialize-NonEmployeeRequestBody {
             "startDate" = ${StartDate}
             "endDate" = ${EndDate}
         }
-
 
         return $PSO
     }

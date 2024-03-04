@@ -30,16 +30,16 @@ AccessProfileUpdateItem<PSCustomObject>
 function Initialize-BetaAccessProfileUpdateItem {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Requestable},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description}
     )
@@ -48,15 +48,15 @@ function Initialize-BetaAccessProfileUpdateItem {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessProfileUpdateItem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Requestable) {
+        if (!$Requestable) {
             throw "invalid value for 'Requestable', 'Requestable' cannot be null."
         }
 
-        if ($null -eq $Status) {
+        if (!$Status) {
             throw "invalid value for 'Status', 'Status' cannot be null."
         }
 
@@ -67,7 +67,6 @@ function Initialize-BetaAccessProfileUpdateItem {
             "status" = ${Status}
             "description" = ${Description}
         }
-
 
         return $PSO
     }

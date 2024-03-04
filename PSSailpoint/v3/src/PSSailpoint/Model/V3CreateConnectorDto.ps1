@@ -32,19 +32,19 @@ V3CreateConnectorDto<PSCustomObject>
 function Initialize-V3CreateConnectorDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ClassName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DirectConnect} = $true,
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("DEVELOPMENT", "DEMO", "RELEASED")]
         [String]
         ${Status}
@@ -54,11 +54,11 @@ function Initialize-V3CreateConnectorDto {
         'Creating PSCustomObject: PSSailpoint => V3CreateConnectorDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $ClassName) {
+        if (!$ClassName) {
             throw "invalid value for 'ClassName', 'ClassName' cannot be null."
         }
 
@@ -70,7 +70,6 @@ function Initialize-V3CreateConnectorDto {
             "directConnect" = ${DirectConnect}
             "status" = ${Status}
         }
-
 
         return $PSO
     }

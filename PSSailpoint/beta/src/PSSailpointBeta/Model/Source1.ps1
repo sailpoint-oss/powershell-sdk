@@ -26,10 +26,10 @@ Source1<PSCustomObject>
 function Initialize-BetaSource1 {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Properties}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaSource1 {
             "type" = ${Type}
             "properties" = ${Properties}
         }
-
 
         return $PSO
     }

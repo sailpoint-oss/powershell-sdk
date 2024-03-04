@@ -28,13 +28,13 @@ PasswordDigitTokenReset<PSCustomObject>
 function Initialize-BetaPasswordDigitTokenReset {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${UserId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Length},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${DurationMinutes}
     )
@@ -43,7 +43,7 @@ function Initialize-BetaPasswordDigitTokenReset {
         'Creating PSCustomObject: PSSailpointBeta => BetaPasswordDigitTokenReset' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $UserId) {
+        if (!$UserId) {
             throw "invalid value for 'UserId', 'UserId' cannot be null."
         }
 
@@ -53,7 +53,6 @@ function Initialize-BetaPasswordDigitTokenReset {
             "length" = ${Length}
             "durationMinutes" = ${DurationMinutes}
         }
-
 
         return $PSO
     }

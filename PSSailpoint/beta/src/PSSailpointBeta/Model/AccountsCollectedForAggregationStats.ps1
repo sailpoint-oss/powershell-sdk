@@ -32,19 +32,19 @@ AccountsCollectedForAggregationStats<PSCustomObject>
 function Initialize-BetaAccountsCollectedForAggregationStats {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Scanned},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Unchanged},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Changed},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Added},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Removed}
     )
@@ -53,7 +53,7 @@ function Initialize-BetaAccountsCollectedForAggregationStats {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccountsCollectedForAggregationStats' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Scanned) {
+        if (!$Scanned) {
             throw "invalid value for 'Scanned', 'Scanned' cannot be null."
         }
 
@@ -65,7 +65,7 @@ function Initialize-BetaAccountsCollectedForAggregationStats {
           throw "invalid value for 'Scanned', must be greater than or equal to 0."
         }
 
-        if ($null -eq $Unchanged) {
+        if (!$Unchanged) {
             throw "invalid value for 'Unchanged', 'Unchanged' cannot be null."
         }
 
@@ -77,7 +77,7 @@ function Initialize-BetaAccountsCollectedForAggregationStats {
           throw "invalid value for 'Unchanged', must be greater than or equal to 0."
         }
 
-        if ($null -eq $Changed) {
+        if (!$Changed) {
             throw "invalid value for 'Changed', 'Changed' cannot be null."
         }
 
@@ -89,7 +89,7 @@ function Initialize-BetaAccountsCollectedForAggregationStats {
           throw "invalid value for 'Changed', must be greater than or equal to 0."
         }
 
-        if ($null -eq $Added) {
+        if (!$Added) {
             throw "invalid value for 'Added', 'Added' cannot be null."
         }
 
@@ -101,7 +101,7 @@ function Initialize-BetaAccountsCollectedForAggregationStats {
           throw "invalid value for 'Added', must be greater than or equal to 0."
         }
 
-        if ($null -eq $Removed) {
+        if (!$Removed) {
             throw "invalid value for 'Removed', 'Removed' cannot be null."
         }
 
@@ -121,7 +121,6 @@ function Initialize-BetaAccountsCollectedForAggregationStats {
             "added" = ${Added}
             "removed" = ${Removed}
         }
-
 
         return $PSO
     }

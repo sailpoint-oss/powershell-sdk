@@ -14,14 +14,8 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-Policy id
 .PARAMETER Name
 Policy Business Name
-.PARAMETER Created
-The time when this SOD policy is created.
-.PARAMETER Modified
-The time when this SOD policy is modified.
 .PARAMETER Description
 Optional description of the SOD policy
 .PARAMETER OwnerRef
@@ -38,10 +32,6 @@ Optional correction advice
 whether the policy is enforced or not
 .PARAMETER Tags
 tags for this policy object
-.PARAMETER CreatorId
-Policy's creator ID
-.PARAMETER ModifierId
-Policy's modifier ID
 .PARAMETER ViolationOwnerAssignmentConfig
 No description available.
 .PARAMETER Scheduled
@@ -58,60 +48,45 @@ SodPolicy<PSCustomObject>
 function Initialize-SodPolicy {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OwnerRef},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ExternalPolicyReference},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PolicyQuery},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CompensatingControls},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CorrectionAdvice},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ENFORCED", "NOT_ENFORCED")]
         [String]
         ${State},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Tags},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CreatorId},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ModifierId},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ViolationOwnerAssignmentConfig},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Scheduled} = $false,
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("GENERAL", "CONFLICTING_ACCESS_BASED")]
         [String]
         ${Type} = "GENERAL",
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ConflictingAccessCriteria}
     )
@@ -122,10 +97,7 @@ function Initialize-SodPolicy {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "description" = ${Description}
             "ownerRef" = ${OwnerRef}
             "externalPolicyReference" = ${ExternalPolicyReference}
@@ -134,14 +106,11 @@ function Initialize-SodPolicy {
             "correctionAdvice" = ${CorrectionAdvice}
             "state" = ${State}
             "tags" = ${Tags}
-            "creatorId" = ${CreatorId}
-            "modifierId" = ${ModifierId}
             "violationOwnerAssignmentConfig" = ${ViolationOwnerAssignmentConfig}
             "scheduled" = ${Scheduled}
             "type" = ${Type}
             "conflictingAccessCriteria" = ${ConflictingAccessCriteria}
         }
-
 
         return $PSO
     }

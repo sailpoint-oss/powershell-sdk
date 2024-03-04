@@ -28,14 +28,14 @@ SourceAccountCorrelationConfig<PSCustomObject>
 function Initialize-BetaSourceAccountCorrelationConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCOUNT_CORRELATION_CONFIG")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -50,7 +50,6 @@ function Initialize-BetaSourceAccountCorrelationConfig {
             "id" = ${Id}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

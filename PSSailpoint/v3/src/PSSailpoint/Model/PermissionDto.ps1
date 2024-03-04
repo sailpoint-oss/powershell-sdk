@@ -14,10 +14,6 @@ No summary available.
 
 Simplified DTO for the Permission objects stored in SailPoint's database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
 
-.PARAMETER Rights
-All the rights (e.g. actions) that this permission allows on the target
-.PARAMETER Target
-The target the permission would grants rights on.
 .OUTPUTS
 
 PermissionDto<PSCustomObject>
@@ -26,12 +22,6 @@ PermissionDto<PSCustomObject>
 function Initialize-PermissionDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${Rights},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Target}
     )
 
     Process {
@@ -40,10 +30,7 @@ function Initialize-PermissionDto {
 
 
         $PSO = [PSCustomObject]@{
-            "rights" = ${Rights}
-            "target" = ${Target}
         }
-
 
         return $PSO
     }

@@ -32,21 +32,21 @@ HttpConfig<PSCustomObject>
 function Initialize-BetaHttpConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Url},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SYNC", "ASYNC", "DYNAMIC")]
         [PSCustomObject]
         ${HttpDispatchMode},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("NO_AUTH", "BASIC_AUTH", "BEARER_TOKEN")]
         [PSCustomObject]
         ${HttpAuthenticationType},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${BasicAuthConfig},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${BearerTokenAuthConfig}
     )
@@ -55,11 +55,11 @@ function Initialize-BetaHttpConfig {
         'Creating PSCustomObject: PSSailpointBeta => BetaHttpConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Url) {
+        if (!$Url) {
             throw "invalid value for 'Url', 'Url' cannot be null."
         }
 
-        if ($null -eq $HttpDispatchMode) {
+        if (!$HttpDispatchMode) {
             throw "invalid value for 'HttpDispatchMode', 'HttpDispatchMode' cannot be null."
         }
 
@@ -71,7 +71,6 @@ function Initialize-BetaHttpConfig {
             "basicAuthConfig" = ${BasicAuthConfig}
             "bearerTokenAuthConfig" = ${BearerTokenAuthConfig}
         }
-
 
         return $PSO
     }

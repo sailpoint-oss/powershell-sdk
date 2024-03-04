@@ -34,23 +34,23 @@ CampaignFilterDetails<PSCustomObject>
 function Initialize-CampaignFilterDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Owner},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("INCLUSION", "EXCLUSION")]
         [PSCustomObject]
         ${Mode},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${CriteriaList}
     )
@@ -59,15 +59,15 @@ function Initialize-CampaignFilterDetails {
         'Creating PSCustomObject: PSSailpoint => CampaignFilterDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Description) {
+        if (!$Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if ($null -eq $Mode) {
+        if (!$Mode) {
             throw "invalid value for 'Mode', 'Mode' cannot be null."
         }
 
@@ -80,7 +80,6 @@ function Initialize-CampaignFilterDetails {
             "mode" = ${Mode}
             "criteriaList" = ${CriteriaList}
         }
-
 
         return $PSO
     }

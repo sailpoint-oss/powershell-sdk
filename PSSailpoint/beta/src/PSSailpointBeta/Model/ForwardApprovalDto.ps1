@@ -26,10 +26,10 @@ ForwardApprovalDto<PSCustomObject>
 function Initialize-BetaForwardApprovalDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NewOwnerId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment}
     )
@@ -38,7 +38,7 @@ function Initialize-BetaForwardApprovalDto {
         'Creating PSCustomObject: PSSailpointBeta => BetaForwardApprovalDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $NewOwnerId) {
+        if (!$NewOwnerId) {
             throw "invalid value for 'NewOwnerId', 'NewOwnerId' cannot be null."
         }
 
@@ -50,7 +50,7 @@ function Initialize-BetaForwardApprovalDto {
             throw "invalid value for 'NewOwnerId', the character length must be great than or equal to 1."
         }
 
-        if ($null -eq $Comment) {
+        if (!$Comment) {
             throw "invalid value for 'Comment', 'Comment' cannot be null."
         }
 
@@ -67,7 +67,6 @@ function Initialize-BetaForwardApprovalDto {
             "newOwnerId" = ${NewOwnerId}
             "comment" = ${Comment}
         }
-
 
         return $PSO
     }

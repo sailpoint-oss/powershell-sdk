@@ -26,10 +26,10 @@ SavedSearchName<PSCustomObject>
 function Initialize-SavedSearchName {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description}
     )
@@ -43,7 +43,6 @@ function Initialize-SavedSearchName {
             "name" = ${Name}
             "description" = ${Description}
         }
-
 
         return $PSO
     }

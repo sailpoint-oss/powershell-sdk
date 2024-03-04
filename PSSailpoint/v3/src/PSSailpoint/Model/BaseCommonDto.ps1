@@ -14,14 +14,8 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-System-generated unique ID of the Object
 .PARAMETER Name
 Name of the Object
-.PARAMETER Created
-Creation date of the Object
-.PARAMETER Modified
-Last modification date of the Object
 .OUTPUTS
 
 BaseCommonDto<PSCustomObject>
@@ -30,36 +24,23 @@ BaseCommonDto<PSCustomObject>
 function Initialize-BaseCommonDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified}
+        ${Name}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => BaseCommonDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
         }
-
 
         return $PSO
     }

@@ -34,23 +34,23 @@ Schedule<PSCustomObject>
 function Initialize-Schedule {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("WEEKLY", "MONTHLY", "ANNUALLY", "CALENDAR")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Months},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Days},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Hours},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Expiration},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TimeZoneId}
     )
@@ -59,11 +59,11 @@ function Initialize-Schedule {
         'Creating PSCustomObject: PSSailpoint => Schedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Hours) {
+        if (!$Hours) {
             throw "invalid value for 'Hours', 'Hours' cannot be null."
         }
 
@@ -76,7 +76,6 @@ function Initialize-Schedule {
             "expiration" = ${Expiration}
             "timeZoneId" = ${TimeZoneId}
         }
-
 
         return $PSO
     }

@@ -14,22 +14,14 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-System-generated unique ID of the Object
 .PARAMETER Name
 Name of the Object
-.PARAMETER Created
-Creation date of the Object
-.PARAMETER Modified
-Last modification date of the Object
 .PARAMETER Enabled
 Whether the lifecycle state is enabled or disabled.
 .PARAMETER TechnicalName
 The technical name for lifecycle state. This is for internal use.
 .PARAMETER Description
 Lifecycle state description.
-.PARAMETER IdentityCount
-Number of identities that have the lifecycle state.
 .PARAMETER EmailNotificationOption
 No description available.
 .PARAMETER AccountActions
@@ -44,37 +36,25 @@ LifecycleState<PSCustomObject>
 function Initialize-LifecycleState {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TechnicalName},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${IdentityCount},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${EmailNotificationOption},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccountActions},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${AccessProfileIds}
     )
@@ -83,29 +63,24 @@ function Initialize-LifecycleState {
         'Creating PSCustomObject: PSSailpoint => LifecycleState' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $TechnicalName) {
+        if (!$TechnicalName) {
             throw "invalid value for 'TechnicalName', 'TechnicalName' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "enabled" = ${Enabled}
             "technicalName" = ${TechnicalName}
             "description" = ${Description}
-            "identityCount" = ${IdentityCount}
             "emailNotificationOption" = ${EmailNotificationOption}
             "accountActions" = ${AccountActions}
             "accessProfileIds" = ${AccessProfileIds}
         }
-
 
         return $PSO
     }

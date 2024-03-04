@@ -28,14 +28,14 @@ OrphanUncorrelatedReportArguments<PSCustomObject>
 function Initialize-OrphanUncorrelatedReportArguments {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CSV", "PDF")]
         [String[]]
         ${SelectedFormats},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${DefaultS3Bucket},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${S3Bucket}
     )
@@ -44,7 +44,7 @@ function Initialize-OrphanUncorrelatedReportArguments {
         'Creating PSCustomObject: PSSailpoint => OrphanUncorrelatedReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $DefaultS3Bucket) {
+        if (!$DefaultS3Bucket) {
             throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
         }
 
@@ -54,7 +54,6 @@ function Initialize-OrphanUncorrelatedReportArguments {
             "defaultS3Bucket" = ${DefaultS3Bucket}
             "s3Bucket" = ${S3Bucket}
         }
-
 
         return $PSO
     }

@@ -24,7 +24,7 @@ NonEmployeeRejectApprovalDecision<PSCustomObject>
 function Initialize-NonEmployeeRejectApprovalDecision {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment}
     )
@@ -33,7 +33,7 @@ function Initialize-NonEmployeeRejectApprovalDecision {
         'Creating PSCustomObject: PSSailpoint => NonEmployeeRejectApprovalDecision' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Comment) {
+        if (!$Comment) {
             throw "invalid value for 'Comment', 'Comment' cannot be null."
         }
 
@@ -45,7 +45,6 @@ function Initialize-NonEmployeeRejectApprovalDecision {
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
         }
-
 
         return $PSO
     }

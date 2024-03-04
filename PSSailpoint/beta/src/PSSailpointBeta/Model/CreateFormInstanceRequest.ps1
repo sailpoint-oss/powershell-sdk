@@ -38,29 +38,29 @@ CreateFormInstanceRequest<PSCustomObject>
 function Initialize-BetaCreateFormInstanceRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${CreatedBy},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Expire},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${FormDefinitionId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${FormInput},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Recipients},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${StandAloneForm} = $false,
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ASSIGNED", "IN_PROGRESS", "SUBMITTED", "COMPLETED", "CANCELLED")]
         [String]
         ${State},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${Ttl}
     )
@@ -69,19 +69,19 @@ function Initialize-BetaCreateFormInstanceRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaCreateFormInstanceRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $CreatedBy) {
+        if (!$CreatedBy) {
             throw "invalid value for 'CreatedBy', 'CreatedBy' cannot be null."
         }
 
-        if ($null -eq $Expire) {
+        if (!$Expire) {
             throw "invalid value for 'Expire', 'Expire' cannot be null."
         }
 
-        if ($null -eq $FormDefinitionId) {
+        if (!$FormDefinitionId) {
             throw "invalid value for 'FormDefinitionId', 'FormDefinitionId' cannot be null."
         }
 
-        if ($null -eq $Recipients) {
+        if (!$Recipients) {
             throw "invalid value for 'Recipients', 'Recipients' cannot be null."
         }
 
@@ -96,7 +96,6 @@ function Initialize-BetaCreateFormInstanceRequest {
             "state" = ${State}
             "ttl" = ${Ttl}
         }
-
 
         return $PSO
     }

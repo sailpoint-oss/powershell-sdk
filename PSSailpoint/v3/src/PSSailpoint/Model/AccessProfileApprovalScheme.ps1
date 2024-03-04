@@ -26,11 +26,11 @@ AccessProfileApprovalScheme<PSCustomObject>
 function Initialize-AccessProfileApprovalScheme {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APP_OWNER", "OWNER", "SOURCE_OWNER", "MANAGER", "GOVERNANCE_GROUP")]
         [String]
         ${ApproverType},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ApproverId}
     )
@@ -44,7 +44,6 @@ function Initialize-AccessProfileApprovalScheme {
             "approverType" = ${ApproverType}
             "approverId" = ${ApproverId}
         }
-
 
         return $PSO
     }

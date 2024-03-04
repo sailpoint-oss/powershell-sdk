@@ -24,7 +24,7 @@ AccountsAsyncResult<PSCustomObject>
 function Initialize-AccountsAsyncResult {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )
@@ -33,7 +33,7 @@ function Initialize-AccountsAsyncResult {
         'Creating PSCustomObject: PSSailpoint => AccountsAsyncResult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-AccountsAsyncResult {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
         }
-
 
         return $PSO
     }

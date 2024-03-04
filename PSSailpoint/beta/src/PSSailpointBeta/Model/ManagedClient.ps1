@@ -14,38 +14,18 @@ No summary available.
 
 Managed Client
 
-.PARAMETER Id
-ManagedClient ID
-.PARAMETER AlertKey
-ManagedClient alert key
-.PARAMETER ApiGatewayBaseUrl
-ManagedClient gateway base url
 .PARAMETER CcId
 Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
 .PARAMETER ClientId
 The client ID used in API management
 .PARAMETER ClusterId
 Cluster ID that the ManagedClient is linked to
-.PARAMETER Cookbook
-VA cookbook
 .PARAMETER Description
 ManagedClient description
-.PARAMETER IpAddress
-The public IP address of the ManagedClient
-.PARAMETER LastSeen
-When the ManagedClient was last seen by the server
 .PARAMETER Name
 ManagedClient name
-.PARAMETER SinceLastSeen
-Milliseconds since the ManagedClient has polled the server
-.PARAMETER Status
-No description available.
 .PARAMETER Type
 Type of the ManagedClient (VA, CCG)
-.PARAMETER VaDownloadUrl
-ManagedClient VA download URL
-.PARAMETER VaVersion
-Version that the ManagedClient's VA is running
 .PARAMETER Secret
 Client's apiKey
 .OUTPUTS
@@ -56,56 +36,25 @@ ManagedClient<PSCustomObject>
 function Initialize-BetaManagedClient {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AlertKey},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ApiGatewayBaseUrl},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${CcId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ClientId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ClusterId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Cookbook},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${IpAddress},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${LastSeen},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SinceLastSeen},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("NORMAL", "UNDEFINED", "NOT_CONFIGURED", "CONFIGURING", "WARNING", "ERROR", "FAILED")]
-        [PSCustomObject]
-        ${Status},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${VaDownloadUrl},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${VaVersion},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Secret}
     )
@@ -114,43 +63,32 @@ function Initialize-BetaManagedClient {
         'Creating PSCustomObject: PSSailpointBeta => BetaManagedClient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $ClientId) {
+        if (!$ClientId) {
             throw "invalid value for 'ClientId', 'ClientId' cannot be null."
         }
 
-        if ($null -eq $ClusterId) {
+        if (!$ClusterId) {
             throw "invalid value for 'ClusterId', 'ClusterId' cannot be null."
         }
 
-        if ($null -eq $Description) {
+        if (!$Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "alertKey" = ${AlertKey}
-            "apiGatewayBaseUrl" = ${ApiGatewayBaseUrl}
             "ccId" = ${CcId}
             "clientId" = ${ClientId}
             "clusterId" = ${ClusterId}
-            "cookbook" = ${Cookbook}
             "description" = ${Description}
-            "ipAddress" = ${IpAddress}
-            "lastSeen" = ${LastSeen}
             "name" = ${Name}
-            "sinceLastSeen" = ${SinceLastSeen}
-            "status" = ${Status}
             "type" = ${Type}
-            "vaDownloadUrl" = ${VaDownloadUrl}
-            "vaVersion" = ${VaVersion}
             "secret" = ${Secret}
         }
-
 
         return $PSO
     }

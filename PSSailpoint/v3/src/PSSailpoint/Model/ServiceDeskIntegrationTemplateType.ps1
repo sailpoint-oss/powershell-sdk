@@ -28,13 +28,13 @@ ServiceDeskIntegrationTemplateType<PSCustomObject>
 function Initialize-ServiceDeskIntegrationTemplateType {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ScriptName}
     )
@@ -43,11 +43,11 @@ function Initialize-ServiceDeskIntegrationTemplateType {
         'Creating PSCustomObject: PSSailpoint => ServiceDeskIntegrationTemplateType' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $ScriptName) {
+        if (!$ScriptName) {
             throw "invalid value for 'ScriptName', 'ScriptName' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-ServiceDeskIntegrationTemplateType {
             "type" = ${Type}
             "scriptName" = ${ScriptName}
         }
-
 
         return $PSO
     }

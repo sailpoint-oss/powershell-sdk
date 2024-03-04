@@ -30,16 +30,16 @@ NonEmployeeRequestSummary<PSCustomObject>
 function Initialize-BetaNonEmployeeRequestSummary {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Decimal]]
         ${Approved},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Decimal]]
         ${Rejected},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Decimal]]
         ${Pending},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Decimal]]
         ${NonEmployeeCount}
     )
@@ -55,7 +55,6 @@ function Initialize-BetaNonEmployeeRequestSummary {
             "pending" = ${Pending}
             "nonEmployeeCount" = ${NonEmployeeCount}
         }
-
 
         return $PSO
     }

@@ -26,10 +26,10 @@ IdentityAttributesChanged<PSCustomObject>
 function Initialize-BetaIdentityAttributesChanged {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Changes}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaIdentityAttributesChanged {
         'Creating PSCustomObject: PSSailpointBeta => BetaIdentityAttributesChanged' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Identity) {
+        if (!$Identity) {
             throw "invalid value for 'Identity', 'Identity' cannot be null."
         }
 
-        if ($null -eq $Changes) {
+        if (!$Changes) {
             throw "invalid value for 'Changes', 'Changes' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaIdentityAttributesChanged {
             "identity" = ${Identity}
             "changes" = ${Changes}
         }
-
 
         return $PSO
     }

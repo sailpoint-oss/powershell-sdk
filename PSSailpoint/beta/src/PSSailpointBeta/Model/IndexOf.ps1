@@ -28,13 +28,13 @@ IndexOf<PSCustomObject>
 function Initialize-BetaIndexOf {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Substring},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarInput}
     )
@@ -43,7 +43,7 @@ function Initialize-BetaIndexOf {
         'Creating PSCustomObject: PSSailpointBeta => BetaIndexOf' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Substring) {
+        if (!$Substring) {
             throw "invalid value for 'Substring', 'Substring' cannot be null."
         }
 
@@ -53,7 +53,6 @@ function Initialize-BetaIndexOf {
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

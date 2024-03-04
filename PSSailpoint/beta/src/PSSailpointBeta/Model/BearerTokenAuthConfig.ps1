@@ -24,7 +24,7 @@ BearerTokenAuthConfig<PSCustomObject>
 function Initialize-BetaBearerTokenAuthConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BearerToken}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaBearerTokenAuthConfig {
         $PSO = [PSCustomObject]@{
             "bearerToken" = ${BearerToken}
         }
-
 
         return $PSO
     }

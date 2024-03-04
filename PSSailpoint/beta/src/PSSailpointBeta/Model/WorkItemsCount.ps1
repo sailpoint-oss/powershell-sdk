@@ -24,7 +24,7 @@ WorkItemsCount<PSCustomObject>
 function Initialize-BetaWorkItemsCount {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Count}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaWorkItemsCount {
         $PSO = [PSCustomObject]@{
             "count" = ${Count}
         }
-
 
         return $PSO
     }

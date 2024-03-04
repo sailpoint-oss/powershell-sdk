@@ -20,8 +20,6 @@ The name of the attribute.
 The transform to apply to the field
 .PARAMETER Attributes
 Attributes required for the transform
-.PARAMETER IsRequired
-Flag indicating whether or not the attribute is required.
 .PARAMETER Type
 The type of the attribute.
 .PARAMETER IsMultiValued
@@ -34,22 +32,19 @@ FieldDetailsDto<PSCustomObject>
 function Initialize-FieldDetailsDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Transform},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${IsRequired} = $false,
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsMultiValued} = $false
     )
@@ -63,11 +58,9 @@ function Initialize-FieldDetailsDto {
             "name" = ${Name}
             "transform" = ${Transform}
             "attributes" = ${Attributes}
-            "isRequired" = ${IsRequired}
             "type" = ${Type}
             "isMultiValued" = ${IsMultiValued}
         }
-
 
         return $PSO
     }

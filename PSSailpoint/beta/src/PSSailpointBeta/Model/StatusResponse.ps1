@@ -14,16 +14,6 @@ No summary available.
 
 Response model for connection check, configuration test and ping of source connectors.
 
-.PARAMETER Id
-ID of the source
-.PARAMETER Name
-Name of the source
-.PARAMETER Status
-The status of the health check.
-.PARAMETER ElapsedMillis
-The number of milliseconds spent on the entire request.
-.PARAMETER Details
-The document contains the results of the health check. The schema of this document depends on the type of source used. 
 .OUTPUTS
 
 StatusResponse<PSCustomObject>
@@ -32,22 +22,6 @@ StatusResponse<PSCustomObject>
 function Initialize-BetaStatusResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SUCCESS", "FAILURE")]
-        [String]
-        ${Status},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${ElapsedMillis},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Details}
     )
 
     Process {
@@ -56,13 +30,7 @@ function Initialize-BetaStatusResponse {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "status" = ${Status}
-            "elapsedMillis" = ${ElapsedMillis}
-            "details" = ${Details}
         }
-
 
         return $PSO
     }

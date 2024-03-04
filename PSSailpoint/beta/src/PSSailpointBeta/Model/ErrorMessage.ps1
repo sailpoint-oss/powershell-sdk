@@ -28,13 +28,13 @@ ErrorMessage<PSCustomObject>
 function Initialize-BetaErrorMessage {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Locale},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LocaleOrigin},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Text}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaErrorMessage {
             "localeOrigin" = ${LocaleOrigin}
             "text" = ${Text}
         }
-
 
         return $PSO
     }

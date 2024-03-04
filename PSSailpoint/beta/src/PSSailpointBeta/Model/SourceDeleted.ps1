@@ -34,22 +34,22 @@ SourceDeleted<PSCustomObject>
 function Initialize-BetaSourceDeleted {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Deleted},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Connector},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Actor}
     )
@@ -58,27 +58,27 @@ function Initialize-BetaSourceDeleted {
         'Creating PSCustomObject: PSSailpointBeta => BetaSourceDeleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Deleted) {
+        if (!$Deleted) {
             throw "invalid value for 'Deleted', 'Deleted' cannot be null."
         }
 
-        if ($null -eq $Connector) {
+        if (!$Connector) {
             throw "invalid value for 'Connector', 'Connector' cannot be null."
         }
 
-        if ($null -eq $Actor) {
+        if (!$Actor) {
             throw "invalid value for 'Actor', 'Actor' cannot be null."
         }
 
@@ -91,7 +91,6 @@ function Initialize-BetaSourceDeleted {
             "connector" = ${Connector}
             "actor" = ${Actor}
         }
-
 
         return $PSO
     }

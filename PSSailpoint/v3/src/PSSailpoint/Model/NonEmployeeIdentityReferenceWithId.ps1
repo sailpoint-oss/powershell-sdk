@@ -26,11 +26,11 @@ NonEmployeeIdentityReferenceWithId<PSCustomObject>
 function Initialize-NonEmployeeIdentityReferenceWithId {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("GOVERNANCE_GROUP", "IDENTITY")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )
@@ -44,7 +44,6 @@ function Initialize-NonEmployeeIdentityReferenceWithId {
             "type" = ${Type}
             "id" = ${Id}
         }
-
 
         return $PSO
     }

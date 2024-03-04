@@ -26,10 +26,10 @@ IdentityExceptionReportReference1<PSCustomObject>
 function Initialize-BetaIdentityExceptionReportReference1 {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TaskResultId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ReportName}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaIdentityExceptionReportReference1 {
             "taskResultId" = ${TaskResultId}
             "reportName" = ${ReportName}
         }
-
 
         return $PSO
     }

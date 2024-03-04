@@ -26,10 +26,10 @@ Static<PSCustomObject>
 function Initialize-BetaStatic {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Values},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false
     )
@@ -38,7 +38,7 @@ function Initialize-BetaStatic {
         'Creating PSCustomObject: PSSailpointBeta => BetaStatic' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Values) {
+        if (!$Values) {
             throw "invalid value for 'Values', 'Values' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-BetaStatic {
             "values" = ${Values}
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
         }
-
 
         return $PSO
     }

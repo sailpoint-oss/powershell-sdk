@@ -30,16 +30,16 @@ TestInvocation<PSCustomObject>
 function Initialize-BetaTestInvocation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TriggerId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarInput},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ContentJson},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SubscriptionIds}
     )
@@ -48,11 +48,11 @@ function Initialize-BetaTestInvocation {
         'Creating PSCustomObject: PSSailpointBeta => BetaTestInvocation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $TriggerId) {
+        if (!$TriggerId) {
             throw "invalid value for 'TriggerId', 'TriggerId' cannot be null."
         }
 
-        if ($null -eq $ContentJson) {
+        if (!$ContentJson) {
             throw "invalid value for 'ContentJson', 'ContentJson' cannot be null."
         }
 
@@ -63,7 +63,6 @@ function Initialize-BetaTestInvocation {
             "contentJson" = ${ContentJson}
             "subscriptionIds" = ${SubscriptionIds}
         }
-
 
         return $PSO
     }

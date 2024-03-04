@@ -34,22 +34,22 @@ SourceUpdated<PSCustomObject>
 function Initialize-BetaSourceUpdated {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Connector},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Actor}
     )
@@ -58,27 +58,27 @@ function Initialize-BetaSourceUpdated {
         'Creating PSCustomObject: PSSailpointBeta => BetaSourceUpdated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Modified) {
+        if (!$Modified) {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
-        if ($null -eq $Connector) {
+        if (!$Connector) {
             throw "invalid value for 'Connector', 'Connector' cannot be null."
         }
 
-        if ($null -eq $Actor) {
+        if (!$Actor) {
             throw "invalid value for 'Actor', 'Actor' cannot be null."
         }
 
@@ -91,7 +91,6 @@ function Initialize-BetaSourceUpdated {
             "connector" = ${Connector}
             "actor" = ${Actor}
         }
-
 
         return $PSO
     }

@@ -24,7 +24,7 @@ RoleBulkDeleteRequest<PSCustomObject>
 function Initialize-RoleBulkDeleteRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${RoleIds}
     )
@@ -33,7 +33,7 @@ function Initialize-RoleBulkDeleteRequest {
         'Creating PSCustomObject: PSSailpoint => RoleBulkDeleteRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $RoleIds) {
+        if (!$RoleIds) {
             throw "invalid value for 'RoleIds', 'RoleIds' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-RoleBulkDeleteRequest {
         $PSO = [PSCustomObject]@{
             "roleIds" = ${RoleIds}
         }
-
 
         return $PSO
     }

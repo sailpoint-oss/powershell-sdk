@@ -26,10 +26,10 @@ ConflictingAccessCriteria<PSCustomObject>
 function Initialize-BetaConflictingAccessCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${LeftCriteria},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RightCriteria}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaConflictingAccessCriteria {
             "leftCriteria" = ${LeftCriteria}
             "rightCriteria" = ${RightCriteria}
         }
-
 
         return $PSO
     }

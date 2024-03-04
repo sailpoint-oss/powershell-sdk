@@ -28,13 +28,13 @@ VAClusterStatusChangeEventHealthCheckResult<PSCustomObject>
 function Initialize-BetaVAClusterStatusChangeEventHealthCheckResult {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Message},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ResultType},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Succeeded", "Failed")]
         [PSCustomObject]
         ${Status}
@@ -44,15 +44,15 @@ function Initialize-BetaVAClusterStatusChangeEventHealthCheckResult {
         'Creating PSCustomObject: PSSailpointBeta => BetaVAClusterStatusChangeEventHealthCheckResult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Message) {
+        if (!$Message) {
             throw "invalid value for 'Message', 'Message' cannot be null."
         }
 
-        if ($null -eq $ResultType) {
+        if (!$ResultType) {
             throw "invalid value for 'ResultType', 'ResultType' cannot be null."
         }
 
-        if ($null -eq $Status) {
+        if (!$Status) {
             throw "invalid value for 'Status', 'Status' cannot be null."
         }
 
@@ -62,7 +62,6 @@ function Initialize-BetaVAClusterStatusChangeEventHealthCheckResult {
             "resultType" = ${ResultType}
             "status" = ${Status}
         }
-
 
         return $PSO
     }

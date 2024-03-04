@@ -30,17 +30,17 @@ AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner<PSCustomObje
 function Initialize-BetaAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ApprovalComment},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APPROVED", "DENIED")]
         [PSCustomObject]
         ${ApprovalDecision},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ApproverName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Approver}
     )
@@ -49,15 +49,15 @@ function Initialize-BetaAccessRequestPostApprovalRequestedItemsStatusInnerApprov
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $ApprovalDecision) {
+        if (!$ApprovalDecision) {
             throw "invalid value for 'ApprovalDecision', 'ApprovalDecision' cannot be null."
         }
 
-        if ($null -eq $ApproverName) {
+        if (!$ApproverName) {
             throw "invalid value for 'ApproverName', 'ApproverName' cannot be null."
         }
 
-        if ($null -eq $Approver) {
+        if (!$Approver) {
             throw "invalid value for 'Approver', 'Approver' cannot be null."
         }
 
@@ -68,7 +68,6 @@ function Initialize-BetaAccessRequestPostApprovalRequestedItemsStatusInnerApprov
             "approverName" = ${ApproverName}
             "approver" = ${Approver}
         }
-
 
         return $PSO
     }

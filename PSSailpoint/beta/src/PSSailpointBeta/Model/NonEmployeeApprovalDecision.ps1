@@ -24,7 +24,7 @@ NonEmployeeApprovalDecision<PSCustomObject>
 function Initialize-BetaNonEmployeeApprovalDecision {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment}
     )
@@ -41,7 +41,6 @@ function Initialize-BetaNonEmployeeApprovalDecision {
         $PSO = [PSCustomObject]@{
             "comment" = ${Comment}
         }
-
 
         return $PSO
     }

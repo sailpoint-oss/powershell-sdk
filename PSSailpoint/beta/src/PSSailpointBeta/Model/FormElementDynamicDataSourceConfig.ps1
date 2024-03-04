@@ -30,18 +30,18 @@ FormElementDynamicDataSourceConfig<PSCustomObject>
 function Initialize-BetaFormElementDynamicDataSourceConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AggregationBucketField},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("accessprofiles", "accountactivities", "entitlements", "identities", "events", "roles", "*")]
         [String[]]
         ${Indices},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY", "ACCESS_PROFILE", "SOURCES", "ROLE", "ENTITLEMENT")]
         [String]
         ${ObjectType},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Query}
     )
@@ -57,7 +57,6 @@ function Initialize-BetaFormElementDynamicDataSourceConfig {
             "objectType" = ${ObjectType}
             "query" = ${Query}
         }
-
 
         return $PSO
     }

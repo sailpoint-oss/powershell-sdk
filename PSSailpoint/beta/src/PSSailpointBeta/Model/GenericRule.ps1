@@ -26,10 +26,10 @@ GenericRule<PSCustomObject>
 function Initialize-BetaGenericRule {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh}
     )
@@ -38,7 +38,7 @@ function Initialize-BetaGenericRule {
         'Creating PSCustomObject: PSSailpointBeta => BetaGenericRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-BetaGenericRule {
             "name" = ${Name}
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
         }
-
 
         return $PSO
     }

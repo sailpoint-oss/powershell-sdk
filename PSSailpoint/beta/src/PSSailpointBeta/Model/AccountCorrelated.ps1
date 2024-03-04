@@ -32,19 +32,19 @@ AccountCorrelated<PSCustomObject>
 function Initialize-BetaAccountCorrelated {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Account},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${EntitlementCount}
     )
@@ -53,19 +53,19 @@ function Initialize-BetaAccountCorrelated {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccountCorrelated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Identity) {
+        if (!$Identity) {
             throw "invalid value for 'Identity', 'Identity' cannot be null."
         }
 
-        if ($null -eq $Source) {
+        if (!$Source) {
             throw "invalid value for 'Source', 'Source' cannot be null."
         }
 
-        if ($null -eq $Account) {
+        if (!$Account) {
             throw "invalid value for 'Account', 'Account' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
@@ -77,7 +77,6 @@ function Initialize-BetaAccountCorrelated {
             "attributes" = ${Attributes}
             "entitlementCount" = ${EntitlementCount}
         }
-
 
         return $PSO
     }

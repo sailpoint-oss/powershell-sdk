@@ -30,17 +30,17 @@ AccountAggregation<PSCustomObject>
 function Initialize-BetaAccountAggregation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Start},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("STARTED", "ACCOUNTS_COLLECTED", "COMPLETED", "CANCELLED", "RETRIED", "TERMINATED")]
         [String]
         ${Status},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${TotalAccounts},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ProcessedAccounts}
     )
@@ -56,7 +56,6 @@ function Initialize-BetaAccountAggregation {
             "totalAccounts" = ${TotalAccounts}
             "processedAccounts" = ${ProcessedAccounts}
         }
-
 
         return $PSO
     }

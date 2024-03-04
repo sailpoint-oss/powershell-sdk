@@ -26,10 +26,10 @@ KbaAuthResponseItem<PSCustomObject>
 function Initialize-BetaKbaAuthResponseItem {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${QuestionId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsVerified}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaKbaAuthResponseItem {
             "questionId" = ${QuestionId}
             "isVerified" = ${IsVerified}
         }
-
 
         return $PSO
     }

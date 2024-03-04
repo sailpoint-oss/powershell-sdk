@@ -28,13 +28,13 @@ AccountAttributesChangedChangesInner<PSCustomObject>
 function Initialize-BetaAccountAttributesChangedChangesInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Attribute},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OldValue},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${NewValue}
     )
@@ -43,7 +43,7 @@ function Initialize-BetaAccountAttributesChangedChangesInner {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccountAttributesChangedChangesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Attribute) {
+        if (!$Attribute) {
             throw "invalid value for 'Attribute', 'Attribute' cannot be null."
         }
 
@@ -53,7 +53,6 @@ function Initialize-BetaAccountAttributesChangedChangesInner {
             "oldValue" = ${OldValue}
             "newValue" = ${NewValue}
         }
-
 
         return $PSO
     }

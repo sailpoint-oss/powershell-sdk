@@ -26,10 +26,10 @@ OutlierFeatureTranslation<PSCustomObject>
 function Initialize-BetaOutlierFeatureTranslation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${DisplayName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Description}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaOutlierFeatureTranslation {
             "displayName" = ${DisplayName}
             "description" = ${Description}
         }
-
 
         return $PSO
     }

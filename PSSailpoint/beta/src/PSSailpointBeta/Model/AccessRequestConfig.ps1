@@ -32,19 +32,19 @@ AccessRequestConfig<PSCustomObject>
 function Initialize-BetaAccessRequestConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ApprovalsMustBeExternal},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${AutoApprovalEnabled},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequestOnBehalfOfConfig},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ApprovalReminderAndEscalationConfig},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${EntitlementRequestConfig}
     )
@@ -61,7 +61,6 @@ function Initialize-BetaAccessRequestConfig {
             "approvalReminderAndEscalationConfig" = ${ApprovalReminderAndEscalationConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}
         }
-
 
         return $PSO
     }

@@ -32,20 +32,20 @@ FormElement<PSCustomObject>
 function Initialize-BetaFormElement {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("TEXT", "TOGGLE", "TEXTAREA", "HIDDEN", "PHONE", "EMAIL", "SELECT", "DATE", "SECTION", "COLUMNS")]
         [String]
         ${ElementType},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Config},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Key},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Validations}
     )
@@ -62,7 +62,6 @@ function Initialize-BetaFormElement {
             "key" = ${Key}
             "validations" = ${Validations}
         }
-
 
         return $PSO
     }

@@ -26,11 +26,11 @@ WorkflowTrigger<PSCustomObject>
 function Initialize-BetaWorkflowTrigger {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("EVENT", "EXTERNAL", "SCHEDULED")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes}
     )
@@ -39,11 +39,11 @@ function Initialize-BetaWorkflowTrigger {
         'Creating PSCustomObject: PSSailpointBeta => BetaWorkflowTrigger' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
@@ -52,7 +52,6 @@ function Initialize-BetaWorkflowTrigger {
             "type" = ${Type}
             "attributes" = ${Attributes}
         }
-
 
         return $PSO
     }

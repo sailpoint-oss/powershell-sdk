@@ -28,13 +28,13 @@ CompleteInvocation<PSCustomObject>
 function Initialize-BetaCompleteInvocation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Secret},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${VarError},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Output}
     )
@@ -43,11 +43,11 @@ function Initialize-BetaCompleteInvocation {
         'Creating PSCustomObject: PSSailpointBeta => BetaCompleteInvocation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Secret) {
+        if (!$Secret) {
             throw "invalid value for 'Secret', 'Secret' cannot be null."
         }
 
-        if ($null -eq $Output) {
+        if (!$Output) {
             throw "invalid value for 'Output', 'Output' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-BetaCompleteInvocation {
             "error" = ${VarError}
             "output" = ${Output}
         }
-
 
         return $PSO
     }

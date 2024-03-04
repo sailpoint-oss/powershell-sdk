@@ -20,10 +20,6 @@ The name of the scheduled search.
 The description of the scheduled search. 
 .PARAMETER SavedSearchId
 The ID of the saved search that will be executed.
-.PARAMETER Created
-A date-time in ISO-8601 format
-.PARAMETER Modified
-A date-time in ISO-8601 format
 .PARAMETER Schedule
 No description available.
 .PARAMETER Recipients
@@ -42,34 +38,28 @@ CreateScheduledSearchRequest<PSCustomObject>
 function Initialize-CreateScheduledSearchRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SavedSearchId},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Schedule},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Recipients},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${EmailEmptyResults} = $false,
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DisplayQueryDetails} = $false
     )
@@ -78,15 +68,15 @@ function Initialize-CreateScheduledSearchRequest {
         'Creating PSCustomObject: PSSailpoint => CreateScheduledSearchRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $SavedSearchId) {
+        if (!$SavedSearchId) {
             throw "invalid value for 'SavedSearchId', 'SavedSearchId' cannot be null."
         }
 
-        if ($null -eq $Schedule) {
+        if (!$Schedule) {
             throw "invalid value for 'Schedule', 'Schedule' cannot be null."
         }
 
-        if ($null -eq $Recipients) {
+        if (!$Recipients) {
             throw "invalid value for 'Recipients', 'Recipients' cannot be null."
         }
 
@@ -95,15 +85,12 @@ function Initialize-CreateScheduledSearchRequest {
             "name" = ${Name}
             "description" = ${Description}
             "savedSearchId" = ${SavedSearchId}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "schedule" = ${Schedule}
             "recipients" = ${Recipients}
             "enabled" = ${Enabled}
             "emailEmptyResults" = ${EmailEmptyResults}
             "displayQueryDetails" = ${DisplayQueryDetails}
         }
-
 
         return $PSO
     }

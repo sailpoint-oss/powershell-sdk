@@ -26,10 +26,10 @@ ListFormDefinitionsByTenantResponse<PSCustomObject>
 function Initialize-BetaListFormDefinitionsByTenantResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${Count},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Results}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaListFormDefinitionsByTenantResponse {
             "count" = ${Count}
             "results" = ${Results}
         }
-
 
         return $PSO
     }

@@ -36,25 +36,25 @@ CreateFormDefinitionRequest<PSCustomObject>
 function Initialize-BetaCreateFormDefinitionRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${FormConditions},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${FormElements},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${FormInput},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${UsedBy}
     )
@@ -71,7 +71,7 @@ function Initialize-BetaCreateFormDefinitionRequest {
             throw "invalid value for 'Description', the character length must be great than or equal to 0."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -79,7 +79,7 @@ function Initialize-BetaCreateFormDefinitionRequest {
             throw "invalid value for 'Name', the character length must be smaller than or equal to 255."
         }
 
-        if ($null -eq $Owner) {
+        if (!$Owner) {
             throw "invalid value for 'Owner', 'Owner' cannot be null."
         }
 
@@ -93,7 +93,6 @@ function Initialize-BetaCreateFormDefinitionRequest {
             "owner" = ${Owner}
             "usedBy" = ${UsedBy}
         }
-
 
         return $PSO
     }

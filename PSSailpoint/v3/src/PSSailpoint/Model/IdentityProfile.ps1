@@ -14,14 +14,8 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-System-generated unique ID of the Object
 .PARAMETER Name
 Name of the Object
-.PARAMETER Created
-Creation date of the Object
-.PARAMETER Modified
-Last modification date of the Object
 .PARAMETER Description
 The description of the Identity Profile.
 .PARAMETER Owner
@@ -48,43 +42,34 @@ IdentityProfile<PSCustomObject>
 function Initialize-IdentityProfile {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${Priority},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AuthoritativeSource},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IdentityRefreshRequired} = $false,
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${IdentityCount},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${IdentityAttributeConfig},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${IdentityExceptionReportReference},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${HasTimeBasedAttr} = $false
     )
@@ -93,20 +78,17 @@ function Initialize-IdentityProfile {
         'Creating PSCustomObject: PSSailpoint => IdentityProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $AuthoritativeSource) {
+        if (!$AuthoritativeSource) {
             throw "invalid value for 'AuthoritativeSource', 'AuthoritativeSource' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "description" = ${Description}
             "owner" = ${Owner}
             "priority" = ${Priority}
@@ -117,7 +99,6 @@ function Initialize-IdentityProfile {
             "identityExceptionReportReference" = ${IdentityExceptionReportReference}
             "hasTimeBasedAttr" = ${HasTimeBasedAttr}
         }
-
 
         return $PSO
     }

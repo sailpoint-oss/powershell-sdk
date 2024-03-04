@@ -14,32 +14,6 @@ No summary available.
 
 Representation of the object which is returned from source connectors.
 
-.PARAMETER Instance
-Identifier of the specific instance where this object resides.
-.PARAMETER Identity
-Native identity of the object in the Source.
-.PARAMETER Uuid
-Universal unique identifier of the object in the Source.
-.PARAMETER PreviousIdentity
-Native identity that the object has previously.
-.PARAMETER Name
-Display name for this object.
-.PARAMETER ObjectType
-Type of object.
-.PARAMETER Incomplete
-A flag indicating that this is an incomplete object. Used in special cases where the connector has to return account information in several phases and the objects might not have a complete set of all account attributes. The attributes in this object will replace the corresponding attributes in the Link, but no other Link attributes will be changed.
-.PARAMETER Incremental
-A flag indicating that this is an incremental change object. This is similar to incomplete but it also means that the values of any multi-valued attributes in this object should be merged with the existing values in the Link rather than replacing the existing Link value.
-.PARAMETER Delete
-A flag indicating that this object has been deleted. This is set only when doing delta aggregation and the connector supports detection of native deletes.
-.PARAMETER Remove
-A flag set indicating that the values in the attributes represent things to remove rather than things to add. Setting this implies incremental. The values which are always for multi-valued attributes are removed from the current values.
-.PARAMETER Missing
-A list of attribute names that are not included in this object. This is only used with SMConnector and will only contain ""groups"".
-.PARAMETER Attributes
-Attributes of this ResourceObject.
-.PARAMETER FinalUpdate
-In Aggregation, for sparse object the count for total accounts scanned identities updated is not incremented.
 .OUTPUTS
 
 ResourceObject<PSCustomObject>
@@ -48,45 +22,6 @@ ResourceObject<PSCustomObject>
 function Initialize-BetaResourceObject {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Instance},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Identity},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Uuid},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${PreviousIdentity},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ObjectType},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Incomplete},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Incremental},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Delete},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${Remove},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${Missing},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Attributes},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${FinalUpdate}
     )
 
     Process {
@@ -95,21 +30,7 @@ function Initialize-BetaResourceObject {
 
 
         $PSO = [PSCustomObject]@{
-            "instance" = ${Instance}
-            "identity" = ${Identity}
-            "uuid" = ${Uuid}
-            "previousIdentity" = ${PreviousIdentity}
-            "name" = ${Name}
-            "objectType" = ${ObjectType}
-            "incomplete" = ${Incomplete}
-            "incremental" = ${Incremental}
-            "delete" = ${Delete}
-            "remove" = ${Remove}
-            "missing" = ${Missing}
-            "attributes" = ${Attributes}
-            "finalUpdate" = ${FinalUpdate}
         }
-
 
         return $PSO
     }

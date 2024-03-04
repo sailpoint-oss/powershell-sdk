@@ -34,23 +34,23 @@ FullcampaignAllOfSearchCampaignInfo<PSCustomObject>
 function Initialize-BetaFullcampaignAllOfSearchCampaignInfo {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY", "ACCESS")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Reviewer},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Query},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${IdentityIds},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccessConstraints}
     )
@@ -59,7 +59,7 @@ function Initialize-BetaFullcampaignAllOfSearchCampaignInfo {
         'Creating PSCustomObject: PSSailpointBeta => BetaFullcampaignAllOfSearchCampaignInfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
@@ -80,7 +80,6 @@ function Initialize-BetaFullcampaignAllOfSearchCampaignInfo {
             "identityIds" = ${IdentityIds}
             "accessConstraints" = ${AccessConstraints}
         }
-
 
         return $PSO
     }

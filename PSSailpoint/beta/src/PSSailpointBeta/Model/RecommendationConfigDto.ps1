@@ -30,16 +30,16 @@ RecommendationConfigDto<PSCustomObject>
 function Initialize-BetaRecommendationConfigDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${RecommenderFeatures},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${PeerGroupPercentageThreshold},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RunAutoSelectOnce} = $false,
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${OnlyTuneThreshold} = $false
     )
@@ -63,7 +63,6 @@ function Initialize-BetaRecommendationConfigDto {
             "runAutoSelectOnce" = ${RunAutoSelectOnce}
             "onlyTuneThreshold" = ${OnlyTuneThreshold}
         }
-
 
         return $PSO
     }

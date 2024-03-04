@@ -28,13 +28,13 @@ Argument<PSCustomObject>
 function Initialize-BetaArgument {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type}
     )
@@ -43,7 +43,7 @@ function Initialize-BetaArgument {
         'Creating PSCustomObject: PSSailpointBeta => BetaArgument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -53,7 +53,6 @@ function Initialize-BetaArgument {
             "description" = ${Description}
             "type" = ${Type}
         }
-
 
         return $PSO
     }

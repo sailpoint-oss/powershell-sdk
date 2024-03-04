@@ -28,13 +28,13 @@ SearchAttributeConfig<PSCustomObject>
 function Initialize-BetaSearchAttributeConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ApplicationAttributes}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaSearchAttributeConfig {
             "displayName" = ${DisplayName}
             "applicationAttributes" = ${ApplicationAttributes}
         }
-
 
         return $PSO
     }

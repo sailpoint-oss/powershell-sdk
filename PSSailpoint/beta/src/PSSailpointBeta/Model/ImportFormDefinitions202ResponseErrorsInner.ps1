@@ -28,13 +28,13 @@ ImportFormDefinitions202ResponseErrorsInner<PSCustomObject>
 function Initialize-BetaImportFormDefinitions202ResponseErrorsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Detail},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Key},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Text}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaImportFormDefinitions202ResponseErrorsInner {
             "key" = ${Key}
             "text" = ${Text}
         }
-
 
         return $PSO
     }

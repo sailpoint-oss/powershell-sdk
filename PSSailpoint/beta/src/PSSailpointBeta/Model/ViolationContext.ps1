@@ -26,10 +26,10 @@ ViolationContext<PSCustomObject>
 function Initialize-BetaViolationContext {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Policy},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ConflictingAccessCriteria}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaViolationContext {
             "policy" = ${Policy}
             "conflictingAccessCriteria" = ${ConflictingAccessCriteria}
         }
-
 
         return $PSO
     }

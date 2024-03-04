@@ -24,7 +24,7 @@ TestWorkflow200Response<PSCustomObject>
 function Initialize-BetaTestWorkflow200Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${WorkflowExecutionId}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaTestWorkflow200Response {
         $PSO = [PSCustomObject]@{
             "workflowExecutionId" = ${WorkflowExecutionId}
         }
-
 
         return $PSO
     }

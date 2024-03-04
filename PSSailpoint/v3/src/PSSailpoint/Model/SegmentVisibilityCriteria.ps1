@@ -24,7 +24,7 @@ SegmentVisibilityCriteria<PSCustomObject>
 function Initialize-SegmentVisibilityCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Expression}
     )
@@ -37,7 +37,6 @@ function Initialize-SegmentVisibilityCriteria {
         $PSO = [PSCustomObject]@{
             "expression" = ${Expression}
         }
-
 
         return $PSO
     }

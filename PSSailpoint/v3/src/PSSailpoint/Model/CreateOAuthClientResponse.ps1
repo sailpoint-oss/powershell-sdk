@@ -60,63 +60,63 @@ CreateOAuthClientResponse<PSCustomObject>
 function Initialize-CreateOAuthClientResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Secret},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${BusinessName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${HomepageUrl},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${AccessTokenValiditySeconds},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${RefreshTokenValiditySeconds},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${RedirectUris},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${GrantTypes},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ONLINE", "OFFLINE")]
         [PSCustomObject]
         ${AccessType},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CONFIDENTIAL", "PUBLIC")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Internal},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Enabled},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${StrongAuthSupported},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${ClaimsSupported},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Created},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Modified},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Scope}
     )
@@ -125,75 +125,75 @@ function Initialize-CreateOAuthClientResponse {
         'Creating PSCustomObject: PSSailpoint => CreateOAuthClientResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Secret) {
+        if (!$Secret) {
             throw "invalid value for 'Secret', 'Secret' cannot be null."
         }
 
-        if ($null -eq $BusinessName) {
+        if (!$BusinessName) {
             throw "invalid value for 'BusinessName', 'BusinessName' cannot be null."
         }
 
-        if ($null -eq $HomepageUrl) {
+        if (!$HomepageUrl) {
             throw "invalid value for 'HomepageUrl', 'HomepageUrl' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Description) {
+        if (!$Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if ($null -eq $AccessTokenValiditySeconds) {
+        if (!$AccessTokenValiditySeconds) {
             throw "invalid value for 'AccessTokenValiditySeconds', 'AccessTokenValiditySeconds' cannot be null."
         }
 
-        if ($null -eq $RefreshTokenValiditySeconds) {
+        if (!$RefreshTokenValiditySeconds) {
             throw "invalid value for 'RefreshTokenValiditySeconds', 'RefreshTokenValiditySeconds' cannot be null."
         }
 
-        if ($null -eq $RedirectUris) {
+        if (!$RedirectUris) {
             throw "invalid value for 'RedirectUris', 'RedirectUris' cannot be null."
         }
 
-        if ($null -eq $GrantTypes) {
+        if (!$GrantTypes) {
             throw "invalid value for 'GrantTypes', 'GrantTypes' cannot be null."
         }
 
-        if ($null -eq $AccessType) {
+        if (!$AccessType) {
             throw "invalid value for 'AccessType', 'AccessType' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Internal) {
+        if (!$Internal) {
             throw "invalid value for 'Internal', 'Internal' cannot be null."
         }
 
-        if ($null -eq $Enabled) {
+        if (!$Enabled) {
             throw "invalid value for 'Enabled', 'Enabled' cannot be null."
         }
 
-        if ($null -eq $StrongAuthSupported) {
+        if (!$StrongAuthSupported) {
             throw "invalid value for 'StrongAuthSupported', 'StrongAuthSupported' cannot be null."
         }
 
-        if ($null -eq $ClaimsSupported) {
+        if (!$ClaimsSupported) {
             throw "invalid value for 'ClaimsSupported', 'ClaimsSupported' cannot be null."
         }
 
-        if ($null -eq $Created) {
+        if (!$Created) {
             throw "invalid value for 'Created', 'Created' cannot be null."
         }
 
-        if ($null -eq $Modified) {
+        if (!$Modified) {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
@@ -219,7 +219,6 @@ function Initialize-CreateOAuthClientResponse {
             "modified" = ${Modified}
             "scope" = ${Scope}
         }
-
 
         return $PSO
     }

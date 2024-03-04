@@ -26,10 +26,10 @@ ExternalAttributes<PSCustomObject>
 function Initialize-BetaExternalAttributes {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description}
     )
@@ -38,7 +38,7 @@ function Initialize-BetaExternalAttributes {
         'Creating PSCustomObject: PSSailpointBeta => BetaExternalAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-BetaExternalAttributes {
             "name" = ${Name}
             "description" = ${Description}
         }
-
 
         return $PSO
     }

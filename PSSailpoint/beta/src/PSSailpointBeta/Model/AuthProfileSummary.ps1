@@ -26,10 +26,10 @@ AuthProfileSummary<PSCustomObject>
 function Initialize-BetaAuthProfileSummary {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Tenant},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaAuthProfileSummary {
             "tenant" = ${Tenant}
             "id" = ${Id}
         }
-
 
         return $PSO
     }

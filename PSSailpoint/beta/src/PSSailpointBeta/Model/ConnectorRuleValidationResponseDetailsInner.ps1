@@ -28,13 +28,13 @@ ConnectorRuleValidationResponseDetailsInner<PSCustomObject>
 function Initialize-BetaConnectorRuleValidationResponseDetailsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Line},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${Column},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Messsage}
     )
@@ -43,11 +43,11 @@ function Initialize-BetaConnectorRuleValidationResponseDetailsInner {
         'Creating PSCustomObject: PSSailpointBeta => BetaConnectorRuleValidationResponseDetailsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Line) {
+        if (!$Line) {
             throw "invalid value for 'Line', 'Line' cannot be null."
         }
 
-        if ($null -eq $Column) {
+        if (!$Column) {
             throw "invalid value for 'Column', 'Column' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-BetaConnectorRuleValidationResponseDetailsInner {
             "column" = ${Column}
             "messsage" = ${Messsage}
         }
-
 
         return $PSO
     }

@@ -28,14 +28,14 @@ TemplateBulkDeleteDto<PSCustomObject>
 function Initialize-BetaTemplateBulkDeleteDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Key},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("EMAIL", "PHONE", "SMS")]
         [String]
         ${Medium},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Locale}
     )
@@ -44,7 +44,7 @@ function Initialize-BetaTemplateBulkDeleteDto {
         'Creating PSCustomObject: PSSailpointBeta => BetaTemplateBulkDeleteDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Key) {
+        if (!$Key) {
             throw "invalid value for 'Key', 'Key' cannot be null."
         }
 
@@ -54,7 +54,6 @@ function Initialize-BetaTemplateBulkDeleteDto {
             "medium" = ${Medium}
             "locale" = ${Locale}
         }
-
 
         return $PSO
     }

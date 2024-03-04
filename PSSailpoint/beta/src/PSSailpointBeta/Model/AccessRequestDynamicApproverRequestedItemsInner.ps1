@@ -34,24 +34,24 @@ AccessRequestDynamicApproverRequestedItemsInner<PSCustomObject>
 function Initialize-BetaAccessRequestDynamicApproverRequestedItemsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Add", "Remove")]
         [PSCustomObject]
         ${Operation},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment}
     )
@@ -60,19 +60,19 @@ function Initialize-BetaAccessRequestDynamicApproverRequestedItemsInner {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessRequestDynamicApproverRequestedItemsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Operation) {
+        if (!$Operation) {
             throw "invalid value for 'Operation', 'Operation' cannot be null."
         }
 
@@ -85,7 +85,6 @@ function Initialize-BetaAccessRequestDynamicApproverRequestedItemsInner {
             "operation" = ${Operation}
             "comment" = ${Comment}
         }
-
 
         return $PSO
     }

@@ -38,28 +38,28 @@ SourceAccountDeleted<PSCustomObject>
 function Initialize-BetaSourceAccountDeleted {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Uuid},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NativeIdentifier},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceId},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceName},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityName},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes}
     )
@@ -68,31 +68,31 @@ function Initialize-BetaSourceAccountDeleted {
         'Creating PSCustomObject: PSSailpointBeta => BetaSourceAccountDeleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $NativeIdentifier) {
+        if (!$NativeIdentifier) {
             throw "invalid value for 'NativeIdentifier', 'NativeIdentifier' cannot be null."
         }
 
-        if ($null -eq $SourceId) {
+        if (!$SourceId) {
             throw "invalid value for 'SourceId', 'SourceId' cannot be null."
         }
 
-        if ($null -eq $SourceName) {
+        if (!$SourceName) {
             throw "invalid value for 'SourceName', 'SourceName' cannot be null."
         }
 
-        if ($null -eq $IdentityId) {
+        if (!$IdentityId) {
             throw "invalid value for 'IdentityId', 'IdentityId' cannot be null."
         }
 
-        if ($null -eq $IdentityName) {
+        if (!$IdentityName) {
             throw "invalid value for 'IdentityName', 'IdentityName' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
@@ -107,7 +107,6 @@ function Initialize-BetaSourceAccountDeleted {
             "identityName" = ${IdentityName}
             "attributes" = ${Attributes}
         }
-
 
         return $PSO
     }

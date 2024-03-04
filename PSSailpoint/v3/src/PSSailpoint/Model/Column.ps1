@@ -26,10 +26,10 @@ Column<PSCustomObject>
 function Initialize-Column {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Field},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Header}
     )
@@ -38,7 +38,7 @@ function Initialize-Column {
         'Creating PSCustomObject: PSSailpoint => Column' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Field) {
+        if (!$Field) {
             throw "invalid value for 'Field', 'Field' cannot be null."
         }
 
@@ -47,7 +47,6 @@ function Initialize-Column {
             "field" = ${Field}
             "header" = ${Header}
         }
-
 
         return $PSO
     }

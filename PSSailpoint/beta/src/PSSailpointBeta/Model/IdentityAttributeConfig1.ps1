@@ -26,10 +26,10 @@ IdentityAttributeConfig1<PSCustomObject>
 function Initialize-BetaIdentityAttributeConfig1 {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AttributeTransforms}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaIdentityAttributeConfig1 {
             "enabled" = ${Enabled}
             "attributeTransforms" = ${AttributeTransforms}
         }
-
 
         return $PSO
     }

@@ -24,7 +24,7 @@ FormDefinitionDynamicSchemaResponse<PSCustomObject>
 function Initialize-BetaFormDefinitionDynamicSchemaResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${OutputSchema}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaFormDefinitionDynamicSchemaResponse {
         $PSO = [PSCustomObject]@{
             "outputSchema" = ${OutputSchema}
         }
-
 
         return $PSO
     }

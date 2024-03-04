@@ -24,7 +24,7 @@ RoleMiningSessionStatus<PSCustomObject>
 function Initialize-BetaRoleMiningSessionStatus {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CREATED", "UPDATED", "IDENTITIES_OBTAINED", "PRUNE_THRESHOLD_OBTAINED", "POTENTIAL_ROLES_PROCESSING", "POTENTIAL_ROLES_CREATED")]
         [PSCustomObject]
         ${State}
@@ -38,7 +38,6 @@ function Initialize-BetaRoleMiningSessionStatus {
         $PSO = [PSCustomObject]@{
             "state" = ${State}
         }
-
 
         return $PSO
     }

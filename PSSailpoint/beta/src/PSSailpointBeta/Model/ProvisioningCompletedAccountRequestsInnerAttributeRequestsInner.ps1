@@ -28,13 +28,13 @@ ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner<PSCustomObject>
 function Initialize-BetaProvisioningCompletedAccountRequestsInnerAttributeRequestsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AttributeName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AttributeValue},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Add", "Set", "Remove")]
         [PSCustomObject]
         ${Operation}
@@ -44,11 +44,11 @@ function Initialize-BetaProvisioningCompletedAccountRequestsInnerAttributeReques
         'Creating PSCustomObject: PSSailpointBeta => BetaProvisioningCompletedAccountRequestsInnerAttributeRequestsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $AttributeName) {
+        if (!$AttributeName) {
             throw "invalid value for 'AttributeName', 'AttributeName' cannot be null."
         }
 
-        if ($null -eq $Operation) {
+        if (!$Operation) {
             throw "invalid value for 'Operation', 'Operation' cannot be null."
         }
 
@@ -58,7 +58,6 @@ function Initialize-BetaProvisioningCompletedAccountRequestsInnerAttributeReques
             "attributeValue" = ${AttributeValue}
             "operation" = ${Operation}
         }
-
 
         return $PSO
     }

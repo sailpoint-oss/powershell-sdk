@@ -30,17 +30,17 @@ AccessRequest<PSCustomObject>
 function Initialize-AccessRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${RequestedFor},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS", "")]
         [PSCustomObject]
         ${RequestType},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${RequestedItems},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${ClientMetadata}
     )
@@ -49,11 +49,11 @@ function Initialize-AccessRequest {
         'Creating PSCustomObject: PSSailpoint => AccessRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $RequestedFor) {
+        if (!$RequestedFor) {
             throw "invalid value for 'RequestedFor', 'RequestedFor' cannot be null."
         }
 
-        if ($null -eq $RequestedItems) {
+        if (!$RequestedItems) {
             throw "invalid value for 'RequestedItems', 'RequestedItems' cannot be null."
         }
 
@@ -72,7 +72,6 @@ function Initialize-AccessRequest {
             "requestedItems" = ${RequestedItems}
             "clientMetadata" = ${ClientMetadata}
         }
-
 
         return $PSO
     }

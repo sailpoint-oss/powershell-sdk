@@ -30,18 +30,18 @@ ManagedClientStatusAggResponse<PSCustomObject>
 function Initialize-BetaManagedClientStatusAggResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Body},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("NORMAL", "UNDEFINED", "NOT_CONFIGURED", "CONFIGURING", "WARNING", "ERROR", "FAILED")]
         [PSCustomObject]
         ${Status},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CCG", "VA", "INTERNAL", "IIQ_HARVESTER", "")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Timestamp}
     )
@@ -50,15 +50,15 @@ function Initialize-BetaManagedClientStatusAggResponse {
         'Creating PSCustomObject: PSSailpointBeta => BetaManagedClientStatusAggResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Body) {
+        if (!$Body) {
             throw "invalid value for 'Body', 'Body' cannot be null."
         }
 
-        if ($null -eq $Status) {
+        if (!$Status) {
             throw "invalid value for 'Status', 'Status' cannot be null."
         }
 
-        if ($null -eq $Timestamp) {
+        if (!$Timestamp) {
             throw "invalid value for 'Timestamp', 'Timestamp' cannot be null."
         }
 
@@ -69,7 +69,6 @@ function Initialize-BetaManagedClientStatusAggResponse {
             "type" = ${Type}
             "timestamp" = ${Timestamp}
         }
-
 
         return $PSO
     }

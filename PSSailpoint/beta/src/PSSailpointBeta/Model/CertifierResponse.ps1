@@ -26,10 +26,10 @@ CertifierResponse<PSCustomObject>
 function Initialize-BetaCertifierResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaCertifierResponse {
             "id" = ${Id}
             "displayName" = ${DisplayName}
         }
-
 
         return $PSO
     }

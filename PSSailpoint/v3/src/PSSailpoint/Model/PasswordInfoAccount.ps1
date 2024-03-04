@@ -26,10 +26,10 @@ PasswordInfoAccount<PSCustomObject>
 function Initialize-PasswordInfoAccount {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountName}
     )
@@ -43,7 +43,6 @@ function Initialize-PasswordInfoAccount {
             "accountId" = ${AccountId}
             "accountName" = ${AccountName}
         }
-
 
         return $PSO
     }

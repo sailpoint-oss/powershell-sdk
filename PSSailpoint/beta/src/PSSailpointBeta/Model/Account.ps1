@@ -14,14 +14,8 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-System-generated unique ID of the Object
 .PARAMETER Name
 Name of the Object
-.PARAMETER Created
-Creation date of the Object
-.PARAMETER Modified
-Last modification date of the Object
 .PARAMETER SourceId
 The unique ID of the source this account belongs to
 .PARAMETER SourceName
@@ -64,67 +58,58 @@ Account<PSCustomObject>
 function Initialize-BetaAccount {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceId},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceName},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Authoritative},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Disabled},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Locked},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NativeIdentity},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${SystemAccount},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Uncorrelated},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Uuid},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${ManuallyCorrelated},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${HasEntitlements},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity},
-        [Parameter(Position = 19, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${SourceOwner},
-        [Parameter(Position = 20, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Features}
     )
@@ -133,60 +118,57 @@ function Initialize-BetaAccount {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $SourceId) {
+        if (!$SourceId) {
             throw "invalid value for 'SourceId', 'SourceId' cannot be null."
         }
 
-        if ($null -eq $SourceName) {
+        if (!$SourceName) {
             throw "invalid value for 'SourceName', 'SourceName' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
-        if ($null -eq $Authoritative) {
+        if (!$Authoritative) {
             throw "invalid value for 'Authoritative', 'Authoritative' cannot be null."
         }
 
-        if ($null -eq $Disabled) {
+        if (!$Disabled) {
             throw "invalid value for 'Disabled', 'Disabled' cannot be null."
         }
 
-        if ($null -eq $Locked) {
+        if (!$Locked) {
             throw "invalid value for 'Locked', 'Locked' cannot be null."
         }
 
-        if ($null -eq $NativeIdentity) {
+        if (!$NativeIdentity) {
             throw "invalid value for 'NativeIdentity', 'NativeIdentity' cannot be null."
         }
 
-        if ($null -eq $SystemAccount) {
+        if (!$SystemAccount) {
             throw "invalid value for 'SystemAccount', 'SystemAccount' cannot be null."
         }
 
-        if ($null -eq $Uncorrelated) {
+        if (!$Uncorrelated) {
             throw "invalid value for 'Uncorrelated', 'Uncorrelated' cannot be null."
         }
 
-        if ($null -eq $ManuallyCorrelated) {
+        if (!$ManuallyCorrelated) {
             throw "invalid value for 'ManuallyCorrelated', 'ManuallyCorrelated' cannot be null."
         }
 
-        if ($null -eq $HasEntitlements) {
+        if (!$HasEntitlements) {
             throw "invalid value for 'HasEntitlements', 'HasEntitlements' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "sourceId" = ${SourceId}
             "sourceName" = ${SourceName}
             "identityId" = ${IdentityId}
@@ -205,7 +187,6 @@ function Initialize-BetaAccount {
             "sourceOwner" = ${SourceOwner}
             "features" = ${Features}
         }
-
 
         return $PSO
     }

@@ -34,23 +34,23 @@ ReviewDecision<PSCustomObject>
 function Initialize-ReviewDecision {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APPROVE", "REVOKE")]
         [PSCustomObject]
         ${Decision},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${ProposedEndDate},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${Bulk},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Recommendation},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comments}
     )
@@ -59,15 +59,15 @@ function Initialize-ReviewDecision {
         'Creating PSCustomObject: PSSailpoint => ReviewDecision' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Decision) {
+        if (!$Decision) {
             throw "invalid value for 'Decision', 'Decision' cannot be null."
         }
 
-        if ($null -eq $Bulk) {
+        if (!$Bulk) {
             throw "invalid value for 'Bulk', 'Bulk' cannot be null."
         }
 
@@ -80,7 +80,6 @@ function Initialize-ReviewDecision {
             "recommendation" = ${Recommendation}
             "comments" = ${Comments}
         }
-
 
         return $PSO
     }

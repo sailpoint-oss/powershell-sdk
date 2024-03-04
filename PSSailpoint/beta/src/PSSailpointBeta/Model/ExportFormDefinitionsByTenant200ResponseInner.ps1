@@ -28,13 +28,13 @@ ExportFormDefinitionsByTenant200ResponseInner<PSCustomObject>
 function Initialize-BetaExportFormDefinitionsByTenant200ResponseInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Object},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Self},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Version}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaExportFormDefinitionsByTenant200ResponseInner {
             "self" = ${Self}
             "version" = ${Version}
         }
-
 
         return $PSO
     }

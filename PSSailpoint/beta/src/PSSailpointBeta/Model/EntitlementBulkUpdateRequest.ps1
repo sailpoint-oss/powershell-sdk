@@ -26,10 +26,10 @@ EntitlementBulkUpdateRequest<PSCustomObject>
 function Initialize-BetaEntitlementBulkUpdateRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${EntitlementIds},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${JsonPatch}
     )
@@ -38,7 +38,7 @@ function Initialize-BetaEntitlementBulkUpdateRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaEntitlementBulkUpdateRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $EntitlementIds) {
+        if (!$EntitlementIds) {
             throw "invalid value for 'EntitlementIds', 'EntitlementIds' cannot be null."
         }
 
@@ -46,7 +46,7 @@ function Initialize-BetaEntitlementBulkUpdateRequest {
             throw "invalid value for 'EntitlementIds', number of items must be less than or equal to 50."
         }
 
-        if ($null -eq $JsonPatch) {
+        if (!$JsonPatch) {
             throw "invalid value for 'JsonPatch', 'JsonPatch' cannot be null."
         }
 
@@ -55,7 +55,6 @@ function Initialize-BetaEntitlementBulkUpdateRequest {
             "entitlementIds" = ${EntitlementIds}
             "jsonPatch" = ${JsonPatch}
         }
-
 
         return $PSO
     }

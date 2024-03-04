@@ -28,13 +28,13 @@ AccountRequestInfo<PSCustomObject>
 function Initialize-BetaAccountRequestInfo {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestedObjectId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestedObjectName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT")]
         [PSCustomObject]
         ${RequestedObjectType}
@@ -50,7 +50,6 @@ function Initialize-BetaAccountRequestInfo {
             "requestedObjectName" = ${RequestedObjectName}
             "requestedObjectType" = ${RequestedObjectType}
         }
-
 
         return $PSO
     }

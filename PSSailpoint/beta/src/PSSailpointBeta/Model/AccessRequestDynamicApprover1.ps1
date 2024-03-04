@@ -28,13 +28,13 @@ AccessRequestDynamicApprover1<PSCustomObject>
 function Initialize-BetaAccessRequestDynamicApprover1 {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IDENTITY", "GOVERNANCE_GROUP")]
         [PSCustomObject]
         ${Type}
@@ -44,15 +44,15 @@ function Initialize-BetaAccessRequestDynamicApprover1 {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessRequestDynamicApprover1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
@@ -62,7 +62,6 @@ function Initialize-BetaAccessRequestDynamicApprover1 {
             "name" = ${Name}
             "type" = ${Type}
         }
-
 
         return $PSO
     }

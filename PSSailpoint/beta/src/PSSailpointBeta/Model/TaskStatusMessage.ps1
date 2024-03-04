@@ -30,17 +30,17 @@ TaskStatusMessage<PSCustomObject>
 function Initialize-BetaTaskStatusMessage {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("INFO", "WARN", "ERROR")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${LocalizedText},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Key},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Parameters}
     )
@@ -49,19 +49,19 @@ function Initialize-BetaTaskStatusMessage {
         'Creating PSCustomObject: PSSailpointBeta => BetaTaskStatusMessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $LocalizedText) {
+        if (!$LocalizedText) {
             throw "invalid value for 'LocalizedText', 'LocalizedText' cannot be null."
         }
 
-        if ($null -eq $Key) {
+        if (!$Key) {
             throw "invalid value for 'Key', 'Key' cannot be null."
         }
 
-        if ($null -eq $Parameters) {
+        if (!$Parameters) {
             throw "invalid value for 'Parameters', 'Parameters' cannot be null."
         }
 
@@ -72,7 +72,6 @@ function Initialize-BetaTaskStatusMessage {
             "key" = ${Key}
             "parameters" = ${Parameters}
         }
-
 
         return $PSO
     }

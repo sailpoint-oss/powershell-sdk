@@ -28,13 +28,13 @@ IdentitiesDetailsReportArguments<PSCustomObject>
 function Initialize-IdentitiesDetailsReportArguments {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${CorrelatedOnly} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${DefaultS3Bucket},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${S3Bucket}
     )
@@ -43,11 +43,11 @@ function Initialize-IdentitiesDetailsReportArguments {
         'Creating PSCustomObject: PSSailpoint => IdentitiesDetailsReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $CorrelatedOnly) {
+        if (!$CorrelatedOnly) {
             throw "invalid value for 'CorrelatedOnly', 'CorrelatedOnly' cannot be null."
         }
 
-        if ($null -eq $DefaultS3Bucket) {
+        if (!$DefaultS3Bucket) {
             throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-IdentitiesDetailsReportArguments {
             "defaultS3Bucket" = ${DefaultS3Bucket}
             "s3Bucket" = ${S3Bucket}
         }
-
 
         return $PSO
     }

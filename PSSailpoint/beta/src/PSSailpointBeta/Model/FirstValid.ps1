@@ -28,13 +28,13 @@ FirstValid<PSCustomObject>
 function Initialize-BetaFirstValid {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Values},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IgnoreErrors} = $false,
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false
     )
@@ -43,7 +43,7 @@ function Initialize-BetaFirstValid {
         'Creating PSCustomObject: PSSailpointBeta => BetaFirstValid' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Values) {
+        if (!$Values) {
             throw "invalid value for 'Values', 'Values' cannot be null."
         }
 
@@ -53,7 +53,6 @@ function Initialize-BetaFirstValid {
             "ignoreErrors" = ${IgnoreErrors}
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
         }
-
 
         return $PSO
     }

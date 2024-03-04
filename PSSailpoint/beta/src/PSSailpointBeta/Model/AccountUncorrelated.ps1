@@ -30,16 +30,16 @@ AccountUncorrelated<PSCustomObject>
 function Initialize-BetaAccountUncorrelated {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Account},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${EntitlementCount}
     )
@@ -48,15 +48,15 @@ function Initialize-BetaAccountUncorrelated {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccountUncorrelated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Identity) {
+        if (!$Identity) {
             throw "invalid value for 'Identity', 'Identity' cannot be null."
         }
 
-        if ($null -eq $Source) {
+        if (!$Source) {
             throw "invalid value for 'Source', 'Source' cannot be null."
         }
 
-        if ($null -eq $Account) {
+        if (!$Account) {
             throw "invalid value for 'Account', 'Account' cannot be null."
         }
 
@@ -67,7 +67,6 @@ function Initialize-BetaAccountUncorrelated {
             "account" = ${Account}
             "entitlementCount" = ${EntitlementCount}
         }
-
 
         return $PSO
     }

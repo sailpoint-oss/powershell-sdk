@@ -26,10 +26,10 @@ ObjectExportImportOptions<PSCustomObject>
 function Initialize-BetaObjectExportImportOptions {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${IncludedIds},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${IncludedNames}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaObjectExportImportOptions {
             "includedIds" = ${IncludedIds}
             "includedNames" = ${IncludedNames}
         }
-
 
         return $PSO
     }

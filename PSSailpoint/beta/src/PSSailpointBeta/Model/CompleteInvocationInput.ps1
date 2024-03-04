@@ -26,10 +26,10 @@ CompleteInvocationInput<PSCustomObject>
 function Initialize-BetaCompleteInvocationInput {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${LocalizedError},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Output}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaCompleteInvocationInput {
             "localizedError" = ${LocalizedError}
             "output" = ${Output}
         }
-
 
         return $PSO
     }

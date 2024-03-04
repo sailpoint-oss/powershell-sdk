@@ -24,7 +24,7 @@ TenantConfigurationRequest<PSCustomObject>
 function Initialize-BetaTenantConfigurationRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ConfigDetails}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaTenantConfigurationRequest {
         $PSO = [PSCustomObject]@{
             "configDetails" = ${ConfigDetails}
         }
-
 
         return $PSO
     }

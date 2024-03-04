@@ -24,7 +24,7 @@ IdentitiesAccountsBulkRequest<PSCustomObject>
 function Initialize-BetaIdentitiesAccountsBulkRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${IdentityIds}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaIdentitiesAccountsBulkRequest {
         $PSO = [PSCustomObject]@{
             "identityIds" = ${IdentityIds}
         }
-
 
         return $PSO
     }

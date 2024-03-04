@@ -24,7 +24,7 @@ RequestedItemStatusProvisioningDetails<PSCustomObject>
 function Initialize-BetaRequestedItemStatusProvisioningDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OrderedSubPhaseReferences}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaRequestedItemStatusProvisioningDetails {
         $PSO = [PSCustomObject]@{
             "orderedSubPhaseReferences" = ${OrderedSubPhaseReferences}
         }
-
 
         return $PSO
     }

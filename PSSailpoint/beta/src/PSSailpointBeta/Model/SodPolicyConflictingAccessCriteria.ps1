@@ -26,10 +26,10 @@ SodPolicyConflictingAccessCriteria<PSCustomObject>
 function Initialize-BetaSodPolicyConflictingAccessCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${LeftCriteria},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RightCriteria}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaSodPolicyConflictingAccessCriteria {
             "leftCriteria" = ${LeftCriteria}
             "rightCriteria" = ${RightCriteria}
         }
-
 
         return $PSO
     }

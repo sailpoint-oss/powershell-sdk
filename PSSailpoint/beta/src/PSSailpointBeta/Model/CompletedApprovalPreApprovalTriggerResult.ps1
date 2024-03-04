@@ -30,17 +30,17 @@ CompletedApprovalPreApprovalTriggerResult<PSCustomObject>
 function Initialize-BetaCompletedApprovalPreApprovalTriggerResult {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APPROVED", "REJECTED")]
         [PSCustomObject]
         ${Decision},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Reviewer},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Date}
     )
@@ -56,7 +56,6 @@ function Initialize-BetaCompletedApprovalPreApprovalTriggerResult {
             "reviewer" = ${Reviewer}
             "date" = ${Date}
         }
-
 
         return $PSO
     }

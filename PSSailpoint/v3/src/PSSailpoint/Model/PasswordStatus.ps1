@@ -30,17 +30,17 @@ PasswordStatus<PSCustomObject>
 function Initialize-PasswordStatus {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("IN_PROGRESS", "FINISHED", "FAILED")]
         [String]
         ${State},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Errors},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SourceIds}
     )
@@ -56,7 +56,6 @@ function Initialize-PasswordStatus {
             "errors" = ${Errors}
             "sourceIds" = ${SourceIds}
         }
-
 
         return $PSO
     }

@@ -26,10 +26,10 @@ PasswordDigitToken<PSCustomObject>
 function Initialize-BetaPasswordDigitToken {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DigitToken},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestId}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaPasswordDigitToken {
             "digitToken" = ${DigitToken}
             "requestId" = ${RequestId}
         }
-
 
         return $PSO
     }

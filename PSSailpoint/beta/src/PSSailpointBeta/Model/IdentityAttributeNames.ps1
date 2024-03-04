@@ -24,7 +24,7 @@ IdentityAttributeNames<PSCustomObject>
 function Initialize-BetaIdentityAttributeNames {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Ids}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaIdentityAttributeNames {
         $PSO = [PSCustomObject]@{
             "ids" = ${Ids}
         }
-
 
         return $PSO
     }

@@ -26,10 +26,10 @@ SodViolationContext<PSCustomObject>
 function Initialize-SodViolationContext {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Policy},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ConflictingAccessCriteria}
     )
@@ -43,7 +43,6 @@ function Initialize-SodViolationContext {
             "policy" = ${Policy}
             "conflictingAccessCriteria" = ${ConflictingAccessCriteria}
         }
-
 
         return $PSO
     }

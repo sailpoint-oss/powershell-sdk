@@ -24,7 +24,7 @@ DeleteNonEmployeeRecordsInBulkRequest<PSCustomObject>
 function Initialize-DeleteNonEmployeeRecordsInBulkRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Ids}
     )
@@ -33,7 +33,7 @@ function Initialize-DeleteNonEmployeeRecordsInBulkRequest {
         'Creating PSCustomObject: PSSailpoint => DeleteNonEmployeeRecordsInBulkRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Ids) {
+        if (!$Ids) {
             throw "invalid value for 'Ids', 'Ids' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-DeleteNonEmployeeRecordsInBulkRequest {
         $PSO = [PSCustomObject]@{
             "ids" = ${Ids}
         }
-
 
         return $PSO
     }

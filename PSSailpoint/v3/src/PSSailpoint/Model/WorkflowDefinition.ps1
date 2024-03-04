@@ -26,10 +26,10 @@ WorkflowDefinition<PSCustomObject>
 function Initialize-WorkflowDefinition {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Start},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Steps}
     )
@@ -43,7 +43,6 @@ function Initialize-WorkflowDefinition {
             "start" = ${Start}
             "steps" = ${Steps}
         }
-
 
         return $PSO
     }

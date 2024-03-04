@@ -54,54 +54,54 @@ TaskStatus<PSCustomObject>
 function Initialize-BetaTaskStatus {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("QUARTZ", "QPOC", "QUEUED_TASK")]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${UniqueName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ParentName},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Launcher},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Created},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Modified},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Launched},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Completed},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Success", "Warning", "Error", "Terminated", "TempError")]
         [String]
         ${CompletionStatus},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Messages},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Returns},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Progress},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${PercentComplete}
     )
@@ -110,67 +110,67 @@ function Initialize-BetaTaskStatus {
         'Creating PSCustomObject: PSSailpointBeta => BetaTaskStatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $UniqueName) {
+        if (!$UniqueName) {
             throw "invalid value for 'UniqueName', 'UniqueName' cannot be null."
         }
 
-        if ($null -eq $Description) {
+        if (!$Description) {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if ($null -eq $ParentName) {
+        if (!$ParentName) {
             throw "invalid value for 'ParentName', 'ParentName' cannot be null."
         }
 
-        if ($null -eq $Launcher) {
+        if (!$Launcher) {
             throw "invalid value for 'Launcher', 'Launcher' cannot be null."
         }
 
-        if ($null -eq $Created) {
+        if (!$Created) {
             throw "invalid value for 'Created', 'Created' cannot be null."
         }
 
-        if ($null -eq $Modified) {
+        if (!$Modified) {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
-        if ($null -eq $Launched) {
+        if (!$Launched) {
             throw "invalid value for 'Launched', 'Launched' cannot be null."
         }
 
-        if ($null -eq $Completed) {
+        if (!$Completed) {
             throw "invalid value for 'Completed', 'Completed' cannot be null."
         }
 
-        if ($null -eq $CompletionStatus) {
+        if (!$CompletionStatus) {
             throw "invalid value for 'CompletionStatus', 'CompletionStatus' cannot be null."
         }
 
-        if ($null -eq $Messages) {
+        if (!$Messages) {
             throw "invalid value for 'Messages', 'Messages' cannot be null."
         }
 
-        if ($null -eq $Returns) {
+        if (!$Returns) {
             throw "invalid value for 'Returns', 'Returns' cannot be null."
         }
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
-        if ($null -eq $Progress) {
+        if (!$Progress) {
             throw "invalid value for 'Progress', 'Progress' cannot be null."
         }
 
-        if ($null -eq $PercentComplete) {
+        if (!$PercentComplete) {
             throw "invalid value for 'PercentComplete', 'PercentComplete' cannot be null."
         }
 
@@ -193,7 +193,6 @@ function Initialize-BetaTaskStatus {
             "progress" = ${Progress}
             "percentComplete" = ${PercentComplete}
         }
-
 
         return $PSO
     }

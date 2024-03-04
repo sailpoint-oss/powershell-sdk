@@ -24,7 +24,7 @@ UUIDGenerator<PSCustomObject>
 function Initialize-BetaUUIDGenerator {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false
     )
@@ -37,7 +37,6 @@ function Initialize-BetaUUIDGenerator {
         $PSO = [PSCustomObject]@{
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
         }
-
 
         return $PSO
     }

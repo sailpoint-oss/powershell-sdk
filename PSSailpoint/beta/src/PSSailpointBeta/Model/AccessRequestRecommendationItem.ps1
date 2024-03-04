@@ -26,10 +26,10 @@ AccessRequestRecommendationItem<PSCustomObject>
 function Initialize-BetaAccessRequestRecommendationItem {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_PROFILE", "ROLE")]
         [PSCustomObject]
         ${Type}
@@ -44,7 +44,6 @@ function Initialize-BetaAccessRequestRecommendationItem {
             "id" = ${Id}
             "type" = ${Type}
         }
-
 
         return $PSO
     }

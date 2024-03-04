@@ -28,13 +28,13 @@ RoleMiningPotentialRoleProvisionRequest<PSCustomObject>
 function Initialize-BetaRoleMiningPotentialRoleProvisionRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RoleName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RoleDescription},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${OwnerId}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaRoleMiningPotentialRoleProvisionRequest {
             "roleDescription" = ${RoleDescription}
             "ownerId" = ${OwnerId}
         }
-
 
         return $PSO
     }

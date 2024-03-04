@@ -36,26 +36,26 @@ AccountAggregationCompleted<PSCustomObject>
 function Initialize-BetaAccountAggregationCompleted {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Success", "Failed", "Terminated")]
         [PSCustomObject]
         ${Status},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Started},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Completed},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Errors},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Warnings},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Stats}
     )
@@ -64,23 +64,23 @@ function Initialize-BetaAccountAggregationCompleted {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccountAggregationCompleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Source) {
+        if (!$Source) {
             throw "invalid value for 'Source', 'Source' cannot be null."
         }
 
-        if ($null -eq $Status) {
+        if (!$Status) {
             throw "invalid value for 'Status', 'Status' cannot be null."
         }
 
-        if ($null -eq $Started) {
+        if (!$Started) {
             throw "invalid value for 'Started', 'Started' cannot be null."
         }
 
-        if ($null -eq $Completed) {
+        if (!$Completed) {
             throw "invalid value for 'Completed', 'Completed' cannot be null."
         }
 
-        if ($null -eq $Stats) {
+        if (!$Stats) {
             throw "invalid value for 'Stats', 'Stats' cannot be null."
         }
 
@@ -94,7 +94,6 @@ function Initialize-BetaAccountAggregationCompleted {
             "warnings" = ${Warnings}
             "stats" = ${Stats}
         }
-
 
         return $PSO
     }

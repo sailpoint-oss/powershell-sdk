@@ -24,7 +24,7 @@ DeleteCampaignsRequest<PSCustomObject>
 function Initialize-BetaDeleteCampaignsRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Ids}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaDeleteCampaignsRequest {
         $PSO = [PSCustomObject]@{
             "ids" = ${Ids}
         }
-
 
         return $PSO
     }

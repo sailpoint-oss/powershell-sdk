@@ -24,7 +24,7 @@ FormItemDetails<PSCustomObject>
 function Initialize-BetaFormItemDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -37,7 +37,6 @@ function Initialize-BetaFormItemDetails {
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
         }
-
 
         return $PSO
     }

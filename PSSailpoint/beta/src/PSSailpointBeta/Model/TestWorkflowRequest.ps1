@@ -24,7 +24,7 @@ TestWorkflowRequest<PSCustomObject>
 function Initialize-BetaTestWorkflowRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarInput}
     )
@@ -33,7 +33,7 @@ function Initialize-BetaTestWorkflowRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaTestWorkflowRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $VarInput) {
+        if (!$VarInput) {
             throw "invalid value for 'VarInput', 'VarInput' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-BetaTestWorkflowRequest {
         $PSO = [PSCustomObject]@{
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

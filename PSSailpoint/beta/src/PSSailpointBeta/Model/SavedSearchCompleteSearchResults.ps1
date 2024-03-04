@@ -28,13 +28,13 @@ SavedSearchCompleteSearchResults<PSCustomObject>
 function Initialize-BetaSavedSearchCompleteSearchResults {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Account},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Entitlement},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaSavedSearchCompleteSearchResults {
             "Entitlement" = ${Entitlement}
             "Identity" = ${Identity}
         }
-
 
         return $PSO
     }

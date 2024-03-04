@@ -28,14 +28,14 @@ Selector<PSCustomObject>
 function Initialize-Selector {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("LIST", "RANGE")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Values},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Interval}
     )
@@ -44,11 +44,11 @@ function Initialize-Selector {
         'Creating PSCustomObject: PSSailpoint => Selector' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Values) {
+        if (!$Values) {
             throw "invalid value for 'Values', 'Values' cannot be null."
         }
 
@@ -58,7 +58,6 @@ function Initialize-Selector {
             "values" = ${Values}
             "interval" = ${Interval}
         }
-
 
         return $PSO
     }

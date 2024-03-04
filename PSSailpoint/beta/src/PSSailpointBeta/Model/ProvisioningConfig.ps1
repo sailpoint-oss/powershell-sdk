@@ -14,8 +14,6 @@ No summary available.
 
 Specification of a Service Desk integration provisioning configuration.
 
-.PARAMETER UniversalManager
-Specifies whether this configuration is used to manage provisioning requests for all sources from the org.  If true, no managedResourceRefs are allowed.
 .PARAMETER ManagedResourceRefs
 References to sources for the Service Desk integration template.  May only be specified if universalManager is false.
 .PARAMETER PlanInitializerScript
@@ -32,19 +30,16 @@ ProvisioningConfig<PSCustomObject>
 function Initialize-BetaProvisioningConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${UniversalManager} = $false,
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ManagedResourceRefs},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${PlanInitializerScript},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${NoProvisioningRequests} = $false,
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ProvisioningRequestExpiration}
     )
@@ -55,13 +50,11 @@ function Initialize-BetaProvisioningConfig {
 
 
         $PSO = [PSCustomObject]@{
-            "universalManager" = ${UniversalManager}
             "managedResourceRefs" = ${ManagedResourceRefs}
             "planInitializerScript" = ${PlanInitializerScript}
             "noProvisioningRequests" = ${NoProvisioningRequests}
             "provisioningRequestExpiration" = ${ProvisioningRequestExpiration}
         }
-
 
         return $PSO
     }

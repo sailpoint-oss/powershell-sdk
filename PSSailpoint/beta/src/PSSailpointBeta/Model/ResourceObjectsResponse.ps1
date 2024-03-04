@@ -14,16 +14,6 @@ No summary available.
 
 Response model for peek resource objects from source connectors.
 
-.PARAMETER Id
-ID of the source
-.PARAMETER Name
-Name of the source
-.PARAMETER ObjectCount
-The number of objects that were fetched by the connector.
-.PARAMETER ElapsedMillis
-The number of milliseconds spent on the entire request.
-.PARAMETER ResourceObjects
-Fetched objects from the source connector.
 .OUTPUTS
 
 ResourceObjectsResponse<PSCustomObject>
@@ -32,21 +22,6 @@ ResourceObjectsResponse<PSCustomObject>
 function Initialize-BetaResourceObjectsResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${ObjectCount},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${ElapsedMillis},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${ResourceObjects}
     )
 
     Process {
@@ -55,13 +30,7 @@ function Initialize-BetaResourceObjectsResponse {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "objectCount" = ${ObjectCount}
-            "elapsedMillis" = ${ElapsedMillis}
-            "resourceObjects" = ${ResourceObjects}
         }
-
 
         return $PSO
     }

@@ -26,10 +26,10 @@ IdentityWithNewAccess<PSCustomObject>
 function Initialize-IdentityWithNewAccess {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccessRefs}
     )
@@ -38,11 +38,11 @@ function Initialize-IdentityWithNewAccess {
         'Creating PSCustomObject: PSSailpoint => IdentityWithNewAccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $IdentityId) {
+        if (!$IdentityId) {
             throw "invalid value for 'IdentityId', 'IdentityId' cannot be null."
         }
 
-        if ($null -eq $AccessRefs) {
+        if (!$AccessRefs) {
             throw "invalid value for 'AccessRefs', 'AccessRefs' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-IdentityWithNewAccess {
             "identityId" = ${IdentityId}
             "accessRefs" = ${AccessRefs}
         }
-
 
         return $PSO
     }

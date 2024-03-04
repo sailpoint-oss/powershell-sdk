@@ -30,16 +30,16 @@ AccessRequestPostApproval<PSCustomObject>
 function Initialize-BetaAccessRequestPostApproval {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccessRequestId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${RequestedFor},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${RequestedItemsStatus},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequestedBy}
     )
@@ -48,11 +48,11 @@ function Initialize-BetaAccessRequestPostApproval {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessRequestPostApproval' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $AccessRequestId) {
+        if (!$AccessRequestId) {
             throw "invalid value for 'AccessRequestId', 'AccessRequestId' cannot be null."
         }
 
-        if ($null -eq $RequestedFor) {
+        if (!$RequestedFor) {
             throw "invalid value for 'RequestedFor', 'RequestedFor' cannot be null."
         }
 
@@ -64,11 +64,11 @@ function Initialize-BetaAccessRequestPostApproval {
             throw "invalid value for 'RequestedFor', number of items must be greater than or equal to 1."
         }
 
-        if ($null -eq $RequestedItemsStatus) {
+        if (!$RequestedItemsStatus) {
             throw "invalid value for 'RequestedItemsStatus', 'RequestedItemsStatus' cannot be null."
         }
 
-        if ($null -eq $RequestedBy) {
+        if (!$RequestedBy) {
             throw "invalid value for 'RequestedBy', 'RequestedBy' cannot be null."
         }
 
@@ -79,7 +79,6 @@ function Initialize-BetaAccessRequestPostApproval {
             "requestedItemsStatus" = ${RequestedItemsStatus}
             "requestedBy" = ${RequestedBy}
         }
-
 
         return $PSO
     }

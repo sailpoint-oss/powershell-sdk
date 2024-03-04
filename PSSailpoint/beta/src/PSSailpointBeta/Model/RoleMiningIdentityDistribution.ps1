@@ -26,10 +26,10 @@ RoleMiningIdentityDistribution<PSCustomObject>
 function Initialize-BetaRoleMiningIdentityDistribution {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AttributeName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable[]]
         ${Distribution}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaRoleMiningIdentityDistribution {
             "attributeName" = ${AttributeName}
             "distribution" = ${Distribution}
         }
-
 
         return $PSO
     }

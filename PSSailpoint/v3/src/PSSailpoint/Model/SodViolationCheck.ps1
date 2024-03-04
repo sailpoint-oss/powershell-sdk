@@ -16,8 +16,6 @@ An object referencing an SOD violation check
 
 .PARAMETER RequestId
 The id of the original request
-.PARAMETER Created
-The date-time when this request was created.
 .OUTPUTS
 
 SodViolationCheck<PSCustomObject>
@@ -26,28 +24,23 @@ SodViolationCheck<PSCustomObject>
 function Initialize-SodViolationCheck {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${RequestId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created}
+        ${RequestId}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => SodViolationCheck' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $RequestId) {
+        if (!$RequestId) {
             throw "invalid value for 'RequestId', 'RequestId' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
             "requestId" = ${RequestId}
-            "created" = ${Created}
         }
-
 
         return $PSO
     }

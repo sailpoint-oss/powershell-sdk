@@ -38,30 +38,30 @@ AccessRequestPostApprovalRequestedItemsStatusInner<PSCustomObject>
 function Initialize-BetaAccessRequestPostApprovalRequestedItemsStatusInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Add", "Remove")]
         [PSCustomObject]
         ${Operation},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${ClientMetadata},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalInfo}
     )
@@ -70,23 +70,23 @@ function Initialize-BetaAccessRequestPostApprovalRequestedItemsStatusInner {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessRequestPostApprovalRequestedItemsStatusInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Operation) {
+        if (!$Operation) {
             throw "invalid value for 'Operation', 'Operation' cannot be null."
         }
 
-        if ($null -eq $ApprovalInfo) {
+        if (!$ApprovalInfo) {
             throw "invalid value for 'ApprovalInfo', 'ApprovalInfo' cannot be null."
         }
 
@@ -101,7 +101,6 @@ function Initialize-BetaAccessRequestPostApprovalRequestedItemsStatusInner {
             "clientMetadata" = ${ClientMetadata}
             "approvalInfo" = ${ApprovalInfo}
         }
-
 
         return $PSO
     }

@@ -16,10 +16,6 @@ No description available.
 
 .PARAMETER Name
 SOD Policy schedule name
-.PARAMETER Created
-The time when this SOD policy schedule is created.
-.PARAMETER Modified
-The time when this SOD policy schedule is modified.
 .PARAMETER Description
 SOD Policy schedule description
 .PARAMETER Schedule
@@ -28,10 +24,6 @@ No description available.
 No description available.
 .PARAMETER EmailEmptyResults
 Indicates if empty results need to be emailed
-.PARAMETER CreatorId
-Policy's creator ID
-.PARAMETER ModifierId
-Policy's modifier ID
 .OUTPUTS
 
 SodPolicySchedule<PSCustomObject>
@@ -40,33 +32,21 @@ SodPolicySchedule<PSCustomObject>
 function Initialize-SodPolicySchedule {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${Modified},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Schedule},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Recipients},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${EmailEmptyResults} = $false,
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CreatorId},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ModifierId}
+        ${EmailEmptyResults} = $false
     )
 
     Process {
@@ -76,16 +56,11 @@ function Initialize-SodPolicySchedule {
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
-            "created" = ${Created}
-            "modified" = ${Modified}
             "description" = ${Description}
             "schedule" = ${Schedule}
             "recipients" = ${Recipients}
             "emailEmptyResults" = ${EmailEmptyResults}
-            "creatorId" = ${CreatorId}
-            "modifierId" = ${ModifierId}
         }
-
 
         return $PSO
     }

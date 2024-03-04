@@ -28,13 +28,13 @@ ManagedClusterKeyPair<PSCustomObject>
 function Initialize-BetaManagedClusterKeyPair {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PublicKey},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PublicKeyThumbprint},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PublicKeyCertificate}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaManagedClusterKeyPair {
             "publicKeyThumbprint" = ${PublicKeyThumbprint}
             "publicKeyCertificate" = ${PublicKeyCertificate}
         }
-
 
         return $PSO
     }

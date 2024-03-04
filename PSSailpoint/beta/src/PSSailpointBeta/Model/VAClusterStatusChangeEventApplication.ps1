@@ -28,13 +28,13 @@ VAClusterStatusChangeEventApplication<PSCustomObject>
 function Initialize-BetaVAClusterStatusChangeEventApplication {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes}
     )
@@ -43,11 +43,11 @@ function Initialize-BetaVAClusterStatusChangeEventApplication {
         'Creating PSCustomObject: PSSailpointBeta => BetaVAClusterStatusChangeEventApplication' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-BetaVAClusterStatusChangeEventApplication {
             "name" = ${Name}
             "attributes" = ${Attributes}
         }
-
 
         return $PSO
     }

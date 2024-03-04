@@ -24,7 +24,7 @@ CampaignCompleteOptions<PSCustomObject>
 function Initialize-CampaignCompleteOptions {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APPROVE", "REVOKE")]
         [String]
         ${AutoCompleteAction} = "APPROVE"
@@ -38,7 +38,6 @@ function Initialize-CampaignCompleteOptions {
         $PSO = [PSCustomObject]@{
             "autoCompleteAction" = ${AutoCompleteAction}
         }
-
 
         return $PSO
     }

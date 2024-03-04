@@ -24,7 +24,7 @@ CampaignActivated<PSCustomObject>
 function Initialize-BetaCampaignActivated {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Campaign}
     )
@@ -33,7 +33,7 @@ function Initialize-BetaCampaignActivated {
         'Creating PSCustomObject: PSSailpointBeta => BetaCampaignActivated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Campaign) {
+        if (!$Campaign) {
             throw "invalid value for 'Campaign', 'Campaign' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-BetaCampaignActivated {
         $PSO = [PSCustomObject]@{
             "campaign" = ${Campaign}
         }
-
 
         return $PSO
     }

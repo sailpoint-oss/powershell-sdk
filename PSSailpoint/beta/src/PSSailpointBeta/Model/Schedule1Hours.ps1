@@ -28,14 +28,14 @@ Schedule1Hours<PSCustomObject>
 function Initialize-BetaSchedule1Hours {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("LIST", "RANGE")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Values},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${Interval}
     )
@@ -44,11 +44,11 @@ function Initialize-BetaSchedule1Hours {
         'Creating PSCustomObject: PSSailpointBeta => BetaSchedule1Hours' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Values) {
+        if (!$Values) {
             throw "invalid value for 'Values', 'Values' cannot be null."
         }
 
@@ -58,7 +58,6 @@ function Initialize-BetaSchedule1Hours {
             "values" = ${Values}
             "interval" = ${Interval}
         }
-
 
         return $PSO
     }

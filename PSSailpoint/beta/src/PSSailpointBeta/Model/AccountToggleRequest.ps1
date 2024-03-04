@@ -26,10 +26,10 @@ AccountToggleRequest<PSCustomObject>
 function Initialize-BetaAccountToggleRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ExternalVerificationId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ForceProvisioning}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaAccountToggleRequest {
             "externalVerificationId" = ${ExternalVerificationId}
             "forceProvisioning" = ${ForceProvisioning}
         }
-
 
         return $PSO
     }

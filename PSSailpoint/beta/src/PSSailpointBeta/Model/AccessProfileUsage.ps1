@@ -26,10 +26,10 @@ AccessProfileUsage<PSCustomObject>
 function Initialize-BetaAccessProfileUsage {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccessProfileId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${UsedBy}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaAccessProfileUsage {
             "accessProfileId" = ${AccessProfileId}
             "usedBy" = ${UsedBy}
         }
-
 
         return $PSO
     }

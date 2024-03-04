@@ -28,14 +28,14 @@ AccountAttributesChangedSource<PSCustomObject>
 function Initialize-BetaAccountAttributesChangedSource {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE")]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -44,15 +44,15 @@ function Initialize-BetaAccountAttributesChangedSource {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccountAttributesChangedSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Type) {
+        if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
@@ -62,7 +62,6 @@ function Initialize-BetaAccountAttributesChangedSource {
             "type" = ${Type}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

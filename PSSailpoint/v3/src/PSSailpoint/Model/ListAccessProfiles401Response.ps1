@@ -24,7 +24,7 @@ ListAccessProfiles401Response<PSCustomObject>
 function Initialize-ListAccessProfiles401Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarError}
     )
@@ -37,7 +37,6 @@ function Initialize-ListAccessProfiles401Response {
         $PSO = [PSCustomObject]@{
             "error" = ${VarError}
         }
-
 
         return $PSO
     }

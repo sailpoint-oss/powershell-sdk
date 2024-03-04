@@ -32,20 +32,20 @@ ClientLogConfiguration<PSCustomObject>
 function Initialize-BetaClientLogConfiguration {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ClientId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
         ${DurationMinutes},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Expiration},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("false", "FATAL", "ERROR", "WARN", "INFO", "DEBUG", "TRACE")]
         [PSCustomObject]
         ${RootLevel},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${LogLevels}
     )
@@ -54,7 +54,7 @@ function Initialize-BetaClientLogConfiguration {
         'Creating PSCustomObject: PSSailpointBeta => BetaClientLogConfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $DurationMinutes) {
+        if (!$DurationMinutes) {
             throw "invalid value for 'DurationMinutes', 'DurationMinutes' cannot be null."
         }
 
@@ -66,7 +66,7 @@ function Initialize-BetaClientLogConfiguration {
           throw "invalid value for 'DurationMinutes', must be greater than or equal to 5."
         }
 
-        if ($null -eq $RootLevel) {
+        if (!$RootLevel) {
             throw "invalid value for 'RootLevel', 'RootLevel' cannot be null."
         }
 
@@ -78,7 +78,6 @@ function Initialize-BetaClientLogConfiguration {
             "rootLevel" = ${RootLevel}
             "logLevels" = ${LogLevels}
         }
-
 
         return $PSO
     }

@@ -30,17 +30,17 @@ CloseAccessRequest<PSCustomObject>
 function Initialize-BetaCloseAccessRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${AccessRequestIds},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Message} = "The IdentityNow Administrator manually closed this request.",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Terminated", "Completed")]
         [String]
         ${ExecutionStatus} = "Terminated",
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Success", "Incomplete", "Failure")]
         [String]
         ${CompletionStatus} = "Failure"
@@ -50,7 +50,7 @@ function Initialize-BetaCloseAccessRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaCloseAccessRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $AccessRequestIds) {
+        if (!$AccessRequestIds) {
             throw "invalid value for 'AccessRequestIds', 'AccessRequestIds' cannot be null."
         }
 
@@ -61,7 +61,6 @@ function Initialize-BetaCloseAccessRequest {
             "executionStatus" = ${ExecutionStatus}
             "completionStatus" = ${CompletionStatus}
         }
-
 
         return $PSO
     }

@@ -26,10 +26,10 @@ ConditionEffectConfig<PSCustomObject>
 function Initialize-BetaConditionEffectConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DefaultValueLabel},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Element}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaConditionEffectConfig {
             "defaultValueLabel" = ${DefaultValueLabel}
             "element" = ${Element}
         }
-
 
         return $PSO
     }

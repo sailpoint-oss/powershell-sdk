@@ -26,10 +26,10 @@ QueuedCheckConfigDetails<PSCustomObject>
 function Initialize-BetaQueuedCheckConfigDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ProvisioningStatusCheckIntervalMinutes},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ProvisioningMaxStatusCheckDays}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaQueuedCheckConfigDetails {
         'Creating PSCustomObject: PSSailpointBeta => BetaQueuedCheckConfigDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $ProvisioningStatusCheckIntervalMinutes) {
+        if (!$ProvisioningStatusCheckIntervalMinutes) {
             throw "invalid value for 'ProvisioningStatusCheckIntervalMinutes', 'ProvisioningStatusCheckIntervalMinutes' cannot be null."
         }
 
-        if ($null -eq $ProvisioningMaxStatusCheckDays) {
+        if (!$ProvisioningMaxStatusCheckDays) {
             throw "invalid value for 'ProvisioningMaxStatusCheckDays', 'ProvisioningMaxStatusCheckDays' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaQueuedCheckConfigDetails {
             "provisioningStatusCheckIntervalMinutes" = ${ProvisioningStatusCheckIntervalMinutes}
             "provisioningMaxStatusCheckDays" = ${ProvisioningMaxStatusCheckDays}
         }
-
 
         return $PSO
     }

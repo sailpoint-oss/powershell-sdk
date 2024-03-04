@@ -26,11 +26,11 @@ ViolationOwnerAssignmentConfig<PSCustomObject>
 function Initialize-ViolationOwnerAssignmentConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANAGER", "STATIC", "")]
         [String]
         ${AssignmentRule},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OwnerRef}
     )
@@ -44,7 +44,6 @@ function Initialize-ViolationOwnerAssignmentConfig {
             "assignmentRule" = ${AssignmentRule}
             "ownerRef" = ${OwnerRef}
         }
-
 
         return $PSO
     }

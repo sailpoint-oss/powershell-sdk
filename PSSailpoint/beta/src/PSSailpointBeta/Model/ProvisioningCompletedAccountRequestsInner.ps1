@@ -36,26 +36,26 @@ ProvisioningCompletedAccountRequestsInner<PSCustomObject>
 function Initialize-BetaProvisioningCompletedAccountRequestsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountOperation},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SUCCESS", "PENDING", "FAILED")]
         [PSCustomObject]
         ${ProvisioningResult},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ProvisioningTarget},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TicketId},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AttributeRequests}
     )
@@ -64,19 +64,19 @@ function Initialize-BetaProvisioningCompletedAccountRequestsInner {
         'Creating PSCustomObject: PSSailpointBeta => BetaProvisioningCompletedAccountRequestsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Source) {
+        if (!$Source) {
             throw "invalid value for 'Source', 'Source' cannot be null."
         }
 
-        if ($null -eq $AccountOperation) {
+        if (!$AccountOperation) {
             throw "invalid value for 'AccountOperation', 'AccountOperation' cannot be null."
         }
 
-        if ($null -eq $ProvisioningResult) {
+        if (!$ProvisioningResult) {
             throw "invalid value for 'ProvisioningResult', 'ProvisioningResult' cannot be null."
         }
 
-        if ($null -eq $ProvisioningTarget) {
+        if (!$ProvisioningTarget) {
             throw "invalid value for 'ProvisioningTarget', 'ProvisioningTarget' cannot be null."
         }
 
@@ -90,7 +90,6 @@ function Initialize-BetaProvisioningCompletedAccountRequestsInner {
             "ticketId" = ${TicketId}
             "attributeRequests" = ${AttributeRequests}
         }
-
 
         return $PSO
     }

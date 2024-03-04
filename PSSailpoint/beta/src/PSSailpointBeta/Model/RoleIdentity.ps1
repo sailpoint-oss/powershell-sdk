@@ -32,19 +32,19 @@ RoleIdentity<PSCustomObject>
 function Initialize-BetaRoleIdentity {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AliasName},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Email},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_REQUEST", "ROLE_MEMBERSHIP")]
         [PSCustomObject]
         ${RoleAssignmentSource}
@@ -62,7 +62,6 @@ function Initialize-BetaRoleIdentity {
             "email" = ${Email}
             "roleAssignmentSource" = ${RoleAssignmentSource}
         }
-
 
         return $PSO
     }

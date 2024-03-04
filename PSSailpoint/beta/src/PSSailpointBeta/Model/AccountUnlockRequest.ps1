@@ -28,13 +28,13 @@ AccountUnlockRequest<PSCustomObject>
 function Initialize-BetaAccountUnlockRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ExternalVerificationId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${UnlockIDNAccount},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ForceProvisioning}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaAccountUnlockRequest {
             "unlockIDNAccount" = ${UnlockIDNAccount}
             "forceProvisioning" = ${ForceProvisioning}
         }
-
 
         return $PSO
     }

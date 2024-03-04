@@ -28,14 +28,14 @@ PatchPotentialRoleRequestInner<PSCustomObject>
 function Initialize-BetaPatchPotentialRoleRequestInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("remove", "replace")]
         [String]
         ${Op},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Path},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Value}
     )
@@ -44,7 +44,7 @@ function Initialize-BetaPatchPotentialRoleRequestInner {
         'Creating PSCustomObject: PSSailpointBeta => BetaPatchPotentialRoleRequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Path) {
+        if (!$Path) {
             throw "invalid value for 'Path', 'Path' cannot be null."
         }
 
@@ -54,7 +54,6 @@ function Initialize-BetaPatchPotentialRoleRequestInner {
             "path" = ${Path}
             "value" = ${Value}
         }
-
 
         return $PSO
     }

@@ -26,10 +26,10 @@ IdentityPreviewRequest<PSCustomObject>
 function Initialize-BetaIdentityPreviewRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${IdentityAttributeConfig}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaIdentityPreviewRequest {
             "identityId" = ${IdentityId}
             "identityAttributeConfig" = ${IdentityAttributeConfig}
         }
-
 
         return $PSO
     }

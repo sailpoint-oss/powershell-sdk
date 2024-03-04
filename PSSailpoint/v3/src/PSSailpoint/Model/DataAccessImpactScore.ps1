@@ -24,7 +24,7 @@ DataAccessImpactScore<PSCustomObject>
 function Initialize-DataAccessImpactScore {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Value}
     )
@@ -37,7 +37,6 @@ function Initialize-DataAccessImpactScore {
         $PSO = [PSCustomObject]@{
             "value" = ${Value}
         }
-
 
         return $PSO
     }

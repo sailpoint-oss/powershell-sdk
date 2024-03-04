@@ -28,13 +28,13 @@ IdentityProfileIdentityErrorReportArguments<PSCustomObject>
 function Initialize-IdentityProfileIdentityErrorReportArguments {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AuthoritativeSource},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${DefaultS3Bucket},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${S3Bucket}
     )
@@ -43,11 +43,11 @@ function Initialize-IdentityProfileIdentityErrorReportArguments {
         'Creating PSCustomObject: PSSailpoint => IdentityProfileIdentityErrorReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $AuthoritativeSource) {
+        if (!$AuthoritativeSource) {
             throw "invalid value for 'AuthoritativeSource', 'AuthoritativeSource' cannot be null."
         }
 
-        if ($null -eq $DefaultS3Bucket) {
+        if (!$DefaultS3Bucket) {
             throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-IdentityProfileIdentityErrorReportArguments {
             "defaultS3Bucket" = ${DefaultS3Bucket}
             "s3Bucket" = ${S3Bucket}
         }
-
 
         return $PSO
     }

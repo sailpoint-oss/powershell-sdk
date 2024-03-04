@@ -28,14 +28,14 @@ IdentityProfile1AllOfAuthoritativeSource<PSCustomObject>
 function Initialize-BetaIdentityProfile1AllOfAuthoritativeSource {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )
@@ -50,7 +50,6 @@ function Initialize-BetaIdentityProfile1AllOfAuthoritativeSource {
             "id" = ${Id}
             "name" = ${Name}
         }
-
 
         return $PSO
     }

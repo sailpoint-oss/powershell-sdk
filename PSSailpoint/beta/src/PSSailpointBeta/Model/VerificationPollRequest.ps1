@@ -24,7 +24,7 @@ VerificationPollRequest<PSCustomObject>
 function Initialize-BetaVerificationPollRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestId}
     )
@@ -33,7 +33,7 @@ function Initialize-BetaVerificationPollRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaVerificationPollRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $RequestId) {
+        if (!$RequestId) {
             throw "invalid value for 'RequestId', 'RequestId' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-BetaVerificationPollRequest {
         $PSO = [PSCustomObject]@{
             "requestId" = ${RequestId}
         }
-
 
         return $PSO
     }

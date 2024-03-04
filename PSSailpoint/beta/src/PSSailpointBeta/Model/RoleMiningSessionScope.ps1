@@ -28,13 +28,13 @@ RoleMiningSessionScope<PSCustomObject>
 function Initialize-BetaRoleMiningSessionScope {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${IdentityIds},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Criteria},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AttributeFilterCriteria}
     )
@@ -49,7 +49,6 @@ function Initialize-BetaRoleMiningSessionScope {
             "criteria" = ${Criteria}
             "attributeFilterCriteria" = ${AttributeFilterCriteria}
         }
-
 
         return $PSO
     }

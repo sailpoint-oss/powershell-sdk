@@ -30,16 +30,16 @@ GetReferenceIdentityAttribute<PSCustomObject>
 function Initialize-BetaGetReferenceIdentityAttribute {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Operation},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Uid},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh}
     )
@@ -48,15 +48,15 @@ function Initialize-BetaGetReferenceIdentityAttribute {
         'Creating PSCustomObject: PSSailpointBeta => BetaGetReferenceIdentityAttribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Name) {
+        if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if ($null -eq $Operation) {
+        if (!$Operation) {
             throw "invalid value for 'Operation', 'Operation' cannot be null."
         }
 
-        if ($null -eq $Uid) {
+        if (!$Uid) {
             throw "invalid value for 'Uid', 'Uid' cannot be null."
         }
 
@@ -67,7 +67,6 @@ function Initialize-BetaGetReferenceIdentityAttribute {
             "uid" = ${Uid}
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
         }
-
 
         return $PSO
     }

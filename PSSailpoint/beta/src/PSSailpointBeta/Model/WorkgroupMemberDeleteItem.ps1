@@ -28,13 +28,13 @@ WorkgroupMemberDeleteItem<PSCustomObject>
 function Initialize-BetaWorkgroupMemberDeleteItem {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description}
     )
@@ -43,11 +43,11 @@ function Initialize-BetaWorkgroupMemberDeleteItem {
         'Creating PSCustomObject: PSSailpointBeta => BetaWorkgroupMemberDeleteItem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Id) {
+        if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if ($null -eq $Status) {
+        if (!$Status) {
             throw "invalid value for 'Status', 'Status' cannot be null."
         }
 
@@ -57,7 +57,6 @@ function Initialize-BetaWorkgroupMemberDeleteItem {
             "status" = ${Status}
             "description" = ${Description}
         }
-
 
         return $PSO
     }

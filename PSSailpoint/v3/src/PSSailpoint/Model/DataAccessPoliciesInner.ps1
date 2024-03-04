@@ -24,7 +24,7 @@ DataAccessPoliciesInner<PSCustomObject>
 function Initialize-DataAccessPoliciesInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Value}
     )
@@ -37,7 +37,6 @@ function Initialize-DataAccessPoliciesInner {
         $PSO = [PSCustomObject]@{
             "value" = ${Value}
         }
-
 
         return $PSO
     }

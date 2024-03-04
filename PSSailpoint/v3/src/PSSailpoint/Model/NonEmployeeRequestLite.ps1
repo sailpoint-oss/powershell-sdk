@@ -26,10 +26,10 @@ NonEmployeeRequestLite<PSCustomObject>
 function Initialize-NonEmployeeRequestLite {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Requester}
     )
@@ -43,7 +43,6 @@ function Initialize-NonEmployeeRequestLite {
             "id" = ${Id}
             "requester" = ${Requester}
         }
-
 
         return $PSO
     }

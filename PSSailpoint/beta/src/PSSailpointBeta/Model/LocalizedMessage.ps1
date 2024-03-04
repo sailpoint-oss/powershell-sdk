@@ -26,10 +26,10 @@ LocalizedMessage<PSCustomObject>
 function Initialize-BetaLocalizedMessage {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Locale},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Message}
     )
@@ -38,11 +38,11 @@ function Initialize-BetaLocalizedMessage {
         'Creating PSCustomObject: PSSailpointBeta => BetaLocalizedMessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Locale) {
+        if (!$Locale) {
             throw "invalid value for 'Locale', 'Locale' cannot be null."
         }
 
-        if ($null -eq $Message) {
+        if (!$Message) {
             throw "invalid value for 'Message', 'Message' cannot be null."
         }
 
@@ -51,7 +51,6 @@ function Initialize-BetaLocalizedMessage {
             "locale" = ${Locale}
             "message" = ${Message}
         }
-
 
         return $PSO
     }

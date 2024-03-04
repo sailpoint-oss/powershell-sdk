@@ -28,13 +28,13 @@ AdminReviewReassign<PSCustomObject>
 function Initialize-BetaAdminReviewReassign {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${CertificationIds},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ReassignTo},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Reason}
     )
@@ -57,7 +57,6 @@ function Initialize-BetaAdminReviewReassign {
             "reassignTo" = ${ReassignTo}
             "reason" = ${Reason}
         }
-
 
         return $PSO
     }

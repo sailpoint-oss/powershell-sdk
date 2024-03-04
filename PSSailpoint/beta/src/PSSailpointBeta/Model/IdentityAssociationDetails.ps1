@@ -26,10 +26,10 @@ IdentityAssociationDetails<PSCustomObject>
 function Initialize-BetaIdentityAssociationDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Message},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AssociationDetails}
     )
@@ -43,7 +43,6 @@ function Initialize-BetaIdentityAssociationDetails {
             "message" = ${Message}
             "associationDetails" = ${AssociationDetails}
         }
-
 
         return $PSO
     }

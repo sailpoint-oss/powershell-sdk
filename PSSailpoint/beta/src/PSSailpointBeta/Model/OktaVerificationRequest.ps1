@@ -24,7 +24,7 @@ OktaVerificationRequest<PSCustomObject>
 function Initialize-BetaOktaVerificationRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${UserId}
     )
@@ -33,7 +33,7 @@ function Initialize-BetaOktaVerificationRequest {
         'Creating PSCustomObject: PSSailpointBeta => BetaOktaVerificationRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $UserId) {
+        if (!$UserId) {
             throw "invalid value for 'UserId', 'UserId' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-BetaOktaVerificationRequest {
         $PSO = [PSCustomObject]@{
             "userId" = ${UserId}
         }
-
 
         return $PSO
     }

@@ -14,10 +14,6 @@ No summary available.
 
 Response model for configuration test of a given MFA method
 
-.PARAMETER State
-The configuration test result.
-.PARAMETER VarError
-The error message to indicate the failure of configuration test.
 .OUTPUTS
 
 MfaConfigTestResponse<PSCustomObject>
@@ -26,13 +22,6 @@ MfaConfigTestResponse<PSCustomObject>
 function Initialize-BetaMfaConfigTestResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SUCCESS", "FAILED")]
-        [String]
-        ${State},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${VarError}
     )
 
     Process {
@@ -41,10 +30,7 @@ function Initialize-BetaMfaConfigTestResponse {
 
 
         $PSO = [PSCustomObject]@{
-            "state" = ${State}
-            "error" = ${VarError}
         }
-
 
         return $PSO
     }

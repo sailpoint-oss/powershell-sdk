@@ -32,19 +32,19 @@ Conditional<PSCustomObject>
 function Initialize-BetaConditional {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Expression},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${PositiveCondition},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NegativeCondition},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarInput}
     )
@@ -53,15 +53,15 @@ function Initialize-BetaConditional {
         'Creating PSCustomObject: PSSailpointBeta => BetaConditional' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Expression) {
+        if (!$Expression) {
             throw "invalid value for 'Expression', 'Expression' cannot be null."
         }
 
-        if ($null -eq $PositiveCondition) {
+        if (!$PositiveCondition) {
             throw "invalid value for 'PositiveCondition', 'PositiveCondition' cannot be null."
         }
 
-        if ($null -eq $NegativeCondition) {
+        if (!$NegativeCondition) {
             throw "invalid value for 'NegativeCondition', 'NegativeCondition' cannot be null."
         }
 
@@ -73,7 +73,6 @@ function Initialize-BetaConditional {
             "requiresPeriodicRefresh" = ${RequiresPeriodicRefresh}
             "input" = ${VarInput}
         }
-
 
         return $PSO
     }

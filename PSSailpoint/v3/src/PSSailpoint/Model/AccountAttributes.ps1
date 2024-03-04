@@ -24,7 +24,7 @@ AccountAttributes<PSCustomObject>
 function Initialize-AccountAttributes {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes}
     )
@@ -33,7 +33,7 @@ function Initialize-AccountAttributes {
         'Creating PSCustomObject: PSSailpoint => AccountAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($null -eq $Attributes) {
+        if (!$Attributes) {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
@@ -41,7 +41,6 @@ function Initialize-AccountAttributes {
         $PSO = [PSCustomObject]@{
             "attributes" = ${Attributes}
         }
-
 
         return $PSO
     }

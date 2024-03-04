@@ -32,19 +32,19 @@ V3CreateConnectorDto<PSCustomObject>
 function Initialize-V3CreateConnectorDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ClassName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DirectConnect} = $true,
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("DEVELOPMENT", "DEMO", "RELEASED")]
         [String]
         ${Status}

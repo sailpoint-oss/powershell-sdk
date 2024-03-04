@@ -30,16 +30,16 @@ Replace<PSCustomObject>
 function Initialize-BetaReplace {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Regex},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Replacement},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequiresPeriodicRefresh} = $false,
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${VarInput}
     )

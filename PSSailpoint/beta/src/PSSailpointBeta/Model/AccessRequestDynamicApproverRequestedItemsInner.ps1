@@ -34,24 +34,24 @@ AccessRequestDynamicApproverRequestedItemsInner<PSCustomObject>
 function Initialize-BetaAccessRequestDynamicApproverRequestedItemsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCESS_PROFILE", "ROLE", "ENTITLEMENT")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Add", "Remove")]
         [PSCustomObject]
         ${Operation},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment}
     )

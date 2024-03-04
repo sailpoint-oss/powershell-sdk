@@ -32,19 +32,19 @@ AccountCorrelated<PSCustomObject>
 function Initialize-BetaAccountCorrelated {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Identity},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Account},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${EntitlementCount}
     )

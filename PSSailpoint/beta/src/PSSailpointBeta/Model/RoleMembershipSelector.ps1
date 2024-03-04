@@ -28,14 +28,14 @@ RoleMembershipSelector<PSCustomObject>
 function Initialize-BetaRoleMembershipSelector {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("STANDARD", "IDENTITY_LIST")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Criteria},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Identities}
     )

@@ -26,10 +26,10 @@ Reassignment<PSCustomObject>
 function Initialize-Reassignment {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarFrom},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment}
     )

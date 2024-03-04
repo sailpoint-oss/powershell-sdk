@@ -26,10 +26,10 @@ IdentityAssociationDetailsAssociationDetailsInner<PSCustomObject>
 function Initialize-BetaIdentityAssociationDetailsAssociationDetailsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AssociationType},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Entities}
     )

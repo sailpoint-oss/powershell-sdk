@@ -26,10 +26,10 @@ SpConfigImportResults<PSCustomObject>
 function Initialize-BetaSpConfigImportResults {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Results},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ExportJobId}
     )

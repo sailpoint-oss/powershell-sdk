@@ -26,10 +26,10 @@ LifecycleStateDto<PSCustomObject>
 function Initialize-BetaLifecycleStateDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${StateName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
         ${ManuallyUpdated}
     )

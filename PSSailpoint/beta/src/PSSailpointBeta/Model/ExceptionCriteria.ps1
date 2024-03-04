@@ -24,7 +24,7 @@ ExceptionCriteria<PSCustomObject>
 function Initialize-BetaExceptionCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${CriteriaList}
     )

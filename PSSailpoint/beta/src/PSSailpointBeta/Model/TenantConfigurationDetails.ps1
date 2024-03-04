@@ -24,7 +24,7 @@ TenantConfigurationDetails<PSCustomObject>
 function Initialize-BetaTenantConfigurationDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Disabled} = $false
     )

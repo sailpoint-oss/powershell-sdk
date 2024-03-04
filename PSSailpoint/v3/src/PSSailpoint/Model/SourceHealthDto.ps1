@@ -40,31 +40,31 @@ SourceHealthDto<PSCustomObject>
 function Initialize-SourceHealthDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Org},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsAuthoritative},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsCluster},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Hostname},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Pod},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IqServiceVersion},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SOURCE_STATE_ERROR_CLUSTER", "SOURCE_STATE_ERROR_SOURCE", "SOURCE_STATE_ERROR_VA", "SOURCE_STATE_FAILURE_CLUSTER", "SOURCE_STATE_FAILURE_SOURCE", "SOURCE_STATE_HEALTHY", "SOURCE_STATE_UNCHECKED_CLUSTER", "SOURCE_STATE_UNCHECKED_CLUSTER_NO_SOURCES", "SOURCE_STATE_UNCHECKED_SOURCE", "SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS")]
         [String]
         ${Status}

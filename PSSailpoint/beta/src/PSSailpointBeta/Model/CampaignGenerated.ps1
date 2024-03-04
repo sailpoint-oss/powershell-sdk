@@ -24,7 +24,7 @@ CampaignGenerated<PSCustomObject>
 function Initialize-BetaCampaignGenerated {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Campaign}
     )

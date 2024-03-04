@@ -26,10 +26,10 @@ AccessProfileBulkUpdateRequestInner<PSCustomObject>
 function Initialize-BetaAccessProfileBulkUpdateRequestInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Requestable}
     )

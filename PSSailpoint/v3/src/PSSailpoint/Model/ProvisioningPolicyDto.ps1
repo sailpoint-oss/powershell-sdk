@@ -30,17 +30,17 @@ ProvisioningPolicyDto<PSCustomObject>
 function Initialize-ProvisioningPolicyDto {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CREATE", "UPDATE", "ENABLE", "DISABLE", "DELETE", "ASSIGN", "UNASSIGN", "CREATE_GROUP", "UPDATE_GROUP", "DELETE_GROUP", "REGISTER", "CREATE_IDENTITY", "UPDATE_IDENTITY", "EDIT_GROUP", "UNLOCK", "CHANGE_PASSWORD")]
         [PSCustomObject]
         ${UsageType},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Fields}
     )

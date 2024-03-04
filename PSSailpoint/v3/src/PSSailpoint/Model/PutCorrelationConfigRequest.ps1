@@ -24,7 +24,7 @@ PutCorrelationConfigRequest<PSCustomObject>
 function Initialize-PutCorrelationConfigRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${File}
     )

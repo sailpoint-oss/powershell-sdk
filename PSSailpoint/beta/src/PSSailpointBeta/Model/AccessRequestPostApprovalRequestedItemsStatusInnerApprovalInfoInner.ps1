@@ -30,17 +30,17 @@ AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner<PSCustomObje
 function Initialize-BetaAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ApprovalComment},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("APPROVED", "DENIED")]
         [PSCustomObject]
         ${ApprovalDecision},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ApproverName},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Approver}
     )

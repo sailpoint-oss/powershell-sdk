@@ -28,13 +28,13 @@ VAClusterStatusChangeEventHealthCheckResult<PSCustomObject>
 function Initialize-BetaVAClusterStatusChangeEventHealthCheckResult {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Message},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ResultType},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Succeeded", "Failed")]
         [PSCustomObject]
         ${Status}

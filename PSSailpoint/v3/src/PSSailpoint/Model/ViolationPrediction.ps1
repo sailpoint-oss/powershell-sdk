@@ -24,7 +24,7 @@ ViolationPrediction<PSCustomObject>
 function Initialize-ViolationPrediction {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ViolationContexts}
     )

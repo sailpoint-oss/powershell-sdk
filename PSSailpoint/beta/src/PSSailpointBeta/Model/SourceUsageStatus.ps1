@@ -24,7 +24,7 @@ SourceUsageStatus<PSCustomObject>
 function Initialize-BetaSourceUsageStatus {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("COMPLETE", "INCOMPLETE")]
         [String]
         ${Status}

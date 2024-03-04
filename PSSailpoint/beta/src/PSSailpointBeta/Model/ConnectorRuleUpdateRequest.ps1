@@ -36,26 +36,26 @@ ConnectorRuleUpdateRequest<PSCustomObject>
 function Initialize-BetaConnectorRuleUpdateRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("BuildMap", "ConnectorAfterCreate", "ConnectorAfterDelete", "ConnectorAfterModify", "ConnectorBeforeCreate", "ConnectorBeforeDelete", "ConnectorBeforeModify", "JDBCBuildMap", "JDBCOperationProvisioning", "JDBCProvision", "PeopleSoftHRMSBuildMap", "PeopleSoftHRMSOperationProvisioning", "PeopleSoftHRMSProvision", "RACFPermissionCustomization", "SAPBuildMap", "SapHrManagerRule", "SapHrOperationProvisioning", "SapHrProvision", "SuccessFactorsOperationProvisioning", "WebServiceAfterOperationRule", "WebServiceBeforeOperationRule")]
         [String]
         ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Signature},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${SourceCode},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )

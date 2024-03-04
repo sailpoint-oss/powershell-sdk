@@ -26,11 +26,11 @@ ReportDetails<PSCustomObject>
 function Initialize-ReportDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCOUNTS", "IDENTITIES_DETAILS", "IDENTITIES", "IDENTITY_PROFILE_IDENTITY_ERROR", "ORPHAN_IDENTITIES", "SEARCH_EXPORT", "UNCORRELATED_ACCOUNTS")]
         [String]
         ${ReportType},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Arguments}
     )

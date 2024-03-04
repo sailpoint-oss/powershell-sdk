@@ -24,7 +24,7 @@ OktaVerificationRequest<PSCustomObject>
 function Initialize-BetaOktaVerificationRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${UserId}
     )

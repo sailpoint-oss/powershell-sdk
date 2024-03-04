@@ -26,11 +26,11 @@ ConnectorRuleValidationResponse<PSCustomObject>
 function Initialize-BetaConnectorRuleValidationResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("OK", "ERROR")]
         [String]
         ${State},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Details}
     )

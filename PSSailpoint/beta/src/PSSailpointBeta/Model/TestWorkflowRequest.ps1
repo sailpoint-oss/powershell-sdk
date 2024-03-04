@@ -24,7 +24,7 @@ TestWorkflowRequest<PSCustomObject>
 function Initialize-BetaTestWorkflowRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${VarInput}
     )

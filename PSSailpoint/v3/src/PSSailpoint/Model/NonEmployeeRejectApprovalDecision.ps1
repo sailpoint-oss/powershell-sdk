@@ -24,7 +24,7 @@ NonEmployeeRejectApprovalDecision<PSCustomObject>
 function Initialize-NonEmployeeRejectApprovalDecision {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment}
     )

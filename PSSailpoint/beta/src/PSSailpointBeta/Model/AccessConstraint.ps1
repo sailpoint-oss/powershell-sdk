@@ -28,14 +28,14 @@ AccessConstraint<PSCustomObject>
 function Initialize-BetaAccessConstraint {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ENTITLEMENT", "ACCESS_PROFILE", "ROLE")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Ids},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ALL", "SELECTED")]
         [String]
         ${Operator}

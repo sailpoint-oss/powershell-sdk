@@ -24,7 +24,7 @@ KbaAnswerRequest<PSCustomObject>
 function Initialize-BetaKbaAnswerRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Answers}
     )

@@ -24,7 +24,7 @@ DeleteNonEmployeeRecordsInBulkRequest<PSCustomObject>
 function Initialize-DeleteNonEmployeeRecordsInBulkRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Ids}
     )

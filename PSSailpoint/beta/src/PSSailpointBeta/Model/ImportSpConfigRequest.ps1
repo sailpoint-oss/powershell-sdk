@@ -26,10 +26,10 @@ ImportSpConfigRequest<PSCustomObject>
 function Initialize-BetaImportSpConfigRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${VarData},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Options}
     )

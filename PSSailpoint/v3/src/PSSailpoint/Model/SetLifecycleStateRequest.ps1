@@ -24,7 +24,7 @@ SetLifecycleStateRequest<PSCustomObject>
 function Initialize-SetLifecycleStateRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LifecycleStateId}
     )

@@ -24,7 +24,7 @@ AccountsAsyncResult<PSCustomObject>
 function Initialize-AccountsAsyncResult {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )

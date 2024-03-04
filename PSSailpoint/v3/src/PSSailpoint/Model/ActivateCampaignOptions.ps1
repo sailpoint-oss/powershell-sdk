@@ -24,7 +24,7 @@ ActivateCampaignOptions<PSCustomObject>
 function Initialize-ActivateCampaignOptions {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TimeZone} = "Z"
     )

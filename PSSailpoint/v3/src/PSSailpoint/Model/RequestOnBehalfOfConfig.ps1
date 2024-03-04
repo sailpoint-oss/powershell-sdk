@@ -26,10 +26,10 @@ RequestOnBehalfOfConfig<PSCustomObject>
 function Initialize-RequestOnBehalfOfConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${AllowRequestOnBehalfOfAnyoneByAnyone},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${AllowRequestOnBehalfOfEmployeeByManager}
     )

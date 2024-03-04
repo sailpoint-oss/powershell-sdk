@@ -26,11 +26,11 @@ AccountAction<PSCustomObject>
 function Initialize-BetaAccountAction {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ENABLE", "DISABLE")]
         [String]
         ${Action},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SourceIds}
     )

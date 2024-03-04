@@ -24,7 +24,7 @@ ProcessIdentitiesRequest<PSCustomObject>
 function Initialize-BetaProcessIdentitiesRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${IdentityIds}
     )

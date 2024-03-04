@@ -24,7 +24,7 @@ FormItemDetails<PSCustomObject>
 function Initialize-FormItemDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name}
     )

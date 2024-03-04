@@ -26,10 +26,10 @@ FormElementDynamicDataSource<PSCustomObject>
 function Initialize-BetaFormElementDynamicDataSource {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Config},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("STATIC", "INTERNAL", "SEARCH")]
         [String]
         ${DataSourceType}

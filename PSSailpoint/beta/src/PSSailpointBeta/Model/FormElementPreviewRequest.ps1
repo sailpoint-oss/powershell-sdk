@@ -24,7 +24,7 @@ FormElementPreviewRequest<PSCustomObject>
 function Initialize-BetaFormElementPreviewRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${DataSource}
     )

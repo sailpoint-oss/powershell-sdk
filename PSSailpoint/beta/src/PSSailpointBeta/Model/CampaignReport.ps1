@@ -32,21 +32,21 @@ CampaignReport<PSCustomObject>
 function Initialize-BetaCampaignReport {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("REPORT_RESULT")]
         [String]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SUCCESS", "WARNING", "ERROR", "TERMINATED", "TEMP_ERROR", "PENDING")]
         [String]
         ${Status},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CAMPAIGN_COMPOSITION_REPORT", "CAMPAIGN_REMEDIATION_STATUS_REPORT", "CAMPAIGN_STATUS_REPORT", "CERTIFICATION_SIGNOFF_REPORT")]
         [PSCustomObject]
         ${ReportType}

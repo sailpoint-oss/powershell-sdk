@@ -26,10 +26,10 @@ CommonAccessIDStatus<PSCustomObject>
 function Initialize-BetaCommonAccessIDStatus {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${ConfirmedIds},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${DeniedIds}
     )

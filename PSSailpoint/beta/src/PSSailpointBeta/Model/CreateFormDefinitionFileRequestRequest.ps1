@@ -24,7 +24,7 @@ CreateFormDefinitionFileRequestRequest<PSCustomObject>
 function Initialize-BetaCreateFormDefinitionFileRequestRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
         ${File}
     )

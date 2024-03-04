@@ -24,7 +24,7 @@ FullcampaignAllOfSourceOwnerCampaignInfo<PSCustomObject>
 function Initialize-BetaFullcampaignAllOfSourceOwnerCampaignInfo {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SourceIds}
     )

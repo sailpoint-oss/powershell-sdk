@@ -24,7 +24,7 @@ ScheduledAttributes<PSCustomObject>
 function Initialize-ScheduledAttributes {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CronString}
     )

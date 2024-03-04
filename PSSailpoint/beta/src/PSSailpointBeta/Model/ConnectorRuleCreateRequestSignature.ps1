@@ -26,10 +26,10 @@ ConnectorRuleCreateRequestSignature<PSCustomObject>
 function Initialize-BetaConnectorRuleCreateRequestSignature {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${VarInput},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Output}
     )

@@ -24,7 +24,7 @@ ListFormElementDataByElementIDResponse<PSCustomObject>
 function Initialize-BetaListFormElementDataByElementIDResponse {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Results}
     )

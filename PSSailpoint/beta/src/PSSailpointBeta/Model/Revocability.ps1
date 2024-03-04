@@ -24,7 +24,7 @@ Revocability<PSCustomObject>
 function Initialize-BetaRevocability {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes}
     )

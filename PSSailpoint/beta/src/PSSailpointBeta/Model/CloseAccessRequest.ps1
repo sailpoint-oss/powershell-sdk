@@ -30,17 +30,17 @@ CloseAccessRequest<PSCustomObject>
 function Initialize-BetaCloseAccessRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${AccessRequestIds},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Message} = "The IdentityNow Administrator manually closed this request.",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Terminated", "Completed")]
         [String]
         ${ExecutionStatus} = "Terminated",
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Success", "Incomplete", "Failure")]
         [String]
         ${CompletionStatus} = "Failure"

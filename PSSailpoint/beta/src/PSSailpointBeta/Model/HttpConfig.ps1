@@ -32,21 +32,21 @@ HttpConfig<PSCustomObject>
 function Initialize-BetaHttpConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Url},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SYNC", "ASYNC", "DYNAMIC")]
         [PSCustomObject]
         ${HttpDispatchMode},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("NO_AUTH", "BASIC_AUTH", "BEARER_TOKEN")]
         [PSCustomObject]
         ${HttpAuthenticationType},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${BasicAuthConfig},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${BearerTokenAuthConfig}
     )

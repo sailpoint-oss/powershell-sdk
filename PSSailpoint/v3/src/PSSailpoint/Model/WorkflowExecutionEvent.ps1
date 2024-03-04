@@ -28,14 +28,14 @@ WorkflowExecutionEvent<PSCustomObject>
 function Initialize-WorkflowExecutionEvent {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("WorkflowExecutionScheduled", "WorkflowExecutionStarted", "WorkflowExecutionCompleted", "WorkflowExecutionFailed", "WorkflowTaskScheduled", "WorkflowTaskStarted", "WorkflowTaskCompleted", "WorkflowTaskFailed", "ActivityTaskScheduled", "ActivityTaskStarted", "ActivityTaskCompleted", "ActivityTaskFailed")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Timestamp},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes}
     )

@@ -24,7 +24,7 @@ AccountAttributesCreate<PSCustomObject>
 function Initialize-AccountAttributesCreate {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes}
     )

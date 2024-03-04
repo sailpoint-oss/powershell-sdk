@@ -24,7 +24,7 @@ VerificationPollRequest<PSCustomObject>
 function Initialize-BetaVerificationPollRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RequestId}
     )

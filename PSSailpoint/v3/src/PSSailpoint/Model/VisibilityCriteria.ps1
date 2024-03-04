@@ -24,7 +24,7 @@ VisibilityCriteria<PSCustomObject>
 function Initialize-VisibilityCriteria {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Expression}
     )

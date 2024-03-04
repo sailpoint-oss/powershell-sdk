@@ -28,14 +28,14 @@ MetricAggregation<PSCustomObject>
 function Initialize-MetricAggregation {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("COUNT", "UNIQUE_COUNT", "AVG", "SUM", "MEDIAN", "MIN", "MAX")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Field}
     )

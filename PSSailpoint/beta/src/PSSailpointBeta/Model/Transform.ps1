@@ -28,14 +28,14 @@ Transform<PSCustomObject>
 function Initialize-BetaTransform {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("accountAttribute", "base64Decode", "base64Encode", "concat", "conditional", "dateCompare", "dateFormat", "dateMath", "decomposeDiacriticalMarks", "e164phone", "firstValid", "rule", "identityAttribute", "indexOf", "iso3166", "lastIndexOf", "leftPad", "lookup", "lower", "normalizeNames", "randomAlphaNumeric", "randomNumeric", "reference", "replaceAll", "replace", "rightPad", "split", "static", "substring", "trim", "upper", "usernameGenerator", "uuid")]
         [String]
         ${Type},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes}
     )

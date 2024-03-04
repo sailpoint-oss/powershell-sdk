@@ -30,17 +30,17 @@ CampaignFilterDetailsCriteriaListInner<PSCustomObject>
 function Initialize-CampaignFilterDetailsCriteriaListInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("COMPOSITE", "ROLE", "IDENTITY", "IDENTITY_ATTRIBUTE", "ENTITLEMENT", "ACCESS_PROFILE", "SOURCE", "ACCOUNT", "AGGREGATED_ENTITLEMENT", "INVALID_CERTIFIABLE_ENTITY")]
         [PSCustomObject]
         ${Type},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Operation},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Property},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Value}
     )

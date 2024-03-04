@@ -28,13 +28,13 @@ ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner<PSCustomObject>
 function Initialize-BetaProvisioningCompletedAccountRequestsInnerAttributeRequestsInner {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AttributeName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AttributeValue},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Add", "Set", "Remove")]
         [PSCustomObject]
         ${Operation}

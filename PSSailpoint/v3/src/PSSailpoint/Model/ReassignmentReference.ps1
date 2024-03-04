@@ -26,10 +26,10 @@ ReassignmentReference<PSCustomObject>
 function Initialize-ReassignmentReference {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("TARGET_SUMMARY", "ITEM", "IDENTITY_SUMMARY")]
         [String]
         ${Type}

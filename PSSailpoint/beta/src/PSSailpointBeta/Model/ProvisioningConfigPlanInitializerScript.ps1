@@ -24,7 +24,7 @@ ProvisioningConfigPlanInitializerScript<PSCustomObject>
 function Initialize-BetaProvisioningConfigPlanInitializerScript {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Source}
     )

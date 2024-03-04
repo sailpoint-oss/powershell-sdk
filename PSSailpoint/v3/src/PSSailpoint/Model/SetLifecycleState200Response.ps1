@@ -24,7 +24,7 @@ SetLifecycleState200Response<PSCustomObject>
 function Initialize-SetLifecycleState200Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AccountActivityId}
     )

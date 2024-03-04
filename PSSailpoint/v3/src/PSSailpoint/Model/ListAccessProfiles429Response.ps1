@@ -24,7 +24,7 @@ ListAccessProfiles429Response<PSCustomObject>
 function Initialize-ListAccessProfiles429Response {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Message}
     )

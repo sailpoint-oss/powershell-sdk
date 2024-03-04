@@ -32,22 +32,22 @@ ConditionRule<PSCustomObject>
 function Initialize-BetaConditionRule {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("INPUT", "ELEMENT")]
         [String]
         ${SourceType},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Source},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("EQ", "NE", "CO", "NOT_CO", "IN", "NOT_IN", "EM", "NOT_EM", "SW", "NOT_SW", "EW", "NOT_EW")]
         [String]
         ${Operator},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("STRING", "STRING_LIST", "INPUT", "ELEMENT", "LIST", "BOOLEAN")]
         [String]
         ${ValueType},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Value}
     )

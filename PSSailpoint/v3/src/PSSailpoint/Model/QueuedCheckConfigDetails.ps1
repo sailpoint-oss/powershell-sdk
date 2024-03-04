@@ -26,10 +26,10 @@ QueuedCheckConfigDetails<PSCustomObject>
 function Initialize-QueuedCheckConfigDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ProvisioningStatusCheckIntervalMinutes},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ProvisioningMaxStatusCheckDays}
     )

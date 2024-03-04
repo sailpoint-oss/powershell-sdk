@@ -24,7 +24,7 @@ NonEmployeeIdnUserRequest<PSCustomObject>
 function Initialize-BetaNonEmployeeIdnUserRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id}
     )

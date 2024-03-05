@@ -463,6 +463,7 @@ Class | Method | HTTP request | Description
 *BetaTaskManagementApi* | [**Get-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatus) | **GET** /task-status/{id} | Get task status by ID.
 *BetaTaskManagementApi* | [**Get-BetaTaskStatusList**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatusList) | **GET** /task-status | Retrieve a task status list.
 *BetaTaskManagementApi* | [**Update-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Update-BetaTaskStatus) | **PATCH** /task-status/{id} | Update task status by ID
+*BetaTenantApi* | [**Get-BetaTenant**](docs/BetaTenantApi.md#Get-BetaTenant) | **GET** /tenant | Get Tenant Information.
 *BetaTransformsApi* | [**New-BetaTransform**](docs/BetaTransformsApi.md#New-BetaTransform) | **POST** /transforms | Create transform
 *BetaTransformsApi* | [**Remove-BetaTransform**](docs/BetaTransformsApi.md#Remove-BetaTransform) | **DELETE** /transforms/{id} | Delete a transform
 *BetaTransformsApi* | [**Get-BetaTransform**](docs/BetaTransformsApi.md#Get-BetaTransform) | **GET** /transforms/{id} | Transform by ID
@@ -908,6 +909,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.KbaAuthResponseItem](docs/KbaAuthResponseItem.md)
  - [PSSailpointBeta\Model.LatestOutlierSummary](docs/LatestOutlierSummary.md)
  - [PSSailpointBeta\Model.LeftPad](docs/LeftPad.md)
+ - [PSSailpointBeta\Model.License](docs/License.md)
  - [PSSailpointBeta\Model.LifecycleState](docs/LifecycleState.md)
  - [PSSailpointBeta\Model.LifecycleStateDto](docs/LifecycleStateDto.md)
  - [PSSailpointBeta\Model.ListAccessProfiles401Response](docs/ListAccessProfiles401Response.md)
@@ -1018,6 +1020,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.PreferencesDto](docs/PreferencesDto.md)
  - [PSSailpointBeta\Model.PreviewDataSourceResponse](docs/PreviewDataSourceResponse.md)
  - [PSSailpointBeta\Model.ProcessIdentitiesRequest](docs/ProcessIdentitiesRequest.md)
+ - [PSSailpointBeta\Model.Product](docs/Product.md)
  - [PSSailpointBeta\Model.ProvisioningCompleted](docs/ProvisioningCompleted.md)
  - [PSSailpointBeta\Model.ProvisioningCompletedAccountRequestsInner](docs/ProvisioningCompletedAccountRequestsInner.md)
  - [PSSailpointBeta\Model.ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner](docs/ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner.md)
@@ -1241,6 +1244,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.TemplateBulkDeleteDto](docs/TemplateBulkDeleteDto.md)
  - [PSSailpointBeta\Model.TemplateDto](docs/TemplateDto.md)
  - [PSSailpointBeta\Model.TemplateDtoDefault](docs/TemplateDtoDefault.md)
+ - [PSSailpointBeta\Model.Tenant](docs/Tenant.md)
  - [PSSailpointBeta\Model.TenantConfigurationDetails](docs/TenantConfigurationDetails.md)
  - [PSSailpointBeta\Model.TenantConfigurationRequest](docs/TenantConfigurationRequest.md)
  - [PSSailpointBeta\Model.TenantConfigurationResponse](docs/TenantConfigurationResponse.md)

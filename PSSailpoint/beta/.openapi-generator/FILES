@@ -190,6 +190,7 @@ docs/BetaSourceUsagesApi.md
 docs/BetaSourcesApi.md
 docs/BetaTaggedObjectsApi.md
 docs/BetaTaskManagementApi.md
+docs/BetaTenantApi.md
 docs/BetaTransformsApi.md
 docs/BetaTriggersApi.md
 docs/BetaWorkItemsApi.md
@@ -450,6 +451,7 @@ docs/KbaAuthResponse.md
 docs/KbaAuthResponseItem.md
 docs/LatestOutlierSummary.md
 docs/LeftPad.md
+docs/License.md
 docs/LifecycleState.md
 docs/LifecycleStateDto.md
 docs/ListAccessProfiles401Response.md
@@ -559,6 +561,7 @@ docs/PreApprovalTriggerDetails.md
 docs/PreferencesDto.md
 docs/PreviewDataSourceResponse.md
 docs/ProcessIdentitiesRequest.md
+docs/Product.md
 docs/ProvisioningCompleted.md
 docs/ProvisioningCompletedAccountRequestsInner.md
 docs/ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner.md
@@ -782,6 +785,7 @@ docs/TaskStatusMessage.md
 docs/TemplateBulkDeleteDto.md
 docs/TemplateDto.md
 docs/TemplateDtoDefault.md
+docs/Tenant.md
 docs/TenantConfigurationDetails.md
 docs/TenantConfigurationRequest.md
 docs/TenantConfigurationResponse.md
@@ -906,6 +910,7 @@ src/PSSailpointBeta/Api/BetaSourceUsagesApi.ps1
 src/PSSailpointBeta/Api/BetaSourcesApi.ps1
 src/PSSailpointBeta/Api/BetaTaggedObjectsApi.ps1
 src/PSSailpointBeta/Api/BetaTaskManagementApi.ps1
+src/PSSailpointBeta/Api/BetaTenantApi.ps1
 src/PSSailpointBeta/Api/BetaTransformsApi.ps1
 src/PSSailpointBeta/Api/BetaTriggersApi.ps1
 src/PSSailpointBeta/Api/BetaWorkItemsApi.ps1
@@ -1298,6 +1303,7 @@ src/PSSailpointBeta/Model/KbaAuthResponse.ps1
 src/PSSailpointBeta/Model/KbaAuthResponseItem.ps1
 src/PSSailpointBeta/Model/LatestOutlierSummary.ps1
 src/PSSailpointBeta/Model/LeftPad.ps1
+src/PSSailpointBeta/Model/License.ps1
 src/PSSailpointBeta/Model/LifecycleState.ps1
 src/PSSailpointBeta/Model/LifecycleStateDto.ps1
 src/PSSailpointBeta/Model/ListAccessProfiles401Response.ps1
@@ -1408,6 +1414,7 @@ src/PSSailpointBeta/Model/PreApprovalTriggerDetails.ps1
 src/PSSailpointBeta/Model/PreferencesDto.ps1
 src/PSSailpointBeta/Model/PreviewDataSourceResponse.ps1
 src/PSSailpointBeta/Model/ProcessIdentitiesRequest.ps1
+src/PSSailpointBeta/Model/Product.ps1
 src/PSSailpointBeta/Model/ProvisioningCompleted.ps1
 src/PSSailpointBeta/Model/ProvisioningCompletedAccountRequestsInner.ps1
 src/PSSailpointBeta/Model/ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner.ps1
@@ -1631,6 +1638,7 @@ src/PSSailpointBeta/Model/TaskStatusMessage.ps1
 src/PSSailpointBeta/Model/TemplateBulkDeleteDto.ps1
 src/PSSailpointBeta/Model/TemplateDto.ps1
 src/PSSailpointBeta/Model/TemplateDtoDefault.ps1
+src/PSSailpointBeta/Model/Tenant.ps1
 src/PSSailpointBeta/Model/TenantConfigurationDetails.ps1
 src/PSSailpointBeta/Model/TenantConfigurationRequest.ps1
 src/PSSailpointBeta/Model/TenantConfigurationResponse.ps1
@@ -1762,6 +1770,7 @@ tests/Api/BetaSourceUsagesApi.Tests.ps1
 tests/Api/BetaSourcesApi.Tests.ps1
 tests/Api/BetaTaggedObjectsApi.Tests.ps1
 tests/Api/BetaTaskManagementApi.Tests.ps1
+tests/Api/BetaTenantApi.Tests.ps1
 tests/Api/BetaTransformsApi.Tests.ps1
 tests/Api/BetaTriggersApi.Tests.ps1
 tests/Api/BetaWorkItemsApi.Tests.ps1
@@ -2153,6 +2162,7 @@ tests/Model/KbaAuthResponse.Tests.ps1
 tests/Model/KbaAuthResponseItem.Tests.ps1
 tests/Model/LatestOutlierSummary.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
+tests/Model/License.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
 tests/Model/LifecycleStateDto.Tests.ps1
 tests/Model/ListAccessProfiles401Response.Tests.ps1
@@ -2263,6 +2273,7 @@ tests/Model/PreApprovalTriggerDetails.Tests.ps1
 tests/Model/PreferencesDto.Tests.ps1
 tests/Model/PreviewDataSourceResponse.Tests.ps1
 tests/Model/ProcessIdentitiesRequest.Tests.ps1
+tests/Model/Product.Tests.ps1
 tests/Model/ProvisioningCompleted.Tests.ps1
 tests/Model/ProvisioningCompletedAccountRequestsInner.Tests.ps1
 tests/Model/ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner.Tests.ps1
@@ -2486,6 +2497,7 @@ tests/Model/TaskStatusMessage.Tests.ps1
 tests/Model/TemplateBulkDeleteDto.Tests.ps1
 tests/Model/TemplateDto.Tests.ps1
 tests/Model/TemplateDtoDefault.Tests.ps1
+tests/Model/Tenant.Tests.ps1
 tests/Model/TenantConfigurationDetails.Tests.ps1
 tests/Model/TenantConfigurationRequest.Tests.ps1
 tests/Model/TenantConfigurationResponse.Tests.ps1

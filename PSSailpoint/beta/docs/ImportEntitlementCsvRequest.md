@@ -1,4 +1,4 @@
-# ImportNonEmployeeRecordsInBulkRequest
+# ImportEntitlementCsvRequest
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportNonEmployeeRecordsInBulkRequest = Initialize-PSSailpointBetaImportNonEmployeeRecordsInBulkRequest  -VarData null
+$ImportEntitlementCsvRequest = Initialize-PSSailpointBetaImportEntitlementCsvRequest  -VarData null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ImportNonEmployeeRecordsInBulkRequest | ConvertTo-JSON
+$ImportEntitlementCsvRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

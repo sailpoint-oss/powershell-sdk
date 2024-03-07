@@ -18,10 +18,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
+ImportEntitlementCsvRequest<PSCustomObject>
 #>
 
-function Initialize-BetaImportNonEmployeeRecordsInBulkRequest {
+function Initialize-BetaImportEntitlementCsvRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-BetaImportNonEmployeeRecordsInBulkRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaImportNonEmployeeRecordsInBulkRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaImportEntitlementCsvRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarData) {
@@ -49,11 +49,11 @@ function Initialize-BetaImportNonEmployeeRecordsInBulkRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
+Convert from JSON to ImportEntitlementCsvRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
+Convert from JSON to ImportEntitlementCsvRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -61,21 +61,21 @@ Json object
 
 .OUTPUTS
 
-ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
+ImportEntitlementCsvRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToImportNonEmployeeRecordsInBulkRequest {
+function ConvertFrom-BetaJsonToImportEntitlementCsvRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportNonEmployeeRecordsInBulkRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportEntitlementCsvRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaImportNonEmployeeRecordsInBulkRequest
+        # check if Json contains properties not defined in BetaImportEntitlementCsvRequest
         $AllProperties = ("data")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

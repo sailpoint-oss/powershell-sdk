@@ -22,6 +22,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
         }
     }
 
+    Context 'Import-BetaEntitlementCsv' {
+        It 'Test Import-BetaEntitlementCsv' {
+            #$TestResult = Import-BetaEntitlementCsv -Id "TEST_VALUE" -Data "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaEntitlementChildren' {
         It 'Test Get-BetaEntitlementChildren' {
             #$TestResult = Get-BetaEntitlementChildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"

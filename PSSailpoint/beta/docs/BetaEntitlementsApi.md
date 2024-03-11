@@ -138,7 +138,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
-$Data =  # System.IO.FileInfo | 
+$Data =  # System.IO.FileInfo |  (optional)
 
 # Import Entitlement CSV File
 try {
@@ -154,7 +154,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| Source Id | 
- **Data** | **System.IO.FileInfo****System.IO.FileInfo**|  | 
+ **Data** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
 
 ### Return type
 

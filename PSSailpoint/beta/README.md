@@ -894,6 +894,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ImportEntitlementCsvRequest](docs/ImportEntitlementCsvRequest.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202ResponseErrorsInner](docs/ImportFormDefinitions202ResponseErrorsInner.md)
+ - [PSSailpointBeta\Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpointBeta\Model.ImportObject](docs/ImportObject.md)
  - [PSSailpointBeta\Model.ImportOptions](docs/ImportOptions.md)
  - [PSSailpointBeta\Model.ImportSpConfigRequest](docs/ImportSpConfigRequest.md)

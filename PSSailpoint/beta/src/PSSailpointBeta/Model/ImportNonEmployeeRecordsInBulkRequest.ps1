@@ -18,10 +18,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-ImportEntitlementCsvRequest<PSCustomObject>
+ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
 #>
 
-function Initialize-BetaImportEntitlementCsvRequest {
+function Initialize-BetaImportNonEmployeeRecordsInBulkRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,8 +30,12 @@ function Initialize-BetaImportEntitlementCsvRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaImportEntitlementCsvRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaImportNonEmployeeRecordsInBulkRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$VarData) {
+            throw "invalid value for 'VarData', 'VarData' cannot be null."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -45,11 +49,11 @@ function Initialize-BetaImportEntitlementCsvRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to ImportEntitlementCsvRequest<PSCustomObject>
+Convert from JSON to ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ImportEntitlementCsvRequest<PSCustomObject>
+Convert from JSON to ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,21 +61,21 @@ Json object
 
 .OUTPUTS
 
-ImportEntitlementCsvRequest<PSCustomObject>
+ImportNonEmployeeRecordsInBulkRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToImportEntitlementCsvRequest {
+function ConvertFrom-BetaJsonToImportNonEmployeeRecordsInBulkRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportEntitlementCsvRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportNonEmployeeRecordsInBulkRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaImportEntitlementCsvRequest
+        # check if Json contains properties not defined in BetaImportNonEmployeeRecordsInBulkRequest
         $AllProperties = ("data")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
@@ -79,8 +83,12 @@ function ConvertFrom-BetaJsonToImportEntitlementCsvRequest {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "data"))) { #optional property not found
-            $VarData = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'data' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "data"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'data' missing."
         } else {
             $VarData = $JsonParameters.PSobject.Properties["data"].value
         }

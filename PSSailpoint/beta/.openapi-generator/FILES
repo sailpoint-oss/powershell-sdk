@@ -435,6 +435,7 @@ docs/IdentityWithNewAccessAccessRefsInner.md
 docs/ImportEntitlementCsvRequest.md
 docs/ImportFormDefinitions202Response.md
 docs/ImportFormDefinitions202ResponseErrorsInner.md
+docs/ImportNonEmployeeRecordsInBulkRequest.md
 docs/ImportObject.md
 docs/ImportOptions.md
 docs/ImportSpConfigRequest.md
@@ -1288,6 +1289,7 @@ src/PSSailpointBeta/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpointBeta/Model/ImportEntitlementCsvRequest.ps1
 src/PSSailpointBeta/Model/ImportFormDefinitions202Response.ps1
 src/PSSailpointBeta/Model/ImportFormDefinitions202ResponseErrorsInner.ps1
+src/PSSailpointBeta/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpointBeta/Model/ImportObject.ps1
 src/PSSailpointBeta/Model/ImportOptions.ps1
 src/PSSailpointBeta/Model/ImportSpConfigRequest.ps1
@@ -2148,6 +2150,7 @@ tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/ImportEntitlementCsvRequest.Tests.ps1
 tests/Model/ImportFormDefinitions202Response.Tests.ps1
 tests/Model/ImportFormDefinitions202ResponseErrorsInner.Tests.ps1
+tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/ImportObject.Tests.ps1
 tests/Model/ImportOptions.Tests.ps1
 tests/Model/ImportSpConfigRequest.Tests.ps1

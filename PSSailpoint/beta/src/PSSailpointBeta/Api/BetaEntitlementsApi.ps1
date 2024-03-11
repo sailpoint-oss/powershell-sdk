@@ -214,10 +214,9 @@ function Import-BetaEntitlementCsv {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$Data) {
-            throw "Error! The required parameter `Data` missing when calling importEntitlementCsv."
+        if ($Data) {
+            $LocalVarFormParameters['data'] = $Data
         }
-        $LocalVarFormParameters['data'] = $Data
 
 
 

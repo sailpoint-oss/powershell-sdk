@@ -35,6 +35,7 @@ docs/AccessProfileUsageUsedByInner.md
 docs/AccessRecommendationMessage.md
 docs/AccessRequest.md
 docs/AccessRequestConfig.md
+docs/AccessRequestContext.md
 docs/AccessRequestDynamicApprover.md
 docs/AccessRequestDynamicApprover1.md
 docs/AccessRequestDynamicApproverRequestedItemsInner.md
@@ -82,6 +83,7 @@ docs/AccountCorrelated.md
 docs/AccountCorrelatedAccount.md
 docs/AccountCorrelatedIdentity.md
 docs/AccountCorrelatedSource.md
+docs/AccountInfoDto.md
 docs/AccountRequestInfo.md
 docs/AccountStatusChanged.md
 docs/AccountStatusChangedAccount.md
@@ -272,6 +274,8 @@ docs/ConnectorRuleResponse.md
 docs/ConnectorRuleUpdateRequest.md
 docs/ConnectorRuleValidationResponse.md
 docs/ConnectorRuleValidationResponseDetailsInner.md
+docs/ContextAttributeDto.md
+docs/ContextAttributeDtoValue.md
 docs/CorrelatedGovernanceEvent.md
 docs/CreateDomainDkim405Response.md
 docs/CreateFormDefinitionFileRequestRequest.md
@@ -373,6 +377,7 @@ docs/GetHistoricalIdentityEvents200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
+docs/GetRoleAssignments200ResponseInner.md
 docs/GrantType.md
 docs/HttpAuthenticationType.md
 docs/HttpConfig.md
@@ -629,6 +634,8 @@ docs/Revocability.md
 docs/RevocabilityForRole.md
 docs/RightPad.md
 docs/Role.md
+docs/RoleAssignmentDto.md
+docs/RoleAssignmentRef.md
 docs/RoleAssignmentSourceType.md
 docs/RoleBulkDeleteRequest.md
 docs/RoleCriteriaKey.md
@@ -646,6 +653,7 @@ docs/RoleInsightsInsight.md
 docs/RoleInsightsResponse.md
 docs/RoleInsightsRole.md
 docs/RoleInsightsSummary.md
+docs/RoleMatchDto.md
 docs/RoleMembershipIdentity.md
 docs/RoleMembershipSelector.md
 docs/RoleMembershipSelectorType.md
@@ -674,6 +682,7 @@ docs/RoleMiningSessionScope.md
 docs/RoleMiningSessionScopingMethod.md
 docs/RoleMiningSessionState.md
 docs/RoleMiningSessionStatus.md
+docs/RoleTargetDto.md
 docs/Rule.md
 docs/SavedSearchComplete.md
 docs/SavedSearchCompleteSearchResults.md
@@ -952,6 +961,7 @@ src/PSSailpointBeta/Model/AccessProfileUsageUsedByInner.ps1
 src/PSSailpointBeta/Model/AccessRecommendationMessage.ps1
 src/PSSailpointBeta/Model/AccessRequest.ps1
 src/PSSailpointBeta/Model/AccessRequestConfig.ps1
+src/PSSailpointBeta/Model/AccessRequestContext.ps1
 src/PSSailpointBeta/Model/AccessRequestDynamicApprover.ps1
 src/PSSailpointBeta/Model/AccessRequestDynamicApprover1.ps1
 src/PSSailpointBeta/Model/AccessRequestDynamicApproverRequestedItemsInner.ps1
@@ -999,6 +1009,7 @@ src/PSSailpointBeta/Model/AccountCorrelated.ps1
 src/PSSailpointBeta/Model/AccountCorrelatedAccount.ps1
 src/PSSailpointBeta/Model/AccountCorrelatedIdentity.ps1
 src/PSSailpointBeta/Model/AccountCorrelatedSource.ps1
+src/PSSailpointBeta/Model/AccountInfoDto.ps1
 src/PSSailpointBeta/Model/AccountRequestInfo.ps1
 src/PSSailpointBeta/Model/AccountStatusChanged.ps1
 src/PSSailpointBeta/Model/AccountStatusChangedAccount.ps1
@@ -1127,6 +1138,8 @@ src/PSSailpointBeta/Model/ConnectorRuleResponse.ps1
 src/PSSailpointBeta/Model/ConnectorRuleUpdateRequest.ps1
 src/PSSailpointBeta/Model/ConnectorRuleValidationResponse.ps1
 src/PSSailpointBeta/Model/ConnectorRuleValidationResponseDetailsInner.ps1
+src/PSSailpointBeta/Model/ContextAttributeDto.ps1
+src/PSSailpointBeta/Model/ContextAttributeDtoValue.ps1
 src/PSSailpointBeta/Model/CorrelatedGovernanceEvent.ps1
 src/PSSailpointBeta/Model/CreateDomainDkim405Response.ps1
 src/PSSailpointBeta/Model/CreateFormDefinitionFileRequestRequest.ps1
@@ -1227,6 +1240,7 @@ src/PSSailpointBeta/Model/GetHistoricalIdentityEvents200ResponseInner.ps1
 src/PSSailpointBeta/Model/GetOAuthClientResponse.ps1
 src/PSSailpointBeta/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpointBeta/Model/GetReferenceIdentityAttribute.ps1
+src/PSSailpointBeta/Model/GetRoleAssignments200ResponseInner.ps1
 src/PSSailpointBeta/Model/GrantType.ps1
 src/PSSailpointBeta/Model/HttpAuthenticationType.ps1
 src/PSSailpointBeta/Model/HttpConfig.ps1
@@ -1484,6 +1498,8 @@ src/PSSailpointBeta/Model/Revocability.ps1
 src/PSSailpointBeta/Model/RevocabilityForRole.ps1
 src/PSSailpointBeta/Model/RightPad.ps1
 src/PSSailpointBeta/Model/Role.ps1
+src/PSSailpointBeta/Model/RoleAssignmentDto.ps1
+src/PSSailpointBeta/Model/RoleAssignmentRef.ps1
 src/PSSailpointBeta/Model/RoleAssignmentSourceType.ps1
 src/PSSailpointBeta/Model/RoleBulkDeleteRequest.ps1
 src/PSSailpointBeta/Model/RoleCriteriaKey.ps1
@@ -1501,6 +1517,7 @@ src/PSSailpointBeta/Model/RoleInsightsInsight.ps1
 src/PSSailpointBeta/Model/RoleInsightsResponse.ps1
 src/PSSailpointBeta/Model/RoleInsightsRole.ps1
 src/PSSailpointBeta/Model/RoleInsightsSummary.ps1
+src/PSSailpointBeta/Model/RoleMatchDto.ps1
 src/PSSailpointBeta/Model/RoleMembershipIdentity.ps1
 src/PSSailpointBeta/Model/RoleMembershipSelector.ps1
 src/PSSailpointBeta/Model/RoleMembershipSelectorType.ps1
@@ -1529,6 +1546,7 @@ src/PSSailpointBeta/Model/RoleMiningSessionScope.ps1
 src/PSSailpointBeta/Model/RoleMiningSessionScopingMethod.ps1
 src/PSSailpointBeta/Model/RoleMiningSessionState.ps1
 src/PSSailpointBeta/Model/RoleMiningSessionStatus.ps1
+src/PSSailpointBeta/Model/RoleTargetDto.ps1
 src/PSSailpointBeta/Model/Rule.ps1
 src/PSSailpointBeta/Model/SavedSearchComplete.ps1
 src/PSSailpointBeta/Model/SavedSearchCompleteSearchResults.ps1
@@ -1813,6 +1831,7 @@ tests/Model/AccessProfileUsageUsedByInner.Tests.ps1
 tests/Model/AccessRecommendationMessage.Tests.ps1
 tests/Model/AccessRequest.Tests.ps1
 tests/Model/AccessRequestConfig.Tests.ps1
+tests/Model/AccessRequestContext.Tests.ps1
 tests/Model/AccessRequestDynamicApprover.Tests.ps1
 tests/Model/AccessRequestDynamicApprover1.Tests.ps1
 tests/Model/AccessRequestDynamicApproverRequestedItemsInner.Tests.ps1
@@ -1860,6 +1879,7 @@ tests/Model/AccountCorrelated.Tests.ps1
 tests/Model/AccountCorrelatedAccount.Tests.ps1
 tests/Model/AccountCorrelatedIdentity.Tests.ps1
 tests/Model/AccountCorrelatedSource.Tests.ps1
+tests/Model/AccountInfoDto.Tests.ps1
 tests/Model/AccountRequestInfo.Tests.ps1
 tests/Model/AccountStatusChanged.Tests.ps1
 tests/Model/AccountStatusChangedAccount.Tests.ps1
@@ -1988,6 +2008,8 @@ tests/Model/ConnectorRuleResponse.Tests.ps1
 tests/Model/ConnectorRuleUpdateRequest.Tests.ps1
 tests/Model/ConnectorRuleValidationResponse.Tests.ps1
 tests/Model/ConnectorRuleValidationResponseDetailsInner.Tests.ps1
+tests/Model/ContextAttributeDto.Tests.ps1
+tests/Model/ContextAttributeDtoValue.Tests.ps1
 tests/Model/CorrelatedGovernanceEvent.Tests.ps1
 tests/Model/CreateDomainDkim405Response.Tests.ps1
 tests/Model/CreateFormDefinitionFileRequestRequest.Tests.ps1
@@ -2088,6 +2110,7 @@ tests/Model/GetHistoricalIdentityEvents200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1
+tests/Model/GetRoleAssignments200ResponseInner.Tests.ps1
 tests/Model/GrantType.Tests.ps1
 tests/Model/HttpAuthenticationType.Tests.ps1
 tests/Model/HttpConfig.Tests.ps1
@@ -2345,6 +2368,8 @@ tests/Model/Revocability.Tests.ps1
 tests/Model/RevocabilityForRole.Tests.ps1
 tests/Model/RightPad.Tests.ps1
 tests/Model/Role.Tests.ps1
+tests/Model/RoleAssignmentDto.Tests.ps1
+tests/Model/RoleAssignmentRef.Tests.ps1
 tests/Model/RoleAssignmentSourceType.Tests.ps1
 tests/Model/RoleBulkDeleteRequest.Tests.ps1
 tests/Model/RoleCriteriaKey.Tests.ps1
@@ -2362,6 +2387,7 @@ tests/Model/RoleInsightsInsight.Tests.ps1
 tests/Model/RoleInsightsResponse.Tests.ps1
 tests/Model/RoleInsightsRole.Tests.ps1
 tests/Model/RoleInsightsSummary.Tests.ps1
+tests/Model/RoleMatchDto.Tests.ps1
 tests/Model/RoleMembershipIdentity.Tests.ps1
 tests/Model/RoleMembershipSelector.Tests.ps1
 tests/Model/RoleMembershipSelectorType.Tests.ps1
@@ -2390,6 +2416,7 @@ tests/Model/RoleMiningSessionScope.Tests.ps1
 tests/Model/RoleMiningSessionScopingMethod.Tests.ps1
 tests/Model/RoleMiningSessionState.Tests.ps1
 tests/Model/RoleMiningSessionStatus.Tests.ps1
+tests/Model/RoleTargetDto.Tests.ps1
 tests/Model/Rule.Tests.ps1
 tests/Model/SavedSearchComplete.Tests.ps1
 tests/Model/SavedSearchCompleteSearchResults.Tests.ps1

@@ -223,6 +223,8 @@ Class | Method | HTTP request | Description
 *BetaIdentitiesApi* | [**Remove-BetaIdentity**](docs/BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
 *BetaIdentitiesApi* | [**Get-BetaIdentity**](docs/BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
 *BetaIdentitiesApi* | [**Get-BetaIdentityOwnershipDetails**](docs/BetaIdentitiesApi.md#Get-BetaIdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
+*BetaIdentitiesApi* | [**Get-BetaRoleAssignment**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Get role assignment
+*BetaIdentitiesApi* | [**Get-BetaRoleAssignments**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | Get role assignments
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
@@ -557,6 +559,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.AccessRecommendationMessage](docs/AccessRecommendationMessage.md)
  - [PSSailpointBeta\Model.AccessRequest](docs/AccessRequest.md)
  - [PSSailpointBeta\Model.AccessRequestConfig](docs/AccessRequestConfig.md)
+ - [PSSailpointBeta\Model.AccessRequestContext](docs/AccessRequestContext.md)
  - [PSSailpointBeta\Model.AccessRequestDynamicApprover](docs/AccessRequestDynamicApprover.md)
  - [PSSailpointBeta\Model.AccessRequestDynamicApprover1](docs/AccessRequestDynamicApprover1.md)
  - [PSSailpointBeta\Model.AccessRequestDynamicApproverRequestedItemsInner](docs/AccessRequestDynamicApproverRequestedItemsInner.md)
@@ -604,6 +607,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.AccountCorrelatedAccount](docs/AccountCorrelatedAccount.md)
  - [PSSailpointBeta\Model.AccountCorrelatedIdentity](docs/AccountCorrelatedIdentity.md)
  - [PSSailpointBeta\Model.AccountCorrelatedSource](docs/AccountCorrelatedSource.md)
+ - [PSSailpointBeta\Model.AccountInfoDto](docs/AccountInfoDto.md)
  - [PSSailpointBeta\Model.AccountRequestInfo](docs/AccountRequestInfo.md)
  - [PSSailpointBeta\Model.AccountStatusChanged](docs/AccountStatusChanged.md)
  - [PSSailpointBeta\Model.AccountStatusChangedAccount](docs/AccountStatusChangedAccount.md)
@@ -732,6 +736,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ConnectorRuleUpdateRequest](docs/ConnectorRuleUpdateRequest.md)
  - [PSSailpointBeta\Model.ConnectorRuleValidationResponse](docs/ConnectorRuleValidationResponse.md)
  - [PSSailpointBeta\Model.ConnectorRuleValidationResponseDetailsInner](docs/ConnectorRuleValidationResponseDetailsInner.md)
+ - [PSSailpointBeta\Model.ContextAttributeDto](docs/ContextAttributeDto.md)
+ - [PSSailpointBeta\Model.ContextAttributeDtoValue](docs/ContextAttributeDtoValue.md)
  - [PSSailpointBeta\Model.CorrelatedGovernanceEvent](docs/CorrelatedGovernanceEvent.md)
  - [PSSailpointBeta\Model.CreateDomainDkim405Response](docs/CreateDomainDkim405Response.md)
  - [PSSailpointBeta\Model.CreateFormDefinitionFileRequestRequest](docs/CreateFormDefinitionFileRequestRequest.md)
@@ -832,6 +838,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpointBeta\Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
  - [PSSailpointBeta\Model.GetReferenceIdentityAttribute](docs/GetReferenceIdentityAttribute.md)
+ - [PSSailpointBeta\Model.GetRoleAssignments200ResponseInner](docs/GetRoleAssignments200ResponseInner.md)
  - [PSSailpointBeta\Model.GrantType](docs/GrantType.md)
  - [PSSailpointBeta\Model.HttpAuthenticationType](docs/HttpAuthenticationType.md)
  - [PSSailpointBeta\Model.HttpConfig](docs/HttpConfig.md)
@@ -1089,6 +1096,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.RevocabilityForRole](docs/RevocabilityForRole.md)
  - [PSSailpointBeta\Model.RightPad](docs/RightPad.md)
  - [PSSailpointBeta\Model.Role](docs/Role.md)
+ - [PSSailpointBeta\Model.RoleAssignmentDto](docs/RoleAssignmentDto.md)
+ - [PSSailpointBeta\Model.RoleAssignmentRef](docs/RoleAssignmentRef.md)
  - [PSSailpointBeta\Model.RoleAssignmentSourceType](docs/RoleAssignmentSourceType.md)
  - [PSSailpointBeta\Model.RoleBulkDeleteRequest](docs/RoleBulkDeleteRequest.md)
  - [PSSailpointBeta\Model.RoleCriteriaKey](docs/RoleCriteriaKey.md)
@@ -1106,6 +1115,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.RoleInsightsResponse](docs/RoleInsightsResponse.md)
  - [PSSailpointBeta\Model.RoleInsightsRole](docs/RoleInsightsRole.md)
  - [PSSailpointBeta\Model.RoleInsightsSummary](docs/RoleInsightsSummary.md)
+ - [PSSailpointBeta\Model.RoleMatchDto](docs/RoleMatchDto.md)
  - [PSSailpointBeta\Model.RoleMembershipIdentity](docs/RoleMembershipIdentity.md)
  - [PSSailpointBeta\Model.RoleMembershipSelector](docs/RoleMembershipSelector.md)
  - [PSSailpointBeta\Model.RoleMembershipSelectorType](docs/RoleMembershipSelectorType.md)
@@ -1134,6 +1144,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.RoleMiningSessionScopingMethod](docs/RoleMiningSessionScopingMethod.md)
  - [PSSailpointBeta\Model.RoleMiningSessionState](docs/RoleMiningSessionState.md)
  - [PSSailpointBeta\Model.RoleMiningSessionStatus](docs/RoleMiningSessionStatus.md)
+ - [PSSailpointBeta\Model.RoleTargetDto](docs/RoleTargetDto.md)
  - [PSSailpointBeta\Model.Rule](docs/Rule.md)
  - [PSSailpointBeta\Model.SavedSearchComplete](docs/SavedSearchComplete.md)
  - [PSSailpointBeta\Model.SavedSearchCompleteSearchResults](docs/SavedSearchCompleteSearchResults.md)

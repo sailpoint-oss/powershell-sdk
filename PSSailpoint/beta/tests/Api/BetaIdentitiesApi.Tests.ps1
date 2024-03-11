@@ -30,6 +30,22 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentitiesApi' {
         }
     }
 
+    Context 'Get-BetaRoleAssignment' {
+        It 'Test Get-BetaRoleAssignment' {
+            #$TestResult = Get-BetaRoleAssignment -IdentityId "TEST_VALUE" -AssignmentId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaRoleAssignments' {
+        It 'Test Get-BetaRoleAssignments' {
+            #$TestResult = Get-BetaRoleAssignments -IdentityId "TEST_VALUE" -RoleId "TEST_VALUE" -RoleName "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaIdentities' {
         It 'Test Get-BetaIdentities' {
             #$TestResult = Get-BetaIdentities -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"

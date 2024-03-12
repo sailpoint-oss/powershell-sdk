@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaImportEntitlementCsvRequest' {
     Context 'BetaImportEntitlementCsvRequest' {
         It 'Initialize-BetaImportEntitlementCsvRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaImportEntitlementCsvRequest -VarData "TEST_VALUE"
+            #$NewObject = Initialize-BetaImportEntitlementCsvRequest -CsvFile "TEST_VALUE"
             #$NewObject | Should -BeOfType ImportEntitlementCsvRequest
             #$NewObject.property | Should -Be 0
         }

@@ -165,7 +165,7 @@ Uploads a comma separated file (CSV) to a delimited file source and starts an en
 .PARAMETER Id
 Source Id
 
-.PARAMETER Data
+.PARAMETER CsvFile
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -184,7 +184,7 @@ function Import-BetaEntitlementCsv {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
-        ${Data},
+        ${CsvFile},
         [Switch]
         $WithHttpInfo
     )
@@ -214,9 +214,10 @@ function Import-BetaEntitlementCsv {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($Data) {
-            $LocalVarFormParameters['data'] = $Data
+        if (!$CsvFile) {
+            throw "Error! The required parameter `CsvFile` missing when calling importEntitlementCsv."
         }
+        $LocalVarFormParameters['csvFile'] = $CsvFile
 
 
 

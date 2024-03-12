@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 # **Import-BetaEntitlementCsv**
 > LoadEntitlementTask Import-BetaEntitlementCsv<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Data] <System.IO.FileInfo><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CsvFile] <System.IO.FileInfo><br>
 
 Import Entitlement CSV File
 
@@ -138,11 +138,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
-$Data =  # System.IO.FileInfo |  (optional)
+$CsvFile =  # System.IO.FileInfo | 
 
 # Import Entitlement CSV File
 try {
-    $Result = Import-BetaEntitlementCsv -Id $Id -Data $Data
+    $Result = Import-BetaEntitlementCsv -Id $Id -CsvFile $CsvFile
 } catch {
     Write-Host ("Exception occurred when calling Import-BetaEntitlementCsv: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -154,7 +154,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| Source Id | 
- **Data** | **System.IO.FileInfo****System.IO.FileInfo**|  | [optional] 
+ **CsvFile** | **System.IO.FileInfo****System.IO.FileInfo**|  | 
 
 ### Return type
 

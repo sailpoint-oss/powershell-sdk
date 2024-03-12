@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarData** | **System.IO.FileInfo** |  | [optional] 
+**CsvFile** | **System.IO.FileInfo** |  | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ImportEntitlementCsvRequest = Initialize-PSSailpointBetaImportEntitlementCsvRequest  -VarData null
+$ImportEntitlementCsvRequest = Initialize-PSSailpointBetaImportEntitlementCsvRequest  -CsvFile null
 ```
 
 - Convert the resource to JSON

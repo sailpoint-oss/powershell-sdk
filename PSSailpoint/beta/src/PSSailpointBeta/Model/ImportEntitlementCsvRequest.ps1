@@ -14,7 +14,7 @@ No summary available.
 
 No description available.
 
-.PARAMETER VarData
+.PARAMETER CsvFile
 No description available.
 .OUTPUTS
 
@@ -26,16 +26,20 @@ function Initialize-BetaImportEntitlementCsvRequest {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
-        ${VarData}
+        ${CsvFile}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaImportEntitlementCsvRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$CsvFile) {
+            throw "invalid value for 'CsvFile', 'CsvFile' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "data" = ${VarData}
+            "csvFile" = ${CsvFile}
         }
 
         return $PSO
@@ -72,21 +76,25 @@ function ConvertFrom-BetaJsonToImportEntitlementCsvRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaImportEntitlementCsvRequest
-        $AllProperties = ("data")
+        $AllProperties = ("csvFile")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "data"))) { #optional property not found
-            $VarData = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'csvFile' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "csvFile"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'csvFile' missing."
         } else {
-            $VarData = $JsonParameters.PSobject.Properties["data"].value
+            $CsvFile = $JsonParameters.PSobject.Properties["csvFile"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "data" = ${VarData}
+            "csvFile" = ${CsvFile}
         }
 
         return $PSO

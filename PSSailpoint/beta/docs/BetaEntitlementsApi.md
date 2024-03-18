@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**Get-BetaEntitlements**](BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
 [**Update-BetaEntitlement**](BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch an entitlement
 [**Send-BetaEntitlementRequestConfig**](BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
+[**Reset-BetaSourceEntitlements**](BetaEntitlementsApi.md#Reset-BetaSourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset Source Entitlements
 [**Update-BetaEntitlementsInBulk**](BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 
 
@@ -486,6 +487,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Reset-BetaSourceEntitlements"></a>
+# **Reset-BetaSourceEntitlements**
+> EntitlementSourceResetBaseReferenceDto Reset-BetaSourceEntitlements<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Reset Source Entitlements
+
+Removes all entitlements on a specific source.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
+
+# Reset Source Entitlements
+try {
+    $Result = Reset-BetaSourceEntitlements -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Reset-BetaSourceEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| ID of source for the entitlement reset | 
+
+### Return type
+
+[**EntitlementSourceResetBaseReferenceDto**](EntitlementSourceResetBaseReferenceDto.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

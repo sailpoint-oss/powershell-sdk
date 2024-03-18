@@ -160,6 +160,7 @@ Class | Method | HTTP request | Description
 *BetaEntitlementsApi* | [**Get-BetaEntitlements**](docs/BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
 *BetaEntitlementsApi* | [**Update-BetaEntitlement**](docs/BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch an entitlement
 *BetaEntitlementsApi* | [**Send-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
+*BetaEntitlementsApi* | [**Reset-BetaSourceEntitlements**](docs/BetaEntitlementsApi.md#Reset-BetaSourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset Source Entitlements
 *BetaEntitlementsApi* | [**Update-BetaEntitlementsInBulk**](docs/BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *BetaGovernanceGroupsApi* | [**New-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#New-BetaWorkgroup) | **POST** /workgroups | Create a new Governance Group.
 *BetaGovernanceGroupsApi* | [**Remove-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#Remove-BetaWorkgroup) | **DELETE** /workgroups/{id} | Delete a Governance Group
@@ -778,6 +779,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.EntitlementRequestConfig](docs/EntitlementRequestConfig.md)
  - [PSSailpointBeta\Model.EntitlementRequestConfig1](docs/EntitlementRequestConfig1.md)
  - [PSSailpointBeta\Model.EntitlementSource](docs/EntitlementSource.md)
+ - [PSSailpointBeta\Model.EntitlementSourceResetBaseReferenceDto](docs/EntitlementSourceResetBaseReferenceDto.md)
  - [PSSailpointBeta\Model.EntityCreatedByDTO](docs/EntityCreatedByDTO.md)
  - [PSSailpointBeta\Model.ErrorMessage](docs/ErrorMessage.md)
  - [PSSailpointBeta\Model.ErrorMessageDto](docs/ErrorMessageDto.md)

@@ -70,6 +70,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
         }
     }
 
+    Context 'Reset-BetaSourceEntitlements' {
+        It 'Test Reset-BetaSourceEntitlements' {
+            #$TestResult = Reset-BetaSourceEntitlements -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-BetaEntitlementsInBulk' {
         It 'Test Update-BetaEntitlementsInBulk' {
             #$TestResult = Update-BetaEntitlementsInBulk -EntitlementBulkUpdateRequest "TEST_VALUE"

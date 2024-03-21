@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
 *BetaIdentitiesApi* | [**Get-BetaRoleAssignment**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Get role assignment
 *BetaIdentitiesApi* | [**Get-BetaRoleAssignments**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | Get role assignments
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
+*BetaIdentitiesApi* | [**Reset-BetaIdentity**](docs/BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{id}/reset | Reset an identity
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 *BetaIdentityAttributesApi* | [**New-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute

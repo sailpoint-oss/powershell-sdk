@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**Get-BetaRoleAssignment**](BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Get role assignment
 [**Get-BetaRoleAssignments**](BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | Get role assignments
 [**Get-BetaIdentities**](BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
+[**Reset-BetaIdentity**](BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{id}/reset | Reset an identity
 [**Start-BetaIdentityProcessing**](BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 [**Sync-BetahronizeAttributesForIdentity**](BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 
@@ -330,6 +331,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Identity[]**](Identity.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Reset-BetaIdentity"></a>
+# **Reset-BetaIdentity**
+> void Reset-BetaIdentity<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
+
+Reset an identity
+
+Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+
+# Reset an identity
+try {
+    $Result = Reset-BetaIdentity -IdentityId $IdentityId
+} catch {
+    Write-Host ("Exception occurred when calling Reset-BetaIdentity: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentityId** | **String**| Identity Id | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

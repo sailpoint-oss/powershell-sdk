@@ -54,6 +54,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentitiesApi' {
         }
     }
 
+    Context 'Reset-BetaIdentity' {
+        It 'Test Reset-BetaIdentity' {
+            #$TestResult = Reset-BetaIdentity -IdentityId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Start-BetaIdentityProcessing' {
         It 'Test Start-BetaIdentityProcessing' {
             #$TestResult = Start-BetaIdentityProcessing -ProcessIdentitiesRequest "TEST_VALUE"

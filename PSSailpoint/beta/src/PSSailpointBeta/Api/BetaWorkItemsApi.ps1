@@ -54,6 +54,7 @@ function Approve-BetaApprovalItem {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -132,6 +133,7 @@ function Approve-BetaApprovalItemsInBulk {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -206,6 +208,7 @@ function Complete-BetaWorkItem {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -286,6 +289,7 @@ function Invoke-BetaForwardWorkItem {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -304,7 +308,7 @@ function Invoke-BetaForwardWorkItem {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $WorkItemForward | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $WorkItemForward | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -398,6 +402,7 @@ function Get-BetaCompletedWorkItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -484,6 +489,7 @@ function Get-BetaCountCompletedWorkItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -558,6 +564,7 @@ function Get-BetaCountWorkItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -638,6 +645,7 @@ function Get-BetaWorkItem {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -716,6 +724,7 @@ function Get-BetaWorkItemsSummary {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -808,6 +817,7 @@ function Get-BetaWorkItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -900,6 +910,7 @@ function Deny-BetaApprovalItem {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -978,6 +989,7 @@ function Deny-BetaApprovalItemsInBulk {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1058,6 +1070,7 @@ function Submit-BetaAccountSelection {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1076,7 +1089,7 @@ function Submit-BetaAccountSelection {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

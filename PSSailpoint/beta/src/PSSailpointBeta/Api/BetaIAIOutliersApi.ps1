@@ -56,6 +56,7 @@ function Export-BetaOutliersZip {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/zip', 'application/json')
 
@@ -160,6 +161,7 @@ function Get-BetaIdentityOutlierSnapshots {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -281,6 +283,7 @@ function Get-BetaIdentityOutliers {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -376,6 +379,7 @@ function Get-BetaLatestIdentityOutlierSnapshots {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -450,6 +454,7 @@ function Get-BetaOutlierContributingFeatureSummary {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -554,6 +559,7 @@ function Get-BetaPeerGroupOutliersContributingFeatures {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -648,6 +654,7 @@ function Invoke-BetaIgnoreIdentityOutliers {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -662,7 +669,7 @@ function Invoke-BetaIgnoreIdentityOutliers {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -775,6 +782,7 @@ function Get-BetaOutliersContributingFeatureAccessItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -873,6 +881,7 @@ function Invoke-BetaUnIgnoreIdentityOutliers {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -887,7 +896,7 @@ function Invoke-BetaUnIgnoreIdentityOutliers {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

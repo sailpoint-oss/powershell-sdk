@@ -54,6 +54,7 @@ function Complete-BetaCampaign {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -68,7 +69,7 @@ function Complete-BetaCampaign {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $CompleteCampaignOptions | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $CompleteCampaignOptions | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -144,6 +145,7 @@ function New-BetaCampaign {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -158,7 +160,7 @@ function New-BetaCampaign {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $Campaign | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $Campaign | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -234,6 +236,7 @@ function New-BetaCampaignTemplate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -248,7 +251,7 @@ function New-BetaCampaignTemplate {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $CampaignTemplate | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $CampaignTemplate | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -324,6 +327,7 @@ function Remove-BetaCampaignTemplate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -398,6 +402,7 @@ function Remove-BetaCampaignTemplateSchedule {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -472,6 +477,7 @@ function Remove-BetaCampaigns {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -486,7 +492,7 @@ function Remove-BetaCampaigns {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $DeleteCampaignsRequest | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $DeleteCampaignsRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -593,6 +599,7 @@ function Get-BetaActiveCampaigns {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -687,6 +694,7 @@ function Get-BetaCampaign {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -761,6 +769,7 @@ function Get-BetaCampaignReports {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -829,6 +838,7 @@ function Get-BetaCampaignReportsConfig {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -899,6 +909,7 @@ function Get-BetaCampaignTemplate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -973,6 +984,7 @@ function Get-BetaCampaignTemplateSchedule {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1071,6 +1083,7 @@ function Get-BetaCampaignTemplates {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1167,6 +1180,7 @@ function Move-Beta {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1185,7 +1199,7 @@ function Move-Beta {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $AdminReviewReassign | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $AdminReviewReassign | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -1267,6 +1281,7 @@ function Update-BetaCampaignTemplate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1285,7 +1300,7 @@ function Update-BetaCampaignTemplate {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -1361,6 +1376,7 @@ function Set-BetaCampaignReportsConfig {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1375,7 +1391,7 @@ function Set-BetaCampaignReportsConfig {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $CampaignReportsConfig | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $CampaignReportsConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -1457,6 +1473,7 @@ function Set-BetaCampaignTemplateSchedule {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1471,7 +1488,7 @@ function Set-BetaCampaignTemplateSchedule {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $Schedule | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $Schedule | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -1553,6 +1570,7 @@ function Start-BetaCampaign {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1567,7 +1585,7 @@ function Start-BetaCampaign {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $ActivateCampaignOptions | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $ActivateCampaignOptions | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -1643,6 +1661,7 @@ function Start-BetaCampaignRemediationScan {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1723,6 +1742,7 @@ function Start-BetaCampaignReport {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1801,6 +1821,7 @@ function Start-BetaGenerateCampaignTemplate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1881,6 +1902,7 @@ function Update-BetaCampaign {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -1899,7 +1921,7 @@ function Update-BetaCampaign {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

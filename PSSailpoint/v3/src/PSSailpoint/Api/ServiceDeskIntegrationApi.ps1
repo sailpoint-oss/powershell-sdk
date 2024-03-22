@@ -48,6 +48,7 @@ function New-ServiceDeskIntegration {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -62,7 +63,7 @@ function New-ServiceDeskIntegration {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -138,6 +139,7 @@ function Remove-ServiceDeskIntegration {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -212,6 +214,7 @@ function Get-ServiceDeskIntegration {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -286,6 +289,7 @@ function Get-ServiceDeskIntegrationTemplate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -354,6 +358,7 @@ function Get-ServiceDeskIntegrationTypes {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -448,6 +453,7 @@ function Get-ServiceDeskIntegrations {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -532,6 +538,7 @@ function Get-StatusCheckDetails {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -608,6 +615,7 @@ function Update-ServiceDeskIntegration {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -626,7 +634,7 @@ function Update-ServiceDeskIntegration {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $PatchServiceDeskIntegrationRequest | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $PatchServiceDeskIntegrationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -708,6 +716,7 @@ function Send-ServiceDeskIntegration {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -726,7 +735,7 @@ function Send-ServiceDeskIntegration {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -802,6 +811,7 @@ function Update-StatusCheckDetails {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -816,7 +826,7 @@ function Update-StatusCheckDetails {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $QueuedCheckConfigDetails | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $QueuedCheckConfigDetails | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

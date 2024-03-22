@@ -42,6 +42,7 @@ function Get-BetaPublicIdentityConfig {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -112,6 +113,7 @@ function Update-BetaPublicIdentityConfig {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -126,7 +128,7 @@ function Update-BetaPublicIdentityConfig {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $PublicIdentityConfig | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $PublicIdentityConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

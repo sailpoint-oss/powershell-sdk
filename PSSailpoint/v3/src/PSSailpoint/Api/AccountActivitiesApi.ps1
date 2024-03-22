@@ -48,6 +48,7 @@ function Get-AccountActivity {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -164,6 +165,7 @@ function Get-AccountActivities {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 

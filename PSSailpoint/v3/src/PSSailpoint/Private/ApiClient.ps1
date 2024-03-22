@@ -114,7 +114,7 @@ function Invoke-ApiClient {
             $FormParameters.Keys | ForEach-Object {
                 $value = $FormParameters[$_]
                 $isFile = $value.GetType().FullName -eq "System.IO.FileInfo"
-                if($isFile) {
+if($isFile) {
                     $FileStream = [System.IO.FileStream]::new($value.FullName, [System.IO.FileMode]::Open)
                     $fileHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
                     $fileHeader.Name = $_
@@ -150,7 +150,7 @@ function Invoke-ApiClient {
         }
     }
 
-    
+
     Write-Verbose ("Request Headers: {0}" -f ($HeaderParameters | Out-String))
     Write-Verbose "Request Body: $RequestBody"
     
@@ -163,7 +163,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
-                                      -SkipHeaderValidation `
+-SkipHeaderValidation `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -SkipCertificateCheck
@@ -175,7 +175,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
-                                      -SkipHeaderValidation `
+-SkipHeaderValidation `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -SkipCertificateCheck `
@@ -202,7 +202,7 @@ function Invoke-ApiClient {
                                       -Body $RequestBody `
                                       -ErrorAction Stop `
                                       -UseBasicParsing `
-                                      -SkipHeaderValidation `
+-SkipHeaderValidation `
                                       -MaximumRetryCount $Configuration["MaximumRetryCount"] `
                                       -RetryIntervalSec $Configuration["RetryIntervalSeconds"] `
                                       -Proxy $Configuration["Proxy"].GetProxy($UriBuilder.Uri) `
@@ -211,7 +211,7 @@ function Invoke-ApiClient {
     }
 
     return @{
-        Response = DeserializeResponse -Response $Response -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]
+        Response = DeserializeResponse -Response $Response.Content -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]
         StatusCode = $Response.StatusCode
         Headers = $Response.Headers
     }
@@ -233,7 +233,7 @@ function SelectHeaders {
 
     if (!($Headers) -or $Headers.Count -eq 0) {
         return $null
-    } else {
+        } else {
         return $Headers[0] # return the first one
     }
 }
@@ -260,7 +260,7 @@ function DeserializeResponse {
         [AllowEmptyString()]
         [string]$Response,
         [Parameter(Mandatory)]
-        [AllowNull()]
+[AllowNull()]
         [AllowEmptyCollection()]
         [string[]]$ContentTypes
     )

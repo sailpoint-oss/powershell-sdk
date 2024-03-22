@@ -6,3 +6,5 @@ companyName: SailPoint Technologies
 packageGuid: 7A197170-97E8-4DCD-A171-271D4AEC2F36
 commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select
 discardReadOnly: true
+subModuleName: V3
+moduleImportPath: github.com/sailpoint-oss/golang-sdk/v2/api_v3

@@ -1,0 +1,60 @@
+name: "Push Powershell SDK Docs to Developer Portal"
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  push_spec_workflow:
+    name: Push API spec changes
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the master branch request to run rsync
+      - name: Checkout PR branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+          path: powershell-sdk
+
+      # Checkout the main branch of the developer portal to push changes
+      - name: Checkout API Specs Repo
+        uses: actions/checkout@v2
+        with:
+          repository: sailpoint-oss/developer.sailpoint.com
+          path: developer-community
+          ref: main
+
+      - name: Install rsync
+        run: |
+          sudo apt install rsync grsync
+
+      - name: Sync files between folders
+        run: |
+          CURRENT_V3_SPEC_PATH="powershell-sdk/PSSailpoint/v3/docs"
+          NEW_V3_API_SPEC_PATH="developer-community/docs/tools/sdk/powershell/V3"
+
+          CURRENT_BETA_SPEC_PATH="powershell-sdk/PSSailpoint/beta/docs"
+          NEW_BETA_API_SPEC_PATH="developer-community/docs/tools/sdk/powershell/Beta"
+
+          rsync -cav --delete $CURRENT_V3_SPEC_PATH $NEW_V3_API_SPEC_PATH 
+          rsync -cav --delete $CURRENT_BETA_SPEC_PATH $NEW_BETA_API_SPEC_PATH
+
+          cd developer-community
+          git status
+
+          git config --unset-all http.https://github.com/.extraheader
+          git config --local user.email "devrel-service@sailpoint.com"
+          git config --local user.name "developer-relations-sp"
+
+          git add .
+          git commit -m "Update to golang SDK docs: ${{ github.run_id }}"
+
+          git status
+
+          git remote set-url origin https://${{secrets.DEVREL_SERVICE_TOKEN}}@github.com/sailpoint-oss/developer.sailpoint.com.git
+          
+          git remote -v
+
+          git push

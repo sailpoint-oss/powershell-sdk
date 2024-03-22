@@ -1,11 +1,25 @@
+---
+id: {{#lambda.kebabcase}}{{#lambda.titlecase}}{{classname}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+title: {{#lambda.titlecase}}{{classname}}{{/lambda.titlecase}}
+pagination_label: {{classname}}
+sidebar_label: {{classname}}
+sidebar_class_name: powershellsdk
+keywords: ['go', 'golang', 'sdk', '{{classname}}'] 
+slug: /tools/sdk/powershell/{{#lambda.lowercase}}{{subModuleName}}{{/lambda.lowercase}}/models/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{classname}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+tags: ['SDK', 'Software Development Kit', '{{classname}}']
+---
+
+
 {{#models}}
 {{#model}}
 # {{{classname}}}
+
+{{^isEnum}}
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-{{#vars}}**{{name}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{complexType}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional] {{/required}}{{#isReadOnly}}[readonly] {{/isReadOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
+{{#vars}}**{{name}}** |  {{^required}}Pointer to {{/required}}{{#isContainer}}{{#isArray}}{{#items}}{{^isPrimitiveType}}{{^isFile}}{{^isEnum}}[{{/isEnum}}{{/isFile}}{{/isPrimitiveType}}**[]{{dataType}}**{{^isPrimitiveType}}{{^isFile}}]({{#lambda.kebabcase}}{{#lambda.titlecase}}{{dataType}}{{/lambda.titlecase}}{{/lambda.kebabcase}}){{/isFile}}{{/isPrimitiveType}}{{/items}}{{/isArray}}{{#isMap}}{{#items}}{{^isPrimitiveType}}{{^isFile}}[{{/isFile}}{{/isPrimitiveType}}**map[string]{{dataType}}**{{^isPrimitiveType}}{{^isFile}}]({{#lambda.kebabcase}}{{#lambda.titlecase}}{{^baseType}}{{dataType}}{{/baseType}}{{baseType}}{{/lambda.titlecase}}{{/lambda.kebabcase}}){{/isFile}}{{/isPrimitiveType}}{{/items}}{{/isMap}}{{/isContainer}}{{^isContainer}}{{^isPrimitiveType}}{{^isFile}}{{^isDateTime}}{{^isEnum}}[{{/isEnum}}{{/isDateTime}}{{/isFile}}{{/isPrimitiveType}}{{^isEnum}}**{{dataType}}**{{^isPrimitiveType}}{{^isFile}}{{^isDateTime}}]({{#lambda.kebabcase}}{{#lambda.titlecase}}{{^baseType}}{{dataType}}{{/baseType}}{{baseType}}{{/lambda.titlecase}}{{/lambda.kebabcase}}){{/isDateTime}}{{/isFile}}{{/isPrimitiveType}}{{/isEnum}}{{#isEnum}} {{#allowableValues}}**Enum** [{{#enumVars}}  {{{value}}}{{^-last}}, {{/-last}} {{/enumVars}}{{/allowableValues}}]{{/isEnum}}{{/isContainer}} | {{description}} | {{^required}}[optional] {{/required}}{{#isReadOnly}}[readonly] {{/isReadOnly}}{{#defaultValue}}[default to {{{.}}}]{{/defaultValue}}
 {{/vars}}
 
 ## Examples
@@ -23,7 +37,16 @@ ${{{classname}}} = Initialize-{{{packageName}}}{{{classname}}} {{#vars}} -{{name
 ${{{classname}}} | ConvertTo-JSON
 ```
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+{{/isEnum}}
+{{#isEnum}}
+## Enum
+
+{{#allowableValues}}{{#enumVars}}
+* `{{name}}` (value: `{{{value}}}`)
+{{/enumVars}}{{/allowableValues}}
+{{/isEnum}}
+
+[[Back to top]](#) 
 
 {{/model}}
 {{/models}}

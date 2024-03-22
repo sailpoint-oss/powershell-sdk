@@ -73,6 +73,7 @@ function Search-Aggregate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json', 'text/csv')
 
@@ -104,7 +105,7 @@ function Search-Aggregate {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -180,6 +181,7 @@ function Search-Count {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -194,7 +196,7 @@ function Search-Count {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -248,7 +250,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SystemCollectionsHashtable
+SearchDocument
 #>
 function Search-Get {
     [CmdletBinding()]
@@ -276,6 +278,7 @@ function Search-Get {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -300,8 +303,11 @@ function Search-Get {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SystemCollectionsHashtable" `
+                                -ReturnType "SearchDocument" `
                                 -IsBodyNullable $false
+
+        # process oneOf response
+        $LocalVarResult["Response"] = ConvertFrom-JsonToSearchDocument (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult
@@ -338,7 +344,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SystemCollectionsHashtable[]
+SearchDocument[]
 #>
 function Search-Post {
     [CmdletBinding()]
@@ -372,6 +378,7 @@ function Search-Post {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -398,7 +405,7 @@ function Search-Post {
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
-        } else {
+} else {
             $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -420,7 +427,7 @@ function Search-Post {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SystemCollectionsHashtable[]" `
+                                -ReturnType "SearchDocument[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

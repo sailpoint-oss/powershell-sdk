@@ -447,6 +447,7 @@ docs/Search.md
 docs/SearchAggregationSpecification.md
 docs/SearchApi.md
 docs/SearchArguments.md
+docs/SearchDocument.md
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchSchedule.md
@@ -1013,6 +1014,7 @@ src/PSSailpoint/Model/Schema.ps1
 src/PSSailpoint/Model/Search.ps1
 src/PSSailpoint/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint/Model/SearchArguments.ps1
+src/PSSailpoint/Model/SearchDocument.ps1
 src/PSSailpoint/Model/SearchExportReportArguments.ps1
 src/PSSailpoint/Model/SearchFilterType.ps1
 src/PSSailpoint/Model/SearchSchedule.ps1
@@ -1577,6 +1579,7 @@ tests/Model/Schema.Tests.ps1
 tests/Model/Search.Tests.ps1
 tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
+tests/Model/SearchDocument.Tests.ps1
 tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchSchedule.Tests.ps1

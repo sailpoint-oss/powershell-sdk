@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **ConnectorImplementationId** | **String** | The connector implementation id | [optional] 
 **Created** | **System.DateTime** | The date-time when the source was created | [optional] 
 **Modified** | **System.DateTime** | The date-time when the source was last modified | [optional] 
+**CredentialProviderEnabled** | **Boolean** | Enables credential provider for this source. If credentialProvider is turned on  then source can use credential provider(s) to fetch credentials. | [optional] [default to $false]
+**Category** | **String** | The category of source (e.g. null, CredentialProvider) | [optional] 
 
 ## Examples
 
@@ -65,7 +67,9 @@ $Source = Initialize-PSSailpointSource  -Id 2c91808568c529c60168cca6f90c1324 `
  -ConnectionType file `
  -ConnectorImplementationId delimited-file `
  -Created 2022-02-08T14:50:03.827Z `
- -Modified 2024-01-23T18:08:50.897Z
+ -Modified 2024-01-23T18:08:50.897Z `
+ -CredentialProviderEnabled false `
+ -Category CredentialProvider
 ```
 
 - Convert the resource to JSON

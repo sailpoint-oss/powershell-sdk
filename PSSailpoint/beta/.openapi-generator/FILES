@@ -160,6 +160,7 @@ docs/BetaIAIOutliersApi.md
 docs/BetaIAIPeerGroupStrategiesApi.md
 docs/BetaIAIRecommendationsApi.md
 docs/BetaIAIRoleMiningApi.md
+docs/BetaIconsApi.md
 docs/BetaIdentitiesApi.md
 docs/BetaIdentityAttributesApi.md
 docs/BetaIdentityHistoryApi.md
@@ -716,6 +717,8 @@ docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationTemplateDto.md
 docs/ServiceDeskIntegrationTemplateType.md
 docs/ServiceDeskSource.md
+docs/SetIcon200Response.md
+docs/SetIconRequest.md
 docs/Slimcampaign.md
 docs/SodExemptCriteria.md
 docs/SodExemptCriteria1.md
@@ -890,6 +893,7 @@ src/PSSailpointBeta/Api/BetaIAIOutliersApi.ps1
 src/PSSailpointBeta/Api/BetaIAIPeerGroupStrategiesApi.ps1
 src/PSSailpointBeta/Api/BetaIAIRecommendationsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIRoleMiningApi.ps1
+src/PSSailpointBeta/Api/BetaIconsApi.ps1
 src/PSSailpointBeta/Api/BetaIdentitiesApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityAttributesApi.ps1
 src/PSSailpointBeta/Api/BetaIdentityHistoryApi.ps1
@@ -1581,6 +1585,8 @@ src/PSSailpointBeta/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateDto.ps1
 src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateType.ps1
 src/PSSailpointBeta/Model/ServiceDeskSource.ps1
+src/PSSailpointBeta/Model/SetIcon200Response.ps1
+src/PSSailpointBeta/Model/SetIconRequest.ps1
 src/PSSailpointBeta/Model/Slimcampaign.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria1.ps1
@@ -1762,6 +1768,7 @@ tests/Api/BetaIAIOutliersApi.Tests.ps1
 tests/Api/BetaIAIPeerGroupStrategiesApi.Tests.ps1
 tests/Api/BetaIAIRecommendationsApi.Tests.ps1
 tests/Api/BetaIAIRoleMiningApi.Tests.ps1
+tests/Api/BetaIconsApi.Tests.ps1
 tests/Api/BetaIdentitiesApi.Tests.ps1
 tests/Api/BetaIdentityAttributesApi.Tests.ps1
 tests/Api/BetaIdentityHistoryApi.Tests.ps1
@@ -2452,6 +2459,8 @@ tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
 tests/Model/ServiceDeskSource.Tests.ps1
+tests/Model/SetIcon200Response.Tests.ps1
+tests/Model/SetIconRequest.Tests.ps1
 tests/Model/Slimcampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodExemptCriteria1.Tests.ps1

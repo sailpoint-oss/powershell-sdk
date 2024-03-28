@@ -18,10 +18,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-ImportEntitlementCsvRequest<PSCustomObject>
+ImportEntitlementsRequest<PSCustomObject>
 #>
 
-function Initialize-BetaImportEntitlementCsvRequest {
+function Initialize-BetaImportEntitlementsRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-BetaImportEntitlementCsvRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaImportEntitlementCsvRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaImportEntitlementsRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$CsvFile) {
@@ -49,11 +49,11 @@ function Initialize-BetaImportEntitlementCsvRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to ImportEntitlementCsvRequest<PSCustomObject>
+Convert from JSON to ImportEntitlementsRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ImportEntitlementCsvRequest<PSCustomObject>
+Convert from JSON to ImportEntitlementsRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -61,21 +61,21 @@ Json object
 
 .OUTPUTS
 
-ImportEntitlementCsvRequest<PSCustomObject>
+ImportEntitlementsRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToImportEntitlementCsvRequest {
+function ConvertFrom-BetaJsonToImportEntitlementsRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportEntitlementCsvRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportEntitlementsRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaImportEntitlementCsvRequest
+        # check if Json contains properties not defined in BetaImportEntitlementsRequest
         $AllProperties = ("csvFile")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

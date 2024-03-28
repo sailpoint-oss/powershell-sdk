@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaEntitlement**](BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 [**Get-BetaEntitlementRequestConfig**](BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
-[**Import-BetaEntitlementCsv**](BetaEntitlementsApi.md#Import-BetaEntitlementCsv) | **POST** /entitlements/aggregate/sources/{id} | Import Entitlement CSV File
+[**Import-BetaEntitlements**](BetaEntitlementsApi.md#Import-BetaEntitlements) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
 [**Get-BetaEntitlementChildren**](BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 [**Get-BetaEntitlementParents**](BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 [**Get-BetaEntitlements**](BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
@@ -118,15 +118,15 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Import-BetaEntitlementCsv"></a>
-# **Import-BetaEntitlementCsv**
-> LoadEntitlementTask Import-BetaEntitlementCsv<br>
+<a id="Import-BetaEntitlements"></a>
+# **Import-BetaEntitlements**
+> LoadEntitlementTask Import-BetaEntitlements<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CsvFile] <System.IO.FileInfo><br>
 
-Import Entitlement CSV File
+Aggregate Entitlements
 
-Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
+Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
 
 ### Example
 ```powershell
@@ -141,11 +141,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $CsvFile =  # System.IO.FileInfo | 
 
-# Import Entitlement CSV File
+# Aggregate Entitlements
 try {
-    $Result = Import-BetaEntitlementCsv -Id $Id -CsvFile $CsvFile
+    $Result = Import-BetaEntitlements -Id $Id -CsvFile $CsvFile
 } catch {
-    Write-Host ("Exception occurred when calling Import-BetaEntitlementCsv: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Import-BetaEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

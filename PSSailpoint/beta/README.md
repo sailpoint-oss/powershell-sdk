@@ -222,12 +222,15 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Update-BetaPotentialRole0**](docs/BetaIAIRoleMiningApi.md#Update-BetaPotentialRole0) | **PATCH** /role-mining-potential-roles/{potentialRoleId} | Update a potential role
 *BetaIAIRoleMiningApi* | [**Update-BetaRoleMiningSession**](docs/BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 *BetaIAIRoleMiningApi* | [**Update-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
+*BetaIconsApi* | [**Remove-BetaIcon**](docs/BetaIconsApi.md#Remove-BetaIcon) | **DELETE** /icons/{objectType}/{objectId} | Delete an icon
+*BetaIconsApi* | [**Set-BetaIcon**](docs/BetaIconsApi.md#Set-BetaIcon) | **PUT** /icons/{objectType}/{objectId} | Update an icon
 *BetaIdentitiesApi* | [**Remove-BetaIdentity**](docs/BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
 *BetaIdentitiesApi* | [**Get-BetaIdentity**](docs/BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
 *BetaIdentitiesApi* | [**Get-BetaIdentityOwnershipDetails**](docs/BetaIdentitiesApi.md#Get-BetaIdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
 *BetaIdentitiesApi* | [**Get-BetaRoleAssignment**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Get role assignment
 *BetaIdentitiesApi* | [**Get-BetaRoleAssignments**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | Get role assignments
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
+*BetaIdentitiesApi* | [**Reset-BetaIdentity**](docs/BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{id}/reset | Reset an identity
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 *BetaIdentityAttributesApi* | [**New-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
@@ -1180,6 +1183,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)
  - [PSSailpointBeta\Model.ServiceDeskIntegrationTemplateType](docs/ServiceDeskIntegrationTemplateType.md)
  - [PSSailpointBeta\Model.ServiceDeskSource](docs/ServiceDeskSource.md)
+ - [PSSailpointBeta\Model.SetIcon200Response](docs/SetIcon200Response.md)
+ - [PSSailpointBeta\Model.SetIconRequest](docs/SetIconRequest.md)
  - [PSSailpointBeta\Model.Slimcampaign](docs/Slimcampaign.md)
  - [PSSailpointBeta\Model.SodExemptCriteria](docs/SodExemptCriteria.md)
  - [PSSailpointBeta\Model.SodExemptCriteria1](docs/SodExemptCriteria1.md)

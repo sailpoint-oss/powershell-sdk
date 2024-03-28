@@ -70,6 +70,10 @@ The connector implementation id
 The date-time when the source was created
 .PARAMETER Modified
 The date-time when the source was last modified
+.PARAMETER CredentialProviderEnabled
+Enables credential provider for this source. If credentialProvider is turned on  then source can use credential provider(s) to fetch credentials.
+.PARAMETER Category
+The category of source (e.g. null, CredentialProvider)
 .OUTPUTS
 
 Source<PSCustomObject>
@@ -161,7 +165,13 @@ function Initialize-BetaSource {
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${Modified}
+        ${Modified},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${CredentialProviderEnabled} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Category}
     )
 
     Process {
@@ -210,6 +220,8 @@ function Initialize-BetaSource {
             "connectorImplementationId" = ${ConnectorImplementationId}
             "created" = ${Created}
             "modified" = ${Modified}
+            "credentialProviderEnabled" = ${CredentialProviderEnabled}
+            "category" = ${Category}
         }
 
         return $PSO
@@ -246,7 +258,7 @@ function ConvertFrom-BetaJsonToSource {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaSource
-        $AllProperties = ("id", "name", "description", "owner", "cluster", "accountCorrelationConfig", "accountCorrelationRule", "managerCorrelationMapping", "managerCorrelationRule", "beforeProvisioningRule", "schemas", "passwordPolicies", "features", "type", "connector", "connectorClass", "connectorAttributes", "deleteThreshold", "authoritative", "managementWorkgroup", "healthy", "status", "since", "connectorId", "connectorName", "connectionType", "connectorImplementationId", "created", "modified")
+        $AllProperties = ("id", "name", "description", "owner", "cluster", "accountCorrelationConfig", "accountCorrelationRule", "managerCorrelationMapping", "managerCorrelationRule", "beforeProvisioningRule", "schemas", "passwordPolicies", "features", "type", "connector", "connectorClass", "connectorAttributes", "deleteThreshold", "authoritative", "managementWorkgroup", "healthy", "status", "since", "connectorId", "connectorName", "connectionType", "connectorImplementationId", "created", "modified", "credentialProviderEnabled", "category")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -431,6 +443,18 @@ function ConvertFrom-BetaJsonToSource {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "credentialProviderEnabled"))) { #optional property not found
+            $CredentialProviderEnabled = $null
+        } else {
+            $CredentialProviderEnabled = $JsonParameters.PSobject.Properties["credentialProviderEnabled"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "category"))) { #optional property not found
+            $Category = $null
+        } else {
+            $Category = $JsonParameters.PSobject.Properties["category"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -461,6 +485,8 @@ function ConvertFrom-BetaJsonToSource {
             "connectorImplementationId" = ${ConnectorImplementationId}
             "created" = ${Created}
             "modified" = ${Modified}
+            "credentialProviderEnabled" = ${CredentialProviderEnabled}
+            "category" = ${Category}
         }
 
         return $PSO

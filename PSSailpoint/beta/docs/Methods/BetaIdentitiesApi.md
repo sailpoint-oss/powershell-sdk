@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**getRoleAssignment**](#get-role-assignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Get role assignment
 [**getRoleAssignments**](#get-role-assignments) | **GET** /identities/{identityId}/role-assignments | Get role assignments
 [**listIdentities**](#list-identities) | **GET** /identities | List Identities
+[**resetIdentity**](#reset-identity) | **POST** /identities/{id}/reset | Reset an identity
 [**startIdentityProcessing**](#start-identity-processing) | **POST** /identities/process | Process a list of identityIds
 [**synchronizeAttributesForIdentity**](#synchronize-attributes-for-identity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 
@@ -232,6 +233,41 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) 
+
+
+## reset-identity
+
+
+Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | IdentityId | **String** | True  | Identity Id
+
+	
+### Return type
+
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Accepted. The reset request accepted and is in progress. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 

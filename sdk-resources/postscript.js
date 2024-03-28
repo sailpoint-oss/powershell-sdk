@@ -190,10 +190,65 @@ const fixFiles = function (myArray) {
           )
         );
         madeChange = true;
+      } else if (line.includes("../models/system-collections-hashtable")) {
+        fileOut.push(
+          line.replaceAll(
+            "../models/system-collections-hashtable",
+            "https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0"
+          )
+        );
+        madeChange = true;
+      } else if (line.includes("(system-collections-hashtable)")) {
+        fileOut.push(
+          line.replace(
+            "(system-collections-hashtable)",
+            "https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0"
+          )
+        );
+        madeChange = true;
+      } else if (
+        line.includes("[**[]System.Collections.Hashtable**](../models/map)")
+      ) {
+        fileOut.push(
+          line.replace(
+            "[**[]System.Collections.Hashtable**](../models/map)",
+            "https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0"
+          )
+        );
+        madeChange = true;
+      } else if (line.includes("[**map[string]AnyType**](any-type)")) {
+        fileOut.push(
+          line.replace(
+            "[**map[string]AnyType**](any-type)",
+            "[map[string] **Any**]"
+          )
+        );
+        madeChange = true;
+      } else if (
+        line.includes("[**map[string]AnyType**](../models/any-type)")
+      ) {
+        fileOut.push(
+          line.replace(
+            "[**map[string]AnyType**](../models/any-type)",
+            "[map[string] **Any**]"
+          )
+        );
+        madeChange = true;
+      } else if (line.includes("[**map[string]Column[]**](array)")) {
+        fileOut.push(
+          line.replaceAll(
+            "[**map[string]Column[]**](array)",
+            "[**map[string][]Column**]"
+          )
+        );
+        madeChange = true;
       } else {
         fileOut.push(line);
       }
     }
+
+    rawDataArra = fileOut.slice();
+    fileOut = [];
 
     if (madeChange) {
       fs.writeFileSync(file, rawDataArra.join("\n"));

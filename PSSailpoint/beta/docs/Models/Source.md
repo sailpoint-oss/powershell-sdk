@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **Type** |  Pointer to **String** | Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the &#x60;provisionasCsv&#x60; query parameter to &#x60;true&#x60;.  | [optional] 
 **Connector** |  **String** | Connector script name. | 
 **ConnectorClass** |  Pointer to **String** | The fully qualified name of the Java class that implements the connector interface. | [optional] 
-**ConnectorAttributes** |  Pointer to [**SystemCollectionsHashtable**](system-collections-hashtable) | Connector specific configuration; will differ from type to type. | [optional] 
+**ConnectorAttributes** |  Pointer to [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0 | Connector specific configuration; will differ from type to type. | [optional] 
 **DeleteThreshold** |  Pointer to **Int32** | Number from 0 to 100 that specifies when to skip the delete phase. | [optional] 
 **Authoritative** |  Pointer to **Boolean** | When true indicates the source is referenced by an IdentityProfile. | [optional] [default to $false]
 **ManagementWorkgroup** |  Pointer to [**SourceManagementWorkgroup**](source-management-workgroup) |  | [optional] 
@@ -45,6 +45,8 @@ Name | Type | Description | Notes
 **ConnectorImplementationId** |  Pointer to **String** | The connector implementation id | [optional] 
 **Created** |  Pointer to **System.DateTime** | The date-time when the source was created | [optional] 
 **Modified** |  Pointer to **System.DateTime** | The date-time when the source was last modified | [optional] 
+**CredentialProviderEnabled** |  Pointer to **Boolean** | Enables credential provider for this source. If credentialProvider is turned on  then source can use credential provider(s) to fetch credentials. | [optional] [default to $false]
+**Category** |  Pointer to **String** | The category of source (e.g. null, CredentialProvider) | [optional] 
 
 ## Examples
 
@@ -78,7 +80,9 @@ $Source = Initialize-PSSailpointBetaSource  -Id 2c91808568c529c60168cca6f90c1324
  -ConnectionType file `
  -ConnectorImplementationId delimited-file `
  -Created 2022-02-08T14:50:03.827Z `
- -Modified 2024-01-23T18:08:50.897Z
+ -Modified 2024-01-23T18:08:50.897Z `
+ -CredentialProviderEnabled false `
+ -Category CredentialProvider
 ```
 
 - Convert the resource to JSON

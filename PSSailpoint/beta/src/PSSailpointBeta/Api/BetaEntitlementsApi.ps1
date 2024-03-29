@@ -160,7 +160,7 @@ Aggregate Entitlements
 
 .DESCRIPTION
 
-Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error. If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
 .PARAMETER Id
 Source Id

@@ -92,8 +92,6 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Invoke-BetaReloadAccount**](docs/BetaAccountsApi.md#Invoke-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *BetaAccountsApi* | [**Unlock-BetaAccount**](docs/BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
-*BetaAuthProfileApi* | [**New-BetaProfileConfig**](docs/BetaAuthProfileApi.md#New-BetaProfileConfig) | **POST** /auth-profiles/{id} | Create Auth Profile.
-*BetaAuthProfileApi* | [**Remove-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Remove-BetaProfileConfig) | **DELETE** /auth-profiles/{id} | Delete the specified Auth Profile
 *BetaAuthProfileApi* | [**Get-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile.
 *BetaAuthProfileApi* | [**Get-BetaProfileConfigList**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles.
 *BetaAuthProfileApi* | [**Update-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Update-BetaProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
@@ -654,7 +652,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.AttributesChanged](docs/AttributesChanged.md)
  - [PSSailpointBeta\Model.AuditDetails](docs/AuditDetails.md)
  - [PSSailpointBeta\Model.AuthProfile](docs/AuthProfile.md)
- - [PSSailpointBeta\Model.AuthProfileRequest](docs/AuthProfileRequest.md)
  - [PSSailpointBeta\Model.AuthProfileSummary](docs/AuthProfileSummary.md)
  - [PSSailpointBeta\Model.Base64Decode](docs/Base64Decode.md)
  - [PSSailpointBeta\Model.Base64Encode](docs/Base64Encode.md)

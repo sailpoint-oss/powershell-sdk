@@ -6,22 +6,6 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaAuthProfileApi' {
-    Context 'New-BetaProfileConfig' {
-        It 'Test New-BetaProfileConfig' {
-            #$TestResult = New-BetaProfileConfig -AuthProfileRequest "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Remove-BetaProfileConfig' {
-        It 'Test Remove-BetaProfileConfig' {
-            #$TestResult = Remove-BetaProfileConfig -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaProfileConfig' {
         It 'Test Get-BetaProfileConfig' {
             #$TestResult = Get-BetaProfileConfig

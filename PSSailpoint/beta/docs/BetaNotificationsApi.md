@@ -11,14 +11,13 @@ Method | HTTP request | Description
 [**Remove-BetaVerifiedFromAddress**](BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 [**Get-BetaDkimAttributes**](BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
 [**Get-BetaMailFromAttributes**](BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get MAIL FROM Attributes
-[**Get-BetaNotificationPreference**](BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
 [**Get-BetaNotificationTemplate**](BetaNotificationsApi.md#Get-BetaNotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
 [**Get-BetaNotificationsTemplateContext**](BetaNotificationsApi.md#Get-BetaNotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context
 [**Get-BetaFromAddresses**](BetaNotificationsApi.md#Get-BetaFromAddresses) | **GET** /verified-from-addresses | List From Addresses
+[**Get-BetaNotificationPreferences**](BetaNotificationsApi.md#Get-BetaNotificationPreferences) | **GET** /notification-preferences/{key} | List Notification Preferences for tenant.
 [**Get-BetaNotificationTemplateDefaults**](BetaNotificationsApi.md#Get-BetaNotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
 [**Get-BetaNotificationTemplates**](BetaNotificationsApi.md#Get-BetaNotificationTemplates) | **GET** /notification-templates | List Notification Templates
 [**Send-BetaMailFromAttributes**](BetaNotificationsApi.md#Send-BetaMailFromAttributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
-[**Send-BetaNotificationPreference**](BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite preferences notification key.
 [**Send-BetaTestNotification**](BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
 
 
@@ -374,57 +373,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-BetaNotificationPreference"></a>
-# **Get-BetaNotificationPreference**
-> PreferencesDto Get-BetaNotificationPreference<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Key] <String><br>
-
-Get Notification Preferences for tenant.
-
-Returns the notification preferences for tenant.  Note that if the key doesn't exist, then a 404 will be returned.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Key = "cloud_manual_work_item_summary" # String | The notification key.
-
-# Get Notification Preferences for tenant.
-try {
-    $Result = Get-BetaNotificationPreference -Key $Key
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaNotificationPreference: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Key** | **String**| The notification key. | 
-
-### Return type
-
-[**PreferencesDto**](PreferencesDto.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="Get-BetaNotificationTemplate"></a>
 # **Get-BetaNotificationTemplate**
 > TemplateDto[] Get-BetaNotificationTemplate<br>
@@ -573,6 +521,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmailStatusDto[]**](EmailStatusDto.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-BetaNotificationPreferences"></a>
+# **Get-BetaNotificationPreferences**
+> PreferencesDto[] Get-BetaNotificationPreferences<br>
+
+List Notification Preferences for tenant.
+
+Returns a list of notification preferences for tenant.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+
+# List Notification Preferences for tenant.
+try {
+    $Result = Get-BetaNotificationPreferences
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaNotificationPreferences: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PreferencesDto[]**](PreferencesDto.md) (PSCustomObject)
 
 ### Authorization
 
@@ -738,60 +732,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MailFromAttributes**](MailFromAttributes.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Send-BetaNotificationPreference"></a>
-# **Send-BetaNotificationPreference**
-> PreferencesDto Send-BetaNotificationPreference<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Key] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PreferencesDto] <PSCustomObject><br>
-
-Overwrite preferences notification key.
-
-Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn't match the key in the URI, then a 400 will be thrown.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Key = "cloud_manual_work_item_summary" # String | The notification key.
-$PreferencesDto = Initialize-PreferencesDto -Key "cloud_manual_work_item_summary" -Mediums "EMAIL" -Modified (Get-Date) # PreferencesDto | 
-
-# Overwrite preferences notification key.
-try {
-    $Result = Send-BetaNotificationPreference -Key $Key -PreferencesDto $PreferencesDto
-} catch {
-    Write-Host ("Exception occurred when calling Send-BetaNotificationPreference: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Key** | **String**| The notification key. | 
- **PreferencesDto** | [**PreferencesDto**](PreferencesDto.md)|  | 
-
-### Return type
-
-[**PreferencesDto**](PreferencesDto.md) (PSCustomObject)
 
 ### Authorization
 

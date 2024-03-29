@@ -62,14 +62,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
         }
     }
 
-    Context 'Get-BetaNotificationPreference' {
-        It 'Test Get-BetaNotificationPreference' {
-            #$TestResult = Get-BetaNotificationPreference -Key "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaNotificationTemplate' {
         It 'Test Get-BetaNotificationTemplate' {
             #$TestResult = Get-BetaNotificationTemplate -Id "TEST_VALUE"
@@ -94,6 +86,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
         }
     }
 
+    Context 'Get-BetaNotificationPreferences' {
+        It 'Test Get-BetaNotificationPreferences' {
+            #$TestResult = Get-BetaNotificationPreferences
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaNotificationTemplateDefaults' {
         It 'Test Get-BetaNotificationTemplateDefaults' {
             #$TestResult = Get-BetaNotificationTemplateDefaults -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
@@ -113,14 +113,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaNotificationsApi' {
     Context 'Send-BetaMailFromAttributes' {
         It 'Test Send-BetaMailFromAttributes' {
             #$TestResult = Send-BetaMailFromAttributes -MailFromAttributesDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Send-BetaNotificationPreference' {
-        It 'Test Send-BetaNotificationPreference' {
-            #$TestResult = Send-BetaNotificationPreference -Key "TEST_VALUE" -PreferencesDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

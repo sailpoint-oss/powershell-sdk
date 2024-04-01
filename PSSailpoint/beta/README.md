@@ -93,8 +93,6 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Invoke-BetaReloadAccount**](docs/BetaAccountsApi.md#Invoke-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *BetaAccountsApi* | [**Unlock-BetaAccount**](docs/BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
-*BetaAuthProfileApi* | [**New-BetaProfileConfig**](docs/BetaAuthProfileApi.md#New-BetaProfileConfig) | **POST** /auth-profiles/{id} | Create Auth Profile.
-*BetaAuthProfileApi* | [**Remove-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Remove-BetaProfileConfig) | **DELETE** /auth-profiles/{id} | Delete the specified Auth Profile
 *BetaAuthProfileApi* | [**Get-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile.
 *BetaAuthProfileApi* | [**Get-BetaProfileConfigList**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles.
 *BetaAuthProfileApi* | [**Update-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Update-BetaProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
@@ -155,7 +153,7 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 *BetaEntitlementsApi* | [**Get-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
-*BetaEntitlementsApi* | [**Import-BetaEntitlementCsv**](docs/BetaEntitlementsApi.md#Import-BetaEntitlementCsv) | **POST** /entitlements/aggregate/sources/{id} | Import Entitlement CSV File
+*BetaEntitlementsApi* | [**Import-BetaEntitlements**](docs/BetaEntitlementsApi.md#Import-BetaEntitlements) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
 *BetaEntitlementsApi* | [**Get-BetaEntitlementChildren**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 *BetaEntitlementsApi* | [**Get-BetaEntitlementParents**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 *BetaEntitlementsApi* | [**Get-BetaEntitlements**](docs/BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
@@ -320,14 +318,13 @@ Class | Method | HTTP request | Description
 *BetaNotificationsApi* | [**Remove-BetaVerifiedFromAddress**](docs/BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 *BetaNotificationsApi* | [**Get-BetaDkimAttributes**](docs/BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
 *BetaNotificationsApi* | [**Get-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get MAIL FROM Attributes
-*BetaNotificationsApi* | [**Get-BetaNotificationPreference**](docs/BetaNotificationsApi.md#Get-BetaNotificationPreference) | **GET** /notification-preferences/{key} | Get Notification Preferences for tenant.
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplate**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
 *BetaNotificationsApi* | [**Get-BetaNotificationsTemplateContext**](docs/BetaNotificationsApi.md#Get-BetaNotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context
 *BetaNotificationsApi* | [**Get-BetaFromAddresses**](docs/BetaNotificationsApi.md#Get-BetaFromAddresses) | **GET** /verified-from-addresses | List From Addresses
+*BetaNotificationsApi* | [**Get-BetaNotificationPreferences**](docs/BetaNotificationsApi.md#Get-BetaNotificationPreferences) | **GET** /notification-preferences/{key} | List Notification Preferences for tenant.
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplateDefaults**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplates**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplates) | **GET** /notification-templates | List Notification Templates
 *BetaNotificationsApi* | [**Send-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Send-BetaMailFromAttributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
-*BetaNotificationsApi* | [**Send-BetaNotificationPreference**](docs/BetaNotificationsApi.md#Send-BetaNotificationPreference) | **PUT** /notification-preferences/{key} | Overwrite preferences notification key.
 *BetaNotificationsApi* | [**Send-BetaTestNotification**](docs/BetaNotificationsApi.md#Send-BetaTestNotification) | **POST** /send-test-notification | Send Test Notification
 *BetaOAuthClientsApi* | [**New-BetaOauthClient**](docs/BetaOAuthClientsApi.md#New-BetaOauthClient) | **POST** /oauth-clients | Create OAuth Client
 *BetaOAuthClientsApi* | [**Remove-BetaOauthClient**](docs/BetaOAuthClientsApi.md#Remove-BetaOauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
@@ -655,7 +652,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.AttributesChanged](docs/AttributesChanged.md)
  - [PSSailpointBeta\Model.AuditDetails](docs/AuditDetails.md)
  - [PSSailpointBeta\Model.AuthProfile](docs/AuthProfile.md)
- - [PSSailpointBeta\Model.AuthProfileRequest](docs/AuthProfileRequest.md)
  - [PSSailpointBeta\Model.AuthProfileSummary](docs/AuthProfileSummary.md)
  - [PSSailpointBeta\Model.Base64Decode](docs/Base64Decode.md)
  - [PSSailpointBeta\Model.Base64Encode](docs/Base64Encode.md)
@@ -904,7 +900,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.IdentitySyncPayload](docs/IdentitySyncPayload.md)
  - [PSSailpointBeta\Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpointBeta\Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
- - [PSSailpointBeta\Model.ImportEntitlementCsvRequest](docs/ImportEntitlementCsvRequest.md)
+ - [PSSailpointBeta\Model.ImportEntitlementsRequest](docs/ImportEntitlementsRequest.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202ResponseErrorsInner](docs/ImportFormDefinitions202ResponseErrorsInner.md)
  - [PSSailpointBeta\Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)

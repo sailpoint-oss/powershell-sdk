@@ -22,9 +22,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
         }
     }
 
-    Context 'Import-BetaEntitlementCsv' {
-        It 'Test Import-BetaEntitlementCsv' {
-            #$TestResult = Import-BetaEntitlementCsv -Id "TEST_VALUE" -CsvFile "TEST_VALUE"
+    Context 'Import-BetaEntitlements' {
+        It 'Test Import-BetaEntitlements' {
+            #$TestResult = Import-BetaEntitlements -Id "TEST_VALUE" -CsvFile "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

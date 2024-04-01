@@ -158,11 +158,11 @@ function Get-BetaEntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Import Entitlement CSV File
+Aggregate Entitlements
 
 .DESCRIPTION
 
-Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
+Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error. If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
 .PARAMETER Id
 Source Id
@@ -178,7 +178,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 LoadEntitlementTask
 #>
-function Import-BetaEntitlementCsv {
+function Import-BetaEntitlements {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -192,7 +192,7 @@ function Import-BetaEntitlementCsv {
     )
 
     Process {
-        'Calling method: Import-BetaEntitlementCsv' | Write-Debug
+        'Calling method: Import-BetaEntitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -213,12 +213,12 @@ function Import-BetaEntitlementCsv {
 
         $LocalVarUri = '/entitlements/aggregate/sources/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling importEntitlementCsv."
+            throw "Error! The required parameter `Id` missing when calling importEntitlements."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$CsvFile) {
-            throw "Error! The required parameter `CsvFile` missing when calling importEntitlementCsv."
+            throw "Error! The required parameter `CsvFile` missing when calling importEntitlements."
         }
         $LocalVarFormParameters['csvFile'] = $CsvFile
 

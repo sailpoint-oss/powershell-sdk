@@ -126,7 +126,6 @@ docs/AttributeDefinitionType.md
 docs/AttributesChanged.md
 docs/AuditDetails.md
 docs/AuthProfile.md
-docs/AuthProfileRequest.md
 docs/AuthProfileSummary.md
 docs/Base64Decode.md
 docs/Base64Encode.md
@@ -439,7 +438,7 @@ docs/IdentitySyncJob.md
 docs/IdentitySyncPayload.md
 docs/IdentityWithNewAccess.md
 docs/IdentityWithNewAccessAccessRefsInner.md
-docs/ImportEntitlementCsvRequest.md
+docs/ImportEntitlementsRequest.md
 docs/ImportFormDefinitions202Response.md
 docs/ImportFormDefinitions202ResponseErrorsInner.md
 docs/ImportNonEmployeeRecordsInBulkRequest.md
@@ -1057,7 +1056,6 @@ src/PSSailpointBeta/Model/AttributeDefinitionType.ps1
 src/PSSailpointBeta/Model/AttributesChanged.ps1
 src/PSSailpointBeta/Model/AuditDetails.ps1
 src/PSSailpointBeta/Model/AuthProfile.ps1
-src/PSSailpointBeta/Model/AuthProfileRequest.ps1
 src/PSSailpointBeta/Model/AuthProfileSummary.ps1
 src/PSSailpointBeta/Model/Base64Decode.ps1
 src/PSSailpointBeta/Model/Base64Encode.ps1
@@ -1306,7 +1304,7 @@ src/PSSailpointBeta/Model/IdentitySyncJob.ps1
 src/PSSailpointBeta/Model/IdentitySyncPayload.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccess.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccessAccessRefsInner.ps1
-src/PSSailpointBeta/Model/ImportEntitlementCsvRequest.ps1
+src/PSSailpointBeta/Model/ImportEntitlementsRequest.ps1
 src/PSSailpointBeta/Model/ImportFormDefinitions202Response.ps1
 src/PSSailpointBeta/Model/ImportFormDefinitions202ResponseErrorsInner.ps1
 src/PSSailpointBeta/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
@@ -1931,7 +1929,6 @@ tests/Model/AttributeDefinitionType.Tests.ps1
 tests/Model/AttributesChanged.Tests.ps1
 tests/Model/AuditDetails.Tests.ps1
 tests/Model/AuthProfile.Tests.ps1
-tests/Model/AuthProfileRequest.Tests.ps1
 tests/Model/AuthProfileSummary.Tests.ps1
 tests/Model/Base64Decode.Tests.ps1
 tests/Model/Base64Encode.Tests.ps1
@@ -2180,7 +2177,7 @@ tests/Model/IdentitySyncJob.Tests.ps1
 tests/Model/IdentitySyncPayload.Tests.ps1
 tests/Model/IdentityWithNewAccess.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
-tests/Model/ImportEntitlementCsvRequest.Tests.ps1
+tests/Model/ImportEntitlementsRequest.Tests.ps1
 tests/Model/ImportFormDefinitions202Response.Tests.ps1
 tests/Model/ImportFormDefinitions202ResponseErrorsInner.Tests.ps1
 tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1

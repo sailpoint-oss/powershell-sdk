@@ -152,6 +152,7 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**New-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
+*BetaDiscoveredApplicationsApi* | [**Get-BetaDiscoveredApplications**](docs/BetaDiscoveredApplicationsApi.md#Get-BetaDiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 *BetaEntitlementsApi* | [**Get-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
 *BetaEntitlementsApi* | [**Import-BetaEntitlements**](docs/BetaEntitlementsApi.md#Import-BetaEntitlements) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
@@ -280,6 +281,8 @@ Class | Method | HTTP request | Description
 *BetaManagedClustersApi* | [**Get-BetaManagedCluster**](docs/BetaManagedClustersApi.md#Get-BetaManagedCluster) | **GET** /managed-clusters/{id} | Get a specified ManagedCluster.
 *BetaManagedClustersApi* | [**Get-BetaManagedClusters**](docs/BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
 *BetaManagedClustersApi* | [**Send-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Send-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
+*BetaManualDiscoverApplicationsApi* | [**Send-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaManualDiscoverApplicationsApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
+*BetaManualDiscoverApplicationsTemplateApi* | [**Get-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaManualDiscoverApplicationsTemplateApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
 *BetaNonEmployeeLifecycleManagementApi* | [**Approve-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Approve-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -485,6 +488,9 @@ Class | Method | HTTP request | Description
 *BetaTriggersApi* | [**Start-BetaTestTriggerInvocation**](docs/BetaTriggersApi.md#Start-BetaTestTriggerInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
 *BetaTriggersApi* | [**Test-BetaSubscriptionFilter**](docs/BetaTriggersApi.md#Test-BetaSubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
 *BetaTriggersApi* | [**Update-BetaSubscription**](docs/BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
+*BetaVendorConnectorMappingsApi* | [**New-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#New-BetaVendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
+*BetaVendorConnectorMappingsApi* | [**Remove-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#Remove-BetaVendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
+*BetaVendorConnectorMappingsApi* | [**Get-BetaVendorConnectorMappings**](docs/BetaVendorConnectorMappingsApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item
@@ -762,6 +768,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.Delete202Response](docs/Delete202Response.md)
  - [PSSailpointBeta\Model.DeleteCampaignsRequest](docs/DeleteCampaignsRequest.md)
  - [PSSailpointBeta\Model.DeleteNonEmployeeRecordInBulkRequest](docs/DeleteNonEmployeeRecordInBulkRequest.md)
+ - [PSSailpointBeta\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
+ - [PSSailpointBeta\Model.DiscoveredApplicationsInner](docs/DiscoveredApplicationsInner.md)
  - [PSSailpointBeta\Model.DkimAttributes](docs/DkimAttributes.md)
  - [PSSailpointBeta\Model.DomainAddress](docs/DomainAddress.md)
  - [PSSailpointBeta\Model.DomainStatusDto](docs/DomainStatusDto.md)
@@ -953,6 +961,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ManagedClusterRedis](docs/ManagedClusterRedis.md)
  - [PSSailpointBeta\Model.ManagedClusterTypes](docs/ManagedClusterTypes.md)
  - [PSSailpointBeta\Model.ManagerCorrelationMapping](docs/ManagerCorrelationMapping.md)
+ - [PSSailpointBeta\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
+ - [PSSailpointBeta\Model.ManualDiscoverApplicationsTemplate](docs/ManualDiscoverApplicationsTemplate.md)
  - [PSSailpointBeta\Model.ManualWorkItemDetails](docs/ManualWorkItemDetails.md)
  - [PSSailpointBeta\Model.ManualWorkItemDetailsCurrentOwner](docs/ManualWorkItemDetailsCurrentOwner.md)
  - [PSSailpointBeta\Model.ManualWorkItemDetailsOriginalOwner](docs/ManualWorkItemDetailsOriginalOwner.md)
@@ -1298,6 +1308,11 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ValidateFilterInputDto](docs/ValidateFilterInputDto.md)
  - [PSSailpointBeta\Model.ValidateFilterOutputDto](docs/ValidateFilterOutputDto.md)
  - [PSSailpointBeta\Model.Value](docs/Value.md)
+ - [PSSailpointBeta\Model.VendorConnectorMapping](docs/VendorConnectorMapping.md)
+ - [PSSailpointBeta\Model.VendorConnectorMappingDeletedAt](docs/VendorConnectorMappingDeletedAt.md)
+ - [PSSailpointBeta\Model.VendorConnectorMappingDeletedBy](docs/VendorConnectorMappingDeletedBy.md)
+ - [PSSailpointBeta\Model.VendorConnectorMappingUpdatedAt](docs/VendorConnectorMappingUpdatedAt.md)
+ - [PSSailpointBeta\Model.VendorConnectorMappingUpdatedBy](docs/VendorConnectorMappingUpdatedBy.md)
  - [PSSailpointBeta\Model.VerificationPollRequest](docs/VerificationPollRequest.md)
  - [PSSailpointBeta\Model.VerificationResponse](docs/VerificationResponse.md)
  - [PSSailpointBeta\Model.ViolationContext](docs/ViolationContext.md)

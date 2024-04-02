@@ -150,6 +150,7 @@ docs/BetaConnectorRuleManagementApi.md
 docs/BetaConnectorsApi.md
 docs/BetaCustomFormsApi.md
 docs/BetaCustomPasswordInstructionsApi.md
+docs/BetaDiscoveredApplicationsApi.md
 docs/BetaEntitlementsApi.md
 docs/BetaGovernanceGroupsApi.md
 docs/BetaIAIAccessRequestRecommendationsApi.md
@@ -169,6 +170,8 @@ docs/BetaMFAConfigurationApi.md
 docs/BetaMFAControllerApi.md
 docs/BetaManagedClientsApi.md
 docs/BetaManagedClustersApi.md
+docs/BetaManualDiscoverApplicationsApi.md
+docs/BetaManualDiscoverApplicationsTemplateApi.md
 docs/BetaNonEmployeeLifecycleManagementApi.md
 docs/BetaNotificationsApi.md
 docs/BetaOAuthClientsApi.md
@@ -195,6 +198,7 @@ docs/BetaTaskManagementApi.md
 docs/BetaTenantApi.md
 docs/BetaTransformsApi.md
 docs/BetaTriggersApi.md
+docs/BetaVendorConnectorMappingsApi.md
 docs/BetaWorkItemsApi.md
 docs/BetaWorkReassignmentApi.md
 docs/BetaWorkflowsApi.md
@@ -298,6 +302,8 @@ docs/DecomposeDiacriticalMarks.md
 docs/Delete202Response.md
 docs/DeleteCampaignsRequest.md
 docs/DeleteNonEmployeeRecordInBulkRequest.md
+docs/DeleteVendorConnectorMapping200Response.md
+docs/DiscoveredApplicationsInner.md
 docs/DkimAttributes.md
 docs/DomainAddress.md
 docs/DomainStatusDto.md
@@ -490,6 +496,8 @@ docs/ManagedClusterQueue.md
 docs/ManagedClusterRedis.md
 docs/ManagedClusterTypes.md
 docs/ManagerCorrelationMapping.md
+docs/ManualDiscoverApplications.md
+docs/ManualDiscoverApplicationsTemplate.md
 docs/ManualWorkItemDetails.md
 docs/ManualWorkItemDetailsCurrentOwner.md
 docs/ManualWorkItemDetailsOriginalOwner.md
@@ -834,6 +842,11 @@ docs/VAClusterStatusChangeEventPreviousHealthCheckResult.md
 docs/ValidateFilterInputDto.md
 docs/ValidateFilterOutputDto.md
 docs/Value.md
+docs/VendorConnectorMapping.md
+docs/VendorConnectorMappingDeletedAt.md
+docs/VendorConnectorMappingDeletedBy.md
+docs/VendorConnectorMappingUpdatedAt.md
+docs/VendorConnectorMappingUpdatedBy.md
 docs/VerificationPollRequest.md
 docs/VerificationResponse.md
 docs/ViolationContext.md
@@ -883,6 +896,7 @@ src/PSSailpointBeta/Api/BetaConnectorRuleManagementApi.ps1
 src/PSSailpointBeta/Api/BetaConnectorsApi.ps1
 src/PSSailpointBeta/Api/BetaCustomFormsApi.ps1
 src/PSSailpointBeta/Api/BetaCustomPasswordInstructionsApi.ps1
+src/PSSailpointBeta/Api/BetaDiscoveredApplicationsApi.ps1
 src/PSSailpointBeta/Api/BetaEntitlementsApi.ps1
 src/PSSailpointBeta/Api/BetaGovernanceGroupsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIAccessRequestRecommendationsApi.ps1
@@ -902,6 +916,8 @@ src/PSSailpointBeta/Api/BetaMFAConfigurationApi.ps1
 src/PSSailpointBeta/Api/BetaMFAControllerApi.ps1
 src/PSSailpointBeta/Api/BetaManagedClientsApi.ps1
 src/PSSailpointBeta/Api/BetaManagedClustersApi.ps1
+src/PSSailpointBeta/Api/BetaManualDiscoverApplicationsApi.ps1
+src/PSSailpointBeta/Api/BetaManualDiscoverApplicationsTemplateApi.ps1
 src/PSSailpointBeta/Api/BetaNonEmployeeLifecycleManagementApi.ps1
 src/PSSailpointBeta/Api/BetaNotificationsApi.ps1
 src/PSSailpointBeta/Api/BetaOAuthClientsApi.ps1
@@ -928,6 +944,7 @@ src/PSSailpointBeta/Api/BetaTaskManagementApi.ps1
 src/PSSailpointBeta/Api/BetaTenantApi.ps1
 src/PSSailpointBeta/Api/BetaTransformsApi.ps1
 src/PSSailpointBeta/Api/BetaTriggersApi.ps1
+src/PSSailpointBeta/Api/BetaVendorConnectorMappingsApi.ps1
 src/PSSailpointBeta/Api/BetaWorkItemsApi.ps1
 src/PSSailpointBeta/Api/BetaWorkReassignmentApi.ps1
 src/PSSailpointBeta/Api/BetaWorkflowsApi.ps1
@@ -1165,6 +1182,8 @@ src/PSSailpointBeta/Model/DecomposeDiacriticalMarks.ps1
 src/PSSailpointBeta/Model/Delete202Response.ps1
 src/PSSailpointBeta/Model/DeleteCampaignsRequest.ps1
 src/PSSailpointBeta/Model/DeleteNonEmployeeRecordInBulkRequest.ps1
+src/PSSailpointBeta/Model/DeleteVendorConnectorMapping200Response.ps1
+src/PSSailpointBeta/Model/DiscoveredApplicationsInner.ps1
 src/PSSailpointBeta/Model/DkimAttributes.ps1
 src/PSSailpointBeta/Model/DomainAddress.ps1
 src/PSSailpointBeta/Model/DomainStatusDto.ps1
@@ -1356,6 +1375,8 @@ src/PSSailpointBeta/Model/ManagedClusterQueue.ps1
 src/PSSailpointBeta/Model/ManagedClusterRedis.ps1
 src/PSSailpointBeta/Model/ManagedClusterTypes.ps1
 src/PSSailpointBeta/Model/ManagerCorrelationMapping.ps1
+src/PSSailpointBeta/Model/ManualDiscoverApplications.ps1
+src/PSSailpointBeta/Model/ManualDiscoverApplicationsTemplate.ps1
 src/PSSailpointBeta/Model/ManualWorkItemDetails.ps1
 src/PSSailpointBeta/Model/ManualWorkItemDetailsCurrentOwner.ps1
 src/PSSailpointBeta/Model/ManualWorkItemDetailsOriginalOwner.ps1
@@ -1701,6 +1722,11 @@ src/PSSailpointBeta/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.ps
 src/PSSailpointBeta/Model/ValidateFilterInputDto.ps1
 src/PSSailpointBeta/Model/ValidateFilterOutputDto.ps1
 src/PSSailpointBeta/Model/Value.ps1
+src/PSSailpointBeta/Model/VendorConnectorMapping.ps1
+src/PSSailpointBeta/Model/VendorConnectorMappingDeletedAt.ps1
+src/PSSailpointBeta/Model/VendorConnectorMappingDeletedBy.ps1
+src/PSSailpointBeta/Model/VendorConnectorMappingUpdatedAt.ps1
+src/PSSailpointBeta/Model/VendorConnectorMappingUpdatedBy.ps1
 src/PSSailpointBeta/Model/VerificationPollRequest.ps1
 src/PSSailpointBeta/Model/VerificationResponse.ps1
 src/PSSailpointBeta/Model/ViolationContext.ps1
@@ -1757,6 +1783,7 @@ tests/Api/BetaConnectorRuleManagementApi.Tests.ps1
 tests/Api/BetaConnectorsApi.Tests.ps1
 tests/Api/BetaCustomFormsApi.Tests.ps1
 tests/Api/BetaCustomPasswordInstructionsApi.Tests.ps1
+tests/Api/BetaDiscoveredApplicationsApi.Tests.ps1
 tests/Api/BetaEntitlementsApi.Tests.ps1
 tests/Api/BetaGovernanceGroupsApi.Tests.ps1
 tests/Api/BetaIAIAccessRequestRecommendationsApi.Tests.ps1
@@ -1776,6 +1803,8 @@ tests/Api/BetaMFAConfigurationApi.Tests.ps1
 tests/Api/BetaMFAControllerApi.Tests.ps1
 tests/Api/BetaManagedClientsApi.Tests.ps1
 tests/Api/BetaManagedClustersApi.Tests.ps1
+tests/Api/BetaManualDiscoverApplicationsApi.Tests.ps1
+tests/Api/BetaManualDiscoverApplicationsTemplateApi.Tests.ps1
 tests/Api/BetaNonEmployeeLifecycleManagementApi.Tests.ps1
 tests/Api/BetaNotificationsApi.Tests.ps1
 tests/Api/BetaOAuthClientsApi.Tests.ps1
@@ -1802,6 +1831,7 @@ tests/Api/BetaTaskManagementApi.Tests.ps1
 tests/Api/BetaTenantApi.Tests.ps1
 tests/Api/BetaTransformsApi.Tests.ps1
 tests/Api/BetaTriggersApi.Tests.ps1
+tests/Api/BetaVendorConnectorMappingsApi.Tests.ps1
 tests/Api/BetaWorkItemsApi.Tests.ps1
 tests/Api/BetaWorkReassignmentApi.Tests.ps1
 tests/Api/BetaWorkflowsApi.Tests.ps1
@@ -2038,6 +2068,8 @@ tests/Model/DecomposeDiacriticalMarks.Tests.ps1
 tests/Model/Delete202Response.Tests.ps1
 tests/Model/DeleteCampaignsRequest.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordInBulkRequest.Tests.ps1
+tests/Model/DeleteVendorConnectorMapping200Response.Tests.ps1
+tests/Model/DiscoveredApplicationsInner.Tests.ps1
 tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1
 tests/Model/DomainStatusDto.Tests.ps1
@@ -2229,6 +2261,8 @@ tests/Model/ManagedClusterQueue.Tests.ps1
 tests/Model/ManagedClusterRedis.Tests.ps1
 tests/Model/ManagedClusterTypes.Tests.ps1
 tests/Model/ManagerCorrelationMapping.Tests.ps1
+tests/Model/ManualDiscoverApplications.Tests.ps1
+tests/Model/ManualDiscoverApplicationsTemplate.Tests.ps1
 tests/Model/ManualWorkItemDetails.Tests.ps1
 tests/Model/ManualWorkItemDetailsCurrentOwner.Tests.ps1
 tests/Model/ManualWorkItemDetailsOriginalOwner.Tests.ps1
@@ -2574,6 +2608,11 @@ tests/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.Tests.ps1
 tests/Model/ValidateFilterInputDto.Tests.ps1
 tests/Model/ValidateFilterOutputDto.Tests.ps1
 tests/Model/Value.Tests.ps1
+tests/Model/VendorConnectorMapping.Tests.ps1
+tests/Model/VendorConnectorMappingDeletedAt.Tests.ps1
+tests/Model/VendorConnectorMappingDeletedBy.Tests.ps1
+tests/Model/VendorConnectorMappingUpdatedAt.Tests.ps1
+tests/Model/VendorConnectorMappingUpdatedBy.Tests.ps1
 tests/Model/VerificationPollRequest.Tests.ps1
 tests/Model/VerificationResponse.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1

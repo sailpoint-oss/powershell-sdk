@@ -79,6 +79,8 @@ Class | Method | HTTP request | Description
 *BetaAccountUsagesApi* | [**Get-BetaUsagesByAccountId**](docs/BetaAccountUsagesApi.md#Get-BetaUsagesByAccountId) | **GET** /account-usages/{accountId}/summaries | Returns account usage insights
 *BetaAccountsApi* | [**New-BetaAccount**](docs/BetaAccountsApi.md#New-BetaAccount) | **POST** /accounts | Create Account
 *BetaAccountsApi* | [**Remove-BetaAccount**](docs/BetaAccountsApi.md#Remove-BetaAccount) | **DELETE** /accounts/{id} | Delete Account
+*BetaAccountsApi* | [**Remove-BetaAccountAsync**](docs/BetaAccountsApi.md#Remove-BetaAccountAsync) | **POST** /accounts/{id}/remove | Remove Account
+*BetaAccountsApi* | [**Remove-BetaAccountsAsync**](docs/BetaAccountsApi.md#Remove-BetaAccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove All Accounts
 *BetaAccountsApi* | [**Disable-BetaAccount**](docs/BetaAccountsApi.md#Disable-BetaAccount) | **POST** /accounts/{id}/disable | Disable Account
 *BetaAccountsApi* | [**Disable-BetaAccountForIdentity**](docs/BetaAccountsApi.md#Disable-BetaAccountForIdentity) | **POST** /identities-accounts/{id}/disable | Disable IDN Account for Identity
 *BetaAccountsApi* | [**Disable-BetaAccountsForIdentities**](docs/BetaAccountsApi.md#Disable-BetaAccountsForIdentities) | **POST** /identities-accounts/disable | Disable IDN Accounts for Identities

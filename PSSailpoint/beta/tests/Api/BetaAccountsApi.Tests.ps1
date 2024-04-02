@@ -22,6 +22,22 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccountsApi' {
         }
     }
 
+    Context 'Remove-BetaAccountAsync' {
+        It 'Test Remove-BetaAccountAsync' {
+            #$TestResult = Remove-BetaAccountAsync -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BetaAccountsAsync' {
+        It 'Test Remove-BetaAccountsAsync' {
+            #$TestResult = Remove-BetaAccountsAsync -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Disable-BetaAccount' {
         It 'Test Disable-BetaAccount' {
             #$TestResult = Disable-BetaAccount -Id "TEST_VALUE" -AccountToggleRequest "TEST_VALUE"

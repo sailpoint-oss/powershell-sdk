@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | Owner&#39;s DTO type. | [optional] 
 **Id** | **String** | Owner&#39;s identity ID. | [optional] 
-**Name** | **String** | Owner&#39;s display name. | [optional] 
+**Name** | **String** | Owner&#39;s name. | [optional] 
 **DisplayName** | **String** | The display name of the identity | [optional] [readonly] 
 **EmailAddress** | **String** | The primary email address of the identity | [optional] [readonly] 
 

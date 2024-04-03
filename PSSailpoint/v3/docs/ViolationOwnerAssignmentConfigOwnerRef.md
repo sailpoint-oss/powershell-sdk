@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | Owner&#39;s DTO type. | [optional] 
 **Id** | **String** | Owner&#39;s identity ID. | [optional] 
-**Name** | **String** | Owner&#39;s display name. | [optional] 
+**Name** | **String** | Owner&#39;s name. | [optional] 
 
 ## Examples
 

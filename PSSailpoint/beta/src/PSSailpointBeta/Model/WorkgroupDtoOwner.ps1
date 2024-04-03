@@ -19,7 +19,7 @@ Owner's DTO type.
 .PARAMETER Id
 Owner's identity ID.
 .PARAMETER Name
-Owner's display name.
+Owner's name.
 .OUTPUTS
 
 WorkgroupDtoOwner<PSCustomObject>

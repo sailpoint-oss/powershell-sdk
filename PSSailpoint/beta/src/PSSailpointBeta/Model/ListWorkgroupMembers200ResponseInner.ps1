@@ -20,6 +20,8 @@ Workgroup member identity DTO type.
 Workgroup member identity ID.
 .PARAMETER Name
 Workgroup member identity display name.
+.PARAMETER Email
+Workgroup member identity email.
 .OUTPUTS
 
 ListWorkgroupMembers200ResponseInner<PSCustomObject>
@@ -37,7 +39,10 @@ function Initialize-BetaListWorkgroupMembers200ResponseInner {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name}
+        ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Email}
     )
 
     Process {
@@ -49,6 +54,7 @@ function Initialize-BetaListWorkgroupMembers200ResponseInner {
             "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
+            "email" = ${Email}
         }
 
         return $PSO
@@ -85,7 +91,7 @@ function ConvertFrom-BetaJsonToListWorkgroupMembers200ResponseInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaListWorkgroupMembers200ResponseInner
-        $AllProperties = ("type", "id", "name")
+        $AllProperties = ("type", "id", "name", "email")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -110,10 +116,17 @@ function ConvertFrom-BetaJsonToListWorkgroupMembers200ResponseInner {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "email"))) { #optional property not found
+            $Email = $null
+        } else {
+            $Email = $JsonParameters.PSobject.Properties["email"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
+            "email" = ${Email}
         }
 
         return $PSO

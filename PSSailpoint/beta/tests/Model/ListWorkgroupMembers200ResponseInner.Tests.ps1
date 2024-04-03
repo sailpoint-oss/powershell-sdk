@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaListWorkgroupMembers200ResponseInner'
     Context 'BetaListWorkgroupMembers200ResponseInner' {
         It 'Initialize-BetaListWorkgroupMembers200ResponseInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaListWorkgroupMembers200ResponseInner -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE"
+            #$NewObject = Initialize-BetaListWorkgroupMembers200ResponseInner -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Email "TEST_VALUE"
             #$NewObject | Should -BeOfType ListWorkgroupMembers200ResponseInner
             #$NewObject.property | Should -Be 0
         }

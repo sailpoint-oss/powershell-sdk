@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Type** | **String** | Workgroup member identity DTO type. | [optional] 
 **Id** | **String** | Workgroup member identity ID. | [optional] 
 **Name** | **String** | Workgroup member identity display name. | [optional] 
+**Email** | **String** | Workgroup member identity email. | [optional] 
 
 ## Examples
 
@@ -13,7 +14,8 @@ Name | Type | Description | Notes
 ```powershell
 $ListWorkgroupMembers200ResponseInner = Initialize-PSSailpointBetaListWorkgroupMembers200ResponseInner  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
- -Name Michael Michaels
+ -Name Michael Michaels `
+ -Email michael.michaels@sailpoint.com
 ```
 
 - Convert the resource to JSON

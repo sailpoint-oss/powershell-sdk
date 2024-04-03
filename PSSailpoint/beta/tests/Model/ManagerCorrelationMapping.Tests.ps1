@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaManagerCorrelationMapping' {
     Context 'BetaManagerCorrelationMapping' {
         It 'Initialize-BetaManagerCorrelationMapping' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaManagerCorrelationMapping -AccountAttribute "TEST_VALUE" -IdentityAttribute "TEST_VALUE"
+            #$NewObject = Initialize-BetaManagerCorrelationMapping -AccountAttributeName "TEST_VALUE" -IdentityAttributeName "TEST_VALUE"
             #$NewObject | Should -BeOfType ManagerCorrelationMapping
             #$NewObject.property | Should -Be 0
         }

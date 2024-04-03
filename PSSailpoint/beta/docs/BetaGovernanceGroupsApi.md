@@ -35,8 +35,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$OwnerDto = Initialize-OwnerDto -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "Support"
-$WorkgroupDto = Initialize-WorkgroupDto -Owner $OwnerDto -Id "2c91808568c529c60168cca6f90c1313" -Name "DB Access Governance Group" -Description "Description of the Governance Group" -MemberCount 1641498673000 -ConnectionCount 1641498673000 # WorkgroupDto | 
+$WorkgroupDtoOwner = Initialize-WorkgroupDtoOwner -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "Support" -DisplayName "Support" -EmailAddress "support@sailpoint.com"
+$WorkgroupDto = Initialize-WorkgroupDto -Owner $WorkgroupDtoOwner -Id "2c91808568c529c60168cca6f90c1313" -Name "DB Access Governance Group" -Description "Description of the Governance Group" -MemberCount 1641498673000 -ConnectionCount 1641498673000 # WorkgroupDto | 
 
 # Create a new Governance Group.
 try {

@@ -879,6 +879,7 @@ docs/WorkgroupBulkDeleteRequest.md
 docs/WorkgroupConnectionDto.md
 docs/WorkgroupDeleteItem.md
 docs/WorkgroupDto.md
+docs/WorkgroupDtoOwner.md
 docs/WorkgroupMemberAddItem.md
 docs/WorkgroupMemberDeleteItem.md
 src/PSSailpointBeta/Api/BetaAccessProfilesApi.ps1
@@ -1759,6 +1760,7 @@ src/PSSailpointBeta/Model/WorkgroupBulkDeleteRequest.ps1
 src/PSSailpointBeta/Model/WorkgroupConnectionDto.ps1
 src/PSSailpointBeta/Model/WorkgroupDeleteItem.ps1
 src/PSSailpointBeta/Model/WorkgroupDto.ps1
+src/PSSailpointBeta/Model/WorkgroupDtoOwner.ps1
 src/PSSailpointBeta/Model/WorkgroupMemberAddItem.ps1
 src/PSSailpointBeta/Model/WorkgroupMemberDeleteItem.ps1
 src/PSSailpointBeta/PSSailpointBeta.psm1
@@ -2645,5 +2647,6 @@ tests/Model/WorkgroupBulkDeleteRequest.Tests.ps1
 tests/Model/WorkgroupConnectionDto.Tests.ps1
 tests/Model/WorkgroupDeleteItem.Tests.ps1
 tests/Model/WorkgroupDto.Tests.ps1
+tests/Model/WorkgroupDtoOwner.Tests.ps1
 tests/Model/WorkgroupMemberAddItem.Tests.ps1
 tests/Model/WorkgroupMemberDeleteItem.Tests.ps1

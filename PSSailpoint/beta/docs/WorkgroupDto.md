@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Owner** | [**OwnerDto**](OwnerDto.md) |  | [optional] 
+**Owner** | [**WorkgroupDtoOwner**](WorkgroupDtoOwner.md) |  | [optional] 
 **Id** | **String** | Governance group ID. | [optional] [readonly] 
 **Name** | **String** | Governance group name. | [optional] 
 **Description** | **String** | Governance group description. | [optional] 

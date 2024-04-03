@@ -1345,6 +1345,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.WorkgroupConnectionDto](docs/WorkgroupConnectionDto.md)
  - [PSSailpointBeta\Model.WorkgroupDeleteItem](docs/WorkgroupDeleteItem.md)
  - [PSSailpointBeta\Model.WorkgroupDto](docs/WorkgroupDto.md)
+ - [PSSailpointBeta\Model.WorkgroupDtoOwner](docs/WorkgroupDtoOwner.md)
  - [PSSailpointBeta\Model.WorkgroupMemberAddItem](docs/WorkgroupMemberAddItem.md)
  - [PSSailpointBeta\Model.WorkgroupMemberDeleteItem](docs/WorkgroupMemberDeleteItem.md)
 

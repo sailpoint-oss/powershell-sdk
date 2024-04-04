@@ -60,7 +60,7 @@ function Suspend-BetaAccessRequest {
             throw "Error! The required parameter `CancelAccessRequest` missing when calling cancelAccessRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CancelAccessRequest -is [array])) {
             $LocalVarBodyParameter = $CancelAccessRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CancelAccessRequest | ForEach-Object {
@@ -150,7 +150,7 @@ function Close-BetaAccessRequest {
             throw "Error! The required parameter `CloseAccessRequest` missing when calling closeAccessRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CloseAccessRequest -is [array])) {
             $LocalVarBodyParameter = $CloseAccessRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CloseAccessRequest | ForEach-Object {
@@ -240,7 +240,7 @@ function New-BetaAccessRequest {
             throw "Error! The required parameter `AccessRequest` missing when calling createAccessRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequest -is [array])) {
             $LocalVarBodyParameter = $AccessRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessRequest | ForEach-Object {
@@ -548,7 +548,7 @@ function Set-BetaAccessRequestConfig {
             throw "Error! The required parameter `AccessRequestConfig` missing when calling setAccessRequestConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestConfig -is [array])) {
             $LocalVarBodyParameter = $AccessRequestConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessRequestConfig | ForEach-Object {

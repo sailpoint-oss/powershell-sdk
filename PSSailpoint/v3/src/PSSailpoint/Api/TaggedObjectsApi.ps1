@@ -145,7 +145,7 @@ function Remove-TagsToManyObject {
             throw "Error! The required parameter `BulkTaggedObject` missing when calling deleteTagsToManyObject."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkTaggedObject -is [array])) {
             $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
@@ -560,7 +560,7 @@ function Send-TaggedObject {
             throw "Error! The required parameter `TaggedObject` missing when calling putTaggedObject."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TaggedObject -is [array])) {
             $LocalVarBodyParameter = $TaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TaggedObject | ForEach-Object {
@@ -650,7 +650,7 @@ function Set-TagToObject {
             throw "Error! The required parameter `TaggedObject` missing when calling setTagToObject."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TaggedObject -is [array])) {
             $LocalVarBodyParameter = $TaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TaggedObject | ForEach-Object {
@@ -740,7 +740,7 @@ function Set-TagsToManyObjects {
             throw "Error! The required parameter `BulkTaggedObject` missing when calling setTagsToManyObjects."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkTaggedObject -is [array])) {
             $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {

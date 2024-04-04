@@ -318,7 +318,7 @@ function Send-BetaClientLogConfiguration {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ClientLogConfiguration -is [array])) {
             $LocalVarBodyParameter = $ClientLogConfiguration | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ClientLogConfiguration | ForEach-Object {

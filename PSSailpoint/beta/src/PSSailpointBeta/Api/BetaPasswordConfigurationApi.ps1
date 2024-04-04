@@ -60,7 +60,7 @@ function New-BetaPasswordOrgConfig {
             throw "Error! The required parameter `PasswordOrgConfig` missing when calling createPasswordOrgConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordOrgConfig -is [array])) {
             $LocalVarBodyParameter = $PasswordOrgConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordOrgConfig | ForEach-Object {
@@ -214,7 +214,7 @@ function Send-BetaPasswordOrgConfig {
             throw "Error! The required parameter `PasswordOrgConfig` missing when calling putPasswordOrgConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordOrgConfig -is [array])) {
             $LocalVarBodyParameter = $PasswordOrgConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordOrgConfig | ForEach-Object {

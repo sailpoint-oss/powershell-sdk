@@ -964,7 +964,7 @@ function Submit-AccountSelection {
             throw "Error! The required parameter `RequestBody` missing when calling submitAccountSelection."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {

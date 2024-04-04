@@ -60,7 +60,7 @@ function New-BetaDomainDkim {
             throw "Error! The required parameter `DomainAddress` missing when calling createDomainDkim."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($DomainAddress -is [array])) {
             $LocalVarBodyParameter = $DomainAddress | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $DomainAddress | ForEach-Object {
@@ -150,7 +150,7 @@ function New-BetaNotificationTemplate {
             throw "Error! The required parameter `TemplateDto` missing when calling createNotificationTemplate."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TemplateDto -is [array])) {
             $LocalVarBodyParameter = $TemplateDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TemplateDto | ForEach-Object {
@@ -240,7 +240,7 @@ function New-BetaVerifiedFromAddress {
             throw "Error! The required parameter `EmailStatusDto` missing when calling createVerifiedFromAddress."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EmailStatusDto -is [array])) {
             $LocalVarBodyParameter = $EmailStatusDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $EmailStatusDto | ForEach-Object {
@@ -330,7 +330,7 @@ function Remove-BetaNotificationTemplatesInBulk {
             throw "Error! The required parameter `TemplateBulkDeleteDto` missing when calling deleteNotificationTemplatesInBulk."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TemplateBulkDeleteDto -is [array])) {
             $LocalVarBodyParameter = $TemplateBulkDeleteDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TemplateBulkDeleteDto | ForEach-Object {
@@ -1137,7 +1137,7 @@ function Send-BetaMailFromAttributes {
             throw "Error! The required parameter `MailFromAttributesDto` missing when calling putMailFromAttributes."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MailFromAttributesDto -is [array])) {
             $LocalVarBodyParameter = $MailFromAttributesDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $MailFromAttributesDto | ForEach-Object {
@@ -1227,7 +1227,7 @@ function Send-BetaTestNotification {
             throw "Error! The required parameter `SendTestNotificationRequestDto` missing when calling sendTestNotification."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SendTestNotificationRequestDto -is [array])) {
             $LocalVarBodyParameter = $SendTestNotificationRequestDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SendTestNotificationRequestDto | ForEach-Object {

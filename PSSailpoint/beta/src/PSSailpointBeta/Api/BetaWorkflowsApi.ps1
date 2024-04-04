@@ -134,7 +134,7 @@ function New-BetaWorkflow {
             throw "Error! The required parameter `CreateWorkflowRequest` missing when calling createWorkflow."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateWorkflowRequest -is [array])) {
             $LocalVarBodyParameter = $CreateWorkflowRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CreateWorkflowRequest | ForEach-Object {
@@ -1044,7 +1044,7 @@ function Update-BetaWorkflow {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchWorkflow."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -1140,7 +1140,7 @@ function Submit-BetaExternalExecuteWorkflow {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PostExternalExecuteWorkflowRequest -is [array])) {
             $LocalVarBodyParameter = $PostExternalExecuteWorkflowRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PostExternalExecuteWorkflowRequest | ForEach-Object {
@@ -1310,7 +1310,7 @@ function Test-BetaExternalExecuteWorkflow {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TestExternalExecuteWorkflowRequest -is [array])) {
             $LocalVarBodyParameter = $TestExternalExecuteWorkflowRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TestExternalExecuteWorkflowRequest | ForEach-Object {
@@ -1410,7 +1410,7 @@ function Test-BetaWorkflow {
             throw "Error! The required parameter `TestWorkflowRequest` missing when calling testWorkflow."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TestWorkflowRequest -is [array])) {
             $LocalVarBodyParameter = $TestWorkflowRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TestWorkflowRequest | ForEach-Object {
@@ -1510,7 +1510,7 @@ function Update-BetaWorkflow {
             throw "Error! The required parameter `WorkflowBody` missing when calling updateWorkflow."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($WorkflowBody -is [array])) {
             $LocalVarBodyParameter = $WorkflowBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $WorkflowBody | ForEach-Object {

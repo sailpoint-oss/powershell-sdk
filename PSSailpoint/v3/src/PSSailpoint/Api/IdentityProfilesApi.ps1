@@ -134,7 +134,7 @@ function Remove-IdentityProfiles {
             throw "Error! The required parameter `RequestBody` missing when calling deleteIdentityProfiles."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {
@@ -486,7 +486,7 @@ function Import-IdentityProfiles {
             throw "Error! The required parameter `IdentityProfileExportedObject` missing when calling importIdentityProfiles."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityProfileExportedObject -is [array])) {
             $LocalVarBodyParameter = $IdentityProfileExportedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityProfileExportedObject | ForEach-Object {

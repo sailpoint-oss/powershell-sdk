@@ -262,7 +262,7 @@ function Set-BetaMFADuoConfig {
             throw "Error! The required parameter `MfaDuoConfig` missing when calling setMFADuoConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MfaDuoConfig -is [array])) {
             $LocalVarBodyParameter = $MfaDuoConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $MfaDuoConfig | ForEach-Object {
@@ -352,7 +352,7 @@ function Set-BetaMFAOktaConfig {
             throw "Error! The required parameter `MfaOktaConfig` missing when calling setMFAOktaConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MfaOktaConfig -is [array])) {
             $LocalVarBodyParameter = $MfaOktaConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $MfaOktaConfig | ForEach-Object {

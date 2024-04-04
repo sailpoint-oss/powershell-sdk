@@ -60,7 +60,7 @@ function New-BetaCommonAccess {
             throw "Error! The required parameter `CommonAccessItemRequest` missing when calling createCommonAccess."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommonAccessItemRequest -is [array])) {
             $LocalVarBodyParameter = $CommonAccessItemRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CommonAccessItemRequest | ForEach-Object {
@@ -264,7 +264,7 @@ function Update-BetaCommonAccessStatusInBulk {
             throw "Error! The required parameter `CommonAccessIDStatus` missing when calling updateCommonAccessStatusInBulk."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommonAccessIDStatus -is [array])) {
             $LocalVarBodyParameter = $CommonAccessIDStatus | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CommonAccessIDStatus | ForEach-Object {

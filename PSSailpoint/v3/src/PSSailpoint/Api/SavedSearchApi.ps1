@@ -60,7 +60,7 @@ function New-SavedSearch {
             throw "Error! The required parameter `CreateSavedSearchRequest` missing when calling createSavedSearch."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateSavedSearchRequest -is [array])) {
             $LocalVarBodyParameter = $CreateSavedSearchRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CreateSavedSearchRequest | ForEach-Object {
@@ -234,7 +234,7 @@ function Invoke-ExecuteSavedSearch {
             throw "Error! The required parameter `SearchArguments` missing when calling executeSavedSearch."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SearchArguments -is [array])) {
             $LocalVarBodyParameter = $SearchArguments | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SearchArguments | ForEach-Object {
@@ -512,7 +512,7 @@ function Send-SavedSearch {
             throw "Error! The required parameter `SavedSearch` missing when calling putSavedSearch."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SavedSearch -is [array])) {
             $LocalVarBodyParameter = $SavedSearch | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SavedSearch | ForEach-Object {

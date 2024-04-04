@@ -60,7 +60,7 @@ function New-Role {
             throw "Error! The required parameter `Role` missing when calling createRole."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Role -is [array])) {
             $LocalVarBodyParameter = $Role | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Role | ForEach-Object {
@@ -150,7 +150,7 @@ function Remove-BulkRoles {
             throw "Error! The required parameter `RoleBulkDeleteRequest` missing when calling deleteBulkRoles."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleBulkDeleteRequest -is [array])) {
             $LocalVarBodyParameter = $RoleBulkDeleteRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RoleBulkDeleteRequest | ForEach-Object {
@@ -666,7 +666,7 @@ function Update-Role {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchRole."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

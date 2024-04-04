@@ -60,7 +60,7 @@ function Export-BetaSpConfig {
             throw "Error! The required parameter `ExportPayload` missing when calling exportSpConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ExportPayload -is [array])) {
             $LocalVarBodyParameter = $ExportPayload | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ExportPayload | ForEach-Object {

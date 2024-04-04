@@ -60,7 +60,7 @@ function New-BetaOauthClient {
             throw "Error! The required parameter `CreateOAuthClientRequest` missing when calling createOauthClient."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateOAuthClientRequest -is [array])) {
             $LocalVarBodyParameter = $CreateOAuthClientRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CreateOAuthClientRequest | ForEach-Object {
@@ -382,7 +382,7 @@ function Update-BetaOauthClient {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchOauthClient."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

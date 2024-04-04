@@ -56,7 +56,7 @@ function New-BetaFormDefinition {
 
         $LocalVarUri = '/form-definitions'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Body | ForEach-Object {
@@ -142,7 +142,7 @@ function New-BetaFormDefinitionDynamicSchema {
 
         $LocalVarUri = '/form-definitions/forms-action-dynamic-schema'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Body | ForEach-Object {
@@ -316,7 +316,7 @@ function New-BetaFormInstance {
 
         $LocalVarUri = '/form-instances'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Body | ForEach-Object {
@@ -920,7 +920,7 @@ function Import-BetaFormDefinitions {
 
         $LocalVarUri = '/form-definitions/import'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Body | ForEach-Object {
@@ -1016,7 +1016,7 @@ function Update-BetaFormDefinition {
         }
         $LocalVarUri = $LocalVarUri.replace('{formDefinitionID}', [System.Web.HTTPUtility]::UrlEncode($FormDefinitionID))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Body | ForEach-Object {
@@ -1112,7 +1112,7 @@ function Update-BetaFormInstance {
         }
         $LocalVarUri = $LocalVarUri.replace('{formInstanceID}', [System.Web.HTTPUtility]::UrlEncode($FormInstanceID))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Body | ForEach-Object {
@@ -1574,7 +1574,7 @@ function Show-BetaPreviewDataSource {
             $LocalVarQueryParameters['query'] = $Query
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($FormElementPreviewRequest -is [array])) {
             $LocalVarBodyParameter = $FormElementPreviewRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $FormElementPreviewRequest | ForEach-Object {

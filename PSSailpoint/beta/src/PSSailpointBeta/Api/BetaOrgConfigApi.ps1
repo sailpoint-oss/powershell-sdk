@@ -188,7 +188,7 @@ function Update-BetaOrgConfig {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchOrgConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

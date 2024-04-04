@@ -60,7 +60,7 @@ function New-SodPolicy {
             throw "Error! The required parameter `SodPolicy` missing when calling createSodPolicy."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SodPolicy -is [array])) {
             $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
@@ -964,7 +964,7 @@ function Update-SodPolicy {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchSodPolicy."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -1064,7 +1064,7 @@ function Send-PolicySchedule {
             throw "Error! The required parameter `SodPolicySchedule` missing when calling putPolicySchedule."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SodPolicySchedule -is [array])) {
             $LocalVarBodyParameter = $SodPolicySchedule | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SodPolicySchedule | ForEach-Object {
@@ -1164,7 +1164,7 @@ function Send-SodPolicy {
             throw "Error! The required parameter `SodPolicy` missing when calling putSodPolicy."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SodPolicy -is [array])) {
             $LocalVarBodyParameter = $SodPolicy | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SodPolicy | ForEach-Object {
@@ -1324,7 +1324,7 @@ function Start-SodAllPoliciesForOrg {
 
         $LocalVarUri = '/sod-violation-report/run'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MultiPolicyRequest -is [array])) {
             $LocalVarBodyParameter = $MultiPolicyRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $MultiPolicyRequest | ForEach-Object {

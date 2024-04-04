@@ -171,7 +171,7 @@ function {{{vendorExtensions.x-powershell-method-name}}} {
 
         {{/isNullable}}
         {{/required}}
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or (${{{paramName}}} -is [array])) {
             $LocalVarBodyParameter = ${{{paramName}}} | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = ${{{paramName}}} | ForEach-Object {

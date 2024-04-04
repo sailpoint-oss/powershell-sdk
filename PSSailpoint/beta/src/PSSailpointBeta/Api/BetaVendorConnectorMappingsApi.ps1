@@ -60,7 +60,7 @@ function New-BetaVendorConnectorMapping {
             throw "Error! The required parameter `VendorConnectorMapping` missing when calling createVendorConnectorMapping."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($VendorConnectorMapping -is [array])) {
             $LocalVarBodyParameter = $VendorConnectorMapping | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $VendorConnectorMapping | ForEach-Object {
@@ -150,7 +150,7 @@ function Remove-BetaVendorConnectorMapping {
             throw "Error! The required parameter `VendorConnectorMapping` missing when calling deleteVendorConnectorMapping."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($VendorConnectorMapping -is [array])) {
             $LocalVarBodyParameter = $VendorConnectorMapping | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $VendorConnectorMapping | ForEach-Object {

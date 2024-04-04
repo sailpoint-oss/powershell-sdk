@@ -660,7 +660,7 @@ function Invoke-BetaIgnoreIdentityOutliers {
             throw "Error! The required parameter `RequestBody` missing when calling ignoreIdentityOutliers."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {
@@ -885,7 +885,7 @@ function Invoke-BetaUnIgnoreIdentityOutliers {
             throw "Error! The required parameter `RequestBody` missing when calling unIgnoreIdentityOutliers."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {

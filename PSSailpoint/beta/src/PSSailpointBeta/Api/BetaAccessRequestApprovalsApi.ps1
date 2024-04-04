@@ -66,7 +66,7 @@ function Approve-BetaAccessRequest {
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommentDto -is [array])) {
             $LocalVarBodyParameter = $CommentDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CommentDto | ForEach-Object {
@@ -166,7 +166,7 @@ function Invoke-BetaForwardAccessRequest {
             throw "Error! The required parameter `ForwardApprovalDto` missing when calling forwardAccessRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ForwardApprovalDto -is [array])) {
             $LocalVarBodyParameter = $ForwardApprovalDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ForwardApprovalDto | ForEach-Object {
@@ -594,7 +594,7 @@ function Deny-BetaAccessRequest {
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommentDto -is [array])) {
             $LocalVarBodyParameter = $CommentDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CommentDto | ForEach-Object {

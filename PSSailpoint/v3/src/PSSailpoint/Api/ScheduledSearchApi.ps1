@@ -60,7 +60,7 @@ function New-ScheduledSearch {
             throw "Error! The required parameter `CreateScheduledSearchRequest` missing when calling createScheduledSearch."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateScheduledSearchRequest -is [array])) {
             $LocalVarBodyParameter = $CreateScheduledSearchRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CreateScheduledSearchRequest | ForEach-Object {
@@ -412,7 +412,7 @@ function Invoke-UnsubscribeScheduledSearch {
             throw "Error! The required parameter `TypedReference` missing when calling unsubscribeScheduledSearch."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TypedReference -is [array])) {
             $LocalVarBodyParameter = $TypedReference | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TypedReference | ForEach-Object {
@@ -512,7 +512,7 @@ function Update-ScheduledSearch {
             throw "Error! The required parameter `ScheduledSearch` missing when calling updateScheduledSearch."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ScheduledSearch -is [array])) {
             $LocalVarBodyParameter = $ScheduledSearch | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ScheduledSearch | ForEach-Object {

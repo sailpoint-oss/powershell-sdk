@@ -70,7 +70,7 @@ function Approve-BetaNonEmployeeRequest {
             throw "Error! The required parameter `NonEmployeeApprovalDecision` missing when calling approveNonEmployeeRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeApprovalDecision -is [array])) {
             $LocalVarBodyParameter = $NonEmployeeApprovalDecision | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NonEmployeeApprovalDecision | ForEach-Object {
@@ -160,7 +160,7 @@ function New-BetaNonEmployeeRecord {
             throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling createNonEmployeeRecord."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeRequestBody -is [array])) {
             $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {
@@ -250,7 +250,7 @@ function New-BetaNonEmployeeRequest {
             throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling createNonEmployeeRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeRequestBody -is [array])) {
             $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {
@@ -340,7 +340,7 @@ function New-BetaNonEmployeeSource {
             throw "Error! The required parameter `NonEmployeeSourceRequestBody` missing when calling createNonEmployeeSource."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeSourceRequestBody -is [array])) {
             $LocalVarBodyParameter = $NonEmployeeSourceRequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NonEmployeeSourceRequestBody | ForEach-Object {
@@ -440,7 +440,7 @@ function New-BetaNonEmployeeSourceSchemaAttributes {
             throw "Error! The required parameter `NonEmployeeSchemaAttributeBody` missing when calling createNonEmployeeSourceSchemaAttributes."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeSchemaAttributeBody -is [array])) {
             $LocalVarBodyParameter = $NonEmployeeSchemaAttributeBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NonEmployeeSchemaAttributeBody | ForEach-Object {
@@ -604,7 +604,7 @@ function Remove-BetaNonEmployeeRecordInBulk {
             throw "Error! The required parameter `DeleteNonEmployeeRecordInBulkRequest` missing when calling deleteNonEmployeeRecordInBulk."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($DeleteNonEmployeeRecordInBulkRequest -is [array])) {
             $LocalVarBodyParameter = $DeleteNonEmployeeRecordInBulkRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $DeleteNonEmployeeRecordInBulkRequest | ForEach-Object {
@@ -2445,7 +2445,7 @@ function Update-BetaNonEmployeeRecord {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchNonEmployeeRecord."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -2555,7 +2555,7 @@ function Update-BetaNonEmployeeSchemaAttribute {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchNonEmployeeSchemaAttribute."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -2655,7 +2655,7 @@ function Update-BetaNonEmployeeSource {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchNonEmployeeSource."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -2755,7 +2755,7 @@ function Deny-BetaNonEmployeeRequest {
             throw "Error! The required parameter `NonEmployeeRejectApprovalDecision` missing when calling rejectNonEmployeeRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeRejectApprovalDecision -is [array])) {
             $LocalVarBodyParameter = $NonEmployeeRejectApprovalDecision | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NonEmployeeRejectApprovalDecision | ForEach-Object {
@@ -2855,7 +2855,7 @@ function Update-BetaNonEmployeeRecord {
             throw "Error! The required parameter `NonEmployeeRequestBody` missing when calling updateNonEmployeeRecord."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NonEmployeeRequestBody -is [array])) {
             $LocalVarBodyParameter = $NonEmployeeRequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NonEmployeeRequestBody | ForEach-Object {

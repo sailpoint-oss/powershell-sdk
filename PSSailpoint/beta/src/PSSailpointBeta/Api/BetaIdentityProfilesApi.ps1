@@ -60,7 +60,7 @@ function New-BetaIdentityProfile {
             throw "Error! The required parameter `IdentityProfile` missing when calling createIdentityProfile."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityProfile -is [array])) {
             $LocalVarBodyParameter = $IdentityProfile | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityProfile | ForEach-Object {
@@ -224,7 +224,7 @@ function Remove-BetaIdentityProfiles {
             throw "Error! The required parameter `RequestBody` missing when calling deleteIdentityProfiles."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {
@@ -428,7 +428,7 @@ function New-BetaIdentityPreview {
             throw "Error! The required parameter `IdentityPreviewRequest` missing when calling generateIdentityPreview."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityPreviewRequest -is [array])) {
             $LocalVarBodyParameter = $IdentityPreviewRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityPreviewRequest | ForEach-Object {
@@ -666,7 +666,7 @@ function Import-BetaIdentityProfiles {
             throw "Error! The required parameter `IdentityProfileExportedObject` missing when calling importIdentityProfiles."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityProfileExportedObject -is [array])) {
             $LocalVarBodyParameter = $IdentityProfileExportedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityProfileExportedObject | ForEach-Object {
@@ -954,7 +954,7 @@ function Update-BetaIdentityProfile {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateIdentityProfile."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

@@ -60,7 +60,7 @@ function New-CustomConnector {
             throw "Error! The required parameter `V3CreateConnectorDto` missing when calling createCustomConnector."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($V3CreateConnectorDto -is [array])) {
             $LocalVarBodyParameter = $V3CreateConnectorDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $V3CreateConnectorDto | ForEach-Object {
@@ -1026,7 +1026,7 @@ function Update-Connector {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateConnector."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

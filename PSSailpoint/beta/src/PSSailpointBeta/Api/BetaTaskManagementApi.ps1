@@ -446,7 +446,7 @@ function Update-BetaTaskStatus {
             throw "Error! The required parameter `JsonPatch` missing when calling updateTaskStatus."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
             $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatch | ForEach-Object {

@@ -134,7 +134,7 @@ function Search-PasswordInfo {
             throw "Error! The required parameter `PasswordInfoQueryDTO` missing when calling queryPasswordInfo."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordInfoQueryDTO -is [array])) {
             $LocalVarBodyParameter = $PasswordInfoQueryDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordInfoQueryDTO | ForEach-Object {
@@ -224,7 +224,7 @@ function Set-Password {
             throw "Error! The required parameter `PasswordChangeRequest` missing when calling setPassword."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordChangeRequest -is [array])) {
             $LocalVarBodyParameter = $PasswordChangeRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordChangeRequest | ForEach-Object {

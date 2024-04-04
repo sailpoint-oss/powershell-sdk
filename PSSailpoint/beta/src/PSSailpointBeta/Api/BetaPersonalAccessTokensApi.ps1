@@ -60,7 +60,7 @@ function New-BetaPersonalAccessToken {
             throw "Error! The required parameter `CreatePersonalAccessTokenRequest` missing when calling createPersonalAccessToken."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreatePersonalAccessTokenRequest -is [array])) {
             $LocalVarBodyParameter = $CreatePersonalAccessTokenRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CreatePersonalAccessTokenRequest | ForEach-Object {
@@ -318,7 +318,7 @@ function Update-BetaPersonalAccessToken {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchPersonalAccessToken."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

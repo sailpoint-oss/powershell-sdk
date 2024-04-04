@@ -704,7 +704,7 @@ function Update-BetaEntitlement {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -804,7 +804,7 @@ function Send-BetaEntitlementRequestConfig {
             throw "Error! The required parameter `EntitlementRequestConfig` missing when calling putEntitlementRequestConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementRequestConfig -is [array])) {
             $LocalVarBodyParameter = $EntitlementRequestConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $EntitlementRequestConfig | ForEach-Object {
@@ -968,7 +968,7 @@ function Update-BetaEntitlementsInBulk {
             throw "Error! The required parameter `EntitlementBulkUpdateRequest` missing when calling updateEntitlementsInBulk."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementBulkUpdateRequest -is [array])) {
             $LocalVarBodyParameter = $EntitlementBulkUpdateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $EntitlementBulkUpdateRequest | ForEach-Object {

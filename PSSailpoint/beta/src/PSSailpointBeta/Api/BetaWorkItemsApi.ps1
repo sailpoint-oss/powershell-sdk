@@ -302,7 +302,7 @@ function Invoke-BetaForwardWorkItem {
             throw "Error! The required parameter `WorkItemForward` missing when calling forwardWorkItem."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($WorkItemForward -is [array])) {
             $LocalVarBodyParameter = $WorkItemForward | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $WorkItemForward | ForEach-Object {
@@ -1074,7 +1074,7 @@ function Submit-BetaAccountSelection {
             throw "Error! The required parameter `RequestBody` missing when calling submitAccountSelection."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {

@@ -102,7 +102,7 @@ function Search-Aggregate {
             throw "Error! The required parameter `Search` missing when calling searchAggregate."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Search -is [array])) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Search | ForEach-Object {
@@ -192,7 +192,7 @@ function Search-Count {
             throw "Error! The required parameter `Search` missing when calling searchCount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Search -is [array])) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Search | ForEach-Object {
@@ -396,7 +396,7 @@ function Search-Post {
             throw "Error! The required parameter `Search` missing when calling searchPost."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Search -is [array])) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Search | ForEach-Object {

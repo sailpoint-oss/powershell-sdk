@@ -60,7 +60,7 @@ function New-Account {
             throw "Error! The required parameter `AccountAttributesCreate` missing when calling createAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountAttributesCreate -is [array])) {
             $LocalVarBodyParameter = $AccountAttributesCreate | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountAttributesCreate | ForEach-Object {
@@ -234,7 +234,7 @@ function Disable-Account {
             throw "Error! The required parameter `AccountToggleRequest` missing when calling disableAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountToggleRequest -is [array])) {
             $LocalVarBodyParameter = $AccountToggleRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountToggleRequest | ForEach-Object {
@@ -334,7 +334,7 @@ function Enable-Account {
             throw "Error! The required parameter `AccountToggleRequest` missing when calling enableAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountToggleRequest -is [array])) {
             $LocalVarBodyParameter = $AccountToggleRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountToggleRequest | ForEach-Object {
@@ -726,7 +726,7 @@ function Send-Account {
             throw "Error! The required parameter `AccountAttributes` missing when calling putAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountAttributes -is [array])) {
             $LocalVarBodyParameter = $AccountAttributes | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountAttributes | ForEach-Object {
@@ -900,7 +900,7 @@ function Unlock-Account {
             throw "Error! The required parameter `AccountUnlockRequest` missing when calling unlockAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountUnlockRequest -is [array])) {
             $LocalVarBodyParameter = $AccountUnlockRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountUnlockRequest | ForEach-Object {
@@ -1000,7 +1000,7 @@ function Update-Account {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

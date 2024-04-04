@@ -60,7 +60,7 @@ function Start-BetaPredictSodViolations {
             throw "Error! The required parameter `IdentityWithNewAccess` missing when calling startPredictSodViolations."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess -is [array])) {
             $LocalVarBodyParameter = $IdentityWithNewAccess | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityWithNewAccess | ForEach-Object {

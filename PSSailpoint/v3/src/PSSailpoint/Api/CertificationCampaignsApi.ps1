@@ -66,7 +66,7 @@ function Complete-Campaign {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignCompleteOptions -is [array])) {
             $LocalVarBodyParameter = $CampaignCompleteOptions | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CampaignCompleteOptions | ForEach-Object {
@@ -156,7 +156,7 @@ function New-Campaign {
             throw "Error! The required parameter `Campaign` missing when calling createCampaign."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Campaign -is [array])) {
             $LocalVarBodyParameter = $Campaign | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Campaign | ForEach-Object {
@@ -246,7 +246,7 @@ function New-CampaignTemplate {
             throw "Error! The required parameter `CampaignTemplate` missing when calling createCampaignTemplate."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignTemplate -is [array])) {
             $LocalVarBodyParameter = $CampaignTemplate | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CampaignTemplate | ForEach-Object {
@@ -484,7 +484,7 @@ function Remove-Campaigns {
             throw "Error! The required parameter `CampaignsDeleteRequest` missing when calling deleteCampaigns."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignsDeleteRequest -is [array])) {
             $LocalVarBodyParameter = $CampaignsDeleteRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CampaignsDeleteRequest | ForEach-Object {
@@ -1183,7 +1183,7 @@ function Move- {
             throw "Error! The required parameter `AdminReviewReassign` missing when calling move."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AdminReviewReassign -is [array])) {
             $LocalVarBodyParameter = $AdminReviewReassign | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AdminReviewReassign | ForEach-Object {
@@ -1283,7 +1283,7 @@ function Update-CampaignTemplate {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchCampaignTemplate."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -1373,7 +1373,7 @@ function Set-CampaignReportsConfig {
             throw "Error! The required parameter `CampaignReportsConfig` missing when calling setCampaignReportsConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignReportsConfig -is [array])) {
             $LocalVarBodyParameter = $CampaignReportsConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CampaignReportsConfig | ForEach-Object {
@@ -1469,7 +1469,7 @@ function Set-CampaignTemplateSchedule {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Schedule -is [array])) {
             $LocalVarBodyParameter = $Schedule | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Schedule | ForEach-Object {
@@ -1565,7 +1565,7 @@ function Start-Campaign {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ActivateCampaignOptions -is [array])) {
             $LocalVarBodyParameter = $ActivateCampaignOptions | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ActivateCampaignOptions | ForEach-Object {
@@ -1897,7 +1897,7 @@ function Update-Campaign {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateCampaign."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

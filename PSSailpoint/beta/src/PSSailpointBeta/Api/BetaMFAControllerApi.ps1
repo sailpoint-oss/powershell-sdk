@@ -60,7 +60,7 @@ function New-BetaSendToken {
             throw "Error! The required parameter `SendTokenRequest` missing when calling createSendToken."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SendTokenRequest -is [array])) {
             $LocalVarBodyParameter = $SendTokenRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SendTokenRequest | ForEach-Object {
@@ -160,7 +160,7 @@ function Ping-BetaVerificationStatus {
             throw "Error! The required parameter `VerificationPollRequest` missing when calling pingVerificationStatus."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($VerificationPollRequest -is [array])) {
             $LocalVarBodyParameter = $VerificationPollRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $VerificationPollRequest | ForEach-Object {
@@ -250,7 +250,7 @@ function Send-BetaDuoVerifyRequest {
             throw "Error! The required parameter `DuoVerificationRequest` missing when calling sendDuoVerifyRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($DuoVerificationRequest -is [array])) {
             $LocalVarBodyParameter = $DuoVerificationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $DuoVerificationRequest | ForEach-Object {
@@ -340,7 +340,7 @@ function Send-BetaKbaAnswers {
             throw "Error! The required parameter `KbaAnswerRequest` missing when calling sendKbaAnswers."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($KbaAnswerRequest -is [array])) {
             $LocalVarBodyParameter = $KbaAnswerRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $KbaAnswerRequest | ForEach-Object {
@@ -430,7 +430,7 @@ function Send-BetaOktaVerifyRequest {
             throw "Error! The required parameter `OktaVerificationRequest` missing when calling sendOktaVerifyRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($OktaVerificationRequest -is [array])) {
             $LocalVarBodyParameter = $OktaVerificationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $OktaVerificationRequest | ForEach-Object {
@@ -520,7 +520,7 @@ function Send-BetaTokenAuthRequest {
             throw "Error! The required parameter `TokenAuthRequest` missing when calling sendTokenAuthRequest."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TokenAuthRequest -is [array])) {
             $LocalVarBodyParameter = $TokenAuthRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TokenAuthRequest | ForEach-Object {

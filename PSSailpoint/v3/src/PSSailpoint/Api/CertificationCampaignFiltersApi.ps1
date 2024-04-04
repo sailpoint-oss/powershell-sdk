@@ -60,7 +60,7 @@ function New-CampaignFilter {
             throw "Error! The required parameter `CampaignFilterDetails` missing when calling createCampaignFilter."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignFilterDetails -is [array])) {
             $LocalVarBodyParameter = $CampaignFilterDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CampaignFilterDetails | ForEach-Object {
@@ -150,7 +150,7 @@ function Remove-CampaignFilters {
             throw "Error! The required parameter `RequestBody` missing when calling deleteCampaignFilters."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {
@@ -418,7 +418,7 @@ function Update-CampaignFilter {
             throw "Error! The required parameter `CampaignFilterDetails` missing when calling updateCampaignFilter."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CampaignFilterDetails -is [array])) {
             $LocalVarBodyParameter = $CampaignFilterDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CampaignFilterDetails | ForEach-Object {

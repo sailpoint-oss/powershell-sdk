@@ -60,7 +60,7 @@ function New-BetaAccount {
             throw "Error! The required parameter `AccountAttributesCreate` missing when calling createAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountAttributesCreate -is [array])) {
             $LocalVarBodyParameter = $AccountAttributesCreate | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountAttributesCreate | ForEach-Object {
@@ -382,7 +382,7 @@ function Disable-BetaAccount {
             throw "Error! The required parameter `AccountToggleRequest` missing when calling disableAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountToggleRequest -is [array])) {
             $LocalVarBodyParameter = $AccountToggleRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountToggleRequest | ForEach-Object {
@@ -546,7 +546,7 @@ function Disable-BetaAccountsForIdentities {
             throw "Error! The required parameter `IdentitiesAccountsBulkRequest` missing when calling disableAccountsForIdentities."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentitiesAccountsBulkRequest -is [array])) {
             $LocalVarBodyParameter = $IdentitiesAccountsBulkRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentitiesAccountsBulkRequest | ForEach-Object {
@@ -646,7 +646,7 @@ function Enable-BetaAccount {
             throw "Error! The required parameter `AccountToggleRequest` missing when calling enableAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountToggleRequest -is [array])) {
             $LocalVarBodyParameter = $AccountToggleRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountToggleRequest | ForEach-Object {
@@ -810,7 +810,7 @@ function Enable-BetaAccountsForIdentities {
             throw "Error! The required parameter `IdentitiesAccountsBulkRequest` missing when calling enableAccountsForIdentities."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentitiesAccountsBulkRequest -is [array])) {
             $LocalVarBodyParameter = $IdentitiesAccountsBulkRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentitiesAccountsBulkRequest | ForEach-Object {
@@ -1213,7 +1213,7 @@ function Send-BetaAccount {
             throw "Error! The required parameter `AccountAttributes` missing when calling putAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountAttributes -is [array])) {
             $LocalVarBodyParameter = $AccountAttributes | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountAttributes | ForEach-Object {
@@ -1387,7 +1387,7 @@ function Unlock-BetaAccount {
             throw "Error! The required parameter `AccountUnlockRequest` missing when calling unlockAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccountUnlockRequest -is [array])) {
             $LocalVarBodyParameter = $AccountUnlockRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccountUnlockRequest | ForEach-Object {
@@ -1487,7 +1487,7 @@ function Update-BetaAccount {
             throw "Error! The required parameter `RequestBody` missing when calling updateAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {

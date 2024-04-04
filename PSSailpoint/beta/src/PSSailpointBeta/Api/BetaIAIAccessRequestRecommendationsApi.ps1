@@ -60,7 +60,7 @@ function Add-BetaAccessRequestRecommendationsIgnoredItem {
             throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsIgnoredItem."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
@@ -150,7 +150,7 @@ function Add-BetaAccessRequestRecommendationsRequestedItem {
             throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsRequestedItem."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
@@ -240,7 +240,7 @@ function Add-BetaAccessRequestRecommendationsViewedItem {
             throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsViewedItem."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
@@ -330,7 +330,7 @@ function Add-BetaAccessRequestRecommendationsViewedItems {
             throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsViewedItems."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {

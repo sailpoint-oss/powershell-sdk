@@ -60,7 +60,7 @@ function New-BetaReassignmentConfiguration {
             throw "Error! The required parameter `ConfigurationItemRequest` missing when calling createReassignmentConfiguration."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConfigurationItemRequest -is [array])) {
             $LocalVarBodyParameter = $ConfigurationItemRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ConfigurationItemRequest | ForEach-Object {
@@ -594,7 +594,7 @@ function Send-BetaReassignmentConfig {
             throw "Error! The required parameter `ConfigurationItemRequest` missing when calling putReassignmentConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConfigurationItemRequest -is [array])) {
             $LocalVarBodyParameter = $ConfigurationItemRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ConfigurationItemRequest | ForEach-Object {
@@ -684,7 +684,7 @@ function Send-BetaTenantConfiguration {
             throw "Error! The required parameter `TenantConfigurationRequest` missing when calling putTenantConfiguration."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TenantConfigurationRequest -is [array])) {
             $LocalVarBodyParameter = $TenantConfigurationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TenantConfigurationRequest | ForEach-Object {

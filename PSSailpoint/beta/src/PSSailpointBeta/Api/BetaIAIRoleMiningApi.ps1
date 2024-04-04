@@ -96,7 +96,7 @@ function New-BetaPotentialRoleProvisionRequest {
             $LocalVarQueryParameters['include-common-access'] = $IncludeCommonAccess
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMiningPotentialRoleProvisionRequest -is [array])) {
             $LocalVarBodyParameter = $RoleMiningPotentialRoleProvisionRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RoleMiningPotentialRoleProvisionRequest | ForEach-Object {
@@ -186,7 +186,7 @@ function New-BetaRoleMiningSessions {
             throw "Error! The required parameter `RoleMiningSessionDto` missing when calling createRoleMiningSessions."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMiningSessionDto -is [array])) {
             $LocalVarBodyParameter = $RoleMiningSessionDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RoleMiningSessionDto | ForEach-Object {
@@ -494,7 +494,7 @@ function Export-BetaRoleMiningPotentialRoleAsync {
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMiningPotentialRoleExportRequest -is [array])) {
             $LocalVarBodyParameter = $RoleMiningPotentialRoleExportRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RoleMiningPotentialRoleExportRequest | ForEach-Object {
@@ -2204,7 +2204,7 @@ function Update-BetaPotentialRole {
             throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchPotentialRole."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchPotentialRoleRequestInner -is [array])) {
             $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ForEach-Object {
@@ -2314,7 +2314,7 @@ function Update-BetaPotentialRole0 {
             throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchPotentialRole_0."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchPotentialRoleRequestInner -is [array])) {
             $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ForEach-Object {
@@ -2414,7 +2414,7 @@ function Update-BetaRoleMiningSession {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchRoleMiningSession."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -2524,7 +2524,7 @@ function Update-BetaEntitlementsPotentialRole {
             throw "Error! The required parameter `RoleMiningPotentialRoleEditEntitlements` missing when calling updateEntitlementsPotentialRole."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RoleMiningPotentialRoleEditEntitlements -is [array])) {
             $LocalVarBodyParameter = $RoleMiningPotentialRoleEditEntitlements | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RoleMiningPotentialRoleEditEntitlements | ForEach-Object {

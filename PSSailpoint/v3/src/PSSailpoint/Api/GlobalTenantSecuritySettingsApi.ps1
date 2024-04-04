@@ -60,7 +60,7 @@ function New-AuthOrgNetworkConfig {
             throw "Error! The required parameter `NetworkConfiguration` missing when calling createAuthOrgNetworkConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NetworkConfiguration -is [array])) {
             $LocalVarBodyParameter = $NetworkConfiguration | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NetworkConfiguration | ForEach-Object {
@@ -214,7 +214,7 @@ function Update-AuthOrgNetworkConfig {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchAuthOrgNetworkConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

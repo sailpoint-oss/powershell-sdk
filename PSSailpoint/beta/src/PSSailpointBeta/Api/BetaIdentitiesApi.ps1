@@ -659,7 +659,7 @@ function Start-BetaIdentityProcessing {
             throw "Error! The required parameter `ProcessIdentitiesRequest` missing when calling startIdentityProcessing."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProcessIdentitiesRequest -is [array])) {
             $LocalVarBodyParameter = $ProcessIdentitiesRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ProcessIdentitiesRequest | ForEach-Object {

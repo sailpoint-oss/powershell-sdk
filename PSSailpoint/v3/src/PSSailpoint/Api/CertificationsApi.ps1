@@ -858,7 +858,7 @@ function Select-IdentityDecision {
             throw "Error! The required parameter `ReviewDecision` missing when calling makeIdentityDecision."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReviewDecision -is [array])) {
             $LocalVarBodyParameter = $ReviewDecision | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ReviewDecision | ForEach-Object {
@@ -958,7 +958,7 @@ function Invoke-ReassignIdentityCertifications {
             throw "Error! The required parameter `ReviewReassign` missing when calling reassignIdentityCertifications."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReviewReassign -is [array])) {
             $LocalVarBodyParameter = $ReviewReassign | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ReviewReassign | ForEach-Object {
@@ -1132,7 +1132,7 @@ function Submit-ReassignCertsAsync {
             throw "Error! The required parameter `ReviewReassign` missing when calling submitReassignCertsAsync."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReviewReassign -is [array])) {
             $LocalVarBodyParameter = $ReviewReassign | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ReviewReassign | ForEach-Object {

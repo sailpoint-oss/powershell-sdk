@@ -60,7 +60,7 @@ function New-BetaConnectorRule {
             throw "Error! The required parameter `ConnectorRuleCreateRequest` missing when calling createConnectorRule."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConnectorRuleCreateRequest -is [array])) {
             $LocalVarBodyParameter = $ConnectorRuleCreateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ConnectorRuleCreateRequest | ForEach-Object {
@@ -368,7 +368,7 @@ function Update-BetaConnectorRule {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConnectorRuleUpdateRequest -is [array])) {
             $LocalVarBodyParameter = $ConnectorRuleUpdateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ConnectorRuleUpdateRequest | ForEach-Object {
@@ -458,7 +458,7 @@ function Confirm-BetaConnectorRule {
             throw "Error! The required parameter `SourceCode` missing when calling validateConnectorRule."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceCode -is [array])) {
             $LocalVarBodyParameter = $SourceCode | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SourceCode | ForEach-Object {

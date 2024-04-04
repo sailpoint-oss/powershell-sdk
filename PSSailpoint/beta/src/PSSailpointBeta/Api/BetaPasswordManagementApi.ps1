@@ -60,7 +60,7 @@ function New-BetaDigitToken {
             throw "Error! The required parameter `PasswordDigitTokenReset` missing when calling generateDigitToken."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordDigitTokenReset -is [array])) {
             $LocalVarBodyParameter = $PasswordDigitTokenReset | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordDigitTokenReset | ForEach-Object {
@@ -224,7 +224,7 @@ function Search-BetaPasswordInfo {
             throw "Error! The required parameter `PasswordInfoQueryDTO` missing when calling queryPasswordInfo."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordInfoQueryDTO -is [array])) {
             $LocalVarBodyParameter = $PasswordInfoQueryDTO | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordInfoQueryDTO | ForEach-Object {
@@ -314,7 +314,7 @@ function Set-BetaIdentityPassword {
             throw "Error! The required parameter `PasswordChangeRequest` missing when calling setIdentityPassword."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordChangeRequest -is [array])) {
             $LocalVarBodyParameter = $PasswordChangeRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordChangeRequest | ForEach-Object {

@@ -60,7 +60,7 @@ function New-ServiceDeskIntegration {
             throw "Error! The required parameter `ServiceDeskIntegrationDto` missing when calling createServiceDeskIntegration."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ServiceDeskIntegrationDto -is [array])) {
             $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ForEach-Object {
@@ -624,7 +624,7 @@ function Update-ServiceDeskIntegration {
             throw "Error! The required parameter `PatchServiceDeskIntegrationRequest` missing when calling patchServiceDeskIntegration."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchServiceDeskIntegrationRequest -is [array])) {
             $LocalVarBodyParameter = $PatchServiceDeskIntegrationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PatchServiceDeskIntegrationRequest | ForEach-Object {
@@ -724,7 +724,7 @@ function Send-ServiceDeskIntegration {
             throw "Error! The required parameter `ServiceDeskIntegrationDto` missing when calling putServiceDeskIntegration."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ServiceDeskIntegrationDto -is [array])) {
             $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ServiceDeskIntegrationDto | ForEach-Object {
@@ -814,7 +814,7 @@ function Update-StatusCheckDetails {
             throw "Error! The required parameter `QueuedCheckConfigDetails` missing when calling updateStatusCheckDetails."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($QueuedCheckConfigDetails -is [array])) {
             $LocalVarBodyParameter = $QueuedCheckConfigDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $QueuedCheckConfigDetails | ForEach-Object {

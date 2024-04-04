@@ -60,7 +60,7 @@ function New-BetaCustomPasswordInstructions {
             throw "Error! The required parameter `CustomPasswordInstruction` missing when calling createCustomPasswordInstructions."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CustomPasswordInstruction -is [array])) {
             $LocalVarBodyParameter = $CustomPasswordInstruction | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CustomPasswordInstruction | ForEach-Object {

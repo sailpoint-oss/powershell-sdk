@@ -70,7 +70,7 @@ function New-LifecycleState {
             throw "Error! The required parameter `LifecycleState` missing when calling createLifecycleState."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($LifecycleState -is [array])) {
             $LocalVarBodyParameter = $LifecycleState | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $LifecycleState | ForEach-Object {
@@ -452,7 +452,7 @@ function Set-LifecycleState {
             throw "Error! The required parameter `SetLifecycleStateRequest` missing when calling setLifecycleState."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SetLifecycleStateRequest -is [array])) {
             $LocalVarBodyParameter = $SetLifecycleStateRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SetLifecycleStateRequest | ForEach-Object {
@@ -562,7 +562,7 @@ function Update-LifecycleStates {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateLifecycleStates."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

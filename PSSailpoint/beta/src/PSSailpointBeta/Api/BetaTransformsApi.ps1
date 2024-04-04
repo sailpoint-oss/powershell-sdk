@@ -60,7 +60,7 @@ function New-BetaTransform {
             throw "Error! The required parameter `Transform` missing when calling createTransform."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Transform -is [array])) {
             $LocalVarBodyParameter = $Transform | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Transform | ForEach-Object {
@@ -418,7 +418,7 @@ function Update-BetaTransform {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Transform -is [array])) {
             $LocalVarBodyParameter = $Transform | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Transform | ForEach-Object {

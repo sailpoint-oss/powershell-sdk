@@ -60,7 +60,7 @@ function New-Segment {
             throw "Error! The required parameter `Segment` missing when calling createSegment."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Segment -is [array])) {
             $LocalVarBodyParameter = $Segment | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Segment | ForEach-Object {
@@ -402,7 +402,7 @@ function Update-Segment {
             throw "Error! The required parameter `RequestBody` missing when calling patchSegment."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
             $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RequestBody | ForEach-Object {

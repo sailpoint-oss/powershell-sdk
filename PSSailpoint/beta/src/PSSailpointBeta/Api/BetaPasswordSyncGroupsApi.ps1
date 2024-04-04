@@ -60,7 +60,7 @@ function New-BetaPasswordSyncGroup {
             throw "Error! The required parameter `PasswordSyncGroup` missing when calling createPasswordSyncGroup."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordSyncGroup -is [array])) {
             $LocalVarBodyParameter = $PasswordSyncGroup | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
@@ -402,7 +402,7 @@ function Update-BetaPasswordSyncGroup {
             throw "Error! The required parameter `PasswordSyncGroup` missing when calling updatePasswordSyncGroup."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordSyncGroup -is [array])) {
             $LocalVarBodyParameter = $PasswordSyncGroup | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {

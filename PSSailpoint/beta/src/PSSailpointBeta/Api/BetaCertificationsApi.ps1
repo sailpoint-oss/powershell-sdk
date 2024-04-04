@@ -476,7 +476,7 @@ function Submit-BetaReassignCertsAsync {
             throw "Error! The required parameter `ReviewReassign` missing when calling submitReassignCertsAsync."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReviewReassign -is [array])) {
             $LocalVarBodyParameter = $ReviewReassign | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ReviewReassign | ForEach-Object {

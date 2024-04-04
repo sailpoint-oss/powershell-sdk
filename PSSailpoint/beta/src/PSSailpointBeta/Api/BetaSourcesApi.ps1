@@ -70,7 +70,7 @@ function New-BetaProvisioningPolicy {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling createProvisioningPolicy."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDto -is [array])) {
             $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
@@ -170,7 +170,7 @@ function New-BetaSource {
             throw "Error! The required parameter `Source` missing when calling createSource."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Source -is [array])) {
             $LocalVarBodyParameter = $Source | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Source | ForEach-Object {
@@ -270,7 +270,7 @@ function New-BetaSourceSchema {
             throw "Error! The required parameter `Schema` missing when calling createSourceSchema."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Schema -is [array])) {
             $LocalVarBodyParameter = $Schema | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Schema | ForEach-Object {
@@ -1960,7 +1960,7 @@ function Receive-BetaResourceObjects {
             throw "Error! The required parameter `ResourceObjectsRequest` missing when calling peekResourceObjects."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ResourceObjectsRequest -is [array])) {
             $LocalVarBodyParameter = $ResourceObjectsRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ResourceObjectsRequest | ForEach-Object {
@@ -2134,7 +2134,7 @@ function Send-BetaNativeChangeDetectionConfig {
             throw "Error! The required parameter `NativeChangeDetectionConfig` missing when calling putNativeChangeDetectionConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($NativeChangeDetectionConfig -is [array])) {
             $LocalVarBodyParameter = $NativeChangeDetectionConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $NativeChangeDetectionConfig | ForEach-Object {
@@ -2244,7 +2244,7 @@ function Send-BetaProvisioningPolicy {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling putProvisioningPolicy."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDto -is [array])) {
             $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
@@ -2344,7 +2344,7 @@ function Send-BetaSource {
             throw "Error! The required parameter `Source` missing when calling putSource."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Source -is [array])) {
             $LocalVarBodyParameter = $Source | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Source | ForEach-Object {
@@ -2444,7 +2444,7 @@ function Send-BetaSourceAttrSyncConfig {
             throw "Error! The required parameter `AttrSyncSourceConfig` missing when calling putSourceAttrSyncConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AttrSyncSourceConfig -is [array])) {
             $LocalVarBodyParameter = $AttrSyncSourceConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AttrSyncSourceConfig | ForEach-Object {
@@ -2554,7 +2554,7 @@ function Send-BetaSourceSchema {
             throw "Error! The required parameter `Schema` missing when calling putSourceSchema."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Schema -is [array])) {
             $LocalVarBodyParameter = $Schema | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $Schema | ForEach-Object {
@@ -2876,7 +2876,7 @@ function Update-BetaProvisioningPoliciesInBulk {
             throw "Error! The required parameter `ProvisioningPolicyDto` missing when calling updateProvisioningPoliciesInBulk."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ProvisioningPolicyDto -is [array])) {
             $LocalVarBodyParameter = $ProvisioningPolicyDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ProvisioningPolicyDto | ForEach-Object {
@@ -2986,7 +2986,7 @@ function Update-BetaProvisioningPolicy {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateProvisioningPolicy."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -3086,7 +3086,7 @@ function Update-BetaSource {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSource."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -3176,7 +3176,7 @@ function Update-BetaSourceEntitlementRequestConfig {
             throw "Error! The required parameter `SourceEntitlementRequestConfig` missing when calling updateSourceEntitlementRequestConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceEntitlementRequestConfig -is [array])) {
             $LocalVarBodyParameter = $SourceEntitlementRequestConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SourceEntitlementRequestConfig | ForEach-Object {
@@ -3286,7 +3286,7 @@ function Update-BetaSourceSchema {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSourceSchema."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

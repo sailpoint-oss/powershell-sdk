@@ -60,7 +60,7 @@ function Start-PredictSodViolations {
             throw "Error! The required parameter `IdentityWithNewAccess` missing when calling startPredictSodViolations."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess -is [array])) {
             $LocalVarBodyParameter = $IdentityWithNewAccess | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityWithNewAccess | ForEach-Object {
@@ -150,7 +150,7 @@ function Start-ViolationCheck {
             throw "Error! The required parameter `IdentityWithNewAccess1` missing when calling startViolationCheck."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess1 -is [array])) {
             $LocalVarBodyParameter = $IdentityWithNewAccess1 | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityWithNewAccess1 | ForEach-Object {

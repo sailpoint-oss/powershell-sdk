@@ -70,7 +70,7 @@ function Complete-BetaTriggerInvocation {
             throw "Error! The required parameter `CompleteInvocation` missing when calling completeTriggerInvocation."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CompleteInvocation -is [array])) {
             $LocalVarBodyParameter = $CompleteInvocation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $CompleteInvocation | ForEach-Object {
@@ -160,7 +160,7 @@ function New-BetaSubscription {
             throw "Error! The required parameter `SubscriptionPostRequest` missing when calling createSubscription."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SubscriptionPostRequest -is [array])) {
             $LocalVarBodyParameter = $SubscriptionPostRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SubscriptionPostRequest | ForEach-Object {
@@ -676,7 +676,7 @@ function Update-BetaSubscription {
             throw "Error! The required parameter `SubscriptionPatchRequestInner` missing when calling patchSubscription."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SubscriptionPatchRequestInner -is [array])) {
             $LocalVarBodyParameter = $SubscriptionPatchRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SubscriptionPatchRequestInner | ForEach-Object {
@@ -766,7 +766,7 @@ function Start-BetaTestTriggerInvocation {
             throw "Error! The required parameter `TestInvocation` missing when calling startTestTriggerInvocation."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($TestInvocation -is [array])) {
             $LocalVarBodyParameter = $TestInvocation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $TestInvocation | ForEach-Object {
@@ -856,7 +856,7 @@ function Test-BetaSubscriptionFilter {
             throw "Error! The required parameter `ValidateFilterInputDto` missing when calling testSubscriptionFilter."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ValidateFilterInputDto -is [array])) {
             $LocalVarBodyParameter = $ValidateFilterInputDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ValidateFilterInputDto | ForEach-Object {
@@ -956,7 +956,7 @@ function Update-BetaSubscription {
             throw "Error! The required parameter `SubscriptionPutRequest` missing when calling updateSubscription."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SubscriptionPutRequest -is [array])) {
             $LocalVarBodyParameter = $SubscriptionPutRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SubscriptionPutRequest | ForEach-Object {

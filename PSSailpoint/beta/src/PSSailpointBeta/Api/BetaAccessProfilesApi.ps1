@@ -60,7 +60,7 @@ function New-BetaAccessProfile {
             throw "Error! The required parameter `AccessProfile` missing when calling createAccessProfile."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfile -is [array])) {
             $LocalVarBodyParameter = $AccessProfile | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessProfile | ForEach-Object {
@@ -224,7 +224,7 @@ function Remove-BetaAccessProfilesInBulk {
             throw "Error! The required parameter `AccessProfileBulkDeleteRequest` missing when calling deleteAccessProfilesInBulk."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfileBulkDeleteRequest -is [array])) {
             $LocalVarBodyParameter = $AccessProfileBulkDeleteRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessProfileBulkDeleteRequest | ForEach-Object {
@@ -666,7 +666,7 @@ function Update-BetaAccessProfile {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchAccessProfile."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
@@ -756,7 +756,7 @@ function Update-BetaAccessProfilesInBulk {
             throw "Error! The required parameter `AccessProfileBulkUpdateRequestInner` missing when calling updateAccessProfilesInBulk."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessProfileBulkUpdateRequestInner -is [array])) {
             $LocalVarBodyParameter = $AccessProfileBulkUpdateRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $AccessProfileBulkUpdateRequestInner | ForEach-Object {

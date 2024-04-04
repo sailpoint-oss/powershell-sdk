@@ -60,7 +60,7 @@ function Get-BetaRecommendations {
             throw "Error! The required parameter `RecommendationRequestDto` missing when calling getRecommendations."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RecommendationRequestDto -is [array])) {
             $LocalVarBodyParameter = $RecommendationRequestDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RecommendationRequestDto | ForEach-Object {
@@ -214,7 +214,7 @@ function Update-BetaRecommendationsConfig {
             throw "Error! The required parameter `RecommendationConfigDto` missing when calling updateRecommendationsConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RecommendationConfigDto -is [array])) {
             $LocalVarBodyParameter = $RecommendationConfigDto | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $RecommendationConfigDto | ForEach-Object {

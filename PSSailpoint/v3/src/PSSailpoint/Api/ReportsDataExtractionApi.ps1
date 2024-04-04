@@ -336,7 +336,7 @@ function Start-Report {
             throw "Error! The required parameter `ReportDetails` missing when calling startReport."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ReportDetails -is [array])) {
             $LocalVarBodyParameter = $ReportDetails | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $ReportDetails | ForEach-Object {

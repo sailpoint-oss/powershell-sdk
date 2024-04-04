@@ -60,7 +60,7 @@ function New-BetaSearchAttributeConfig {
             throw "Error! The required parameter `SearchAttributeConfig` missing when calling createSearchAttributeConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SearchAttributeConfig -is [array])) {
             $LocalVarBodyParameter = $SearchAttributeConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $SearchAttributeConfig | ForEach-Object {
@@ -372,7 +372,7 @@ function Update-BetaSearchAttributeConfig {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchSearchAttributeConfig."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {

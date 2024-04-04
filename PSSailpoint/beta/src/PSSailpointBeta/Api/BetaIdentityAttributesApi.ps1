@@ -60,7 +60,7 @@ function New-BetaIdentityAttribute {
             throw "Error! The required parameter `IdentityAttribute` missing when calling createIdentityAttribute."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityAttribute -is [array])) {
             $LocalVarBodyParameter = $IdentityAttribute | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityAttribute | ForEach-Object {
@@ -224,7 +224,7 @@ function Remove-BetaIdentityAttributesInBulk {
             throw "Error! The required parameter `IdentityAttributeNames` missing when calling deleteIdentityAttributesInBulk."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityAttributeNames -is [array])) {
             $LocalVarBodyParameter = $IdentityAttributeNames | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityAttributeNames | ForEach-Object {
@@ -502,7 +502,7 @@ function Send-BetaIdentityAttribute {
             throw "Error! The required parameter `IdentityAttribute` missing when calling putIdentityAttribute."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityAttribute -is [array])) {
             $LocalVarBodyParameter = $IdentityAttribute | ConvertTo-Json -AsArray -Depth 100
         } else {
             $LocalVarBodyParameter = $IdentityAttribute | ForEach-Object {

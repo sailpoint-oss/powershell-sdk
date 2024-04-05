@@ -133,6 +133,11 @@ Class | Method | HTTP request | Description
 *CertificationsApi* | [**Invoke-ReassignIdentityCertifications**](docs/CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 *CertificationsApi* | [**Invoke-SignOffIdentityCertification**](docs/CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
 *CertificationsApi* | [**Submit-ReassignCertsAsync**](docs/CertificationsApi.md#Submit-ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
+*ConfigurationHubApi* | [**New-ObjectMapping**](docs/ConfigurationHubApi.md#New-ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
+*ConfigurationHubApi* | [**New-ObjectMappings**](docs/ConfigurationHubApi.md#New-ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
+*ConfigurationHubApi* | [**Remove-ObjectMapping**](docs/ConfigurationHubApi.md#Remove-ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
+*ConfigurationHubApi* | [**Get-ObjectMappings**](docs/ConfigurationHubApi.md#Get-ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
+*ConfigurationHubApi* | [**Update-ObjectMappings**](docs/ConfigurationHubApi.md#Update-ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *ConnectorsApi* | [**New-CustomConnector**](docs/ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create custom connector
 *ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | 
 *ConnectorsApi* | [**Get-Connector**](docs/ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | 
@@ -642,6 +647,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.NonEmployeeSourceWithCloudExternalId](docs/NonEmployeeSourceWithCloudExternalId.md)
  - [PSSailpoint\Model.NonEmployeeSourceWithNECount](docs/NonEmployeeSourceWithNECount.md)
  - [PSSailpoint\Model.ObjectImportResult](docs/ObjectImportResult.md)
+ - [PSSailpoint\Model.ObjectMappingBulkCreateRequest](docs/ObjectMappingBulkCreateRequest.md)
+ - [PSSailpoint\Model.ObjectMappingBulkCreateResponse](docs/ObjectMappingBulkCreateResponse.md)
+ - [PSSailpoint\Model.ObjectMappingBulkPatchRequest](docs/ObjectMappingBulkPatchRequest.md)
+ - [PSSailpoint\Model.ObjectMappingBulkPatchResponse](docs/ObjectMappingBulkPatchResponse.md)
+ - [PSSailpoint\Model.ObjectMappingRequest](docs/ObjectMappingRequest.md)
+ - [PSSailpoint\Model.ObjectMappingResponse](docs/ObjectMappingResponse.md)
  - [PSSailpoint\Model.Operation](docs/Operation.md)
  - [PSSailpoint\Model.OriginalRequest](docs/OriginalRequest.md)
  - [PSSailpoint\Model.OrphanUncorrelatedReportArguments](docs/OrphanUncorrelatedReportArguments.md)

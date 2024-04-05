@@ -149,6 +149,7 @@ docs/CompletedApprovalState.md
 docs/CompletionStatus.md
 docs/Concatenation.md
 docs/Conditional.md
+docs/ConfigurationHubApi.md
 docs/ConflictingAccessCriteria.md
 docs/ConnectorDetail.md
 docs/ConnectorsApi.md
@@ -307,6 +308,12 @@ docs/NonEmployeeSourceWithCloudExternalId.md
 docs/NonEmployeeSourceWithNECount.md
 docs/OAuthClientsApi.md
 docs/ObjectImportResult.md
+docs/ObjectMappingBulkCreateRequest.md
+docs/ObjectMappingBulkCreateResponse.md
+docs/ObjectMappingBulkPatchRequest.md
+docs/ObjectMappingBulkPatchResponse.md
+docs/ObjectMappingRequest.md
+docs/ObjectMappingResponse.md
 docs/Operation.md
 docs/OriginalRequest.md
 docs/OrphanUncorrelatedReportArguments.md
@@ -571,6 +578,7 @@ src/PSSailpoint/Api/CertificationCampaignFiltersApi.ps1
 src/PSSailpoint/Api/CertificationCampaignsApi.ps1
 src/PSSailpoint/Api/CertificationSummariesApi.ps1
 src/PSSailpoint/Api/CertificationsApi.ps1
+src/PSSailpoint/Api/ConfigurationHubApi.ps1
 src/PSSailpoint/Api/ConnectorsApi.ps1
 src/PSSailpoint/Api/GlobalTenantSecuritySettingsApi.ps1
 src/PSSailpoint/Api/IdentityProfilesApi.ps1
@@ -888,6 +896,12 @@ src/PSSailpoint/Model/NonEmployeeSourceRequestBody.ps1
 src/PSSailpoint/Model/NonEmployeeSourceWithCloudExternalId.ps1
 src/PSSailpoint/Model/NonEmployeeSourceWithNECount.ps1
 src/PSSailpoint/Model/ObjectImportResult.ps1
+src/PSSailpoint/Model/ObjectMappingBulkCreateRequest.ps1
+src/PSSailpoint/Model/ObjectMappingBulkCreateResponse.ps1
+src/PSSailpoint/Model/ObjectMappingBulkPatchRequest.ps1
+src/PSSailpoint/Model/ObjectMappingBulkPatchResponse.ps1
+src/PSSailpoint/Model/ObjectMappingRequest.ps1
+src/PSSailpoint/Model/ObjectMappingResponse.ps1
 src/PSSailpoint/Model/Operation.ps1
 src/PSSailpoint/Model/OriginalRequest.ps1
 src/PSSailpoint/Model/OrphanUncorrelatedReportArguments.ps1
@@ -1136,6 +1150,7 @@ tests/Api/CertificationCampaignFiltersApi.Tests.ps1
 tests/Api/CertificationCampaignsApi.Tests.ps1
 tests/Api/CertificationSummariesApi.Tests.ps1
 tests/Api/CertificationsApi.Tests.ps1
+tests/Api/ConfigurationHubApi.Tests.ps1
 tests/Api/ConnectorsApi.Tests.ps1
 tests/Api/GlobalTenantSecuritySettingsApi.Tests.ps1
 tests/Api/IdentityProfilesApi.Tests.ps1
@@ -1452,6 +1467,12 @@ tests/Model/NonEmployeeSourceRequestBody.Tests.ps1
 tests/Model/NonEmployeeSourceWithCloudExternalId.Tests.ps1
 tests/Model/NonEmployeeSourceWithNECount.Tests.ps1
 tests/Model/ObjectImportResult.Tests.ps1
+tests/Model/ObjectMappingBulkCreateRequest.Tests.ps1
+tests/Model/ObjectMappingBulkCreateResponse.Tests.ps1
+tests/Model/ObjectMappingBulkPatchRequest.Tests.ps1
+tests/Model/ObjectMappingBulkPatchResponse.Tests.ps1
+tests/Model/ObjectMappingRequest.Tests.ps1
+tests/Model/ObjectMappingResponse.Tests.ps1
 tests/Model/Operation.Tests.ps1
 tests/Model/OriginalRequest.Tests.ps1
 tests/Model/OrphanUncorrelatedReportArguments.Tests.ps1

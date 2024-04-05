@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LifecycleStateId** | **String** | The ID of the lifecycle state to set | [optional] 
+**LifecycleStateId** | **String** | The ID of the lifecycle state to set. | [optional] 
 
 ## Examples
 

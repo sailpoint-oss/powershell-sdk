@@ -3,21 +3,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** | The technical name of the identity attribute | [optional] 
-**DisplayName** | **String** | The business-friendly name of the identity attribute | [optional] 
-**Standard** | **Boolean** | Shows if the attribute is &#39;standard&#39; or default | [optional] [default to $false]
-**Type** | **String** | The type of the identity attribute | [optional] 
-**Multi** | **Boolean** | Shows if the identity attribute is multi-valued | [optional] [default to $false]
-**Searchable** | **Boolean** | Shows if the identity attribute is searchable | [optional] [default to $false]
-**System** | **Boolean** | Shows this is &#39;system&#39; identity attribute that does not have a source and is not configurable. | [optional] [default to $false]
-**Sources** | [**Source1[]**](Source1.md) | List of sources for an attribute, this specifies how the value of the rule is derived | [optional] 
+**Name** | **String** | Identity attribute&#39;s technical name. | 
+**DisplayName** | **String** | Identity attribute&#39;s business-friendly name. | [optional] 
+**Standard** | **Boolean** | Indicates whether the attribute is &#39;standard&#39; or &#39;default&#39;. | [optional] [default to $false]
+**Type** | **String** | Identity attribute&#39;s type. | [optional] 
+**Multi** | **Boolean** | Indicates whether the identity attribute is multi-valued. | [optional] [default to $false]
+**Searchable** | **Boolean** | Indicates whether the identity attribute is searchable. | [optional] [default to $false]
+**System** | **Boolean** | Indicates whether the identity attribute is &#39;system&#39;, meaning that it doesn&#39;t have a source and isn&#39;t configurable. | [optional] [default to $false]
+**Sources** | [**Source1[]**](Source1.md) | Identity attribute&#39;s list of sources - this specifies how the rule&#39;s value is derived. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $IdentityAttribute = Initialize-PSSailpointBetaIdentityAttribute  -Name uid `
- -DisplayName IdentityNow Username `
+ -DisplayName Identity Security Cloud Username `
  -Standard true `
  -Type string `
  -Multi false `

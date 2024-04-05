@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 Set Lifecycle State
 
-This endpoint will set/update an identity's lifecycle state to the one provided and updates the corresponding Identity Profile. A token with ORG_ADMIN or API authority is required to call this API.
+This endpoint will set/update an identity's lifecycle state to the one provided and updates the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
 
 ### Example
 ```powershell
@@ -259,7 +259,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityId = "2c9180857893f1290178944561990364" # String | The ID of the identity to update
+$IdentityId = "2c9180857893f1290178944561990364" # String | The ID of the identity to update.
 $SetLifecycleStateRequest = Initialize-SetLifecycleStateRequest -LifecycleStateId "2c9180877a86e408017a8c19fefe046c" # SetLifecycleStateRequest | 
 
 # Set Lifecycle State
@@ -275,7 +275,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityId** | **String**| The ID of the identity to update | 
+ **IdentityId** | **String**| The ID of the identity to update. | 
  **SetLifecycleStateRequest** | [**SetLifecycleStateRequest**](SetLifecycleStateRequest.md)|  | 
 
 ### Return type

@@ -829,7 +829,7 @@ Name | Type | Description  | Notes
 
 Unlock Account
 
-This API submits a task to unlock an account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -841,7 +841,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID.
 $AccountUnlockRequest = Initialize-AccountUnlockRequest -ExternalVerificationId "3f9180835d2e5168015d32f890ca1581" -UnlockIDNAccount $false -ForceProvisioning $false # AccountUnlockRequest | 
 
 # Unlock Account
@@ -857,7 +857,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The account id | 
+ **Id** | **String**| The account ID. | 
  **AccountUnlockRequest** | [**AccountUnlockRequest**](AccountUnlockRequest.md)|  | 
 
 ### Return type

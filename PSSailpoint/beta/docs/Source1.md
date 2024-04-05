@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of the source | [optional] 
-**Properties** | [**SystemCollectionsHashtable**](.md) | The source properties | [optional] 
+**Type** | **String** | Source type. | [optional] 
+**Properties** | [**SystemCollectionsHashtable**](.md) | Source properties. | [optional] 
 
 ## Examples
 

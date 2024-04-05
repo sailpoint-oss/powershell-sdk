@@ -15,21 +15,21 @@ No summary available.
 No description available.
 
 .PARAMETER Name
-The technical name of the identity attribute
+Identity attribute's technical name.
 .PARAMETER DisplayName
-The business-friendly name of the identity attribute
+Identity attribute's business-friendly name.
 .PARAMETER Standard
-Shows if the attribute is 'standard' or default
+Indicates whether the attribute is 'standard' or 'default'.
 .PARAMETER Type
-The type of the identity attribute
+Identity attribute's type.
 .PARAMETER Multi
-Shows if the identity attribute is multi-valued
+Indicates whether the identity attribute is multi-valued.
 .PARAMETER Searchable
-Shows if the identity attribute is searchable
+Indicates whether the identity attribute is searchable.
 .PARAMETER System
-Shows this is 'system' identity attribute that does not have a source and is not configurable.
+Indicates whether the identity attribute is 'system', meaning that it doesn't have a source and isn't configurable.
 .PARAMETER Sources
-List of sources for an attribute, this specifies how the value of the rule is derived
+Identity attribute's list of sources - this specifies how the rule's value is derived.
 .OUTPUTS
 
 IdentityAttribute<PSCustomObject>
@@ -67,6 +67,10 @@ function Initialize-BetaIdentityAttribute {
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaIdentityAttribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -121,8 +125,12 @@ function ConvertFrom-BetaJsonToIdentityAttribute {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }

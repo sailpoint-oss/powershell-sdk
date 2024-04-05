@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER LifecycleStateId
-The ID of the lifecycle state to set
+The ID of the lifecycle state to set.
 .OUTPUTS
 
 SetLifecycleStateRequest<PSCustomObject>

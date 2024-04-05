@@ -842,10 +842,10 @@ Unlock Account
 
 .DESCRIPTION
 
-This API submits a task to unlock an account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Id
-The account id
+The account ID.
 
 .PARAMETER AccountUnlockRequest
 No description available.

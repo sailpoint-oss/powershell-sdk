@@ -459,6 +459,13 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
 *BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
+*BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatchStats**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
+*BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatches**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request
+*BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSeds**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSeds) | **GET** /suggested-entitlement-descriptions | List Suggested Entitlement Description
+*BetaSuggestedEntitlementDescriptionApi* | [**Update-BetaSed**](docs/BetaSuggestedEntitlementDescriptionApi.md#Update-BetaSed) | **PATCH** /suggested-entitlement-descriptions | Patch Suggested Entitlement Description
+*BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedApproval**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedApproval) | **POST** /suggested-entitlement-description-approvals | Submit Bulk Approval Request
+*BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedAssignment**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit Sed Assignment Request
+*BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedBatchRequest**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit Sed Batch Request
 *BetaTaggedObjectsApi* | [**Remove-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
 *BetaTaggedObjectsApi* | [**Remove-BetaTagsToManyObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
@@ -1179,6 +1186,17 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.SearchFormDefinitionsByTenant400Response](docs/SearchFormDefinitionsByTenant400Response.md)
  - [PSSailpointBeta\Model.Section](docs/Section.md)
  - [PSSailpointBeta\Model.SectionDetails](docs/SectionDetails.md)
+ - [PSSailpointBeta\Model.Sed](docs/Sed.md)
+ - [PSSailpointBeta\Model.SedApproval](docs/SedApproval.md)
+ - [PSSailpointBeta\Model.SedApprovalStatus](docs/SedApprovalStatus.md)
+ - [PSSailpointBeta\Model.SedAssignee](docs/SedAssignee.md)
+ - [PSSailpointBeta\Model.SedAssignment](docs/SedAssignment.md)
+ - [PSSailpointBeta\Model.SedAssignmentResponse](docs/SedAssignmentResponse.md)
+ - [PSSailpointBeta\Model.SedBatchRequest](docs/SedBatchRequest.md)
+ - [PSSailpointBeta\Model.SedBatchResponse](docs/SedBatchResponse.md)
+ - [PSSailpointBeta\Model.SedBatchStats](docs/SedBatchStats.md)
+ - [PSSailpointBeta\Model.SedBatchStatus](docs/SedBatchStatus.md)
+ - [PSSailpointBeta\Model.SedPatch](docs/SedPatch.md)
  - [PSSailpointBeta\Model.Segment](docs/Segment.md)
  - [PSSailpointBeta\Model.Selector](docs/Selector.md)
  - [PSSailpointBeta\Model.SelectorType](docs/SelectorType.md)

@@ -33,7 +33,7 @@ function Initialize-BetaEntitlementAccessRequestConfig {
         ${ApprovalSchemes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${RequestCommentRequired} = $false,
+        ${CommentsRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${DenialCommentRequired} = $false
@@ -46,7 +46,7 @@ function Initialize-BetaEntitlementAccessRequestConfig {
 
         $PSO = [PSCustomObject]@{
             "approvalSchemes" = ${ApprovalSchemes}
-            "requestCommentRequired" = ${RequestCommentRequired}
+            "commentsRequired" = ${CommentsRequired}
             "denialCommentRequired" = ${DenialCommentRequired}
         }
 

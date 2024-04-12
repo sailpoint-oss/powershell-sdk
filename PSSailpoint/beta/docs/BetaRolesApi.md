@@ -4,8 +4,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-BetaBulkDeleteRoles**](BetaRolesApi.md#Invoke-BetaBulkDeleteRoles) | **POST** /roles/bulk-delete | Delete Role(s)
 [**New-BetaRole**](BetaRolesApi.md#New-BetaRole) | **POST** /roles | Create a Role
+[**Remove-BetaBulkRoles**](BetaRolesApi.md#Remove-BetaBulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
 [**Remove-BetaRole**](BetaRolesApi.md#Remove-BetaRole) | **DELETE** /roles/{id} | Delete a Role
 [**Get-BetaRole**](BetaRolesApi.md#Get-BetaRole) | **GET** /roles/{id} | Get a Role
 [**Get-BetaRoleAssignedIdentities**](BetaRolesApi.md#Get-BetaRoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | Identities assigned a Role
@@ -13,57 +13,6 @@ Method | HTTP request | Description
 [**Get-BetaRoles**](BetaRolesApi.md#Get-BetaRoles) | **GET** /roles | List Roles
 [**Update-BetaRole**](BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
 
-
-<a id="Invoke-BetaBulkDeleteRoles"></a>
-# **Invoke-BetaBulkDeleteRoles**
-> TaskResultDto Invoke-BetaBulkDeleteRoles<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleBulkDeleteRequest] <PSCustomObject><br>
-
-Delete Role(s)
-
-This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$RoleBulkDeleteRequest = Initialize-RoleBulkDeleteRequest -RoleIds "MyRoleIds" # RoleBulkDeleteRequest | 
-
-# Delete Role(s)
-try {
-    $Result = Invoke-BetaBulkDeleteRoles -RoleBulkDeleteRequest $RoleBulkDeleteRequest
-} catch {
-    Write-Host ("Exception occurred when calling Invoke-BetaBulkDeleteRoles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **RoleBulkDeleteRequest** | [**RoleBulkDeleteRequest**](RoleBulkDeleteRequest.md)|  | 
-
-### Return type
-
-[**TaskResultDto**](TaskResultDto.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="New-BetaRole"></a>
 # **New-BetaRole**
@@ -124,6 +73,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Role**](Role.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Remove-BetaBulkRoles"></a>
+# **Remove-BetaBulkRoles**
+> TaskResultDto Remove-BetaBulkRoles<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleBulkDeleteRequest] <PSCustomObject><br>
+
+Delete Role(s)
+
+This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$RoleBulkDeleteRequest = Initialize-RoleBulkDeleteRequest -RoleIds "MyRoleIds" # RoleBulkDeleteRequest | 
+
+# Delete Role(s)
+try {
+    $Result = Remove-BetaBulkRoles -RoleBulkDeleteRequest $RoleBulkDeleteRequest
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaBulkRoles: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RoleBulkDeleteRequest** | [**RoleBulkDeleteRequest**](RoleBulkDeleteRequest.md)|  | 
+
+### Return type
+
+[**TaskResultDto**](TaskResultDto.md) (PSCustomObject)
 
 ### Authorization
 

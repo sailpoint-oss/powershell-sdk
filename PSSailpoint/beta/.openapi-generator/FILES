@@ -193,6 +193,7 @@ docs/BetaPublicIdentitiesConfigApi.md
 docs/BetaRequestableObjectsApi.md
 docs/BetaRoleInsightsApi.md
 docs/BetaRolesApi.md
+docs/BetaSODPoliciesApi.md
 docs/BetaSODPolicyApi.md
 docs/BetaSODViolationsApi.md
 docs/BetaSPConfigApi.md
@@ -953,6 +954,7 @@ src/PSSailpointBeta/Api/BetaPublicIdentitiesConfigApi.ps1
 src/PSSailpointBeta/Api/BetaRequestableObjectsApi.ps1
 src/PSSailpointBeta/Api/BetaRoleInsightsApi.ps1
 src/PSSailpointBeta/Api/BetaRolesApi.ps1
+src/PSSailpointBeta/Api/BetaSODPoliciesApi.ps1
 src/PSSailpointBeta/Api/BetaSODPolicyApi.ps1
 src/PSSailpointBeta/Api/BetaSODViolationsApi.ps1
 src/PSSailpointBeta/Api/BetaSPConfigApi.ps1
@@ -1861,6 +1863,7 @@ tests/Api/BetaPublicIdentitiesConfigApi.Tests.ps1
 tests/Api/BetaRequestableObjectsApi.Tests.ps1
 tests/Api/BetaRoleInsightsApi.Tests.ps1
 tests/Api/BetaRolesApi.Tests.ps1
+tests/Api/BetaSODPoliciesApi.Tests.ps1
 tests/Api/BetaSODPolicyApi.Tests.ps1
 tests/Api/BetaSODViolationsApi.Tests.ps1
 tests/Api/BetaSPConfigApi.Tests.ps1

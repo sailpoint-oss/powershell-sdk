@@ -84,8 +84,8 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Invoke-ReloadAccount**](docs/AccountsApi.md#Invoke-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *AccountsApi* | [**Unlock-Account**](docs/AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
-*AuthUserApi* | [**Get-AuthUser**](docs/AuthUserApi.md#Get-AuthUser) | **GET** /auth-users/{id} | Auth User Details
-*AuthUserApi* | [**Update-AuthUser**](docs/AuthUserApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
+*AuthUsersApi* | [**Get-AuthUser**](docs/AuthUsersApi.md#Get-AuthUser) | **GET** /auth-users/{id} | Auth User Details
+*AuthUsersApi* | [**Update-AuthUser**](docs/AuthUsersApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
 *BrandingApi* | [**New-BrandingItem**](docs/BrandingApi.md#New-BrandingItem) | **POST** /brandings | Create a branding item
 *BrandingApi* | [**Remove-Branding**](docs/BrandingApi.md#Remove-Branding) | **DELETE** /brandings/{name} | Delete a branding item
 *BrandingApi* | [**Get-Branding**](docs/BrandingApi.md#Get-Branding) | **GET** /brandings/{name} | Get a branding item
@@ -236,23 +236,23 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**Get-RoleAssignedIdentities**](docs/RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 *RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles
 *RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
-*SODPolicyApi* | [**New-SodPolicy**](docs/SODPolicyApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
-*SODPolicyApi* | [**Remove-SodPolicy**](docs/SODPolicyApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
-*SODPolicyApi* | [**Remove-SodPolicySchedule**](docs/SODPolicyApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
+*SODPoliciesApi* | [**New-SodPolicy**](docs/SODPoliciesApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
+*SODPoliciesApi* | [**Remove-SodPolicy**](docs/SODPoliciesApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
+*SODPoliciesApi* | [**Remove-SodPolicySchedule**](docs/SODPoliciesApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
+*SODPoliciesApi* | [**Get-SodPolicy**](docs/SODPoliciesApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
+*SODPoliciesApi* | [**Get-SodPolicySchedule**](docs/SODPoliciesApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
+*SODPoliciesApi* | [**Get-SodViolationReportRunStatus**](docs/SODPoliciesApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-policies/sod-violation-report-status/{reportResultId} | Get violation report run status
+*SODPoliciesApi* | [**Get-SodViolationReportStatus**](docs/SODPoliciesApi.md#Get-SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
+*SODPoliciesApi* | [**Get-SodPolicies**](docs/SODPoliciesApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
+*SODPoliciesApi* | [**Update-SodPolicy**](docs/SODPoliciesApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
+*SODPoliciesApi* | [**Send-PolicySchedule**](docs/SODPoliciesApi.md#Send-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
+*SODPoliciesApi* | [**Send-SodPolicy**](docs/SODPoliciesApi.md#Send-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
+*SODPoliciesApi* | [**Start-EvaluateSodPolicy**](docs/SODPoliciesApi.md#Start-EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by ID
+*SODPoliciesApi* | [**Start-SodPolicy**](docs/SODPoliciesApi.md#Start-SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
 *SODPolicyApi* | [**Get-CustomViolationReport**](docs/SODPolicyApi.md#Get-CustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 *SODPolicyApi* | [**Get-DefaultViolationReport**](docs/SODPolicyApi.md#Get-DefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 *SODPolicyApi* | [**Get-SodAllReportRunStatus**](docs/SODPolicyApi.md#Get-SodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
-*SODPolicyApi* | [**Get-SodPolicy**](docs/SODPolicyApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
-*SODPolicyApi* | [**Get-SodPolicySchedule**](docs/SODPolicyApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
-*SODPolicyApi* | [**Get-SodViolationReportRunStatus**](docs/SODPolicyApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-policies/sod-violation-report-status/{reportResultId} | Get violation report run status
-*SODPolicyApi* | [**Get-SodViolationReportStatus**](docs/SODPolicyApi.md#Get-SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
-*SODPolicyApi* | [**Get-SodPolicies**](docs/SODPolicyApi.md#Get-SodPolicies) | **GET** /sod-policies | List SOD policies
-*SODPolicyApi* | [**Update-SodPolicy**](docs/SODPolicyApi.md#Update-SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
-*SODPolicyApi* | [**Send-PolicySchedule**](docs/SODPolicyApi.md#Send-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
-*SODPolicyApi* | [**Send-SodPolicy**](docs/SODPolicyApi.md#Send-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
-*SODPolicyApi* | [**Start-EvaluateSodPolicy**](docs/SODPolicyApi.md#Start-EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by ID
 *SODPolicyApi* | [**Start-SodAllPoliciesForOrg**](docs/SODPolicyApi.md#Start-SodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
-*SODPolicyApi* | [**Start-SodPolicy**](docs/SODPolicyApi.md#Start-SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
 *SODViolationsApi* | [**Start-PredictSodViolations**](docs/SODViolationsApi.md#Start-PredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for identity.
 *SODViolationsApi* | [**Start-ViolationCheck**](docs/SODViolationsApi.md#Start-ViolationCheck) | **POST** /sod-violations/check | Check SOD violations
 *SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search

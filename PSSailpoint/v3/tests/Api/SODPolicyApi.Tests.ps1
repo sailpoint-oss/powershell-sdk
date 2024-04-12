@@ -6,30 +6,6 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
-    Context 'New-SodPolicy' {
-        It 'Test New-SodPolicy' {
-            #$TestResult = New-SodPolicy -SodPolicy "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Remove-SodPolicy' {
-        It 'Test Remove-SodPolicy' {
-            #$TestResult = Remove-SodPolicy -Id "TEST_VALUE" -Logical "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Remove-SodPolicySchedule' {
-        It 'Test Remove-SodPolicySchedule' {
-            #$TestResult = Remove-SodPolicySchedule -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-CustomViolationReport' {
         It 'Test Get-CustomViolationReport' {
             #$TestResult = Get-CustomViolationReport -ReportResultId "TEST_VALUE" -FileName "TEST_VALUE"
@@ -54,89 +30,9 @@ Describe -tag 'PSSailpoint' -name 'SODPolicyApi' {
         }
     }
 
-    Context 'Get-SodPolicy' {
-        It 'Test Get-SodPolicy' {
-            #$TestResult = Get-SodPolicy -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-SodPolicySchedule' {
-        It 'Test Get-SodPolicySchedule' {
-            #$TestResult = Get-SodPolicySchedule -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-SodViolationReportRunStatus' {
-        It 'Test Get-SodViolationReportRunStatus' {
-            #$TestResult = Get-SodViolationReportRunStatus -ReportResultId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-SodViolationReportStatus' {
-        It 'Test Get-SodViolationReportStatus' {
-            #$TestResult = Get-SodViolationReportStatus -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-SodPolicies' {
-        It 'Test Get-SodPolicies' {
-            #$TestResult = Get-SodPolicies -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Update-SodPolicy' {
-        It 'Test Update-SodPolicy' {
-            #$TestResult = Update-SodPolicy -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Send-PolicySchedule' {
-        It 'Test Send-PolicySchedule' {
-            #$TestResult = Send-PolicySchedule -Id "TEST_VALUE" -SodPolicySchedule "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Send-SodPolicy' {
-        It 'Test Send-SodPolicy' {
-            #$TestResult = Send-SodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Start-EvaluateSodPolicy' {
-        It 'Test Start-EvaluateSodPolicy' {
-            #$TestResult = Start-EvaluateSodPolicy -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Start-SodAllPoliciesForOrg' {
         It 'Test Start-SodAllPoliciesForOrg' {
             #$TestResult = Start-SodAllPoliciesForOrg -MultiPolicyRequest "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Start-SodPolicy' {
-        It 'Test Start-SodPolicy' {
-            #$TestResult = Start-SodPolicy -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

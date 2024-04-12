@@ -86,7 +86,7 @@ docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
 docs/AttributeRequest.md
 docs/AuthUser.md
-docs/AuthUserApi.md
+docs/AuthUsersApi.md
 docs/Base64Decode.md
 docs/Base64Encode.md
 docs/BaseAccess.md
@@ -428,6 +428,7 @@ docs/RoleMembershipSelectorType.md
 docs/RoleSummary.md
 docs/RolesApi.md
 docs/Rule.md
+docs/SODPoliciesApi.md
 docs/SODPolicyApi.md
 docs/SODViolationsApi.md
 docs/SavedSearch.md
@@ -572,7 +573,7 @@ src/PSSailpoint/Api/AccessRequestsApi.ps1
 src/PSSailpoint/Api/AccountActivitiesApi.ps1
 src/PSSailpoint/Api/AccountUsagesApi.ps1
 src/PSSailpoint/Api/AccountsApi.ps1
-src/PSSailpoint/Api/AuthUserApi.ps1
+src/PSSailpoint/Api/AuthUsersApi.ps1
 src/PSSailpoint/Api/BrandingApi.ps1
 src/PSSailpoint/Api/CertificationCampaignFiltersApi.ps1
 src/PSSailpoint/Api/CertificationCampaignsApi.ps1
@@ -595,6 +596,7 @@ src/PSSailpoint/Api/PublicIdentitiesConfigApi.ps1
 src/PSSailpoint/Api/ReportsDataExtractionApi.ps1
 src/PSSailpoint/Api/RequestableObjectsApi.ps1
 src/PSSailpoint/Api/RolesApi.ps1
+src/PSSailpoint/Api/SODPoliciesApi.ps1
 src/PSSailpoint/Api/SODPolicyApi.ps1
 src/PSSailpoint/Api/SODViolationsApi.ps1
 src/PSSailpoint/Api/SavedSearchApi.ps1
@@ -1144,7 +1146,7 @@ tests/Api/AccessRequestsApi.Tests.ps1
 tests/Api/AccountActivitiesApi.Tests.ps1
 tests/Api/AccountUsagesApi.Tests.ps1
 tests/Api/AccountsApi.Tests.ps1
-tests/Api/AuthUserApi.Tests.ps1
+tests/Api/AuthUsersApi.Tests.ps1
 tests/Api/BrandingApi.Tests.ps1
 tests/Api/CertificationCampaignFiltersApi.Tests.ps1
 tests/Api/CertificationCampaignsApi.Tests.ps1
@@ -1167,6 +1169,7 @@ tests/Api/PublicIdentitiesConfigApi.Tests.ps1
 tests/Api/ReportsDataExtractionApi.Tests.ps1
 tests/Api/RequestableObjectsApi.Tests.ps1
 tests/Api/RolesApi.Tests.ps1
+tests/Api/SODPoliciesApi.Tests.ps1
 tests/Api/SODPolicyApi.Tests.ps1
 tests/Api/SODViolationsApi.Tests.ps1
 tests/Api/SavedSearchApi.Tests.ps1

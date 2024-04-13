@@ -43,7 +43,13 @@ function Invoke-Paginate {
             $Results.Response += $Result.Response
             $Results.StatusCode = $Result.StatusCode
             $Results.Headers = $Result.Headers
-            
+
+            if ($WithHttpInfo.IsPresent) {
+                Write-Output $Results
+            } else {
+                Write-Output $Results.Response
+            }
+
             if($Result.Response.Length -lt $Increment) {
                 break
             }
@@ -51,11 +57,11 @@ function Invoke-Paginate {
             $InitialOffset += $Increment;
         }
 
-        if ($WithHttpInfo.IsPresent) {
-            return $Results
-        } else {
-            return $Results.Response
-        }
+        # if ($WithHttpInfo.IsPresent) {
+        #     return $Results
+        # } else {
+        #     return $Results.Response
+        # }
     } catch {
         Write-Host $_
         Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), $Function)
@@ -135,17 +141,17 @@ function Invoke-PaginateSearch {
             $Results.StatusCode = $Result.StatusCode
             $Results.Headers = $Result.Headers
 
+            if ($WithHttpInfo.IsPresent) {
+                return $Results
+            } else {
+                return $Results.Response
+            }
+
             if($Result.Response.Length -lt $Increment) {
                 break
             }
 
             $InitialOffset += $Increment;
-        }
-
-        if ($WithHttpInfo.IsPresent) {
-            return $Results
-        } else {
-            return $Results.Response
         }
     } catch {
         Write-Host $_

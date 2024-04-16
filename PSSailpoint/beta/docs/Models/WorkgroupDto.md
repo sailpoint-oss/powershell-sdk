@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'WorkgroupDto']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Owner** |  Pointer to [**OwnerDto**](owner-dto) |  | [optional] 
+**Owner** |  Pointer to [**WorkgroupDtoOwner**](workgroup-dto-owner) |  | [optional] 
 **Id** |  Pointer to **String** | Governance group ID. | [optional] [readonly] 
 **Name** |  Pointer to **String** | Governance group name. | [optional] 
 **Description** |  Pointer to **String** | Governance group description. | [optional] 

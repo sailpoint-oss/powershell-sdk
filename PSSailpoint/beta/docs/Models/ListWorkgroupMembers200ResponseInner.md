@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Workgroup member identity DTO type. | [optional] 
 **Id** |  Pointer to **String** | Workgroup member identity ID. | [optional] 
 **Name** |  Pointer to **String** | Workgroup member identity display name. | [optional] 
+**Email** |  Pointer to **String** | Workgroup member identity email. | [optional] 
 
 ## Examples
 
@@ -26,7 +27,8 @@ Name | Type | Description | Notes
 ```powershell
 $ListWorkgroupMembers200ResponseInner = Initialize-PSSailpointBetaListWorkgroupMembers200ResponseInner  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
- -Name Michael Michaels
+ -Name Michael Michaels `
+ -Email michael.michaels@sailpoint.com
 ```
 
 - Convert the resource to JSON

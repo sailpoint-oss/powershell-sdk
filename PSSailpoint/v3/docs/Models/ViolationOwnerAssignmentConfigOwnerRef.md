@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** |  Pointer to  **Enum** [  "IDENTITY" ] | Owner&#39;s DTO type. | [optional] 
 **Id** |  Pointer to **String** | Owner&#39;s identity ID. | [optional] 
-**Name** |  Pointer to **String** | Owner&#39;s display name. | [optional] 
+**Name** |  Pointer to **String** | Owner&#39;s name. | [optional] 
 
 ## Examples
 

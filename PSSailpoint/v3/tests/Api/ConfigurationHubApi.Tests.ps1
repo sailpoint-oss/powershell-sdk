@@ -30,9 +30,41 @@ Describe -tag 'PSSailpoint' -name 'ConfigurationHubApi' {
         }
     }
 
+    Context 'Remove-UploadedBackup' {
+        It 'Test Remove-UploadedBackup' {
+            #$TestResult = Remove-UploadedBackup -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-ObjectMappings' {
         It 'Test Get-ObjectMappings' {
             #$TestResult = Get-ObjectMappings -SourceOrg "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-UploadedBackup' {
+        It 'Test Get-UploadedBackup' {
+            #$TestResult = Get-UploadedBackup -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-UploadedBackups' {
+        It 'Test Get-UploadedBackups' {
+            #$TestResult = Get-UploadedBackups -Status "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Import-UploadedBackup' {
+        It 'Test Import-UploadedBackup' {
+            #$TestResult = Import-UploadedBackup -Data "TEST_VALUE" -Name "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

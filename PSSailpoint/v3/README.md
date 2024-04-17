@@ -136,7 +136,11 @@ Class | Method | HTTP request | Description
 *ConfigurationHubApi* | [**New-ObjectMapping**](docs/ConfigurationHubApi.md#New-ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *ConfigurationHubApi* | [**New-ObjectMappings**](docs/ConfigurationHubApi.md#New-ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
 *ConfigurationHubApi* | [**Remove-ObjectMapping**](docs/ConfigurationHubApi.md#Remove-ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
+*ConfigurationHubApi* | [**Remove-UploadedBackup**](docs/ConfigurationHubApi.md#Remove-UploadedBackup) | **DELETE** /configuration-hub/backups/uploads/{id} | Deletes an uploaded backup file
 *ConfigurationHubApi* | [**Get-ObjectMappings**](docs/ConfigurationHubApi.md#Get-ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
+*ConfigurationHubApi* | [**Get-UploadedBackup**](docs/ConfigurationHubApi.md#Get-UploadedBackup) | **GET** /configuration-hub/backups/uploads/{id} | Get an uploaded backup's information
+*ConfigurationHubApi* | [**Get-UploadedBackups**](docs/ConfigurationHubApi.md#Get-UploadedBackups) | **GET** /configuration-hub/backups/uploads | Gets list of Uploaded backups
+*ConfigurationHubApi* | [**Import-UploadedBackup**](docs/ConfigurationHubApi.md#Import-UploadedBackup) | **POST** /configuration-hub/backups/uploads | Uploads a backup file
 *ConfigurationHubApi* | [**Update-ObjectMappings**](docs/ConfigurationHubApi.md#Update-ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *ConnectorsApi* | [**New-CustomConnector**](docs/ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create custom connector
 *ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | 
@@ -591,6 +595,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
  - [PSSailpoint\Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint\Model.ImportObject](docs/ImportObject.md)
+ - [PSSailpoint\Model.ImportUploadedBackupRequest](docs/ImportUploadedBackupRequest.md)
  - [PSSailpoint\Model.Index](docs/Index.md)
  - [PSSailpoint\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint\Model.InnerHit](docs/InnerHit.md)
@@ -850,6 +855,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.TypedReference](docs/TypedReference.md)
  - [PSSailpoint\Model.UUIDGenerator](docs/UUIDGenerator.md)
  - [PSSailpoint\Model.UpdateDetail](docs/UpdateDetail.md)
+ - [PSSailpoint\Model.UploadsRequest](docs/UploadsRequest.md)
+ - [PSSailpoint\Model.UploadsResponse](docs/UploadsResponse.md)
  - [PSSailpoint\Model.Upper](docs/Upper.md)
  - [PSSailpoint\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint\Model.V3ConnectorDto](docs/V3ConnectorDto.md)

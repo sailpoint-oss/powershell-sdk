@@ -26,11 +26,15 @@ function Invoke-Paginate {
             $Command = "$Function -Limit $Increment -Offset $InitialOffset -WithHttpInfo @Parameters"
             $Result = Invoke-Expression $Command
 
-            $Count = $Result.Response.Length
-            Write-Debug "Retrieved $Count Results"
+            Write-Debug "Retrieved $(($Result.Response | Measure-Object).Count) Results"
 
             if ($WithHttpInfo.IsPresent) {
-                $Results.Response.AddRange($Result.Response)
+                if (($Result.Response | Measure-Object).Count -eq 1) {
+                    $Results.Response.Add($Result.Response)
+                }
+                else {
+                    $Results.Response.AddRange($Result.Response)
+                }
                 $Results.StatusCode = $Result.StatusCode
                 $Results.Headers = $Result.Headers
             }
@@ -95,11 +99,15 @@ function Invoke-PaginateSearch {
             
             $Result = Search-Post -Limit $Increment -Search $Search -WithHttpInfo
             
-            $Count = $Result.Response.Length
-            Write-Debug "Retrieved $Count Results"
+            Write-Debug "Retrieved $(($Result.Response | Measure-Object).Count) Results"
             
             if ($WithHttpInfo.IsPresent) {
-                $Results.Response.AddRange($Result.Response)
+                if (($Result.Response | Measure-Object).Count -eq 1) {
+                    $Results.Response.Add($Result.Response)
+                }
+                else {
+                    $Results.Response.AddRange($Result.Response)
+                }
                 $Results.StatusCode = $Result.StatusCode
                 $Results.Headers = $Result.Headers
             }

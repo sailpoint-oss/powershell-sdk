@@ -32,7 +32,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaMFAControllerApi' {
 
     Context 'Send-BetaKbaAnswers' {
         It 'Test Send-BetaKbaAnswers' {
-            #$TestResult = Send-BetaKbaAnswers -KbaAnswerRequest "TEST_VALUE"
+            #$TestResult = Send-BetaKbaAnswers -KbaAnswerRequestItem "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

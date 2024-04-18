@@ -16,14 +16,16 @@ No description available.
 
 .PARAMETER Id
 Question Id
-.PARAMETER Answer
-An answer for the KBA question
+.PARAMETER Question
+Question description
+.PARAMETER HasAnswer
+Denotes whether the KBA question has an answer configured for the current user
 .OUTPUTS
 
-KbaAnswerRequestItem<PSCustomObject>
+KbaAnswerResponseItem<PSCustomObject>
 #>
 
-function Initialize-BetaKbaAnswerRequestItem {
+function Initialize-BetaKbaAnswerResponseItem {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -31,25 +33,33 @@ function Initialize-BetaKbaAnswerRequestItem {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Answer}
+        ${Question},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Boolean]
+        ${HasAnswer}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaKbaAnswerRequestItem' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaKbaAnswerResponseItem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
-        if (!$Answer) {
-            throw "invalid value for 'Answer', 'Answer' cannot be null."
+        if (!$Question) {
+            throw "invalid value for 'Question', 'Question' cannot be null."
+        }
+
+        if (!$HasAnswer) {
+            throw "invalid value for 'HasAnswer', 'HasAnswer' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "answer" = ${Answer}
+            "question" = ${Question}
+            "hasAnswer" = ${HasAnswer}
         }
 
         return $PSO
@@ -59,11 +69,11 @@ function Initialize-BetaKbaAnswerRequestItem {
 <#
 .SYNOPSIS
 
-Convert from JSON to KbaAnswerRequestItem<PSCustomObject>
+Convert from JSON to KbaAnswerResponseItem<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to KbaAnswerRequestItem<PSCustomObject>
+Convert from JSON to KbaAnswerResponseItem<PSCustomObject>
 
 .PARAMETER Json
 
@@ -71,22 +81,22 @@ Json object
 
 .OUTPUTS
 
-KbaAnswerRequestItem<PSCustomObject>
+KbaAnswerResponseItem<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToKbaAnswerRequestItem {
+function ConvertFrom-BetaJsonToKbaAnswerResponseItem {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaKbaAnswerRequestItem' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaKbaAnswerResponseItem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaKbaAnswerRequestItem
-        $AllProperties = ("id", "answer")
+        # check if Json contains properties not defined in BetaKbaAnswerResponseItem
+        $AllProperties = ("id", "question", "hasAnswer")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -103,15 +113,22 @@ function ConvertFrom-BetaJsonToKbaAnswerRequestItem {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "answer"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'answer' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "question"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'question' missing."
         } else {
-            $Answer = $JsonParameters.PSobject.Properties["answer"].value
+            $Question = $JsonParameters.PSobject.Properties["question"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "hasAnswer"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'hasAnswer' missing."
+        } else {
+            $HasAnswer = $JsonParameters.PSobject.Properties["hasAnswer"].value
         }
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "answer" = ${Answer}
+            "question" = ${Question}
+            "hasAnswer" = ${HasAnswer}
         }
 
         return $PSO

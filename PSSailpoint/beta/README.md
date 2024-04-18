@@ -268,8 +268,10 @@ Class | Method | HTTP request | Description
 *BetaLifecycleStatesApi* | [**Update-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 *BetaMFAConfigurationApi* | [**Remove-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Remove-BetaMFAConfig) | **DELETE** /mfa/{method}/delete | Delete MFA method configuration
 *BetaMFAConfigurationApi* | [**Get-BetaMFADuoConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of Duo MFA method
+*BetaMFAConfigurationApi* | [**Get-BetaMFAKbaConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAKbaConfig) | **GET** /mfa/kba/config | Configuration of KBA MFA method
 *BetaMFAConfigurationApi* | [**Get-BetaMFAOktaConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of Okta MFA method
 *BetaMFAConfigurationApi* | [**Set-BetaMFADuoConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFADuoConfig) | **PUT** /mfa/duo-web/config | Set Duo MFA configuration
+*BetaMFAConfigurationApi* | [**Set-BetaMFAKBAConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
 *BetaMFAConfigurationApi* | [**Set-BetaMFAOktaConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *BetaMFAConfigurationApi* | [**Test-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
 *BetaMFAControllerApi* | [**New-BetaSendToken**](docs/BetaMFAControllerApi.md#New-BetaSendToken) | **POST** /mfa/token/send | Create and send user token
@@ -942,10 +944,11 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpointBeta\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpointBeta\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
- - [PSSailpointBeta\Model.KbaAnswerRequest](docs/KbaAnswerRequest.md)
  - [PSSailpointBeta\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
+ - [PSSailpointBeta\Model.KbaAnswerResponseItem](docs/KbaAnswerResponseItem.md)
  - [PSSailpointBeta\Model.KbaAuthResponse](docs/KbaAuthResponse.md)
  - [PSSailpointBeta\Model.KbaAuthResponseItem](docs/KbaAuthResponseItem.md)
+ - [PSSailpointBeta\Model.KbaQuestion](docs/KbaQuestion.md)
  - [PSSailpointBeta\Model.LatestOutlierSummary](docs/LatestOutlierSummary.md)
  - [PSSailpointBeta\Model.LeftPad](docs/LeftPad.md)
  - [PSSailpointBeta\Model.License](docs/License.md)

@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 <a id="Send-BetaKbaAnswers"></a>
 # **Send-BetaKbaAnswers**
 > KbaAuthResponse Send-BetaKbaAnswers<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-KbaAnswerRequest] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-KbaAnswerRequestItem] <PSCustomObject[]><br>
 
 Authenticate KBA provided MFA method
 
@@ -187,12 +187,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$KbaAnswerRequestItem = Initialize-KbaAnswerRequestItem -QuestionId "089899f13a8f4da7824996191587bab9" -Answer "Your answer"
-$KbaAnswerRequest = Initialize-KbaAnswerRequest -Answers $KbaAnswerRequestItem # KbaAnswerRequest | 
+$KbaAnswerRequestItem = Initialize-KbaAnswerRequestItem -Id "c54fee53-2d63-4fc5-9259-3e93b9994135" -Answer "Your answer" # KbaAnswerRequestItem[] | 
 
 # Authenticate KBA provided MFA method
 try {
-    $Result = Send-BetaKbaAnswers -KbaAnswerRequest $KbaAnswerRequest
+    $Result = Send-BetaKbaAnswers -KbaAnswerRequestItem $KbaAnswerRequestItem
 } catch {
     Write-Host ("Exception occurred when calling Send-BetaKbaAnswers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -203,7 +202,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **KbaAnswerRequest** | [**KbaAnswerRequest**](KbaAnswerRequest.md)|  | 
+ **KbaAnswerRequestItem** | [**KbaAnswerRequestItem[]**](KbaAnswerRequestItem.md)|  | 
 
 ### Return type
 

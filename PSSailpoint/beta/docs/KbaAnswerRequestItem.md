@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QuestionId** | **String** | Question Id | 
+**Id** | **String** | Question Id | 
 **Answer** | **String** | An answer for the KBA question | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$KbaAnswerRequestItem = Initialize-PSSailpointBetaKbaAnswerRequestItem  -QuestionId 089899f13a8f4da7824996191587bab9 `
+$KbaAnswerRequestItem = Initialize-PSSailpointBetaKbaAnswerRequestItem  -Id c54fee53-2d63-4fc5-9259-3e93b9994135 `
  -Answer Your answer
 ```
 

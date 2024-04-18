@@ -4,47 +4,45 @@ function Invoke-Paginate {
     Param(
         [Parameter(Position = 0, Mandatory = $true)]
         [string]$Function,
-        [System.Nullable[Int32]]$InitialOffset,
-        [System.Nullable[Int32]]$Increment,
-        [System.Nullable[Int32]]$Limit,
+        [Int32]$InitialOffset = 0,
+        [Int32]$Increment = 250,
+        [Int32]$Limit = 10000,
         [hashtable]$Parameters,
         [Switch]$WithHttpInfo
 
     )
-
     Write-Debug ($Parameters | Out-String) 
     
-    $Results = @{
-        Response = @()
-        StatusCode = $null
-        Headers = $null
-    };
-
-    if($null -eq $InitialOffset) {
-        $InitialOffset = 0
-    }
-
-    if($null -eq $Limit) {
-        $Limit = 10000
-    }
-
-    if($null -eq $Increment) {
-        $Increment = 250
+    if ($WithHttpInfo.IsPresent) {
+        $Results = [PSCustomObject]@{
+            Response   = New-Object System.Collections.ArrayList($Limit)
+            StatusCode = $null
+            Headers    = $null
+        };
     }
 
     try {
-        while($InitialOffset -lt $Limit) {
+        while ($InitialOffset -lt $Limit) {
             $Command = "$Function -Limit $Increment -Offset $InitialOffset -WithHttpInfo @Parameters"
             $Result = Invoke-Expression $Command
 
-            $Count = $Result.Response.Length
-            Write-Debug "Retrieved $Count Results"
+            Write-Debug "Retrieved $(($Result.Response | Measure-Object).Count) Results"
 
-            $Results.Response += $Result.Response
-            $Results.StatusCode = $Result.StatusCode
-            $Results.Headers = $Result.Headers
-            
-            if($Result.Response.Length -lt $Increment) {
+            if ($WithHttpInfo.IsPresent) {
+                if (($Result.Response | Measure-Object).Count -eq 1) {
+                    $Results.Response.Add($Result.Response)
+                }
+                else {
+                    $Results.Response.AddRange($Result.Response)
+                }
+                $Results.StatusCode = $Result.StatusCode
+                $Results.Headers = $Result.Headers
+            }
+            else {
+                Write-Output $Result.Response
+            }
+
+            if ($Result.Response.Length -lt $Increment) {
                 break
             }
 
@@ -53,10 +51,9 @@ function Invoke-Paginate {
 
         if ($WithHttpInfo.IsPresent) {
             return $Results
-        } else {
-            return $Results.Response
         }
-    } catch {
+    }
+    catch {
         Write-Host $_
         Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), $Function)
         Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -69,85 +66,68 @@ function Invoke-PaginateSearch {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $false)]
+        [ValidateNotNull()]
+        [ValidateScript({ ($_.sort | Measure-Object).Count -eq 1 }, 
+            ErrorMessage = "Error! The required `Search` parameter must include exactly one sort parameter to paginate properly.")]
         [PSCustomObject]
-        ${Search},
-        [System.Nullable[Int32]]$InitialOffset,
-        [System.Nullable[Int32]]$Increment,
-        [System.Nullable[Int32]]$Limit,
+        $Search,
+        [Int32]$Increment = 250,
+        [Int32]$Limit = 10000,
         [Switch]$WithHttpInfo
     )
-
+        
     Write-Debug ($Parameters | Out-String) 
+    $InitialOffset = 0
     
-    $Results = @{
-        Response = @()
+    $Results = [PSCustomObject]@{
+        Response   = New-Object System.Collections.ArrayList($Limit)
         StatusCode = $null
-        Headers = $null
+        Headers    = $null
     };
-
-    if($null -eq $InitialOffset) {
-        $InitialOffset = 0
-    }
-
-    if($null -eq $Limit) {
-        $Limit = 10000
-    }
-
-    if($null -eq $Increment) {
-        $Increment = 250
-    }
-
-    if($null -eq $Search) {
-        throw "Error! The required parameter `Search` missing when calling Paginate-Search."
-    }
-
-    if($null -eq $Search.Sort) {
-        throw "Error! The required `Search` parameter must include exactly one sort parameter to paginate properly."
-
-    }
-
-    if($Search.Sort.Length -ne 1) {
-        throw "Error! The required `Search` parameter must include exactly one sort parameter to paginate properly."
-    }
+    $first = $true
 
     try {
-        while($InitialOffset -lt $Limit) {
-            $SearchAfter = $Search.SearchAfter
-
-            if ($Results.Response.Length -gt 0) {
+        while ($InitialOffset -lt $Limit) {
+            
+            if (-not $first) {
                 $SearchSort = $Search.Sort[0]
-                $Sort = $SearchSort.Trim("+")
-                $SortTrimmed = $Sort.Trim("-")
-                $LastRecord = $Results.Response[-1].psObject.properties[$SortTrimmed].value
-
-
-                $SearchAfter = $Results.Response[-1].psObject.properties[$SortTrimmed].value
-
+                $SortTrimmed = $SearchSort.Trim("+", "-")
+                $SearchAfter = $Result.Response[-1].$SortTrimmed
                 $Search.SearchAfter = @($SearchAfter)
+                Write-Debug "SearchAfter=$SearchAfter"
             }
-
+            
             $Result = Search-Post -Limit $Increment -Search $Search -WithHttpInfo
-
-            $Count = $Result.Response.Length
-            Write-Debug "Retrieved $Count Results"
-
-            $Results.Response += $Result.Response
-            $Results.StatusCode = $Result.StatusCode
-            $Results.Headers = $Result.Headers
-
-            if($Result.Response.Length -lt $Increment) {
+            
+            Write-Debug "Retrieved $(($Result.Response | Measure-Object).Count) Results"
+            
+            if ($WithHttpInfo.IsPresent) {
+                if (($Result.Response | Measure-Object).Count -eq 1) {
+                    $Results.Response.Add($Result.Response)
+                }
+                else {
+                    $Results.Response.AddRange($Result.Response)
+                }
+                $Results.StatusCode = $Result.StatusCode
+                $Results.Headers = $Result.Headers
+            }
+            else {
+                Write-Output $Result.Response
+            }
+            
+            if ($Result.Response.Length -lt $Increment) {
                 break
             }
-
+            
             $InitialOffset += $Increment;
-        }
+            $first = $false
+        } # End of while
 
         if ($WithHttpInfo.IsPresent) {
             return $Results
-        } else {
-            return $Results.Response
         }
-    } catch {
+    }
+    catch {
         Write-Host $_
         Write-Host ("Exception occurred when calling {1}: {0}" -f ($_.ErrorDetails | ConvertFrom-Json), $Function)
         Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))

@@ -28,7 +28,7 @@ Describe 'V3' {
 "@
 
         $Search = ConvertFrom-JsonToSearch -Json $Json
-        $Response = Invoke-PaginateSearch -Increment 10 -Limit 100 -InitialOffset 0 -Search $Search -WithHttpInfo
+        $Response = Invoke-PaginateSearch -Increment 10 -Limit 100 -Search $Search -WithHttpInfo
 
         $Response.Response | Should -Not -BeNullOrEmpty
         $Response.StatusCode | Should -Be 200
@@ -54,7 +54,7 @@ Describe 'Beta' {
     }
 
     It 'Returns results for Invoke-Paginate' {
-        $Response = Invoke-Paginate "Get-BetaIdentityProfiles" -Increment 1 -Limit 5 -InitialOffset 0 -WithHttpInfo
+        $Response = Invoke-Paginate "Get-BetaIdentityProfiles" -Increment 1 -InitialOffset 0 -Limit 5 -WithHttpInfo
 
         $Response.Response | Should -Not -BeNullOrEmpty
         $Response.Response.Count | Should -Be 5

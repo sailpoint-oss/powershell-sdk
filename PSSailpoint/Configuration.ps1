@@ -256,64 +256,6 @@ function Get-IDNAccessToken {
     }
 }
 
-
-function Get-HomeConfig {
-
-    $Configuration = $Script:Configuration
-
-    if (Test-Path -Path "$HOME/.sailpoint/config.yaml" -PathType leaf) {
-
-        $ConfigObject = Get-Content -Path "$HOME/.sailpoint/config.yaml" -Raw | ConvertFrom-YAML
-
-        Write-Host $ConfigObject
-
-        if ($null -ne $ConfigObject.environments) {
-            $Environments = $ConfigObject.environments
-            $ActiveEnvironment = $ConfigObject.activeenvironment
-            if (![string]::IsNullOrEmpty($ActiveEnvironment)) {
-                if ($null -ne $Environments.Item($ActiveEnvironment).baseurl) {
-                    $Configuration["BaseUrl"] = $Environments.Item($ActiveEnvironment).baseurl + "/"
-                    $Configuration["TokenUrl"] = $Environments.Item($ActiveEnvironment).baseurl + "/oauth/token"
-                }
-                else {
-                    Write-Host "No baseurl set for environment: $ActiveEnvironment" -ForegroundColor Red
-                }
-
-                if ($null -ne $Environments.Item($ActiveEnvironment).pat.clientid) {
-                    $Configuration["ClientId"] = $Environments.Item($ActiveEnvironment).pat.clientid
-                }
-                else {
-                    Write-Host "No clientid set for environment: $ActiveEnvironment" -ForegroundColor Red
-                }
-
-                if ($null -ne $Environments.Item($ActiveEnvironment).pat.clientsecret) {
-                    $Configuration["ClientSecret"] = $Environments.Item($ActiveEnvironment).pat.clientsecret
-                }
-                else {
-                    Write-Host "No clientsecret set for environment: $ActiveEnvironment" -ForegroundColor Red
-                }
-
-                if ($null -ne $Configuration["Environment"]) {
-                    if ($Configuration["Environment"] -ne $ActiveEnvironment) {
-                        Write-Debug "Environment has switched, resetting token."
-                        $Configuration["Token"] = ""
-                    }
-                }
-
-                $Configuration["Environment"] = $ActiveEnvironment
-            }
-            else {
-                Write-Host "No active environment is set" -ForegroundColor Red
-            }
-        }
-        else {
-            Write-Host "No environments specified in config file" -ForegroundColor Red
-        }
-    }
-
-    return $Configuration
-}
-
 function Get-EnvConfig {
     $Configuration = $Script:Configuration
 
@@ -360,12 +302,6 @@ function Get-Config {
     $LocalConfig = Get-LocalConfig
     if ($LocalConfig.clientId) {
         return $LocalConfig
-    }
-
-    $HomeConfiguration = Get-HomeConfig
-    if ($HomeConfiguration.clientId) {
-        Write-Host "Configuration file found in home directory, this approach of loading configuration will be deprecated in future releases, please upgrade the CLI and use the new 'sail sdk init config' command to create a local configuration file"
-        return $HomeConfiguration
     }
 
     return $Configuration

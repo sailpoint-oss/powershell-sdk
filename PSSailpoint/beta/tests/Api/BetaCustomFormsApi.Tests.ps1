@@ -120,7 +120,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCustomFormsApi' {
 
     Context 'Search-BetaFormElementDataByElementID' {
         It 'Test Search-BetaFormElementDataByElementID' {
-            #$TestResult = Search-BetaFormElementDataByElementID -FormInstanceID "TEST_VALUE" -FormElementID "TEST_VALUE" -Limit "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Search-BetaFormElementDataByElementID -FormInstanceID "TEST_VALUE" -FormElementID "TEST_VALUE" -Limit "TEST_VALUE" -Filters "TEST_VALUE" -Query "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

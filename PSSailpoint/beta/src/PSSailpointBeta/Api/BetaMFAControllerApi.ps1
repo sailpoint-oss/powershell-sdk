@@ -297,7 +297,7 @@ Authenticate KBA provided MFA method
 
 This API Authenticate user in KBA MFA method.
 
-.PARAMETER KbaAnswerRequest
+.PARAMETER KbaAnswerRequestItem
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -312,8 +312,8 @@ function Send-BetaKbaAnswers {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${KbaAnswerRequest},
+        [PSCustomObject[]]
+        ${KbaAnswerRequestItem},
         [Switch]
         $WithHttpInfo
     )
@@ -340,14 +340,14 @@ function Send-BetaKbaAnswers {
 
         $LocalVarUri = '/mfa/kba/authenticate'
 
-        if (!$KbaAnswerRequest) {
-            throw "Error! The required parameter `KbaAnswerRequest` missing when calling sendKbaAnswers."
+        if (!$KbaAnswerRequestItem) {
+            throw "Error! The required parameter `KbaAnswerRequestItem` missing when calling sendKbaAnswers."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
-            $LocalVarBodyParameter = $KbaAnswerRequest | ConvertTo-Json -AsArray -Depth 100
+            $LocalVarBodyParameter = $KbaAnswerRequestItem | ConvertTo-Json -AsArray -Depth 100
 } else {
-            $LocalVarBodyParameter = $KbaAnswerRequest | ForEach-Object {
+            $LocalVarBodyParameter = $KbaAnswerRequestItem | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

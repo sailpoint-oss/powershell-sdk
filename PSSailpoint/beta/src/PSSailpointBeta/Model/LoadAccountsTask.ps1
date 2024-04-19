@@ -14,32 +14,34 @@ No summary available.
 
 No description available.
 
-.PARAMETER Answers
-Kba answers
+.PARAMETER Success
+The status of the result
+.PARAMETER Task
+No description available.
 .OUTPUTS
 
-KbaAnswerRequest<PSCustomObject>
+LoadAccountsTask<PSCustomObject>
 #>
 
-function Initialize-BetaKbaAnswerRequest {
+function Initialize-BetaLoadAccountsTask {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${Answers}
+        [System.Nullable[Boolean]]
+        ${Success} = $true,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Task}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaKbaAnswerRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaLoadAccountsTask' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$Answers) {
-            throw "invalid value for 'Answers', 'Answers' cannot be null."
-        }
 
 
         $PSO = [PSCustomObject]@{
-            "answers" = ${Answers}
+            "success" = ${Success}
+            "task" = ${Task}
         }
 
         return $PSO
@@ -49,11 +51,11 @@ function Initialize-BetaKbaAnswerRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to KbaAnswerRequest<PSCustomObject>
+Convert from JSON to LoadAccountsTask<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to KbaAnswerRequest<PSCustomObject>
+Convert from JSON to LoadAccountsTask<PSCustomObject>
 
 .PARAMETER Json
 
@@ -61,40 +63,43 @@ Json object
 
 .OUTPUTS
 
-KbaAnswerRequest<PSCustomObject>
+LoadAccountsTask<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToKbaAnswerRequest {
+function ConvertFrom-BetaJsonToLoadAccountsTask {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaKbaAnswerRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaLoadAccountsTask' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaKbaAnswerRequest
-        $AllProperties = ("answers")
+        # check if Json contains properties not defined in BetaLoadAccountsTask
+        $AllProperties = ("success", "task")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'answers' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "success"))) { #optional property not found
+            $Success = $null
+        } else {
+            $Success = $JsonParameters.PSobject.Properties["success"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "answers"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'answers' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "task"))) { #optional property not found
+            $Task = $null
         } else {
-            $Answers = $JsonParameters.PSobject.Properties["answers"].value
+            $Task = $JsonParameters.PSobject.Properties["task"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "answers" = ${Answers}
+            "success" = ${Success}
+            "task" = ${Task}
         }
 
         return $PSO

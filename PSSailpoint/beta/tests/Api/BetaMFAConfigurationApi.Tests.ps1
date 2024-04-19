@@ -22,6 +22,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaMFAConfigurationApi' {
         }
     }
 
+    Context 'Get-BetaMFAKbaConfig' {
+        It 'Test Get-BetaMFAKbaConfig' {
+            #$TestResult = Get-BetaMFAKbaConfig -AllLanguages "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaMFAOktaConfig' {
         It 'Test Get-BetaMFAOktaConfig' {
             #$TestResult = Get-BetaMFAOktaConfig
@@ -33,6 +41,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaMFAConfigurationApi' {
     Context 'Set-BetaMFADuoConfig' {
         It 'Test Set-BetaMFADuoConfig' {
             #$TestResult = Set-BetaMFADuoConfig -MfaDuoConfig "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-BetaMFAKBAConfig' {
+        It 'Test Set-BetaMFAKBAConfig' {
+            #$TestResult = Set-BetaMFAKBAConfig -KbaAnswerRequestItem "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -269,8 +269,10 @@ Class | Method | HTTP request | Description
 *BetaLifecycleStatesApi* | [**Update-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 *BetaMFAConfigurationApi* | [**Remove-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Remove-BetaMFAConfig) | **DELETE** /mfa/{method}/delete | Delete MFA method configuration
 *BetaMFAConfigurationApi* | [**Get-BetaMFADuoConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of Duo MFA method
+*BetaMFAConfigurationApi* | [**Get-BetaMFAKbaConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAKbaConfig) | **GET** /mfa/kba/config | Configuration of KBA MFA method
 *BetaMFAConfigurationApi* | [**Get-BetaMFAOktaConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of Okta MFA method
 *BetaMFAConfigurationApi* | [**Set-BetaMFADuoConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFADuoConfig) | **PUT** /mfa/duo-web/config | Set Duo MFA configuration
+*BetaMFAConfigurationApi* | [**Set-BetaMFAKBAConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
 *BetaMFAConfigurationApi* | [**Set-BetaMFAOktaConfig**](docs/BetaMFAConfigurationApi.md#Set-BetaMFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *BetaMFAConfigurationApi* | [**Test-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Test-BetaMFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
 *BetaMFAControllerApi* | [**New-BetaSendToken**](docs/BetaMFAControllerApi.md#New-BetaSendToken) | **POST** /mfa/token/send | Create and send user token
@@ -463,6 +465,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
 *BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
+*BetaSourcesAggregationApi* | [**Import-BetaAccounts**](docs/BetaSourcesAggregationApi.md#Import-BetaAccounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatchStats**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatches**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSeds**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSeds) | **GET** /suggested-entitlement-descriptions | List Suggested Entitlement Description
@@ -927,6 +930,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.IdentitySyncPayload](docs/IdentitySyncPayload.md)
  - [PSSailpointBeta\Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpointBeta\Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
+ - [PSSailpointBeta\Model.ImportAccountsRequest](docs/ImportAccountsRequest.md)
  - [PSSailpointBeta\Model.ImportEntitlementsRequest](docs/ImportEntitlementsRequest.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202ResponseErrorsInner](docs/ImportFormDefinitions202ResponseErrorsInner.md)
@@ -941,10 +945,11 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpointBeta\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpointBeta\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
- - [PSSailpointBeta\Model.KbaAnswerRequest](docs/KbaAnswerRequest.md)
  - [PSSailpointBeta\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
+ - [PSSailpointBeta\Model.KbaAnswerResponseItem](docs/KbaAnswerResponseItem.md)
  - [PSSailpointBeta\Model.KbaAuthResponse](docs/KbaAuthResponse.md)
  - [PSSailpointBeta\Model.KbaAuthResponseItem](docs/KbaAuthResponseItem.md)
+ - [PSSailpointBeta\Model.KbaQuestion](docs/KbaQuestion.md)
  - [PSSailpointBeta\Model.LatestOutlierSummary](docs/LatestOutlierSummary.md)
  - [PSSailpointBeta\Model.LeftPad](docs/LeftPad.md)
  - [PSSailpointBeta\Model.License](docs/License.md)
@@ -959,6 +964,10 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
  - [PSSailpointBeta\Model.ListPredefinedSelectOptionsResponse](docs/ListPredefinedSelectOptionsResponse.md)
  - [PSSailpointBeta\Model.ListWorkgroupMembers200ResponseInner](docs/ListWorkgroupMembers200ResponseInner.md)
+ - [PSSailpointBeta\Model.LoadAccountsTask](docs/LoadAccountsTask.md)
+ - [PSSailpointBeta\Model.LoadAccountsTaskTask](docs/LoadAccountsTaskTask.md)
+ - [PSSailpointBeta\Model.LoadAccountsTaskTaskAttributes](docs/LoadAccountsTaskTaskAttributes.md)
+ - [PSSailpointBeta\Model.LoadAccountsTaskTaskMessagesInner](docs/LoadAccountsTaskTaskMessagesInner.md)
  - [PSSailpointBeta\Model.LoadEntitlementTask](docs/LoadEntitlementTask.md)
  - [PSSailpointBeta\Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpointBeta\Model.LocalizedMessage](docs/LocalizedMessage.md)

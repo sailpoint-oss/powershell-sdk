@@ -50,6 +50,22 @@ function ConvertFrom-JsonToJsonPatchOperationValue {
             Write-Debug "Failed to match 'ArrayInner[]' defined in oneOf (JsonPatchOperationValue). Proceeding to the next one if any."
         }
 
+        # try to match Boolean defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-JsonToBoolean $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "Boolean"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'Boolean' defined in oneOf (JsonPatchOperationValue). Proceeding to the next one if any."
+        }
+
         # try to match Int32 defined in the oneOf schemas
         try {
             $matchInstance = ConvertFrom-JsonToInt32 $Json
@@ -99,15 +115,15 @@ function ConvertFrom-JsonToJsonPatchOperationValue {
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([ArrayInner[], Int32, String, SystemCollectionsHashtable]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([ArrayInner[], Boolean, Int32, String, SystemCollectionsHashtable]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("ArrayInner[]", "Int32", "String", "SystemCollectionsHashtable")
+                "OneOfSchemas" = @("ArrayInner[]", "Boolean", "Int32", "String", "SystemCollectionsHashtable")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([ArrayInner[], Int32, String, SystemCollectionsHashtable]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([ArrayInner[], Boolean, Int32, String, SystemCollectionsHashtable]). JSON Payload: $($Json)"
         }
     }
 }

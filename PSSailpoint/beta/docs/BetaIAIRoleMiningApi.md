@@ -57,7 +57,7 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
 $MinEntitlementPopularity = 56 # Int32 | Minimum popularity required for an entitlement to be included in the provisioned role. (optional) (default to 0)
 $IncludeCommonAccess = $true # Boolean | Boolean determining whether common access entitlements will be included in the provisioned role. (optional) (default to $true)
-$RoleMiningPotentialRoleProvisionRequest = Initialize-RoleMiningPotentialRoleProvisionRequest -RoleName "Finance - Accounting" -RoleDescription "General access for accounting department" -OwnerId "2b568c65bc3c4c57a43bd97e3a8e41" # RoleMiningPotentialRoleProvisionRequest | Required information to create a new role (optional)
+$RoleMiningPotentialRoleProvisionRequest = Initialize-RoleMiningPotentialRoleProvisionRequest -RoleName "Finance - Accounting" -RoleDescription "General access for accounting department" -OwnerId "2b568c65bc3c4c57a43bd97e3a8e41" -IncludeIdentities $true -DirectlyAssignedEntitlements $false # RoleMiningPotentialRoleProvisionRequest | Required information to create a new role (optional)
 
 # Create request to provision a potential role into an actual role.
 try {

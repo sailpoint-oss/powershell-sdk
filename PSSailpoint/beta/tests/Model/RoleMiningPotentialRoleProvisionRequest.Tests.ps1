@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaRoleMiningPotentialRoleProvisionReque
     Context 'BetaRoleMiningPotentialRoleProvisionRequest' {
         It 'Initialize-BetaRoleMiningPotentialRoleProvisionRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRoleMiningPotentialRoleProvisionRequest -RoleName "TEST_VALUE" -RoleDescription "TEST_VALUE" -OwnerId "TEST_VALUE"
+            #$NewObject = Initialize-BetaRoleMiningPotentialRoleProvisionRequest -RoleName "TEST_VALUE" -RoleDescription "TEST_VALUE" -OwnerId "TEST_VALUE" -IncludeIdentities "TEST_VALUE" -DirectlyAssignedEntitlements "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleMiningPotentialRoleProvisionRequest
             #$NewObject.property | Should -Be 0
         }

@@ -20,6 +20,10 @@ Name of the new role being created
 Short description of the new role being created
 .PARAMETER OwnerId
 ID of the identity that will own this role
+.PARAMETER IncludeIdentities
+When true, create access requests for the identities associated with the potential role
+.PARAMETER DirectlyAssignedEntitlements
+When true, assign entitlements directly to the role; otherwise, create access profiles containing the entitlements
 .OUTPUTS
 
 RoleMiningPotentialRoleProvisionRequest<PSCustomObject>
@@ -36,7 +40,13 @@ function Initialize-BetaRoleMiningPotentialRoleProvisionRequest {
         ${RoleDescription},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${OwnerId}
+        ${OwnerId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IncludeIdentities} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${DirectlyAssignedEntitlements} = $false
     )
 
     Process {
@@ -48,6 +58,8 @@ function Initialize-BetaRoleMiningPotentialRoleProvisionRequest {
             "roleName" = ${RoleName}
             "roleDescription" = ${RoleDescription}
             "ownerId" = ${OwnerId}
+            "includeIdentities" = ${IncludeIdentities}
+            "directlyAssignedEntitlements" = ${DirectlyAssignedEntitlements}
         }
 
         return $PSO
@@ -84,7 +96,7 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRoleProvisionRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningPotentialRoleProvisionRequest
-        $AllProperties = ("roleName", "roleDescription", "ownerId")
+        $AllProperties = ("roleName", "roleDescription", "ownerId", "includeIdentities", "directlyAssignedEntitlements")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,10 +121,24 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRoleProvisionRequest {
             $OwnerId = $JsonParameters.PSobject.Properties["ownerId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "includeIdentities"))) { #optional property not found
+            $IncludeIdentities = $null
+        } else {
+            $IncludeIdentities = $JsonParameters.PSobject.Properties["includeIdentities"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "directlyAssignedEntitlements"))) { #optional property not found
+            $DirectlyAssignedEntitlements = $null
+        } else {
+            $DirectlyAssignedEntitlements = $JsonParameters.PSobject.Properties["directlyAssignedEntitlements"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "roleName" = ${RoleName}
             "roleDescription" = ${RoleDescription}
             "ownerId" = ${OwnerId}
+            "includeIdentities" = ${IncludeIdentities}
+            "directlyAssignedEntitlements" = ${DirectlyAssignedEntitlements}
         }
 
         return $PSO

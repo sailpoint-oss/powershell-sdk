@@ -335,7 +335,6 @@ function Remove-UploadedBackup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -485,7 +484,10 @@ function Get-UploadedBackup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+<<<<<<< HEAD
         $Configuration = Get-Configuration
+=======
+>>>>>>> main
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -560,7 +562,10 @@ function Get-UploadedBackups {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+<<<<<<< HEAD
         $Configuration = Get-Configuration
+=======
+>>>>>>> main
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -641,7 +646,10 @@ function Import-UploadedBackup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
+<<<<<<< HEAD
         $Configuration = Get-Configuration
+=======
+>>>>>>> main
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 

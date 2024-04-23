@@ -843,7 +843,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.SourceBeforeProvisioningRule](docs/SourceBeforeProvisioningRule.md)
  - [PSSailpoint\Model.SourceCluster](docs/SourceCluster.md)
  - [PSSailpoint\Model.SourceClusterDto](docs/SourceClusterDto.md)
- - [PSSailpoint\Model.SourceFeature](docs/SourceFeature.md)
  - [PSSailpoint\Model.SourceHealthDto](docs/SourceHealthDto.md)
  - [PSSailpoint\Model.SourceManagementWorkgroup](docs/SourceManagementWorkgroup.md)
  - [PSSailpoint\Model.SourceManagerCorrelationMapping](docs/SourceManagerCorrelationMapping.md)

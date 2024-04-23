@@ -509,7 +509,6 @@ docs/SourceAccountCorrelationRule.md
 docs/SourceBeforeProvisioningRule.md
 docs/SourceCluster.md
 docs/SourceClusterDto.md
-docs/SourceFeature.md
 docs/SourceHealthDto.md
 docs/SourceManagementWorkgroup.md
 docs/SourceManagerCorrelationMapping.md
@@ -1101,7 +1100,6 @@ src/PSSailpoint/Model/SourceAccountCorrelationRule.ps1
 src/PSSailpoint/Model/SourceBeforeProvisioningRule.ps1
 src/PSSailpoint/Model/SourceCluster.ps1
 src/PSSailpoint/Model/SourceClusterDto.ps1
-src/PSSailpoint/Model/SourceFeature.ps1
 src/PSSailpoint/Model/SourceHealthDto.ps1
 src/PSSailpoint/Model/SourceManagementWorkgroup.ps1
 src/PSSailpoint/Model/SourceManagerCorrelationMapping.ps1
@@ -1693,7 +1691,6 @@ tests/Model/SourceAccountCorrelationRule.Tests.ps1
 tests/Model/SourceBeforeProvisioningRule.Tests.ps1
 tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
-tests/Model/SourceFeature.Tests.ps1
 tests/Model/SourceHealthDto.Tests.ps1
 tests/Model/SourceManagementWorkgroup.Tests.ps1
 tests/Model/SourceManagerCorrelationMapping.Tests.ps1

@@ -1264,7 +1264,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.SourceDeleted](docs/SourceDeleted.md)
  - [PSSailpointBeta\Model.SourceDeletedActor](docs/SourceDeletedActor.md)
  - [PSSailpointBeta\Model.SourceEntitlementRequestConfig](docs/SourceEntitlementRequestConfig.md)
- - [PSSailpointBeta\Model.SourceFeature](docs/SourceFeature.md)
  - [PSSailpointBeta\Model.SourceManagementWorkgroup](docs/SourceManagementWorkgroup.md)
  - [PSSailpointBeta\Model.SourceManagerCorrelationRule](docs/SourceManagerCorrelationRule.md)
  - [PSSailpointBeta\Model.SourceOwner](docs/SourceOwner.md)

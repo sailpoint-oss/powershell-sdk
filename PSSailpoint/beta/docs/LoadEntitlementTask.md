@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | **String** | The description of the task | [optional] 
 **Launcher** | **String** | The user who initiated the task | [optional] 
 **Created** | **System.DateTime** | The creation date of the task | [optional] 
-**Returns** | [**SystemCollectionsHashtable**](.md) | Return values from the task | [optional] 
+**Returns** | [**LoadEntitlementTaskReturnsInner[]**](LoadEntitlementTaskReturnsInner.md) | Return values from the task | [optional] 
 
 ## Examples
 

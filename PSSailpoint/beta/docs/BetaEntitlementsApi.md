@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 Aggregate Entitlements
 
-Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error. If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+Starts an entitlement aggregation on the specified source.   If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
 ### Example
 ```powershell
@@ -139,7 +139,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
-$CsvFile =  # System.IO.FileInfo | 
+$CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
 
 # Aggregate Entitlements
 try {
@@ -155,7 +155,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| Source Id | 
- **CsvFile** | **System.IO.FileInfo****System.IO.FileInfo**|  | 
+ **CsvFile** | **System.IO.FileInfo****System.IO.FileInfo**| The CSV file containing the source entitlements to aggregate. | [optional] 
 
 ### Return type
 

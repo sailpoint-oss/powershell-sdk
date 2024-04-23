@@ -15,13 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER CsvFile
-The CSV file containing the source entitlements to aggregate.
+No description available.
 .OUTPUTS
 
-ImportEntitlementsRequest<PSCustomObject>
+SendManualDiscoverApplicationsCsvTemplateRequest<PSCustomObject>
 #>
 
-function Initialize-BetaImportEntitlementsRequest {
+function Initialize-BetaSendManualDiscoverApplicationsCsvTemplateRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,8 +30,12 @@ function Initialize-BetaImportEntitlementsRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaImportEntitlementsRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaSendManualDiscoverApplicationsCsvTemplateRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$CsvFile) {
+            throw "invalid value for 'CsvFile', 'CsvFile' cannot be null."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -45,11 +49,11 @@ function Initialize-BetaImportEntitlementsRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to ImportEntitlementsRequest<PSCustomObject>
+Convert from JSON to SendManualDiscoverApplicationsCsvTemplateRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ImportEntitlementsRequest<PSCustomObject>
+Convert from JSON to SendManualDiscoverApplicationsCsvTemplateRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,21 +61,21 @@ Json object
 
 .OUTPUTS
 
-ImportEntitlementsRequest<PSCustomObject>
+SendManualDiscoverApplicationsCsvTemplateRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToImportEntitlementsRequest {
+function ConvertFrom-BetaJsonToSendManualDiscoverApplicationsCsvTemplateRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportEntitlementsRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSendManualDiscoverApplicationsCsvTemplateRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaImportEntitlementsRequest
+        # check if Json contains properties not defined in BetaSendManualDiscoverApplicationsCsvTemplateRequest
         $AllProperties = ("csvFile")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
@@ -79,8 +83,12 @@ function ConvertFrom-BetaJsonToImportEntitlementsRequest {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "csvFile"))) { #optional property not found
-            $CsvFile = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'csvFile' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "csvFile"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'csvFile' missing."
         } else {
             $CsvFile = $JsonParameters.PSobject.Properties["csvFile"].value
         }

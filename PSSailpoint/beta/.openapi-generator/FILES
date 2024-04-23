@@ -201,7 +201,6 @@ docs/BetaSearchAttributeConfigurationApi.md
 docs/BetaSegmentsApi.md
 docs/BetaServiceDeskIntegrationApi.md
 docs/BetaSourceUsagesApi.md
-docs/BetaSourcesAggregationApi.md
 docs/BetaSourcesApi.md
 docs/BetaSuggestedEntitlementDescriptionApi.md
 docs/BetaTaggedObjectsApi.md
@@ -493,7 +492,9 @@ docs/LoadAccountsTask.md
 docs/LoadAccountsTaskTask.md
 docs/LoadAccountsTaskTaskAttributes.md
 docs/LoadAccountsTaskTaskMessagesInner.md
+docs/LoadAccountsTaskTaskReturnsInner.md
 docs/LoadEntitlementTask.md
+docs/LoadEntitlementTaskReturnsInner.md
 docs/LocaleOrigin.md
 docs/LocalizedMessage.md
 docs/Lookup.md
@@ -745,6 +746,7 @@ docs/Segment.md
 docs/Selector.md
 docs/SelectorType.md
 docs/SelfImportExportDto.md
+docs/SendManualDiscoverApplicationsCsvTemplateRequest.md
 docs/SendTestNotificationRequestDto.md
 docs/SendTokenRequest.md
 docs/SendTokenResponse.md
@@ -968,7 +970,6 @@ src/PSSailpointBeta/Api/BetaSearchAttributeConfigurationApi.ps1
 src/PSSailpointBeta/Api/BetaSegmentsApi.ps1
 src/PSSailpointBeta/Api/BetaServiceDeskIntegrationApi.ps1
 src/PSSailpointBeta/Api/BetaSourceUsagesApi.ps1
-src/PSSailpointBeta/Api/BetaSourcesAggregationApi.ps1
 src/PSSailpointBeta/Api/BetaSourcesApi.ps1
 src/PSSailpointBeta/Api/BetaSuggestedEntitlementDescriptionApi.ps1
 src/PSSailpointBeta/Api/BetaTaggedObjectsApi.ps1
@@ -1400,7 +1401,9 @@ src/PSSailpointBeta/Model/LoadAccountsTask.ps1
 src/PSSailpointBeta/Model/LoadAccountsTaskTask.ps1
 src/PSSailpointBeta/Model/LoadAccountsTaskTaskAttributes.ps1
 src/PSSailpointBeta/Model/LoadAccountsTaskTaskMessagesInner.ps1
+src/PSSailpointBeta/Model/LoadAccountsTaskTaskReturnsInner.ps1
 src/PSSailpointBeta/Model/LoadEntitlementTask.ps1
+src/PSSailpointBeta/Model/LoadEntitlementTaskReturnsInner.ps1
 src/PSSailpointBeta/Model/LocaleOrigin.ps1
 src/PSSailpointBeta/Model/LocalizedMessage.ps1
 src/PSSailpointBeta/Model/Lookup.ps1
@@ -1653,6 +1656,7 @@ src/PSSailpointBeta/Model/Segment.ps1
 src/PSSailpointBeta/Model/Selector.ps1
 src/PSSailpointBeta/Model/SelectorType.ps1
 src/PSSailpointBeta/Model/SelfImportExportDto.ps1
+src/PSSailpointBeta/Model/SendManualDiscoverApplicationsCsvTemplateRequest.ps1
 src/PSSailpointBeta/Model/SendTestNotificationRequestDto.ps1
 src/PSSailpointBeta/Model/SendTokenRequest.ps1
 src/PSSailpointBeta/Model/SendTokenResponse.ps1
@@ -1883,7 +1887,6 @@ tests/Api/BetaSearchAttributeConfigurationApi.Tests.ps1
 tests/Api/BetaSegmentsApi.Tests.ps1
 tests/Api/BetaServiceDeskIntegrationApi.Tests.ps1
 tests/Api/BetaSourceUsagesApi.Tests.ps1
-tests/Api/BetaSourcesAggregationApi.Tests.ps1
 tests/Api/BetaSourcesApi.Tests.ps1
 tests/Api/BetaSuggestedEntitlementDescriptionApi.Tests.ps1
 tests/Api/BetaTaggedObjectsApi.Tests.ps1
@@ -2314,7 +2317,9 @@ tests/Model/LoadAccountsTask.Tests.ps1
 tests/Model/LoadAccountsTaskTask.Tests.ps1
 tests/Model/LoadAccountsTaskTaskAttributes.Tests.ps1
 tests/Model/LoadAccountsTaskTaskMessagesInner.Tests.ps1
+tests/Model/LoadAccountsTaskTaskReturnsInner.Tests.ps1
 tests/Model/LoadEntitlementTask.Tests.ps1
+tests/Model/LoadEntitlementTaskReturnsInner.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
 tests/Model/LocalizedMessage.Tests.ps1
 tests/Model/Lookup.Tests.ps1
@@ -2567,6 +2572,7 @@ tests/Model/Segment.Tests.ps1
 tests/Model/Selector.Tests.ps1
 tests/Model/SelectorType.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
+tests/Model/SendManualDiscoverApplicationsCsvTemplateRequest.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
 tests/Model/SendTokenRequest.Tests.ps1
 tests/Model/SendTokenResponse.Tests.ps1

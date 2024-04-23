@@ -91,7 +91,7 @@ function Initialize-BetaLoadAccountsTaskTask {
         [PSCustomObject]
         ${Attributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${Returns}
     )
 

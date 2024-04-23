@@ -160,13 +160,13 @@ Aggregate Entitlements
 
 .DESCRIPTION
 
-Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error. If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+Starts an entitlement aggregation on the specified source.   If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
 .PARAMETER Id
 Source Id
 
 .PARAMETER CsvFile
-No description available.
+The CSV file containing the source entitlements to aggregate.
 
 .PARAMETER WithHttpInfo
 
@@ -214,10 +214,9 @@ function Import-BetaEntitlements {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$CsvFile) {
-            throw "Error! The required parameter `CsvFile` missing when calling importEntitlements."
+        if ($CsvFile) {
+            $LocalVarFormParameters['csvFile'] = $CsvFile
         }
-        $LocalVarFormParameters['csvFile'] = $CsvFile
 
 
 

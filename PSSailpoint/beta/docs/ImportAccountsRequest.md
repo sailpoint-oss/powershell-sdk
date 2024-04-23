@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** | **System.IO.FileInfo** |  | [optional] 
-**DisableOptimization** | **Boolean** |  | [optional] 
+**File** | **System.IO.FileInfo** | The CSV file containing the source accounts to aggregate. | [optional] 
+**DisableOptimization** | **Boolean** | Use this flag to reprocess every account whether or not the data has changed. | [optional] [default to $false]
 
 ## Examples
 

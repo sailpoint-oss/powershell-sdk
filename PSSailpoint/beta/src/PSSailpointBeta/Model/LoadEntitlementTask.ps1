@@ -55,7 +55,7 @@ function Initialize-BetaLoadEntitlementTask {
         [System.Nullable[System.DateTime]]
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${Returns}
     )
 

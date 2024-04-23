@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AppId** | **String** | The id of the source | [optional] 
-**OptimizedAggregation** | [**SystemCollectionsHashtable**](.md) | The indicator if the aggregation process was enabled/disabled for the aggregation job | [optional] 
+**OptimizedAggregation** | **String** | The indicator if the aggregation process was enabled/disabled for the aggregation job | [optional] 
 
 ## Examples
 

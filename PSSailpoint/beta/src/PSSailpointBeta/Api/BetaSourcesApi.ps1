@@ -1345,6 +1345,103 @@ function Get-BetaSourceSchema {
 <#
 .SYNOPSIS
 
+Account Aggregation
+
+.DESCRIPTION
+
+Starts an account aggregation on the specified source.   If the target source is a delimited file source, then the CSV file needs to be included in the request body.  You will also need to set the Content-Type header to `multipart/form-data`.
+
+.PARAMETER Id
+Source Id
+
+.PARAMETER File
+The CSV file containing the source accounts to aggregate.
+
+.PARAMETER DisableOptimization
+Use this flag to reprocess every account whether or not the data has changed.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+LoadAccountsTask
+#>
+function Import-BetaAccounts {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${File},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${DisableOptimization},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Import-BetaAccounts' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data')
+
+        $LocalVarUri = '/sources/{id}/load-accounts'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling importAccounts."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if ($File) {
+            $LocalVarFormParameters['file'] = $File
+        }
+
+        if ($DisableOptimization) {
+            $LocalVarFormParameters['disableOptimization'] = $DisableOptimization
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "LoadAccountsTask" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Uploads source accounts schema template
 
 .DESCRIPTION

@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER File
-No description available.
+The CSV file containing the source accounts to aggregate.
 .PARAMETER DisableOptimization
-No description available.
+Use this flag to reprocess every account whether or not the data has changed.
 .OUTPUTS
 
 ImportAccountsRequest<PSCustomObject>
@@ -31,7 +31,7 @@ function Initialize-BetaImportAccountsRequest {
         ${File},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${DisableOptimization}
+        ${DisableOptimization} = $false
     )
 
     Process {

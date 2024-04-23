@@ -443,6 +443,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Get-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Get-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 *BetaSourcesApi* | [**Get-BetaSourceSchema**](docs/BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
+*BetaSourcesApi* | [**Import-BetaAccounts**](docs/BetaSourcesApi.md#Import-BetaAccounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
 *BetaSourcesApi* | [**Import-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *BetaSourcesApi* | [**Import-BetaSourceConnectorFile**](docs/BetaSourcesApi.md#Import-BetaSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *BetaSourcesApi* | [**Import-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
@@ -464,7 +465,6 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
 *BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
-*BetaSourcesAggregationApi* | [**Import-BetaAccounts**](docs/BetaSourcesAggregationApi.md#Import-BetaAccounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatchStats**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatches**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSeds**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSeds) | **GET** /suggested-entitlement-descriptions | List Suggested Entitlement Description
@@ -967,7 +967,9 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.LoadAccountsTaskTask](docs/LoadAccountsTaskTask.md)
  - [PSSailpointBeta\Model.LoadAccountsTaskTaskAttributes](docs/LoadAccountsTaskTaskAttributes.md)
  - [PSSailpointBeta\Model.LoadAccountsTaskTaskMessagesInner](docs/LoadAccountsTaskTaskMessagesInner.md)
+ - [PSSailpointBeta\Model.LoadAccountsTaskTaskReturnsInner](docs/LoadAccountsTaskTaskReturnsInner.md)
  - [PSSailpointBeta\Model.LoadEntitlementTask](docs/LoadEntitlementTask.md)
+ - [PSSailpointBeta\Model.LoadEntitlementTaskReturnsInner](docs/LoadEntitlementTaskReturnsInner.md)
  - [PSSailpointBeta\Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpointBeta\Model.LocalizedMessage](docs/LocalizedMessage.md)
  - [PSSailpointBeta\Model.Lookup](docs/Lookup.md)
@@ -1220,6 +1222,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.Selector](docs/Selector.md)
  - [PSSailpointBeta\Model.SelectorType](docs/SelectorType.md)
  - [PSSailpointBeta\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
+ - [PSSailpointBeta\Model.SendManualDiscoverApplicationsCsvTemplateRequest](docs/SendManualDiscoverApplicationsCsvTemplateRequest.md)
  - [PSSailpointBeta\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpointBeta\Model.SendTokenRequest](docs/SendTokenRequest.md)
  - [PSSailpointBeta\Model.SendTokenResponse](docs/SendTokenResponse.md)

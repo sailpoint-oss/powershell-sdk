@@ -30,7 +30,7 @@ function Initialize-BetaLoadAccountsTaskTaskAttributes {
         [String]
         ${AppId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${OptimizedAggregation}
     )
 

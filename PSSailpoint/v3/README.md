@@ -171,6 +171,17 @@ Class | Method | HTTP request | Description
 *LifecycleStatesApi* | [**Get-LifecycleStates**](docs/LifecycleStatesApi.md#Get-LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
 *LifecycleStatesApi* | [**Set-LifecycleState**](docs/LifecycleStatesApi.md#Set-LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set Lifecycle State
 *LifecycleStatesApi* | [**Update-LifecycleStates**](docs/LifecycleStatesApi.md#Update-LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
+*ManagedClientsApi* | [**New-ManagedClient**](docs/ManagedClientsApi.md#New-ManagedClient) | **POST** /managed-clients | Create a new Managed Client
+*ManagedClientsApi* | [**Remove-ManagedClient**](docs/ManagedClientsApi.md#Remove-ManagedClient) | **DELETE** /managed-clients/{id} | Delete a Managed Client
+*ManagedClientsApi* | [**Get-ManagedClient**](docs/ManagedClientsApi.md#Get-ManagedClient) | **GET** /managed-clients/{id} | Get a Managed Client
+*ManagedClientsApi* | [**Get-ManagedClientStatus**](docs/ManagedClientsApi.md#Get-ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status.
+*ManagedClientsApi* | [**Get-ManagedClients**](docs/ManagedClientsApi.md#Get-ManagedClients) | **GET** /managed-clients | Get Managed Clients
+*ManagedClientsApi* | [**Update-ManagedClient**](docs/ManagedClientsApi.md#Update-ManagedClient) | **PATCH** /managed-clients/{id} | Update a Managed Client
+*ManagedClustersApi* | [**New-ManagedCluster**](docs/ManagedClustersApi.md#New-ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
+*ManagedClustersApi* | [**Remove-ManagedCluster**](docs/ManagedClustersApi.md#Remove-ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
+*ManagedClustersApi* | [**Get-ManagedCluster**](docs/ManagedClustersApi.md#Get-ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
+*ManagedClustersApi* | [**Get-ManagedClusters**](docs/ManagedClustersApi.md#Get-ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
+*ManagedClustersApi* | [**Update-ManagedCluster**](docs/ManagedClustersApi.md#Update-ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
 *NonEmployeeLifecycleManagementApi* | [**Approve-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Approve-NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -486,6 +497,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.CertificationPhase](docs/CertificationPhase.md)
  - [PSSailpoint\Model.CertificationReference](docs/CertificationReference.md)
  - [PSSailpoint\Model.CertificationTask](docs/CertificationTask.md)
+ - [PSSailpoint\Model.ClientLogConfiguration](docs/ClientLogConfiguration.md)
  - [PSSailpoint\Model.ClientType](docs/ClientType.md)
  - [PSSailpoint\Model.Column](docs/Column.md)
  - [PSSailpoint\Model.Comment](docs/Comment.md)
@@ -599,6 +611,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.Index](docs/Index.md)
  - [PSSailpoint\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint\Model.InnerHit](docs/InnerHit.md)
+ - [PSSailpoint\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpoint\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpoint\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
  - [PSSailpoint\Model.LeftPad](docs/LeftPad.md)
@@ -611,6 +624,18 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpoint\Model.Lookup](docs/Lookup.md)
  - [PSSailpoint\Model.Lower](docs/Lower.md)
+ - [PSSailpoint\Model.ManagedClient](docs/ManagedClient.md)
+ - [PSSailpoint\Model.ManagedClientRequest](docs/ManagedClientRequest.md)
+ - [PSSailpoint\Model.ManagedClientStatus](docs/ManagedClientStatus.md)
+ - [PSSailpoint\Model.ManagedClientStatusCode](docs/ManagedClientStatusCode.md)
+ - [PSSailpoint\Model.ManagedClientType](docs/ManagedClientType.md)
+ - [PSSailpoint\Model.ManagedCluster](docs/ManagedCluster.md)
+ - [PSSailpoint\Model.ManagedClusterAttributes](docs/ManagedClusterAttributes.md)
+ - [PSSailpoint\Model.ManagedClusterKeyPair](docs/ManagedClusterKeyPair.md)
+ - [PSSailpoint\Model.ManagedClusterQueue](docs/ManagedClusterQueue.md)
+ - [PSSailpoint\Model.ManagedClusterRedis](docs/ManagedClusterRedis.md)
+ - [PSSailpoint\Model.ManagedClusterRequest](docs/ManagedClusterRequest.md)
+ - [PSSailpoint\Model.ManagedClusterTypes](docs/ManagedClusterTypes.md)
  - [PSSailpoint\Model.ManagerCorrelationMapping](docs/ManagerCorrelationMapping.md)
  - [PSSailpoint\Model.ManualWorkItemDetails](docs/ManualWorkItemDetails.md)
  - [PSSailpoint\Model.ManualWorkItemDetailsCurrentOwner](docs/ManualWorkItemDetailsCurrentOwner.md)
@@ -830,6 +855,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.SourceUsageStatus](docs/SourceUsageStatus.md)
  - [PSSailpoint\Model.SpConfigMessage](docs/SpConfigMessage.md)
  - [PSSailpoint\Model.Split](docs/Split.md)
+ - [PSSailpoint\Model.StandardLevel](docs/StandardLevel.md)
  - [PSSailpoint\Model.Static](docs/Static.md)
  - [PSSailpoint\Model.SubSearchAggregationSpecification](docs/SubSearchAggregationSpecification.md)
  - [PSSailpoint\Model.Substring](docs/Substring.md)

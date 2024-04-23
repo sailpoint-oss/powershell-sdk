@@ -54,7 +54,6 @@ function New-ObjectMapping {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -71,9 +70,9 @@ function New-ObjectMapping {
             throw "Error! The required parameter `ObjectMappingRequest` missing when calling createObjectMapping."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ObjectMappingRequest -is [array])) {
             $LocalVarBodyParameter = $ObjectMappingRequest | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $ObjectMappingRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -155,7 +154,6 @@ function New-ObjectMappings {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -172,9 +170,9 @@ function New-ObjectMappings {
             throw "Error! The required parameter `ObjectMappingBulkCreateRequest` missing when calling createObjectMappings."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ObjectMappingBulkCreateRequest -is [array])) {
             $LocalVarBodyParameter = $ObjectMappingBulkCreateRequest | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $ObjectMappingBulkCreateRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -256,7 +254,6 @@ function Remove-ObjectMapping {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -409,7 +406,6 @@ function Get-ObjectMappings {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -484,10 +480,6 @@ function Get-UploadedBackup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-<<<<<<< HEAD
-        $Configuration = Get-Configuration
-=======
->>>>>>> main
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -562,10 +554,6 @@ function Get-UploadedBackups {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-<<<<<<< HEAD
-        $Configuration = Get-Configuration
-=======
->>>>>>> main
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -646,10 +634,6 @@ function Import-UploadedBackup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-<<<<<<< HEAD
-        $Configuration = Get-Configuration
-=======
->>>>>>> main
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -739,7 +723,6 @@ function Update-ObjectMappings {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -756,9 +739,9 @@ function Update-ObjectMappings {
             throw "Error! The required parameter `ObjectMappingBulkPatchRequest` missing when calling updateObjectMappings."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ObjectMappingBulkPatchRequest -is [array])) {
             $LocalVarBodyParameter = $ObjectMappingBulkPatchRequest | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $ObjectMappingBulkPatchRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

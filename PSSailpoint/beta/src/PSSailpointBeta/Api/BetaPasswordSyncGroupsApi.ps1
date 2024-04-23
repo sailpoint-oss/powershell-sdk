@@ -48,7 +48,6 @@ function New-BetaPasswordSyncGroup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -61,9 +60,9 @@ function New-BetaPasswordSyncGroup {
             throw "Error! The required parameter `PasswordSyncGroup` missing when calling createPasswordSyncGroup."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordSyncGroup -is [array])) {
             $LocalVarBodyParameter = $PasswordSyncGroup | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -139,7 +138,6 @@ function Remove-BetaPasswordSyncGroup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -214,7 +212,6 @@ function Get-BetaPasswordSyncGroup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -301,7 +298,6 @@ function Get-BetaPasswordSyncGroups {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -390,7 +386,6 @@ function Update-BetaPasswordSyncGroup {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -407,9 +402,9 @@ function Update-BetaPasswordSyncGroup {
             throw "Error! The required parameter `PasswordSyncGroup` missing when calling updatePasswordSyncGroup."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordSyncGroup -is [array])) {
             $LocalVarBodyParameter = $PasswordSyncGroup | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $PasswordSyncGroup | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

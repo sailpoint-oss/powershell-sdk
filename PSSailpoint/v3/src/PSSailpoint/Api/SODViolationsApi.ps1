@@ -48,7 +48,6 @@ function Start-PredictSodViolations {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -61,9 +60,9 @@ function Start-PredictSodViolations {
             throw "Error! The required parameter `IdentityWithNewAccess` missing when calling startPredictSodViolations."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess -is [array])) {
             $LocalVarBodyParameter = $IdentityWithNewAccess | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $IdentityWithNewAccess | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -139,7 +138,6 @@ function Start-ViolationCheck {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -152,9 +150,9 @@ function Start-ViolationCheck {
             throw "Error! The required parameter `IdentityWithNewAccess1` missing when calling startViolationCheck."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess1 -is [array])) {
             $LocalVarBodyParameter = $IdentityWithNewAccess1 | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $IdentityWithNewAccess1 | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

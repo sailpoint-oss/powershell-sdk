@@ -48,7 +48,6 @@ function Add-BetaAccessRequestRecommendationsIgnoredItem {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -61,9 +60,9 @@ function Add-BetaAccessRequestRecommendationsIgnoredItem {
             throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsIgnoredItem."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -139,7 +138,6 @@ function Add-BetaAccessRequestRecommendationsRequestedItem {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -152,9 +150,9 @@ function Add-BetaAccessRequestRecommendationsRequestedItem {
             throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsRequestedItem."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -230,7 +228,6 @@ function Add-BetaAccessRequestRecommendationsViewedItem {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -243,9 +240,9 @@ function Add-BetaAccessRequestRecommendationsViewedItem {
             throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsViewedItem."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -321,7 +318,6 @@ function Add-BetaAccessRequestRecommendationsViewedItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -334,9 +330,9 @@ function Add-BetaAccessRequestRecommendationsViewedItems {
             throw "Error! The required parameter `AccessRequestRecommendationActionItemDto` missing when calling addAccessRequestRecommendationsViewedItems."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationActionItemDto -is [array])) {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $AccessRequestRecommendationActionItemDto | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -448,7 +444,6 @@ function Get-BetaAccessRequestRecommendations {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -571,7 +566,6 @@ function Get-BetaAccessRequestRecommendationsIgnoredItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -686,7 +680,6 @@ function Get-BetaAccessRequestRecommendationsRequestedItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -801,7 +794,6 @@ function Get-BetaAccessRequestRecommendationsViewedItems {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 

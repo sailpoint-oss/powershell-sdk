@@ -55,7 +55,6 @@ function Send-BetaManualDiscoverApplicationsCsvTemplate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('multipart/form-data', 'application/json')
 

@@ -73,7 +73,6 @@ function Search-Aggregate {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json', 'text/csv')
 
@@ -103,9 +102,9 @@ function Search-Aggregate {
             throw "Error! The required parameter `Search` missing when calling searchAggregate."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Search -is [array])) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -181,7 +180,6 @@ function Search-Count {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -194,9 +192,9 @@ function Search-Count {
             throw "Error! The required parameter `Search` missing when calling searchCount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Search -is [array])) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -250,7 +248,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SearchDocument
+SystemCollectionsHashtable
 #>
 function Search-Get {
     [CmdletBinding()]
@@ -278,7 +276,6 @@ function Search-Get {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -303,11 +300,8 @@ function Search-Get {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SearchDocument" `
+                                -ReturnType "SystemCollectionsHashtable" `
                                 -IsBodyNullable $false
-
-        # process oneOf response
-        $LocalVarResult["Response"] = ConvertFrom-JsonToSearchDocument (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult
@@ -344,7 +338,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SearchDocument[]
+SystemCollectionsHashtable[]
 #>
 function Search-Post {
     [CmdletBinding()]
@@ -378,7 +372,6 @@ function Search-Post {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-Configuration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -403,9 +396,9 @@ function Search-Post {
             throw "Error! The required parameter `Search` missing when calling searchPost."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Search -is [array])) {
             $LocalVarBodyParameter = $Search | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $Search | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
@@ -427,7 +420,7 @@ function Search-Post {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SearchDocument[]" `
+                                -ReturnType "SystemCollectionsHashtable[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

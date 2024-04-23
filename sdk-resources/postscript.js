@@ -269,7 +269,9 @@ const fixFiles = function (myArray) {
       }
     } else if (
       file.includes(`\\PSSailpoint\\v3\\docs`) ||
-      file.includes(`\\PSSailpoint\\beta\\docs`)
+      file.includes(`\\PSSailpoint\\beta\\docs`) ||
+      file.includes(`/PSSailpoint/v3/docs`) ||
+      file.includes(`/PSSailpoint/beta/docs`)
     ) {
       if (file.includes("Index.md")) {
         if (fs.existsSync(file)) {

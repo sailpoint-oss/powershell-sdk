@@ -48,7 +48,6 @@ function Start-BetaPredictSodViolations {
         $LocalVarCookieParameters = @{}
         $LocalVarBodyParameter = $null
 
-        $Configuration = Get-BetaConfiguration
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
@@ -61,9 +60,9 @@ function Start-BetaPredictSodViolations {
             throw "Error! The required parameter `IdentityWithNewAccess` missing when calling startPredictSodViolations."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json')) {
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess -is [array])) {
             $LocalVarBodyParameter = $IdentityWithNewAccess | ConvertTo-Json -AsArray -Depth 100
-} else {
+        } else {
             $LocalVarBodyParameter = $IdentityWithNewAccess | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx

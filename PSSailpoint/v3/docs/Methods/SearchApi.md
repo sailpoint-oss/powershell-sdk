@@ -108,12 +108,12 @@ Path   | Id | **String** | True  | ID of the requested document.
 	
 ### Return type
 
-[**SearchDocument**](../models/search-document)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The requested document. | SearchDocument
+200 | The requested document. | SystemCollectionsHashtable
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -146,12 +146,12 @@ Param Type | Name | Data Type | Required  | Description
 	
 ### Return type
 
-[**SearchDocument[]**](../models/search-document)
+[**SystemCollectionsHashtable[]**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-8.0)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of matching documents. | SearchDocument[]
+200 | List of matching documents. | SystemCollectionsHashtable[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

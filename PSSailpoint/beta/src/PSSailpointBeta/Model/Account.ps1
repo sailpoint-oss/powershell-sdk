@@ -130,10 +130,6 @@ function Initialize-BetaAccount {
             throw "invalid value for 'SourceName', 'SourceName' cannot be null."
         }
 
-        if (!$Attributes) {
-            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
-        }
-
         if (!$Authoritative) {
             throw "invalid value for 'Authoritative', 'Authoritative' cannot be null."
         }

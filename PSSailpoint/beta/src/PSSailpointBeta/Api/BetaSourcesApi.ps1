@@ -1349,7 +1349,7 @@ Account Aggregation
 
 .DESCRIPTION
 
-Starts an account aggregation on the specified source.   If the target source is a delimited file source, then the CSV file needs to be included in the request body.  You will also need to set the Content-Type header to `multipart/form-data`.
+Starts an account aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER Id
 Source Id

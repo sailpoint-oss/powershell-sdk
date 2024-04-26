@@ -81,7 +81,7 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Get-AccountEntitlements**](docs/AccountsApi.md#Get-AccountEntitlements) | **GET** /accounts/{id}/entitlements | Account Entitlements
 *AccountsApi* | [**Get-Accounts**](docs/AccountsApi.md#Get-Accounts) | **GET** /accounts | Accounts List
 *AccountsApi* | [**Send-Account**](docs/AccountsApi.md#Send-Account) | **PUT** /accounts/{id} | Update Account
-*AccountsApi* | [**Invoke-ReloadAccount**](docs/AccountsApi.md#Invoke-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
+*AccountsApi* | [**Submit-ReloadAccount**](docs/AccountsApi.md#Submit-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *AccountsApi* | [**Unlock-Account**](docs/AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
 *AuthUsersApi* | [**Get-AuthUser**](docs/AuthUsersApi.md#Get-AuthUser) | **GET** /auth-users/{id} | Auth User Details

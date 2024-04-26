@@ -70,9 +70,9 @@ Describe -tag 'PSSailpoint' -name 'AccountsApi' {
         }
     }
 
-    Context 'Invoke-ReloadAccount' {
-        It 'Test Invoke-ReloadAccount' {
-            #$TestResult = Invoke-ReloadAccount -Id "TEST_VALUE"
+    Context 'Submit-ReloadAccount' {
+        It 'Test Submit-ReloadAccount' {
+            #$TestResult = Submit-ReloadAccount -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

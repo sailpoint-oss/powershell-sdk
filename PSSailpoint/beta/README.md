@@ -91,7 +91,7 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Get-BetaAccountEntitlements**](docs/BetaAccountsApi.md#Get-BetaAccountEntitlements) | **GET** /accounts/{id}/entitlements | Account Entitlements
 *BetaAccountsApi* | [**Get-BetaAccounts**](docs/BetaAccountsApi.md#Get-BetaAccounts) | **GET** /accounts | Accounts List
 *BetaAccountsApi* | [**Send-BetaAccount**](docs/BetaAccountsApi.md#Send-BetaAccount) | **PUT** /accounts/{id} | Update Account
-*BetaAccountsApi* | [**Invoke-BetaReloadAccount**](docs/BetaAccountsApi.md#Invoke-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
+*BetaAccountsApi* | [**Submit-BetaReloadAccount**](docs/BetaAccountsApi.md#Submit-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *BetaAccountsApi* | [**Unlock-BetaAccount**](docs/BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
 *BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval

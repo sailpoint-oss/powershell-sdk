@@ -118,9 +118,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccountsApi' {
         }
     }
 
-    Context 'Invoke-BetaReloadAccount' {
-        It 'Test Invoke-BetaReloadAccount' {
-            #$TestResult = Invoke-BetaReloadAccount -Id "TEST_VALUE"
+    Context 'Submit-BetaReloadAccount' {
+        It 'Test Submit-BetaReloadAccount' {
+            #$TestResult = Submit-BetaReloadAccount -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

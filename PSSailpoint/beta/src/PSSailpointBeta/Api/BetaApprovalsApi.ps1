@@ -12,7 +12,7 @@ Get an approval
 
 .DESCRIPTION
 
-Retrieve a single approval for a given approval ID
+Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
 
 .PARAMETER Id
 ID of the approval that is to be returned
@@ -51,7 +51,7 @@ function Get-BetaApproval {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/approvals/{id}'
+        $LocalVarUri = '/generic-approvals/{id}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling getApproval."
         }
@@ -86,7 +86,7 @@ Get Approvals
 
 .DESCRIPTION
 
-Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. ""Mine"" query parameter can be used and it will return all approvals for the current approver.  Absence of all query parameters will will default to mine=true.
+Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. ""Mine"" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.  Absence of all query parameters will will default to mine=true.
 
 .PARAMETER Mine
 Returns the list of approvals for the current caller
@@ -137,7 +137,7 @@ function Get-BetaApprovals {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/approvals'
+        $LocalVarUri = '/generic-approvals'
 
         if ($Mine) {
             $LocalVarQueryParameters['mine'] = $Mine
@@ -222,7 +222,7 @@ function Update-BetaApproval {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/approvals/{id}'
+        $LocalVarUri = '/generic-approvals/{id}'
 
         if (!$ApprovalDto) {
             throw "Error! The required parameter `ApprovalDto` missing when calling patchApproval."

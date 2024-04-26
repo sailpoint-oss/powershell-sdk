@@ -103,6 +103,7 @@ docs/ActivateCampaignOptions.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
 docs/Approval.md
+docs/ApprovalBatch.md
 docs/ApprovalComment.md
 docs/ApprovalDescription.md
 docs/ApprovalDto.md
@@ -1083,6 +1084,7 @@ src/PSSailpointBeta/Model/ActivateCampaignOptions.ps1
 src/PSSailpointBeta/Model/AdminReviewReassign.ps1
 src/PSSailpointBeta/Model/AdminReviewReassignReassignTo.ps1
 src/PSSailpointBeta/Model/Approval.ps1
+src/PSSailpointBeta/Model/ApprovalBatch.ps1
 src/PSSailpointBeta/Model/ApprovalComment.ps1
 src/PSSailpointBeta/Model/ApprovalDescription.ps1
 src/PSSailpointBeta/Model/ApprovalDto.ps1
@@ -1999,6 +2001,7 @@ tests/Model/ActivateCampaignOptions.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
 tests/Model/Approval.Tests.ps1
+tests/Model/ApprovalBatch.Tests.ps1
 tests/Model/ApprovalComment.Tests.ps1
 tests/Model/ApprovalDescription.Tests.ps1
 tests/Model/ApprovalDto.Tests.ps1

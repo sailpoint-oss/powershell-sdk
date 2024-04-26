@@ -4,9 +4,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaApproval**](BetaApprovalsApi.md#Get-BetaApproval) | **GET** /approvals/{id} | Get an approval
-[**Get-BetaApprovals**](BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /approvals | Get Approvals
-[**Update-BetaApproval**](BetaApprovalsApi.md#Update-BetaApproval) | **PATCH** /approvals/{id} | Change an approval
+[**Get-BetaApproval**](BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval
+[**Get-BetaApprovals**](BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get Approvals
+[**Update-BetaApproval**](BetaApprovalsApi.md#Update-BetaApproval) | **PATCH** /generic-approvals/{id} | Change an approval
 
 
 <a id="Get-BetaApproval"></a>
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Get an approval
 
-Retrieve a single approval for a given approval ID
+Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
 
 ### Example
 ```powershell
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 Get Approvals
 
-Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. ""Mine"" query parameter can be used and it will return all approvals for the current approver.  Absence of all query parameters will will default to mine=true.
+Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. ""Mine"" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.  Absence of all query parameters will will default to mine=true.
 
 ### Example
 ```powershell

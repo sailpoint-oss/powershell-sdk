@@ -94,9 +94,9 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Invoke-BetaReloadAccount**](docs/BetaAccountsApi.md#Invoke-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *BetaAccountsApi* | [**Unlock-BetaAccount**](docs/BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
-*BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /approvals/{id} | Get an approval
-*BetaApprovalsApi* | [**Get-BetaApprovals**](docs/BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /approvals | Get Approvals
-*BetaApprovalsApi* | [**Update-BetaApproval**](docs/BetaApprovalsApi.md#Update-BetaApproval) | **PATCH** /approvals/{id} | Change an approval
+*BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval
+*BetaApprovalsApi* | [**Get-BetaApprovals**](docs/BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get Approvals
+*BetaApprovalsApi* | [**Update-BetaApproval**](docs/BetaApprovalsApi.md#Update-BetaApproval) | **PATCH** /generic-approvals/{id} | Change an approval
 *BetaAuthProfileApi* | [**Get-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile.
 *BetaAuthProfileApi* | [**Get-BetaProfileConfigList**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles.
 *BetaAuthProfileApi* | [**Update-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Update-BetaProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
@@ -649,6 +649,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.AdminReviewReassign](docs/AdminReviewReassign.md)
  - [PSSailpointBeta\Model.AdminReviewReassignReassignTo](docs/AdminReviewReassignReassignTo.md)
  - [PSSailpointBeta\Model.Approval](docs/Approval.md)
+ - [PSSailpointBeta\Model.ApprovalBatch](docs/ApprovalBatch.md)
  - [PSSailpointBeta\Model.ApprovalComment](docs/ApprovalComment.md)
  - [PSSailpointBeta\Model.ApprovalDescription](docs/ApprovalDescription.md)
  - [PSSailpointBeta\Model.ApprovalDto](docs/ApprovalDto.md)

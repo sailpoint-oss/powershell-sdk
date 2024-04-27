@@ -146,6 +146,7 @@ Class | Method | HTTP request | Description
 *ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | 
 *ConnectorsApi* | [**Get-Connector**](docs/ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | 
 *ConnectorsApi* | [**Get-ConnectorCorrelationConfig**](docs/ConnectorsApi.md#Get-ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | 
+*ConnectorsApi* | [**Get-ConnectorList**](docs/ConnectorsApi.md#Get-ConnectorList) | **GET** /connectors/{scriptName}/list | Gets connector list
 *ConnectorsApi* | [**Get-ConnectorSourceConfig**](docs/ConnectorsApi.md#Get-ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | 
 *ConnectorsApi* | [**Get-ConnectorSourceTemplate**](docs/ConnectorsApi.md#Get-ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | 
 *ConnectorsApi* | [**Get-ConnectorTranslations**](docs/ConnectorsApi.md#Get-ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | 

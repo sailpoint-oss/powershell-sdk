@@ -38,6 +38,14 @@ Describe -tag 'PSSailpoint' -name 'ConnectorsApi' {
         }
     }
 
+    Context 'Get-ConnectorList' {
+        It 'Test Get-ConnectorList' {
+            #$TestResult = Get-ConnectorList -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Locale "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-ConnectorSourceConfig' {
         It 'Test Get-ConnectorSourceConfig' {
             #$TestResult = Get-ConnectorSourceConfig -ScriptName "TEST_VALUE"

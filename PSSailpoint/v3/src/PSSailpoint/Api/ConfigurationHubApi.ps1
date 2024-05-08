@@ -12,7 +12,7 @@ Creates an object mapping
 
 .DESCRIPTION
 
-This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+This creates an object mapping between current org and source org. Source org should be ""default"" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
 
 .PARAMETER SourceOrg
 The name of the source org.
@@ -112,7 +112,7 @@ Bulk creates object mappings
 
 .DESCRIPTION
 
-This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+This creates a set of object mappings (Max 25) between current org and source org. Source org should be ""default"" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
 
 .PARAMETER SourceOrg
 The name of the source org.
@@ -212,7 +212,7 @@ Deletes an object mapping
 
 .DESCRIPTION
 
-This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+This deletes an existing object mapping. Source org should be ""default"" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
 
 .PARAMETER SourceOrg
 The name of the source org.
@@ -370,7 +370,7 @@ Gets list of object mappings
 
 .DESCRIPTION
 
-This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+This gets a list of existing object mappings between current org and source org. Source org should be ""default"" when getting object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:read
 
 .PARAMETER SourceOrg
 The name of the source org.
@@ -681,7 +681,7 @@ Bulk updates object mappings
 
 .DESCRIPTION
 
-This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be ""default"" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
 
 .PARAMETER SourceOrg
 The name of the source org.

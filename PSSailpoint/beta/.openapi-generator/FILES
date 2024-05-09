@@ -210,6 +210,7 @@ docs/BetaTaskManagementApi.md
 docs/BetaTenantApi.md
 docs/BetaTransformsApi.md
 docs/BetaTriggersApi.md
+docs/BetaUIMetadataApi.md
 docs/BetaVendorConnectorMappingsApi.md
 docs/BetaWorkItemsApi.md
 docs/BetaWorkReassignmentApi.md
@@ -843,6 +844,8 @@ docs/Tenant.md
 docs/TenantConfigurationDetails.md
 docs/TenantConfigurationRequest.md
 docs/TenantConfigurationResponse.md
+docs/TenantUiMetadataItemResponse.md
+docs/TenantUiMetadataItemUpdateRequest.md
 docs/TestExternalExecuteWorkflow200Response.md
 docs/TestExternalExecuteWorkflowRequest.md
 docs/TestInvocation.md
@@ -981,6 +984,7 @@ src/PSSailpointBeta/Api/BetaTaskManagementApi.ps1
 src/PSSailpointBeta/Api/BetaTenantApi.ps1
 src/PSSailpointBeta/Api/BetaTransformsApi.ps1
 src/PSSailpointBeta/Api/BetaTriggersApi.ps1
+src/PSSailpointBeta/Api/BetaUIMetadataApi.ps1
 src/PSSailpointBeta/Api/BetaVendorConnectorMappingsApi.ps1
 src/PSSailpointBeta/Api/BetaWorkItemsApi.ps1
 src/PSSailpointBeta/Api/BetaWorkReassignmentApi.ps1
@@ -1756,6 +1760,8 @@ src/PSSailpointBeta/Model/Tenant.ps1
 src/PSSailpointBeta/Model/TenantConfigurationDetails.ps1
 src/PSSailpointBeta/Model/TenantConfigurationRequest.ps1
 src/PSSailpointBeta/Model/TenantConfigurationResponse.ps1
+src/PSSailpointBeta/Model/TenantUiMetadataItemResponse.ps1
+src/PSSailpointBeta/Model/TenantUiMetadataItemUpdateRequest.ps1
 src/PSSailpointBeta/Model/TestExternalExecuteWorkflow200Response.ps1
 src/PSSailpointBeta/Model/TestExternalExecuteWorkflowRequest.ps1
 src/PSSailpointBeta/Model/TestInvocation.ps1
@@ -1901,6 +1907,7 @@ tests/Api/BetaTaskManagementApi.Tests.ps1
 tests/Api/BetaTenantApi.Tests.ps1
 tests/Api/BetaTransformsApi.Tests.ps1
 tests/Api/BetaTriggersApi.Tests.ps1
+tests/Api/BetaUIMetadataApi.Tests.ps1
 tests/Api/BetaVendorConnectorMappingsApi.Tests.ps1
 tests/Api/BetaWorkItemsApi.Tests.ps1
 tests/Api/BetaWorkReassignmentApi.Tests.ps1
@@ -2675,6 +2682,8 @@ tests/Model/Tenant.Tests.ps1
 tests/Model/TenantConfigurationDetails.Tests.ps1
 tests/Model/TenantConfigurationRequest.Tests.ps1
 tests/Model/TenantConfigurationResponse.Tests.ps1
+tests/Model/TenantUiMetadataItemResponse.Tests.ps1
+tests/Model/TenantUiMetadataItemUpdateRequest.Tests.ps1
 tests/Model/TestExternalExecuteWorkflow200Response.Tests.ps1
 tests/Model/TestExternalExecuteWorkflowRequest.Tests.ps1
 tests/Model/TestInvocation.Tests.ps1

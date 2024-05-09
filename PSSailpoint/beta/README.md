@@ -506,6 +506,8 @@ Class | Method | HTTP request | Description
 *BetaTriggersApi* | [**Start-BetaTestTriggerInvocation**](docs/BetaTriggersApi.md#Start-BetaTestTriggerInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
 *BetaTriggersApi* | [**Test-BetaSubscriptionFilter**](docs/BetaTriggersApi.md#Test-BetaSubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
 *BetaTriggersApi* | [**Update-BetaSubscription**](docs/BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
+*BetaUIMetadataApi* | [**Get-BetaTenantUiMetadata**](docs/BetaUIMetadataApi.md#Get-BetaTenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant UI metadata
+*BetaUIMetadataApi* | [**Set-BetaTenantUiMetadata**](docs/BetaUIMetadataApi.md#Set-BetaTenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant UI metadata
 *BetaVendorConnectorMappingsApi* | [**New-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#New-BetaVendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
 *BetaVendorConnectorMappingsApi* | [**Remove-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#Remove-BetaVendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
 *BetaVendorConnectorMappingsApi* | [**Get-BetaVendorConnectorMappings**](docs/BetaVendorConnectorMappingsApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
@@ -1323,6 +1325,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.TenantConfigurationDetails](docs/TenantConfigurationDetails.md)
  - [PSSailpointBeta\Model.TenantConfigurationRequest](docs/TenantConfigurationRequest.md)
  - [PSSailpointBeta\Model.TenantConfigurationResponse](docs/TenantConfigurationResponse.md)
+ - [PSSailpointBeta\Model.TenantUiMetadataItemResponse](docs/TenantUiMetadataItemResponse.md)
+ - [PSSailpointBeta\Model.TenantUiMetadataItemUpdateRequest](docs/TenantUiMetadataItemUpdateRequest.md)
  - [PSSailpointBeta\Model.TestExternalExecuteWorkflow200Response](docs/TestExternalExecuteWorkflow200Response.md)
  - [PSSailpointBeta\Model.TestExternalExecuteWorkflowRequest](docs/TestExternalExecuteWorkflowRequest.md)
  - [PSSailpointBeta\Model.TestInvocation](docs/TestInvocation.md)

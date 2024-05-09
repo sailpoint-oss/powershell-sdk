@@ -352,6 +352,11 @@ Class | Method | HTTP request | Description
 *BetaPasswordManagementApi* | [**Get-BetaIdentityPasswordChangeStatus**](docs/BetaPasswordManagementApi.md#Get-BetaIdentityPasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
 *BetaPasswordManagementApi* | [**Search-BetaPasswordInfo**](docs/BetaPasswordManagementApi.md#Search-BetaPasswordInfo) | **POST** /query-password-info | Query Password Info
 *BetaPasswordManagementApi* | [**Set-BetaIdentityPassword**](docs/BetaPasswordManagementApi.md#Set-BetaIdentityPassword) | **POST** /set-password | Set Identity's Password
+*BetaPasswordPoliciesApi* | [**New-BetaPasswordPolicy**](docs/BetaPasswordPoliciesApi.md#New-BetaPasswordPolicy) | **POST** /password-policies | Create Password Policy
+*BetaPasswordPoliciesApi* | [**Remove-BetaPasswordPolicy**](docs/BetaPasswordPoliciesApi.md#Remove-BetaPasswordPolicy) | **DELETE** /password-policies/{id} | Delete Password Policy by ID
+*BetaPasswordPoliciesApi* | [**Get-BetaPasswordPolicyById**](docs/BetaPasswordPoliciesApi.md#Get-BetaPasswordPolicyById) | **GET** /password-policies/{id} | Get Password Policy by ID
+*BetaPasswordPoliciesApi* | [**Get-BetaPasswordPolicies**](docs/BetaPasswordPoliciesApi.md#Get-BetaPasswordPolicies) | **GET** /password-policies | List Password Policies
+*BetaPasswordPoliciesApi* | [**Set-BetaPasswordPolicy**](docs/BetaPasswordPoliciesApi.md#Set-BetaPasswordPolicy) | **PUT** /password-policies/{id} | Update Password Policy by ID
 *BetaPasswordSyncGroupsApi* | [**New-BetaPasswordSyncGroup**](docs/BetaPasswordSyncGroupsApi.md#New-BetaPasswordSyncGroup) | **POST** /password-sync-groups | Create Password Sync Group
 *BetaPasswordSyncGroupsApi* | [**Remove-BetaPasswordSyncGroup**](docs/BetaPasswordSyncGroupsApi.md#Remove-BetaPasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete Password Sync Group by ID
 *BetaPasswordSyncGroupsApi* | [**Get-BetaPasswordSyncGroup**](docs/BetaPasswordSyncGroupsApi.md#Get-BetaPasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get Password Sync Group by ID
@@ -1057,6 +1062,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.PasswordInfoAccount](docs/PasswordInfoAccount.md)
  - [PSSailpointBeta\Model.PasswordInfoQueryDTO](docs/PasswordInfoQueryDTO.md)
  - [PSSailpointBeta\Model.PasswordOrgConfig](docs/PasswordOrgConfig.md)
+ - [PSSailpointBeta\Model.PasswordPolicyV3Dto](docs/PasswordPolicyV3Dto.md)
  - [PSSailpointBeta\Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpointBeta\Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
  - [PSSailpointBeta\Model.PatOwner](docs/PatOwner.md)

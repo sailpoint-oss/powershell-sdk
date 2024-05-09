@@ -228,6 +228,11 @@ Class | Method | HTTP request | Description
 *PasswordManagementApi* | [**Get-PasswordChangeStatus**](docs/PasswordManagementApi.md#Get-PasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
 *PasswordManagementApi* | [**Search-PasswordInfo**](docs/PasswordManagementApi.md#Search-PasswordInfo) | **POST** /query-password-info | Query Password Info
 *PasswordManagementApi* | [**Set-Password**](docs/PasswordManagementApi.md#Set-Password) | **POST** /set-password | Set Identity's Password
+*PasswordPoliciesApi* | [**New-PasswordPolicy**](docs/PasswordPoliciesApi.md#New-PasswordPolicy) | **POST** /password-policies | Create Password Policy
+*PasswordPoliciesApi* | [**Remove-PasswordPolicy**](docs/PasswordPoliciesApi.md#Remove-PasswordPolicy) | **DELETE** /password-policies/{id} | Delete Password Policy by ID
+*PasswordPoliciesApi* | [**Get-PasswordPolicyById**](docs/PasswordPoliciesApi.md#Get-PasswordPolicyById) | **GET** /password-policies/{id} | Get Password Policy by ID
+*PasswordPoliciesApi* | [**Get-PasswordPolicies**](docs/PasswordPoliciesApi.md#Get-PasswordPolicies) | **GET** /password-policies | List Password Policies
+*PasswordPoliciesApi* | [**Set-PasswordPolicy**](docs/PasswordPoliciesApi.md#Set-PasswordPolicy) | **PUT** /password-policies/{id} | Update Password Policy by ID
 *PasswordSyncGroupsApi* | [**New-PasswordSyncGroup**](docs/PasswordSyncGroupsApi.md#New-PasswordSyncGroup) | **POST** /password-sync-groups | Create Password Sync Group
 *PasswordSyncGroupsApi* | [**Remove-PasswordSyncGroup**](docs/PasswordSyncGroupsApi.md#Remove-PasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete Password Sync Group by ID
 *PasswordSyncGroupsApi* | [**Get-PasswordSyncGroup**](docs/PasswordSyncGroupsApi.md#Get-PasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get Password Sync Group by ID
@@ -697,6 +702,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.PasswordInfoAccount](docs/PasswordInfoAccount.md)
  - [PSSailpoint\Model.PasswordInfoQueryDTO](docs/PasswordInfoQueryDTO.md)
  - [PSSailpoint\Model.PasswordOrgConfig](docs/PasswordOrgConfig.md)
+ - [PSSailpoint\Model.PasswordPolicyV3Dto](docs/PasswordPolicyV3Dto.md)
  - [PSSailpoint\Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpoint\Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
  - [PSSailpoint\Model.PatOwner](docs/PatOwner.md)

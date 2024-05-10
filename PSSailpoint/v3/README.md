@@ -172,6 +172,20 @@ Class | Method | HTTP request | Description
 *LifecycleStatesApi* | [**Get-LifecycleStates**](docs/LifecycleStatesApi.md#Get-LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
 *LifecycleStatesApi* | [**Set-LifecycleState**](docs/LifecycleStatesApi.md#Set-LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set Lifecycle State
 *LifecycleStatesApi* | [**Update-LifecycleStates**](docs/LifecycleStatesApi.md#Update-LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
+*MFAConfigurationApi* | [**Remove-MFAConfig**](docs/MFAConfigurationApi.md#Remove-MFAConfig) | **DELETE** /mfa/{method}/delete | Delete MFA method configuration
+*MFAConfigurationApi* | [**Get-MFADuoConfig**](docs/MFAConfigurationApi.md#Get-MFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of Duo MFA method
+*MFAConfigurationApi* | [**Get-MFAKbaConfig**](docs/MFAConfigurationApi.md#Get-MFAKbaConfig) | **GET** /mfa/kba/config | Configuration of KBA MFA method
+*MFAConfigurationApi* | [**Get-MFAOktaConfig**](docs/MFAConfigurationApi.md#Get-MFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of Okta MFA method
+*MFAConfigurationApi* | [**Set-MFADuoConfig**](docs/MFAConfigurationApi.md#Set-MFADuoConfig) | **PUT** /mfa/duo-web/config | Set Duo MFA configuration
+*MFAConfigurationApi* | [**Set-MFAKBAConfig**](docs/MFAConfigurationApi.md#Set-MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
+*MFAConfigurationApi* | [**Set-MFAOktaConfig**](docs/MFAConfigurationApi.md#Set-MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
+*MFAConfigurationApi* | [**Test-MFAConfig**](docs/MFAConfigurationApi.md#Test-MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
+*MFAControllerApi* | [**New-SendToken**](docs/MFAControllerApi.md#New-SendToken) | **POST** /mfa/token/send | Create and send user token
+*MFAControllerApi* | [**Ping-VerificationStatus**](docs/MFAControllerApi.md#Ping-VerificationStatus) | **POST** /mfa/{method}/poll | Polling MFA method by VerificationPollRequest
+*MFAControllerApi* | [**Send-DuoVerifyRequest**](docs/MFAControllerApi.md#Send-DuoVerifyRequest) | **POST** /mfa/duo-web/verify | Verifying authentication via Duo method
+*MFAControllerApi* | [**Send-KbaAnswers**](docs/MFAControllerApi.md#Send-KbaAnswers) | **POST** /mfa/kba/authenticate | Authenticate KBA provided MFA method
+*MFAControllerApi* | [**Send-OktaVerifyRequest**](docs/MFAControllerApi.md#Send-OktaVerifyRequest) | **POST** /mfa/okta-verify/verify | Verifying authentication via Okta method
+*MFAControllerApi* | [**Send-TokenAuthRequest**](docs/MFAControllerApi.md#Send-TokenAuthRequest) | **POST** /mfa/token/authenticate | Authenticate Token provided MFA method
 *ManagedClientsApi* | [**New-ManagedClient**](docs/ManagedClientsApi.md#New-ManagedClient) | **POST** /managed-clients | Create a new Managed Client
 *ManagedClientsApi* | [**Remove-ManagedClient**](docs/ManagedClientsApi.md#Remove-ManagedClient) | **DELETE** /managed-clients/{id} | Delete a Managed Client
 *ManagedClientsApi* | [**Get-ManagedClient**](docs/ManagedClientsApi.md#Get-ManagedClient) | **GET** /managed-clients/{id} | Get a Managed Client
@@ -546,6 +560,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.DisplayReference](docs/DisplayReference.md)
  - [PSSailpoint\Model.DocumentType](docs/DocumentType.md)
  - [PSSailpoint\Model.DtoType](docs/DtoType.md)
+ - [PSSailpoint\Model.DuoVerificationRequest](docs/DuoVerificationRequest.md)
  - [PSSailpoint\Model.E164phone](docs/E164phone.md)
  - [PSSailpoint\Model.EmailNotificationOption](docs/EmailNotificationOption.md)
  - [PSSailpoint\Model.Entitlement](docs/Entitlement.md)
@@ -620,6 +635,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpoint\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpoint\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
+ - [PSSailpoint\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
+ - [PSSailpoint\Model.KbaAnswerResponseItem](docs/KbaAnswerResponseItem.md)
+ - [PSSailpoint\Model.KbaAuthResponse](docs/KbaAuthResponse.md)
+ - [PSSailpoint\Model.KbaAuthResponseItem](docs/KbaAuthResponseItem.md)
+ - [PSSailpoint\Model.KbaQuestion](docs/KbaQuestion.md)
  - [PSSailpoint\Model.LeftPad](docs/LeftPad.md)
  - [PSSailpoint\Model.LifecycleState](docs/LifecycleState.md)
  - [PSSailpoint\Model.LifecyclestateDeleted](docs/LifecyclestateDeleted.md)
@@ -649,6 +669,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ManualWorkItemState](docs/ManualWorkItemState.md)
  - [PSSailpoint\Model.MetricAggregation](docs/MetricAggregation.md)
  - [PSSailpoint\Model.MetricType](docs/MetricType.md)
+ - [PSSailpoint\Model.MfaConfigTestResponse](docs/MfaConfigTestResponse.md)
+ - [PSSailpoint\Model.MfaDuoConfig](docs/MfaDuoConfig.md)
+ - [PSSailpoint\Model.MfaOktaConfig](docs/MfaOktaConfig.md)
  - [PSSailpoint\Model.ModelEvent](docs/ModelEvent.md)
  - [PSSailpoint\Model.ModelFilter](docs/ModelFilter.md)
  - [PSSailpoint\Model.MultiPolicyRequest](docs/MultiPolicyRequest.md)
@@ -689,6 +712,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ObjectMappingBulkPatchResponse](docs/ObjectMappingBulkPatchResponse.md)
  - [PSSailpoint\Model.ObjectMappingRequest](docs/ObjectMappingRequest.md)
  - [PSSailpoint\Model.ObjectMappingResponse](docs/ObjectMappingResponse.md)
+ - [PSSailpoint\Model.OktaVerificationRequest](docs/OktaVerificationRequest.md)
  - [PSSailpoint\Model.Operation](docs/Operation.md)
  - [PSSailpoint\Model.OriginalRequest](docs/OriginalRequest.md)
  - [PSSailpoint\Model.OrphanUncorrelatedReportArguments](docs/OrphanUncorrelatedReportArguments.md)
@@ -824,6 +848,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.SegmentVisibilityCriteria](docs/SegmentVisibilityCriteria.md)
  - [PSSailpoint\Model.Selector](docs/Selector.md)
  - [PSSailpoint\Model.SelectorType](docs/SelectorType.md)
+ - [PSSailpoint\Model.SendTokenRequest](docs/SendTokenRequest.md)
+ - [PSSailpoint\Model.SendTokenResponse](docs/SendTokenResponse.md)
  - [PSSailpoint\Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
  - [PSSailpoint\Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)
  - [PSSailpoint\Model.ServiceDeskIntegrationTemplateType](docs/ServiceDeskIntegrationTemplateType.md)
@@ -877,6 +903,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.TestWorkflow200Response](docs/TestWorkflow200Response.md)
  - [PSSailpoint\Model.TestWorkflowRequest](docs/TestWorkflowRequest.md)
  - [PSSailpoint\Model.TextQuery](docs/TextQuery.md)
+ - [PSSailpoint\Model.TokenAuthRequest](docs/TokenAuthRequest.md)
+ - [PSSailpoint\Model.TokenAuthResponse](docs/TokenAuthResponse.md)
  - [PSSailpoint\Model.Transform](docs/Transform.md)
  - [PSSailpoint\Model.TransformAttributes](docs/TransformAttributes.md)
  - [PSSailpoint\Model.TransformDefinition](docs/TransformDefinition.md)
@@ -894,6 +922,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.V3ConnectorDto](docs/V3ConnectorDto.md)
  - [PSSailpoint\Model.V3CreateConnectorDto](docs/V3CreateConnectorDto.md)
  - [PSSailpoint\Model.Value](docs/Value.md)
+ - [PSSailpoint\Model.VerificationPollRequest](docs/VerificationPollRequest.md)
+ - [PSSailpoint\Model.VerificationResponse](docs/VerificationResponse.md)
  - [PSSailpoint\Model.ViolationContext](docs/ViolationContext.md)
  - [PSSailpoint\Model.ViolationContextPolicy](docs/ViolationContextPolicy.md)
  - [PSSailpoint\Model.ViolationOwnerAssignmentConfig](docs/ViolationOwnerAssignmentConfig.md)

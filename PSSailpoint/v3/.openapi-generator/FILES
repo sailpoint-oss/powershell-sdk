@@ -181,6 +181,7 @@ docs/DeleteSource202Response.md
 docs/DisplayReference.md
 docs/DocumentType.md
 docs/DtoType.md
+docs/DuoVerificationRequest.md
 docs/E164phone.md
 docs/EmailNotificationOption.md
 docs/Entitlement.md
@@ -259,6 +260,11 @@ docs/InnerHit.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
+docs/KbaAnswerRequestItem.md
+docs/KbaAnswerResponseItem.md
+docs/KbaAuthResponse.md
+docs/KbaAuthResponseItem.md
+docs/KbaQuestion.md
 docs/LeftPad.md
 docs/LifecycleState.md
 docs/LifecycleStatesApi.md
@@ -270,6 +276,8 @@ docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/LocaleOrigin.md
 docs/Lookup.md
 docs/Lower.md
+docs/MFAConfigurationApi.md
+docs/MFAControllerApi.md
 docs/ManagedClient.md
 docs/ManagedClientRequest.md
 docs/ManagedClientStatus.md
@@ -291,6 +299,9 @@ docs/ManualWorkItemDetailsOriginalOwner.md
 docs/ManualWorkItemState.md
 docs/MetricAggregation.md
 docs/MetricType.md
+docs/MfaConfigTestResponse.md
+docs/MfaDuoConfig.md
+docs/MfaOktaConfig.md
 docs/MultiPolicyRequest.md
 docs/NameNormalizer.md
 docs/NamedConstructs.md
@@ -331,6 +342,7 @@ docs/ObjectMappingBulkPatchRequest.md
 docs/ObjectMappingBulkPatchResponse.md
 docs/ObjectMappingRequest.md
 docs/ObjectMappingResponse.md
+docs/OktaVerificationRequest.md
 docs/Operation.md
 docs/OriginalRequest.md
 docs/OrphanUncorrelatedReportArguments.md
@@ -484,6 +496,8 @@ docs/SegmentVisibilityCriteria.md
 docs/SegmentsApi.md
 docs/Selector.md
 docs/SelectorType.md
+docs/SendTokenRequest.md
+docs/SendTokenResponse.md
 docs/ServiceDeskIntegrationApi.md
 docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationTemplateDto.md
@@ -541,6 +555,8 @@ docs/TestExternalExecuteWorkflowRequest.md
 docs/TestWorkflow200Response.md
 docs/TestWorkflowRequest.md
 docs/TextQuery.md
+docs/TokenAuthRequest.md
+docs/TokenAuthResponse.md
 docs/Transform.md
 docs/TransformAttributes.md
 docs/TransformDefinition.md
@@ -559,6 +575,8 @@ docs/UsageType.md
 docs/V3ConnectorDto.md
 docs/V3CreateConnectorDto.md
 docs/Value.md
+docs/VerificationPollRequest.md
+docs/VerificationResponse.md
 docs/ViolationContext.md
 docs/ViolationContextPolicy.md
 docs/ViolationOwnerAssignmentConfig.md
@@ -605,6 +623,8 @@ src/PSSailpoint/Api/ConnectorsApi.ps1
 src/PSSailpoint/Api/GlobalTenantSecuritySettingsApi.ps1
 src/PSSailpoint/Api/IdentityProfilesApi.ps1
 src/PSSailpoint/Api/LifecycleStatesApi.ps1
+src/PSSailpoint/Api/MFAConfigurationApi.ps1
+src/PSSailpoint/Api/MFAControllerApi.ps1
 src/PSSailpoint/Api/ManagedClientsApi.ps1
 src/PSSailpoint/Api/ManagedClustersApi.ps1
 src/PSSailpoint/Api/NonEmployeeLifecycleManagementApi.ps1
@@ -800,6 +820,7 @@ src/PSSailpoint/Model/DeleteSource202Response.ps1
 src/PSSailpoint/Model/DisplayReference.ps1
 src/PSSailpoint/Model/DocumentType.ps1
 src/PSSailpoint/Model/DtoType.ps1
+src/PSSailpoint/Model/DuoVerificationRequest.ps1
 src/PSSailpoint/Model/E164phone.ps1
 src/PSSailpoint/Model/EmailNotificationOption.ps1
 src/PSSailpoint/Model/Entitlement.ps1
@@ -874,6 +895,11 @@ src/PSSailpoint/Model/InnerHit.ps1
 src/PSSailpoint/Model/JsonPatch.ps1
 src/PSSailpoint/Model/JsonPatchOperation.ps1
 src/PSSailpoint/Model/JsonPatchOperationValue.ps1
+src/PSSailpoint/Model/KbaAnswerRequestItem.ps1
+src/PSSailpoint/Model/KbaAnswerResponseItem.ps1
+src/PSSailpoint/Model/KbaAuthResponse.ps1
+src/PSSailpoint/Model/KbaAuthResponseItem.ps1
+src/PSSailpoint/Model/KbaQuestion.ps1
 src/PSSailpoint/Model/LeftPad.ps1
 src/PSSailpoint/Model/LifecycleState.ps1
 src/PSSailpoint/Model/LifecyclestateDeleted.ps1
@@ -903,6 +929,9 @@ src/PSSailpoint/Model/ManualWorkItemDetailsOriginalOwner.ps1
 src/PSSailpoint/Model/ManualWorkItemState.ps1
 src/PSSailpoint/Model/MetricAggregation.ps1
 src/PSSailpoint/Model/MetricType.ps1
+src/PSSailpoint/Model/MfaConfigTestResponse.ps1
+src/PSSailpoint/Model/MfaDuoConfig.ps1
+src/PSSailpoint/Model/MfaOktaConfig.ps1
 src/PSSailpoint/Model/ModelEvent.ps1
 src/PSSailpoint/Model/ModelFilter.ps1
 src/PSSailpoint/Model/MultiPolicyRequest.ps1
@@ -943,6 +972,7 @@ src/PSSailpoint/Model/ObjectMappingBulkPatchRequest.ps1
 src/PSSailpoint/Model/ObjectMappingBulkPatchResponse.ps1
 src/PSSailpoint/Model/ObjectMappingRequest.ps1
 src/PSSailpoint/Model/ObjectMappingResponse.ps1
+src/PSSailpoint/Model/OktaVerificationRequest.ps1
 src/PSSailpoint/Model/Operation.ps1
 src/PSSailpoint/Model/OriginalRequest.ps1
 src/PSSailpoint/Model/OrphanUncorrelatedReportArguments.ps1
@@ -1078,6 +1108,8 @@ src/PSSailpoint/Model/Segment.ps1
 src/PSSailpoint/Model/SegmentVisibilityCriteria.ps1
 src/PSSailpoint/Model/Selector.ps1
 src/PSSailpoint/Model/SelectorType.ps1
+src/PSSailpoint/Model/SendTokenRequest.ps1
+src/PSSailpoint/Model/SendTokenResponse.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationTemplateDto.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationTemplateType.ps1
@@ -1131,6 +1163,8 @@ src/PSSailpoint/Model/TestExternalExecuteWorkflowRequest.ps1
 src/PSSailpoint/Model/TestWorkflow200Response.ps1
 src/PSSailpoint/Model/TestWorkflowRequest.ps1
 src/PSSailpoint/Model/TextQuery.ps1
+src/PSSailpoint/Model/TokenAuthRequest.ps1
+src/PSSailpoint/Model/TokenAuthResponse.ps1
 src/PSSailpoint/Model/Transform.ps1
 src/PSSailpoint/Model/TransformAttributes.ps1
 src/PSSailpoint/Model/TransformDefinition.ps1
@@ -1148,6 +1182,8 @@ src/PSSailpoint/Model/UsageType.ps1
 src/PSSailpoint/Model/V3ConnectorDto.ps1
 src/PSSailpoint/Model/V3CreateConnectorDto.ps1
 src/PSSailpoint/Model/Value.ps1
+src/PSSailpoint/Model/VerificationPollRequest.ps1
+src/PSSailpoint/Model/VerificationResponse.ps1
 src/PSSailpoint/Model/ViolationContext.ps1
 src/PSSailpoint/Model/ViolationContextPolicy.ps1
 src/PSSailpoint/Model/ViolationOwnerAssignmentConfig.ps1
@@ -1199,6 +1235,8 @@ tests/Api/ConnectorsApi.Tests.ps1
 tests/Api/GlobalTenantSecuritySettingsApi.Tests.ps1
 tests/Api/IdentityProfilesApi.Tests.ps1
 tests/Api/LifecycleStatesApi.Tests.ps1
+tests/Api/MFAConfigurationApi.Tests.ps1
+tests/Api/MFAControllerApi.Tests.ps1
 tests/Api/ManagedClientsApi.Tests.ps1
 tests/Api/ManagedClustersApi.Tests.ps1
 tests/Api/NonEmployeeLifecycleManagementApi.Tests.ps1
@@ -1393,6 +1431,7 @@ tests/Model/DeleteSource202Response.Tests.ps1
 tests/Model/DisplayReference.Tests.ps1
 tests/Model/DocumentType.Tests.ps1
 tests/Model/DtoType.Tests.ps1
+tests/Model/DuoVerificationRequest.Tests.ps1
 tests/Model/E164phone.Tests.ps1
 tests/Model/EmailNotificationOption.Tests.ps1
 tests/Model/Entitlement.Tests.ps1
@@ -1467,6 +1506,11 @@ tests/Model/InnerHit.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
+tests/Model/KbaAnswerRequestItem.Tests.ps1
+tests/Model/KbaAnswerResponseItem.Tests.ps1
+tests/Model/KbaAuthResponse.Tests.ps1
+tests/Model/KbaAuthResponseItem.Tests.ps1
+tests/Model/KbaQuestion.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
 tests/Model/LifecyclestateDeleted.Tests.ps1
@@ -1496,6 +1540,9 @@ tests/Model/ManualWorkItemDetailsOriginalOwner.Tests.ps1
 tests/Model/ManualWorkItemState.Tests.ps1
 tests/Model/MetricAggregation.Tests.ps1
 tests/Model/MetricType.Tests.ps1
+tests/Model/MfaConfigTestResponse.Tests.ps1
+tests/Model/MfaDuoConfig.Tests.ps1
+tests/Model/MfaOktaConfig.Tests.ps1
 tests/Model/ModelEvent.Tests.ps1
 tests/Model/ModelFilter.Tests.ps1
 tests/Model/MultiPolicyRequest.Tests.ps1
@@ -1536,6 +1583,7 @@ tests/Model/ObjectMappingBulkPatchRequest.Tests.ps1
 tests/Model/ObjectMappingBulkPatchResponse.Tests.ps1
 tests/Model/ObjectMappingRequest.Tests.ps1
 tests/Model/ObjectMappingResponse.Tests.ps1
+tests/Model/OktaVerificationRequest.Tests.ps1
 tests/Model/Operation.Tests.ps1
 tests/Model/OriginalRequest.Tests.ps1
 tests/Model/OrphanUncorrelatedReportArguments.Tests.ps1
@@ -1671,6 +1719,8 @@ tests/Model/Segment.Tests.ps1
 tests/Model/SegmentVisibilityCriteria.Tests.ps1
 tests/Model/Selector.Tests.ps1
 tests/Model/SelectorType.Tests.ps1
+tests/Model/SendTokenRequest.Tests.ps1
+tests/Model/SendTokenResponse.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
@@ -1724,6 +1774,8 @@ tests/Model/TestExternalExecuteWorkflowRequest.Tests.ps1
 tests/Model/TestWorkflow200Response.Tests.ps1
 tests/Model/TestWorkflowRequest.Tests.ps1
 tests/Model/TextQuery.Tests.ps1
+tests/Model/TokenAuthRequest.Tests.ps1
+tests/Model/TokenAuthResponse.Tests.ps1
 tests/Model/Transform.Tests.ps1
 tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformDefinition.Tests.ps1
@@ -1741,6 +1793,8 @@ tests/Model/UsageType.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1
 tests/Model/V3CreateConnectorDto.Tests.ps1
 tests/Model/Value.Tests.ps1
+tests/Model/VerificationPollRequest.Tests.ps1
+tests/Model/VerificationResponse.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1
 tests/Model/ViolationContextPolicy.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1

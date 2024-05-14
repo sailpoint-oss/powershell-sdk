@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Snapshot** | **String** | the date when the identity record was created | [optional] 
 **DeletedDate** | **String** | the date when the identity was deleted | [optional] 
 **AccessItemCount** | **System.Collections.Hashtable** | A map containing the count of each access item | [optional] 
-**Attributes** | **System.Collections.Hashtable** | A map containing the identity attributes | [optional] 
+**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | A map containing the identity attributes | [optional] 
 
 ## Examples
 
@@ -18,8 +18,8 @@ $IdentityHistoryResponse = Initialize-PSSailpointBetaIdentityHistoryResponse  -I
  -DisplayName Adam Zampa `
  -Snapshot 2007-03-01T13:00:00.000Z `
  -DeletedDate 2007-03-01T13:00:00.000Z `
- -AccessItemCount null `
- -Attributes null
+ -AccessItemCount {app&#x3D;0, role&#x3D;2, entitlement&#x3D;4, accessProfile&#x3D;3, account&#x3D;1} `
+ -Attributes {jobTitle&#x3D;HR Manager, location&#x3D;NYC, firstname&#x3D;Adam, lastname&#x3D;Zampa, department&#x3D;HR}
 ```
 
 - Convert the resource to JSON

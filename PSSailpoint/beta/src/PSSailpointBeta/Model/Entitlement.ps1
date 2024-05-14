@@ -48,6 +48,8 @@ No description available.
 List of IDs of segments, if any, to which this Entitlement is assigned.
 .PARAMETER ManuallyUpdatedFields
 No description available.
+.PARAMETER AccessModelMetadata
+No description available.
 .OUTPUTS
 
 Entitlement<PSCustomObject>
@@ -106,7 +108,10 @@ function Initialize-BetaEntitlement {
         ${Segments},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${ManuallyUpdatedFields}
+        ${ManuallyUpdatedFields},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${AccessModelMetadata}
     )
 
     Process {
@@ -132,6 +137,7 @@ function Initialize-BetaEntitlement {
             "directPermissions" = ${DirectPermissions}
             "segments" = ${Segments}
             "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
+            "accessModelMetadata" = ${AccessModelMetadata}
         }
 
         return $PSO
@@ -168,7 +174,7 @@ function ConvertFrom-BetaJsonToEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaEntitlement
-        $AllProperties = ("id", "name", "created", "modified", "attribute", "value", "sourceSchemaObjectType", "privileged", "cloudGoverned", "description", "requestable", "attributes", "source", "owner", "directPermissions", "segments", "manuallyUpdatedFields")
+        $AllProperties = ("id", "name", "created", "modified", "attribute", "value", "sourceSchemaObjectType", "privileged", "cloudGoverned", "description", "requestable", "attributes", "source", "owner", "directPermissions", "segments", "manuallyUpdatedFields", "accessModelMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -277,6 +283,12 @@ function ConvertFrom-BetaJsonToEntitlement {
             $ManuallyUpdatedFields = $JsonParameters.PSobject.Properties["manuallyUpdatedFields"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessModelMetadata"))) { #optional property not found
+            $AccessModelMetadata = $null
+        } else {
+            $AccessModelMetadata = $JsonParameters.PSobject.Properties["accessModelMetadata"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -295,6 +307,7 @@ function ConvertFrom-BetaJsonToEntitlement {
             "directPermissions" = ${DirectPermissions}
             "segments" = ${Segments}
             "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
+            "accessModelMetadata" = ${AccessModelMetadata}
         }
 
         return $PSO

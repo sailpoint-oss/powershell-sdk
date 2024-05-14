@@ -14,28 +14,28 @@ No summary available.
 
 No description available.
 
-.PARAMETER Message
-A message describing the error
+.PARAMETER Attributes
+No description available.
 .OUTPUTS
 
-ListAccessProfiles429Response<PSCustomObject>
+AttributeDTOList<PSCustomObject>
 #>
 
-function Initialize-BetaListAccessProfiles429Response {
+function Initialize-BetaAttributeDTOList {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Message}
+        [PSCustomObject[]]
+        ${Attributes}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaListAccessProfiles429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaAttributeDTOList' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "message" = ${Message}
+            "attributes" = ${Attributes}
         }
 
         return $PSO
@@ -45,11 +45,11 @@ function Initialize-BetaListAccessProfiles429Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to ListAccessProfiles429Response<PSCustomObject>
+Convert from JSON to AttributeDTOList<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ListAccessProfiles429Response<PSCustomObject>
+Convert from JSON to AttributeDTOList<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,36 +57,36 @@ Json object
 
 .OUTPUTS
 
-ListAccessProfiles429Response<PSCustomObject>
+AttributeDTOList<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToListAccessProfiles429Response {
+function ConvertFrom-BetaJsonToAttributeDTOList {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaListAccessProfiles429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaAttributeDTOList' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaListAccessProfiles429Response
-        $AllProperties = ("message")
+        # check if Json contains properties not defined in BetaAttributeDTOList
+        $AllProperties = ("attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "message"))) { #optional property not found
-            $Message = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) { #optional property not found
+            $Attributes = $null
         } else {
-            $Message = $JsonParameters.PSobject.Properties["message"].value
+            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "message" = ${Message}
+            "attributes" = ${Attributes}
         }
 
         return $PSO

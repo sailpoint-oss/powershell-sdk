@@ -14,28 +14,28 @@ No summary available.
 
 No description available.
 
-.PARAMETER VarError
-A message describing the error
+.PARAMETER Attributes
+No description available.
 .OUTPUTS
 
-ListAccessProfiles401Response<PSCustomObject>
+EntitlementAccessModelMetadata<PSCustomObject>
 #>
 
-function Initialize-BetaListAccessProfiles401Response {
+function Initialize-BetaEntitlementAccessModelMetadata {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${VarError}
+        [PSCustomObject[]]
+        ${Attributes}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaListAccessProfiles401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaEntitlementAccessModelMetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "error" = ${VarError}
+            "attributes" = ${Attributes}
         }
 
         return $PSO
@@ -45,11 +45,11 @@ function Initialize-BetaListAccessProfiles401Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to ListAccessProfiles401Response<PSCustomObject>
+Convert from JSON to EntitlementAccessModelMetadata<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ListAccessProfiles401Response<PSCustomObject>
+Convert from JSON to EntitlementAccessModelMetadata<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,36 +57,36 @@ Json object
 
 .OUTPUTS
 
-ListAccessProfiles401Response<PSCustomObject>
+EntitlementAccessModelMetadata<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToListAccessProfiles401Response {
+function ConvertFrom-BetaJsonToEntitlementAccessModelMetadata {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaListAccessProfiles401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaEntitlementAccessModelMetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaListAccessProfiles401Response
-        $AllProperties = ("error")
+        # check if Json contains properties not defined in BetaEntitlementAccessModelMetadata
+        $AllProperties = ("attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "error"))) { #optional property not found
-            $VarError = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) { #optional property not found
+            $Attributes = $null
         } else {
-            $VarError = $JsonParameters.PSobject.Properties["error"].value
+            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "error" = ${VarError}
+            "attributes" = ${Attributes}
         }
 
         return $PSO

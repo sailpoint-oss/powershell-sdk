@@ -8,6 +8,194 @@
 <#
 .SYNOPSIS
 
+Add metadata to an entitlement.
+
+.DESCRIPTION
+
+Add single Access Model Metadata to an entitlement.
+
+.PARAMETER Id
+The entitlement id.
+
+.PARAMETER AttributeKey
+Technical name of the Attribute.
+
+.PARAMETER AttributeValue
+Technical name of the Attribute Value.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Entitlement
+#>
+function New-BetaAccessModelMetadataForEntitlement {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeKey},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeValue},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-BetaAccessModelMetadataForEntitlement' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling createAccessModelMetadataForEntitlement."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$AttributeKey) {
+            throw "Error! The required parameter `AttributeKey` missing when calling createAccessModelMetadataForEntitlement."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeKey}', [System.Web.HTTPUtility]::UrlEncode($AttributeKey))
+        if (!$AttributeValue) {
+            throw "Error! The required parameter `AttributeValue` missing when calling createAccessModelMetadataForEntitlement."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeValue}', [System.Web.HTTPUtility]::UrlEncode($AttributeValue))
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Entitlement" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Remove metadata from an entitlement.
+
+.DESCRIPTION
+
+Remove single Access Model Metadata from an entitlement.
+
+.PARAMETER Id
+The entitlement id.
+
+.PARAMETER AttributeKey
+Technical name of the Attribute.
+
+.PARAMETER AttributeValue
+Technical name of the Attribute Value.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-BetaAccessModelMetadataFromEntitlement {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeKey},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeValue},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-BetaAccessModelMetadataFromEntitlement' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling deleteAccessModelMetadataFromEntitlement."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$AttributeKey) {
+            throw "Error! The required parameter `AttributeKey` missing when calling deleteAccessModelMetadataFromEntitlement."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeKey}', [System.Web.HTTPUtility]::UrlEncode($AttributeKey))
+        if (!$AttributeValue) {
+            throw "Error! The required parameter `AttributeValue` missing when calling deleteAccessModelMetadataFromEntitlement."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeValue}', [System.Web.HTTPUtility]::UrlEncode($AttributeValue))
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get an entitlement
 
 .DESCRIPTION

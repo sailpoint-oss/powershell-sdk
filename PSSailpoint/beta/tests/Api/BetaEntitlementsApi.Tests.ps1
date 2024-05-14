@@ -6,6 +6,22 @@
 #
 
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
+    Context 'New-BetaAccessModelMetadataForEntitlement' {
+        It 'Test New-BetaAccessModelMetadataForEntitlement' {
+            #$TestResult = New-BetaAccessModelMetadataForEntitlement -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-BetaAccessModelMetadataFromEntitlement' {
+        It 'Test Remove-BetaAccessModelMetadataFromEntitlement' {
+            #$TestResult = Remove-BetaAccessModelMetadataFromEntitlement -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaEntitlement' {
         It 'Test Get-BetaEntitlement' {
             #$TestResult = Get-BetaEntitlement -Id "TEST_VALUE"

@@ -52,6 +52,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BetaAccessModelMetadataApi* | [**Get-BetaAccessModelMetadataAttribute**](docs/BetaAccessModelMetadataApi.md#Get-BetaAccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes/{key} | Get Access Model Metadata Attribute
+*BetaAccessModelMetadataApi* | [**Get-BetaAccessModelMetadataAttributeValue**](docs/BetaAccessModelMetadataApi.md#Get-BetaAccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get Access Model Metadata Value
+*BetaAccessModelMetadataApi* | [**Get-BetaAccessModelMetadataAttribute**](docs/BetaAccessModelMetadataApi.md#Get-BetaAccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List Access Model Metadata Attributes
+*BetaAccessModelMetadataApi* | [**Get-BetaAccessModelMetadataAttributeValue**](docs/BetaAccessModelMetadataApi.md#Get-BetaAccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List Access Model Metadata Values
 *BetaAccessProfilesApi* | [**New-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#New-BetaAccessProfile) | **POST** /access-profiles | Create an Access Profile
 *BetaAccessProfilesApi* | [**Remove-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#Remove-BetaAccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
 *BetaAccessProfilesApi* | [**Remove-BetaAccessProfilesInBulk**](docs/BetaAccessProfilesApi.md#Remove-BetaAccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
@@ -156,6 +160,8 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
 *BetaDiscoveredApplicationsApi* | [**Get-BetaDiscoveredApplications**](docs/BetaDiscoveredApplicationsApi.md#Get-BetaDiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
+*BetaEntitlementsApi* | [**New-BetaAccessModelMetadataForEntitlement**](docs/BetaEntitlementsApi.md#New-BetaAccessModelMetadataForEntitlement) | **POST** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add metadata to an entitlement.
+*BetaEntitlementsApi* | [**Remove-BetaAccessModelMetadataFromEntitlement**](docs/BetaEntitlementsApi.md#Remove-BetaAccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 *BetaEntitlementsApi* | [**Get-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
 *BetaEntitlementsApi* | [**Import-BetaEntitlements**](docs/BetaEntitlementsApi.md#Import-BetaEntitlements) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
@@ -681,9 +687,12 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.AttrSyncSourceAttributeConfig](docs/AttrSyncSourceAttributeConfig.md)
  - [PSSailpointBeta\Model.AttrSyncSourceConfig](docs/AttrSyncSourceConfig.md)
  - [PSSailpointBeta\Model.AttributeChange](docs/AttributeChange.md)
+ - [PSSailpointBeta\Model.AttributeDTO](docs/AttributeDTO.md)
+ - [PSSailpointBeta\Model.AttributeDTOList](docs/AttributeDTOList.md)
  - [PSSailpointBeta\Model.AttributeDefinition](docs/AttributeDefinition.md)
  - [PSSailpointBeta\Model.AttributeDefinitionSchema](docs/AttributeDefinitionSchema.md)
  - [PSSailpointBeta\Model.AttributeDefinitionType](docs/AttributeDefinitionType.md)
+ - [PSSailpointBeta\Model.AttributeValueDTO](docs/AttributeValueDTO.md)
  - [PSSailpointBeta\Model.AttributesChanged](docs/AttributesChanged.md)
  - [PSSailpointBeta\Model.AuditDetails](docs/AuditDetails.md)
  - [PSSailpointBeta\Model.AuthProfile](docs/AuthProfile.md)
@@ -807,6 +816,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.EmailNotificationOption](docs/EmailNotificationOption.md)
  - [PSSailpointBeta\Model.EmailStatusDto](docs/EmailStatusDto.md)
  - [PSSailpointBeta\Model.Entitlement](docs/Entitlement.md)
+ - [PSSailpointBeta\Model.EntitlementAccessModelMetadata](docs/EntitlementAccessModelMetadata.md)
  - [PSSailpointBeta\Model.EntitlementAccessRequestConfig](docs/EntitlementAccessRequestConfig.md)
  - [PSSailpointBeta\Model.EntitlementApprovalScheme](docs/EntitlementApprovalScheme.md)
  - [PSSailpointBeta\Model.EntitlementBulkUpdateRequest](docs/EntitlementBulkUpdateRequest.md)
@@ -962,8 +972,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.License](docs/License.md)
  - [PSSailpointBeta\Model.LifecycleState](docs/LifecycleState.md)
  - [PSSailpointBeta\Model.LifecycleStateDto](docs/LifecycleStateDto.md)
- - [PSSailpointBeta\Model.ListAccessProfiles401Response](docs/ListAccessProfiles401Response.md)
- - [PSSailpointBeta\Model.ListAccessProfiles429Response](docs/ListAccessProfiles429Response.md)
+ - [PSSailpointBeta\Model.ListAccessModelMetadataAttribute401Response](docs/ListAccessModelMetadataAttribute401Response.md)
+ - [PSSailpointBeta\Model.ListAccessModelMetadataAttribute429Response](docs/ListAccessModelMetadataAttribute429Response.md)
  - [PSSailpointBeta\Model.ListCompleteWorkflowLibrary200ResponseInner](docs/ListCompleteWorkflowLibrary200ResponseInner.md)
  - [PSSailpointBeta\Model.ListFormDefinitionsByTenantResponse](docs/ListFormDefinitionsByTenantResponse.md)
  - [PSSailpointBeta\Model.ListFormElementDataByElementIDResponse](docs/ListFormElementDataByElementIDResponse.md)

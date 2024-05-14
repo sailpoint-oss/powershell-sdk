@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaEntitlement' {
     Context 'BetaEntitlement' {
         It 'Initialize-BetaEntitlement' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaEntitlement -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -SourceSchemaObjectType "TEST_VALUE" -Privileged "TEST_VALUE" -CloudGoverned "TEST_VALUE" -Description "TEST_VALUE" -Requestable "TEST_VALUE" -Attributes "TEST_VALUE" -Source "TEST_VALUE" -Owner "TEST_VALUE" -DirectPermissions "TEST_VALUE" -Segments "TEST_VALUE" -ManuallyUpdatedFields "TEST_VALUE"
+            #$NewObject = Initialize-BetaEntitlement -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -SourceSchemaObjectType "TEST_VALUE" -Privileged "TEST_VALUE" -CloudGoverned "TEST_VALUE" -Description "TEST_VALUE" -Requestable "TEST_VALUE" -Attributes "TEST_VALUE" -Source "TEST_VALUE" -Owner "TEST_VALUE" -DirectPermissions "TEST_VALUE" -Segments "TEST_VALUE" -ManuallyUpdatedFields "TEST_VALUE" -AccessModelMetadata "TEST_VALUE"
             #$NewObject | Should -BeOfType Entitlement
             #$NewObject.property | Should -Be 0
         }

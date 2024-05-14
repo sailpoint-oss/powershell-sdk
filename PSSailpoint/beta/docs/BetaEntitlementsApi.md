@@ -4,6 +4,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-BetaAccessModelMetadataForEntitlement**](BetaEntitlementsApi.md#New-BetaAccessModelMetadataForEntitlement) | **POST** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add metadata to an entitlement.
+[**Remove-BetaAccessModelMetadataFromEntitlement**](BetaEntitlementsApi.md#Remove-BetaAccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 [**Get-BetaEntitlement**](BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 [**Get-BetaEntitlementRequestConfig**](BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
 [**Import-BetaEntitlements**](BetaEntitlementsApi.md#Import-BetaEntitlements) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
@@ -15,6 +17,120 @@ Method | HTTP request | Description
 [**Reset-BetaSourceEntitlements**](BetaEntitlementsApi.md#Reset-BetaSourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset Source Entitlements
 [**Update-BetaEntitlementsInBulk**](BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 
+
+<a id="New-BetaAccessModelMetadataForEntitlement"></a>
+# **New-BetaAccessModelMetadataForEntitlement**
+> Entitlement New-BetaAccessModelMetadataForEntitlement<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeKey] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeValue] <String><br>
+
+Add metadata to an entitlement.
+
+Add single Access Model Metadata to an entitlement.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
+$AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+$AttributeValue = "public" # String | Technical name of the Attribute Value.
+
+# Add metadata to an entitlement.
+try {
+    $Result = New-BetaAccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue
+} catch {
+    Write-Host ("Exception occurred when calling New-BetaAccessModelMetadataForEntitlement: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The entitlement id. | 
+ **AttributeKey** | **String**| Technical name of the Attribute. | 
+ **AttributeValue** | **String**| Technical name of the Attribute Value. | 
+
+### Return type
+
+[**Entitlement**](Entitlement.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Remove-BetaAccessModelMetadataFromEntitlement"></a>
+# **Remove-BetaAccessModelMetadataFromEntitlement**
+> void Remove-BetaAccessModelMetadataFromEntitlement<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeKey] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeValue] <String><br>
+
+Remove metadata from an entitlement.
+
+Remove single Access Model Metadata from an entitlement.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
+$AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+$AttributeValue = "public" # String | Technical name of the Attribute Value.
+
+# Remove metadata from an entitlement.
+try {
+    $Result = Remove-BetaAccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue
+} catch {
+    Write-Host ("Exception occurred when calling Remove-BetaAccessModelMetadataFromEntitlement: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The entitlement id. | 
+ **AttributeKey** | **String**| Technical name of the Attribute. | 
+ **AttributeValue** | **String**| Technical name of the Attribute Value. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="Get-BetaEntitlement"></a>
 # **Get-BetaEntitlement**

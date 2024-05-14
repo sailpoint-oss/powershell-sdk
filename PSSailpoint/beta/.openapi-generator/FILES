@@ -128,9 +128,12 @@ docs/AttrSyncSource.md
 docs/AttrSyncSourceAttributeConfig.md
 docs/AttrSyncSourceConfig.md
 docs/AttributeChange.md
+docs/AttributeDTO.md
+docs/AttributeDTOList.md
 docs/AttributeDefinition.md
 docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
+docs/AttributeValueDTO.md
 docs/AttributesChanged.md
 docs/AuditDetails.md
 docs/AuthProfile.md
@@ -143,6 +146,7 @@ docs/BaseReferenceDto.md
 docs/BasicAuthConfig.md
 docs/BearerTokenAuthConfig.md
 docs/BeforeProvisioningRuleDto.md
+docs/BetaAccessModelMetadataApi.md
 docs/BetaAccessProfilesApi.md
 docs/BetaAccessRequestApprovalsApi.md
 docs/BetaAccessRequestIdentityMetricsApi.md
@@ -326,6 +330,7 @@ docs/E164phone.md
 docs/EmailNotificationOption.md
 docs/EmailStatusDto.md
 docs/Entitlement.md
+docs/EntitlementAccessModelMetadata.md
 docs/EntitlementAccessRequestConfig.md
 docs/EntitlementApprovalScheme.md
 docs/EntitlementBulkUpdateRequest.md
@@ -482,8 +487,8 @@ docs/LeftPad.md
 docs/License.md
 docs/LifecycleState.md
 docs/LifecycleStateDto.md
-docs/ListAccessProfiles401Response.md
-docs/ListAccessProfiles429Response.md
+docs/ListAccessModelMetadataAttribute401Response.md
+docs/ListAccessModelMetadataAttribute429Response.md
 docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/ListFormDefinitionsByTenantResponse.md
 docs/ListFormElementDataByElementIDResponse.md
@@ -917,6 +922,7 @@ docs/WorkgroupDto.md
 docs/WorkgroupDtoOwner.md
 docs/WorkgroupMemberAddItem.md
 docs/WorkgroupMemberDeleteItem.md
+src/PSSailpointBeta/Api/BetaAccessModelMetadataApi.ps1
 src/PSSailpointBeta/Api/BetaAccessProfilesApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestApprovalsApi.ps1
 src/PSSailpointBeta/Api/BetaAccessRequestIdentityMetricsApi.ps1
@@ -1116,9 +1122,12 @@ src/PSSailpointBeta/Model/AttrSyncSource.ps1
 src/PSSailpointBeta/Model/AttrSyncSourceAttributeConfig.ps1
 src/PSSailpointBeta/Model/AttrSyncSourceConfig.ps1
 src/PSSailpointBeta/Model/AttributeChange.ps1
+src/PSSailpointBeta/Model/AttributeDTO.ps1
+src/PSSailpointBeta/Model/AttributeDTOList.ps1
 src/PSSailpointBeta/Model/AttributeDefinition.ps1
 src/PSSailpointBeta/Model/AttributeDefinitionSchema.ps1
 src/PSSailpointBeta/Model/AttributeDefinitionType.ps1
+src/PSSailpointBeta/Model/AttributeValueDTO.ps1
 src/PSSailpointBeta/Model/AttributesChanged.ps1
 src/PSSailpointBeta/Model/AuditDetails.ps1
 src/PSSailpointBeta/Model/AuthProfile.ps1
@@ -1242,6 +1251,7 @@ src/PSSailpointBeta/Model/E164phone.ps1
 src/PSSailpointBeta/Model/EmailNotificationOption.ps1
 src/PSSailpointBeta/Model/EmailStatusDto.ps1
 src/PSSailpointBeta/Model/Entitlement.ps1
+src/PSSailpointBeta/Model/EntitlementAccessModelMetadata.ps1
 src/PSSailpointBeta/Model/EntitlementAccessRequestConfig.ps1
 src/PSSailpointBeta/Model/EntitlementApprovalScheme.ps1
 src/PSSailpointBeta/Model/EntitlementBulkUpdateRequest.ps1
@@ -1397,8 +1407,8 @@ src/PSSailpointBeta/Model/LeftPad.ps1
 src/PSSailpointBeta/Model/License.ps1
 src/PSSailpointBeta/Model/LifecycleState.ps1
 src/PSSailpointBeta/Model/LifecycleStateDto.ps1
-src/PSSailpointBeta/Model/ListAccessProfiles401Response.ps1
-src/PSSailpointBeta/Model/ListAccessProfiles429Response.ps1
+src/PSSailpointBeta/Model/ListAccessModelMetadataAttribute401Response.ps1
+src/PSSailpointBeta/Model/ListAccessModelMetadataAttribute429Response.ps1
 src/PSSailpointBeta/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpointBeta/Model/ListFormDefinitionsByTenantResponse.ps1
 src/PSSailpointBeta/Model/ListFormElementDataByElementIDResponse.ps1
@@ -1840,6 +1850,7 @@ src/PSSailpointBeta/Private/BetaRSAEncryptionProvider.cs
 src/PSSailpointBeta/Private/Get-CommonParameters.ps1
 src/PSSailpointBeta/Private/Out-DebugParameter.ps1
 src/PSSailpointBeta/en-US/about_PSSailpointBeta.help.txt
+tests/Api/BetaAccessModelMetadataApi.Tests.ps1
 tests/Api/BetaAccessProfilesApi.Tests.ps1
 tests/Api/BetaAccessRequestApprovalsApi.Tests.ps1
 tests/Api/BetaAccessRequestIdentityMetricsApi.Tests.ps1
@@ -2038,9 +2049,12 @@ tests/Model/AttrSyncSource.Tests.ps1
 tests/Model/AttrSyncSourceAttributeConfig.Tests.ps1
 tests/Model/AttrSyncSourceConfig.Tests.ps1
 tests/Model/AttributeChange.Tests.ps1
+tests/Model/AttributeDTO.Tests.ps1
+tests/Model/AttributeDTOList.Tests.ps1
 tests/Model/AttributeDefinition.Tests.ps1
 tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
+tests/Model/AttributeValueDTO.Tests.ps1
 tests/Model/AttributesChanged.Tests.ps1
 tests/Model/AuditDetails.Tests.ps1
 tests/Model/AuthProfile.Tests.ps1
@@ -2164,6 +2178,7 @@ tests/Model/E164phone.Tests.ps1
 tests/Model/EmailNotificationOption.Tests.ps1
 tests/Model/EmailStatusDto.Tests.ps1
 tests/Model/Entitlement.Tests.ps1
+tests/Model/EntitlementAccessModelMetadata.Tests.ps1
 tests/Model/EntitlementAccessRequestConfig.Tests.ps1
 tests/Model/EntitlementApprovalScheme.Tests.ps1
 tests/Model/EntitlementBulkUpdateRequest.Tests.ps1
@@ -2319,8 +2334,8 @@ tests/Model/LeftPad.Tests.ps1
 tests/Model/License.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
 tests/Model/LifecycleStateDto.Tests.ps1
-tests/Model/ListAccessProfiles401Response.Tests.ps1
-tests/Model/ListAccessProfiles429Response.Tests.ps1
+tests/Model/ListAccessModelMetadataAttribute401Response.Tests.ps1
+tests/Model/ListAccessModelMetadataAttribute429Response.Tests.ps1
 tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/ListFormDefinitionsByTenantResponse.Tests.ps1
 tests/Model/ListFormElementDataByElementIDResponse.Tests.ps1

@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoleName** | **String** | The name of the role | [optional] 
+**RoleRef** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **MatchedAttributes** | [**ContextAttributeDto[]**](ContextAttributeDto.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$RoleMatchDto = Initialize-PSSailpointBetaRoleMatchDto  -RoleName Engineer `
+$RoleMatchDto = Initialize-PSSailpointBetaRoleMatchDto  -RoleRef null `
  -MatchedAttributes null
 ```
 

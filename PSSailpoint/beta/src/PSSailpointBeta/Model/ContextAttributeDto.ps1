@@ -18,6 +18,8 @@ No description available.
 The name of the attribute
 .PARAMETER Value
 No description available.
+.PARAMETER Derived
+True if the attribute was derived.
 .OUTPUTS
 
 ContextAttributeDto<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-BetaContextAttributeDto {
         ${Attribute},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Value}
+        ${Value},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Derived} = $false
     )
 
     Process {
@@ -42,6 +47,7 @@ function Initialize-BetaContextAttributeDto {
         $PSO = [PSCustomObject]@{
             "attribute" = ${Attribute}
             "value" = ${Value}
+            "derived" = ${Derived}
         }
 
         return $PSO
@@ -78,7 +84,7 @@ function ConvertFrom-BetaJsonToContextAttributeDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaContextAttributeDto
-        $AllProperties = ("attribute", "value")
+        $AllProperties = ("attribute", "value", "derived")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -97,9 +103,16 @@ function ConvertFrom-BetaJsonToContextAttributeDto {
             $Value = $JsonParameters.PSobject.Properties["value"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "derived"))) { #optional property not found
+            $Derived = $null
+        } else {
+            $Derived = $JsonParameters.PSobject.Properties["derived"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "attribute" = ${Attribute}
             "value" = ${Value}
+            "derived" = ${Derived}
         }
 
         return $PSO

@@ -14,8 +14,8 @@ No summary available.
 
 No description available.
 
-.PARAMETER RoleName
-The name of the role
+.PARAMETER RoleRef
+No description available.
 .PARAMETER MatchedAttributes
 No description available.
 .OUTPUTS
@@ -27,8 +27,8 @@ function Initialize-BetaRoleMatchDto {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${RoleName},
+        [PSCustomObject]
+        ${RoleRef},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${MatchedAttributes}
@@ -40,7 +40,7 @@ function Initialize-BetaRoleMatchDto {
 
 
         $PSO = [PSCustomObject]@{
-            "roleName" = ${RoleName}
+            "roleRef" = ${RoleRef}
             "matchedAttributes" = ${MatchedAttributes}
         }
 
@@ -78,17 +78,17 @@ function ConvertFrom-BetaJsonToRoleMatchDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMatchDto
-        $AllProperties = ("roleName", "matchedAttributes")
+        $AllProperties = ("roleRef", "matchedAttributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "roleName"))) { #optional property not found
-            $RoleName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "roleRef"))) { #optional property not found
+            $RoleRef = $null
         } else {
-            $RoleName = $JsonParameters.PSobject.Properties["roleName"].value
+            $RoleRef = $JsonParameters.PSobject.Properties["roleRef"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "matchedAttributes"))) { #optional property not found
@@ -98,7 +98,7 @@ function ConvertFrom-BetaJsonToRoleMatchDto {
         }
 
         $PSO = [PSCustomObject]@{
-            "roleName" = ${RoleName}
+            "roleRef" = ${RoleRef}
             "matchedAttributes" = ${MatchedAttributes}
         }
 

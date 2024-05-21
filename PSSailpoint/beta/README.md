@@ -233,11 +233,11 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Update-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 *BetaIconsApi* | [**Remove-BetaIcon**](docs/BetaIconsApi.md#Remove-BetaIcon) | **DELETE** /icons/{objectType}/{objectId} | Delete an icon
 *BetaIconsApi* | [**Set-BetaIcon**](docs/BetaIconsApi.md#Set-BetaIcon) | **PUT** /icons/{objectType}/{objectId} | Update an icon
-*BetaIdentitiesApi* | [**Remove-BetaIdentity**](docs/BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
+*BetaIdentitiesApi* | [**Remove-BetaIdentity**](docs/BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Delete identity
 *BetaIdentitiesApi* | [**Get-BetaIdentity**](docs/BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
 *BetaIdentitiesApi* | [**Get-BetaIdentityOwnershipDetails**](docs/BetaIdentitiesApi.md#Get-BetaIdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
-*BetaIdentitiesApi* | [**Get-BetaRoleAssignment**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Get role assignment
-*BetaIdentitiesApi* | [**Get-BetaRoleAssignments**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | Get role assignments
+*BetaIdentitiesApi* | [**Get-BetaRoleAssignment**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Role assignment details
+*BetaIdentitiesApi* | [**Get-BetaRoleAssignments**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 *BetaIdentitiesApi* | [**Reset-BetaIdentity**](docs/BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{id}/reset | Reset an identity
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
@@ -683,6 +683,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ApprovalSummary](docs/ApprovalSummary.md)
  - [PSSailpointBeta\Model.Argument](docs/Argument.md)
  - [PSSailpointBeta\Model.ArrayInner](docs/ArrayInner.md)
+ - [PSSailpointBeta\Model.AssignmentContextDto](docs/AssignmentContextDto.md)
  - [PSSailpointBeta\Model.AttrSyncSource](docs/AttrSyncSource.md)
  - [PSSailpointBeta\Model.AttrSyncSourceAttributeConfig](docs/AttrSyncSourceAttributeConfig.md)
  - [PSSailpointBeta\Model.AttrSyncSourceConfig](docs/AttrSyncSourceConfig.md)

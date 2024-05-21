@@ -4,11 +4,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Remove-BetaIdentity**](BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Deletes an identity.
+[**Remove-BetaIdentity**](BetaIdentitiesApi.md#Remove-BetaIdentity) | **DELETE** /identities/{id} | Delete identity
 [**Get-BetaIdentity**](BetaIdentitiesApi.md#Get-BetaIdentity) | **GET** /identities/{id} | Identity Details
 [**Get-BetaIdentityOwnershipDetails**](BetaIdentitiesApi.md#Get-BetaIdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
-[**Get-BetaRoleAssignment**](BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Get role assignment
-[**Get-BetaRoleAssignments**](BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | Get role assignments
+[**Get-BetaRoleAssignment**](BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Role assignment details
+[**Get-BetaRoleAssignments**](BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
 [**Get-BetaIdentities**](BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 [**Reset-BetaIdentity**](BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{id}/reset | Reset an identity
 [**Start-BetaIdentityProcessing**](BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 > void Remove-BetaIdentity<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Deletes an identity.
+Delete identity
 
 The API returns successful response if the requested identity was deleted.
 
@@ -36,7 +36,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 
-# Deletes an identity.
+# Delete identity
 try {
     $Result = Remove-BetaIdentity -Id $Id
 } catch {
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AssignmentId] <String><br>
 
-Get role assignment
+Role assignment details
 
 ### Example
 ```powershell
@@ -189,7 +189,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
 
-# Get role assignment
+# Role assignment details
 try {
     $Result = Get-BetaRoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId
 } catch {
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RoleName] <String><br>
 
-Get role assignments
+List role assignments
 
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
@@ -245,7 +245,7 @@ $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id to get t
 $RoleId = "e7697a1e96d04db1ac7b0f4544915d2c" # String | Role Id to filter the role assignments with (optional)
 $RoleName = "Engineer" # String | Role name to filter the role assignments with (optional)
 
-# Get role assignments
+# List role assignments
 try {
     $Result = Get-BetaRoleAssignments -IdentityId $IdentityId -RoleId $RoleId -RoleName $RoleName
 } catch {

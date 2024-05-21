@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaContextAttributeDto' {
     Context 'BetaContextAttributeDto' {
         It 'Initialize-BetaContextAttributeDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaContextAttributeDto -Attribute "TEST_VALUE" -Value "TEST_VALUE"
+            #$NewObject = Initialize-BetaContextAttributeDto -Attribute "TEST_VALUE" -Value "TEST_VALUE" -Derived "TEST_VALUE"
             #$NewObject | Should -BeOfType ContextAttributeDto
             #$NewObject.property | Should -Be 0
         }

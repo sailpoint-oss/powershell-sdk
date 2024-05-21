@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Deletes an identity.
+Delete identity
 
 .DESCRIPTION
 
@@ -230,7 +230,7 @@ function Get-BetaIdentityOwnershipDetails {
 <#
 .SYNOPSIS
 
-Get role assignment
+Role assignment details
 
 .DESCRIPTION
 
@@ -314,7 +314,7 @@ function Get-BetaRoleAssignment {
 <#
 .SYNOPSIS
 
-Get role assignments
+List role assignments
 
 .DESCRIPTION
 

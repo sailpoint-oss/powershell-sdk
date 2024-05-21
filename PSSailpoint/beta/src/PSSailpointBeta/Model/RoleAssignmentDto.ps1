@@ -26,7 +26,7 @@ Source describing how this assignment was made
 No description available.
 .PARAMETER AssignedDimensions
 Dimensions assigned related to this role
-.PARAMETER AccessRequestContext
+.PARAMETER AssignmentContext
 No description available.
 .PARAMETER AccountTargets
 No description available.
@@ -60,7 +60,7 @@ function Initialize-BetaRoleAssignmentDto {
         ${AssignedDimensions},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${AccessRequestContext},
+        ${AssignmentContext},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccountTargets},
@@ -81,7 +81,7 @@ function Initialize-BetaRoleAssignmentDto {
             "assignmentSource" = ${AssignmentSource}
             "assigner" = ${Assigner}
             "assignedDimensions" = ${AssignedDimensions}
-            "accessRequestContext" = ${AccessRequestContext}
+            "assignmentContext" = ${AssignmentContext}
             "accountTargets" = ${AccountTargets}
             "removeDate" = ${RemoveDate}
         }
@@ -120,7 +120,7 @@ function ConvertFrom-BetaJsonToRoleAssignmentDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleAssignmentDto
-        $AllProperties = ("id", "role", "comments", "assignmentSource", "assigner", "assignedDimensions", "accessRequestContext", "accountTargets", "removeDate")
+        $AllProperties = ("id", "role", "comments", "assignmentSource", "assigner", "assignedDimensions", "assignmentContext", "accountTargets", "removeDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -163,10 +163,10 @@ function ConvertFrom-BetaJsonToRoleAssignmentDto {
             $AssignedDimensions = $JsonParameters.PSobject.Properties["assignedDimensions"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessRequestContext"))) { #optional property not found
-            $AccessRequestContext = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "assignmentContext"))) { #optional property not found
+            $AssignmentContext = $null
         } else {
-            $AccessRequestContext = $JsonParameters.PSobject.Properties["accessRequestContext"].value
+            $AssignmentContext = $JsonParameters.PSobject.Properties["assignmentContext"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountTargets"))) { #optional property not found
@@ -188,7 +188,7 @@ function ConvertFrom-BetaJsonToRoleAssignmentDto {
             "assignmentSource" = ${AssignmentSource}
             "assigner" = ${Assigner}
             "assignedDimensions" = ${AssignedDimensions}
-            "accessRequestContext" = ${AccessRequestContext}
+            "assignmentContext" = ${AssignmentContext}
             "accountTargets" = ${AccountTargets}
             "removeDate" = ${RemoveDate}
         }

@@ -5,13 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attribute** | **String** | The name of the attribute | [optional] 
 **Value** | [**ContextAttributeDtoValue**](ContextAttributeDtoValue.md) |  | [optional] 
+**Derived** | **Boolean** | True if the attribute was derived. | [optional] [default to $false]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $ContextAttributeDto = Initialize-PSSailpointBetaContextAttributeDto  -Attribute location `
- -Value null
+ -Value null `
+ -Derived false
 ```
 
 - Convert the resource to JSON

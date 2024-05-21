@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaAccessRequestContext' {
     Context 'BetaAccessRequestContext' {
         It 'Initialize-BetaAccessRequestContext' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccessRequestContext -RequestedContext "TEST_VALUE" -AssignedContext "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccessRequestContext -ContextAttributes "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessRequestContext
             #$NewObject.property | Should -Be 0
         }

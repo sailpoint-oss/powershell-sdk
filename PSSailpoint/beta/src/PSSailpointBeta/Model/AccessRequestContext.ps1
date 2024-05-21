@@ -14,9 +14,7 @@ No summary available.
 
 No description available.
 
-.PARAMETER RequestedContext
-No description available.
-.PARAMETER AssignedContext
+.PARAMETER ContextAttributes
 No description available.
 .OUTPUTS
 
@@ -28,10 +26,7 @@ function Initialize-BetaAccessRequestContext {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${RequestedContext},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${AssignedContext}
+        ${ContextAttributes}
     )
 
     Process {
@@ -40,8 +35,7 @@ function Initialize-BetaAccessRequestContext {
 
 
         $PSO = [PSCustomObject]@{
-            "requestedContext" = ${RequestedContext}
-            "assignedContext" = ${AssignedContext}
+            "contextAttributes" = ${ContextAttributes}
         }
 
         return $PSO
@@ -78,28 +72,21 @@ function ConvertFrom-BetaJsonToAccessRequestContext {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessRequestContext
-        $AllProperties = ("requestedContext", "assignedContext")
+        $AllProperties = ("contextAttributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedContext"))) { #optional property not found
-            $RequestedContext = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "contextAttributes"))) { #optional property not found
+            $ContextAttributes = $null
         } else {
-            $RequestedContext = $JsonParameters.PSobject.Properties["requestedContext"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "assignedContext"))) { #optional property not found
-            $AssignedContext = $null
-        } else {
-            $AssignedContext = $JsonParameters.PSobject.Properties["assignedContext"].value
+            $ContextAttributes = $JsonParameters.PSobject.Properties["contextAttributes"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "requestedContext" = ${RequestedContext}
-            "assignedContext" = ${AssignedContext}
+            "contextAttributes" = ${ContextAttributes}
         }
 
         return $PSO

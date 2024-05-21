@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **AssignmentSource** | **String** | Source describing how this assignment was made | [optional] 
 **Assigner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
 **AssignedDimensions** | [**BaseReferenceDto[]**](BaseReferenceDto.md) | Dimensions assigned related to this role | [optional] 
-**AccessRequestContext** | [**AccessRequestContext**](AccessRequestContext.md) |  | [optional] 
+**AssignmentContext** | [**AssignmentContextDto**](AssignmentContextDto.md) |  | [optional] 
 **AccountTargets** | [**RoleTargetDto[]**](RoleTargetDto.md) |  | [optional] 
 **RemoveDate** | **String** | Date that the assignment will be removed | [optional] 
 
@@ -23,7 +23,7 @@ $RoleAssignmentDto = Initialize-PSSailpointBetaRoleAssignmentDto  -Id 1cbb0705b3
  -AssignmentSource UI `
  -Assigner null `
  -AssignedDimensions [{id&#x3D;1acc8ffe5fcf457090de28bee2af36ee, type&#x3D;DIMENSION, name&#x3D;Northeast region}] `
- -AccessRequestContext null `
+ -AssignmentContext null `
  -AccountTargets null `
  -RemoveDate Wed Feb 14 10:58:42
 ```

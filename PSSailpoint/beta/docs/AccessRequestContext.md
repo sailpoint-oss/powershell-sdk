@@ -3,15 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestedContext** | [**ContextAttributeDto[]**](ContextAttributeDto.md) |  | [optional] 
-**AssignedContext** | [**RoleMatchDto[]**](RoleMatchDto.md) |  | [optional] 
+**ContextAttributes** | [**ContextAttributeDto[]**](ContextAttributeDto.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccessRequestContext = Initialize-PSSailpointBetaAccessRequestContext  -RequestedContext null `
- -AssignedContext null
+$AccessRequestContext = Initialize-PSSailpointBetaAccessRequestContext  -ContextAttributes null
 ```
 
 - Convert the resource to JSON

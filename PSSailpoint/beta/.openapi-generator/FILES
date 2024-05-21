@@ -124,6 +124,7 @@ docs/ApprovalStatusDtoOriginalOwner.md
 docs/ApprovalSummary.md
 docs/Argument.md
 docs/ArrayInner.md
+docs/AssignmentContextDto.md
 docs/AttrSyncSource.md
 docs/AttrSyncSourceAttributeConfig.md
 docs/AttrSyncSourceConfig.md
@@ -1118,6 +1119,7 @@ src/PSSailpointBeta/Model/ApprovalStatusDtoOriginalOwner.ps1
 src/PSSailpointBeta/Model/ApprovalSummary.ps1
 src/PSSailpointBeta/Model/Argument.ps1
 src/PSSailpointBeta/Model/ArrayInner.ps1
+src/PSSailpointBeta/Model/AssignmentContextDto.ps1
 src/PSSailpointBeta/Model/AttrSyncSource.ps1
 src/PSSailpointBeta/Model/AttrSyncSourceAttributeConfig.ps1
 src/PSSailpointBeta/Model/AttrSyncSourceConfig.ps1
@@ -2045,6 +2047,7 @@ tests/Model/ApprovalStatusDtoOriginalOwner.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
 tests/Model/Argument.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
+tests/Model/AssignmentContextDto.Tests.ps1
 tests/Model/AttrSyncSource.Tests.ps1
 tests/Model/AttrSyncSourceAttributeConfig.Tests.ps1
 tests/Model/AttrSyncSourceConfig.Tests.ps1

@@ -235,7 +235,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
-$From = "2007-03-01T13:00:00Z" # String | The optional instant from which to return the access events (optional)
+$From = "2024-03-01T13:00:00Z" # String | The optional instant until which access events are returned (optional)
 $EventTypes = "MyEventTypes" # String[] | An optional list of event types to return.  If null or empty, all events are returned (optional)
 $AccessItemTypes = "MyAccessItemTypes" # String[] | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -256,7 +256,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| The identity id | 
- **From** | **String**| The optional instant from which to return the access events | [optional] 
+ **From** | **String**| The optional instant until which access events are returned | [optional] 
  **EventTypes** | [**String[]**](String.md)| An optional list of event types to return.  If null or empty, all events are returned | [optional] 
  **AccessItemTypes** | [**String[]**](String.md)| An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned | [optional] 
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]

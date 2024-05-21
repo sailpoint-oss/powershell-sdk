@@ -370,7 +370,7 @@ This method retrieves all access events for the identity Requires authorization 
 The identity id
 
 .PARAMETER From
-The optional instant from which to return the access events
+The optional instant until which access events are returned
 
 .PARAMETER EventTypes
 An optional list of event types to return.  If null or empty, all events are returned

@@ -209,6 +209,7 @@ docs/BetaSegmentsApi.md
 docs/BetaServiceDeskIntegrationApi.md
 docs/BetaSourceUsagesApi.md
 docs/BetaSourcesApi.md
+docs/BetaSourcesUncorrelatedAccountsApi.md
 docs/BetaSuggestedEntitlementDescriptionApi.md
 docs/BetaTaggedObjectsApi.md
 docs/BetaTaskManagementApi.md
@@ -504,6 +505,10 @@ docs/LoadAccountsTaskTaskMessagesInner.md
 docs/LoadAccountsTaskTaskReturnsInner.md
 docs/LoadEntitlementTask.md
 docs/LoadEntitlementTaskReturnsInner.md
+docs/LoadUncorrelatedAccountsTask.md
+docs/LoadUncorrelatedAccountsTaskTask.md
+docs/LoadUncorrelatedAccountsTaskTaskAttributes.md
+docs/LoadUncorrelatedAccountsTaskTaskMessagesInner.md
 docs/LocaleOrigin.md
 docs/LocalizedMessage.md
 docs/Lookup.md
@@ -985,6 +990,7 @@ src/PSSailpointBeta/Api/BetaSegmentsApi.ps1
 src/PSSailpointBeta/Api/BetaServiceDeskIntegrationApi.ps1
 src/PSSailpointBeta/Api/BetaSourceUsagesApi.ps1
 src/PSSailpointBeta/Api/BetaSourcesApi.ps1
+src/PSSailpointBeta/Api/BetaSourcesUncorrelatedAccountsApi.ps1
 src/PSSailpointBeta/Api/BetaSuggestedEntitlementDescriptionApi.ps1
 src/PSSailpointBeta/Api/BetaTaggedObjectsApi.ps1
 src/PSSailpointBeta/Api/BetaTaskManagementApi.ps1
@@ -1425,6 +1431,10 @@ src/PSSailpointBeta/Model/LoadAccountsTaskTaskMessagesInner.ps1
 src/PSSailpointBeta/Model/LoadAccountsTaskTaskReturnsInner.ps1
 src/PSSailpointBeta/Model/LoadEntitlementTask.ps1
 src/PSSailpointBeta/Model/LoadEntitlementTaskReturnsInner.ps1
+src/PSSailpointBeta/Model/LoadUncorrelatedAccountsTask.ps1
+src/PSSailpointBeta/Model/LoadUncorrelatedAccountsTaskTask.ps1
+src/PSSailpointBeta/Model/LoadUncorrelatedAccountsTaskTaskAttributes.ps1
+src/PSSailpointBeta/Model/LoadUncorrelatedAccountsTaskTaskMessagesInner.ps1
 src/PSSailpointBeta/Model/LocaleOrigin.ps1
 src/PSSailpointBeta/Model/LocalizedMessage.ps1
 src/PSSailpointBeta/Model/Lookup.ps1
@@ -1914,6 +1924,7 @@ tests/Api/BetaSegmentsApi.Tests.ps1
 tests/Api/BetaServiceDeskIntegrationApi.Tests.ps1
 tests/Api/BetaSourceUsagesApi.Tests.ps1
 tests/Api/BetaSourcesApi.Tests.ps1
+tests/Api/BetaSourcesUncorrelatedAccountsApi.Tests.ps1
 tests/Api/BetaSuggestedEntitlementDescriptionApi.Tests.ps1
 tests/Api/BetaTaggedObjectsApi.Tests.ps1
 tests/Api/BetaTaskManagementApi.Tests.ps1
@@ -2353,6 +2364,10 @@ tests/Model/LoadAccountsTaskTaskMessagesInner.Tests.ps1
 tests/Model/LoadAccountsTaskTaskReturnsInner.Tests.ps1
 tests/Model/LoadEntitlementTask.Tests.ps1
 tests/Model/LoadEntitlementTaskReturnsInner.Tests.ps1
+tests/Model/LoadUncorrelatedAccountsTask.Tests.ps1
+tests/Model/LoadUncorrelatedAccountsTaskTask.Tests.ps1
+tests/Model/LoadUncorrelatedAccountsTaskTaskAttributes.Tests.ps1
+tests/Model/LoadUncorrelatedAccountsTaskTaskMessagesInner.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
 tests/Model/LocalizedMessage.Tests.ps1
 tests/Model/Lookup.Tests.ps1

@@ -476,6 +476,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
 *BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
+*BetaSourcesUncorrelatedAccountsApi* | [**Import-BetaUncorrelatedAccounts**](docs/BetaSourcesUncorrelatedAccountsApi.md#Import-BetaUncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatchStats**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatches**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSeds**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSeds) | **GET** /suggested-entitlement-descriptions | List Suggested Entitlement Description
@@ -989,6 +990,10 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.LoadAccountsTaskTaskReturnsInner](docs/LoadAccountsTaskTaskReturnsInner.md)
  - [PSSailpointBeta\Model.LoadEntitlementTask](docs/LoadEntitlementTask.md)
  - [PSSailpointBeta\Model.LoadEntitlementTaskReturnsInner](docs/LoadEntitlementTaskReturnsInner.md)
+ - [PSSailpointBeta\Model.LoadUncorrelatedAccountsTask](docs/LoadUncorrelatedAccountsTask.md)
+ - [PSSailpointBeta\Model.LoadUncorrelatedAccountsTaskTask](docs/LoadUncorrelatedAccountsTaskTask.md)
+ - [PSSailpointBeta\Model.LoadUncorrelatedAccountsTaskTaskAttributes](docs/LoadUncorrelatedAccountsTaskTaskAttributes.md)
+ - [PSSailpointBeta\Model.LoadUncorrelatedAccountsTaskTaskMessagesInner](docs/LoadUncorrelatedAccountsTaskTaskMessagesInner.md)
  - [PSSailpointBeta\Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpointBeta\Model.LocalizedMessage](docs/LocalizedMessage.md)
  - [PSSailpointBeta\Model.Lookup](docs/Lookup.md)

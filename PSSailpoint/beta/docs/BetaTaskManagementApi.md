@@ -144,7 +144,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "anId" # String | Task ID of the TaskStatus to get
+$Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 
 # Get task status by ID.
 try {
@@ -159,7 +159,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Task ID of the TaskStatus to get | 
+ **Id** | **String**| Task ID. | 
 
 ### Return type
 
@@ -243,11 +243,11 @@ Name | Type | Description  | Notes
 # **Update-BetaTaskStatus**
 > TaskStatus Update-BetaTaskStatus<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatch] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
 Update task status by ID
 
-Update a current TaskStatus for a task by task ID.
+Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
 ### Example
 ```powershell
@@ -259,15 +259,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "anId" # String | Task ID of the task whose TaskStatus to update
+$Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue
-
-$JsonPatch = Initialize-JsonPatch -Operations $JsonPatchOperation # JsonPatch | 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the object.
 
 # Update task status by ID
 try {
-    $Result = Update-BetaTaskStatus -Id $Id -JsonPatch $JsonPatch
+    $Result = Update-BetaTaskStatus -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Update-BetaTaskStatus: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -278,8 +276,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Task ID of the task whose TaskStatus to update | 
- **JsonPatch** | [**JsonPatch**](JsonPatch.md)|  | 
+ **Id** | **String**| Task ID. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the object. | 
 
 ### Return type
 

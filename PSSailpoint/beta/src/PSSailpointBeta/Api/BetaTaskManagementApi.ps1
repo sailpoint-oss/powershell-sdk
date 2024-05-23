@@ -203,7 +203,7 @@ Get task status by ID.
 Get a TaskStatus for a task by task ID.
 
 .PARAMETER Id
-Task ID of the TaskStatus to get
+Task ID.
 
 .PARAMETER WithHttpInfo
 
@@ -388,13 +388,13 @@ Update task status by ID
 
 .DESCRIPTION
 
-Update a current TaskStatus for a task by task ID.
+Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
 .PARAMETER Id
-Task ID of the task whose TaskStatus to update
+Task ID.
 
-.PARAMETER JsonPatch
-No description available.
+.PARAMETER JsonPatchOperation
+The JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
 
@@ -411,8 +411,8 @@ function Update-BetaTaskStatus {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${JsonPatch},
+        [PSCustomObject[]]
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -442,14 +442,14 @@ function Update-BetaTaskStatus {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$JsonPatch) {
-            throw "Error! The required parameter `JsonPatch` missing when calling updateTaskStatus."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateTaskStatus."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
-            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

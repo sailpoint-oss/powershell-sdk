@@ -257,7 +257,6 @@ docs/ImportUploadedBackupRequest.md
 docs/Index.md
 docs/IndexOf.md
 docs/InnerHit.md
-docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
 docs/KbaAnswerRequestItem.md
@@ -892,7 +891,6 @@ src/PSSailpoint/Model/ImportUploadedBackupRequest.ps1
 src/PSSailpoint/Model/Index.ps1
 src/PSSailpoint/Model/IndexOf.ps1
 src/PSSailpoint/Model/InnerHit.ps1
-src/PSSailpoint/Model/JsonPatch.ps1
 src/PSSailpoint/Model/JsonPatchOperation.ps1
 src/PSSailpoint/Model/JsonPatchOperationValue.ps1
 src/PSSailpoint/Model/KbaAnswerRequestItem.ps1
@@ -1503,7 +1501,6 @@ tests/Model/ImportUploadedBackupRequest.Tests.ps1
 tests/Model/Index.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
 tests/Model/InnerHit.Tests.ps1
-tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
 tests/Model/KbaAnswerRequestItem.Tests.ps1

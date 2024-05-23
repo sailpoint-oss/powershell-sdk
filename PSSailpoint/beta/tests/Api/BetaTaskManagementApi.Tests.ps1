@@ -40,7 +40,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaTaskManagementApi' {
 
     Context 'Update-BetaTaskStatus' {
         It 'Test Update-BetaTaskStatus' {
-            #$TestResult = Update-BetaTaskStatus -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
+            #$TestResult = Update-BetaTaskStatus -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

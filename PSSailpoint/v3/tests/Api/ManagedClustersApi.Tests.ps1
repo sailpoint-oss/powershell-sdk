@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint' -name 'ManagedClustersApi' {
 
     Context 'Update-ManagedCluster' {
         It 'Test Update-ManagedCluster' {
-            #$TestResult = Update-ManagedCluster -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
+            #$TestResult = Update-ManagedCluster -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

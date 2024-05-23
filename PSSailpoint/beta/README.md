@@ -961,7 +961,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.Invocation](docs/Invocation.md)
  - [PSSailpointBeta\Model.InvocationStatus](docs/InvocationStatus.md)
  - [PSSailpointBeta\Model.InvocationStatusType](docs/InvocationStatusType.md)
- - [PSSailpointBeta\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpointBeta\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpointBeta\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
  - [PSSailpointBeta\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)

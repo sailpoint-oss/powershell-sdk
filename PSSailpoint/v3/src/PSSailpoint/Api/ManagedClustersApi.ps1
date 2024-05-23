@@ -105,7 +105,7 @@ Delete a Managed Cluster
 Delete an existing Managed Cluster.
 
 .PARAMETER Id
-The Managed Cluster ID
+Managed Cluster ID.
 
 .PARAMETER RemoveClients
 Flag to determine the need to delete a cluster with clients
@@ -189,7 +189,7 @@ Get a specified Managed Cluster.
 Retrieve a ManagedCluster by ID.
 
 .PARAMETER Id
-ID of the ManagedCluster to get
+ManagedCluster ID.
 
 .PARAMETER WithHttpInfo
 
@@ -367,10 +367,10 @@ Update a Managed Cluster
 Update an existing Managed Cluster.
 
 .PARAMETER Id
-The Managed Cluster ID
+Managed Cluster ID.
 
-.PARAMETER JsonPatch
-The JSONPatch payload used to update the schema.
+.PARAMETER JsonPatchOperation
+The JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
 
@@ -387,8 +387,8 @@ function Update-ManagedCluster {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${JsonPatch},
+        [PSCustomObject[]]
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -418,14 +418,14 @@ function Update-ManagedCluster {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$JsonPatch) {
-            throw "Error! The required parameter `JsonPatch` missing when calling updateManagedCluster."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateManagedCluster."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
-            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

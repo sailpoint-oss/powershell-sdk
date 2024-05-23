@@ -82,7 +82,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClientId" # String | The Managed Client ID
+$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed Client ID.
 
 # Delete a Managed Client
 try {
@@ -97,7 +97,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Managed Client ID | 
+ **Id** | **String**| Managed Client ID. | 
 
 ### Return type
 
@@ -133,7 +133,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClientId" # String | The Managed Client ID
+$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed Client ID.
 
 # Get a Managed Client
 try {
@@ -148,7 +148,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Managed Client ID | 
+ **Id** | **String**| Managed Client ID. | 
 
 ### Return type
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 # **Update-ManagedClient**
 > ManagedClient Update-ManagedClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatch] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
 Update a Managed Client
 
@@ -299,15 +299,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClientId" # String | The Managed Client ID
+$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed Client ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue
-
-$JsonPatch = Initialize-JsonPatch -Operations $JsonPatchOperation # JsonPatch | The JSONPatch payload used to update the schema.
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the object.
 
 # Update a Managed Client
 try {
-    $Result = Update-ManagedClient -Id $Id -JsonPatch $JsonPatch
+    $Result = Update-ManagedClient -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Update-ManagedClient: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -318,8 +316,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Managed Client ID | 
- **JsonPatch** | [**JsonPatch**](JsonPatch.md)| The JSONPatch payload used to update the schema. | 
+ **Id** | **String**| Managed Client ID. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the object. | 
 
 ### Return type
 

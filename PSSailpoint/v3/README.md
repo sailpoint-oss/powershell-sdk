@@ -632,7 +632,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.Index](docs/Index.md)
  - [PSSailpoint\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint\Model.InnerHit](docs/InnerHit.md)
- - [PSSailpoint\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpoint\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpoint\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
  - [PSSailpoint\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)

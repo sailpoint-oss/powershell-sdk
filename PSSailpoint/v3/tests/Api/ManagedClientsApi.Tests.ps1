@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint' -name 'ManagedClientsApi' {
 
     Context 'Update-ManagedClient' {
         It 'Test Update-ManagedClient' {
-            #$TestResult = Update-ManagedClient -Id "TEST_VALUE" -JsonPatch "TEST_VALUE"
+            #$TestResult = Update-ManagedClient -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -82,7 +82,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClusterId" # String | The Managed Cluster ID
+$Id = "2c9180897de347a2017de8859e8c5039" # String | Managed Cluster ID.
 $RemoveClients = $false # Boolean | Flag to determine the need to delete a cluster with clients (optional) (default to $false)
 
 # Delete a Managed Cluster
@@ -98,7 +98,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Managed Cluster ID | 
+ **Id** | **String**| Managed Cluster ID. | 
  **RemoveClients** | **Boolean**| Flag to determine the need to delete a cluster with clients | [optional] [default to $false]
 
 ### Return type
@@ -135,7 +135,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClusterId" # String | ID of the ManagedCluster to get
+$Id = "2c9180897de347a2017de8859e8c5039" # String | ManagedCluster ID.
 
 # Get a specified Managed Cluster.
 try {
@@ -150,7 +150,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of the ManagedCluster to get | 
+ **Id** | **String**| ManagedCluster ID. | 
 
 ### Return type
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 # **Update-ManagedCluster**
 > ManagedCluster Update-ManagedCluster<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatch] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
 Update a Managed Cluster
 
@@ -247,15 +247,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClusterId" # String | The Managed Cluster ID
+$Id = "2c9180897de347a2017de8859e8c5039" # String | Managed Cluster ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue
-
-$JsonPatch = Initialize-JsonPatch -Operations $JsonPatchOperation # JsonPatch | The JSONPatch payload used to update the schema.
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the object.
 
 # Update a Managed Cluster
 try {
-    $Result = Update-ManagedCluster -Id $Id -JsonPatch $JsonPatch
+    $Result = Update-ManagedCluster -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Update-ManagedCluster: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -266,8 +264,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Managed Cluster ID | 
- **JsonPatch** | [**JsonPatch**](JsonPatch.md)| The JSONPatch payload used to update the schema. | 
+ **Id** | **String**| Managed Cluster ID. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the object. | 
 
 ### Return type
 

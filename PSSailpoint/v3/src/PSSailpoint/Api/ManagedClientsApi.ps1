@@ -105,7 +105,7 @@ Delete a Managed Client
 Delete an existing Managed Client.
 
 .PARAMETER Id
-The Managed Client ID
+Managed Client ID.
 
 .PARAMETER WithHttpInfo
 
@@ -179,7 +179,7 @@ Get a Managed Client
 Get a Managed Client.
 
 .PARAMETER Id
-The Managed Client ID
+Managed Client ID.
 
 .PARAMETER WithHttpInfo
 
@@ -442,10 +442,10 @@ Update a Managed Client
 Update an existing Managed Client.
 
 .PARAMETER Id
-The Managed Client ID
+Managed Client ID.
 
-.PARAMETER JsonPatch
-The JSONPatch payload used to update the schema.
+.PARAMETER JsonPatchOperation
+The JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
 
@@ -462,8 +462,8 @@ function Update-ManagedClient {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${JsonPatch},
+        [PSCustomObject[]]
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -493,14 +493,14 @@ function Update-ManagedClient {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$JsonPatch) {
-            throw "Error! The required parameter `JsonPatch` missing when calling updateManagedClient."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateManagedClient."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatch -is [array])) {
-            $LocalVarBodyParameter = $JsonPatch | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $JsonPatch | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

@@ -209,7 +209,6 @@ docs/BetaSegmentsApi.md
 docs/BetaServiceDeskIntegrationApi.md
 docs/BetaSourceUsagesApi.md
 docs/BetaSourcesApi.md
-docs/BetaSourcesUncorrelatedAccountsApi.md
 docs/BetaSuggestedEntitlementDescriptionApi.md
 docs/BetaTaggedObjectsApi.md
 docs/BetaTaskManagementApi.md
@@ -990,7 +989,6 @@ src/PSSailpointBeta/Api/BetaSegmentsApi.ps1
 src/PSSailpointBeta/Api/BetaServiceDeskIntegrationApi.ps1
 src/PSSailpointBeta/Api/BetaSourceUsagesApi.ps1
 src/PSSailpointBeta/Api/BetaSourcesApi.ps1
-src/PSSailpointBeta/Api/BetaSourcesUncorrelatedAccountsApi.ps1
 src/PSSailpointBeta/Api/BetaSuggestedEntitlementDescriptionApi.ps1
 src/PSSailpointBeta/Api/BetaTaggedObjectsApi.ps1
 src/PSSailpointBeta/Api/BetaTaskManagementApi.ps1
@@ -1924,7 +1922,6 @@ tests/Api/BetaSegmentsApi.Tests.ps1
 tests/Api/BetaServiceDeskIntegrationApi.Tests.ps1
 tests/Api/BetaSourceUsagesApi.Tests.ps1
 tests/Api/BetaSourcesApi.Tests.ps1
-tests/Api/BetaSourcesUncorrelatedAccountsApi.Tests.ps1
 tests/Api/BetaSuggestedEntitlementDescriptionApi.Tests.ps1
 tests/Api/BetaTaggedObjectsApi.Tests.ps1
 tests/Api/BetaTaskManagementApi.Tests.ps1

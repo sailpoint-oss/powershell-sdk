@@ -458,6 +458,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Import-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *BetaSourcesApi* | [**Import-BetaSourceConnectorFile**](docs/BetaSourcesApi.md#Import-BetaSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *BetaSourcesApi* | [**Import-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
+*BetaSourcesApi* | [**Import-BetaUncorrelatedAccounts**](docs/BetaSourcesApi.md#Import-BetaUncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicies**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
 *BetaSourcesApi* | [**Get-BetaSourceSchemas**](docs/BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
 *BetaSourcesApi* | [**Get-BetaSources**](docs/BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
@@ -476,7 +477,6 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
 *BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
-*BetaSourcesUncorrelatedAccountsApi* | [**Import-BetaUncorrelatedAccounts**](docs/BetaSourcesUncorrelatedAccountsApi.md#Import-BetaUncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatchStats**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatches**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSeds**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSeds) | **GET** /suggested-entitlement-descriptions | List Suggested Entitlement Description

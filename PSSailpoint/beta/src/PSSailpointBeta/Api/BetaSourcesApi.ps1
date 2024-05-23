@@ -1713,6 +1713,93 @@ function Import-BetaSourceEntitlementsSchema {
 <#
 .SYNOPSIS
 
+Process Uncorrelated Accounts
+
+.DESCRIPTION
+
+File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
+
+.PARAMETER Id
+Source Id
+
+.PARAMETER File
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+LoadUncorrelatedAccountsTask
+#>
+function Import-BetaUncorrelatedAccounts {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${File},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Import-BetaUncorrelatedAccounts' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data')
+
+        $LocalVarUri = '/sources/{id}/load-uncorrelated-accounts'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling importUncorrelatedAccounts."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if ($File) {
+            $LocalVarFormParameters['file'] = $File
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "LoadUncorrelatedAccountsTask" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Lists ProvisioningPolicies
 
 .DESCRIPTION

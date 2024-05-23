@@ -166,6 +166,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'Import-BetaUncorrelatedAccounts' {
+        It 'Test Import-BetaUncorrelatedAccounts' {
+            #$TestResult = Import-BetaUncorrelatedAccounts -Id "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaProvisioningPolicies' {
         It 'Test Get-BetaProvisioningPolicies' {
             #$TestResult = Get-BetaProvisioningPolicies -SourceId "TEST_VALUE"

@@ -906,7 +906,7 @@ Name | Type | Description  | Notes
 > LoadAccountsTask Import-BetaAccounts<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DisableOptimization] <System.Nullable[Boolean]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DisableOptimization] <String><br>
 
 Account Aggregation
 
@@ -924,7 +924,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
-$DisableOptimization = $true # Boolean | Use this flag to reprocess every account whether or not the data has changed. (optional) (default to $false)
+$DisableOptimization = "MyDisableOptimization" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
 # Account Aggregation
 try {
@@ -941,7 +941,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| Source Id | 
  **File** | **System.IO.FileInfo****System.IO.FileInfo**| The CSV file containing the source accounts to aggregate. | [optional] 
- **DisableOptimization** | **Boolean**| Use this flag to reprocess every account whether or not the data has changed. | [optional] [default to $false]
+ **DisableOptimization** | **String**| Use this flag to reprocess every account whether or not the data has changed. | [optional] 
 
 ### Return type
 

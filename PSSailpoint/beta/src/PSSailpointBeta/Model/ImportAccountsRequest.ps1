@@ -30,8 +30,8 @@ function Initialize-BetaImportAccountsRequest {
         [System.IO.FileInfo]
         ${File},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${DisableOptimization} = $false
+        [String]
+        ${DisableOptimization}
     )
 
     Process {

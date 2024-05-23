@@ -1378,7 +1378,7 @@ function Import-BetaAccounts {
         [System.IO.FileInfo]
         ${File},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Boolean]]
+        [String]
         ${DisableOptimization},
         [Switch]
         $WithHttpInfo

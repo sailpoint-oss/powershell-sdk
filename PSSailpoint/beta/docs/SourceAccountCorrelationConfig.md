@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the account correlation config | [optional] 
-**Name** | **String** | Human-readable display name of the account correlation config | [optional] 
+**Type** | **String** | Type of object being referenced. | [optional] 
+**Id** | **String** | Account correlation config ID. | [optional] 
+**Name** | **String** | Account correlation config&#39;s human-readable display name. | [optional] 
 
 ## Examples
 

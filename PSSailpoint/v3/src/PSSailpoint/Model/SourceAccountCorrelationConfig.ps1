@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to an Account Correlation Config object
+Reference to account correlation config object.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the account correlation config
+Account correlation config ID.
 .PARAMETER Name
-Human-readable display name of the account correlation config
+Account correlation config's human-readable display name.
 .OUTPUTS
 
 SourceAccountCorrelationConfig<PSCustomObject>

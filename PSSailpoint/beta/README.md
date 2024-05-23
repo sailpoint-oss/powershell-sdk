@@ -73,7 +73,7 @@ Class | Method | HTTP request | Description
 *BetaAccessRequestIdentityMetricsApi* | [**Get-BetaAccessRequestIdentityMetrics**](docs/BetaAccessRequestIdentityMetricsApi.md#Get-BetaAccessRequestIdentityMetrics) | **GET** /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type} | Return access request identity metrics
 *BetaAccessRequestsApi* | [**Suspend-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#Suspend-BetaAccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 *BetaAccessRequestsApi* | [**Close-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#Close-BetaAccessRequest) | **POST** /access-requests/close | Close Access Request
-*BetaAccessRequestsApi* | [**New-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#New-BetaAccessRequest) | **POST** /access-requests | Submit an Access Request
+*BetaAccessRequestsApi* | [**New-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#New-BetaAccessRequest) | **POST** /access-requests | Submit Access Request
 *BetaAccessRequestsApi* | [**Get-BetaAccessRequestConfig**](docs/BetaAccessRequestsApi.md#Get-BetaAccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 *BetaAccessRequestsApi* | [**Get-BetaAccessRequestStatus**](docs/BetaAccessRequestsApi.md#Get-BetaAccessRequestStatus) | **GET** /access-request-status | Access Request Status
 *BetaAccessRequestsApi* | [**Set-BetaAccessRequestConfig**](docs/BetaAccessRequestsApi.md#Set-BetaAccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
@@ -105,22 +105,22 @@ Class | Method | HTTP request | Description
 *BetaAuthProfileApi* | [**Get-BetaProfileConfigList**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles.
 *BetaAuthProfileApi* | [**Update-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Update-BetaProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
 *BetaCertificationCampaignsApi* | [**Complete-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Complete-BetaCampaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
-*BetaCertificationCampaignsApi* | [**New-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#New-BetaCampaign) | **POST** /campaigns | Create a campaign
+*BetaCertificationCampaignsApi* | [**New-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#New-BetaCampaign) | **POST** /campaigns | Create Campaign
 *BetaCertificationCampaignsApi* | [**New-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#New-BetaCampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
 *BetaCertificationCampaignsApi* | [**Remove-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
-*BetaCertificationCampaignsApi* | [**Remove-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Deletes a Campaign Template's Schedule
-*BetaCertificationCampaignsApi* | [**Remove-BetaCampaigns**](docs/BetaCertificationCampaignsApi.md#Remove-BetaCampaigns) | **POST** /campaigns/delete | Deletes Campaigns
+*BetaCertificationCampaignsApi* | [**Remove-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Delete Campaign Template Schedule
+*BetaCertificationCampaignsApi* | [**Remove-BetaCampaigns**](docs/BetaCertificationCampaignsApi.md#Remove-BetaCampaigns) | **POST** /campaigns/delete | Delete Campaigns
 *BetaCertificationCampaignsApi* | [**Get-BetaActiveCampaigns**](docs/BetaCertificationCampaignsApi.md#Get-BetaActiveCampaigns) | **GET** /campaigns | List Campaigns
-*BetaCertificationCampaignsApi* | [**Get-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaign) | **GET** /campaigns/{id} | Get a campaign
+*BetaCertificationCampaignsApi* | [**Get-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaign) | **GET** /campaigns/{id} | Get Campaign
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignReports**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignReportsConfig**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplate) | **GET** /campaign-templates/{id} | Get a Campaign Template
-*BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Gets a Campaign Template's Schedule
+*BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Get Campaign Template Schedule
 *BetaCertificationCampaignsApi* | [**Get-BetaCampaignTemplates**](docs/BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
 *BetaCertificationCampaignsApi* | [**Move-Beta**](docs/BetaCertificationCampaignsApi.md#Move-Beta) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *BetaCertificationCampaignsApi* | [**Update-BetaCampaignTemplate**](docs/BetaCertificationCampaignsApi.md#Update-BetaCampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
 *BetaCertificationCampaignsApi* | [**Set-BetaCampaignReportsConfig**](docs/BetaCertificationCampaignsApi.md#Set-BetaCampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
-*BetaCertificationCampaignsApi* | [**Set-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Set-BetaCampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Sets a Campaign Template's Schedule
+*BetaCertificationCampaignsApi* | [**Set-BetaCampaignTemplateSchedule**](docs/BetaCertificationCampaignsApi.md#Set-BetaCampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Set Campaign Template Schedule
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaign**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignRemediationScan**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 *BetaCertificationCampaignsApi* | [**Start-BetaCampaignReport**](docs/BetaCertificationCampaignsApi.md#Start-BetaCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
@@ -270,7 +270,7 @@ Class | Method | HTTP request | Description
 *BetaIdentityProfilesApi* | [**Get-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles list
 *BetaIdentityProfilesApi* | [**Sync-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Sync-BetaIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 *BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
-*BetaLifecycleStatesApi* | [**Get-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Lifecycle State
+*BetaLifecycleStatesApi* | [**Get-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
 *BetaLifecycleStatesApi* | [**Update-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 *BetaMFAConfigurationApi* | [**Remove-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Remove-BetaMFAConfig) | **DELETE** /mfa/{method}/delete | Delete MFA method configuration
 *BetaMFAConfigurationApi* | [**Get-BetaMFADuoConfig**](docs/BetaMFAConfigurationApi.md#Get-BetaMFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of Duo MFA method
@@ -440,7 +440,7 @@ Class | Method | HTTP request | Description
 *BetaSourceUsagesApi* | [**Get-BetaUsagesBySourceId**](docs/BetaSourceUsagesApi.md#Get-BetaUsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
 *BetaSourcesApi* | [**New-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#New-BetaProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 *BetaSourcesApi* | [**New-BetaSource**](docs/BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
-*BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
+*BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
 *BetaSourcesApi* | [**Remove-Beta**](docs/BetaSourcesApi.md#Remove-Beta) | **DELETE** /sources/{id} | Delete Source by ID
 *BetaSourcesApi* | [**Remove-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Remove-BetaNativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 *BetaSourcesApi* | [**Remove-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
@@ -454,13 +454,13 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Get-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Get-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 *BetaSourcesApi* | [**Get-BetaSourceSchema**](docs/BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
+*BetaSourcesApi* | [**Get-BetaSourceSchemas**](docs/BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
 *BetaSourcesApi* | [**Import-BetaAccounts**](docs/BetaSourcesApi.md#Import-BetaAccounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
 *BetaSourcesApi* | [**Import-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *BetaSourcesApi* | [**Import-BetaSourceConnectorFile**](docs/BetaSourcesApi.md#Import-BetaSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *BetaSourcesApi* | [**Import-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 *BetaSourcesApi* | [**Import-BetaUncorrelatedAccounts**](docs/BetaSourcesApi.md#Import-BetaUncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicies**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-*BetaSourcesApi* | [**Get-BetaSourceSchemas**](docs/BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
 *BetaSourcesApi* | [**Get-BetaSources**](docs/BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 *BetaSourcesApi* | [**Receive-BetaResourceObjects**](docs/BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *BetaSourcesApi* | [**Ping-BetaCluster**](docs/BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
@@ -544,10 +544,10 @@ Class | Method | HTTP request | Description
 *BetaWorkflowsApi* | [**New-BetaWorkflow**](docs/BetaWorkflowsApi.md#New-BetaWorkflow) | **POST** /workflows | Create Workflow
 *BetaWorkflowsApi* | [**Remove-BetaWorkflow**](docs/BetaWorkflowsApi.md#Remove-BetaWorkflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
 *BetaWorkflowsApi* | [**Get-BetaWorkflow**](docs/BetaWorkflowsApi.md#Get-BetaWorkflow) | **GET** /workflows/{id} | Get Workflow By Id
-*BetaWorkflowsApi* | [**Get-BetaWorkflowExecution**](docs/BetaWorkflowsApi.md#Get-BetaWorkflowExecution) | **GET** /workflow-executions/{id} | Get a Workflow Execution
+*BetaWorkflowsApi* | [**Get-BetaWorkflowExecution**](docs/BetaWorkflowsApi.md#Get-BetaWorkflowExecution) | **GET** /workflow-executions/{id} | Get Workflow Execution
 *BetaWorkflowsApi* | [**Get-BetaWorkflowExecutionHistory**](docs/BetaWorkflowsApi.md#Get-BetaWorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get Workflow Execution History
-*BetaWorkflowsApi* | [**Get-BetaCompleteWorkflowLibrary**](docs/BetaWorkflowsApi.md#Get-BetaCompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
 *BetaWorkflowsApi* | [**Get-BetaWorkflowExecutions**](docs/BetaWorkflowsApi.md#Get-BetaWorkflowExecutions) | **GET** /workflows/{id}/executions | List Workflow Executions
+*BetaWorkflowsApi* | [**Get-BetaCompleteWorkflowLibrary**](docs/BetaWorkflowsApi.md#Get-BetaCompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
 *BetaWorkflowsApi* | [**Get-BetaWorkflowLibraryActions**](docs/BetaWorkflowsApi.md#Get-BetaWorkflowLibraryActions) | **GET** /workflow-library/actions | List Workflow Library Actions
 *BetaWorkflowsApi* | [**Get-BetaWorkflowLibraryOperators**](docs/BetaWorkflowsApi.md#Get-BetaWorkflowLibraryOperators) | **GET** /workflow-library/operators | List Workflow Library Operators
 *BetaWorkflowsApi* | [**Get-BetaWorkflowLibraryTriggers**](docs/BetaWorkflowsApi.md#Get-BetaWorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List Workflow Library Triggers

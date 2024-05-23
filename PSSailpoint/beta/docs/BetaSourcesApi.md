@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaProvisioningPolicy**](BetaSourcesApi.md#New-BetaProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 [**New-BetaSource**](BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
-[**New-BetaSourceSchema**](BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Creates a new Schema on the specified Source in IdentityNow.
+[**New-BetaSourceSchema**](BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
 [**Remove-Beta**](BetaSourcesApi.md#Remove-Beta) | **DELETE** /sources/{id} | Delete Source by ID
 [**Remove-BetaNativeChangeDetectionConfig**](BetaSourcesApi.md#Remove-BetaNativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 [**Remove-BetaProvisioningPolicy**](BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
@@ -20,13 +20,13 @@ Method | HTTP request | Description
 [**Get-BetaSourceEntitlementRequestConfig**](BetaSourcesApi.md#Get-BetaSourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 [**Get-BetaSourceEntitlementsSchema**](BetaSourcesApi.md#Get-BetaSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 [**Get-BetaSourceSchema**](BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
+[**Get-BetaSourceSchemas**](BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
 [**Import-BetaAccounts**](BetaSourcesApi.md#Import-BetaAccounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
 [**Import-BetaSourceAccountsSchema**](BetaSourcesApi.md#Import-BetaSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 [**Import-BetaSourceConnectorFile**](BetaSourcesApi.md#Import-BetaSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 [**Import-BetaSourceEntitlementsSchema**](BetaSourcesApi.md#Import-BetaSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 [**Import-BetaUncorrelatedAccounts**](BetaSourcesApi.md#Import-BetaUncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
 [**Get-BetaProvisioningPolicies**](BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-[**Get-BetaSourceSchemas**](BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | Lists the Schemas that exist on the specified Source in IdentityNow.
 [**Get-BetaSources**](BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 [**Receive-BetaResourceObjects**](BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector&#39;s resource objects
 [**Ping-BetaCluster**](BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
@@ -140,7 +140,7 @@ $SourceManagerCorrelationRule = Initialize-SourceManagerCorrelationRule -Type "R
 $SourceBeforeProvisioningRule = Initialize-SourceBeforeProvisioningRule -Type "RULE" -Id "2c918085708c274401708c2a8a760001" -Name "Example Rule"
 $SourceSchemasInner = Initialize-SourceSchemasInner -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1777" -Name "MySchema"
 $SourcePasswordPoliciesInner = Initialize-SourcePasswordPoliciesInner -Type "PASSWORD_POLICY" -Id "2c91808568c529c60168cca6f90c1777" -Name "My Password Policy"
-"AUTHENTICATE" -Type "OpenLDAP - Direct" -Connector "active-directory" -ConnectorClass "sailpoint.connector.LDAPConnector" -ConnectorAttributes  -DeleteThreshold 10 -Authoritative $false -ManagementWorkgroup $SourceManagementWorkgroup -Healthy $true -Status "SOURCE_STATE_HEALTHY" -Since "2021-09-28T15:48:29.3801666300Z" -ConnectorId "active-directory" -ConnectorName "Active Directory" -ConnectionType "file" -ConnectorImplementationId "delimited-file" -Created (Get-Date) -Modified (Get-Date) -CredentialProviderEnabled $false -Category "CredentialProvider" # Source | 
+"AUTHENTICATE" -Type "OpenLDAP - Direct" -Connector "active-directory" -ConnectorClass "sailpoint.connector.LDAPConnector" -ConnectorAttributes  -DeleteThreshold 10 -Authoritative $false -ManagementWorkgroup $SourceManagementWorkgroup -Healthy $true -Status "SOURCE_STATE_ERROR_CLUSTER" -Since "2021-09-28T15:48:29.3801666300Z" -ConnectorId "active-directory" -ConnectorName "Active Directory" -ConnectionType "file" -ConnectorImplementationId "delimited-file" -Created (Get-Date) -Modified (Get-Date) -CredentialProviderEnabled $false -Category "CredentialProvider" # Source | 
 $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.   (optional)
 
 # Creates a source in IdentityNow.
@@ -180,7 +180,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schema] <PSCustomObject><br>
 
-Creates a new Schema on the specified Source in IdentityNow.
+Create Schema on Source
+
+Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 ### Example
 ```powershell
@@ -192,7 +194,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 "AUTHENTICATE"
 
 $AttributeDefinitionSchema = Initialize-AttributeDefinitionSchema -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1313" -Name "group"
@@ -200,7 +202,7 @@ $AttributeDefinition = Initialize-AttributeDefinition -Name "sAMAccountName" -Ty
 
 $Schema = Initialize-Schema -Id "2c9180835d191a86015d28455b4a2329" -Name "account" -NativeObjectType "User" -IdentityAttribute "sAMAccountName" -DisplayAttribute "distinguishedName" -HierarchyAttribute "memberOf" -IncludePermissions $false -Features "AUTHENTICATE" -Configuration  -Attributes $AttributeDefinition -Created (Get-Date) -Modified (Get-Date) # Schema | 
 
-# Creates a new Schema on the specified Source in IdentityNow.
+# Create Schema on Source
 try {
     $Result = New-BetaSourceSchema -SourceId $SourceId -Schema $Schema
 } catch {
@@ -213,7 +215,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
+ **SourceId** | **String**| Source ID. | 
  **Schema** | [**Schema**](Schema.md)|  | 
 
 ### Return type
@@ -238,7 +240,7 @@ Name | Type | Description  | Notes
 
 Delete Source by ID
 
-This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
+Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}` A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -250,7 +252,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The Source ID
+$Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 # Delete Source by ID
 try {
@@ -265,7 +267,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Source ID | 
+ **Id** | **String**| Source ID. | 
 
 ### Return type
 
@@ -551,7 +553,7 @@ Name | Type | Description  | Notes
 
 Get Source by ID
 
-This end-point gets a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+Use this API to get a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -563,7 +565,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The Source ID
+$Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 # Get Source by ID
 try {
@@ -578,7 +580,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Source ID | 
+ **Id** | **String**| Source ID. | 
 
 ### Return type
 
@@ -889,6 +891,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Schema**](Schema.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-BetaSourceSchemas"></a>
+# **Get-BetaSourceSchemas**
+> Schema[] Get-BetaSourceSchemas<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTypes] <String><br>
+
+List Schemas on Source
+
+Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized. (optional)
+
+# List Schemas on Source
+try {
+    $Result = Get-BetaSourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaSourceSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| Source ID. | 
+ **IncludeTypes** | **String**| If set to &#39;group&#39;, then the account schema is filtered and only group schemas are returned. Only a value of &#39;group&#39; is recognized. | [optional] 
+
+### Return type
+
+[**Schema[]**](Schema.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1228,58 +1284,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-BetaSourceSchemas"></a>
-# **Get-BetaSourceSchemas**
-> Schema[] Get-BetaSourceSchemas<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTypes] <String><br>
-
-Lists the Schemas that exist on the specified Source in IdentityNow.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized. (optional)
-
-# Lists the Schemas that exist on the specified Source in IdentityNow.
-try {
-    $Result = Get-BetaSourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaSourceSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **SourceId** | **String**| The Source id. | 
- **IncludeTypes** | **String**| If set to &#39;group&#39;, then the account schema is filtered and only group schemas are returned. Only a value of &#39;group&#39; is recognized. | [optional] 
-
-### Return type
-
-[**Schema[]**](Schema.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="Get-BetaSources"></a>
 # **Get-BetaSources**
 > Source[] Get-BetaSources<br>
@@ -1571,7 +1575,7 @@ Name | Type | Description  | Notes
 
 Update Source (Full)
 
-This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
+Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
 
 ### Example
 ```powershell
@@ -1583,7 +1587,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+$Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $SourceOwner = Initialize-SourceOwner -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "MyName"
 $SourceCluster = Initialize-SourceCluster -Type "CLUSTER" -Id "2c9180866166b5b0016167c32ef31a66" -Name "Corporate Cluster"
 $SourceAccountCorrelationConfig = Initialize-SourceAccountCorrelationConfig -Type "ACCOUNT_CORRELATION_CONFIG" -Id "2c9180855d191c59015d28583727245a" -Name "Directory [source-62867] Account Correlation"
@@ -1604,7 +1608,7 @@ $SourceManagerCorrelationRule = Initialize-SourceManagerCorrelationRule -Type "R
 $SourceBeforeProvisioningRule = Initialize-SourceBeforeProvisioningRule -Type "RULE" -Id "2c918085708c274401708c2a8a760001" -Name "Example Rule"
 $SourceSchemasInner = Initialize-SourceSchemasInner -Type "CONNECTOR_SCHEMA" -Id "2c91808568c529c60168cca6f90c1777" -Name "MySchema"
 $SourcePasswordPoliciesInner = Initialize-SourcePasswordPoliciesInner -Type "PASSWORD_POLICY" -Id "2c91808568c529c60168cca6f90c1777" -Name "My Password Policy"
-"AUTHENTICATE" -Type "OpenLDAP - Direct" -Connector "active-directory" -ConnectorClass "sailpoint.connector.LDAPConnector" -ConnectorAttributes  -DeleteThreshold 10 -Authoritative $false -ManagementWorkgroup $SourceManagementWorkgroup -Healthy $true -Status "SOURCE_STATE_HEALTHY" -Since "2021-09-28T15:48:29.3801666300Z" -ConnectorId "active-directory" -ConnectorName "Active Directory" -ConnectionType "file" -ConnectorImplementationId "delimited-file" -Created (Get-Date) -Modified (Get-Date) -CredentialProviderEnabled $false -Category "CredentialProvider" # Source | 
+"AUTHENTICATE" -Type "OpenLDAP - Direct" -Connector "active-directory" -ConnectorClass "sailpoint.connector.LDAPConnector" -ConnectorAttributes  -DeleteThreshold 10 -Authoritative $false -ManagementWorkgroup $SourceManagementWorkgroup -Healthy $true -Status "SOURCE_STATE_ERROR_CLUSTER" -Since "2021-09-28T15:48:29.3801666300Z" -ConnectorId "active-directory" -ConnectorName "Active Directory" -ConnectionType "file" -ConnectorImplementationId "delimited-file" -Created (Get-Date) -Modified (Get-Date) -CredentialProviderEnabled $false -Category "CredentialProvider" # Source | 
 
 # Update Source (Full)
 try {
@@ -1619,7 +1623,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Source id | 
+ **Id** | **String**| Source ID. | 
  **Source** | [**Source**](Source.md)|  | 
 
 ### Return type
@@ -2029,7 +2033,7 @@ Name | Type | Description  | Notes
 
 Update Source (Partial)
 
-This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as: * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
+Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed: * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
 
 ### Example
 ```powershell
@@ -2041,9 +2045,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+$Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow.
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
 
 # Update Source (Partial)
 try {
@@ -2058,8 +2062,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The Source id | 
- **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow. | 
+ **Id** | **String**| Source ID. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC). | 
 
 ### Return type
 

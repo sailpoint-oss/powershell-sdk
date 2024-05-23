@@ -12,13 +12,13 @@ Create Lifecycle State
 
 .DESCRIPTION
 
-This API creates a new Lifecycle State. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to create a lifecycle state. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
-Identity Profile ID
+Identity profile ID.
 
 .PARAMETER LifecycleState
-Lifecycle State
+Lifecycle state to be created.
 
 .PARAMETER WithHttpInfo
 
@@ -108,17 +108,17 @@ function New-LifecycleState {
 <#
 .SYNOPSIS
 
-Delete Lifecycle State by ID
+Delete Lifecycle State
 
 .DESCRIPTION
 
-This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG_ADMIN authority is required to call this API.
+Use this endpoint to delete the lifecycle state by its ID.  A token with API, or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER IdentityProfileId
-Identity Profile ID
+Identity profile ID.
 
 .PARAMETER LifecycleStateId
-Lifecycle State ID
+Lifecycle state ID.
 
 .PARAMETER WithHttpInfo
 
@@ -192,17 +192,17 @@ function Remove-LifecycleState {
 <#
 .SYNOPSIS
 
-Retrieves Lifecycle State
+Get Lifecycle State
 
 .DESCRIPTION
 
-This endpoint retrieves a Lifecycle State. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
-Identity Profile ID
+Identity profile ID.
 
 .PARAMETER LifecycleStateId
-Lifecycle State ID
+Lifecycle state ID.
 
 .PARAMETER WithHttpInfo
 
@@ -280,10 +280,10 @@ Lists LifecycleStates
 
 .DESCRIPTION
 
-This end-point lists all the LifecycleStates associated with IdentityProfiles. A token with API, or ORG_ADMIN authority is required to call this API.
+Use this endpoint to list all lifecycle states by their associated identity profiles.  A token with API, or ORG_ADMIN authority is required to call this API.
 
 .PARAMETER IdentityProfileId
-The IdentityProfile id
+Identity profile ID.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -345,7 +345,7 @@ function Get-LifecycleStates {
 
         $LocalVarUri = '/identity-profiles/{identity-profile-id}/lifecycle-states'
         if (!$IdentityProfileId) {
-            throw "Error! The required parameter `IdentityProfileId` missing when calling listLifecycleStates."
+            throw "Error! The required parameter `IdentityProfileId` missing when calling getLifecycleStates."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
 
@@ -394,7 +394,7 @@ Set Lifecycle State
 
 .DESCRIPTION
 
-This endpoint will set/update an identity's lifecycle state to the one provided and updates the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityId
 The ID of the identity to update.
@@ -494,13 +494,13 @@ Update Lifecycle State
 
 .DESCRIPTION
 
-This endpoint updates individual Lifecycle State fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
-Identity Profile ID
+Identity profile ID.
 
 .PARAMETER LifecycleStateId
-Lifecycle State ID
+Lifecycle state ID.
 
 .PARAMETER JsonPatchOperation
 A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 

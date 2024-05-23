@@ -8,17 +8,17 @@
 <#
 .SYNOPSIS
 
-Lifecycle State
+Get Lifecycle State
 
 .DESCRIPTION
 
-This endpoint returns a lifecycle state.  A token with ORG_ADMIN or API authority is required to call this API. 
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.   A token with ORG_ADMIN or API authority is required to call this API. 
 
 .PARAMETER IdentityProfileId
-Identity Profile ID
+Identity Profile ID.
 
 .PARAMETER LifecycleStateId
-Lifecycle State ID
+Lifecycle State ID.
 
 .PARAMETER WithHttpInfo
 
@@ -59,11 +59,11 @@ function Get-BetaLifecycleStates {
 
         $LocalVarUri = '/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}'
         if (!$IdentityProfileId) {
-            throw "Error! The required parameter `IdentityProfileId` missing when calling listLifecycleStates."
+            throw "Error! The required parameter `IdentityProfileId` missing when calling getLifecycleStates."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
         if (!$LifecycleStateId) {
-            throw "Error! The required parameter `LifecycleStateId` missing when calling listLifecycleStates."
+            throw "Error! The required parameter `LifecycleStateId` missing when calling getLifecycleStates."
         }
         $LocalVarUri = $LocalVarUri.replace('{lifecycle-state-id}', [System.Web.HTTPUtility]::UrlEncode($LifecycleStateId))
 
@@ -96,13 +96,13 @@ Update Lifecycle State
 
 .DESCRIPTION
 
-This API updates individual lifecycle state fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or API authority is required to call this API. 
+Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or API authority is required to call this API. 
 
 .PARAMETER IdentityProfileId
-Identity Profile ID
+Identity Profile ID.
 
 .PARAMETER LifecycleStateId
-Lifecycle State ID
+Lifecycle State ID.
 
 .PARAMETER JsonPatchOperation
 A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 

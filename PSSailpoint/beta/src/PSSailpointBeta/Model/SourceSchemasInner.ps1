@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the schema
+Schema ID.
 .PARAMETER Name
-Human-readable display name of the schema
+Schema's human-readable display name.
 .OUTPUTS
 
 SourceSchemasInner<PSCustomObject>

@@ -15,17 +15,17 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-The workflow execution ID
+Workflow execution ID.
 .PARAMETER WorkflowId
-The workflow ID
+Workflow ID.
 .PARAMETER RequestId
-This backend ID tracks a workflow request in the system. You can provide this ID in a customer support ticket for debugging purposes.
+Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes.
 .PARAMETER StartTime
-The date/time the workflow started
+Date/time when the workflow started.
 .PARAMETER CloseTime
-The date/time the workflow ended
+Date/time when the workflow ended.
 .PARAMETER Status
-The workflow execution status
+Workflow execution status.
 .OUTPUTS
 
 WorkflowExecution<PSCustomObject>
@@ -50,7 +50,7 @@ function Initialize-BetaWorkflowExecution {
         [System.Nullable[System.DateTime]]
         ${CloseTime},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Completed", "Failed", "Canceled", "Running")]
+        [ValidateSet("Completed", "Failed", "Canceled", "Executing")]
         [String]
         ${Status}
     )

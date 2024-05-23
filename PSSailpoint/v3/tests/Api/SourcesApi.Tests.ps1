@@ -102,6 +102,14 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
+    Context 'Get-SourceSchemas' {
+        It 'Test Get-SourceSchemas' {
+            #$TestResult = Get-SourceSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Import-AccountsSchema' {
         It 'Test Import-AccountsSchema' {
             #$TestResult = Import-AccountsSchema -Id "TEST_VALUE" -File "TEST_VALUE"
@@ -129,14 +137,6 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
     Context 'Get-ProvisioningPolicies' {
         It 'Test Get-ProvisioningPolicies' {
             #$TestResult = Get-ProvisioningPolicies -SourceId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-SourceSchemas' {
-        It 'Test Get-SourceSchemas' {
-            #$TestResult = Get-SourceSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

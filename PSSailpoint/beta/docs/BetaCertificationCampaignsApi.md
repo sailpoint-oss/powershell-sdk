@@ -5,22 +5,22 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Complete-BetaCampaign**](BetaCertificationCampaignsApi.md#Complete-BetaCampaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
-[**New-BetaCampaign**](BetaCertificationCampaignsApi.md#New-BetaCampaign) | **POST** /campaigns | Create a campaign
+[**New-BetaCampaign**](BetaCertificationCampaignsApi.md#New-BetaCampaign) | **POST** /campaigns | Create Campaign
 [**New-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#New-BetaCampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
 [**Remove-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
-[**Remove-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Deletes a Campaign Template&#39;s Schedule
-[**Remove-BetaCampaigns**](BetaCertificationCampaignsApi.md#Remove-BetaCampaigns) | **POST** /campaigns/delete | Deletes Campaigns
+[**Remove-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Remove-BetaCampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Delete Campaign Template Schedule
+[**Remove-BetaCampaigns**](BetaCertificationCampaignsApi.md#Remove-BetaCampaigns) | **POST** /campaigns/delete | Delete Campaigns
 [**Get-BetaActiveCampaigns**](BetaCertificationCampaignsApi.md#Get-BetaActiveCampaigns) | **GET** /campaigns | List Campaigns
-[**Get-BetaCampaign**](BetaCertificationCampaignsApi.md#Get-BetaCampaign) | **GET** /campaigns/{id} | Get a campaign
+[**Get-BetaCampaign**](BetaCertificationCampaignsApi.md#Get-BetaCampaign) | **GET** /campaigns/{id} | Get Campaign
 [**Get-BetaCampaignReports**](BetaCertificationCampaignsApi.md#Get-BetaCampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
 [**Get-BetaCampaignReportsConfig**](BetaCertificationCampaignsApi.md#Get-BetaCampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
 [**Get-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplate) | **GET** /campaign-templates/{id} | Get a Campaign Template
-[**Get-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Gets a Campaign Template&#39;s Schedule
+[**Get-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Get Campaign Template Schedule
 [**Get-BetaCampaignTemplates**](BetaCertificationCampaignsApi.md#Get-BetaCampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
 [**Move-Beta**](BetaCertificationCampaignsApi.md#Move-Beta) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 [**Update-BetaCampaignTemplate**](BetaCertificationCampaignsApi.md#Update-BetaCampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
 [**Set-BetaCampaignReportsConfig**](BetaCertificationCampaignsApi.md#Set-BetaCampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
-[**Set-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Set-BetaCampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Sets a Campaign Template&#39;s Schedule
+[**Set-BetaCampaignTemplateSchedule**](BetaCertificationCampaignsApi.md#Set-BetaCampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Set Campaign Template Schedule
 [**Start-BetaCampaign**](BetaCertificationCampaignsApi.md#Start-BetaCampaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 [**Start-BetaCampaignRemediationScan**](BetaCertificationCampaignsApi.md#Start-BetaCampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 [**Start-BetaCampaignReport**](BetaCertificationCampaignsApi.md#Start-BetaCampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 Complete a Campaign
 
-:::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
+:::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/complete-campaign).  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
 
 ### Example
 ```powershell
@@ -48,7 +48,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The campaign id
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
 $CompleteCampaignOptions = Initialize-CompleteCampaignOptions -AutoCompleteAction "APPROVE" # CompleteCampaignOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
 
 # Complete a Campaign
@@ -64,7 +64,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The campaign id | 
+ **Id** | **String**| Campaign ID. | 
  **CompleteCampaignOptions** | [**CompleteCampaignOptions**](CompleteCampaignOptions.md)| Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE | [optional] 
 
 ### Return type
@@ -87,9 +87,9 @@ Name | Type | Description  | Notes
 > Campaign New-BetaCampaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Campaign] <PSCustomObject><br>
 
-Create a campaign
+Create Campaign
 
-Creates a new Certification Campaign with the information provided in the request body.
+Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
 
 ### Example
 ```powershell
@@ -117,7 +117,7 @@ $FullcampaignAllOfRoleCompositionCampaignInfo = Initialize-FullcampaignAllOfRole
 $FullcampaignAllOfSourcesWithOrphanEntitlements = Initialize-FullcampaignAllOfSourcesWithOrphanEntitlements -Id "2c90ad2a70ace7d50170acf22ca90010" -Type "SOURCE" -Name "Source with orphan entitlements"
 $Campaign = Initialize-Campaign -Id "2c9079b270a266a60170a2779fcb0007" -Name "Manager Campaign" -Description "Everyone needs to be reviewed by their manager" -Deadline (Get-Date) -Type "MANAGER" -EmailNotificationEnabled $false -AutoRevokeAllowed $false -RecommendationsEnabled $true -Status "PENDING" -CorrelatedStatus "CORRELATED" -Created (Get-Date) -TotalCertifications 100 -CompletedCertifications 10 -Alerts $CampaignAlert -Modified (Get-Date) -VarFilter $FullcampaignAllOfFilter -SunsetCommentsRequired $true -SourceOwnerCampaignInfo $FullcampaignAllOfSourceOwnerCampaignInfo -SearchCampaignInfo $FullcampaignAllOfSearchCampaignInfo -RoleCompositionCampaignInfo $FullcampaignAllOfRoleCompositionCampaignInfo -SourcesWithOrphanEntitlements $FullcampaignAllOfSourcesWithOrphanEntitlements -MandatoryCommentRequirement "ALL_DECISIONS" # Campaign | 
 
-# Create a campaign
+# Create Campaign
 try {
     $Result = New-BetaCampaign -Campaign $Campaign
 } catch {
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 Create a Campaign Template
 
-Create a campaign Template based on campaign.
+Use this API to create a campaign template based on campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign-template).
 
 ### Example
 ```powershell
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 Delete a Campaign Template
 
-Deletes a campaign template by ID.
+Use this API to delete a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template).
 
 ### Example
 ```powershell
@@ -218,7 +218,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the campaign template being deleted.
+$Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being deleted.
 
 # Delete a Campaign Template
 try {
@@ -233,7 +233,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template being deleted. | 
+ **Id** | **String**| ID of the campaign template being deleted. | 
 
 ### Return type
 
@@ -255,9 +255,9 @@ void (empty response body)
 > void Remove-BetaCampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Deletes a Campaign Template's Schedule
+Delete Campaign Template Schedule
 
-Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template-schedule).
 
 ### Example
 ```powershell
@@ -269,9 +269,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | The ID of the campaign template whose schedule is being deleted.
+$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being deleted.
 
-# Deletes a Campaign Template's Schedule
+# Delete Campaign Template Schedule
 try {
     $Result = Remove-BetaCampaignTemplateSchedule -Id $Id
 } catch {
@@ -284,7 +284,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template whose schedule is being deleted. | 
+ **Id** | **String**| ID of the campaign template whose schedule is being deleted. | 
 
 ### Return type
 
@@ -306,9 +306,9 @@ void (empty response body)
 > SystemCollectionsHashtable Remove-BetaCampaigns<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DeleteCampaignsRequest] <PSCustomObject><br>
 
-Deletes Campaigns
+Delete Campaigns
 
-Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaigns). Authorized callers must be ORG_ADMINs or CERT_ADMINs.
 
 ### Example
 ```powershell
@@ -320,9 +320,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$DeleteCampaignsRequest = Initialize-DeleteCampaignsRequest -Ids "MyIds" # DeleteCampaignsRequest | The ids of the campaigns to delete.
+$DeleteCampaignsRequest = Initialize-DeleteCampaignsRequest -Ids "MyIds" # DeleteCampaignsRequest | IDs of the campaigns to delete.
 
-# Deletes Campaigns
+# Delete Campaigns
 try {
     $Result = Remove-BetaCampaigns -DeleteCampaignsRequest $DeleteCampaignsRequest
 } catch {
@@ -335,7 +335,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **DeleteCampaignsRequest** | [**DeleteCampaignsRequest**](DeleteCampaignsRequest.md)| The ids of the campaigns to delete. | 
+ **DeleteCampaignsRequest** | [**DeleteCampaignsRequest**](DeleteCampaignsRequest.md)| IDs of the campaigns to delete. | 
 
 ### Return type
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 List Campaigns
 
-Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided the correct query.
+Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns). - UserContextAuth: []
 
 ### Example
 ```powershell
@@ -423,9 +423,9 @@ Name | Type | Description  | Notes
 > Slimcampaign Get-BetaCampaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get a campaign
+Get Campaign
 
-Retrieves information for an existing campaign using the campaign's ID. Authorized callers must be a reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+Use this API to get information for an existing certification campaign by the campaign's ID. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign). Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
 
 ### Example
 ```powershell
@@ -437,9 +437,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign to be retrieved
+$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be retrieved.
 
-# Get a campaign
+# Get Campaign
 try {
     $Result = Get-BetaCampaign -Id $Id
 } catch {
@@ -452,7 +452,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign to be retrieved | 
+ **Id** | **String**| ID of the campaign to be retrieved. | 
 
 ### Return type
 
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 Get Campaign Reports
 
-Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
+Use this API to fetch all reports for a certification campaign by campaign ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports). Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
 
 ### Example
 ```powershell
@@ -488,7 +488,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign for which reports are being fetched.
+$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose reports are being fetched.
 
 # Get Campaign Reports
 try {
@@ -503,7 +503,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign for which reports are being fetched. | 
+ **Id** | **String**| ID of the campaign whose reports are being fetched. | 
 
 ### Return type
 
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 
 Get Campaign Reports Configuration
 
-Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
+Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports-config). Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -573,7 +573,7 @@ This endpoint does not need any parameter.
 
 Get a Campaign Template
 
-Fetches a campaign template by ID.
+Use this API to fetch a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template).
 
 ### Example
 ```powershell
@@ -585,7 +585,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The desired campaign template's ID.
+$Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template's ID.
 
 # Get a Campaign Template
 try {
@@ -600,7 +600,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The desired campaign template&#39;s ID. | 
+ **Id** | **String**| Requested campaign template&#39;s ID. | 
 
 ### Return type
 
@@ -622,9 +622,9 @@ Name | Type | Description  | Notes
 > Schedule Get-BetaCampaignTemplateSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Gets a Campaign Template's Schedule
+Get Campaign Template Schedule
 
-Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template-schedule).
 
 ### Example
 ```powershell
@@ -636,9 +636,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | The ID of the campaign template whose schedule is being fetched.
+$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being fetched.
 
-# Gets a Campaign Template's Schedule
+# Get Campaign Template Schedule
 try {
     $Result = Get-BetaCampaignTemplateSchedule -Id $Id
 } catch {
@@ -651,7 +651,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template whose schedule is being fetched. | 
+ **Id** | **String**| ID of the campaign template whose schedule is being fetched. | 
 
 ### Return type
 
@@ -679,7 +679,7 @@ Name | Type | Description  | Notes
 
 List Campaign Templates
 
-Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
+Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/list-campaign-templates). The endpoint returns all campaign templates matching the query parameters. 
 
 ### Example
 ```powershell
@@ -794,7 +794,7 @@ Name | Type | Description  | Notes
 
 Update a Campaign Template
 
-Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/patch-campaign-template).
 
 ### Example
 ```powershell
@@ -806,7 +806,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the campaign template being modified.
+$Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being modified.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
@@ -823,7 +823,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template being modified. | 
+ **Id** | **String**| ID of the campaign template being modified. | 
  **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create)  | 
 
 ### Return type
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 
 Set Campaign Reports Configuration
 
-Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
+Use this API to overwrite the configuration for campaign reports. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-reports-config). Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -860,7 +860,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$CampaignReportsConfig = Initialize-CampaignReportsConfig -IdentityAttributeColumns "MyIdentityAttributeColumns" # CampaignReportsConfig | Campaign Report Configuration
+$CampaignReportsConfig = Initialize-CampaignReportsConfig -IdentityAttributeColumns "MyIdentityAttributeColumns" # CampaignReportsConfig | Campaign report configuration.
 
 # Set Campaign Reports Configuration
 try {
@@ -875,7 +875,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **CampaignReportsConfig** | [**CampaignReportsConfig**](CampaignReportsConfig.md)| Campaign Report Configuration | 
+ **CampaignReportsConfig** | [**CampaignReportsConfig**](CampaignReportsConfig.md)| Campaign report configuration. | 
 
 ### Return type
 
@@ -898,9 +898,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schedule] <PSCustomObject><br>
 
-Sets a Campaign Template's Schedule
+Set Campaign Template Schedule
 
-Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with the new one.
+Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule).
 
 ### Example
 ```powershell
@@ -912,13 +912,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | The ID of the campaign template being scheduled.
+$Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template being scheduled.
 $ScheduleMonths = Initialize-ScheduleMonths -Type "LIST" -Values "MyValues" -Interval 2
 $ScheduleDays = Initialize-ScheduleDays -Type "LIST" -Values "MyValues" -Interval 2
 $ScheduleHours = Initialize-ScheduleHours -Type "LIST" -Values "MyValues" -Interval 2
 $Schedule = Initialize-Schedule -Type "WEEKLY" -Months $ScheduleMonths -Days $ScheduleDays -Hours $ScheduleHours -Expiration (Get-Date) -TimeZoneId "CST" # Schedule |  (optional)
 
-# Sets a Campaign Template's Schedule
+# Set Campaign Template Schedule
 try {
     $Result = Set-BetaCampaignTemplateSchedule -Id $Id -Schedule $Schedule
 } catch {
@@ -931,7 +931,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template being scheduled. | 
+ **Id** | **String**| ID of the campaign template being scheduled. | 
  **Schedule** | [**Schedule**](Schedule.md)|  | [optional] 
 
 ### Return type
@@ -957,7 +957,7 @@ void (empty response body)
 
 Activate a Campaign
 
-Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
+Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign). Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -969,7 +969,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The campaign id
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
 $ActivateCampaignOptions = Initialize-ActivateCampaignOptions -TimeZone "-05:00" # ActivateCampaignOptions | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
 
 # Activate a Campaign
@@ -985,7 +985,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The campaign id | 
+ **Id** | **String**| Campaign ID. | 
  **ActivateCampaignOptions** | [**ActivateCampaignOptions**](ActivateCampaignOptions.md)| Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. | [optional] 
 
 ### Return type
@@ -1010,7 +1010,7 @@ Name | Type | Description  | Notes
 
 Run Campaign Remediation Scan
 
-Kicks off remediation scan task for a certification campaign. Requires roles of CERT_ADMIN and ORG_ADMIN
+Use this API to run a remediation scan task for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-remediation-scan). Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
 
 ### Example
 ```powershell
@@ -1022,7 +1022,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign for which remediation scan is being run.
+$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remediation scan is being run for.
 
 # Run Campaign Remediation Scan
 try {
@@ -1037,7 +1037,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign for which remediation scan is being run. | 
+ **Id** | **String**| ID of the campaign the remediation scan is being run for. | 
 
 ### Return type
 
@@ -1062,7 +1062,7 @@ Name | Type | Description  | Notes
 
 Run Campaign Report
 
-Runs a report for a certification campaign. Requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+Use this API to run a report for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-report). Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
 
 ### Example
 ```powershell
@@ -1074,8 +1074,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign for which report is being run.
-$Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | The type of the report to run.
+$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
+$Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of report to run.
 
 # Run Campaign Report
 try {
@@ -1090,8 +1090,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign for which report is being run. | 
- **Type** | [**ReportType**](ReportType.md)| The type of the report to run. | 
+ **Id** | **String**| ID of the campaign the report is being run for. | 
+ **Type** | [**ReportType**](ReportType.md)| Type of report to run. | 
 
 ### Return type
 
@@ -1115,7 +1115,7 @@ Name | Type | Description  | Notes
 
 Generate a Campaign from Template
 
-Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, ""%Y"" will insert the current year; a campaign template named ""Campaign for %y"" would generate a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, ""%Y"" inserts the current year, and a campaign template named ""Campaign for %y"" generates a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-generate-campaign-template). Calling this endpoint requires the ORG_ADMIN role.
 
 ### Example
 ```powershell
@@ -1127,7 +1127,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180835d191a86015d28455b4a2329" # String | The ID of the campaign template to use for generation.
+$Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template to use for generation.
 
 # Generate a Campaign from Template
 try {
@@ -1142,7 +1142,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template to use for generation. | 
+ **Id** | **String**| ID of the campaign template to use for generation. | 
 
 ### Return type
 
@@ -1167,7 +1167,7 @@ Name | Type | Description  | Notes
 
 Update a Campaign
 
-Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/beta/update-campaign).
 
 ### Example
 ```powershell
@@ -1179,8 +1179,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | The ID of the campaign template being modified.
-$RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
+$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template being modified.
+$RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
 # Update a Campaign
 try {
@@ -1195,8 +1195,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The ID of the campaign template being modified. | 
- **RequestBody** | [**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md)| A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline  | 
+ **Id** | **String**| ID of the campaign template being modified. | 
+ **RequestBody** | [**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md)| A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline  | 
 
 ### Return type
 

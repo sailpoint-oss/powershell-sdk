@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the policy | [optional] 
-**Name** | **String** | Human-readable display name of the policy | [optional] 
+**Type** | **String** | Type of object being referenced. | [optional] 
+**Id** | **String** | Policy ID. | [optional] 
+**Name** | **String** | Policy&#39;s human-readable display name. | [optional] 
 
 ## Examples
 

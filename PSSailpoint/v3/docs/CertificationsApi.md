@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**Get-PendingCertificationTasks**](CertificationsApi.md#Get-PendingCertificationTasks) | **GET** /certification-tasks | List of Pending Certification Tasks
 [**Get-CertificationReviewers**](CertificationsApi.md#Get-CertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for certification
 [**Get-IdentityAccessReviewItems**](CertificationsApi.md#Get-IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of Access Review Items
-[**Get-IdentityCertifications**](CertificationsApi.md#Get-IdentityCertifications) | **GET** /certifications | Identity Campaign Certifications by IDs
+[**Get-IdentityCertifications**](CertificationsApi.md#Get-IdentityCertifications) | **GET** /certifications | List Identity Campaign Certifications
 [**Select-IdentityDecision**](CertificationsApi.md#Select-IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
 [**Invoke-ReassignIdentityCertifications**](CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 [**Invoke-SignOffIdentityCertification**](CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
@@ -399,9 +399,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
 
-Identity Campaign Certifications by IDs
+List Identity Campaign Certifications
 
-This API returns a list of identity campaign certifications that satisfy the given query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to Governance Groups.
+Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
 
 ### Example
 ```powershell
@@ -413,14 +413,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ReviewerIdentity = "me" # String | The ID of reviewer identity. *me* indicates the current user. (optional)
+$ReviewerIdentity = "me" # String | Reviewer's identity. *me* indicates the current user. (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **campaign.id**: *eq, in*  **phase**: *eq*  **completed**: *eq, ne* (optional)
 $Sorters = "name,due" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional)
 
-# Identity Campaign Certifications by IDs
+# List Identity Campaign Certifications
 try {
     $Result = Get-IdentityCertifications -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
@@ -433,7 +433,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ReviewerIdentity** | **String**| The ID of reviewer identity. *me* indicates the current user. | [optional] 
+ **ReviewerIdentity** | **String**| Reviewer&#39;s identity. *me* indicates the current user. | [optional] 
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]

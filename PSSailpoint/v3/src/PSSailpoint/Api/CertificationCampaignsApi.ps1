@@ -12,10 +12,10 @@ Complete a Campaign
 
 .DESCRIPTION
 
-:::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
+:::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
 
 .PARAMETER Id
-The campaign id
+Campaign ID.
 
 .PARAMETER CampaignCompleteOptions
 Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE
@@ -108,7 +108,7 @@ Create a campaign
 
 .DESCRIPTION
 
-Creates a new Certification Campaign with the information provided in the request body.
+Use this API to create a certification campaign with the information provided in the request body.
 
 .PARAMETER Campaign
 No description available.
@@ -198,7 +198,7 @@ Create a Campaign Template
 
 .DESCRIPTION
 
-Create a campaign Template based on campaign.
+Use this API to create a certification campaign template based on campaign.
 
 .PARAMETER CampaignTemplate
 No description available.
@@ -288,10 +288,10 @@ Delete a Campaign Template
 
 .DESCRIPTION
 
-Deletes a campaign template by ID.
+Use this API to delete a certification campaign template by ID.
 
 .PARAMETER Id
-The ID of the campaign template being deleted.
+ID of the campaign template being deleted.
 
 .PARAMETER WithHttpInfo
 
@@ -358,14 +358,14 @@ function Remove-CampaignTemplate {
 <#
 .SYNOPSIS
 
-Deletes a Campaign Template's Schedule
+Delete Campaign Template Schedule
 
 .DESCRIPTION
 
-Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
 .PARAMETER Id
-The ID of the campaign template whose schedule is being deleted.
+ID of the campaign template whose schedule is being deleted.
 
 .PARAMETER WithHttpInfo
 
@@ -432,14 +432,14 @@ function Remove-CampaignTemplateSchedule {
 <#
 .SYNOPSIS
 
-Deletes Campaigns
+Delete Campaigns
 
 .DESCRIPTION
 
-Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
 
 .PARAMETER CampaignsDeleteRequest
-The ids of the campaigns to delete.
+IDs of the campaigns to delete.
 
 .PARAMETER WithHttpInfo
 
@@ -526,7 +526,7 @@ List Campaigns
 
 .DESCRIPTION
 
-Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided the correct query.
+Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
 
 .PARAMETER Detail
 Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -647,14 +647,14 @@ function Get-ActiveCampaigns {
 <#
 .SYNOPSIS
 
-Get a campaign
+Get Campaign
 
 .DESCRIPTION
 
-Retrieves information for an existing campaign using the campaign's ID. Authorized callers must be a reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+Use this API to get information for an existing certification campaign by the campaign's ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
 
 .PARAMETER Id
-The ID of the campaign to be retrieved
+ID of the campaign to be retrieved.
 
 .PARAMETER WithHttpInfo
 
@@ -725,10 +725,10 @@ Get Campaign Reports
 
 .DESCRIPTION
 
-Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
+Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
 
 .PARAMETER Id
-The ID of the campaign for which reports are being fetched.
+ID of the campaign whose reports are being fetched.
 
 .PARAMETER WithHttpInfo
 
@@ -799,7 +799,7 @@ Get Campaign Reports Configuration
 
 .DESCRIPTION
 
-Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
+Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
 
 .PARAMETER WithHttpInfo
 
@@ -863,10 +863,10 @@ Get a Campaign Template
 
 .DESCRIPTION
 
-Fetches a campaign template by ID.
+Use this API to fetch a certification campaign template by ID.
 
 .PARAMETER Id
-The desired campaign template's ID.
+Requested campaign template's ID.
 
 .PARAMETER WithHttpInfo
 
@@ -933,14 +933,14 @@ function Get-CampaignTemplate {
 <#
 .SYNOPSIS
 
-Gets a Campaign Template's Schedule
+Get Campaign Template Schedule
 
 .DESCRIPTION
 
-Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
 .PARAMETER Id
-The ID of the campaign template whose schedule is being fetched.
+ID of the campaign template whose schedule is being fetched.
 
 .PARAMETER WithHttpInfo
 
@@ -1011,7 +1011,7 @@ List Campaign Templates
 
 .DESCRIPTION
 
-Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
+Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1225,10 +1225,10 @@ Update a Campaign Template
 
 .DESCRIPTION
 
-Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER Id
-The ID of the campaign template being modified.
+ID of the campaign template being modified.
 
 .PARAMETER JsonPatchOperation
 A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -1325,10 +1325,10 @@ Set Campaign Reports Configuration
 
 .DESCRIPTION
 
-Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
+Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
 
 .PARAMETER CampaignReportsConfig
-Campaign Report Configuration
+Campaign report configuration.
 
 .PARAMETER WithHttpInfo
 
@@ -1411,14 +1411,14 @@ function Set-CampaignReportsConfig {
 <#
 .SYNOPSIS
 
-Sets a Campaign Template's Schedule
+Set Campaign Template Schedule
 
 .DESCRIPTION
 
-Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with the new one.
+Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
 
 .PARAMETER Id
-The ID of the campaign template being scheduled.
+ID of the campaign template being scheduled.
 
 .PARAMETER Schedule
 No description available.
@@ -1511,10 +1511,10 @@ Activate a Campaign
 
 .DESCRIPTION
 
-Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
+Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
 
 .PARAMETER Id
-The campaign id
+Campaign ID.
 
 .PARAMETER ActivateCampaignOptions
 Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -1607,10 +1607,10 @@ Run Campaign Remediation Scan
 
 .DESCRIPTION
 
-Kicks off remediation scan task for a certification campaign. Requires roles of CERT_ADMIN and ORG_ADMIN
+Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
 
 .PARAMETER Id
-The ID of the campaign for which remediation scan is being run.
+ID of the campaign the remediation scan is being run for.
 
 .PARAMETER WithHttpInfo
 
@@ -1681,13 +1681,13 @@ Run Campaign Report
 
 .DESCRIPTION
 
-Runs a report for a certification campaign. Requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
 
 .PARAMETER Id
-The ID of the campaign for which report is being run.
+ID of the campaign the report is being run for.
 
 .PARAMETER Type
-The type of the report to run.
+Type of the report to run.
 
 .PARAMETER WithHttpInfo
 
@@ -1765,10 +1765,10 @@ Generate a Campaign from Template
 
 .DESCRIPTION
 
-Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, ""%Y"" will insert the current year; a campaign template named ""Campaign for %y"" would generate a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, ""%Y"" inserts the current year, and a campaign template named ""Campaign for %y"" generates a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
 
 .PARAMETER Id
-The ID of the campaign template to use for generation.
+ID of the campaign template to use for generation.
 
 .PARAMETER WithHttpInfo
 
@@ -1839,13 +1839,13 @@ Update a Campaign
 
 .DESCRIPTION
 
-Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER Id
-The ID of the campaign template being modified.
+ID of the campaign template being modified.
 
 .PARAMETER JsonPatchOperation
-A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
+A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
 .PARAMETER WithHttpInfo
 

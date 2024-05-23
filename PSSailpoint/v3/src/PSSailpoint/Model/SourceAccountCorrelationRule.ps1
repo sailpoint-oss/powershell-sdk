@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to a Rule that can do COMPLEX correlation, should only be used when accountCorrelationConfig can't be used.
+Reference to a rule that can do COMPLEX correlation. Only use this rule when you can't use accountCorrelationConfig.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the rule
+Rule ID.
 .PARAMETER Name
-Human-readable display name of the rule
+Rule's human-readable display name.
 .OUTPUTS
 
 SourceAccountCorrelationRule<PSCustomObject>

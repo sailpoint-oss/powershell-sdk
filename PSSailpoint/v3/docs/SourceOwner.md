@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the identity | [optional] 
-**Name** | **String** | Human-readable display name of the identity | [optional] 
+**Type** | **String** | Type of object being referenced. | [optional] 
+**Id** | **String** | Owner identity&#39;s ID. | [optional] 
+**Name** | **String** | Owner identity&#39;s human-readable display name. | [optional] 
 
 ## Examples
 

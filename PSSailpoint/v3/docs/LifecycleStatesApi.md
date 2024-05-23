@@ -5,8 +5,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-LifecycleState**](LifecycleStatesApi.md#New-LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create Lifecycle State
-[**Remove-LifecycleState**](LifecycleStatesApi.md#Remove-LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State by ID
-[**Get-LifecycleState**](LifecycleStatesApi.md#Get-LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Retrieves Lifecycle State
+[**Remove-LifecycleState**](LifecycleStatesApi.md#Remove-LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State
+[**Get-LifecycleState**](LifecycleStatesApi.md#Get-LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
 [**Get-LifecycleStates**](LifecycleStatesApi.md#Get-LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
 [**Set-LifecycleState**](LifecycleStatesApi.md#Set-LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set Lifecycle State
 [**Update-LifecycleStates**](LifecycleStatesApi.md#Update-LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Create Lifecycle State
 
-This API creates a new Lifecycle State. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to create a lifecycle state. A token with ORG_ADMIN or API authority is required to call this API.
 
 ### Example
 ```powershell
@@ -32,10 +32,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Profile ID
+$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $EmailNotificationOption = Initialize-EmailNotificationOption -NotifyManagers $true -NotifyAllAdmins $true -NotifySpecificUsers $true -EmailAddressList "MyEmailAddressList"
 $AccountAction = Initialize-AccountAction -Action "ENABLE" -SourceIds "MySourceIds"
-$LifecycleState = Initialize-LifecycleState -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Enabled $true -TechnicalName "Technical Name" -Description "Lifecycle description" -IdentityCount 42 -EmailNotificationOption $EmailNotificationOption -AccountActions $AccountAction -AccessProfileIds "MyAccessProfileIds" # LifecycleState | Lifecycle State
+$LifecycleState = Initialize-LifecycleState -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Enabled $true -TechnicalName "Technical Name" -Description "Lifecycle description" -IdentityCount 42 -EmailNotificationOption $EmailNotificationOption -AccountActions $AccountAction -AccessProfileIds "MyAccessProfileIds" -IdentityState "MyIdentityState" # LifecycleState | Lifecycle state to be created.
 
 # Create Lifecycle State
 try {
@@ -50,8 +50,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityProfileId** | **String**| Identity Profile ID | 
- **LifecycleState** | [**LifecycleState**](LifecycleState.md)| Lifecycle State | 
+ **IdentityProfileId** | **String**| Identity profile ID. | 
+ **LifecycleState** | [**LifecycleState**](LifecycleState.md)| Lifecycle state to be created. | 
 
 ### Return type
 
@@ -74,9 +74,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LifecycleStateId] <String><br>
 
-Delete Lifecycle State by ID
+Delete Lifecycle State
 
-This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG_ADMIN authority is required to call this API.
+Use this endpoint to delete the lifecycle state by its ID.  A token with API, or ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -88,10 +88,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID
-$LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID
+$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
+$LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
 
-# Delete Lifecycle State by ID
+# Delete Lifecycle State
 try {
     $Result = Remove-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId
 } catch {
@@ -104,8 +104,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityProfileId** | **String**| Identity Profile ID | 
- **LifecycleStateId** | **String**| Lifecycle State ID | 
+ **IdentityProfileId** | **String**| Identity profile ID. | 
+ **LifecycleStateId** | **String**| Lifecycle state ID. | 
 
 ### Return type
 
@@ -128,9 +128,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LifecycleStateId] <String><br>
 
-Retrieves Lifecycle State
+Get Lifecycle State
 
-This endpoint retrieves a Lifecycle State. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.  A token with ORG_ADMIN or API authority is required to call this API.
 
 ### Example
 ```powershell
@@ -142,10 +142,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID
-$LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID
+$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
+$LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
 
-# Retrieves Lifecycle State
+# Get Lifecycle State
 try {
     $Result = Get-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId
 } catch {
@@ -158,8 +158,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityProfileId** | **String**| Identity Profile ID | 
- **LifecycleStateId** | **String**| Lifecycle State ID | 
+ **IdentityProfileId** | **String**| Identity profile ID. | 
+ **LifecycleStateId** | **String**| Lifecycle state ID. | 
 
 ### Return type
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 Lists LifecycleStates
 
-This end-point lists all the LifecycleStates associated with IdentityProfiles. A token with API, or ORG_ADMIN authority is required to call this API.
+Use this endpoint to list all lifecycle states by their associated identity profiles.  A token with API, or ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -199,7 +199,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The IdentityProfile id
+$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -218,7 +218,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityProfileId** | **String**| The IdentityProfile id | 
+ **IdentityProfileId** | **String**| Identity profile ID. | 
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 Set Lifecycle State
 
-This endpoint will set/update an identity's lifecycle state to the one provided and updates the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
 
 ### Example
 ```powershell
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 Update Lifecycle State
 
-This endpoint updates individual Lifecycle State fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. A token with ORG_ADMIN or API authority is required to call this API.
 
 ### Example
 ```powershell
@@ -314,8 +314,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID
-$LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID
+$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
+$LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
@@ -332,8 +332,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityProfileId** | **String**| Identity Profile ID | 
- **LifecycleStateId** | **String**| Lifecycle State ID | 
+ **IdentityProfileId** | **String**| Identity profile ID. | 
+ **LifecycleStateId** | **String**| Lifecycle state ID. | 
  **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption  | 
 
 ### Return type

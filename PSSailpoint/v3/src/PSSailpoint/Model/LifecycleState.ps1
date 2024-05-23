@@ -17,17 +17,19 @@ No description available.
 .PARAMETER Name
 Name of the Object
 .PARAMETER Enabled
-Whether the lifecycle state is enabled or disabled.
+Indicates whether the lifecycle state is enabled or disabled.
 .PARAMETER TechnicalName
-The technical name for lifecycle state. This is for internal use.
+The lifecycle state's technical name. This is for internal use.
 .PARAMETER Description
-Lifecycle state description.
+Lifecycle state's description.
 .PARAMETER EmailNotificationOption
 No description available.
 .PARAMETER AccountActions
 No description available.
 .PARAMETER AccessProfileIds
 List of unique access-profile IDs that are associated with the lifecycle state.
+.PARAMETER IdentityState
+The lifecycle state's associated identity state. This field is generally 'null'.
 .OUTPUTS
 
 LifecycleState<PSCustomObject>
@@ -41,7 +43,7 @@ function Initialize-LifecycleState {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Enabled},
+        ${Enabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TechnicalName},
@@ -56,7 +58,10 @@ function Initialize-LifecycleState {
         ${AccountActions},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${AccessProfileIds}
+        ${AccessProfileIds},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${IdentityState}
     )
 
     Process {
@@ -80,6 +85,7 @@ function Initialize-LifecycleState {
             "emailNotificationOption" = ${EmailNotificationOption}
             "accountActions" = ${AccountActions}
             "accessProfileIds" = ${AccessProfileIds}
+            "identityState" = ${IdentityState}
         }
 
         return $PSO
@@ -116,7 +122,7 @@ function ConvertFrom-JsonToLifecycleState {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in LifecycleState
-        $AllProperties = ("id", "name", "created", "modified", "enabled", "technicalName", "description", "identityCount", "emailNotificationOption", "accountActions", "accessProfileIds")
+        $AllProperties = ("id", "name", "created", "modified", "enabled", "technicalName", "description", "identityCount", "emailNotificationOption", "accountActions", "accessProfileIds", "identityState")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -193,6 +199,12 @@ function ConvertFrom-JsonToLifecycleState {
             $AccessProfileIds = $JsonParameters.PSobject.Properties["accessProfileIds"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityState"))) { #optional property not found
+            $IdentityState = $null
+        } else {
+            $IdentityState = $JsonParameters.PSobject.Properties["identityState"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -205,6 +217,7 @@ function ConvertFrom-JsonToLifecycleState {
             "emailNotificationOption" = ${EmailNotificationOption}
             "accountActions" = ${AccountActions}
             "accessProfileIds" = ${AccessProfileIds}
+            "identityState" = ${IdentityState}
         }
 
         return $PSO

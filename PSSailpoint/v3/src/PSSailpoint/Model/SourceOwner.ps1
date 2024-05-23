@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to an owning Identity Object
+Reference to identity object who owns the source.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the identity
+Owner identity's ID.
 .PARAMETER Name
-Human-readable display name of the identity
+Owner identity's human-readable display name.
 .OUTPUTS
 
 SourceOwner<PSCustomObject>

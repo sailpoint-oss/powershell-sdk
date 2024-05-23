@@ -17,7 +17,7 @@ No description available.
 .PARAMETER Description
 Lifecycle state description.
 .PARAMETER Enabled
-Whether the lifecycle state is enabled or disabled.
+Indicates whether the lifecycle state is enabled or disabled.
 .PARAMETER EmailNotificationOption
 No description available.
 .PARAMETER AccountActions
@@ -37,7 +37,7 @@ function Initialize-BetaLifecycleState {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Enabled},
+        ${Enabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${EmailNotificationOption},

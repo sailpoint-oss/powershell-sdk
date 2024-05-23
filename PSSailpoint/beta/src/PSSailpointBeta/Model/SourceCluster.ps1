@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to the associated Cluster
+Reference to the source's associated cluster.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the cluster
+Cluster ID.
 .PARAMETER Name
-Human-readable display name of the cluster
+Cluster's human-readable display name.
 .OUTPUTS
 
 SourceCluster<PSCustomObject>

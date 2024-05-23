@@ -7,13 +7,14 @@ Name | Type | Description | Notes
 **Name** | **String** | Name of the Object | 
 **Created** | **System.DateTime** | Creation date of the Object | [optional] [readonly] 
 **Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
-**Enabled** | **Boolean** | Whether the lifecycle state is enabled or disabled. | [optional] 
-**TechnicalName** | **String** | The technical name for lifecycle state. This is for internal use. | 
-**Description** | **String** | Lifecycle state description. | [optional] 
+**Enabled** | **Boolean** | Indicates whether the lifecycle state is enabled or disabled. | [optional] [default to $false]
+**TechnicalName** | **String** | The lifecycle state&#39;s technical name. This is for internal use. | 
+**Description** | **String** | Lifecycle state&#39;s description. | [optional] 
 **IdentityCount** | **Int32** | Number of identities that have the lifecycle state. | [optional] [readonly] 
 **EmailNotificationOption** | [**EmailNotificationOption**](EmailNotificationOption.md) |  | [optional] 
 **AccountActions** | [**AccountAction[]**](AccountAction.md) |  | [optional] 
 **AccessProfileIds** | **String[]** | List of unique access-profile IDs that are associated with the lifecycle state. | [optional] 
+**IdentityState** | **String** | The lifecycle state&#39;s associated identity state. This field is generally &#39;null&#39;. | [optional] 
 
 ## Examples
 
@@ -29,7 +30,8 @@ $LifecycleState = Initialize-PSSailpointLifecycleState  -Id id12345 `
  -IdentityCount 42 `
  -EmailNotificationOption null `
  -AccountActions null `
- -AccessProfileIds [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500]
+ -AccessProfileIds [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500] `
+ -IdentityState null
 ```
 
 - Convert the resource to JSON

@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the rule | [optional] 
-**Name** | **String** | Human-readable display name of the rule | [optional] 
+**Type** | **String** | Type of object being referenced. | [optional] 
+**Id** | **String** | Rule ID. | [optional] 
+**Name** | **String** | Rule&#39;s human-readable display name. | [optional] 
 
 ## Examples
 

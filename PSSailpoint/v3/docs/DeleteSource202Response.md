@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the task result | [optional] 
-**Name** | **String** | Human-readable display name of the task result (should be null/empty) | [optional] 
+**Type** | **String** | Type of object being referenced. | [optional] 
+**Id** | **String** | Task result ID. | [optional] 
+**Name** | **String** | Task result&#39;s human-readable display name (this should be null/empty). | [optional] 
 
 ## Examples
 

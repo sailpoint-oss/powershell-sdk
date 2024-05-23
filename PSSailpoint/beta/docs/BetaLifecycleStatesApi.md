@@ -4,7 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaLifecycleStates**](BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Lifecycle State
+[**Get-BetaLifecycleStates**](BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
 [**Update-BetaLifecycleStates**](BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-LifecycleStateId] <String><br>
 
-Lifecycle State
+Get Lifecycle State
 
-This endpoint returns a lifecycle state.  A token with ORG_ADMIN or API authority is required to call this API. 
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.   A token with ORG_ADMIN or API authority is required to call this API. 
 
 ### Example
 ```powershell
@@ -28,10 +28,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityProfileId = "MyIdentityProfileId" # String | Identity Profile ID
-$LifecycleStateId = "MyLifecycleStateId" # String | Lifecycle State ID
+$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID.
+$LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID.
 
-# Lifecycle State
+# Get Lifecycle State
 try {
     $Result = Get-BetaLifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId
 } catch {
@@ -44,8 +44,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityProfileId** | **String**| Identity Profile ID | 
- **LifecycleStateId** | **String**| Lifecycle State ID | 
+ **IdentityProfileId** | **String**| Identity Profile ID. | 
+ **LifecycleStateId** | **String**| Lifecycle State ID. | 
 
 ### Return type
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 Update Lifecycle State
 
-This API updates individual lifecycle state fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or API authority is required to call this API. 
+Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or API authority is required to call this API. 
 
 ### Example
 ```powershell
@@ -83,8 +83,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IdentityProfileId = "MyIdentityProfileId" # String | Identity Profile ID
-$LifecycleStateId = "MyLifecycleStateId" # String | Lifecycle State ID
+$IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity Profile ID.
+$LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle State ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
@@ -101,8 +101,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IdentityProfileId** | **String**| Identity Profile ID | 
- **LifecycleStateId** | **String**| Lifecycle State ID | 
+ **IdentityProfileId** | **String**| Identity Profile ID. | 
+ **LifecycleStateId** | **String**| Lifecycle State ID. | 
  **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption  | 
 
 ### Return type

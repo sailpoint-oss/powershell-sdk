@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the management workgroup | [optional] 
-**Name** | **String** | Human-readable display name of the management workgroup | [optional] 
+**Type** | **String** | Type of object being referenced. | [optional] 
+**Id** | **String** | Management workgroup ID. | [optional] 
+**Name** | **String** | Management workgroup&#39;s human-readable display name. | [optional] 
 
 ## Examples
 

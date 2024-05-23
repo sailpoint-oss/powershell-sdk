@@ -208,14 +208,14 @@ function New-BetaSource {
 <#
 .SYNOPSIS
 
-Creates a new Schema on the specified Source in IdentityNow.
+Create Schema on Source
 
 .DESCRIPTION
 
-No description or notes available.
+Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 .PARAMETER SourceId
-The Source id.
+Source ID.
 
 .PARAMETER Schema
 No description available.
@@ -312,10 +312,10 @@ Delete Source by ID
 
 .DESCRIPTION
 
-This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
+Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}` A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER Id
-The Source ID
+Source ID.
 
 .PARAMETER WithHttpInfo
 
@@ -786,10 +786,10 @@ Get Source by ID
 
 .DESCRIPTION
 
-This end-point gets a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+Use this API to get a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 .PARAMETER Id
-The Source ID
+Source ID.
 
 .PARAMETER WithHttpInfo
 
@@ -1345,6 +1345,91 @@ function Get-BetaSourceSchema {
 <#
 .SYNOPSIS
 
+List Schemas on Source
+
+.DESCRIPTION
+
+Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+
+.PARAMETER SourceId
+Source ID.
+
+.PARAMETER IncludeTypes
+If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Schema[]
+#>
+function Get-BetaSourceSchemas {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("group", "user")]
+        [String]
+        ${IncludeTypes},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaSourceSchemas' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/sources/{sourceId}/schemas'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling getSourceSchemas."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if ($IncludeTypes) {
+            $LocalVarQueryParameters['include-types'] = $IncludeTypes
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Schema[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Account Aggregation
 
 .DESCRIPTION
@@ -1874,90 +1959,6 @@ function Get-BetaProvisioningPolicies {
 <#
 .SYNOPSIS
 
-Lists the Schemas that exist on the specified Source in IdentityNow.
-
-.DESCRIPTION
-
-No description or notes available.
-
-.PARAMETER SourceId
-The Source id.
-
-.PARAMETER IncludeTypes
-If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-Schema[]
-#>
-function Get-BetaSourceSchemas {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${SourceId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${IncludeTypes},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-BetaSourceSchemas' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/sources/{sourceId}/schemas'
-        if (!$SourceId) {
-            throw "Error! The required parameter `SourceId` missing when calling listSourceSchemas."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
-
-        if ($IncludeTypes) {
-            $LocalVarQueryParameters['include-types'] = $IncludeTypes
-        }
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Schema[]" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 Lists all sources in IdentityNow.
 
 .DESCRIPTION
@@ -2470,10 +2471,10 @@ Update Source (Full)
 
 .DESCRIPTION
 
-This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
+Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
 
 .PARAMETER Id
-The Source id
+Source ID.
 
 .PARAMETER Source
 No description available.
@@ -3212,13 +3213,13 @@ Update Source (Partial)
 
 .DESCRIPTION
 
-This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as: * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
+Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed: * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
 
 .PARAMETER Id
-The Source id
+Source ID.
 
 .PARAMETER JsonPatchOperation
-A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow.
+A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
 
 .PARAMETER WithHttpInfo
 

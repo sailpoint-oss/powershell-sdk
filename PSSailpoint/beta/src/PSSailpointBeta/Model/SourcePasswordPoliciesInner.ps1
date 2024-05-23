@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the policy
+Policy ID.
 .PARAMETER Name
-Human-readable display name of the policy
+Policy's human-readable display name.
 .OUTPUTS
 
 SourcePasswordPoliciesInner<PSCustomObject>

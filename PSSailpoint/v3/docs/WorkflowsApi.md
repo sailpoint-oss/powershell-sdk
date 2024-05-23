@@ -10,10 +10,10 @@ Method | HTTP request | Description
 [**New-WorkflowExternalTrigger**](WorkflowsApi.md#New-WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
 [**Remove-Workflow**](WorkflowsApi.md#Remove-Workflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
 [**Get-Workflow**](WorkflowsApi.md#Get-Workflow) | **GET** /workflows/{id} | Get Workflow By Id
-[**Get-WorkflowExecution**](WorkflowsApi.md#Get-WorkflowExecution) | **GET** /workflow-executions/{id} | Get a Workflow Execution
+[**Get-WorkflowExecution**](WorkflowsApi.md#Get-WorkflowExecution) | **GET** /workflow-executions/{id} | Get Workflow Execution
 [**Get-WorkflowExecutionHistory**](WorkflowsApi.md#Get-WorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get Workflow Execution History
-[**Get-CompleteWorkflowLibrary**](WorkflowsApi.md#Get-CompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
 [**Get-WorkflowExecutions**](WorkflowsApi.md#Get-WorkflowExecutions) | **GET** /workflows/{id}/executions | List Workflow Executions
+[**Get-CompleteWorkflowLibrary**](WorkflowsApi.md#Get-CompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
 [**Get-WorkflowLibraryActions**](WorkflowsApi.md#Get-WorkflowLibraryActions) | **GET** /workflow-library/actions | List Workflow Library Actions
 [**Get-WorkflowLibraryOperators**](WorkflowsApi.md#Get-WorkflowLibraryOperators) | **GET** /workflow-library/operators | List Workflow Library Operators
 [**Get-WorkflowLibraryTriggers**](WorkflowsApi.md#Get-WorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List Workflow Library Triggers
@@ -344,9 +344,9 @@ Name | Type | Description  | Notes
 > SystemCollectionsHashtable Get-WorkflowExecution<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get a Workflow Execution
+Get Workflow Execution
 
-Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a ""404 Not Found"" response.
 
 ### Example
 ```powershell
@@ -358,9 +358,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
+$Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 
-# Get a Workflow Execution
+# Get Workflow Execution
 try {
     $Result = Get-WorkflowExecution -Id $Id
 } catch {
@@ -373,7 +373,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Id of the workflow execution | 
+ **Id** | **String**| Workflow execution ID. | 
 
 ### Return type
 
@@ -441,6 +441,69 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-WorkflowExecutions"></a>
+# **Get-WorkflowExecutions**
+> WorkflowExecution[] Get-WorkflowExecutions<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
+
+List Workflow Executions
+
+Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following: 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows. 2. Get your workflow ID from the response. 3. You can then do either of the following:    - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq ""Failed""`    - Paginate through results with the `offset` parameter.   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Filters = "status eq "Failed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
+
+# List Workflow Executions
+try {
+    $Result = Get-WorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
+} catch {
+    Write-Host ("Exception occurred when calling Get-WorkflowExecutions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| Workflow ID. | 
+ **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+ **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
+ **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq* | [optional] 
+
+### Return type
+
+[**WorkflowExecution[]**](WorkflowExecution.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Get-CompleteWorkflowLibrary"></a>
 # **Get-CompleteWorkflowLibrary**
 > ListCompleteWorkflowLibrary200ResponseInner[] Get-CompleteWorkflowLibrary<br>
@@ -483,69 +546,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListCompleteWorkflowLibrary200ResponseInner[]**](ListCompleteWorkflowLibrary200ResponseInner.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Get-WorkflowExecutions"></a>
-# **Get-WorkflowExecutions**
-> WorkflowExecution[] Get-WorkflowExecutions<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
-
-List Workflow Executions
-
-This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following: 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows. 2. Get your workflow ID from the response. 3. You can then do either of the following:    - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq ""Failed""`    - You can paginate through results with the `offset` parameter.   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "status eq "Failed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
-
-# List Workflow Executions
-try {
-    $Result = Get-WorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters
-} catch {
-    Write-Host ("Exception occurred when calling Get-WorkflowExecutions: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Id** | **String**| Id of the workflow | 
- **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
- **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
- **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
- **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq* | [optional] 
-
-### Return type
-
-[**WorkflowExecution[]**](WorkflowExecution.md) (PSCustomObject)
 
 ### Authorization
 

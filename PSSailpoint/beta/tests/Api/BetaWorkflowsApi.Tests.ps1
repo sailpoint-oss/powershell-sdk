@@ -54,17 +54,17 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaWorkflowsApi' {
         }
     }
 
-    Context 'Get-BetaCompleteWorkflowLibrary' {
-        It 'Test Get-BetaCompleteWorkflowLibrary' {
-            #$TestResult = Get-BetaCompleteWorkflowLibrary -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+    Context 'Get-BetaWorkflowExecutions' {
+        It 'Test Get-BetaWorkflowExecutions' {
+            #$TestResult = Get-BetaWorkflowExecutions -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-BetaWorkflowExecutions' {
-        It 'Test Get-BetaWorkflowExecutions' {
-            #$TestResult = Get-BetaWorkflowExecutions -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+    Context 'Get-BetaCompleteWorkflowLibrary' {
+        It 'Test Get-BetaCompleteWorkflowLibrary' {
+            #$TestResult = Get-BetaCompleteWorkflowLibrary -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

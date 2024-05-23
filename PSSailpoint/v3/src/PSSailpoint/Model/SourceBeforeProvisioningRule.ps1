@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Rule that runs on the CCG and allows for customization of provisioning plans before the connector is called.
+Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector. 
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the rule
+Rule ID.
 .PARAMETER Name
-Human-readable display name of the rule
+Rule's human-readable display name.
 .OUTPUTS
 
 SourceBeforeProvisioningRule<PSCustomObject>

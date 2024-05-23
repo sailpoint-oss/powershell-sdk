@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of object being referenced | [optional] 
-**Id** | **String** | ID of the schema | [optional] 
-**Name** | **String** | Human-readable display name of the schema | [optional] 
+**Type** | **String** | Type of object being referenced. | [optional] 
+**Id** | **String** | Schema ID. | [optional] 
+**Name** | **String** | Schema&#39;s human-readable display name. | [optional] 
 
 ## Examples
 

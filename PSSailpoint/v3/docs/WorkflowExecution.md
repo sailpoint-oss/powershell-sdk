@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The workflow execution ID | [optional] 
-**WorkflowId** | **String** | The workflow ID | [optional] 
-**RequestId** | **String** | This backend ID tracks a workflow request in the system. You can provide this ID in a customer support ticket for debugging purposes. | [optional] 
-**StartTime** | **System.DateTime** | The date/time the workflow started | [optional] 
-**CloseTime** | **System.DateTime** | The date/time the workflow ended | [optional] 
-**Status** | **String** | The workflow execution status | [optional] 
+**Id** | **String** | Workflow execution ID. | [optional] 
+**WorkflowId** | **String** | Workflow ID. | [optional] 
+**RequestId** | **String** | Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes. | [optional] 
+**StartTime** | **System.DateTime** | Date/time when the workflow started. | [optional] 
+**CloseTime** | **System.DateTime** | Date/time when the workflow ended. | [optional] 
+**Status** | **String** | Workflow execution status. | [optional] 
 
 ## Examples
 

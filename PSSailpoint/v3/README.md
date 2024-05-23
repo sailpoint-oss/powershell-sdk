@@ -66,7 +66,7 @@ Class | Method | HTTP request | Description
 *AccessRequestApprovalsApi* | [**Get-PendingApprovals**](docs/AccessRequestApprovalsApi.md#Get-PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
 *AccessRequestApprovalsApi* | [**Deny-AccessRequest**](docs/AccessRequestApprovalsApi.md#Deny-AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
 *AccessRequestsApi* | [**Suspend-AccessRequest**](docs/AccessRequestsApi.md#Suspend-AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
-*AccessRequestsApi* | [**New-AccessRequest**](docs/AccessRequestsApi.md#New-AccessRequest) | **POST** /access-requests | Submit an Access Request
+*AccessRequestsApi* | [**New-AccessRequest**](docs/AccessRequestsApi.md#New-AccessRequest) | **POST** /access-requests | Submit Access Request
 *AccessRequestsApi* | [**Get-AccessRequestConfig**](docs/AccessRequestsApi.md#Get-AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 *AccessRequestsApi* | [**Get-AccessRequestStatus**](docs/AccessRequestsApi.md#Get-AccessRequestStatus) | **GET** /access-request-status | Access Request Status
 *AccessRequestsApi* | [**Set-AccessRequestConfig**](docs/AccessRequestsApi.md#Set-AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
@@ -100,19 +100,19 @@ Class | Method | HTTP request | Description
 *CertificationCampaignsApi* | [**New-Campaign**](docs/CertificationCampaignsApi.md#New-Campaign) | **POST** /campaigns | Create a campaign
 *CertificationCampaignsApi* | [**New-CampaignTemplate**](docs/CertificationCampaignsApi.md#New-CampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
 *CertificationCampaignsApi* | [**Remove-CampaignTemplate**](docs/CertificationCampaignsApi.md#Remove-CampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
-*CertificationCampaignsApi* | [**Remove-CampaignTemplateSchedule**](docs/CertificationCampaignsApi.md#Remove-CampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Deletes a Campaign Template's Schedule
-*CertificationCampaignsApi* | [**Remove-Campaigns**](docs/CertificationCampaignsApi.md#Remove-Campaigns) | **POST** /campaigns/delete | Deletes Campaigns
+*CertificationCampaignsApi* | [**Remove-CampaignTemplateSchedule**](docs/CertificationCampaignsApi.md#Remove-CampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Delete Campaign Template Schedule
+*CertificationCampaignsApi* | [**Remove-Campaigns**](docs/CertificationCampaignsApi.md#Remove-Campaigns) | **POST** /campaigns/delete | Delete Campaigns
 *CertificationCampaignsApi* | [**Get-ActiveCampaigns**](docs/CertificationCampaignsApi.md#Get-ActiveCampaigns) | **GET** /campaigns | List Campaigns
-*CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get a campaign
+*CertificationCampaignsApi* | [**Get-Campaign**](docs/CertificationCampaignsApi.md#Get-Campaign) | **GET** /campaigns/{id} | Get Campaign
 *CertificationCampaignsApi* | [**Get-CampaignReports**](docs/CertificationCampaignsApi.md#Get-CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
 *CertificationCampaignsApi* | [**Get-CampaignReportsConfig**](docs/CertificationCampaignsApi.md#Get-CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
 *CertificationCampaignsApi* | [**Get-CampaignTemplate**](docs/CertificationCampaignsApi.md#Get-CampaignTemplate) | **GET** /campaign-templates/{id} | Get a Campaign Template
-*CertificationCampaignsApi* | [**Get-CampaignTemplateSchedule**](docs/CertificationCampaignsApi.md#Get-CampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Gets a Campaign Template's Schedule
+*CertificationCampaignsApi* | [**Get-CampaignTemplateSchedule**](docs/CertificationCampaignsApi.md#Get-CampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Get Campaign Template Schedule
 *CertificationCampaignsApi* | [**Get-CampaignTemplates**](docs/CertificationCampaignsApi.md#Get-CampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
 *CertificationCampaignsApi* | [**Move-**](docs/CertificationCampaignsApi.md#Move-) | **POST** /campaigns/{id}/reassign | Reassign Certifications
 *CertificationCampaignsApi* | [**Update-CampaignTemplate**](docs/CertificationCampaignsApi.md#Update-CampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
 *CertificationCampaignsApi* | [**Set-CampaignReportsConfig**](docs/CertificationCampaignsApi.md#Set-CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
-*CertificationCampaignsApi* | [**Set-CampaignTemplateSchedule**](docs/CertificationCampaignsApi.md#Set-CampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Sets a Campaign Template's Schedule
+*CertificationCampaignsApi* | [**Set-CampaignTemplateSchedule**](docs/CertificationCampaignsApi.md#Set-CampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Set Campaign Template Schedule
 *CertificationCampaignsApi* | [**Start-Campaign**](docs/CertificationCampaignsApi.md#Start-Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
 *CertificationCampaignsApi* | [**Start-CampaignRemediationScan**](docs/CertificationCampaignsApi.md#Start-CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
 *CertificationCampaignsApi* | [**Start-CampaignReport**](docs/CertificationCampaignsApi.md#Start-CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
@@ -128,7 +128,7 @@ Class | Method | HTTP request | Description
 *CertificationsApi* | [**Get-PendingCertificationTasks**](docs/CertificationsApi.md#Get-PendingCertificationTasks) | **GET** /certification-tasks | List of Pending Certification Tasks
 *CertificationsApi* | [**Get-CertificationReviewers**](docs/CertificationsApi.md#Get-CertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for certification
 *CertificationsApi* | [**Get-IdentityAccessReviewItems**](docs/CertificationsApi.md#Get-IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of Access Review Items
-*CertificationsApi* | [**Get-IdentityCertifications**](docs/CertificationsApi.md#Get-IdentityCertifications) | **GET** /certifications | Identity Campaign Certifications by IDs
+*CertificationsApi* | [**Get-IdentityCertifications**](docs/CertificationsApi.md#Get-IdentityCertifications) | **GET** /certifications | List Identity Campaign Certifications
 *CertificationsApi* | [**Select-IdentityDecision**](docs/CertificationsApi.md#Select-IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
 *CertificationsApi* | [**Invoke-ReassignIdentityCertifications**](docs/CertificationsApi.md#Invoke-ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 *CertificationsApi* | [**Invoke-SignOffIdentityCertification**](docs/CertificationsApi.md#Invoke-SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
@@ -167,8 +167,8 @@ Class | Method | HTTP request | Description
 *IdentityProfilesApi* | [**Get-IdentityProfiles**](docs/IdentityProfilesApi.md#Get-IdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
 *IdentityProfilesApi* | [**Sync-IdentityProfile**](docs/IdentityProfilesApi.md#Sync-IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 *LifecycleStatesApi* | [**New-LifecycleState**](docs/LifecycleStatesApi.md#New-LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create Lifecycle State
-*LifecycleStatesApi* | [**Remove-LifecycleState**](docs/LifecycleStatesApi.md#Remove-LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State by ID
-*LifecycleStatesApi* | [**Get-LifecycleState**](docs/LifecycleStatesApi.md#Get-LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Retrieves Lifecycle State
+*LifecycleStatesApi* | [**Remove-LifecycleState**](docs/LifecycleStatesApi.md#Remove-LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State
+*LifecycleStatesApi* | [**Get-LifecycleState**](docs/LifecycleStatesApi.md#Get-LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
 *LifecycleStatesApi* | [**Get-LifecycleStates**](docs/LifecycleStatesApi.md#Get-LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
 *LifecycleStatesApi* | [**Set-LifecycleState**](docs/LifecycleStatesApi.md#Set-LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set Lifecycle State
 *LifecycleStatesApi* | [**Update-LifecycleStates**](docs/LifecycleStatesApi.md#Update-LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
@@ -325,7 +325,7 @@ Class | Method | HTTP request | Description
 *SourceUsagesApi* | [**Get-UsagesBySourceId**](docs/SourceUsagesApi.md#Get-UsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
 *SourcesApi* | [**New-ProvisioningPolicy**](docs/SourcesApi.md#New-ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 *SourcesApi* | [**New-Source**](docs/SourcesApi.md#New-Source) | **POST** /sources | Creates a source in IdentityNow.
-*SourcesApi* | [**New-SourceSchema**](docs/SourcesApi.md#New-SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on a Source
+*SourcesApi* | [**New-SourceSchema**](docs/SourcesApi.md#New-SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
 *SourcesApi* | [**Remove-ProvisioningPolicy**](docs/SourcesApi.md#Remove-ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 *SourcesApi* | [**Remove-Source**](docs/SourcesApi.md#Remove-Source) | **DELETE** /sources/{id} | Delete Source by ID
 *SourcesApi* | [**Remove-SourceSchema**](docs/SourcesApi.md#Remove-SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
@@ -335,11 +335,11 @@ Class | Method | HTTP request | Description
 *SourcesApi* | [**Get-Source**](docs/SourcesApi.md#Get-Source) | **GET** /sources/{id} | Get Source by ID
 *SourcesApi* | [**Get-SourceHealth**](docs/SourcesApi.md#Get-SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
 *SourcesApi* | [**Get-SourceSchema**](docs/SourcesApi.md#Get-SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
+*SourcesApi* | [**Get-SourceSchemas**](docs/SourcesApi.md#Get-SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
 *SourcesApi* | [**Import-AccountsSchema**](docs/SourcesApi.md#Import-AccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *SourcesApi* | [**Import-ConnectorFile**](docs/SourcesApi.md#Import-ConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *SourcesApi* | [**Import-EntitlementsSchema**](docs/SourcesApi.md#Import-EntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 *SourcesApi* | [**Get-ProvisioningPolicies**](docs/SourcesApi.md#Get-ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-*SourcesApi* | [**Get-SourceSchemas**](docs/SourcesApi.md#Get-SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on a Source
 *SourcesApi* | [**Get-Sources**](docs/SourcesApi.md#Get-Sources) | **GET** /sources | Lists all sources in IdentityNow.
 *SourcesApi* | [**Send-ProvisioningPolicy**](docs/SourcesApi.md#Send-ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 *SourcesApi* | [**Send-Source**](docs/SourcesApi.md#Send-Source) | **PUT** /sources/{id} | Update Source (Full)
@@ -379,10 +379,10 @@ Class | Method | HTTP request | Description
 *WorkflowsApi* | [**New-WorkflowExternalTrigger**](docs/WorkflowsApi.md#New-WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
 *WorkflowsApi* | [**Remove-Workflow**](docs/WorkflowsApi.md#Remove-Workflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
 *WorkflowsApi* | [**Get-Workflow**](docs/WorkflowsApi.md#Get-Workflow) | **GET** /workflows/{id} | Get Workflow By Id
-*WorkflowsApi* | [**Get-WorkflowExecution**](docs/WorkflowsApi.md#Get-WorkflowExecution) | **GET** /workflow-executions/{id} | Get a Workflow Execution
+*WorkflowsApi* | [**Get-WorkflowExecution**](docs/WorkflowsApi.md#Get-WorkflowExecution) | **GET** /workflow-executions/{id} | Get Workflow Execution
 *WorkflowsApi* | [**Get-WorkflowExecutionHistory**](docs/WorkflowsApi.md#Get-WorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get Workflow Execution History
-*WorkflowsApi* | [**Get-CompleteWorkflowLibrary**](docs/WorkflowsApi.md#Get-CompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
 *WorkflowsApi* | [**Get-WorkflowExecutions**](docs/WorkflowsApi.md#Get-WorkflowExecutions) | **GET** /workflows/{id}/executions | List Workflow Executions
+*WorkflowsApi* | [**Get-CompleteWorkflowLibrary**](docs/WorkflowsApi.md#Get-CompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
 *WorkflowsApi* | [**Get-WorkflowLibraryActions**](docs/WorkflowsApi.md#Get-WorkflowLibraryActions) | **GET** /workflow-library/actions | List Workflow Library Actions
 *WorkflowsApi* | [**Get-WorkflowLibraryOperators**](docs/WorkflowsApi.md#Get-WorkflowLibraryOperators) | **GET** /workflow-library/operators | List Workflow Library Operators
 *WorkflowsApi* | [**Get-WorkflowLibraryTriggers**](docs/WorkflowsApi.md#Get-WorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List Workflow Library Triggers

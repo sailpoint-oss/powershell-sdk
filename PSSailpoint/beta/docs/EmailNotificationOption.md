@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NotifyManagers** | **Boolean** | If true, then the manager is notified of the lifecycle state change. | [optional] 
-**NotifyAllAdmins** | **Boolean** | If true, then all the admins are notified of the lifecycle state change. | [optional] 
-**NotifySpecificUsers** | **Boolean** | If true, then the users specified in &quot;&quot;emailAddressList&quot;&quot; below are notified of lifecycle state change. | [optional] 
+**NotifyManagers** | **Boolean** | If true, then the manager is notified of the lifecycle state change. | [optional] [default to $false]
+**NotifyAllAdmins** | **Boolean** | If true, then all the admins are notified of the lifecycle state change. | [optional] [default to $false]
+**NotifySpecificUsers** | **Boolean** | If true, then the users specified in &quot;&quot;emailAddressList&quot;&quot; below are notified of lifecycle state change. | [optional] [default to $false]
 **EmailAddressList** | **String[]** | List of user email addresses. If &quot;&quot;notifySpecificUsers&quot;&quot; option is true, then these users are notified of lifecycle state change. | [optional] 
 
 ## Examples

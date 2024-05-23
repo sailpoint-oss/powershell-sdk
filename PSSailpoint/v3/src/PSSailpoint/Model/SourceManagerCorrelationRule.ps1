@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to the ManagerCorrelationRule, only used when a simple filter isn't sufficient.
+Reference to the ManagerCorrelationRule. Only use this rule when a simple filter isn't sufficient.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the rule
+Rule ID.
 .PARAMETER Name
-Human-readable display name of the rule
+Rule's human-readable display name.
 .OUTPUTS
 
 SourceManagerCorrelationRule<PSCustomObject>

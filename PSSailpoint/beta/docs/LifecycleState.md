@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | lifecycle stat id. | [optional] [readonly] 
-**Name** | **String** | Lifecycle-state name. | [optional] [readonly] 
-**TechnicalName** | **String** | The technical name for lifecycle state. This is for internal use. | [optional] [readonly] 
+**Id** | **String** | Lifecycle state ID. | [optional] [readonly] 
+**Name** | **String** | Lifecycle state name. | [optional] [readonly] 
+**TechnicalName** | **String** | Lifecycle state technical name. This is for internal use. | [optional] [readonly] 
 **Description** | **String** | Lifecycle state description. | [optional] 
 **Created** | **System.DateTime** | Lifecycle state created date. | [optional] [readonly] 
 **Modified** | **System.DateTime** | Lifecycle state modified date. | [optional] [readonly] 
-**Enabled** | **Boolean** | Whether the lifecycle state is enabled or disabled. | [optional] 
+**Enabled** | **Boolean** | Indicates whether the lifecycle state is enabled or disabled. | [optional] [default to $false]
 **IdentityCount** | **Int32** | Number of identities that have the lifecycle state. | [optional] [readonly] 
 **EmailNotificationOption** | [**EmailNotificationOption**](EmailNotificationOption.md) |  | [optional] 
 **AccountActions** | [**AccountAction[]**](AccountAction.md) |  | [optional] 

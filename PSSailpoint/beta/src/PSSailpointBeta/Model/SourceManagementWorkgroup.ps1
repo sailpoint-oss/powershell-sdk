@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to Management Workgroup for this Source
+Reference to management workgroup for the source.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the management workgroup
+Management workgroup ID.
 .PARAMETER Name
-Human-readable display name of the management workgroup
+Management workgroup's human-readable display name.
 .OUTPUTS
 
 SourceManagementWorkgroup<PSCustomObject>

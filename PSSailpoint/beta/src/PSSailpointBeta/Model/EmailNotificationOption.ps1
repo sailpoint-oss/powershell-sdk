@@ -32,13 +32,13 @@ function Initialize-BetaEmailNotificationOption {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${NotifyManagers},
+        ${NotifyManagers} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${NotifyAllAdmins},
+        ${NotifyAllAdmins} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${NotifySpecificUsers},
+        ${NotifySpecificUsers} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${EmailAddressList}

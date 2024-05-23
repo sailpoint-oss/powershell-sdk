@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-The type of object being referenced
+Type of object being referenced.
 .PARAMETER Id
-ID of the task result
+Task result ID.
 .PARAMETER Name
-Human-readable display name of the task result (should be null/empty)
+Task result's human-readable display name (this should be null/empty).
 .OUTPUTS
 
 DeleteSource202Response<PSCustomObject>

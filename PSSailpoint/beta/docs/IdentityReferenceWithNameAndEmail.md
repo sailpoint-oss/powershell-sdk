@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type can only be IDENTITY. This is read-only | [optional] 
-**Id** | **String** | Identity id. | [optional] 
-**Name** | **String** | Human-readable display name of identity. This is read-only | [optional] 
-**Email** | **String** | Email address of identity. This is read-only | [optional] 
+**Type** | **String** | The type can only be IDENTITY. This is read-only. | [optional] 
+**Id** | **String** | Identity ID. | [optional] 
+**Name** | **String** | Identity&#39;s human-readable display name. This is read-only. | [optional] 
+**Email** | **String** | Identity&#39;s email address. This is read-only. | [optional] 
 
 ## Examples
 

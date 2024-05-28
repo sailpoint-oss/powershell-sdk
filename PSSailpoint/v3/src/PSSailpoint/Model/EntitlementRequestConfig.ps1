@@ -15,13 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER AllowEntitlementRequest
-Flag for allowing entitlement request.
+If this is true, entitlement requests are allowed.
 .PARAMETER RequestCommentsRequired
-Flag for requiring comments while submitting an entitlement request.
+If this is true, comments are required to submit entitlement requests.
 .PARAMETER DeniedCommentsRequired
-Flag for requiring comments while rejecting an entitlement request.
+If this is true, comments are required to reject entitlement requests.
 .PARAMETER GrantRequestApprovalSchemes
-Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are ""entitlementOwner"", ""sourceOwner"", ""manager"" and ""workgroup:{id}"". Multiple workgroups (governance groups) can be used. 
+Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are ""entitlementOwner"", ""sourceOwner"", ""manager"" and ""workgroup:{id}"". You can use multiple governance groups (workgroups). 
 .OUTPUTS
 
 EntitlementRequestConfig<PSCustomObject>
@@ -32,7 +32,7 @@ function Initialize-EntitlementRequestConfig {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AllowEntitlementRequest},
+        ${AllowEntitlementRequest} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${RequestCommentsRequired} = $false,

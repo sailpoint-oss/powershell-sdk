@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AllowRequestOnBehalfOfAnyoneByAnyone** | **Boolean** | If anyone can request access for anyone. | [optional] 
-**AllowRequestOnBehalfOfEmployeeByManager** | **Boolean** | If a manager can request access for his/her direct reports. | [optional] 
+**AllowRequestOnBehalfOfAnyoneByAnyone** | **Boolean** | If this is true, anyone can request access for anyone. | [optional] [default to $false]
+**AllowRequestOnBehalfOfEmployeeByManager** | **Boolean** | If this is true, a manager can request access for his or her direct reports. | [optional] [default to $false]
 
 ## Examples
 

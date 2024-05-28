@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER ApprovalsMustBeExternal
-If true, then approvals must be processed by external system.
+If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin.
 .PARAMETER AutoApprovalEnabled
-If true and requester and reviewer are the same, then automatically approve the approval.
+If this is true and the requester and reviewer are the same, the request is automatically approved.
 .PARAMETER RequestOnBehalfOfConfig
 No description available.
 .PARAMETER ApprovalReminderAndEscalationConfig
@@ -34,10 +34,10 @@ function Initialize-BetaAccessRequestConfig {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${ApprovalsMustBeExternal},
+        ${ApprovalsMustBeExternal} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AutoApprovalEnabled},
+        ${AutoApprovalEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequestOnBehalfOfConfig},

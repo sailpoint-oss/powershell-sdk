@@ -15,13 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-The type can only be IDENTITY. This is read-only
+The type can only be IDENTITY. This is read-only.
 .PARAMETER Id
-Identity id.
+Identity ID.
 .PARAMETER Name
-Human-readable display name of identity. This is read-only
+Identity's human-readable display name. This is read-only.
 .PARAMETER Email
-Email address of identity. This is read-only
+Identity's email address. This is read-only.
 .OUTPUTS
 
 IdentityReferenceWithNameAndEmail<PSCustomObject>

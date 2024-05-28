@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER AllowRequestOnBehalfOfAnyoneByAnyone
-If anyone can request access for anyone.
+If this is true, anyone can request access for anyone.
 .PARAMETER AllowRequestOnBehalfOfEmployeeByManager
-If a manager can request access for his/her direct reports.
+If this is true, a manager can request access for his or her direct reports.
 .OUTPUTS
 
 RequestOnBehalfOfConfig<PSCustomObject>
@@ -28,10 +28,10 @@ function Initialize-RequestOnBehalfOfConfig {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AllowRequestOnBehalfOfAnyoneByAnyone},
+        ${AllowRequestOnBehalfOfAnyoneByAnyone} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AllowRequestOnBehalfOfEmployeeByManager}
+        ${AllowRequestOnBehalfOfEmployeeByManager} = $false
     )
 
     Process {

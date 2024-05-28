@@ -160,10 +160,10 @@ Get ownership details
 
 .DESCRIPTION
 
-Get Ownership association details of an Identity
+Use this API to return an identity's owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
 
 .PARAMETER IdentityId
-The identity id
+Identity ID.
 
 .PARAMETER WithHttpInfo
 

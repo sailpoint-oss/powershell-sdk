@@ -38,6 +38,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'Remove-BetaAccountsAsync' {
+        It 'Test Remove-BetaAccountsAsync' {
+            #$TestResult = Remove-BetaAccountsAsync -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-BetaNativeChangeDetectionConfig' {
         It 'Test Remove-BetaNativeChangeDetectionConfig' {
             #$TestResult = Remove-BetaNativeChangeDetectionConfig -Id "TEST_VALUE"

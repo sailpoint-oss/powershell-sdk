@@ -84,7 +84,6 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**New-BetaAccount**](docs/BetaAccountsApi.md#New-BetaAccount) | **POST** /accounts | Create Account
 *BetaAccountsApi* | [**Remove-BetaAccount**](docs/BetaAccountsApi.md#Remove-BetaAccount) | **DELETE** /accounts/{id} | Delete Account
 *BetaAccountsApi* | [**Remove-BetaAccountAsync**](docs/BetaAccountsApi.md#Remove-BetaAccountAsync) | **POST** /accounts/{id}/remove | Remove Account
-*BetaAccountsApi* | [**Remove-BetaAccountsAsync**](docs/BetaAccountsApi.md#Remove-BetaAccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove All Accounts
 *BetaAccountsApi* | [**Disable-BetaAccount**](docs/BetaAccountsApi.md#Disable-BetaAccount) | **POST** /accounts/{id}/disable | Disable Account
 *BetaAccountsApi* | [**Disable-BetaAccountForIdentity**](docs/BetaAccountsApi.md#Disable-BetaAccountForIdentity) | **POST** /identities-accounts/{id}/disable | Disable IDN Account for Identity
 *BetaAccountsApi* | [**Disable-BetaAccountsForIdentities**](docs/BetaAccountsApi.md#Disable-BetaAccountsForIdentities) | **POST** /identities-accounts/disable | Disable IDN Accounts for Identities
@@ -442,6 +441,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**New-BetaSource**](docs/BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
 *BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
 *BetaSourcesApi* | [**Remove-Beta**](docs/BetaSourcesApi.md#Remove-Beta) | **DELETE** /sources/{id} | Delete Source by ID
+*BetaSourcesApi* | [**Remove-BetaAccountsAsync**](docs/BetaSourcesApi.md#Remove-BetaAccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove All Accounts in a Source
 *BetaSourcesApi* | [**Remove-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Remove-BetaNativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 *BetaSourcesApi* | [**Remove-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Remove-BetaSourceSchema**](docs/BetaSourcesApi.md#Remove-BetaSourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID

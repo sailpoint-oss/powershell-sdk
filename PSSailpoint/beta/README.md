@@ -391,6 +391,13 @@ Class | Method | HTTP request | Description
 *BetaRolesApi* | [**Get-BetaRoleEntitlements**](docs/BetaRolesApi.md#Get-BetaRoleEntitlements) | **GET** /roles/{id}/entitlements | List role's Entitlements
 *BetaRolesApi* | [**Get-BetaRoles**](docs/BetaRolesApi.md#Get-BetaRoles) | **GET** /roles | List Roles
 *BetaRolesApi* | [**Update-BetaRole**](docs/BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
+*BetaSIMIntegrationsApi* | [**New-BetaSIMIntegration**](docs/BetaSIMIntegrationsApi.md#New-BetaSIMIntegration) | **POST** /sim-integrations | Create new SIM integration
+*BetaSIMIntegrationsApi* | [**Remove-BetaSIMIntegration**](docs/BetaSIMIntegrationsApi.md#Remove-BetaSIMIntegration) | **DELETE** /sim-integrations/{id} | Delete a SIM integration
+*BetaSIMIntegrationsApi* | [**Get-BetaSIMIntegration**](docs/BetaSIMIntegrationsApi.md#Get-BetaSIMIntegration) | **GET** /sim-integrations/{id} | Get a SIM integration details.
+*BetaSIMIntegrationsApi* | [**Get-BetaSIMIntegrations**](docs/BetaSIMIntegrationsApi.md#Get-BetaSIMIntegrations) | **GET** /sim-integrations | List the existing SIM integrations.
+*BetaSIMIntegrationsApi* | [**Update-BetaBeforeProvisioningRule**](docs/BetaSIMIntegrationsApi.md#Update-BetaBeforeProvisioningRule) | **PATCH** /sim-integrations/{id}/beforeProvisioningRule | Patch a SIM beforeProvisioningRule attribute.
+*BetaSIMIntegrationsApi* | [**Update-BetaSIMAttributes**](docs/BetaSIMIntegrationsApi.md#Update-BetaSIMAttributes) | **PATCH** /sim-integrations/{id} | Patch a SIM attribute.
+*BetaSIMIntegrationsApi* | [**Send-BetaSIMIntegration**](docs/BetaSIMIntegrationsApi.md#Send-BetaSIMIntegration) | **PUT** /sim-integrations/{id} | Update an existing SIM integration
 *BetaSODPoliciesApi* | [**New-BetaSodPolicy**](docs/BetaSODPoliciesApi.md#New-BetaSodPolicy) | **POST** /sod-policies | Create SOD policy
 *BetaSODPoliciesApi* | [**Remove-BetaSodPolicy**](docs/BetaSODPoliciesApi.md#Remove-BetaSodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
 *BetaSODPoliciesApi* | [**Remove-BetaSodPolicySchedule**](docs/BetaSODPoliciesApi.md#Remove-BetaSodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
@@ -961,6 +968,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.Invocation](docs/Invocation.md)
  - [PSSailpointBeta\Model.InvocationStatus](docs/InvocationStatus.md)
  - [PSSailpointBeta\Model.InvocationStatusType](docs/InvocationStatusType.md)
+ - [PSSailpointBeta\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpointBeta\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpointBeta\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
  - [PSSailpointBeta\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
@@ -1256,6 +1264,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ServiceDeskSource](docs/ServiceDeskSource.md)
  - [PSSailpointBeta\Model.SetIcon200Response](docs/SetIcon200Response.md)
  - [PSSailpointBeta\Model.SetIconRequest](docs/SetIconRequest.md)
+ - [PSSailpointBeta\Model.SimIntegrationDetails](docs/SimIntegrationDetails.md)
+ - [PSSailpointBeta\Model.SimIntegrationDetailsAllOfBeforeProvisioningRule](docs/SimIntegrationDetailsAllOfBeforeProvisioningRule.md)
  - [PSSailpointBeta\Model.Slimcampaign](docs/Slimcampaign.md)
  - [PSSailpointBeta\Model.SodExemptCriteria](docs/SodExemptCriteria.md)
  - [PSSailpointBeta\Model.SodExemptCriteria1](docs/SodExemptCriteria1.md)

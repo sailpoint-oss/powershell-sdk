@@ -200,6 +200,7 @@ docs/BetaPublicIdentitiesConfigApi.md
 docs/BetaRequestableObjectsApi.md
 docs/BetaRoleInsightsApi.md
 docs/BetaRolesApi.md
+docs/BetaSIMIntegrationsApi.md
 docs/BetaSODPoliciesApi.md
 docs/BetaSODPolicyApi.md
 docs/BetaSODViolationsApi.md
@@ -475,6 +476,7 @@ docs/IndexOf.md
 docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
+docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
 docs/KbaAnswerRequestItem.md
@@ -769,6 +771,8 @@ docs/ServiceDeskIntegrationTemplateType.md
 docs/ServiceDeskSource.md
 docs/SetIcon200Response.md
 docs/SetIconRequest.md
+docs/SimIntegrationDetails.md
+docs/SimIntegrationDetailsAllOfBeforeProvisioningRule.md
 docs/Slimcampaign.md
 docs/SodExemptCriteria.md
 docs/SodExemptCriteria1.md
@@ -979,6 +983,7 @@ src/PSSailpointBeta/Api/BetaPublicIdentitiesConfigApi.ps1
 src/PSSailpointBeta/Api/BetaRequestableObjectsApi.ps1
 src/PSSailpointBeta/Api/BetaRoleInsightsApi.ps1
 src/PSSailpointBeta/Api/BetaRolesApi.ps1
+src/PSSailpointBeta/Api/BetaSIMIntegrationsApi.ps1
 src/PSSailpointBeta/Api/BetaSODPoliciesApi.ps1
 src/PSSailpointBeta/Api/BetaSODPolicyApi.ps1
 src/PSSailpointBeta/Api/BetaSODViolationsApi.ps1
@@ -1399,6 +1404,7 @@ src/PSSailpointBeta/Model/IndexOf.ps1
 src/PSSailpointBeta/Model/Invocation.ps1
 src/PSSailpointBeta/Model/InvocationStatus.ps1
 src/PSSailpointBeta/Model/InvocationStatusType.ps1
+src/PSSailpointBeta/Model/JsonPatch.ps1
 src/PSSailpointBeta/Model/JsonPatchOperation.ps1
 src/PSSailpointBeta/Model/JsonPatchOperationValue.ps1
 src/PSSailpointBeta/Model/KbaAnswerRequestItem.ps1
@@ -1694,6 +1700,8 @@ src/PSSailpointBeta/Model/ServiceDeskIntegrationTemplateType.ps1
 src/PSSailpointBeta/Model/ServiceDeskSource.ps1
 src/PSSailpointBeta/Model/SetIcon200Response.ps1
 src/PSSailpointBeta/Model/SetIconRequest.ps1
+src/PSSailpointBeta/Model/SimIntegrationDetails.ps1
+src/PSSailpointBeta/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.ps1
 src/PSSailpointBeta/Model/Slimcampaign.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria1.ps1
@@ -1911,6 +1919,7 @@ tests/Api/BetaPublicIdentitiesConfigApi.Tests.ps1
 tests/Api/BetaRequestableObjectsApi.Tests.ps1
 tests/Api/BetaRoleInsightsApi.Tests.ps1
 tests/Api/BetaRolesApi.Tests.ps1
+tests/Api/BetaSIMIntegrationsApi.Tests.ps1
 tests/Api/BetaSODPoliciesApi.Tests.ps1
 tests/Api/BetaSODPolicyApi.Tests.ps1
 tests/Api/BetaSODViolationsApi.Tests.ps1
@@ -2330,6 +2339,7 @@ tests/Model/IndexOf.Tests.ps1
 tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
+tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
 tests/Model/KbaAnswerRequestItem.Tests.ps1
@@ -2625,6 +2635,8 @@ tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
 tests/Model/ServiceDeskSource.Tests.ps1
 tests/Model/SetIcon200Response.Tests.ps1
 tests/Model/SetIconRequest.Tests.ps1
+tests/Model/SimIntegrationDetails.Tests.ps1
+tests/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.Tests.ps1
 tests/Model/Slimcampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodExemptCriteria1.Tests.ps1

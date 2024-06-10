@@ -45,7 +45,7 @@ No description available.
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs, if any were included in the corresponding access request item
 .PARAMETER RemoveDate
-The date the role or access profile is no longer assigned to the specified identity.
+The date the role or access profile or entitlement is no longer assigned to the specified identity.
 .OUTPUTS
 
 AccountActivityItem<PSCustomObject>

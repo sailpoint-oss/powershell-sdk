@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Scheme** | [**ApprovalScheme**](ApprovalScheme.md) |  | [optional] 
 **ErrorMessages** | [**ErrorMessageDto[]**](ErrorMessageDto.md) | If the request failed, includes any error messages that were generated. | [optional] 
 **Comment** | **String** | Comment, if any, provided by the approver. | [optional] 
-**RemoveDate** | **System.DateTime** | The date the role or access profile is no longer assigned to the specified identity. | [optional] 
+**RemoveDate** | **System.DateTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
 
 ## Examples
 

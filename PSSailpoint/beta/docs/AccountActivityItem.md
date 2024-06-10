@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **SourceId** | **String** | Id of Source to which account activity applies | [optional] 
 **AccountRequestInfo** | [**AccountRequestInfo**](AccountRequestInfo.md) |  | [optional] 
 **ClientMetadata** | **System.Collections.Hashtable** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
-**RemoveDate** | **System.DateTime** | The date the role or access profile is no longer assigned to the specified identity. | [optional] 
+**RemoveDate** | **System.DateTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
 
 ## Examples
 

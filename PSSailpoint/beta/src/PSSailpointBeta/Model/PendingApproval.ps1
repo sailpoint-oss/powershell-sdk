@@ -45,7 +45,7 @@ When true the rejector has to provide comments when rejecting
 .PARAMETER ActionInProcess
 No description available.
 .PARAMETER RemoveDate
-The date the role or access profile is no longer assigned to the specified identity.
+The date the role or access profile or entitlement is no longer assigned to the specified identity.
 .PARAMETER RemoveDateUpdateRequested
 If true, then the request is to change the remove date or sunset date.
 .PARAMETER CurrentRemoveDate

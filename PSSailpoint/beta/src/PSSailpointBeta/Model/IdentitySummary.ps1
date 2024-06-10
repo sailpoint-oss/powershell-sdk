@@ -41,7 +41,7 @@ function Initialize-BetaIdentitySummary {
         ${IdentityId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Completed}
+        ${Completed} = $false
     )
 
     Process {

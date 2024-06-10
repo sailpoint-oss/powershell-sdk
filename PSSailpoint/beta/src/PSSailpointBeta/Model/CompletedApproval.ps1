@@ -49,7 +49,7 @@ When true the rejector has to provide comments when rejecting
 .PARAMETER State
 No description available.
 .PARAMETER RemoveDate
-The date the role or access profile is no longer assigned to the specified identity.
+The date the role or access profile or entitlement is no longer assigned to the specified identity.
 .PARAMETER RemoveDateUpdateRequested
 If true, then the request was to change the remove date or sunset date.
 .PARAMETER CurrentRemoveDate
@@ -61,7 +61,7 @@ No description available.
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs provided during the request.
 .PARAMETER RequestedAccounts
-No description available.
+Information about the requested accounts
 .OUTPUTS
 
 CompletedApproval<PSCustomObject>

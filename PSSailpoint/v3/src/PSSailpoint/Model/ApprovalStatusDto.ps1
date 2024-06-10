@@ -31,7 +31,7 @@ If the request failed, includes any error messages that were generated.
 .PARAMETER Comment
 Comment, if any, provided by the approver.
 .PARAMETER RemoveDate
-The date the role or access profile is no longer assigned to the specified identity.
+The date the role or access profile or entitlement is no longer assigned to the specified identity.
 .OUTPUTS
 
 ApprovalStatusDto<PSCustomObject>

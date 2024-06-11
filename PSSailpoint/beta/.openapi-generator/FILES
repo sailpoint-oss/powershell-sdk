@@ -202,7 +202,6 @@ docs/BetaRoleInsightsApi.md
 docs/BetaRolesApi.md
 docs/BetaSIMIntegrationsApi.md
 docs/BetaSODPoliciesApi.md
-docs/BetaSODPolicyApi.md
 docs/BetaSODViolationsApi.md
 docs/BetaSPConfigApi.md
 docs/BetaSearchAttributeConfigurationApi.md
@@ -986,7 +985,6 @@ src/PSSailpointBeta/Api/BetaRoleInsightsApi.ps1
 src/PSSailpointBeta/Api/BetaRolesApi.ps1
 src/PSSailpointBeta/Api/BetaSIMIntegrationsApi.ps1
 src/PSSailpointBeta/Api/BetaSODPoliciesApi.ps1
-src/PSSailpointBeta/Api/BetaSODPolicyApi.ps1
 src/PSSailpointBeta/Api/BetaSODViolationsApi.ps1
 src/PSSailpointBeta/Api/BetaSPConfigApi.ps1
 src/PSSailpointBeta/Api/BetaSearchAttributeConfigurationApi.ps1
@@ -1923,7 +1921,6 @@ tests/Api/BetaRoleInsightsApi.Tests.ps1
 tests/Api/BetaRolesApi.Tests.ps1
 tests/Api/BetaSIMIntegrationsApi.Tests.ps1
 tests/Api/BetaSODPoliciesApi.Tests.ps1
-tests/Api/BetaSODPolicyApi.Tests.ps1
 tests/Api/BetaSODViolationsApi.Tests.ps1
 tests/Api/BetaSPConfigApi.Tests.ps1
 tests/Api/BetaSearchAttributeConfigurationApi.Tests.ps1

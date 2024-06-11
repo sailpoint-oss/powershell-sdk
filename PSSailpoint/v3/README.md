@@ -274,6 +274,9 @@ Class | Method | HTTP request | Description
 *SODPoliciesApi* | [**New-SodPolicy**](docs/SODPoliciesApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
 *SODPoliciesApi* | [**Remove-SodPolicy**](docs/SODPoliciesApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
 *SODPoliciesApi* | [**Remove-SodPolicySchedule**](docs/SODPoliciesApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
+*SODPoliciesApi* | [**Get-CustomViolationReport**](docs/SODPoliciesApi.md#Get-CustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
+*SODPoliciesApi* | [**Get-DefaultViolationReport**](docs/SODPoliciesApi.md#Get-DefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
+*SODPoliciesApi* | [**Get-SodAllReportRunStatus**](docs/SODPoliciesApi.md#Get-SodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
 *SODPoliciesApi* | [**Get-SodPolicy**](docs/SODPoliciesApi.md#Get-SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
 *SODPoliciesApi* | [**Get-SodPolicySchedule**](docs/SODPoliciesApi.md#Get-SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
 *SODPoliciesApi* | [**Get-SodViolationReportRunStatus**](docs/SODPoliciesApi.md#Get-SodViolationReportRunStatus) | **GET** /sod-policies/sod-violation-report-status/{reportResultId} | Get violation report run status
@@ -283,11 +286,8 @@ Class | Method | HTTP request | Description
 *SODPoliciesApi* | [**Send-PolicySchedule**](docs/SODPoliciesApi.md#Send-PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
 *SODPoliciesApi* | [**Send-SodPolicy**](docs/SODPoliciesApi.md#Send-SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
 *SODPoliciesApi* | [**Start-EvaluateSodPolicy**](docs/SODPoliciesApi.md#Start-EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by ID
+*SODPoliciesApi* | [**Start-SodAllPoliciesForOrg**](docs/SODPoliciesApi.md#Start-SodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
 *SODPoliciesApi* | [**Start-SodPolicy**](docs/SODPoliciesApi.md#Start-SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
-*SODPolicyApi* | [**Get-CustomViolationReport**](docs/SODPolicyApi.md#Get-CustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
-*SODPolicyApi* | [**Get-DefaultViolationReport**](docs/SODPolicyApi.md#Get-DefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
-*SODPolicyApi* | [**Get-SodAllReportRunStatus**](docs/SODPolicyApi.md#Get-SodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
-*SODPolicyApi* | [**Start-SodAllPoliciesForOrg**](docs/SODPolicyApi.md#Start-SodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
 *SODViolationsApi* | [**Start-PredictSodViolations**](docs/SODViolationsApi.md#Start-PredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for identity.
 *SODViolationsApi* | [**Start-ViolationCheck**](docs/SODViolationsApi.md#Start-ViolationCheck) | **POST** /sod-violations/check | Check SOD violations
 *SavedSearchApi* | [**New-SavedSearch**](docs/SavedSearchApi.md#New-SavedSearch) | **POST** /saved-searches | Create a saved search

@@ -30,6 +30,30 @@ Describe -tag 'PSSailpoint' -name 'SODPoliciesApi' {
         }
     }
 
+    Context 'Get-CustomViolationReport' {
+        It 'Test Get-CustomViolationReport' {
+            #$TestResult = Get-CustomViolationReport -ReportResultId "TEST_VALUE" -FileName "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-DefaultViolationReport' {
+        It 'Test Get-DefaultViolationReport' {
+            #$TestResult = Get-DefaultViolationReport -ReportResultId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-SodAllReportRunStatus' {
+        It 'Test Get-SodAllReportRunStatus' {
+            #$TestResult = Get-SodAllReportRunStatus
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SodPolicy' {
         It 'Test Get-SodPolicy' {
             #$TestResult = Get-SodPolicy -Id "TEST_VALUE"
@@ -97,6 +121,14 @@ Describe -tag 'PSSailpoint' -name 'SODPoliciesApi' {
     Context 'Start-EvaluateSodPolicy' {
         It 'Test Start-EvaluateSodPolicy' {
             #$TestResult = Start-EvaluateSodPolicy -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-SodAllPoliciesForOrg' {
+        It 'Test Start-SodAllPoliciesForOrg' {
+            #$TestResult = Start-SodAllPoliciesForOrg -MultiPolicyRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

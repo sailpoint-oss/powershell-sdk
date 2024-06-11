@@ -30,6 +30,30 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODPoliciesApi' {
         }
     }
 
+    Context 'Get-BetaCustomViolationReport' {
+        It 'Test Get-BetaCustomViolationReport' {
+            #$TestResult = Get-BetaCustomViolationReport -ReportResultId "TEST_VALUE" -FileName "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaDefaultViolationReport' {
+        It 'Test Get-BetaDefaultViolationReport' {
+            #$TestResult = Get-BetaDefaultViolationReport -ReportResultId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaSodAllReportRunStatus' {
+        It 'Test Get-BetaSodAllReportRunStatus' {
+            #$TestResult = Get-BetaSodAllReportRunStatus
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaSodPolicy' {
         It 'Test Get-BetaSodPolicy' {
             #$TestResult = Get-BetaSodPolicy -Id "TEST_VALUE"
@@ -41,6 +65,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODPoliciesApi' {
     Context 'Get-BetaSodPolicySchedule' {
         It 'Test Get-BetaSodPolicySchedule' {
             #$TestResult = Get-BetaSodPolicySchedule -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaSodViolationReportRunStatus' {
+        It 'Test Get-BetaSodViolationReportRunStatus' {
+            #$TestResult = Get-BetaSodViolationReportRunStatus -ReportResultId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -81,6 +113,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSODPoliciesApi' {
     Context 'Send-BetaSodPolicy' {
         It 'Test Send-BetaSodPolicy' {
             #$TestResult = Send-BetaSodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-BetaSodAllPoliciesForOrg' {
+        It 'Test Start-BetaSodAllPoliciesForOrg' {
+            #$TestResult = Start-BetaSodAllPoliciesForOrg -MultiPolicyRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -459,7 +459,6 @@ docs/RoleSummary.md
 docs/RolesApi.md
 docs/Rule.md
 docs/SODPoliciesApi.md
-docs/SODPolicyApi.md
 docs/SODViolationsApi.md
 docs/SavedSearch.md
 docs/SavedSearchApi.md
@@ -641,7 +640,6 @@ src/PSSailpoint/Api/ReportsDataExtractionApi.ps1
 src/PSSailpoint/Api/RequestableObjectsApi.ps1
 src/PSSailpoint/Api/RolesApi.ps1
 src/PSSailpoint/Api/SODPoliciesApi.ps1
-src/PSSailpoint/Api/SODPolicyApi.ps1
 src/PSSailpoint/Api/SODViolationsApi.ps1
 src/PSSailpoint/Api/SavedSearchApi.ps1
 src/PSSailpoint/Api/ScheduledSearchApi.ps1
@@ -1253,7 +1251,6 @@ tests/Api/ReportsDataExtractionApi.Tests.ps1
 tests/Api/RequestableObjectsApi.Tests.ps1
 tests/Api/RolesApi.Tests.ps1
 tests/Api/SODPoliciesApi.Tests.ps1
-tests/Api/SODPolicyApi.Tests.ps1
 tests/Api/SODViolationsApi.Tests.ps1
 tests/Api/SavedSearchApi.Tests.ps1
 tests/Api/ScheduledSearchApi.Tests.ps1

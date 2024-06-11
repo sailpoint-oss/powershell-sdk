@@ -860,6 +860,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint\Model.SodPolicyConflictingAccessCriteria](docs/SodPolicyConflictingAccessCriteria.md)
  - [PSSailpoint\Model.SodPolicyDto](docs/SodPolicyDto.md)
+ - [PSSailpoint\Model.SodPolicyOwnerRef](docs/SodPolicyOwnerRef.md)
  - [PSSailpoint\Model.SodPolicySchedule](docs/SodPolicySchedule.md)
  - [PSSailpoint\Model.SodRecipient](docs/SodRecipient.md)
  - [PSSailpoint\Model.SodReportResultDto](docs/SodReportResultDto.md)

@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-The owner of the violation assignment config.
+The owner of the SOD policy.
 
 .PARAMETER Type
 Owner type.
@@ -22,14 +22,14 @@ Owner's ID.
 Owner's name.
 .OUTPUTS
 
-ViolationOwnerAssignmentConfigOwnerRef<PSCustomObject>
+SodPolicyOwnerRef<PSCustomObject>
 #>
 
-function Initialize-ViolationOwnerAssignmentConfigOwnerRef {
+function Initialize-SodPolicyOwnerRef {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY", "GOVERNANCE_GROUP", "MANAGER", "")]
+        [ValidateSet("IDENTITY", "GOVERNANCE_GROUP")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -41,7 +41,7 @@ function Initialize-ViolationOwnerAssignmentConfigOwnerRef {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => ViolationOwnerAssignmentConfigOwnerRef' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => SodPolicyOwnerRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -58,11 +58,11 @@ function Initialize-ViolationOwnerAssignmentConfigOwnerRef {
 <#
 .SYNOPSIS
 
-Convert from JSON to ViolationOwnerAssignmentConfigOwnerRef<PSCustomObject>
+Convert from JSON to SodPolicyOwnerRef<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ViolationOwnerAssignmentConfigOwnerRef<PSCustomObject>
+Convert from JSON to SodPolicyOwnerRef<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,21 +70,21 @@ Json object
 
 .OUTPUTS
 
-ViolationOwnerAssignmentConfigOwnerRef<PSCustomObject>
+SodPolicyOwnerRef<PSCustomObject>
 #>
-function ConvertFrom-JsonToViolationOwnerAssignmentConfigOwnerRef {
+function ConvertFrom-JsonToSodPolicyOwnerRef {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => ViolationOwnerAssignmentConfigOwnerRef' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => SodPolicyOwnerRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in ViolationOwnerAssignmentConfigOwnerRef
+        # check if Json contains properties not defined in SodPolicyOwnerRef
         $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

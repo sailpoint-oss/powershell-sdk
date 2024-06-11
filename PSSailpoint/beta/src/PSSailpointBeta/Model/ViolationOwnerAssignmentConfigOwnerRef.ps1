@@ -12,12 +12,12 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+The owner of the violation assignment config.
 
 .PARAMETER Type
-Owner's DTO type.
+Owner type.
 .PARAMETER Id
-Owner's identity ID.
+Owner's ID.
 .PARAMETER Name
 Owner's name.
 .OUTPUTS
@@ -29,7 +29,7 @@ function Initialize-BetaViolationOwnerAssignmentConfigOwnerRef {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY")]
+        [ValidateSet("IDENTITY", "GOVERNANCE_GROUP", "MANAGER", "")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 Retrieve a task status list.
 
-Get a TaskStatus list.
+Use this endpoint to get a list of **completed** tasks. To get a list of tasks **in-progress**, please use the [get pending tasks](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint. 
 
 ### Example
 ```powershell

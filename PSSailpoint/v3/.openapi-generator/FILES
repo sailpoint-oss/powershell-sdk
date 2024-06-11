@@ -509,6 +509,7 @@ docs/SodExemptCriteria.md
 docs/SodPolicy.md
 docs/SodPolicyConflictingAccessCriteria.md
 docs/SodPolicyDto.md
+docs/SodPolicyOwnerRef.md
 docs/SodPolicySchedule.md
 docs/SodRecipient.md
 docs/SodReportResultDto.md
@@ -1119,6 +1120,7 @@ src/PSSailpoint/Model/SodExemptCriteria.ps1
 src/PSSailpoint/Model/SodPolicy.ps1
 src/PSSailpoint/Model/SodPolicyConflictingAccessCriteria.ps1
 src/PSSailpoint/Model/SodPolicyDto.ps1
+src/PSSailpoint/Model/SodPolicyOwnerRef.ps1
 src/PSSailpoint/Model/SodPolicySchedule.ps1
 src/PSSailpoint/Model/SodRecipient.ps1
 src/PSSailpoint/Model/SodReportResultDto.ps1
@@ -1729,6 +1731,7 @@ tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1
 tests/Model/SodPolicyDto.Tests.ps1
+tests/Model/SodPolicyOwnerRef.Tests.ps1
 tests/Model/SodPolicySchedule.Tests.ps1
 tests/Model/SodRecipient.Tests.ps1
 tests/Model/SodReportResultDto.Tests.ps1

@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | Owner&#39;s DTO type. | [optional] 
-**Id** | **String** | Owner&#39;s identity ID. | [optional] 
+**Type** | **String** | Owner type. | [optional] 
+**Id** | **String** | Owner&#39;s ID. | [optional] 
 **Name** | **String** | Owner&#39;s name. | [optional] 
 
 ## Examples

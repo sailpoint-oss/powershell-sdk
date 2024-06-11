@@ -1,4 +1,4 @@
-# ViolationOwnerAssignmentConfigOwnerRef
+# SodPolicyOwnerRef
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ViolationOwnerAssignmentConfigOwnerRef = Initialize-PSSailpointViolationOwnerAssignmentConfigOwnerRef  -Type IDENTITY `
+$SodPolicyOwnerRef = Initialize-PSSailpointBetaSodPolicyOwnerRef  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ViolationOwnerAssignmentConfigOwnerRef | ConvertTo-JSON
+$SodPolicyOwnerRef | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

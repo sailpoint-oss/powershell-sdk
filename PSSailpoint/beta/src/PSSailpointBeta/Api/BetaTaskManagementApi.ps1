@@ -274,7 +274,7 @@ Retrieve a task status list.
 
 .DESCRIPTION
 
-Get a TaskStatus list.
+Use this endpoint to get a list of **completed** tasks. To get a list of tasks **in-progress**, please use the [get pending tasks](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint. 
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

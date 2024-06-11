@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint' -name 'SODPoliciesApi' {
 
     Context 'Get-SodPolicies' {
         It 'Test Get-SodPolicies' {
-            #$TestResult = Get-SodPolicies -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-SodPolicies -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

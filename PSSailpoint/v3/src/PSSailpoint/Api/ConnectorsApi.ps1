@@ -98,7 +98,7 @@ function New-CustomConnector {
 <#
 .SYNOPSIS
 
-No summary available.
+Deletes connector by script name
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-CustomConnector {
 <#
 .SYNOPSIS
 
-No summary available.
+Gets connector by script name
 
 .DESCRIPTION
 
@@ -411,7 +411,7 @@ function Get-ConnectorList {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/connectors/{scriptName}/list'
+        $LocalVarUri = '/connectors'
 
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
@@ -1079,7 +1079,7 @@ function Send-Translations {
 <#
 .SYNOPSIS
 
-No summary available.
+Update connector by script name
 
 .DESCRIPTION
 

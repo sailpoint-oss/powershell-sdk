@@ -5,10 +5,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-CustomConnector**](ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create custom connector
-[**Remove-CustomConnector**](ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | 
-[**Get-Connector**](ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | 
+[**Remove-CustomConnector**](ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | Deletes connector by script name
+[**Get-Connector**](ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | Gets connector by script name
 [**Get-ConnectorCorrelationConfig**](ConnectorsApi.md#Get-ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | 
-[**Get-ConnectorList**](ConnectorsApi.md#Get-ConnectorList) | **GET** /connectors/{scriptName}/list | Gets connector list
+[**Get-ConnectorList**](ConnectorsApi.md#Get-ConnectorList) | **GET** /connectors | Gets connector list
 [**Get-ConnectorSourceConfig**](ConnectorsApi.md#Get-ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | 
 [**Get-ConnectorSourceTemplate**](ConnectorsApi.md#Get-ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | 
 [**Get-ConnectorTranslations**](ConnectorsApi.md#Get-ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**Send-SourceConfig**](ConnectorsApi.md#Send-SourceConfig) | **PUT** /connectors/{scriptName}/source-config | 
 [**Send-SourceTemplate**](ConnectorsApi.md#Send-SourceTemplate) | **PUT** /connectors/{scriptName}/source-template | 
 [**Send-Translations**](ConnectorsApi.md#Send-Translations) | **PUT** /connectors/{scriptName}/translations/{locale} | 
-[**Update-Connector**](ConnectorsApi.md#Update-Connector) | **PATCH** /connectors/{scriptName} | 
+[**Update-Connector**](ConnectorsApi.md#Update-Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
 
 
 <a id="New-CustomConnector"></a>
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 > void Remove-CustomConnector<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 
-
+Deletes connector by script name
 
 Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
 
@@ -91,6 +91,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 
+# Deletes connector by script name
 try {
     $Result = Remove-CustomConnector -ScriptName $ScriptName
 } catch {
@@ -126,7 +127,7 @@ void (empty response body)
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Locale] <String><br>
 
-
+Gets connector by script name
 
 Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
 
@@ -143,6 +144,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
+# Gets connector by script name
 try {
     $Result = Get-Connector -ScriptName $ScriptName -Locale $Locale
 } catch {
@@ -657,7 +659,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-
+Update connector by script name
 
 Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
 
@@ -675,6 +677,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
+# Update connector by script name
 try {
     $Result = Update-Connector -ScriptName $ScriptName -JsonPatchOperation $JsonPatchOperation
 } catch {

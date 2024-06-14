@@ -52,19 +52,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccessProfilesApi* | [**New-AccessProfile**](docs/AccessProfilesApi.md#New-AccessProfile) | **POST** /access-profiles | Create an Access Profile
+*AccessProfilesApi* | [**New-AccessProfile**](docs/AccessProfilesApi.md#New-AccessProfile) | **POST** /access-profiles | Create Access Profile
 *AccessProfilesApi* | [**Remove-AccessProfile**](docs/AccessProfilesApi.md#Remove-AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
 *AccessProfilesApi* | [**Remove-AccessProfilesInBulk**](docs/AccessProfilesApi.md#Remove-AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
 *AccessProfilesApi* | [**Get-AccessProfile**](docs/AccessProfilesApi.md#Get-AccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
 *AccessProfilesApi* | [**Get-AccessProfileEntitlements**](docs/AccessProfilesApi.md#Get-AccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile's Entitlements
 *AccessProfilesApi* | [**Get-AccessProfiles**](docs/AccessProfilesApi.md#Get-AccessProfiles) | **GET** /access-profiles | List Access Profiles
 *AccessProfilesApi* | [**Update-AccessProfile**](docs/AccessProfilesApi.md#Update-AccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
-*AccessRequestApprovalsApi* | [**Approve-AccessRequest**](docs/AccessRequestApprovalsApi.md#Approve-AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
-*AccessRequestApprovalsApi* | [**Invoke-ForwardAccessRequest**](docs/AccessRequestApprovalsApi.md#Invoke-ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval.
-*AccessRequestApprovalsApi* | [**Get-AccessRequestApprovalSummary**](docs/AccessRequestApprovalsApi.md#Get-AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of access-requests-approvals
+*AccessRequestApprovalsApi* | [**Approve-AccessRequest**](docs/AccessRequestApprovalsApi.md#Approve-AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve Access Request Approval
+*AccessRequestApprovalsApi* | [**Invoke-ForwardAccessRequest**](docs/AccessRequestApprovalsApi.md#Invoke-ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward Access Request Approval
+*AccessRequestApprovalsApi* | [**Get-AccessRequestApprovalSummary**](docs/AccessRequestApprovalsApi.md#Get-AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get Access Requests Approvals Number
 *AccessRequestApprovalsApi* | [**Get-CompletedApprovals**](docs/AccessRequestApprovalsApi.md#Get-CompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 *AccessRequestApprovalsApi* | [**Get-PendingApprovals**](docs/AccessRequestApprovalsApi.md#Get-PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
-*AccessRequestApprovalsApi* | [**Deny-AccessRequest**](docs/AccessRequestApprovalsApi.md#Deny-AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
+*AccessRequestApprovalsApi* | [**Deny-AccessRequest**](docs/AccessRequestApprovalsApi.md#Deny-AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject Access Request Approval
 *AccessRequestsApi* | [**Suspend-AccessRequest**](docs/AccessRequestsApi.md#Suspend-AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 *AccessRequestsApi* | [**New-AccessRequest**](docs/AccessRequestsApi.md#New-AccessRequest) | **POST** /access-requests | Submit Access Request
 *AccessRequestsApi* | [**Get-AccessRequestConfig**](docs/AccessRequestsApi.md#Get-AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration

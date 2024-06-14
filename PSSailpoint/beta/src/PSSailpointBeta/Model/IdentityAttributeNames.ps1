@@ -12,10 +12,10 @@ No summary available.
 
 .DESCRIPTION
 
-Identity Attribute IDs
+Identity attribute IDs.
 
 .PARAMETER Ids
-List of identity attributes' technical names
+List of identity attributes' technical names.
 .OUTPUTS
 
 IdentityAttributeNames<PSCustomObject>

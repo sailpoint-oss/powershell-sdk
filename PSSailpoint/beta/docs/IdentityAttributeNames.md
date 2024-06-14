@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | **String[]** | List of identity attributes&#39; technical names | [optional] 
+**Ids** | **String[]** | List of identity attributes&#39; technical names. | [optional] 
 
 ## Examples
 

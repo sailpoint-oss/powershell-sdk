@@ -4,12 +4,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Approve-BetaAccessRequest**](BetaAccessRequestApprovalsApi.md#Approve-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approves an access request approval.
-[**Invoke-BetaForwardAccessRequest**](BetaAccessRequestApprovalsApi.md#Invoke-BetaForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forwards an access request approval to a new owner.
-[**Get-BetaAccessRequestApprovalSummary**](BetaAccessRequestApprovalsApi.md#Get-BetaAccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get the number of pending, approved and rejected access requests approvals
+[**Approve-BetaAccessRequest**](BetaAccessRequestApprovalsApi.md#Approve-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve Access Request Approval
+[**Invoke-BetaForwardAccessRequest**](BetaAccessRequestApprovalsApi.md#Invoke-BetaForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward Access Request Approval
+[**Get-BetaAccessRequestApprovalSummary**](BetaAccessRequestApprovalsApi.md#Get-BetaAccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get Access Requests Approvals Number
 [**Get-BetaCompletedApprovals**](BetaAccessRequestApprovalsApi.md#Get-BetaCompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 [**Get-BetaPendingApprovals**](BetaAccessRequestApprovalsApi.md#Get-BetaPendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
-[**Deny-BetaAccessRequest**](BetaAccessRequestApprovalsApi.md#Deny-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Rejects an access request approval.
+[**Deny-BetaAccessRequest**](BetaAccessRequestApprovalsApi.md#Deny-BetaAccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject Access Request Approval
 
 
 <a id="Approve-BetaAccessRequest"></a>
@@ -18,9 +18,9 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentDto] <PSCustomObject><br>
 
-Approves an access request approval.
+Approve Access Request Approval
 
-This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 ### Example
 ```powershell
@@ -32,11 +32,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ApprovalId = "2c91808b7294bea301729568c68c002e" # String | The id of the approval.
+$ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
 $CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "Adam Kennedy"
-$CommentDto = Initialize-CommentDto -Comment "This is a comment." -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment. (optional)
+$CommentDto = Initialize-CommentDto -Comment "This is a comment." -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment.
 
-# Approves an access request approval.
+# Approve Access Request Approval
 try {
     $Result = Approve-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $CommentDto
 } catch {
@@ -49,8 +49,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ApprovalId** | **String**| The id of the approval. | 
- **CommentDto** | [**CommentDto**](CommentDto.md)| Reviewer&#39;s comment. | [optional] 
+ **ApprovalId** | **String**| Approval ID. | 
+ **CommentDto** | [**CommentDto**](CommentDto.md)| Reviewer&#39;s comment. | 
 
 ### Return type
 
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ForwardApprovalDto] <PSCustomObject><br>
 
-Forwards an access request approval to a new owner.
+Forward Access Request Approval
 
-This endpoint forwards an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 ### Example
 ```powershell
@@ -87,10 +87,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ApprovalId = "2c91808b7294bea301729568c68c002e" # String | The id of the approval.
+$ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
 $ForwardApprovalDto = Initialize-ForwardApprovalDto -NewOwnerId "MyNewOwnerId" -Comment "MyComment" # ForwardApprovalDto | Information about the forwarded approval.
 
-# Forwards an access request approval to a new owner.
+# Forward Access Request Approval
 try {
     $Result = Invoke-BetaForwardAccessRequest -ApprovalId $ApprovalId -ForwardApprovalDto $ForwardApprovalDto
 } catch {
@@ -103,7 +103,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ApprovalId** | **String**| The id of the approval. | 
+ **ApprovalId** | **String**| Approval ID. | 
  **ForwardApprovalDto** | [**ForwardApprovalDto**](ForwardApprovalDto.md)| Information about the forwarded approval. | 
 
 ### Return type
@@ -127,9 +127,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FromDate] <String><br>
 
-Get the number of pending, approved and rejected access requests approvals
+Get Access Requests Approvals Number
 
-This endpoint returns the number of pending, approved and rejected access requests approvals. See ""owner-id"" query parameter below for authorization info.
+Use this API to return the number of pending, approved and rejected access requests approvals. See the ""owner-id"" query parameter for authorization information.
 
 ### Example
 ```powershell
@@ -141,10 +141,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$OwnerId = "MyOwnerId" # String | The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
-$FromDate = "MyFromDate" # String | From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format  example: from-date=2020-03-19T19:59:11Z (optional)
+$OwnerId = "2c91808568c529c60168cca6f90c1313" # String | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
+$FromDate = "from-date=2020-03-19T19:59:11Z" # String | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional)
 
-# Get the number of pending, approved and rejected access requests approvals
+# Get Access Requests Approvals Number
 try {
     $Result = Get-BetaAccessRequestApprovalSummary -OwnerId $OwnerId -FromDate $FromDate
 } catch {
@@ -157,8 +157,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **OwnerId** | **String**| The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. | [optional] 
- **FromDate** | **String**| From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format  example: from-date&#x3D;2020-03-19T19:59:11Z | [optional] 
+ **OwnerId** | **String**| The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. | [optional] 
+ **FromDate** | **String**| This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. | [optional] 
 
 ### Return type
 
@@ -313,9 +313,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ApprovalId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CommentDto] <PSCustomObject><br>
 
-Rejects an access request approval.
+Reject Access Request Approval
 
-This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
 ### Example
 ```powershell
@@ -327,11 +327,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ApprovalId = "2c91808b7294bea301729568c68c002e" # String | The id of the approval.
+$ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
 $CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "Adam Kennedy"
-$CommentDto = Initialize-CommentDto -Comment "This is a comment." -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment. (optional)
+$CommentDto = Initialize-CommentDto -Comment "This is a comment." -Author $CommentDtoAuthor -Created (Get-Date) # CommentDto | Reviewer's comment.
 
-# Rejects an access request approval.
+# Reject Access Request Approval
 try {
     $Result = Deny-BetaAccessRequest -ApprovalId $ApprovalId -CommentDto $CommentDto
 } catch {
@@ -344,8 +344,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ApprovalId** | **String**| The id of the approval. | 
- **CommentDto** | [**CommentDto**](CommentDto.md)| Reviewer&#39;s comment. | [optional] 
+ **ApprovalId** | **String**| Approval ID. | 
+ **CommentDto** | [**CommentDto**](CommentDto.md)| Reviewer&#39;s comment. | 
 
 ### Return type
 

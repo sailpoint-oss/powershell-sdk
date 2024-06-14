@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
 [**Remove-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Remove-BetaIdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete Identity Attribute
-[**Remove-BetaIdentityAttributesInBulk**](BetaIdentityAttributesApi.md#Remove-BetaIdentityAttributesInBulk) | **POST** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
+[**Remove-BetaIdentityAttributesInBulk**](BetaIdentityAttributesApi.md#Remove-BetaIdentityAttributesInBulk) | **DELETE** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
 [**Get-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Get-BetaIdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute
 [**Get-BetaIdentityAttributes**](BetaIdentityAttributesApi.md#Get-BetaIdentityAttributes) | **GET** /identity-attributes | List Identity Attributes
 [**Send-BetaIdentityAttribute**](BetaIdentityAttributesApi.md#Send-BetaIdentityAttribute) | **PUT** /identity-attributes/{name} | Update Identity Attribute
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Create Identity Attribute
 
-This creates a new identity attribute.
+Use this API to create a new identity attribute.
 
 ### Example
 ```powershell
@@ -32,7 +32,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Source1 = Initialize-Source1 -Type "rule" -Properties 
-$IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
+$IdentityAttribute = Initialize-IdentityAttribute -Name "Identity Attribute Name" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
 
 # Create Identity Attribute
 try {
@@ -122,7 +122,7 @@ void (empty response body)
 
 Bulk delete Identity Attributes
 
-This deletes identity attributes for a given set of names. Attributes that are currently mapped in an Identity Profile cannot be deleted.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
+Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
 ### Example
 ```powershell
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 List Identity Attributes
 
-This gets a collection of identity attributes.
+Use this API to get a collection of identity attributes.
 
 ### Example
 ```powershell
@@ -239,9 +239,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$IncludeSystem = $false # Boolean | Include ""system"" attributes in the response. (optional) (default to $false)
-$IncludeSilent = $false # Boolean | Include ""silent"" attributes in the response. (optional) (default to $false)
-$SearchableOnly = $false # Boolean | Include only ""searchable"" attributes in the response. (optional) (default to $false)
+$IncludeSystem = $false # Boolean | Include 'system' attributes in the response. (optional) (default to $false)
+$IncludeSilent = $false # Boolean | Include 'silent' attributes in the response. (optional) (default to $false)
+$SearchableOnly = $false # Boolean | Include only 'searchable' attributes in the response. (optional) (default to $false)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # List Identity Attributes
@@ -257,9 +257,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **IncludeSystem** | **Boolean**| Include &quot;&quot;system&quot;&quot; attributes in the response. | [optional] [default to $false]
- **IncludeSilent** | **Boolean**| Include &quot;&quot;silent&quot;&quot; attributes in the response. | [optional] [default to $false]
- **SearchableOnly** | **Boolean**| Include only &quot;&quot;searchable&quot;&quot; attributes in the response. | [optional] [default to $false]
+ **IncludeSystem** | **Boolean**| Include &#39;system&#39; attributes in the response. | [optional] [default to $false]
+ **IncludeSilent** | **Boolean**| Include &#39;silent&#39; attributes in the response. | [optional] [default to $false]
+ **SearchableOnly** | **Boolean**| Include only &#39;searchable&#39; attributes in the response. | [optional] [default to $false]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
 
 ### Return type
@@ -299,7 +299,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "displayName" # String | The attribute's technical name.
 $Source1 = Initialize-Source1 -Type "rule" -Properties 
-$IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
+$IdentityAttribute = Initialize-IdentityAttribute -Name "Identity Attribute Name" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
 
 # Update Identity Attribute
 try {

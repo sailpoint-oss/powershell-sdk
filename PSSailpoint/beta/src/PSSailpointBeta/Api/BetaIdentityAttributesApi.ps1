@@ -12,7 +12,7 @@ Create Identity Attribute
 
 .DESCRIPTION
 
-This creates a new identity attribute.
+Use this API to create a new identity attribute.
 
 .PARAMETER IdentityAttribute
 No description available.
@@ -176,7 +176,7 @@ Bulk delete Identity Attributes
 
 .DESCRIPTION
 
-This deletes identity attributes for a given set of names. Attributes that are currently mapped in an Identity Profile cannot be deleted.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
+Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
 .PARAMETER IdentityAttributeNames
 No description available.
@@ -239,7 +239,7 @@ function Remove-BetaIdentityAttributesInBulk {
 
 
 
-        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+        $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `
@@ -340,16 +340,16 @@ List Identity Attributes
 
 .DESCRIPTION
 
-This gets a collection of identity attributes.
+Use this API to get a collection of identity attributes.
 
 .PARAMETER IncludeSystem
-Include ""system"" attributes in the response.
+Include 'system' attributes in the response.
 
 .PARAMETER IncludeSilent
-Include ""silent"" attributes in the response.
+Include 'silent' attributes in the response.
 
 .PARAMETER SearchableOnly
-Include only ""searchable"" attributes in the response.
+Include only 'searchable' attributes in the response.
 
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

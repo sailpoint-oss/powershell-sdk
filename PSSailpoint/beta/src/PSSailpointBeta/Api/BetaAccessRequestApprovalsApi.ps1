@@ -8,14 +8,14 @@
 <#
 .SYNOPSIS
 
-Approves an access request approval.
+Approve Access Request Approval
 
 .DESCRIPTION
 
-This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 .PARAMETER ApprovalId
-The id of the approval.
+Approval ID.
 
 .PARAMETER CommentDto
 Reviewer's comment.
@@ -66,6 +66,10 @@ function Approve-BetaAccessRequest {
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
+        if (!$CommentDto) {
+            throw "Error! The required parameter `CommentDto` missing when calling approveAccessRequest."
+        }
+
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommentDto -is [array])) {
             $LocalVarBodyParameter = $CommentDto | ConvertTo-Json -AsArray -Depth 100
         } else {
@@ -104,14 +108,14 @@ function Approve-BetaAccessRequest {
 <#
 .SYNOPSIS
 
-Forwards an access request approval to a new owner.
+Forward Access Request Approval
 
 .DESCRIPTION
 
-This endpoint forwards an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 .PARAMETER ApprovalId
-The id of the approval.
+Approval ID.
 
 .PARAMETER ForwardApprovalDto
 Information about the forwarded approval.
@@ -204,17 +208,17 @@ function Invoke-BetaForwardAccessRequest {
 <#
 .SYNOPSIS
 
-Get the number of pending, approved and rejected access requests approvals
+Get Access Requests Approvals Number
 
 .DESCRIPTION
 
-This endpoint returns the number of pending, approved and rejected access requests approvals. See ""owner-id"" query parameter below for authorization info.
+Use this API to return the number of pending, approved and rejected access requests approvals. See the ""owner-id"" query parameter for authorization information.
 
 .PARAMETER OwnerId
-The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
 
 .PARAMETER FromDate
-From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format  example: from-date=2020-03-19T19:59:11Z
+This is the date and time the results will be shown from. It must be in a valid ISO-8601 format.
 
 .PARAMETER WithHttpInfo
 
@@ -536,14 +540,14 @@ function Get-BetaPendingApprovals {
 <#
 .SYNOPSIS
 
-Rejects an access request approval.
+Reject Access Request Approval
 
 .DESCRIPTION
 
-This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
 .PARAMETER ApprovalId
-The id of the approval.
+Approval ID.
 
 .PARAMETER CommentDto
 Reviewer's comment.
@@ -593,6 +597,10 @@ function Deny-BetaAccessRequest {
             throw "Error! The required parameter `ApprovalId` missing when calling rejectAccessRequest."
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
+
+        if (!$CommentDto) {
+            throw "Error! The required parameter `CommentDto` missing when calling rejectAccessRequest."
+        }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommentDto -is [array])) {
             $LocalVarBodyParameter = $CommentDto | ConvertTo-Json -AsArray -Depth 100

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'IdentityProfileIdentityErrorReportArguments' 
     Context 'IdentityProfileIdentityErrorReportArguments' {
         It 'Initialize-IdentityProfileIdentityErrorReportArguments' {
             # a simple test to create an object
-            #$NewObject = Initialize-IdentityProfileIdentityErrorReportArguments -AuthoritativeSource "TEST_VALUE" -DefaultS3Bucket "TEST_VALUE" -S3Bucket "TEST_VALUE"
+            #$NewObject = Initialize-IdentityProfileIdentityErrorReportArguments -AuthoritativeSource "TEST_VALUE"
             #$NewObject | Should -BeOfType IdentityProfileIdentityErrorReportArguments
             #$NewObject.property | Should -Be 0
         }

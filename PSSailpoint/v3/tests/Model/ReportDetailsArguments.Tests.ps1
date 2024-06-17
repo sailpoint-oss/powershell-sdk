@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'ReportDetailsArguments' {
     Context 'ReportDetailsArguments' {
         It 'Initialize-ReportDetailsArguments' {
             # a simple test to create an object
-            #$NewObject = Initialize-ReportDetailsArguments -Application "TEST_VALUE" -SourceName "TEST_VALUE" -DefaultS3Bucket "TEST_VALUE" -S3Bucket "TEST_VALUE" -CorrelatedOnly "TEST_VALUE" -AuthoritativeSource "TEST_VALUE" -SelectedFormats "TEST_VALUE" -Indices "TEST_VALUE" -Filters "TEST_VALUE" -Query "TEST_VALUE" -IncludeNested "TEST_VALUE" -Sort "TEST_VALUE"
+            #$NewObject = Initialize-ReportDetailsArguments -Application "TEST_VALUE" -SourceName "TEST_VALUE" -CorrelatedOnly "TEST_VALUE" -AuthoritativeSource "TEST_VALUE" -SelectedFormats "TEST_VALUE" -Indices "TEST_VALUE" -Filters "TEST_VALUE" -Query "TEST_VALUE" -IncludeNested "TEST_VALUE" -Sort "TEST_VALUE"
             #$NewObject | Should -BeOfType ReportDetailsArguments
             #$NewObject.property | Should -Be 0
         }

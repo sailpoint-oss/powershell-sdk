@@ -18,10 +18,6 @@ Arguments for Account Export (ACCOUNTS)
 Id of the authoritative source to export related accounts e.g. identities
 .PARAMETER SourceName
 Name of the authoritative source for accounts export
-.PARAMETER DefaultS3Bucket
-Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and 's3Bucket' argument is null or absent there will be default s3Bucket assigned to the report.
-.PARAMETER S3Bucket
-If you want to be specific you could use this argument with defaultS3Bucket = false.
 .OUTPUTS
 
 AccountsExportReportArguments<PSCustomObject>
@@ -35,13 +31,7 @@ function Initialize-AccountsExportReportArguments {
         ${Application},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
-        ${DefaultS3Bucket},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${S3Bucket}
+        ${SourceName}
     )
 
     Process {
@@ -56,16 +46,10 @@ function Initialize-AccountsExportReportArguments {
             throw "invalid value for 'SourceName', 'SourceName' cannot be null."
         }
 
-        if (!$DefaultS3Bucket) {
-            throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "application" = ${Application}
             "sourceName" = ${SourceName}
-            "defaultS3Bucket" = ${DefaultS3Bucket}
-            "s3Bucket" = ${S3Bucket}
         }
 
         return $PSO
@@ -102,7 +86,7 @@ function ConvertFrom-JsonToAccountsExportReportArguments {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountsExportReportArguments
-        $AllProperties = ("application", "sourceName", "defaultS3Bucket", "s3Bucket")
+        $AllProperties = ("application", "sourceName")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -125,23 +109,9 @@ function ConvertFrom-JsonToAccountsExportReportArguments {
             $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "defaultS3Bucket"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'defaultS3Bucket' missing."
-        } else {
-            $DefaultS3Bucket = $JsonParameters.PSobject.Properties["defaultS3Bucket"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "s3Bucket"))) { #optional property not found
-            $S3Bucket = $null
-        } else {
-            $S3Bucket = $JsonParameters.PSobject.Properties["s3Bucket"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "application" = ${Application}
             "sourceName" = ${SourceName}
-            "defaultS3Bucket" = ${DefaultS3Bucket}
-            "s3Bucket" = ${S3Bucket}
         }
 
         return $PSO

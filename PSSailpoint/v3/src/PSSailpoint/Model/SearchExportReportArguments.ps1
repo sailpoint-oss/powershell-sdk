@@ -24,10 +24,6 @@ No description available.
 Indicates whether nested objects from returned search results should be included.
 .PARAMETER Sort
 The fields to be used to sort the search results. Use + or - to specify the sort direction.
-.PARAMETER DefaultS3Bucket
-Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and 's3Bucket' argument is null or absent there will be default s3Bucket assigned to the report.
-.PARAMETER S3Bucket
-If you want to be specific you could use this argument with defaultS3Bucket = false.
 .OUTPUTS
 
 SearchExportReportArguments<PSCustomObject>
@@ -50,13 +46,7 @@ function Initialize-SearchExportReportArguments {
         ${IncludeNested} = $true,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Sort},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
-        ${DefaultS3Bucket},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${S3Bucket}
+        ${Sort}
     )
 
     Process {
@@ -67,10 +57,6 @@ function Initialize-SearchExportReportArguments {
             throw "invalid value for 'Query', 'Query' cannot be null."
         }
 
-        if (!$DefaultS3Bucket) {
-            throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "indices" = ${Indices}
@@ -78,8 +64,6 @@ function Initialize-SearchExportReportArguments {
             "query" = ${Query}
             "includeNested" = ${IncludeNested}
             "sort" = ${Sort}
-            "defaultS3Bucket" = ${DefaultS3Bucket}
-            "s3Bucket" = ${S3Bucket}
         }
 
         return $PSO
@@ -116,7 +100,7 @@ function ConvertFrom-JsonToSearchExportReportArguments {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SearchExportReportArguments
-        $AllProperties = ("indices", "filters", "query", "includeNested", "sort", "defaultS3Bucket", "s3Bucket")
+        $AllProperties = ("indices", "filters", "query", "includeNested", "sort")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -131,12 +115,6 @@ function ConvertFrom-JsonToSearchExportReportArguments {
             throw "Error! JSON cannot be serialized due to the required property 'query' missing."
         } else {
             $Query = $JsonParameters.PSobject.Properties["query"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "defaultS3Bucket"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'defaultS3Bucket' missing."
-        } else {
-            $DefaultS3Bucket = $JsonParameters.PSobject.Properties["defaultS3Bucket"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "indices"))) { #optional property not found
@@ -163,20 +141,12 @@ function ConvertFrom-JsonToSearchExportReportArguments {
             $Sort = $JsonParameters.PSobject.Properties["sort"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "s3Bucket"))) { #optional property not found
-            $S3Bucket = $null
-        } else {
-            $S3Bucket = $JsonParameters.PSobject.Properties["s3Bucket"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "indices" = ${Indices}
             "filters" = ${Filters}
             "query" = ${Query}
             "includeNested" = ${IncludeNested}
             "sort" = ${Sort}
-            "defaultS3Bucket" = ${DefaultS3Bucket}
-            "s3Bucket" = ${S3Bucket}
         }
 
         return $PSO

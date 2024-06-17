@@ -202,9 +202,9 @@ $Range = Initialize-Range -Lower $Bound -Upper $Bound
 $ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
 
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
-$Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
+$Query = Initialize-Query -Query "name:a*" -Fields "[firstName,lastName,email]" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
-$ReportDetailsArguments = Initialize-ReportDetailsArguments -Application "2c9180897eSourceIde781782f705b9" -SourceName "DataScienceSourceName" -DefaultS3Bucket $true -S3Bucket "the-dev-bucket" -CorrelatedOnly $true -AuthoritativeSource "1234sourceId5678902" -SelectedFormats "CSV" -Indices "accessprofiles" -Filters @{ key_example = $ModelFilter } -Query $Query -IncludeNested $true -Sort "MySort"
+$ReportDetailsArguments = Initialize-ReportDetailsArguments -Application "2c9180897eSourceIde781782f705b9" -SourceName "DataScienceSourceName" -CorrelatedOnly $true -AuthoritativeSource "1234sourceId5678902" -SelectedFormats "CSV" -Indices "accessprofiles" -Filters @{ key_example = $ModelFilter } -Query $Query -IncludeNested $true -Sort "MySort"
 
 $ReportDetails = Initialize-ReportDetails -ReportType "ACCOUNTS" -Arguments $ReportDetailsArguments # ReportDetails | 
 

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'AccountsExportReportArguments' {
     Context 'AccountsExportReportArguments' {
         It 'Initialize-AccountsExportReportArguments' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccountsExportReportArguments -Application "TEST_VALUE" -SourceName "TEST_VALUE" -DefaultS3Bucket "TEST_VALUE" -S3Bucket "TEST_VALUE"
+            #$NewObject = Initialize-AccountsExportReportArguments -Application "TEST_VALUE" -SourceName "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountsExportReportArguments
             #$NewObject.property | Should -Be 0
         }

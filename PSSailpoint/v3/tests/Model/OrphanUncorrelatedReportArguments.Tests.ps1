@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'OrphanUncorrelatedReportArguments' {
     Context 'OrphanUncorrelatedReportArguments' {
         It 'Initialize-OrphanUncorrelatedReportArguments' {
             # a simple test to create an object
-            #$NewObject = Initialize-OrphanUncorrelatedReportArguments -SelectedFormats "TEST_VALUE" -DefaultS3Bucket "TEST_VALUE" -S3Bucket "TEST_VALUE"
+            #$NewObject = Initialize-OrphanUncorrelatedReportArguments -SelectedFormats "TEST_VALUE"
             #$NewObject | Should -BeOfType OrphanUncorrelatedReportArguments
             #$NewObject.property | Should -Be 0
         }

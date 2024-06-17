@@ -16,10 +16,6 @@ Arguments for Identity Profile Identity Error report (IDENTITY_PROFILE_IDENTITY_
 
 .PARAMETER AuthoritativeSource
 Source Id to be checked on errors of identity profiles aggregation
-.PARAMETER DefaultS3Bucket
-Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and 's3Bucket' argument is null or absent there will be default s3Bucket assigned to the report.
-.PARAMETER S3Bucket
-If you want to be specific you could use this argument with defaultS3Bucket = false.
 .OUTPUTS
 
 IdentityProfileIdentityErrorReportArguments<PSCustomObject>
@@ -30,13 +26,7 @@ function Initialize-IdentityProfileIdentityErrorReportArguments {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AuthoritativeSource},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
-        ${DefaultS3Bucket},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${S3Bucket}
+        ${AuthoritativeSource}
     )
 
     Process {
@@ -47,15 +37,9 @@ function Initialize-IdentityProfileIdentityErrorReportArguments {
             throw "invalid value for 'AuthoritativeSource', 'AuthoritativeSource' cannot be null."
         }
 
-        if (!$DefaultS3Bucket) {
-            throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "authoritativeSource" = ${AuthoritativeSource}
-            "defaultS3Bucket" = ${DefaultS3Bucket}
-            "s3Bucket" = ${S3Bucket}
         }
 
         return $PSO
@@ -92,7 +76,7 @@ function ConvertFrom-JsonToIdentityProfileIdentityErrorReportArguments {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IdentityProfileIdentityErrorReportArguments
-        $AllProperties = ("authoritativeSource", "defaultS3Bucket", "s3Bucket")
+        $AllProperties = ("authoritativeSource")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,22 +93,8 @@ function ConvertFrom-JsonToIdentityProfileIdentityErrorReportArguments {
             $AuthoritativeSource = $JsonParameters.PSobject.Properties["authoritativeSource"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "defaultS3Bucket"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'defaultS3Bucket' missing."
-        } else {
-            $DefaultS3Bucket = $JsonParameters.PSobject.Properties["defaultS3Bucket"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "s3Bucket"))) { #optional property not found
-            $S3Bucket = $null
-        } else {
-            $S3Bucket = $JsonParameters.PSobject.Properties["s3Bucket"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "authoritativeSource" = ${AuthoritativeSource}
-            "defaultS3Bucket" = ${DefaultS3Bucket}
-            "s3Bucket" = ${S3Bucket}
         }
 
         return $PSO

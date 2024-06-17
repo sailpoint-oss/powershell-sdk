@@ -16,10 +16,6 @@ Arguments for Identities details report (IDENTITIES_DETAILS)
 
 .PARAMETER CorrelatedOnly
 Boolean FLAG to specify if only correlated identities should be used in report processing
-.PARAMETER DefaultS3Bucket
-Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and 's3Bucket' argument is null or absent there will be default s3Bucket assigned to the report.
-.PARAMETER S3Bucket
-If you want to be specific you could use this argument with defaultS3Bucket = false.
 .OUTPUTS
 
 IdentitiesDetailsReportArguments<PSCustomObject>
@@ -30,13 +26,7 @@ function Initialize-IdentitiesDetailsReportArguments {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
-        ${CorrelatedOnly} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
-        ${DefaultS3Bucket},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${S3Bucket}
+        ${CorrelatedOnly} = $false
     )
 
     Process {
@@ -47,15 +37,9 @@ function Initialize-IdentitiesDetailsReportArguments {
             throw "invalid value for 'CorrelatedOnly', 'CorrelatedOnly' cannot be null."
         }
 
-        if (!$DefaultS3Bucket) {
-            throw "invalid value for 'DefaultS3Bucket', 'DefaultS3Bucket' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "correlatedOnly" = ${CorrelatedOnly}
-            "defaultS3Bucket" = ${DefaultS3Bucket}
-            "s3Bucket" = ${S3Bucket}
         }
 
         return $PSO
@@ -92,7 +76,7 @@ function ConvertFrom-JsonToIdentitiesDetailsReportArguments {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IdentitiesDetailsReportArguments
-        $AllProperties = ("correlatedOnly", "defaultS3Bucket", "s3Bucket")
+        $AllProperties = ("correlatedOnly")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,22 +93,8 @@ function ConvertFrom-JsonToIdentitiesDetailsReportArguments {
             $CorrelatedOnly = $JsonParameters.PSobject.Properties["correlatedOnly"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "defaultS3Bucket"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'defaultS3Bucket' missing."
-        } else {
-            $DefaultS3Bucket = $JsonParameters.PSobject.Properties["defaultS3Bucket"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "s3Bucket"))) { #optional property not found
-            $S3Bucket = $null
-        } else {
-            $S3Bucket = $JsonParameters.PSobject.Properties["s3Bucket"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "correlatedOnly" = ${CorrelatedOnly}
-            "defaultS3Bucket" = ${DefaultS3Bucket}
-            "s3Bucket" = ${S3Bucket}
         }
 
         return $PSO

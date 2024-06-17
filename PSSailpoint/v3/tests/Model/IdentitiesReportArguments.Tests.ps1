@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'IdentitiesReportArguments' {
     Context 'IdentitiesReportArguments' {
         It 'Initialize-IdentitiesReportArguments' {
             # a simple test to create an object
-            #$NewObject = Initialize-IdentitiesReportArguments -CorrelatedOnly "TEST_VALUE" -DefaultS3Bucket "TEST_VALUE" -S3Bucket "TEST_VALUE"
+            #$NewObject = Initialize-IdentitiesReportArguments -CorrelatedOnly "TEST_VALUE"
             #$NewObject | Should -BeOfType IdentitiesReportArguments
             #$NewObject.property | Should -Be 0
         }

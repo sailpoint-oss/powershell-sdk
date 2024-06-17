@@ -33,7 +33,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
-$Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
+$Query = Initialize-Query -Query "name:a*" -Fields "[firstName,lastName,email]" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
 $TextQuery = Initialize-TextQuery -Terms "MyTerms" -Fields "MyFields" -MatchAny $false -Contains $true
 $TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100 -Sort "asc" -SortByValue $true
@@ -113,7 +113,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
-$Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
+$Query = Initialize-Query -Query "name:a*" -Fields "[firstName,lastName,email]" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
 $TextQuery = Initialize-TextQuery -Terms "MyTerms" -Fields "MyFields" -MatchAny $false -Contains $true
 $TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100 -Sort "asc" -SortByValue $true
@@ -244,7 +244,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
-$Query = Initialize-Query -Query "name:a*" -Fields "MyFields" -TimeZone "America/Chicago" -InnerHit $InnerHit
+$Query = Initialize-Query -Query "name:a*" -Fields "[firstName,lastName,email]" -TimeZone "America/Chicago" -InnerHit $InnerHit
 
 $TextQuery = Initialize-TextQuery -Terms "MyTerms" -Fields "MyFields" -MatchAny $false -Contains $true
 $TypeAheadQuery = Initialize-TypeAheadQuery -Query "Work" -Field "source.name" -NestedType "access" -MaxExpansions 10 -Size 100 -Sort "asc" -SortByValue $true

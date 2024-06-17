@@ -5,8 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Application** | **String** | Id of the authoritative source to export related accounts e.g. identities | 
 **SourceName** | **String** | Name of the authoritative source for accounts export | 
-**DefaultS3Bucket** | **Boolean** | Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and &#39;s3Bucket&#39; argument is null or absent there will be default s3Bucket assigned to the report. | 
-**S3Bucket** | **String** | If you want to be specific you could use this argument with defaultS3Bucket &#x3D; false. | [optional] 
 **CorrelatedOnly** | **Boolean** | Boolean FLAG to specify if only correlated identities should be used in report processing | [default to $false]
 **AuthoritativeSource** | **String** | Source Id to be checked on errors of identity profiles aggregation | 
 **SelectedFormats** | **String[]** | Output report file formats. This are formats for calling get endpoint as a query parameter &#39;fileFormat&#39;.  In case report won&#39;t have this argument there will be [&#39;CSV&#39;, &#39;PDF&#39;] as default. | [optional] 
@@ -22,8 +20,6 @@ Name | Type | Description | Notes
 ```powershell
 $ReportDetailsArguments = Initialize-PSSailpointReportDetailsArguments  -Application 2c9180897eSourceIde781782f705b9 `
  -SourceName DataScienceSourceName `
- -DefaultS3Bucket true `
- -S3Bucket the-dev-bucket `
  -CorrelatedOnly true `
  -AuthoritativeSource 1234sourceId5678902 `
  -SelectedFormats [CSV] `

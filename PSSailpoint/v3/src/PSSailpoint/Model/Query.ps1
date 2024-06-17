@@ -34,7 +34,7 @@ function Initialize-Query {
         [String]
         ${Query},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String[]]
+        [String]
         ${Fields},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]

@@ -299,6 +299,8 @@ docs/ConnectorRuleValidationResponseDetailsInner.md
 docs/ContextAttributeDto.md
 docs/ContextAttributeDtoValue.md
 docs/CorrelatedGovernanceEvent.md
+docs/CorrelationConfig.md
+docs/CorrelationConfigAttributeAssignmentsInner.md
 docs/CreateDomainDkim405Response.md
 docs/CreateFormDefinitionFileRequestRequest.md
 docs/CreateFormDefinitionRequest.md
@@ -1228,6 +1230,8 @@ src/PSSailpointBeta/Model/ConnectorRuleValidationResponseDetailsInner.ps1
 src/PSSailpointBeta/Model/ContextAttributeDto.ps1
 src/PSSailpointBeta/Model/ContextAttributeDtoValue.ps1
 src/PSSailpointBeta/Model/CorrelatedGovernanceEvent.ps1
+src/PSSailpointBeta/Model/CorrelationConfig.ps1
+src/PSSailpointBeta/Model/CorrelationConfigAttributeAssignmentsInner.ps1
 src/PSSailpointBeta/Model/CreateDomainDkim405Response.ps1
 src/PSSailpointBeta/Model/CreateFormDefinitionFileRequestRequest.ps1
 src/PSSailpointBeta/Model/CreateFormDefinitionRequest.ps1
@@ -2163,6 +2167,8 @@ tests/Model/ConnectorRuleValidationResponseDetailsInner.Tests.ps1
 tests/Model/ContextAttributeDto.Tests.ps1
 tests/Model/ContextAttributeDtoValue.Tests.ps1
 tests/Model/CorrelatedGovernanceEvent.Tests.ps1
+tests/Model/CorrelationConfig.Tests.ps1
+tests/Model/CorrelationConfigAttributeAssignmentsInner.Tests.ps1
 tests/Model/CreateDomainDkim405Response.Tests.ps1
 tests/Model/CreateFormDefinitionFileRequestRequest.Tests.ps1
 tests/Model/CreateFormDefinitionRequest.Tests.ps1

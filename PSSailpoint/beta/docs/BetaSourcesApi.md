@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**Remove-BetaNativeChangeDetectionConfig**](BetaSourcesApi.md#Remove-BetaNativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 [**Remove-BetaProvisioningPolicy**](BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 [**Remove-BetaSourceSchema**](BetaSourcesApi.md#Remove-BetaSourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
+[**Get-BetaCorrelationConfig**](BetaSourcesApi.md#Get-BetaCorrelationConfig) | **GET** /sources/{id}/correlation-config | Get Source Correlation Configuration
 [**Get-BetaNativeChangeDetectionConfig**](BetaSourcesApi.md#Get-BetaNativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
 [**Get-BetaProvisioningPolicy**](BetaSourcesApi.md#Get-BetaProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 [**Get-BetaSource**](BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**Get-BetaSources**](BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 [**Receive-BetaResourceObjects**](BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector&#39;s resource objects
 [**Ping-BetaCluster**](BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
+[**Send-BetaCorrelationConfig**](BetaSourcesApi.md#Send-BetaCorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
 [**Send-BetaNativeChangeDetectionConfig**](BetaSourcesApi.md#Send-BetaNativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
 [**Send-BetaProvisioningPolicy**](BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 [**Send-BetaSource**](BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
@@ -481,6 +483,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-BetaCorrelationConfig"></a>
+# **Get-BetaCorrelationConfig**
+> CorrelationConfig Get-BetaCorrelationConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get Source Correlation Configuration
+
+This API returns the existing correlation configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+
+# Get Source Correlation Configuration
+try {
+    $Result = Get-BetaCorrelationConfig -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaCorrelationConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The source id | 
+
+### Return type
+
+[**CorrelationConfig**](CorrelationConfig.md) (PSCustomObject)
 
 ### Authorization
 
@@ -1503,6 +1556,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Send-BetaCorrelationConfig"></a>
+# **Send-BetaCorrelationConfig**
+> CorrelationConfig Send-BetaCorrelationConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CorrelationConfig] <PSCustomObject><br>
+
+Update Source Correlation Configuration
+
+Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+$CorrelationConfigAttributeAssignmentsInner = Initialize-CorrelationConfigAttributeAssignmentsInner -Property "first_name" -Value "firstName" -Operation "EQ" -Complex $false -IgnoreCase $false -MatchMode "ANYWHERE" -FilterString "first_name == "John""
+$CorrelationConfig = Initialize-CorrelationConfig -Id "2c9180835d191a86015d28455b4a2329" -Name "Source [source] Account Correlation" -AttributeAssignments $CorrelationConfigAttributeAssignmentsInner # CorrelationConfig | 
+
+# Update Source Correlation Configuration
+try {
+    $Result = Send-BetaCorrelationConfig -Id $Id -CorrelationConfig $CorrelationConfig
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaCorrelationConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The source id | 
+ **CorrelationConfig** | [**CorrelationConfig**](CorrelationConfig.md)|  | 
+
+### Return type
+
+[**CorrelationConfig**](CorrelationConfig.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

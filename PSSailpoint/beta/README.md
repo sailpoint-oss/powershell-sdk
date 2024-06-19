@@ -452,6 +452,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Remove-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Remove-BetaNativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 *BetaSourcesApi* | [**Remove-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Remove-BetaSourceSchema**](docs/BetaSourcesApi.md#Remove-BetaSourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
+*BetaSourcesApi* | [**Get-BetaCorrelationConfig**](docs/BetaSourcesApi.md#Get-BetaCorrelationConfig) | **GET** /sources/{id}/correlation-config | Get Source Correlation Configuration
 *BetaSourcesApi* | [**Get-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Get-BetaNativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Get-BetaSource**](docs/BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
@@ -471,6 +472,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Get-BetaSources**](docs/BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 *BetaSourcesApi* | [**Receive-BetaResourceObjects**](docs/BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *BetaSourcesApi* | [**Ping-BetaCluster**](docs/BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
+*BetaSourcesApi* | [**Send-BetaCorrelationConfig**](docs/BetaSourcesApi.md#Send-BetaCorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
 *BetaSourcesApi* | [**Send-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Send-BetaNativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
 *BetaSourcesApi* | [**Send-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Send-BetaSource**](docs/BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
@@ -793,6 +795,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ContextAttributeDto](docs/ContextAttributeDto.md)
  - [PSSailpointBeta\Model.ContextAttributeDtoValue](docs/ContextAttributeDtoValue.md)
  - [PSSailpointBeta\Model.CorrelatedGovernanceEvent](docs/CorrelatedGovernanceEvent.md)
+ - [PSSailpointBeta\Model.CorrelationConfig](docs/CorrelationConfig.md)
+ - [PSSailpointBeta\Model.CorrelationConfigAttributeAssignmentsInner](docs/CorrelationConfigAttributeAssignmentsInner.md)
  - [PSSailpointBeta\Model.CreateDomainDkim405Response](docs/CreateDomainDkim405Response.md)
  - [PSSailpointBeta\Model.CreateFormDefinitionFileRequestRequest](docs/CreateFormDefinitionFileRequestRequest.md)
  - [PSSailpointBeta\Model.CreateFormDefinitionRequest](docs/CreateFormDefinitionRequest.md)

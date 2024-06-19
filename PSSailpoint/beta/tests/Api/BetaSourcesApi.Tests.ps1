@@ -70,6 +70,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'Get-BetaCorrelationConfig' {
+        It 'Test Get-BetaCorrelationConfig' {
+            #$TestResult = Get-BetaCorrelationConfig -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaNativeChangeDetectionConfig' {
         It 'Test Get-BetaNativeChangeDetectionConfig' {
             #$TestResult = Get-BetaNativeChangeDetectionConfig -Id "TEST_VALUE"
@@ -217,6 +225,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
     Context 'Ping-BetaCluster' {
         It 'Test Ping-BetaCluster' {
             #$TestResult = Ping-BetaCluster -SourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-BetaCorrelationConfig' {
+        It 'Test Send-BetaCorrelationConfig' {
+            #$TestResult = Send-BetaCorrelationConfig -Id "TEST_VALUE" -CorrelationConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

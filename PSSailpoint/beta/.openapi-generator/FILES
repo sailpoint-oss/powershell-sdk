@@ -466,6 +466,7 @@ docs/IdentitySyncPayload.md
 docs/IdentityWithNewAccess.md
 docs/IdentityWithNewAccessAccessRefsInner.md
 docs/ImportAccountsRequest.md
+docs/ImportEntitlementsBySourceRequest.md
 docs/ImportEntitlementsRequest.md
 docs/ImportFormDefinitions202Response.md
 docs/ImportFormDefinitions202ResponseErrorsInner.md
@@ -1396,6 +1397,7 @@ src/PSSailpointBeta/Model/IdentitySyncPayload.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccess.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpointBeta/Model/ImportAccountsRequest.ps1
+src/PSSailpointBeta/Model/ImportEntitlementsBySourceRequest.ps1
 src/PSSailpointBeta/Model/ImportEntitlementsRequest.ps1
 src/PSSailpointBeta/Model/ImportFormDefinitions202Response.ps1
 src/PSSailpointBeta/Model/ImportFormDefinitions202ResponseErrorsInner.ps1
@@ -2333,6 +2335,7 @@ tests/Model/IdentitySyncPayload.Tests.ps1
 tests/Model/IdentityWithNewAccess.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/ImportAccountsRequest.Tests.ps1
+tests/Model/ImportEntitlementsBySourceRequest.Tests.ps1
 tests/Model/ImportEntitlementsRequest.Tests.ps1
 tests/Model/ImportFormDefinitions202Response.Tests.ps1
 tests/Model/ImportFormDefinitions202ResponseErrorsInner.Tests.ps1

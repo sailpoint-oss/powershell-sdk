@@ -1,20 +1,20 @@
-# ImportEntitlementsRequest
+# ImportEntitlementsBySourceRequest
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** | **System.IO.FileInfo** | The CSV file containing the source entitlements to aggregate. | [optional] 
+**CsvFile** | **System.IO.FileInfo** | The CSV file containing the source entitlements to aggregate. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ImportEntitlementsRequest = Initialize-PSSailpointBetaImportEntitlementsRequest  -File null
+$ImportEntitlementsBySourceRequest = Initialize-PSSailpointBetaImportEntitlementsBySourceRequest  -CsvFile null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ImportEntitlementsRequest | ConvertTo-JSON
+$ImportEntitlementsBySourceRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

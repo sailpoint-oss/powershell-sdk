@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Remove-BetaAccessModelMetadataFromEntitlement**](BetaEntitlementsApi.md#Remove-BetaAccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 [**Get-BetaEntitlement**](BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 [**Get-BetaEntitlementRequestConfig**](BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
-[**Import-BetaEntitlements**](BetaEntitlementsApi.md#Import-BetaEntitlements) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
+[**Import-BetaEntitlementsBySource**](BetaEntitlementsApi.md#Import-BetaEntitlementsBySource) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
 [**Get-BetaEntitlementChildren**](BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 [**Get-BetaEntitlementParents**](BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 [**Get-BetaEntitlements**](BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
@@ -234,15 +234,15 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Import-BetaEntitlements"></a>
-# **Import-BetaEntitlements**
-> LoadEntitlementTask Import-BetaEntitlements<br>
+<a id="Import-BetaEntitlementsBySource"></a>
+# **Import-BetaEntitlementsBySource**
+> LoadEntitlementTask Import-BetaEntitlementsBySource<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CsvFile] <System.IO.FileInfo><br>
 
 Aggregate Entitlements
 
-Starts an entitlement aggregation on the specified source.   If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
 ### Example
 ```powershell
@@ -259,9 +259,9 @@ $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlemen
 
 # Aggregate Entitlements
 try {
-    $Result = Import-BetaEntitlements -Id $Id -CsvFile $CsvFile
+    $Result = Import-BetaEntitlementsBySource -Id $Id -CsvFile $CsvFile
 } catch {
-    Write-Host ("Exception occurred when calling Import-BetaEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Import-BetaEntitlementsBySource: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

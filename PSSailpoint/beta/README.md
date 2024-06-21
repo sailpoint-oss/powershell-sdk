@@ -163,7 +163,7 @@ Class | Method | HTTP request | Description
 *BetaEntitlementsApi* | [**Remove-BetaAccessModelMetadataFromEntitlement**](docs/BetaEntitlementsApi.md#Remove-BetaAccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
 *BetaEntitlementsApi* | [**Get-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
-*BetaEntitlementsApi* | [**Import-BetaEntitlements**](docs/BetaEntitlementsApi.md#Import-BetaEntitlements) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
+*BetaEntitlementsApi* | [**Import-BetaEntitlementsBySource**](docs/BetaEntitlementsApi.md#Import-BetaEntitlementsBySource) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
 *BetaEntitlementsApi* | [**Get-BetaEntitlementChildren**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 *BetaEntitlementsApi* | [**Get-BetaEntitlementParents**](docs/BetaEntitlementsApi.md#Get-BetaEntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 *BetaEntitlementsApi* | [**Get-BetaEntitlements**](docs/BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
@@ -464,6 +464,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Get-BetaSourceSchema**](docs/BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *BetaSourcesApi* | [**Get-BetaSourceSchemas**](docs/BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
 *BetaSourcesApi* | [**Import-BetaAccounts**](docs/BetaSourcesApi.md#Import-BetaAccounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
+*BetaSourcesApi* | [**Import-BetaEntitlements**](docs/BetaSourcesApi.md#Import-BetaEntitlements) | **POST** /sources/{id}/load-entitlements | Entitlement Aggregation
 *BetaSourcesApi* | [**Import-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *BetaSourcesApi* | [**Import-BetaSourceConnectorFile**](docs/BetaSourcesApi.md#Import-BetaSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *BetaSourcesApi* | [**Import-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
@@ -961,6 +962,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpointBeta\Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
  - [PSSailpointBeta\Model.ImportAccountsRequest](docs/ImportAccountsRequest.md)
+ - [PSSailpointBeta\Model.ImportEntitlementsBySourceRequest](docs/ImportEntitlementsBySourceRequest.md)
  - [PSSailpointBeta\Model.ImportEntitlementsRequest](docs/ImportEntitlementsRequest.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202ResponseErrorsInner](docs/ImportFormDefinitions202ResponseErrorsInner.md)

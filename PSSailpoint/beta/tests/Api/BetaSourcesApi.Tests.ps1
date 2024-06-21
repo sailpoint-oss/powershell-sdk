@@ -166,6 +166,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
         }
     }
 
+    Context 'Import-BetaEntitlements' {
+        It 'Test Import-BetaEntitlements' {
+            #$TestResult = Import-BetaEntitlements -Id "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Import-BetaSourceAccountsSchema' {
         It 'Test Import-BetaSourceAccountsSchema' {
             #$TestResult = Import-BetaSourceAccountsSchema -Id "TEST_VALUE" -File "TEST_VALUE"

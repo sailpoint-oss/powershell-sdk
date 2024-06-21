@@ -348,7 +348,7 @@ Aggregate Entitlements
 
 .DESCRIPTION
 
-Starts an entitlement aggregation on the specified source.   If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
 .PARAMETER Id
 Source Id
@@ -364,7 +364,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 LoadEntitlementTask
 #>
-function Import-BetaEntitlements {
+function Import-BetaEntitlementsBySource {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -378,7 +378,7 @@ function Import-BetaEntitlements {
     )
 
     Process {
-        'Calling method: Import-BetaEntitlements' | Write-Debug
+        'Calling method: Import-BetaEntitlementsBySource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -398,7 +398,7 @@ function Import-BetaEntitlements {
 
         $LocalVarUri = '/entitlements/aggregate/sources/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling importEntitlements."
+            throw "Error! The required parameter `Id` missing when calling importEntitlementsBySource."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 

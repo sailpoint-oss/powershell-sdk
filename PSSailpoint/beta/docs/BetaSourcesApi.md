@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**Get-BetaSourceSchema**](BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 [**Get-BetaSourceSchemas**](BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
 [**Import-BetaAccounts**](BetaSourcesApi.md#Import-BetaAccounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
+[**Import-BetaEntitlements**](BetaSourcesApi.md#Import-BetaEntitlements) | **POST** /sources/{id}/load-entitlements | Entitlement Aggregation
 [**Import-BetaSourceAccountsSchema**](BetaSourcesApi.md#Import-BetaSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 [**Import-BetaSourceConnectorFile**](BetaSourcesApi.md#Import-BetaSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 [**Import-BetaSourceEntitlementsSchema**](BetaSourcesApi.md#Import-BetaSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
@@ -1107,6 +1108,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LoadAccountsTask**](LoadAccountsTask.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Import-BetaEntitlements"></a>
+# **Import-BetaEntitlements**
+> LoadEntitlementTask Import-BetaEntitlements<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
+
+Entitlement Aggregation
+
+Starts an entitlement aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body.  You will also need to set the Content-Type header to `multipart/form-data`. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+$File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+
+# Entitlement Aggregation
+try {
+    $Result = Import-BetaEntitlements -Id $Id -File $File
+} catch {
+    Write-Host ("Exception occurred when calling Import-BetaEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| Source Id | 
+ **File** | **System.IO.FileInfo****System.IO.FileInfo**| The CSV file containing the source entitlements to aggregate. | [optional] 
+
+### Return type
+
+[**LoadEntitlementTask**](LoadEntitlementTask.md) (PSCustomObject)
 
 ### Authorization
 

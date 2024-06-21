@@ -14,28 +14,28 @@ No summary available.
 
 No description available.
 
-.PARAMETER File
+.PARAMETER CsvFile
 The CSV file containing the source entitlements to aggregate.
 .OUTPUTS
 
-ImportEntitlementsRequest<PSCustomObject>
+ImportEntitlementsBySourceRequest<PSCustomObject>
 #>
 
-function Initialize-BetaImportEntitlementsRequest {
+function Initialize-BetaImportEntitlementsBySourceRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.IO.FileInfo]
-        ${File}
+        ${CsvFile}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaImportEntitlementsRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaImportEntitlementsBySourceRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "file" = ${File}
+            "csvFile" = ${CsvFile}
         }
 
         return $PSO
@@ -45,11 +45,11 @@ function Initialize-BetaImportEntitlementsRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to ImportEntitlementsRequest<PSCustomObject>
+Convert from JSON to ImportEntitlementsBySourceRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ImportEntitlementsRequest<PSCustomObject>
+Convert from JSON to ImportEntitlementsBySourceRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,36 +57,36 @@ Json object
 
 .OUTPUTS
 
-ImportEntitlementsRequest<PSCustomObject>
+ImportEntitlementsBySourceRequest<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToImportEntitlementsRequest {
+function ConvertFrom-BetaJsonToImportEntitlementsBySourceRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportEntitlementsRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportEntitlementsBySourceRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaImportEntitlementsRequest
-        $AllProperties = ("file")
+        # check if Json contains properties not defined in BetaImportEntitlementsBySourceRequest
+        $AllProperties = ("csvFile")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "file"))) { #optional property not found
-            $File = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "csvFile"))) { #optional property not found
+            $CsvFile = $null
         } else {
-            $File = $JsonParameters.PSobject.Properties["file"].value
+            $CsvFile = $JsonParameters.PSobject.Properties["csvFile"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "file" = ${File}
+            "csvFile" = ${CsvFile}
         }
 
         return $PSO

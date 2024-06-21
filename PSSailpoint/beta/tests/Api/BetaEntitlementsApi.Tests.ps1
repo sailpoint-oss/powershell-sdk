@@ -38,9 +38,9 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaEntitlementsApi' {
         }
     }
 
-    Context 'Import-BetaEntitlements' {
-        It 'Test Import-BetaEntitlements' {
-            #$TestResult = Import-BetaEntitlements -Id "TEST_VALUE" -CsvFile "TEST_VALUE"
+    Context 'Import-BetaEntitlementsBySource' {
+        It 'Test Import-BetaEntitlementsBySource' {
+            #$TestResult = Import-BetaEntitlementsBySource -Id "TEST_VALUE" -CsvFile "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

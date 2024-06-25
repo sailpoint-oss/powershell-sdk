@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedBy** | [**EntityCreatedByDTO**](EntityCreatedByDTO.md) |  | [optional] 
+**CreatedBy** | [**RoleMiningSessionResponseCreatedBy**](RoleMiningSessionResponseCreatedBy.md) |  | [optional] 
 **Density** | **Int32** | The density of a potential role. | [optional] 
 **Description** | **String** | The description of a potential role. | [optional] 
 **EntitlementCount** | **Int32** | The number of entitlements in a potential role. | [optional] 
@@ -19,6 +19,9 @@ Name | Type | Description | Notes
 **Saved** | **Boolean** | The potential role&#39;s saved status. | [optional] 
 **Session** | [**RoleMiningSessionParametersDto**](RoleMiningSessionParametersDto.md) |  | [optional] 
 **Type** | [**RoleMiningRoleType**](RoleMiningRoleType.md) |  | [optional] 
+**Id** | **String** | Id of the potential role | [optional] 
+**CreatedDate** | **System.DateTime** | The date-time when this potential role was created. | [optional] 
+**ModifiedDate** | **System.DateTime** | The date-time when this potential role was modified. | [optional] 
 
 ## Examples
 
@@ -39,7 +42,10 @@ $RoleMiningPotentialRole = Initialize-PSSailpointBetaRoleMiningPotentialRole  -C
  -RoleId 07a0b4e2-7a76-44fa-bd0b-c64654b66519 `
  -Saved true `
  -Session null `
- -Type null
+ -Type null `
+ -Id e0cc5d7d-bf7f-4f81-b2af-8885b09d9923 `
+ -CreatedDate null `
+ -ModifiedDate null
 ```
 
 - Convert the resource to JSON

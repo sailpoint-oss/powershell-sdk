@@ -33,7 +33,7 @@ FormErrors is an array of form validation errors from the last time the form ins
 .PARAMETER FormInput
 FormInput is an object of form input labels to value
 .PARAMETER Id
-FormInstanceID is a unique guid identifying this form instance
+Unique guid identifying this form instance
 .PARAMETER Modified
 Modified is the last date the form instance was modified
 .PARAMETER Recipients

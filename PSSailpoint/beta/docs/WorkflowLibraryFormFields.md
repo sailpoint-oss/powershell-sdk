@@ -3,17 +3,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Description** | **String** | Description of the form field | [optional] 
 **HelpText** | **String** | Describes the form field in the UI | [optional] 
 **Label** | **String** | A human readable name for this form field in the UI | [optional] 
 **Name** | **String** | The name of the input attribute | [optional] 
 **Required** | **Boolean** | Denotes if this field is a required attribute | [optional] 
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of the form field | [optional] 
+**Type** | **String** | The type of the form field | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryFormFields = Initialize-PSSailpointBetaWorkflowLibraryFormFields  -HelpText The name to give to this certification campaign. `
+$WorkflowLibraryFormFields = Initialize-PSSailpointBetaWorkflowLibraryFormFields  -Description First value to compare `
+ -HelpText The name to give to this certification campaign. `
  -Label Campaign Name `
  -Name name `
  -Required false `

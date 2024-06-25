@@ -18,6 +18,8 @@ No description available.
 No description available.
 .PARAMETER Email
 No description available.
+.PARAMETER IsVerifiedByDomain
+No description available.
 .PARAMETER VerificationStatus
 No description available.
 .OUTPUTS
@@ -35,6 +37,9 @@ function Initialize-BetaEmailStatusDto {
         [String]
         ${Email},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsVerifiedByDomain},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("PENDING", "SUCCESS", "FAILED")]
         [String]
         ${VerificationStatus}
@@ -48,6 +53,7 @@ function Initialize-BetaEmailStatusDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "email" = ${Email}
+            "isVerifiedByDomain" = ${IsVerifiedByDomain}
             "verificationStatus" = ${VerificationStatus}
         }
 
@@ -85,7 +91,7 @@ function ConvertFrom-BetaJsonToEmailStatusDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaEmailStatusDto
-        $AllProperties = ("id", "email", "verificationStatus")
+        $AllProperties = ("id", "email", "isVerifiedByDomain", "verificationStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -104,6 +110,12 @@ function ConvertFrom-BetaJsonToEmailStatusDto {
             $Email = $JsonParameters.PSobject.Properties["email"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isVerifiedByDomain"))) { #optional property not found
+            $IsVerifiedByDomain = $null
+        } else {
+            $IsVerifiedByDomain = $JsonParameters.PSobject.Properties["isVerifiedByDomain"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "verificationStatus"))) { #optional property not found
             $VerificationStatus = $null
         } else {
@@ -113,6 +125,7 @@ function ConvertFrom-BetaJsonToEmailStatusDto {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "email" = ${Email}
+            "isVerifiedByDomain" = ${IsVerifiedByDomain}
             "verificationStatus" = ${VerificationStatus}
         }
 

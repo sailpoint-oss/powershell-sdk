@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaRoleMiningSessionDto' {
     Context 'BetaRoleMiningSessionDto' {
         It 'Initialize-BetaRoleMiningSessionDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRoleMiningSessionDto -Scope "TEST_VALUE" -PruneThreshold "TEST_VALUE" -PrescribedPruneThreshold "TEST_VALUE" -MinNumIdentitiesInPotentialRole "TEST_VALUE" -PotentialRoleCount "TEST_VALUE" -PotentialRolesReadyCount "TEST_VALUE" -Status "TEST_VALUE" -Type "TEST_VALUE" -EmailRecipientId "TEST_VALUE" -CreatedBy "TEST_VALUE" -IdentityCount "TEST_VALUE" -Saved "TEST_VALUE" -Name "TEST_VALUE"
+            #$NewObject = Initialize-BetaRoleMiningSessionDto -Scope "TEST_VALUE" -PruneThreshold "TEST_VALUE" -PrescribedPruneThreshold "TEST_VALUE" -MinNumIdentitiesInPotentialRole "TEST_VALUE" -PotentialRoleCount "TEST_VALUE" -PotentialRolesReadyCount "TEST_VALUE" -Type "TEST_VALUE" -EmailRecipientId "TEST_VALUE" -IdentityCount "TEST_VALUE" -Saved "TEST_VALUE" -Name "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleMiningSessionDto
             #$NewObject.property | Should -Be 0
         }

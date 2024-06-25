@@ -13,12 +13,13 @@ Name | Type | Description | Notes
 **Description** | **String** | The description of the work item | [optional] 
 **State** | [**WorkItemState**](WorkItemState.md) |  | [optional] 
 **Type** | [**WorkItemType**](WorkItemType.md) |  | [optional] 
-**RemediationItems** | [**RemediationItemDetails**](RemediationItemDetails.md) |  | [optional] 
-**ApprovalItems** | [**ApprovalItemDetails**](ApprovalItemDetails.md) |  | [optional] 
+**RemediationItems** | [**RemediationItemDetails[]**](RemediationItemDetails.md) |  | [optional] 
+**ApprovalItems** | [**ApprovalItemDetails[]**](ApprovalItemDetails.md) |  | [optional] 
 **Name** | **String** | The work item name | [optional] 
 **Completed** | **System.DateTime** |  | [optional] 
 **NumItems** | **Int32** | The number of items in the work item | [optional] 
 **Errors** | **String[]** |  | [optional] 
+**Form** | [**FormDetails**](FormDetails.md) |  | [optional] 
 
 ## Examples
 
@@ -39,7 +40,8 @@ $WorkItems = Initialize-PSSailpointBetaWorkItems  -Id 2c9180835d2e5168015d32f890
  -Name Account Create `
  -Completed 2018-10-19T13:49:37.385Z `
  -NumItems 19 `
- -Errors [The work item ID that was specified was not found.]
+ -Errors [The work item ID that was specified was not found.] `
+ -Form null
 ```
 
 - Convert the resource to JSON

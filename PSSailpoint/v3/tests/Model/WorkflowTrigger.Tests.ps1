@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint' -name 'WorkflowTrigger' {
     Context 'WorkflowTrigger' {
         It 'Initialize-WorkflowTrigger' {
             # a simple test to create an object
-            #$NewObject = Initialize-WorkflowTrigger -Type "TEST_VALUE" -Attributes "TEST_VALUE"
+            #$NewObject = Initialize-WorkflowTrigger -Type "TEST_VALUE" -DisplayName "TEST_VALUE" -Attributes "TEST_VALUE"
             #$NewObject | Should -BeOfType WorkflowTrigger
             #$NewObject.property | Should -Be 0
         }

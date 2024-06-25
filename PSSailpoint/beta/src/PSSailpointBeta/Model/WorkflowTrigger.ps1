@@ -16,6 +16,8 @@ The trigger that starts the workflow
 
 .PARAMETER Type
 The trigger type
+.PARAMETER DisplayName
+No description available.
 .PARAMETER Attributes
 No description available.
 .OUTPUTS
@@ -30,6 +32,9 @@ function Initialize-BetaWorkflowTrigger {
         [ValidateSet("EVENT", "EXTERNAL", "SCHEDULED")]
         [String]
         ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DisplayName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Attributes}
@@ -50,6 +55,7 @@ function Initialize-BetaWorkflowTrigger {
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
+            "displayName" = ${DisplayName}
             "attributes" = ${Attributes}
         }
 
@@ -87,7 +93,7 @@ function ConvertFrom-BetaJsonToWorkflowTrigger {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflowTrigger
-        $AllProperties = ("type", "attributes")
+        $AllProperties = ("type", "displayName", "attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -110,8 +116,15 @@ function ConvertFrom-BetaJsonToWorkflowTrigger {
             $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
+            $DisplayName = $null
+        } else {
+            $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
+            "displayName" = ${DisplayName}
             "attributes" = ${Attributes}
         }
 

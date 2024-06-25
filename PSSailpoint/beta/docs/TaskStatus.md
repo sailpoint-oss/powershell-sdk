@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Description** | **String** | Description of the task this TaskStatus represents | 
 **ParentName** | **String** | Name of the parent of the task this TaskStatus represents | 
 **Launcher** | **String** | Service to execute the task this TaskStatus represents | 
+**Target** | [**Target**](Target.md) |  | [optional] 
 **Created** | **System.DateTime** | Creation date of the task this TaskStatus represents | 
 **Modified** | **System.DateTime** | Last modification date of the task this TaskStatus represents | 
 **Launched** | **System.DateTime** | Launch date of the task this TaskStatus represents | 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | Attributes of the task this TaskStatus represents | 
 **Progress** | **String** | Current progress of the task this TaskStatus represents | 
 **PercentComplete** | **Int32** | Current percentage completion of the task this TaskStatus represents | 
+**TaskDefinitionSummary** | [**TaskDefinitionSummary**](TaskDefinitionSummary.md) |  | [optional] 
 
 ## Examples
 
@@ -30,16 +32,18 @@ $TaskStatus = Initialize-PSSailpointBetaTaskStatus  -Id id12345 `
  -Description A Really Big Task `
  -ParentName Parent Task `
  -Launcher sweep `
+ -Target null `
  -Created 2020-07-11T21:23:15Z `
  -Modified 2020-07-11T21:23:15Z `
  -Launched 2020-07-11T21:23:15Z `
  -Completed 2020-07-11T21:23:15Z `
- -CompletionStatus Success `
+ -CompletionStatus SUCCESS `
  -Messages null `
  -Returns null `
  -Attributes {identityCount&#x3D;0} `
  -Progress Started `
- -PercentComplete 100
+ -PercentComplete 100 `
+ -TaskDefinitionSummary null
 ```
 
 - Convert the resource to JSON

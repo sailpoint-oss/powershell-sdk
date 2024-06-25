@@ -33,7 +33,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $OwnerReferenceSegments = Initialize-OwnerReferenceSegments -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
 
 $Value = Initialize-Value -Type "STRING" -Value "Austin"
-$Expression = Initialize-Expression -Operator "AND" -Attribute "location" -Value $Value -Children $Value
+
+$Children = Initialize-Children -Operator "EQUALS" -Attribute "country" -Value $Value -Children "MyChildren"
+
+$Expression = Initialize-Expression -Operator "AND" -Attribute "location" -Value $Value -Children $Children
 
 $VisibilityCriteria = Initialize-VisibilityCriteria -Expression $Expression
 

@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **ImportLimit** | **Int32** | Pagination limit imposed by the target service for this object type. | [optional] 
 **ReferenceExtractors** | **String[]** | List of json paths within an exported object of this type that represent references that need to be resolved. | [optional] 
 **SignatureRequired** | **Boolean** | If true, this type of object will be JWS signed and cannot be modified before import. | [optional] [default to $false]
+**LegacyObject** | **Boolean** |  | [optional] [default to $false]
+**OnePerTenant** | **Boolean** |  | [optional] [default to $false]
 
 ## Examples
 
@@ -29,7 +31,9 @@ $SpConfigObject = Initialize-PSSailpointBetaSpConfigObject  -ObjectType TRIGGER_
  -ImportRight idn:trigger-service-subscriptions:create `
  -ImportLimit 10 `
  -ReferenceExtractors [$.owner] `
- -SignatureRequired false
+ -SignatureRequired false `
+ -LegacyObject false `
+ -OnePerTenant false
 ```
 
 - Convert the resource to JSON

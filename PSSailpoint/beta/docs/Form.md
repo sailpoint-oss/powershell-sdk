@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Title** | **String** | The form title | [optional] 
 **Subtitle** | **String** | The form subtitle. | [optional] 
 **TargetUser** | **String** | The name of the user that should be shown this form | [optional] 
-**Sections** | [**SectionDetails**](SectionDetails.md) |  | [optional] 
+**Sections** | [**SectionDetails[]**](SectionDetails.md) |  | [optional] 
 
 ## Examples
 

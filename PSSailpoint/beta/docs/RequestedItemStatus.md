@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | When the request was last modified. | [optional] 
 **Created** | **System.DateTime** | When the request was created. | [optional] 
 **Requester** | [**AccessItemRequester**](AccessItemRequester.md) |  | [optional] 
-**RequestedFor** | [**AccessItemRequestedFor[]**](AccessItemRequestedFor.md) | Identities access was requested for. | [optional] 
+**RequestedFor** | [**RequestedItemStatusRequestedFor**](RequestedItemStatusRequestedFor.md) |  | [optional] 
 **RequesterComment** | [**RequestedItemStatusRequesterComment**](RequestedItemStatusRequesterComment.md) |  | [optional] 
 **SodViolationContext** | [**RequestedItemStatusSodViolationContext**](RequestedItemStatusSodViolationContext.md) |  | [optional] 
 **ProvisioningDetails** | [**RequestedItemStatusProvisioningDetails**](RequestedItemStatusProvisioningDetails.md) |  | [optional] 

@@ -53,16 +53,8 @@ function Initialize-BetaTaskStatusMessage {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if (!$LocalizedText) {
-            throw "invalid value for 'LocalizedText', 'LocalizedText' cannot be null."
-        }
-
         if (!$Key) {
             throw "invalid value for 'Key', 'Key' cannot be null."
-        }
-
-        if (!$Parameters) {
-            throw "invalid value for 'Parameters', 'Parameters' cannot be null."
         }
 
 

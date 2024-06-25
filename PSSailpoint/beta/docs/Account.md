@@ -10,6 +10,10 @@ Name | Type | Description | Notes
 **SourceId** | **String** | The unique ID of the source this account belongs to | 
 **SourceName** | **String** | The display name of the source this account belongs to | 
 **IdentityId** | **String** | The unique ID of the identity this account is correlated to | [optional] 
+**CloudLifecycleState** | **String** | The lifecycle state of the identity this account is correlated to | [optional] 
+**IdentityState** | **String** | The identity state of the identity this account is correlated to | [optional] 
+**ConnectionType** | **String** | The connection type of the source this account is from | [optional] 
+**Type** | **String** | The type of the account | [optional] 
 **Attributes** | [**System.Collections.Hashtable**](AnyType.md) | The account attributes that are aggregated | 
 **Authoritative** | **Boolean** | Indicates if this account is from an authoritative source | 
 **Description** | **String** | A description of the account | [optional] 
@@ -21,9 +25,12 @@ Name | Type | Description | Notes
 **Uuid** | **String** | The unique ID of the account as determined by the account schema | [optional] 
 **ManuallyCorrelated** | **Boolean** | Indicates if the account has been manually correlated to an identity | 
 **HasEntitlements** | **Boolean** | Indicates if the account has entitlements | 
-**Identity** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
-**SourceOwner** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Identity** | [**AccountAllOfIdentity**](AccountAllOfIdentity.md) |  | [optional] 
+**SourceOwner** | [**AccountAllOfSourceOwner**](AccountAllOfSourceOwner.md) |  | [optional] 
 **Features** | **String** | A string list containing the owning source&#39;s features | [optional] 
+**Origin** | **String** | The origin of the account either aggregated or provisioned | [optional] 
+**OwnerIdentity** | [**AccountAllOfOwnerIdentity**](AccountAllOfOwnerIdentity.md) |  | [optional] 
+**OwnerGroup** | [**AccountAllOfOwnerGroup**](AccountAllOfOwnerGroup.md) |  | [optional] 
 
 ## Examples
 
@@ -36,6 +43,10 @@ $Account = Initialize-PSSailpointBetaAccount  -Id id12345 `
  -SourceId 2c9180835d2e5168015d32f890ca1581 `
  -SourceName Employees `
  -IdentityId 2c9180835d2e5168015d32f890ca1581 `
+ -CloudLifecycleState active `
+ -IdentityState ACTIVE `
+ -ConnectionType direct `
+ -Type NON_HUMAN `
  -Attributes {firstName&#x3D;SailPoint, lastName&#x3D;Support, displayName&#x3D;SailPoint Support} `
  -Authoritative false `
  -Description null `
@@ -49,7 +60,10 @@ $Account = Initialize-PSSailpointBetaAccount  -Id id12345 `
  -HasEntitlements true `
  -Identity null `
  -SourceOwner null `
- -Features ENABLE
+ -Features ENABLE `
+ -Origin AGGREGATED `
+ -OwnerIdentity null `
+ -OwnerGroup null
 ```
 
 - Convert the resource to JSON

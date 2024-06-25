@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Object** | [**FormDefinitionResponse**](FormDefinitionResponse.md) |  | [optional] 
-**Self** | **String** |  | [optional] 
+**Self** | [**FormDefinitionSelfImportExportDto**](FormDefinitionSelfImportExportDto.md) |  | [optional] 
 **Version** | **Int32** |  | [optional] 
 
 ## Examples

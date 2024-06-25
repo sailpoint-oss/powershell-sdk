@@ -18,6 +18,8 @@ No description available.
 Invocation ID
 .PARAMETER TriggerId
 Trigger ID
+.PARAMETER SubscriptionName
+Subscription name
 .PARAMETER SubscriptionId
 Subscription ID
 .PARAMETER Type
@@ -44,6 +46,9 @@ function Initialize-BetaInvocationStatus {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TriggerId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SubscriptionName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SubscriptionId},
@@ -77,6 +82,10 @@ function Initialize-BetaInvocationStatus {
             throw "invalid value for 'TriggerId', 'TriggerId' cannot be null."
         }
 
+        if (!$SubscriptionName) {
+            throw "invalid value for 'SubscriptionName', 'SubscriptionName' cannot be null."
+        }
+
         if (!$SubscriptionId) {
             throw "invalid value for 'SubscriptionId', 'SubscriptionId' cannot be null."
         }
@@ -97,6 +106,7 @@ function Initialize-BetaInvocationStatus {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "triggerId" = ${TriggerId}
+            "subscriptionName" = ${SubscriptionName}
             "subscriptionId" = ${SubscriptionId}
             "type" = ${Type}
             "created" = ${Created}
@@ -139,7 +149,7 @@ function ConvertFrom-BetaJsonToInvocationStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaInvocationStatus
-        $AllProperties = ("id", "triggerId", "subscriptionId", "type", "created", "completed", "startInvocationInput", "completeInvocationInput")
+        $AllProperties = ("id", "triggerId", "subscriptionName", "subscriptionId", "type", "created", "completed", "startInvocationInput", "completeInvocationInput")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -160,6 +170,12 @@ function ConvertFrom-BetaJsonToInvocationStatus {
             throw "Error! JSON cannot be serialized due to the required property 'triggerId' missing."
         } else {
             $TriggerId = $JsonParameters.PSobject.Properties["triggerId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "subscriptionName"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'subscriptionName' missing."
+        } else {
+            $SubscriptionName = $JsonParameters.PSobject.Properties["subscriptionName"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "subscriptionId"))) {
@@ -201,6 +217,7 @@ function ConvertFrom-BetaJsonToInvocationStatus {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "triggerId" = ${TriggerId}
+            "subscriptionName" = ${SubscriptionName}
             "subscriptionId" = ${SubscriptionId}
             "type" = ${Type}
             "created" = ${Created}

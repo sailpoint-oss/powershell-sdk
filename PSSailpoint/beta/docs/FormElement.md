@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Form element identifier. | [optional] 
-**ElementType** | **String** | FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns | [optional] 
+**ElementType** | **String** | FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMN_SET FormElementTypeColumns IMAGE FormElementTypeImage DESCRIPTION FormElementTypeDescription | [optional] 
 **Config** | [**System.Collections.Hashtable**](SystemCollectionsHashtable.md) | Config object. | [optional] 
 **Key** | **String** | Technical key. | [optional] 
-**Validations** | [**SystemCollectionsHashtable**](.md) | Set of FormElementValidation items. | [optional] 
+**Validations** | [**FormElementValidationsSet[]**](FormElementValidationsSet.md) |  | [optional] 
 
 ## Examples
 
@@ -17,7 +17,7 @@ $FormElement = Initialize-PSSailpointBetaFormElement  -Id 00000000-0000-0000-000
  -ElementType TEXT `
  -Config {label&#x3D;Department} `
  -Key department `
- -Validations [{validationType&#x3D;REQUIRED}]
+ -Validations null
 ```
 
 - Convert the resource to JSON

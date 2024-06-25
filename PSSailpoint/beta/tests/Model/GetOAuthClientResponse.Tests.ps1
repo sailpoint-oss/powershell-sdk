@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaGetOAuthClientResponse' {
     Context 'BetaGetOAuthClientResponse' {
         It 'Initialize-BetaGetOAuthClientResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaGetOAuthClientResponse -Id "TEST_VALUE" -BusinessName "TEST_VALUE" -HomepageUrl "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -AccessTokenValiditySeconds "TEST_VALUE" -RefreshTokenValiditySeconds "TEST_VALUE" -RedirectUris "TEST_VALUE" -GrantTypes "TEST_VALUE" -AccessType "TEST_VALUE" -Type "TEST_VALUE" -Internal "TEST_VALUE" -Enabled "TEST_VALUE" -StrongAuthSupported "TEST_VALUE" -ClaimsSupported "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -LastUsed "TEST_VALUE" -Scope "TEST_VALUE"
+            #$NewObject = Initialize-BetaGetOAuthClientResponse -Id "TEST_VALUE" -BusinessName "TEST_VALUE" -HomepageUrl "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -AccessTokenValiditySeconds "TEST_VALUE" -RefreshTokenValiditySeconds "TEST_VALUE" -RedirectUris "TEST_VALUE" -GrantTypes "TEST_VALUE" -AccessType "TEST_VALUE" -Type "TEST_VALUE" -Internal "TEST_VALUE" -Enabled "TEST_VALUE" -StrongAuthSupported "TEST_VALUE" -ClaimsSupported "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Secret "TEST_VALUE" -Metadata "TEST_VALUE" -LastUsed "TEST_VALUE" -Scope "TEST_VALUE"
             #$NewObject | Should -BeOfType GetOAuthClientResponse
             #$NewObject.property | Should -Be 0
         }

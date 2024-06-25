@@ -84,7 +84,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-AuthProfileSummary
+AuthProfileSummary[]
 #>
 function Get-BetaProfileConfigList {
     [CmdletBinding()]
@@ -122,7 +122,7 @@ function Get-BetaProfileConfigList {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "AuthProfileSummary" `
+                                -ReturnType "AuthProfileSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

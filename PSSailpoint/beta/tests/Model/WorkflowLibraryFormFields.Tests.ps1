@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaWorkflowLibraryFormFields' {
     Context 'BetaWorkflowLibraryFormFields' {
         It 'Initialize-BetaWorkflowLibraryFormFields' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaWorkflowLibraryFormFields -HelpText "TEST_VALUE" -Label "TEST_VALUE" -Name "TEST_VALUE" -Required "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-BetaWorkflowLibraryFormFields -Description "TEST_VALUE" -HelpText "TEST_VALUE" -Label "TEST_VALUE" -Name "TEST_VALUE" -Required "TEST_VALUE" -Type "TEST_VALUE"
             #$NewObject | Should -BeOfType WorkflowLibraryFormFields
             #$NewObject.property | Should -Be 0
         }

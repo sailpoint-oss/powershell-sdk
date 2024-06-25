@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaExternalAttributes' {
     Context 'BetaExternalAttributes' {
         It 'Initialize-BetaExternalAttributes' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaExternalAttributes -Name "TEST_VALUE" -Description "TEST_VALUE"
+            #$NewObject = Initialize-BetaExternalAttributes -Name "TEST_VALUE" -Description "TEST_VALUE" -ClientId "TEST_VALUE" -Url "TEST_VALUE"
             #$NewObject | Should -BeOfType ExternalAttributes
             #$NewObject.property | Should -Be 0
         }

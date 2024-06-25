@@ -27,7 +27,7 @@ Method | HTTP request | Description
 <a id="New-BetaFormDefinition"></a>
 # **New-BetaFormDefinition**
 > FormDefinitionResponse New-BetaFormDefinition<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Body] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateFormDefinitionRequest] <PSCustomObject><br>
 
 Creates a form definition.
 
@@ -48,15 +48,17 @@ $ConditionEffect = Initialize-ConditionEffect -EffectType "HIDE" -Config $Condit
 
 $FormCondition = Initialize-FormCondition -RuleOperator "AND" -Rules $ConditionRule -Effects $ConditionEffect
 
-$FormElement = Initialize-FormElement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations 
+$FormElementValidationsSet = Initialize-FormElementValidationsSet -ValidationType "REQUIRED"
+$FormElement = Initialize-FormElement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations $FormElementValidationsSet
+
 $FormDefinitionInput = Initialize-FormDefinitionInput -Id "00000000-0000-0000-0000-000000000000" -Type "STRING" -Label "input1" -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic"
-$FormOwner = Initialize-FormOwner -Type "IDENTITY" -Id "00000000-0000-0000-0000-000000000000"
-$FormUsedBy = Initialize-FormUsedBy -Type "WORKFLOW" -Id "00000000-0000-0000-0000-000000000000"
+$FormOwner = Initialize-FormOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67" -Name "Grant Smith"
+$FormUsedBy = Initialize-FormUsedBy -Type "WORKFLOW" -Id "61940a92-5484-42bc-bc10-b9982b218cdf" -Name "Access Request Form"
 $CreateFormDefinitionRequest = Initialize-CreateFormDefinitionRequest -Description "My form description" -FormConditions $FormCondition -FormElements $FormElement -FormInput $FormDefinitionInput -Name "My form" -Owner $FormOwner -UsedBy $FormUsedBy # CreateFormDefinitionRequest | Body is the request payload to create form definition request (optional)
 
 # Creates a form definition.
 try {
-    $Result = New-BetaFormDefinition -Body $Body
+    $Result = New-BetaFormDefinition -CreateFormDefinitionRequest $CreateFormDefinitionRequest
 } catch {
     Write-Host ("Exception occurred when calling New-BetaFormDefinition: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -67,7 +69,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Body** | [**CreateFormDefinitionRequest**](CreateFormDefinitionRequest.md)| Body is the request payload to create form definition request | [optional] 
+ **CreateFormDefinitionRequest** | [**CreateFormDefinitionRequest**](CreateFormDefinitionRequest.md)| Body is the request payload to create form definition request | [optional] 
 
 ### Return type
 
@@ -573,10 +575,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$FormOwner = Initialize-FormOwner -Type "IDENTITY" -Id "00000000-0000-0000-0000-000000000000"
-$FormUsedBy = Initialize-FormUsedBy -Type "WORKFLOW" -Id "00000000-0000-0000-0000-000000000000"
+$FormOwner = Initialize-FormOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67" -Name "Grant Smith"
+$FormUsedBy = Initialize-FormUsedBy -Type "WORKFLOW" -Id "61940a92-5484-42bc-bc10-b9982b218cdf" -Name "Access Request Form"
 $FormDefinitionInput = Initialize-FormDefinitionInput -Id "00000000-0000-0000-0000-000000000000" -Type "STRING" -Label "input1" -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic"
-$FormElement = Initialize-FormElement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations 
+
+$FormElementValidationsSet = Initialize-FormElementValidationsSet -ValidationType "REQUIRED"
+$FormElement = Initialize-FormElement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations $FormElementValidationsSet
 
 $ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value 
 
@@ -587,7 +591,7 @@ $FormCondition = Initialize-FormCondition -RuleOperator "AND" -Rules $ConditionR
 
 $FormDefinitionResponse = Initialize-FormDefinitionResponse -Id "00000000-0000-0000-0000-000000000000" -Name "My form" -Description "My form description" -Owner $FormOwner -UsedBy $FormUsedBy -FormInput $FormDefinitionInput -FormElements $FormElement -FormConditions $FormCondition -Created (Get-Date) -Modified (Get-Date)
 
-$ExportFormDefinitionsByTenant200ResponseInner = Initialize-ExportFormDefinitionsByTenant200ResponseInner -Object $FormDefinitionResponse -Self "MySelf" -Version 0 # ExportFormDefinitionsByTenant200ResponseInner[] | Body is the request payload to import form definitions (optional)
+$ImportFormDefinitionsRequestInner = Initialize-ImportFormDefinitionsRequestInner -Object $FormDefinitionResponse -Self "MySelf" -Version 0 # ImportFormDefinitionsRequestInner[] | Body is the request payload to import form definitions (optional)
 
 # Import form definitions from export.
 try {
@@ -602,7 +606,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Body** | [**ExportFormDefinitionsByTenant200ResponseInner[]**](ExportFormDefinitionsByTenant200ResponseInner.md)| Body is the request payload to import form definitions | [optional] 
+ **Body** | [**ImportFormDefinitionsRequestInner[]**](ImportFormDefinitionsRequestInner.md)| Body is the request payload to import form definitions | [optional] 
 
 ### Return type
 
@@ -852,7 +856,7 @@ Name | Type | Description  | Notes
 
 <a id="Search-BetaFormInstancesByTenant"></a>
 # **Search-BetaFormInstancesByTenant**
-> ListFormInstancesByTenantResponse Search-BetaFormInstancesByTenant<br>
+> FormInstanceResponse[] Search-BetaFormInstancesByTenant<br>
 
 List form instances by tenant.
 
@@ -883,7 +887,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ListFormInstancesByTenantResponse**](ListFormInstancesByTenantResponse.md) (PSCustomObject)
+[**FormInstanceResponse[]**](FormInstanceResponse.md) (PSCustomObject)
 
 ### Authorization
 

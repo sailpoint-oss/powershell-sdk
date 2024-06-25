@@ -12,20 +12,20 @@ No summary available.
 
 .DESCRIPTION
 
-Identity the access item is requested for.
+The identity this account is correlated to
 
 .PARAMETER Type
-DTO type of identity the access item is requested for.
+The type of object being referenced
 .PARAMETER Id
-ID of identity the access item is requested for.
+ID of the identity
 .PARAMETER Name
-Human-readable display name of identity the access item is requested for.
+Human-readable display name of the identity
 .OUTPUTS
 
-AccessItemRequestedFor<PSCustomObject>
+AccountAllOfIdentity<PSCustomObject>
 #>
 
-function Initialize-BetaAccessItemRequestedFor {
+function Initialize-BetaAccountAllOfIdentity {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -41,7 +41,7 @@ function Initialize-BetaAccessItemRequestedFor {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaAccessItemRequestedFor' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaAccountAllOfIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -58,11 +58,11 @@ function Initialize-BetaAccessItemRequestedFor {
 <#
 .SYNOPSIS
 
-Convert from JSON to AccessItemRequestedFor<PSCustomObject>
+Convert from JSON to AccountAllOfIdentity<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AccessItemRequestedFor<PSCustomObject>
+Convert from JSON to AccountAllOfIdentity<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,21 +70,21 @@ Json object
 
 .OUTPUTS
 
-AccessItemRequestedFor<PSCustomObject>
+AccountAllOfIdentity<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToAccessItemRequestedFor {
+function ConvertFrom-BetaJsonToAccountAllOfIdentity {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaAccessItemRequestedFor' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaAccountAllOfIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaAccessItemRequestedFor
+        # check if Json contains properties not defined in BetaAccountAllOfIdentity
         $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

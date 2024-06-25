@@ -14,6 +14,8 @@ No summary available.
 
 No description available.
 
+.PARAMETER Name
+Name of the draft role
 .PARAMETER Description
 Draft role description
 .PARAMETER IdentityIds
@@ -24,10 +26,14 @@ The list of entitlement ids for this role mining session.
 The list of excluded entitlement ids.
 .PARAMETER Modified
 Last modified date
-.PARAMETER Name
-Name of the draft role
 .PARAMETER Type
 No description available.
+.PARAMETER Id
+Id of the potential draft role
+.PARAMETER CreatedDate
+The date-time when this potential draft role was created.
+.PARAMETER ModifiedDate
+The date-time when this potential draft role was modified.
 .OUTPUTS
 
 RoleMiningSessionDraftRoleDto<PSCustomObject>
@@ -36,6 +42,9 @@ RoleMiningSessionDraftRoleDto<PSCustomObject>
 function Initialize-BetaRoleMiningSessionDraftRoleDto {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
@@ -52,12 +61,18 @@ function Initialize-BetaRoleMiningSessionDraftRoleDto {
         [System.Nullable[System.DateTime]]
         ${Modified},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
-        ${Type}
+        ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${CreatedDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${ModifiedDate}
     )
 
     Process {
@@ -66,13 +81,16 @@ function Initialize-BetaRoleMiningSessionDraftRoleDto {
 
 
         $PSO = [PSCustomObject]@{
+            "name" = ${Name}
             "description" = ${Description}
             "identityIds" = ${IdentityIds}
             "entitlementIds" = ${EntitlementIds}
             "excludedEntitlements" = ${ExcludedEntitlements}
             "modified" = ${Modified}
-            "name" = ${Name}
             "type" = ${Type}
+            "id" = ${Id}
+            "createdDate" = ${CreatedDate}
+            "modifiedDate" = ${ModifiedDate}
         }
 
         return $PSO
@@ -109,11 +127,17 @@ function ConvertFrom-BetaJsonToRoleMiningSessionDraftRoleDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningSessionDraftRoleDto
-        $AllProperties = ("description", "identityIds", "entitlementIds", "excludedEntitlements", "modified", "name", "type")
+        $AllProperties = ("name", "description", "identityIds", "entitlementIds", "excludedEntitlements", "modified", "type", "id", "createdDate", "modifiedDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -146,26 +170,41 @@ function ConvertFrom-BetaJsonToRoleMiningSessionDraftRoleDto {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
             $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdDate"))) { #optional property not found
+            $CreatedDate = $null
+        } else {
+            $CreatedDate = $JsonParameters.PSobject.Properties["createdDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modifiedDate"))) { #optional property not found
+            $ModifiedDate = $null
+        } else {
+            $ModifiedDate = $JsonParameters.PSobject.Properties["modifiedDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
+            "name" = ${Name}
             "description" = ${Description}
             "identityIds" = ${IdentityIds}
             "entitlementIds" = ${EntitlementIds}
             "excludedEntitlements" = ${ExcludedEntitlements}
             "modified" = ${Modified}
-            "name" = ${Name}
             "type" = ${Type}
+            "id" = ${Id}
+            "createdDate" = ${CreatedDate}
+            "modifiedDate" = ${ModifiedDate}
         }
 
         return $PSO

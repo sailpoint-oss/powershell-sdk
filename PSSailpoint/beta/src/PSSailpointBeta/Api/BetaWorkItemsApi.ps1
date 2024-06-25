@@ -533,7 +533,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-WorkItemsCount[]
+WorkItemsCount
 #>
 function Get-BetaCountWorkItems {
     [CmdletBinding()]
@@ -578,7 +578,7 @@ function Get-BetaCountWorkItems {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItemsCount[]" `
+                                -ReturnType "WorkItemsCount" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -691,7 +691,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-WorkItemsSummary[]
+WorkItemsSummary
 #>
 function Get-BetaWorkItemsSummary {
     [CmdletBinding()]
@@ -736,7 +736,7 @@ function Get-BetaWorkItemsSummary {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItemsSummary[]" `
+                                -ReturnType "WorkItemsSummary" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

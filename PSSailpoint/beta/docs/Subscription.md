@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **TriggerId** | **String** | ID of trigger subscribed to. | 
 **TriggerName** | **String** | Trigger name of trigger subscribed to. | 
 **Type** | [**SubscriptionType**](SubscriptionType.md) |  | 
-**ResponseDeadline** | **String** | Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format. | [default to "PT1H"]
+**ResponseDeadline** | **String** | Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format. | [optional] [default to "PT1H"]
 **HttpConfig** | [**HttpConfig**](HttpConfig.md) |  | [optional] 
 **EventBridgeConfig** | [**EventBridgeConfig**](EventBridgeConfig.md) |  | [optional] 
 **Enabled** | **Boolean** | Whether subscription should receive real-time trigger invocations or not. Test trigger invocations are always enabled regardless of this option. | [default to $true]
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 $Subscription = Initialize-PSSailpointBetaSubscription  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name Access request subscription `
  -Description Access requested to site xyz `
- -TriggerId idn:access-requested `
+ -TriggerId idn:access-request-post-approval `
  -TriggerName Access Requested `
  -Type null `
  -ResponseDeadline PT1H `

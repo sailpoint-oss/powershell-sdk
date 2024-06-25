@@ -20,7 +20,7 @@ The password policy Id.
 Description for current password policy.
 .PARAMETER Name
 The name of the password policy.
-.PARAMETER DateCrated
+.PARAMETER DateCreated
 Date the Password Policy was created.
 .PARAMETER LastUpdated
 Date the Password Policy was updated.
@@ -70,6 +70,10 @@ Defines whether this policy uses identity attributes or not. This field is false
 Defines whether this policy validate against account id or not. This field is false by default.
 .PARAMETER ValidateAgainstAccountName
 Defines whether this policy validate against account name or not. This field is false by default.
+.PARAMETER Created
+No description available.
+.PARAMETER Modified
+No description available.
 .PARAMETER SourceIds
 List of sources IDs managed by this password policy.
 .OUTPUTS
@@ -91,7 +95,7 @@ function Initialize-BetaPasswordPolicyV3Dto {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${DateCrated},
+        ${DateCreated},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${LastUpdated},
@@ -165,6 +169,12 @@ function Initialize-BetaPasswordPolicyV3Dto {
         [System.Nullable[Boolean]]
         ${ValidateAgainstAccountName} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Created},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Modified},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${SourceIds}
     )
@@ -178,7 +188,7 @@ function Initialize-BetaPasswordPolicyV3Dto {
             "id" = ${Id}
             "description" = ${Description}
             "name" = ${Name}
-            "dateCrated" = ${DateCrated}
+            "dateCreated" = ${DateCreated}
             "lastUpdated" = ${LastUpdated}
             "firstExpirationReminder" = ${FirstExpirationReminder}
             "accountIdMinWordLength" = ${AccountIdMinWordLength}
@@ -203,6 +213,8 @@ function Initialize-BetaPasswordPolicyV3Dto {
             "useIdentityAttributes" = ${UseIdentityAttributes}
             "validateAgainstAccountId" = ${ValidateAgainstAccountId}
             "validateAgainstAccountName" = ${ValidateAgainstAccountName}
+            "created" = ${Created}
+            "modified" = ${Modified}
             "sourceIds" = ${SourceIds}
         }
 
@@ -240,7 +252,7 @@ function ConvertFrom-BetaJsonToPasswordPolicyV3Dto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaPasswordPolicyV3Dto
-        $AllProperties = ("id", "description", "name", "dateCrated", "lastUpdated", "firstExpirationReminder", "accountIdMinWordLength", "accountNameMinWordLength", "minAlpha", "minCharacterTypes", "maxLength", "minLength", "maxRepeatedChars", "minLower", "minNumeric", "minSpecial", "minUpper", "passwordExpiration", "defaultPolicy", "enablePasswdExpiration", "requireStrongAuthn", "requireStrongAuthOffNetwork", "requireStrongAuthUntrustedGeographies", "useAccountAttributes", "useDictionary", "useIdentityAttributes", "validateAgainstAccountId", "validateAgainstAccountName", "sourceIds")
+        $AllProperties = ("id", "description", "name", "dateCreated", "lastUpdated", "firstExpirationReminder", "accountIdMinWordLength", "accountNameMinWordLength", "minAlpha", "minCharacterTypes", "maxLength", "minLength", "maxRepeatedChars", "minLower", "minNumeric", "minSpecial", "minUpper", "passwordExpiration", "defaultPolicy", "enablePasswdExpiration", "requireStrongAuthn", "requireStrongAuthOffNetwork", "requireStrongAuthUntrustedGeographies", "useAccountAttributes", "useDictionary", "useIdentityAttributes", "validateAgainstAccountId", "validateAgainstAccountName", "created", "modified", "sourceIds")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -265,10 +277,10 @@ function ConvertFrom-BetaJsonToPasswordPolicyV3Dto {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateCrated"))) { #optional property not found
-            $DateCrated = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateCreated"))) { #optional property not found
+            $DateCreated = $null
         } else {
-            $DateCrated = $JsonParameters.PSobject.Properties["dateCrated"].value
+            $DateCreated = $JsonParameters.PSobject.Properties["dateCreated"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "lastUpdated"))) { #optional property not found
@@ -415,6 +427,18 @@ function ConvertFrom-BetaJsonToPasswordPolicyV3Dto {
             $ValidateAgainstAccountName = $JsonParameters.PSobject.Properties["validateAgainstAccountName"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceIds"))) { #optional property not found
             $SourceIds = $null
         } else {
@@ -425,7 +449,7 @@ function ConvertFrom-BetaJsonToPasswordPolicyV3Dto {
             "id" = ${Id}
             "description" = ${Description}
             "name" = ${Name}
-            "dateCrated" = ${DateCrated}
+            "dateCreated" = ${DateCreated}
             "lastUpdated" = ${LastUpdated}
             "firstExpirationReminder" = ${FirstExpirationReminder}
             "accountIdMinWordLength" = ${AccountIdMinWordLength}
@@ -450,6 +474,8 @@ function ConvertFrom-BetaJsonToPasswordPolicyV3Dto {
             "useIdentityAttributes" = ${UseIdentityAttributes}
             "validateAgainstAccountId" = ${ValidateAgainstAccountId}
             "validateAgainstAccountName" = ${ValidateAgainstAccountName}
+            "created" = ${Created}
+            "modified" = ${Modified}
             "sourceIds" = ${SourceIds}
         }
 

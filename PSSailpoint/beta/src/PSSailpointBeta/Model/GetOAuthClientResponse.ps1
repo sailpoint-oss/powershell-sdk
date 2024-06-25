@@ -48,6 +48,10 @@ An indicator of whether the API Client supports the serialization of SAML claims
 The date and time, down to the millisecond, when the API Client was created
 .PARAMETER Modified
 The date and time, down to the millisecond, when the API Client was last updated
+.PARAMETER Secret
+No description available.
+.PARAMETER Metadata
+No description available.
 .PARAMETER LastUsed
 The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed.
 .PARAMETER Scope
@@ -113,6 +117,12 @@ function Initialize-BetaGetOAuthClientResponse {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Modified},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Secret},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Metadata},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${LastUsed},
@@ -196,6 +206,8 @@ function Initialize-BetaGetOAuthClientResponse {
             "claimsSupported" = ${ClaimsSupported}
             "created" = ${Created}
             "modified" = ${Modified}
+            "secret" = ${Secret}
+            "metadata" = ${Metadata}
             "lastUsed" = ${LastUsed}
             "scope" = ${Scope}
         }
@@ -234,7 +246,7 @@ function ConvertFrom-BetaJsonToGetOAuthClientResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaGetOAuthClientResponse
-        $AllProperties = ("id", "businessName", "homepageUrl", "name", "description", "accessTokenValiditySeconds", "refreshTokenValiditySeconds", "redirectUris", "grantTypes", "accessType", "type", "internal", "enabled", "strongAuthSupported", "claimsSupported", "created", "modified", "lastUsed", "scope")
+        $AllProperties = ("id", "businessName", "homepageUrl", "name", "description", "accessTokenValiditySeconds", "refreshTokenValiditySeconds", "redirectUris", "grantTypes", "accessType", "type", "internal", "enabled", "strongAuthSupported", "claimsSupported", "created", "modified", "secret", "metadata", "lastUsed", "scope")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -353,6 +365,18 @@ function ConvertFrom-BetaJsonToGetOAuthClientResponse {
             $Scope = $JsonParameters.PSobject.Properties["scope"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "secret"))) { #optional property not found
+            $Secret = $null
+        } else {
+            $Secret = $JsonParameters.PSobject.Properties["secret"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "metadata"))) { #optional property not found
+            $Metadata = $null
+        } else {
+            $Metadata = $JsonParameters.PSobject.Properties["metadata"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "lastUsed"))) { #optional property not found
             $LastUsed = $null
         } else {
@@ -377,6 +401,8 @@ function ConvertFrom-BetaJsonToGetOAuthClientResponse {
             "claimsSupported" = ${ClaimsSupported}
             "created" = ${Created}
             "modified" = ${Modified}
+            "secret" = ${Secret}
+            "metadata" = ${Metadata}
             "lastUsed" = ${LastUsed}
             "scope" = ${Scope}
         }

@@ -39,6 +39,7 @@ docs/Account.md
 docs/AccountAction.md
 docs/AccountActivitiesApi.md
 docs/AccountActivity.md
+docs/AccountActivityApprovalStatus.md
 docs/AccountActivityDocument.md
 docs/AccountActivityItem.md
 docs/AccountActivityItemOperation.md
@@ -428,6 +429,7 @@ docs/RequestedItemStatusCancelledRequestDetails.md
 docs/RequestedItemStatusPreApprovalTriggerDetails.md
 docs/RequestedItemStatusProvisioningDetails.md
 docs/RequestedItemStatusRequestState.md
+docs/RequestedItemStatusRequestedFor.md
 docs/RequestedItemStatusRequesterComment.md
 docs/RequestedItemStatusSodViolationContext.md
 docs/ReviewDecision.md
@@ -686,6 +688,7 @@ src/PSSailpoint/Model/AccessType.ps1
 src/PSSailpoint/Model/Account.ps1
 src/PSSailpoint/Model/AccountAction.ps1
 src/PSSailpoint/Model/AccountActivity.ps1
+src/PSSailpoint/Model/AccountActivityApprovalStatus.ps1
 src/PSSailpoint/Model/AccountActivityDocument.ps1
 src/PSSailpoint/Model/AccountActivityItem.ps1
 src/PSSailpoint/Model/AccountActivityItemOperation.ps1
@@ -1046,6 +1049,7 @@ src/PSSailpoint/Model/RequestedItemStatusCancelledRequestDetails.ps1
 src/PSSailpoint/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
 src/PSSailpoint/Model/RequestedItemStatusProvisioningDetails.ps1
 src/PSSailpoint/Model/RequestedItemStatusRequestState.ps1
+src/PSSailpoint/Model/RequestedItemStatusRequestedFor.ps1
 src/PSSailpoint/Model/RequestedItemStatusRequesterComment.ps1
 src/PSSailpoint/Model/RequestedItemStatusSodViolationContext.ps1
 src/PSSailpoint/Model/ReviewDecision.ps1
@@ -1296,6 +1300,7 @@ tests/Model/AccessType.Tests.ps1
 tests/Model/Account.Tests.ps1
 tests/Model/AccountAction.Tests.ps1
 tests/Model/AccountActivity.Tests.ps1
+tests/Model/AccountActivityApprovalStatus.Tests.ps1
 tests/Model/AccountActivityDocument.Tests.ps1
 tests/Model/AccountActivityItem.Tests.ps1
 tests/Model/AccountActivityItemOperation.Tests.ps1
@@ -1656,6 +1661,7 @@ tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
 tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1
 tests/Model/RequestedItemStatusProvisioningDetails.Tests.ps1
 tests/Model/RequestedItemStatusRequestState.Tests.ps1
+tests/Model/RequestedItemStatusRequestedFor.Tests.ps1
 tests/Model/RequestedItemStatusRequesterComment.Tests.ps1
 tests/Model/RequestedItemStatusSodViolationContext.Tests.ps1
 tests/Model/ReviewDecision.Tests.ps1

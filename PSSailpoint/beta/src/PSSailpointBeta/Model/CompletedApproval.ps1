@@ -29,7 +29,7 @@ No description available.
 .PARAMETER Requester
 No description available.
 .PARAMETER RequestedFor
-Identities access was requested for.
+No description available.
 .PARAMETER ReviewedBy
 No description available.
 .PARAMETER Owner
@@ -93,7 +93,7 @@ function Initialize-BetaCompletedApproval {
         [PSCustomObject]
         ${Requester},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
+        [PSCustomObject]
         ${RequestedFor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -149,14 +149,6 @@ function Initialize-BetaCompletedApproval {
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaCompletedApproval' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$RequestedFor -and $RequestedFor.length -gt 10) {
-            throw "invalid value for 'RequestedFor', number of items must be less than or equal to 10."
-        }
-
-        if (!$RequestedFor -and $RequestedFor.length -lt 1) {
-            throw "invalid value for 'RequestedFor', number of items must be greater than or equal to 1."
-        }
 
 
         $PSO = [PSCustomObject]@{

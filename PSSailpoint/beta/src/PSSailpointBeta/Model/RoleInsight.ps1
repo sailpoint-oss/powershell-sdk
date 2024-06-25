@@ -20,6 +20,8 @@ Insight id
 Total number of updates for this role
 .PARAMETER CreatedDate
 The date-time insights were last created for this role.
+.PARAMETER ModifiedDate
+The date-time insights were last modified for this role.
 .PARAMETER Role
 No description available.
 .PARAMETER Insight
@@ -42,6 +44,9 @@ function Initialize-BetaRoleInsight {
         [System.Nullable[System.DateTime]]
         ${CreatedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${ModifiedDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Role},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -58,6 +63,7 @@ function Initialize-BetaRoleInsight {
             "id" = ${Id}
             "numberOfUpdates" = ${NumberOfUpdates}
             "createdDate" = ${CreatedDate}
+            "modifiedDate" = ${ModifiedDate}
             "role" = ${Role}
             "insight" = ${Insight}
         }
@@ -96,7 +102,7 @@ function ConvertFrom-BetaJsonToRoleInsight {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleInsight
-        $AllProperties = ("id", "numberOfUpdates", "createdDate", "role", "insight")
+        $AllProperties = ("id", "numberOfUpdates", "createdDate", "modifiedDate", "role", "insight")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,6 +127,12 @@ function ConvertFrom-BetaJsonToRoleInsight {
             $CreatedDate = $JsonParameters.PSobject.Properties["createdDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modifiedDate"))) { #optional property not found
+            $ModifiedDate = $null
+        } else {
+            $ModifiedDate = $JsonParameters.PSobject.Properties["modifiedDate"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "role"))) { #optional property not found
             $Role = $null
         } else {
@@ -137,6 +149,7 @@ function ConvertFrom-BetaJsonToRoleInsight {
             "id" = ${Id}
             "numberOfUpdates" = ${NumberOfUpdates}
             "createdDate" = ${CreatedDate}
+            "modifiedDate" = ${ModifiedDate}
             "role" = ${Role}
             "insight" = ${Insight}
         }

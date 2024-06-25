@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **AccessRequestConfig** | [**RequestabilityForRole**](RequestabilityForRole.md) |  | [optional] 
 **RevocationRequestConfig** | [**RevocabilityForRole**](RevocabilityForRole.md) |  | [optional] 
 **Segments** | **String[]** | List of IDs of segments, if any, to which this Role is assigned. | [optional] 
+**Dimensional** | **Boolean** |  | [optional] 
+**DimensionRefs** | **String** |  | [optional] 
 
 ## Examples
 
@@ -37,7 +39,9 @@ $Role = Initialize-PSSailpointRole  -Id 2c918086749d78830174a1a40e121518 `
  -Requestable true `
  -AccessRequestConfig null `
  -RevocationRequestConfig null `
- -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a]
+ -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a] `
+ -Dimensional null `
+ -DimensionRefs null
 ```
 
 - Convert the resource to JSON

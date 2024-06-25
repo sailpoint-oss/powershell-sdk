@@ -5,13 +5,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | FormOwnerType value. IDENTITY FormOwnerTypeIdentity | [optional] 
 **Id** | **String** | Unique identifier of the form&#39;s owner. | [optional] 
+**Name** | **String** | Name of the form&#39;s owner. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $FormOwner = Initialize-PSSailpointBetaFormOwner  -Type IDENTITY `
- -Id 00000000-0000-0000-0000-000000000000
+ -Id 2c9180867624cbd7017642d8c8c81f67 `
+ -Name Grant Smith
 ```
 
 - Convert the resource to JSON

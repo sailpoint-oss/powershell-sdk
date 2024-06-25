@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaEventAttributes' {
     Context 'BetaEventAttributes' {
         It 'Initialize-BetaEventAttributes' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaEventAttributes -Id "TEST_VALUE" -VarFilter "TEST_VALUE"
+            #$NewObject = Initialize-BetaEventAttributes -Id "TEST_VALUE" -VarFilter "TEST_VALUE" -Description "TEST_VALUE"
             #$NewObject | Should -BeOfType EventAttributes
             #$NewObject.property | Should -Be 0
         }

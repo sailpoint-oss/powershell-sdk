@@ -34,6 +34,8 @@ The number of times this workflow has been executed.
 The number of times this workflow has failed during execution.
 .PARAMETER Created
 The date and time the workflow was created.
+.PARAMETER Modified
+The date and time the workflow was modified.
 .PARAMETER Creator
 No description available.
 .OUTPUTS
@@ -75,6 +77,9 @@ function Initialize-Workflow {
         [System.Nullable[System.DateTime]]
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Modified},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Creator}
     )
@@ -95,6 +100,7 @@ function Initialize-Workflow {
             "executionCount" = ${ExecutionCount}
             "failureCount" = ${FailureCount}
             "created" = ${Created}
+            "modified" = ${Modified}
             "creator" = ${Creator}
         }
 
@@ -132,7 +138,7 @@ function ConvertFrom-JsonToWorkflow {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Workflow
-        $AllProperties = ("name", "owner", "description", "definition", "enabled", "trigger", "id", "executionCount", "failureCount", "created", "creator")
+        $AllProperties = ("name", "owner", "description", "definition", "enabled", "trigger", "id", "executionCount", "failureCount", "created", "modified", "creator")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -199,6 +205,12 @@ function ConvertFrom-JsonToWorkflow {
             $Created = $JsonParameters.PSobject.Properties["created"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "creator"))) { #optional property not found
             $Creator = $null
         } else {
@@ -216,6 +228,7 @@ function ConvertFrom-JsonToWorkflow {
             "executionCount" = ${ExecutionCount}
             "failureCount" = ${FailureCount}
             "created" = ${Created}
+            "modified" = ${Modified}
             "creator" = ${Creator}
         }
 

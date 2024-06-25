@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaRoleInsight' {
     Context 'BetaRoleInsight' {
         It 'Initialize-BetaRoleInsight' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRoleInsight -Id "TEST_VALUE" -NumberOfUpdates "TEST_VALUE" -CreatedDate "TEST_VALUE" -Role "TEST_VALUE" -Insight "TEST_VALUE"
+            #$NewObject = Initialize-BetaRoleInsight -Id "TEST_VALUE" -NumberOfUpdates "TEST_VALUE" -CreatedDate "TEST_VALUE" -ModifiedDate "TEST_VALUE" -Role "TEST_VALUE" -Insight "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleInsight
             #$NewObject.property | Should -Be 0
         }

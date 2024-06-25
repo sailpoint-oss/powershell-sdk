@@ -46,6 +46,8 @@ No description available.
 The number of items in the work item
 .PARAMETER Errors
 No description available.
+.PARAMETER Form
+No description available.
 .OUTPUTS
 
 WorkItems<PSCustomObject>
@@ -79,18 +81,18 @@ function Initialize-BetaWorkItems {
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED", "")]
+        [ValidateSet("Finished", "Rejected", "Returned", "Expired", "Pending", "Canceled", "")]
         [PSCustomObject]
         ${State},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("UNKNOWN", "GENERIC", "CERTIFICATION", "REMEDIATION", "DELEGATION", "APPROVAL", "VIOLATIONREVIEW", "FORM", "POLICYVIOLATION", "CHALLENGE", "IMPACTANALYSIS", "SIGNOFF", "EVENT", "MANUALACTION", "TEST")]
+        [ValidateSet("Unknown", "Generic", "Certification", "Remediation", "Delegation", "Approval", "ViolationReview", "Form", "PolicyViolation", "Challenge", "ImpactAnalysis", "Signoff", "Event", "ManualAction", "Test")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${RemediationItems},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${ApprovalItems},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -103,7 +105,10 @@ function Initialize-BetaWorkItems {
         ${NumItems},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Errors}
+        ${Errors},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Form}
     )
 
     Process {
@@ -128,6 +133,7 @@ function Initialize-BetaWorkItems {
             "completed" = ${Completed}
             "numItems" = ${NumItems}
             "errors" = ${Errors}
+            "form" = ${Form}
         }
 
         return $PSO
@@ -164,7 +170,7 @@ function ConvertFrom-BetaJsonToWorkItems {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkItems
-        $AllProperties = ("id", "requesterId", "requesterDisplayName", "ownerId", "ownerName", "created", "modified", "description", "state", "type", "remediationItems", "approvalItems", "name", "completed", "numItems", "errors")
+        $AllProperties = ("id", "requesterId", "requesterDisplayName", "ownerId", "ownerName", "created", "modified", "description", "state", "type", "remediationItems", "approvalItems", "name", "completed", "numItems", "errors", "form")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -267,6 +273,12 @@ function ConvertFrom-BetaJsonToWorkItems {
             $Errors = $JsonParameters.PSobject.Properties["errors"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "form"))) { #optional property not found
+            $Form = $null
+        } else {
+            $Form = $JsonParameters.PSobject.Properties["form"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "requesterId" = ${RequesterId}
@@ -284,6 +296,7 @@ function ConvertFrom-BetaJsonToWorkItems {
             "completed" = ${Completed}
             "numItems" = ${NumItems}
             "errors" = ${Errors}
+            "form" = ${Form}
         }
 
         return $PSO

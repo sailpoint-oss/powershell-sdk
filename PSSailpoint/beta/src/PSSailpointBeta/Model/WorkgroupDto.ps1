@@ -20,6 +20,10 @@ No description available.
 Governance group name.
 .PARAMETER Description
 Governance group description.
+.PARAMETER Created
+No description available.
+.PARAMETER Modified
+No description available.
 .OUTPUTS
 
 WorkgroupDto<PSCustomObject>
@@ -36,7 +40,13 @@ function Initialize-BetaWorkgroupDto {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description}
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Created},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Modified}
     )
 
     Process {
@@ -48,6 +58,8 @@ function Initialize-BetaWorkgroupDto {
             "owner" = ${Owner}
             "name" = ${Name}
             "description" = ${Description}
+            "created" = ${Created}
+            "modified" = ${Modified}
         }
 
         return $PSO
@@ -84,7 +96,7 @@ function ConvertFrom-BetaJsonToWorkgroupDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkgroupDto
-        $AllProperties = ("owner", "id", "name", "description", "memberCount", "connectionCount")
+        $AllProperties = ("owner", "id", "name", "description", "memberCount", "connectionCount", "created", "modified")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -127,6 +139,18 @@ function ConvertFrom-BetaJsonToWorkgroupDto {
             $ConnectionCount = $JsonParameters.PSobject.Properties["connectionCount"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "owner" = ${Owner}
             "id" = ${Id}
@@ -134,6 +158,8 @@ function ConvertFrom-BetaJsonToWorkgroupDto {
             "description" = ${Description}
             "memberCount" = ${MemberCount}
             "connectionCount" = ${ConnectionCount}
+            "created" = ${Created}
+            "modified" = ${Modified}
         }
 
         return $PSO

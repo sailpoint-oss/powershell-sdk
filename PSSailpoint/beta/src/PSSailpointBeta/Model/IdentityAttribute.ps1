@@ -68,6 +68,10 @@ function Initialize-BetaIdentityAttribute {
         'Creating PSCustomObject: PSSailpointBeta => BetaIdentityAttribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
@@ -121,8 +125,12 @@ function ConvertFrom-BetaJsonToIdentityAttribute {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }

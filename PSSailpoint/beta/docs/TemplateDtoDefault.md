@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **VarFrom** | **String** | The &quot;&quot;From:&quot;&quot; address of the default template | [optional] 
 **ReplyTo** | **String** | The &quot;&quot;Reply To&quot;&quot; field of the default template | [optional] 
 **Description** | **String** | The description of the default template | [optional] 
+**SlackTemplate** | [**TemplateSlack**](TemplateSlack.md) |  | [optional] 
+**TeamsTemplate** | [**TemplateTeams**](TemplateTeams.md) |  | [optional] 
 
 ## Examples
 
@@ -29,7 +31,9 @@ $TemplateDtoDefault = Initialize-PSSailpointBetaTemplateDtoDefault  -Key cloud_m
  -Footer null `
  -VarFrom $__global.emailFromAddress `
  -ReplyTo $__global.emailFromAddress `
- -Description Daily digest - sent if number of outstanding tasks for task owner &gt; 0
+ -Description Daily digest - sent if number of outstanding tasks for task owner &gt; 0 `
+ -SlackTemplate null `
+ -TeamsTemplate null
 ```
 
 - Convert the resource to JSON

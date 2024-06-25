@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 <a id="Get-BetaCountWorkItems"></a>
 # **Get-BetaCountWorkItems**
-> WorkItemsCount[] Get-BetaCountWorkItems<br>
+> WorkItemsCount Get-BetaCountWorkItems<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 
 Count Work Items
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkItemsCount[]**](WorkItemsCount.md) (PSCustomObject)
+[**WorkItemsCount**](WorkItemsCount.md) (PSCustomObject)
 
 ### Authorization
 
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
 
 <a id="Get-BetaWorkItemsSummary"></a>
 # **Get-BetaWorkItemsSummary**
-> WorkItemsSummary[] Get-BetaWorkItemsSummary<br>
+> WorkItemsSummary Get-BetaWorkItemsSummary<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-OwnerId] <String><br>
 
 Work Items Summary
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkItemsSummary[]**](WorkItemsSummary.md) (PSCustomObject)
+[**WorkItemsSummary**](WorkItemsSummary.md) (PSCustomObject)
 
 ### Authorization
 

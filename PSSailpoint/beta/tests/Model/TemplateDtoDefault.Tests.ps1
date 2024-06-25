@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaTemplateDtoDefault' {
     Context 'BetaTemplateDtoDefault' {
         It 'Initialize-BetaTemplateDtoDefault' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaTemplateDtoDefault -Key "TEST_VALUE" -Name "TEST_VALUE" -Medium "TEST_VALUE" -Locale "TEST_VALUE" -Subject "TEST_VALUE" -Header "TEST_VALUE" -Body "TEST_VALUE" -Footer "TEST_VALUE" -VarFrom "TEST_VALUE" -ReplyTo "TEST_VALUE" -Description "TEST_VALUE"
+            #$NewObject = Initialize-BetaTemplateDtoDefault -Key "TEST_VALUE" -Name "TEST_VALUE" -Medium "TEST_VALUE" -Locale "TEST_VALUE" -Subject "TEST_VALUE" -Header "TEST_VALUE" -Body "TEST_VALUE" -Footer "TEST_VALUE" -VarFrom "TEST_VALUE" -ReplyTo "TEST_VALUE" -Description "TEST_VALUE" -SlackTemplate "TEST_VALUE" -TeamsTemplate "TEST_VALUE"
             #$NewObject | Should -BeOfType TemplateDtoDefault
             #$NewObject.property | Should -Be 0
         }

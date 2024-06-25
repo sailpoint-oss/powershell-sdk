@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** |  | [optional] 
 **Email** | **String** |  | [optional] 
+**IsVerifiedByDomain** | **Boolean** |  | [optional] 
 **VerificationStatus** | **String** |  | [optional] 
 
 ## Examples
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 ```powershell
 $EmailStatusDto = Initialize-PSSailpointBetaEmailStatusDto  -Id null `
  -Email sender@example.com `
+ -IsVerifiedByDomain false `
  -VerificationStatus null
 ```
 

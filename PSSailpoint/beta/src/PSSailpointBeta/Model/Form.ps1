@@ -50,7 +50,7 @@ function Initialize-BetaForm {
         [String]
         ${TargetUser},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${Sections}
     )
 

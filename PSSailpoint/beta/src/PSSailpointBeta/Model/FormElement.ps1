@@ -17,13 +17,13 @@ No description available.
 .PARAMETER Id
 Form element identifier.
 .PARAMETER ElementType
-FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns
+FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMN_SET FormElementTypeColumns IMAGE FormElementTypeImage DESCRIPTION FormElementTypeDescription
 .PARAMETER Config
 Config object.
 .PARAMETER Key
 Technical key.
 .PARAMETER Validations
-Set of FormElementValidation items.
+No description available.
 .OUTPUTS
 
 FormElement<PSCustomObject>
@@ -36,7 +36,7 @@ function Initialize-BetaFormElement {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("TEXT", "TOGGLE", "TEXTAREA", "HIDDEN", "PHONE", "EMAIL", "SELECT", "DATE", "SECTION", "COLUMNS")]
+        [ValidateSet("TEXT", "TOGGLE", "TEXTAREA", "HIDDEN", "PHONE", "EMAIL", "SELECT", "DATE", "SECTION", "COLUMN_SET", "IMAGE", "DESCRIPTION")]
         [String]
         ${ElementType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -46,7 +46,7 @@ function Initialize-BetaFormElement {
         [String]
         ${Key},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [PSCustomObject[]]
         ${Validations}
     )
 

@@ -18,6 +18,8 @@ No description available.
 FormOwnerType value. IDENTITY FormOwnerTypeIdentity
 .PARAMETER Id
 Unique identifier of the form's owner.
+.PARAMETER Name
+Name of the form's owner.
 .OUTPUTS
 
 FormOwner<PSCustomObject>
@@ -32,7 +34,10 @@ function Initialize-BetaFormOwner {
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id}
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name}
     )
 
     Process {
@@ -43,6 +48,7 @@ function Initialize-BetaFormOwner {
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
+            "name" = ${Name}
         }
 
         return $PSO
@@ -79,7 +85,7 @@ function ConvertFrom-BetaJsonToFormOwner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaFormOwner
-        $AllProperties = ("type", "id")
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -98,9 +104,16 @@ function ConvertFrom-BetaJsonToFormOwner {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
+            "name" = ${Name}
         }
 
         return $PSO

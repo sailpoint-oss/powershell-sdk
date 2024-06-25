@@ -32,7 +32,7 @@ function Initialize-BetaExportFormDefinitionsByTenant200ResponseInner {
         [PSCustomObject]
         ${Object},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${Self},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]

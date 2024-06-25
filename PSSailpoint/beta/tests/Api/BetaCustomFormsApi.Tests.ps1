@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpointBeta' -name 'BetaBetaCustomFormsApi' {
     Context 'New-BetaFormDefinition' {
         It 'Test New-BetaFormDefinition' {
-            #$TestResult = New-BetaFormDefinition -Body "TEST_VALUE"
+            #$TestResult = New-BetaFormDefinition -CreateFormDefinitionRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

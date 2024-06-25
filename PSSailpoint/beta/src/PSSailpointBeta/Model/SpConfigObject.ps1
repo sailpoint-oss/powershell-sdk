@@ -36,6 +36,10 @@ Pagination limit imposed by the target service for this object type.
 List of json paths within an exported object of this type that represent references that need to be resolved.
 .PARAMETER SignatureRequired
 If true, this type of object will be JWS signed and cannot be modified before import.
+.PARAMETER LegacyObject
+No description available.
+.PARAMETER OnePerTenant
+No description available.
 .OUTPUTS
 
 SpConfigObject<PSCustomObject>
@@ -76,7 +80,13 @@ function Initialize-BetaSpConfigObject {
         ${ReferenceExtractors},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${SignatureRequired} = $false
+        ${SignatureRequired} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${LegacyObject} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${OnePerTenant} = $false
     )
 
     Process {
@@ -96,6 +106,8 @@ function Initialize-BetaSpConfigObject {
             "importLimit" = ${ImportLimit}
             "referenceExtractors" = ${ReferenceExtractors}
             "signatureRequired" = ${SignatureRequired}
+            "legacyObject" = ${LegacyObject}
+            "onePerTenant" = ${OnePerTenant}
         }
 
         return $PSO
@@ -132,7 +144,7 @@ function ConvertFrom-BetaJsonToSpConfigObject {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaSpConfigObject
-        $AllProperties = ("objectType", "resolveByIdUrl", "resolveByNameUrl", "exportUrl", "exportRight", "exportLimit", "importUrl", "importRight", "importLimit", "referenceExtractors", "signatureRequired")
+        $AllProperties = ("objectType", "resolveByIdUrl", "resolveByNameUrl", "exportUrl", "exportRight", "exportLimit", "importUrl", "importRight", "importLimit", "referenceExtractors", "signatureRequired", "legacyObject", "onePerTenant")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -205,6 +217,18 @@ function ConvertFrom-BetaJsonToSpConfigObject {
             $SignatureRequired = $JsonParameters.PSobject.Properties["signatureRequired"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "legacyObject"))) { #optional property not found
+            $LegacyObject = $null
+        } else {
+            $LegacyObject = $JsonParameters.PSobject.Properties["legacyObject"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "onePerTenant"))) { #optional property not found
+            $OnePerTenant = $null
+        } else {
+            $OnePerTenant = $JsonParameters.PSobject.Properties["onePerTenant"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "objectType" = ${ObjectType}
             "resolveByIdUrl" = ${ResolveByIdUrl}
@@ -217,6 +241,8 @@ function ConvertFrom-BetaJsonToSpConfigObject {
             "importLimit" = ${ImportLimit}
             "referenceExtractors" = ${ReferenceExtractors}
             "signatureRequired" = ${SignatureRequired}
+            "legacyObject" = ${LegacyObject}
+            "onePerTenant" = ${OnePerTenant}
         }
 
         return $PSO

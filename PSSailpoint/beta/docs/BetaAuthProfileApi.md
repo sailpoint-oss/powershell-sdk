@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 
 <a id="Get-BetaProfileConfigList"></a>
 # **Get-BetaProfileConfigList**
-> AuthProfileSummary Get-BetaProfileConfigList<br>
+> AuthProfileSummary[] Get-BetaProfileConfigList<br>
 
 Get list of Auth Profiles.
 
@@ -88,7 +88,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AuthProfileSummary**](AuthProfileSummary.md) (PSCustomObject)
+[**AuthProfileSummary[]**](AuthProfileSummary.md) (PSCustomObject)
 
 ### Authorization
 

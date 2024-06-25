@@ -14,6 +14,8 @@ No summary available.
 
 No description available.
 
+.PARAMETER Description
+Description of the form field
 .PARAMETER HelpText
 Describes the form field in the UI
 .PARAMETER Label
@@ -34,6 +36,9 @@ function Initialize-BetaWorkflowLibraryFormFields {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${HelpText},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -45,8 +50,8 @@ function Initialize-BetaWorkflowLibraryFormFields {
         [System.Nullable[Boolean]]
         ${Required},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("text", "textarea", "boolean", "email", "url", "number", "json", "checkbox", "jsonpath", "select", "multiType", "duration", "toggle", "identityPicker", "governanceGroupPicker", "string", "object", "array", "secret", "keyValuePairs", "emailPicker", "advancedToggle")]
-        [PSCustomObject]
+        [ValidateSet("text", "textarea", "boolean", "email", "url", "number", "json", "checkbox", "jsonpath", "select", "multiType", "duration", "toggle", "formPicker", "identityPicker", "governanceGroupPicker", "string", "object", "array", "secret", "keyValuePairs", "emailPicker", "advancedToggle", "variableCreator", "htmlEditor")]
+        [String]
         ${Type}
     )
 
@@ -56,6 +61,7 @@ function Initialize-BetaWorkflowLibraryFormFields {
 
 
         $PSO = [PSCustomObject]@{
+            "description" = ${Description}
             "helpText" = ${HelpText}
             "label" = ${Label}
             "name" = ${Name}
@@ -97,11 +103,17 @@ function ConvertFrom-BetaJsonToWorkflowLibraryFormFields {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflowLibraryFormFields
-        $AllProperties = ("helpText", "label", "name", "required", "type")
+        $AllProperties = ("description", "helpText", "label", "name", "required", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "helpText"))) { #optional property not found
@@ -135,6 +147,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryFormFields {
         }
 
         $PSO = [PSCustomObject]@{
+            "description" = ${Description}
             "helpText" = ${HelpText}
             "label" = ${Label}
             "name" = ${Name}

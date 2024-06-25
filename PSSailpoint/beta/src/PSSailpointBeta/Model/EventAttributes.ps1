@@ -18,6 +18,8 @@ Attributes related to an IdentityNow ETS event
 The unique ID of the trigger
 .PARAMETER VarFilter
 JSON path expression that will limit which events the trigger will fire on
+.PARAMETER Description
+Description of the event trigger
 .OUTPUTS
 
 EventAttributes<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-BetaEventAttributes {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${VarFilter}
+        ${VarFilter},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description}
     )
 
     Process {
@@ -46,6 +51,7 @@ function Initialize-BetaEventAttributes {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "filter.$" = ${VarFilter}
+            "description" = ${Description}
         }
 
         return $PSO
@@ -82,7 +88,7 @@ function ConvertFrom-BetaJsonToEventAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaEventAttributes
-        $AllProperties = ("id", "filter.$")
+        $AllProperties = ("id", "filter.$", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -105,9 +111,16 @@ function ConvertFrom-BetaJsonToEventAttributes {
             $VarFilter = $JsonParameters.PSobject.Properties["filter.$"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "filter.$" = ${VarFilter}
+            "description" = ${Description}
         }
 
         return $PSO

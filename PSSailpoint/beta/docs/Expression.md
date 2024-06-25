@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Operator** | **String** | Operator for the expression | [optional] 
 **Attribute** | **String** | Name for the attribute | [optional] 
 **Value** | [**Value**](Value.md) |  | [optional] 
-**Children** | [**Value[]**](Value.md) | List of expressions | [optional] 
+**Children** | [**Children[]**](Children.md) | List of expressions | [optional] 
 
 ## Examples
 

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaWorkItems' {
     Context 'BetaWorkItems' {
         It 'Initialize-BetaWorkItems' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaWorkItems -Id "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesterDisplayName "TEST_VALUE" -OwnerId "TEST_VALUE" -OwnerName "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -State "TEST_VALUE" -Type "TEST_VALUE" -RemediationItems "TEST_VALUE" -ApprovalItems "TEST_VALUE" -Name "TEST_VALUE" -Completed "TEST_VALUE" -NumItems "TEST_VALUE" -Errors "TEST_VALUE"
+            #$NewObject = Initialize-BetaWorkItems -Id "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesterDisplayName "TEST_VALUE" -OwnerId "TEST_VALUE" -OwnerName "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -State "TEST_VALUE" -Type "TEST_VALUE" -RemediationItems "TEST_VALUE" -ApprovalItems "TEST_VALUE" -Name "TEST_VALUE" -Completed "TEST_VALUE" -NumItems "TEST_VALUE" -Errors "TEST_VALUE" -Form "TEST_VALUE"
             #$NewObject | Should -BeOfType WorkItems
             #$NewObject.property | Should -Be 0
         }

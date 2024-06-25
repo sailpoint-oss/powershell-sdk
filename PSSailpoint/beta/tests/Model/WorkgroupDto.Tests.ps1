@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaWorkgroupDto' {
     Context 'BetaWorkgroupDto' {
         It 'Initialize-BetaWorkgroupDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaWorkgroupDto -Owner "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -MemberCount "TEST_VALUE" -ConnectionCount "TEST_VALUE"
+            #$NewObject = Initialize-BetaWorkgroupDto -Owner "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -MemberCount "TEST_VALUE" -ConnectionCount "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE"
             #$NewObject | Should -BeOfType WorkgroupDto
             #$NewObject.property | Should -Be 0
         }

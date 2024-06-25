@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** | Item id | [optional] 
 **Name** | **String** | Human-readable display name of item | [optional] 
 **Requested** | **System.DateTime** | Date and time item was requested | [optional] 
-**ApprovalStatus** | [**WorkItemState**](WorkItemState.md) |  | [optional] 
+**ApprovalStatus** | [**AccountActivityApprovalStatus**](AccountActivityApprovalStatus.md) |  | [optional] 
 **ProvisioningStatus** | [**ProvisioningState**](ProvisioningState.md) |  | [optional] 
 **RequesterComment** | [**Comment**](Comment.md) |  | [optional] 
 **ReviewerIdentitySummary** | [**IdentitySummary**](IdentitySummary.md) |  | [optional] 

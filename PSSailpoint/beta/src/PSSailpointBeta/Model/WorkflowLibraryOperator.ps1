@@ -22,6 +22,14 @@ Operator friendly name
 Operator type
 .PARAMETER Description
 Description of the operator
+.PARAMETER IsDynamicSchema
+Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+.PARAMETER Deprecated
+No description available.
+.PARAMETER DeprecatedBy
+No description available.
+.PARAMETER IsSimulationEnabled
+No description available.
 .PARAMETER FormFields
 One or more inputs that the operator accepts
 .OUTPUTS
@@ -45,6 +53,18 @@ function Initialize-BetaWorkflowLibraryOperator {
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsDynamicSchema},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Deprecated},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${DeprecatedBy},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsSimulationEnabled},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${FormFields}
     )
@@ -59,6 +79,10 @@ function Initialize-BetaWorkflowLibraryOperator {
             "name" = ${Name}
             "type" = ${Type}
             "description" = ${Description}
+            "isDynamicSchema" = ${IsDynamicSchema}
+            "deprecated" = ${Deprecated}
+            "deprecatedBy" = ${DeprecatedBy}
+            "isSimulationEnabled" = ${IsSimulationEnabled}
             "formFields" = ${FormFields}
         }
 
@@ -96,7 +120,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryOperator {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflowLibraryOperator
-        $AllProperties = ("id", "name", "type", "description", "formFields")
+        $AllProperties = ("id", "name", "type", "description", "isDynamicSchema", "deprecated", "deprecatedBy", "isSimulationEnabled", "formFields")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -127,6 +151,30 @@ function ConvertFrom-BetaJsonToWorkflowLibraryOperator {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isDynamicSchema"))) { #optional property not found
+            $IsDynamicSchema = $null
+        } else {
+            $IsDynamicSchema = $JsonParameters.PSobject.Properties["isDynamicSchema"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "deprecated"))) { #optional property not found
+            $Deprecated = $null
+        } else {
+            $Deprecated = $JsonParameters.PSobject.Properties["deprecated"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "deprecatedBy"))) { #optional property not found
+            $DeprecatedBy = $null
+        } else {
+            $DeprecatedBy = $JsonParameters.PSobject.Properties["deprecatedBy"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isSimulationEnabled"))) { #optional property not found
+            $IsSimulationEnabled = $null
+        } else {
+            $IsSimulationEnabled = $JsonParameters.PSobject.Properties["isSimulationEnabled"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "formFields"))) { #optional property not found
             $FormFields = $null
         } else {
@@ -138,6 +186,10 @@ function ConvertFrom-BetaJsonToWorkflowLibraryOperator {
             "name" = ${Name}
             "type" = ${Type}
             "description" = ${Description}
+            "isDynamicSchema" = ${IsDynamicSchema}
+            "deprecated" = ${Deprecated}
+            "deprecatedBy" = ${DeprecatedBy}
+            "isSimulationEnabled" = ${IsSimulationEnabled}
             "formFields" = ${FormFields}
         }
 

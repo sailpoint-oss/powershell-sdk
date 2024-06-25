@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaRoleMiningSessionResponse' {
     Context 'BetaRoleMiningSessionResponse' {
         It 'Initialize-BetaRoleMiningSessionResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRoleMiningSessionResponse -Scope "TEST_VALUE" -MinNumIdentitiesInPotentialRole "TEST_VALUE" -PrescribedPruneThreshold "TEST_VALUE" -PruneThreshold "TEST_VALUE" -PotentialRoleCount "TEST_VALUE" -PotentialRolesReadyCount "TEST_VALUE" -Status "TEST_VALUE" -Id "TEST_VALUE" -CreatedDate "TEST_VALUE" -ModifiedDate "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-BetaRoleMiningSessionResponse -Scope "TEST_VALUE" -MinNumIdentitiesInPotentialRole "TEST_VALUE" -ScopingMethod "TEST_VALUE" -PrescribedPruneThreshold "TEST_VALUE" -PruneThreshold "TEST_VALUE" -PotentialRoleCount "TEST_VALUE" -PotentialRolesReadyCount "TEST_VALUE" -Status "TEST_VALUE" -EmailRecipientId "TEST_VALUE" -CreatedBy "TEST_VALUE" -IdentityCount "TEST_VALUE" -Saved "TEST_VALUE" -Name "TEST_VALUE" -DataFilePath "TEST_VALUE" -Id "TEST_VALUE" -CreatedDate "TEST_VALUE" -ModifiedDate "TEST_VALUE" -Type "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleMiningSessionResponse
             #$NewObject.property | Should -Be 0
         }

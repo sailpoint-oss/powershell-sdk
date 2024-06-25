@@ -14,7 +14,7 @@ Creates a form definition.
 
 No description or notes available.
 
-.PARAMETER Body
+.PARAMETER CreateFormDefinitionRequest
 Body is the request payload to create form definition request
 
 .PARAMETER WithHttpInfo
@@ -30,7 +30,7 @@ function New-BetaFormDefinition {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${Body},
+        ${CreateFormDefinitionRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -56,10 +56,10 @@ function New-BetaFormDefinition {
 
         $LocalVarUri = '/form-definitions'
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
-            $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateFormDefinitionRequest -is [array])) {
+            $LocalVarBodyParameter = $CreateFormDefinitionRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $Body | ForEach-Object {
+            $LocalVarBodyParameter = $CreateFormDefinitionRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -1380,7 +1380,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ListFormInstancesByTenantResponse
+FormInstanceResponse[]
 #>
 function Search-BetaFormInstancesByTenant {
     [CmdletBinding()]
@@ -1418,7 +1418,7 @@ function Search-BetaFormInstancesByTenant {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ListFormInstancesByTenantResponse" `
+                                -ReturnType "FormInstanceResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

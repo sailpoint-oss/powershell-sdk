@@ -26,14 +26,10 @@ Minimum number of identities in a potential role
 Number of potential roles
 .PARAMETER PotentialRolesReadyCount
 Number of potential roles ready
-.PARAMETER Status
-No description available.
 .PARAMETER Type
 No description available.
 .PARAMETER EmailRecipientId
 The id of the user who will receive an email about the role mining session
-.PARAMETER CreatedBy
-No description available.
 .PARAMETER IdentityCount
 Number of identities in the population which meet the search criteria or identity list provided
 .PARAMETER Saved
@@ -67,18 +63,12 @@ function Initialize-BetaRoleMiningSessionDto {
         [System.Nullable[Int32]]
         ${PotentialRolesReadyCount},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Status},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EmailRecipientId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${CreatedBy},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${IdentityCount},
@@ -102,10 +92,8 @@ function Initialize-BetaRoleMiningSessionDto {
             "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
             "potentialRoleCount" = ${PotentialRoleCount}
             "potentialRolesReadyCount" = ${PotentialRolesReadyCount}
-            "status" = ${Status}
             "type" = ${Type}
             "emailRecipientId" = ${EmailRecipientId}
-            "createdBy" = ${CreatedBy}
             "identityCount" = ${IdentityCount}
             "saved" = ${Saved}
             "name" = ${Name}
@@ -145,7 +133,7 @@ function ConvertFrom-BetaJsonToRoleMiningSessionDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningSessionDto
-        $AllProperties = ("scope", "pruneThreshold", "prescribedPruneThreshold", "minNumIdentitiesInPotentialRole", "potentialRoleCount", "potentialRolesReadyCount", "status", "type", "emailRecipientId", "createdBy", "identityCount", "saved", "name")
+        $AllProperties = ("scope", "pruneThreshold", "prescribedPruneThreshold", "minNumIdentitiesInPotentialRole", "potentialRoleCount", "potentialRolesReadyCount", "type", "emailRecipientId", "identityCount", "saved", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -188,12 +176,6 @@ function ConvertFrom-BetaJsonToRoleMiningSessionDto {
             $PotentialRolesReadyCount = $JsonParameters.PSobject.Properties["potentialRolesReadyCount"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
-            $Status = $null
-        } else {
-            $Status = $JsonParameters.PSobject.Properties["status"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
             $Type = $null
         } else {
@@ -204,12 +186,6 @@ function ConvertFrom-BetaJsonToRoleMiningSessionDto {
             $EmailRecipientId = $null
         } else {
             $EmailRecipientId = $JsonParameters.PSobject.Properties["emailRecipientId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdBy"))) { #optional property not found
-            $CreatedBy = $null
-        } else {
-            $CreatedBy = $JsonParameters.PSobject.Properties["createdBy"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityCount"))) { #optional property not found
@@ -237,10 +213,8 @@ function ConvertFrom-BetaJsonToRoleMiningSessionDto {
             "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
             "potentialRoleCount" = ${PotentialRoleCount}
             "potentialRolesReadyCount" = ${PotentialRolesReadyCount}
-            "status" = ${Status}
             "type" = ${Type}
             "emailRecipientId" = ${EmailRecipientId}
-            "createdBy" = ${CreatedBy}
             "identityCount" = ${IdentityCount}
             "saved" = ${Saved}
             "name" = ${Name}

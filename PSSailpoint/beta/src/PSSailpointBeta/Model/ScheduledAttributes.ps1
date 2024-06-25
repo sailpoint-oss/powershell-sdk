@@ -14,8 +14,16 @@ No summary available.
 
 Attributes related to a scheduled trigger
 
+.PARAMETER Frequency
+Frequency of execution
+.PARAMETER TimeZone
+Time zone identifier
 .PARAMETER CronString
-A valid CRON expression
+No description available.
+.PARAMETER WeeklyDays
+Scheduled days of the week for execution
+.PARAMETER WeeklyTimes
+Scheduled execution times
 .OUTPUTS
 
 ScheduledAttributes<PSCustomObject>
@@ -25,21 +33,38 @@ function Initialize-BetaScheduledAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("daily", "weekly", "monthly", "yearly", "cronSchedule")]
         [String]
-        ${CronString}
+        ${Frequency},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TimeZone},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${CronString},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${WeeklyDays},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${WeeklyTimes}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaScheduledAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$CronString) {
-            throw "invalid value for 'CronString', 'CronString' cannot be null."
+        if (!$Frequency) {
+            throw "invalid value for 'Frequency', 'Frequency' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
+            "frequency" = ${Frequency}
+            "timeZone" = ${TimeZone}
             "cronString" = ${CronString}
+            "weeklyDays" = ${WeeklyDays}
+            "weeklyTimes" = ${WeeklyTimes}
         }
 
         return $PSO
@@ -76,7 +101,7 @@ function ConvertFrom-BetaJsonToScheduledAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaScheduledAttributes
-        $AllProperties = ("cronString")
+        $AllProperties = ("frequency", "timeZone", "cronString", "weeklyDays", "weeklyTimes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -84,17 +109,45 @@ function ConvertFrom-BetaJsonToScheduledAttributes {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'cronString' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'frequency' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cronString"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'cronString' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "frequency"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'frequency' missing."
+        } else {
+            $Frequency = $JsonParameters.PSobject.Properties["frequency"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timeZone"))) { #optional property not found
+            $TimeZone = $null
+        } else {
+            $TimeZone = $JsonParameters.PSobject.Properties["timeZone"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cronString"))) { #optional property not found
+            $CronString = $null
         } else {
             $CronString = $JsonParameters.PSobject.Properties["cronString"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "weeklyDays"))) { #optional property not found
+            $WeeklyDays = $null
+        } else {
+            $WeeklyDays = $JsonParameters.PSobject.Properties["weeklyDays"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "weeklyTimes"))) { #optional property not found
+            $WeeklyTimes = $null
+        } else {
+            $WeeklyTimes = $JsonParameters.PSobject.Properties["weeklyTimes"].value
+        }
+
         $PSO = [PSCustomObject]@{
+            "frequency" = ${Frequency}
+            "timeZone" = ${TimeZone}
             "cronString" = ${CronString}
+            "weeklyDays" = ${WeeklyDays}
+            "weeklyTimes" = ${WeeklyTimes}
         }
 
         return $PSO

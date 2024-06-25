@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | The trigger type | 
+**DisplayName** | **String** |  | [optional] 
 **Attributes** | [**WorkflowTriggerAttributes**](WorkflowTriggerAttributes.md) |  | 
 
 ## Examples
@@ -11,6 +12,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $WorkflowTrigger = Initialize-PSSailpointWorkflowTrigger  -Type EVENT `
+ -DisplayName null `
  -Attributes null
 ```
 

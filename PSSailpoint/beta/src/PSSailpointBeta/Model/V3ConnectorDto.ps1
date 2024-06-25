@@ -20,6 +20,8 @@ The connector name
 The connector type
 .PARAMETER ScriptName
 The connector script name
+.PARAMETER ClassName
+The connector class name.
 .PARAMETER Features
 The list of features supported by the connector
 .PARAMETER DirectConnect
@@ -46,6 +48,9 @@ function Initialize-BetaV3ConnectorDto {
         [String]
         ${ScriptName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ClassName},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Features},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -68,6 +73,7 @@ function Initialize-BetaV3ConnectorDto {
             "name" = ${Name}
             "type" = ${Type}
             "scriptName" = ${ScriptName}
+            "className" = ${ClassName}
             "features" = ${Features}
             "directConnect" = ${DirectConnect}
             "connectorMetadata" = ${ConnectorMetadata}
@@ -108,7 +114,7 @@ function ConvertFrom-BetaJsonToV3ConnectorDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaV3ConnectorDto
-        $AllProperties = ("name", "type", "scriptName", "features", "directConnect", "connectorMetadata", "status")
+        $AllProperties = ("name", "type", "scriptName", "className", "features", "directConnect", "connectorMetadata", "status")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -131,6 +137,12 @@ function ConvertFrom-BetaJsonToV3ConnectorDto {
             $ScriptName = $null
         } else {
             $ScriptName = $JsonParameters.PSobject.Properties["scriptName"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "className"))) { #optional property not found
+            $ClassName = $null
+        } else {
+            $ClassName = $JsonParameters.PSobject.Properties["className"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "features"))) { #optional property not found
@@ -161,6 +173,7 @@ function ConvertFrom-BetaJsonToV3ConnectorDto {
             "name" = ${Name}
             "type" = ${Type}
             "scriptName" = ${ScriptName}
+            "className" = ${ClassName}
             "features" = ${Features}
             "directConnect" = ${DirectConnect}
             "connectorMetadata" = ${ConnectorMetadata}

@@ -28,6 +28,10 @@ Enable or disable the workflow.  Workflows cannot be created in an enabled state
 No description available.
 .PARAMETER Id
 Workflow ID. This is a UUID generated upon creation.
+.PARAMETER Modified
+The date and time the workflow was modified.
+.PARAMETER ModifiedBy
+No description available.
 .PARAMETER ExecutionCount
 The number of times this workflow has been executed.
 .PARAMETER FailureCount
@@ -66,6 +70,12 @@ function Initialize-BetaWorkflow {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Modified},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ModifiedBy},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${ExecutionCount},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -92,6 +102,8 @@ function Initialize-BetaWorkflow {
             "enabled" = ${Enabled}
             "trigger" = ${Trigger}
             "id" = ${Id}
+            "modified" = ${Modified}
+            "modifiedBy" = ${ModifiedBy}
             "executionCount" = ${ExecutionCount}
             "failureCount" = ${FailureCount}
             "created" = ${Created}
@@ -132,7 +144,7 @@ function ConvertFrom-BetaJsonToWorkflow {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflow
-        $AllProperties = ("name", "owner", "description", "definition", "enabled", "trigger", "id", "executionCount", "failureCount", "created", "creator")
+        $AllProperties = ("name", "owner", "description", "definition", "enabled", "trigger", "id", "modified", "modifiedBy", "executionCount", "failureCount", "created", "creator")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -181,6 +193,18 @@ function ConvertFrom-BetaJsonToWorkflow {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modifiedBy"))) { #optional property not found
+            $ModifiedBy = $null
+        } else {
+            $ModifiedBy = $JsonParameters.PSobject.Properties["modifiedBy"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "executionCount"))) { #optional property not found
             $ExecutionCount = $null
         } else {
@@ -213,6 +237,8 @@ function ConvertFrom-BetaJsonToWorkflow {
             "enabled" = ${Enabled}
             "trigger" = ${Trigger}
             "id" = ${Id}
+            "modified" = ${Modified}
+            "modifiedBy" = ${ModifiedBy}
             "executionCount" = ${ExecutionCount}
             "failureCount" = ${FailureCount}
             "created" = ${Created}

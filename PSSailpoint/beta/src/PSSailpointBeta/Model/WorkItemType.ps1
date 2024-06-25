@@ -16,35 +16,35 @@ The type of the work item
 #>
 
 enum WorkItemType {
-    # enum value: "UNKNOWN"
-    UNKNOWN
-    # enum value: "GENERIC"
-    GENERIC
-    # enum value: "CERTIFICATION"
-    CERTIFICATION
-    # enum value: "REMEDIATION"
-    REMEDIATION
-    # enum value: "DELEGATION"
-    DELEGATION
-    # enum value: "APPROVAL"
-    APPROVAL
-    # enum value: "VIOLATIONREVIEW"
-    VIOLATIONREVIEW
-    # enum value: "FORM"
-    FORM
-    # enum value: "POLICYVIOLATION"
-    POLICYVIOLATION
-    # enum value: "CHALLENGE"
-    CHALLENGE
-    # enum value: "IMPACTANALYSIS"
-    IMPACTANALYSIS
-    # enum value: "SIGNOFF"
-    SIGNOFF
-    # enum value: "EVENT"
-    EVENT
-    # enum value: "MANUALACTION"
-    MANUALACTION
-    # enum value: "TEST"
-    TEST
+    # enum value: "Unknown"
+    Unknown
+    # enum value: "Generic"
+    Generic
+    # enum value: "Certification"
+    Certification
+    # enum value: "Remediation"
+    Remediation
+    # enum value: "Delegation"
+    Delegation
+    # enum value: "Approval"
+    Approval
+    # enum value: "ViolationReview"
+    ViolationReview
+    # enum value: "Form"
+    Form
+    # enum value: "PolicyViolation"
+    PolicyViolation
+    # enum value: "Challenge"
+    Challenge
+    # enum value: "ImpactAnalysis"
+    ImpactAnalysis
+    # enum value: "Signoff"
+    Signoff
+    # enum value: "Event"
+    Event
+    # enum value: "ManualAction"
+    ManualAction
+    # enum value: "Test"
+    Test
 }
 

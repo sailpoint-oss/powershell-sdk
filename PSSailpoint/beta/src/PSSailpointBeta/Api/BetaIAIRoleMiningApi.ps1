@@ -1941,7 +1941,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-RoleMiningSessionDto[]
+RoleMiningSessionResponse[]
 #>
 function Get-BetaRoleMiningSessions {
     [CmdletBinding()]
@@ -2014,7 +2014,7 @@ function Get-BetaRoleMiningSessions {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RoleMiningSessionDto[]" `
+                                -ReturnType "RoleMiningSessionResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

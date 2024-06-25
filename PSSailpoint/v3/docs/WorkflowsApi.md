@@ -152,7 +152,7 @@ $WorkflowBodyOwner = Initialize-WorkflowBodyOwner -Type "IDENTITY" -Id "2c918085
 $WorkflowDefinition = Initialize-WorkflowDefinition -Start "Send Email Test" -Steps @{ key_example =  }
 
 $WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes -Id "idn:identity-attributes-changed" -VarFilter "$.changes[?(@.attribute == 'manager')]" -Name "search-and-notify" -Description "Run a search and notify the results" -CronString "0 * */3 */5 *"
-$WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -Attributes $WorkflowTriggerAttributes
+$WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -DisplayName "MyDisplayName" -Attributes $WorkflowTriggerAttributes
 
 $CreateWorkflowRequest = Initialize-CreateWorkflowRequest -Name "Send Email" -Owner $WorkflowBodyOwner -Description "Send an email to the identity who's attributes changed." -Definition $WorkflowDefinition -Enabled $false -Trigger $WorkflowTrigger # CreateWorkflowRequest | 
 
@@ -844,7 +844,7 @@ $WorkflowBodyOwner = Initialize-WorkflowBodyOwner -Type "IDENTITY" -Id "2c918085
 $WorkflowDefinition = Initialize-WorkflowDefinition -Start "Send Email Test" -Steps @{ key_example =  }
 
 $WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes -Id "idn:identity-attributes-changed" -VarFilter "$.changes[?(@.attribute == 'manager')]" -Name "search-and-notify" -Description "Run a search and notify the results" -CronString "0 * */3 */5 *"
-$WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -Attributes $WorkflowTriggerAttributes
+$WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -DisplayName "MyDisplayName" -Attributes $WorkflowTriggerAttributes
 
 $WorkflowBody = Initialize-WorkflowBody -Name "Send Email" -Owner $WorkflowBodyOwner -Description "Send an email to the identity who's attributes changed." -Definition $WorkflowDefinition -Enabled $false -Trigger $WorkflowTrigger # WorkflowBody | 
 

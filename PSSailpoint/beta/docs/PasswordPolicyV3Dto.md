@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **String** | The password policy Id. | [optional] 
 **Description** | **String** | Description for current password policy. | [optional] 
 **Name** | **String** | The name of the password policy. | [optional] 
-**DateCrated** | **System.DateTime** | Date the Password Policy was created. | [optional] 
+**DateCreated** | **System.DateTime** | Date the Password Policy was created. | [optional] 
 **LastUpdated** | **System.DateTime** | Date the Password Policy was updated. | [optional] 
 **FirstExpirationReminder** | **Int64** | The number of days before expiration remaninder. | [optional] 
 **AccountIdMinWordLength** | **Int64** | The minimun length of account Id. By default is equals to -1. | [optional] 
@@ -31,6 +31,8 @@ Name | Type | Description | Notes
 **UseIdentityAttributes** | **Boolean** | Defines whether this policy uses identity attributes or not. This field is false by default. | [optional] [default to $false]
 **ValidateAgainstAccountId** | **Boolean** | Defines whether this policy validate against account id or not. This field is false by default. | [optional] [default to $false]
 **ValidateAgainstAccountName** | **Boolean** | Defines whether this policy validate against account name or not. This field is false by default. | [optional] [default to $false]
+**Created** | **String** |  | [optional] 
+**Modified** | **String** |  | [optional] 
 **SourceIds** | **String[]** | List of sources IDs managed by this password policy. | [optional] 
 
 ## Examples
@@ -40,7 +42,7 @@ Name | Type | Description | Notes
 $PasswordPolicyV3Dto = Initialize-PSSailpointBetaPasswordPolicyV3Dto  -Id 2c91808e7d976f3b017d9f5ceae440c8 `
  -Description Information about the Password Policy `
  -Name PasswordPolicy Example `
- -DateCrated null `
+ -DateCreated null `
  -LastUpdated null `
  -FirstExpirationReminder 45 `
  -AccountIdMinWordLength 4 `
@@ -65,6 +67,8 @@ $PasswordPolicyV3Dto = Initialize-PSSailpointBetaPasswordPolicyV3Dto  -Id 2c9180
  -UseIdentityAttributes false `
  -ValidateAgainstAccountId false `
  -ValidateAgainstAccountName true `
+ -Created null `
+ -Modified null `
  -SourceIds [2c91808382ffee0b01830de154f14034, 2f98808382ffee0b01830de154f12134]
 ```
 

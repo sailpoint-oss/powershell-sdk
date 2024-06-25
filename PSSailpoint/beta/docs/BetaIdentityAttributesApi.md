@@ -32,7 +32,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Source1 = Initialize-Source1 -Type "rule" -Properties 
-$IdentityAttribute = Initialize-IdentityAttribute -Name "Identity Attribute Name" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
+$IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
 
 # Create Identity Attribute
 try {
@@ -299,7 +299,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "displayName" # String | The attribute's technical name.
 $Source1 = Initialize-Source1 -Type "rule" -Properties 
-$IdentityAttribute = Initialize-IdentityAttribute -Name "Identity Attribute Name" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
+$IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
 
 # Update Identity Attribute
 try {

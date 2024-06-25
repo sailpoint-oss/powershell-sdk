@@ -24,6 +24,16 @@ Action type
 Action Description
 .PARAMETER FormFields
 One or more inputs that the action accepts
+.PARAMETER ExampleOutput
+No description available.
+.PARAMETER Deprecated
+No description available.
+.PARAMETER DeprecatedBy
+No description available.
+.PARAMETER VersionNumber
+Version number
+.PARAMETER IsSimulationEnabled
+No description available.
 .PARAMETER IsDynamicSchema
 Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
 .PARAMETER OutputSchema
@@ -52,6 +62,21 @@ function Initialize-BetaWorkflowLibraryAction {
         [PSCustomObject[]]
         ${FormFields},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ExampleOutput},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Deprecated},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${DeprecatedBy},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${VersionNumber},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsSimulationEnabled},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsDynamicSchema},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -70,6 +95,11 @@ function Initialize-BetaWorkflowLibraryAction {
             "type" = ${Type}
             "description" = ${Description}
             "formFields" = ${FormFields}
+            "exampleOutput" = ${ExampleOutput}
+            "deprecated" = ${Deprecated}
+            "deprecatedBy" = ${DeprecatedBy}
+            "versionNumber" = ${VersionNumber}
+            "isSimulationEnabled" = ${IsSimulationEnabled}
             "isDynamicSchema" = ${IsDynamicSchema}
             "outputSchema" = ${OutputSchema}
         }
@@ -108,7 +138,7 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaWorkflowLibraryAction
-        $AllProperties = ("id", "name", "type", "description", "formFields", "isDynamicSchema", "outputSchema")
+        $AllProperties = ("id", "name", "type", "description", "formFields", "exampleOutput", "deprecated", "deprecatedBy", "versionNumber", "isSimulationEnabled", "isDynamicSchema", "outputSchema")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -145,6 +175,36 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
             $FormFields = $JsonParameters.PSobject.Properties["formFields"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "exampleOutput"))) { #optional property not found
+            $ExampleOutput = $null
+        } else {
+            $ExampleOutput = $JsonParameters.PSobject.Properties["exampleOutput"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "deprecated"))) { #optional property not found
+            $Deprecated = $null
+        } else {
+            $Deprecated = $JsonParameters.PSobject.Properties["deprecated"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "deprecatedBy"))) { #optional property not found
+            $DeprecatedBy = $null
+        } else {
+            $DeprecatedBy = $JsonParameters.PSobject.Properties["deprecatedBy"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "versionNumber"))) { #optional property not found
+            $VersionNumber = $null
+        } else {
+            $VersionNumber = $JsonParameters.PSobject.Properties["versionNumber"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isSimulationEnabled"))) { #optional property not found
+            $IsSimulationEnabled = $null
+        } else {
+            $IsSimulationEnabled = $JsonParameters.PSobject.Properties["isSimulationEnabled"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "isDynamicSchema"))) { #optional property not found
             $IsDynamicSchema = $null
         } else {
@@ -163,6 +223,11 @@ function ConvertFrom-BetaJsonToWorkflowLibraryAction {
             "type" = ${Type}
             "description" = ${Description}
             "formFields" = ${FormFields}
+            "exampleOutput" = ${ExampleOutput}
+            "deprecated" = ${Deprecated}
+            "deprecatedBy" = ${DeprecatedBy}
+            "versionNumber" = ${VersionNumber}
+            "isSimulationEnabled" = ${IsSimulationEnabled}
             "isDynamicSchema" = ${IsDynamicSchema}
             "outputSchema" = ${OutputSchema}
         }

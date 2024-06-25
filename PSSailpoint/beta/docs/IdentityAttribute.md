@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** | Identity attribute&#39;s technical name. | [optional] 
+**Name** | **String** | Identity attribute&#39;s technical name. | 
 **DisplayName** | **String** | Identity attribute&#39;s business-friendly name. | [optional] 
 **Standard** | **Boolean** | Indicates whether the attribute is &#39;standard&#39; or &#39;default&#39;. | [optional] [default to $false]
 **Type** | **String** | Identity attribute&#39;s type. | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttribute = Initialize-PSSailpointBetaIdentityAttribute  -Name Identity Attribute Name `
+$IdentityAttribute = Initialize-PSSailpointBetaIdentityAttribute  -Name uid `
  -DisplayName Identity Security Cloud Username `
  -Standard true `
  -Type string `

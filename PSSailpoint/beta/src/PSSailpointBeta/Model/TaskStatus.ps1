@@ -26,6 +26,8 @@ Description of the task this TaskStatus represents
 Name of the parent of the task this TaskStatus represents
 .PARAMETER Launcher
 Service to execute the task this TaskStatus represents
+.PARAMETER Target
+No description available.
 .PARAMETER Created
 Creation date of the task this TaskStatus represents
 .PARAMETER Modified
@@ -46,6 +48,8 @@ Attributes of the task this TaskStatus represents
 Current progress of the task this TaskStatus represents
 .PARAMETER PercentComplete
 Current percentage completion of the task this TaskStatus represents
+.PARAMETER TaskDefinitionSummary
+No description available.
 .OUTPUTS
 
 TaskStatus<PSCustomObject>
@@ -74,19 +78,22 @@ function Initialize-BetaTaskStatus {
         [String]
         ${Launcher},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Target},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
         ${Modified},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
+        [System.Nullable[System.DateTime]]
         ${Launched},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
+        [System.Nullable[System.DateTime]]
         ${Completed},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Success", "Warning", "Error", "Terminated", "TempError")]
+        [ValidateSet("SUCCESS", "WARNING", "ERROR", "TERMINATED", "TEMPERROR", "")]
         [String]
         ${CompletionStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -103,7 +110,10 @@ function Initialize-BetaTaskStatus {
         ${Progress},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
-        ${PercentComplete}
+        ${PercentComplete},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${TaskDefinitionSummary}
     )
 
     Process {
@@ -126,10 +136,6 @@ function Initialize-BetaTaskStatus {
             throw "invalid value for 'Description', 'Description' cannot be null."
         }
 
-        if (!$ParentName) {
-            throw "invalid value for 'ParentName', 'ParentName' cannot be null."
-        }
-
         if (!$Launcher) {
             throw "invalid value for 'Launcher', 'Launcher' cannot be null."
         }
@@ -140,18 +146,6 @@ function Initialize-BetaTaskStatus {
 
         if (!$Modified) {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
-        }
-
-        if (!$Launched) {
-            throw "invalid value for 'Launched', 'Launched' cannot be null."
-        }
-
-        if (!$Completed) {
-            throw "invalid value for 'Completed', 'Completed' cannot be null."
-        }
-
-        if (!$CompletionStatus) {
-            throw "invalid value for 'CompletionStatus', 'CompletionStatus' cannot be null."
         }
 
         if (!$Messages) {
@@ -166,10 +160,6 @@ function Initialize-BetaTaskStatus {
             throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
-        if (!$Progress) {
-            throw "invalid value for 'Progress', 'Progress' cannot be null."
-        }
-
         if (!$PercentComplete) {
             throw "invalid value for 'PercentComplete', 'PercentComplete' cannot be null."
         }
@@ -182,6 +172,7 @@ function Initialize-BetaTaskStatus {
             "description" = ${Description}
             "parentName" = ${ParentName}
             "launcher" = ${Launcher}
+            "target" = ${Target}
             "created" = ${Created}
             "modified" = ${Modified}
             "launched" = ${Launched}
@@ -192,6 +183,7 @@ function Initialize-BetaTaskStatus {
             "attributes" = ${Attributes}
             "progress" = ${Progress}
             "percentComplete" = ${PercentComplete}
+            "taskDefinitionSummary" = ${TaskDefinitionSummary}
         }
 
         return $PSO
@@ -228,7 +220,7 @@ function ConvertFrom-BetaJsonToTaskStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaTaskStatus
-        $AllProperties = ("id", "type", "uniqueName", "description", "parentName", "launcher", "created", "modified", "launched", "completed", "completionStatus", "messages", "returns", "attributes", "progress", "percentComplete")
+        $AllProperties = ("id", "type", "uniqueName", "description", "parentName", "launcher", "target", "created", "modified", "launched", "completed", "completionStatus", "messages", "returns", "attributes", "progress", "percentComplete", "taskDefinitionSummary")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -335,6 +327,18 @@ function ConvertFrom-BetaJsonToTaskStatus {
             $PercentComplete = $JsonParameters.PSobject.Properties["percentComplete"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "target"))) { #optional property not found
+            $Target = $null
+        } else {
+            $Target = $JsonParameters.PSobject.Properties["target"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "taskDefinitionSummary"))) { #optional property not found
+            $TaskDefinitionSummary = $null
+        } else {
+            $TaskDefinitionSummary = $JsonParameters.PSobject.Properties["taskDefinitionSummary"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "type" = ${Type}
@@ -342,6 +346,7 @@ function ConvertFrom-BetaJsonToTaskStatus {
             "description" = ${Description}
             "parentName" = ${ParentName}
             "launcher" = ${Launcher}
+            "target" = ${Target}
             "created" = ${Created}
             "modified" = ${Modified}
             "launched" = ${Launched}
@@ -352,6 +357,7 @@ function ConvertFrom-BetaJsonToTaskStatus {
             "attributes" = ${Attributes}
             "progress" = ${Progress}
             "percentComplete" = ${PercentComplete}
+            "taskDefinitionSummary" = ${TaskDefinitionSummary}
         }
 
         return $PSO

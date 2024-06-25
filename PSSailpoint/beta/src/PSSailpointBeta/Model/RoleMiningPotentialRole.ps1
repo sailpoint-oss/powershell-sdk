@@ -46,6 +46,12 @@ The potential role's saved status.
 No description available.
 .PARAMETER Type
 No description available.
+.PARAMETER Id
+Id of the potential role
+.PARAMETER CreatedDate
+The date-time when this potential role was created.
+.PARAMETER ModifiedDate
+The date-time when this potential role was modified.
 .OUTPUTS
 
 RoleMiningPotentialRole<PSCustomObject>
@@ -103,7 +109,16 @@ function Initialize-BetaRoleMiningPotentialRole {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("SPECIALIZED", "COMMON")]
         [PSCustomObject]
-        ${Type}
+        ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${CreatedDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${ModifiedDate}
     )
 
     Process {
@@ -128,6 +143,9 @@ function Initialize-BetaRoleMiningPotentialRole {
             "saved" = ${Saved}
             "session" = ${Session}
             "type" = ${Type}
+            "id" = ${Id}
+            "createdDate" = ${CreatedDate}
+            "modifiedDate" = ${ModifiedDate}
         }
 
         return $PSO
@@ -164,7 +182,7 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningPotentialRole
-        $AllProperties = ("createdBy", "density", "description", "entitlementCount", "excludedEntitlements", "freshness", "identityCount", "identityDistribution", "identityIds", "name", "provisionState", "quality", "roleId", "saved", "session", "type")
+        $AllProperties = ("createdBy", "density", "description", "entitlementCount", "excludedEntitlements", "freshness", "identityCount", "identityDistribution", "identityIds", "name", "provisionState", "quality", "roleId", "saved", "session", "type", "id", "createdDate", "modifiedDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -267,6 +285,24 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdDate"))) { #optional property not found
+            $CreatedDate = $null
+        } else {
+            $CreatedDate = $JsonParameters.PSobject.Properties["createdDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modifiedDate"))) { #optional property not found
+            $ModifiedDate = $null
+        } else {
+            $ModifiedDate = $JsonParameters.PSobject.Properties["modifiedDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "createdBy" = ${CreatedBy}
             "density" = ${Density}
@@ -284,6 +320,9 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
             "saved" = ${Saved}
             "session" = ${Session}
             "type" = ${Type}
+            "id" = ${Id}
+            "createdDate" = ${CreatedDate}
+            "modifiedDate" = ${ModifiedDate}
         }
 
         return $PSO

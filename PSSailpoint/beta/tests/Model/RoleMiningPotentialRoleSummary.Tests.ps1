@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaRoleMiningPotentialRoleSummary' {
     Context 'BetaRoleMiningPotentialRoleSummary' {
         It 'Initialize-BetaRoleMiningPotentialRoleSummary' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRoleMiningPotentialRoleSummary -Id "TEST_VALUE" -Name "TEST_VALUE" -PotentialRoleRef "TEST_VALUE" -IdentityCount "TEST_VALUE" -EntitlementCount "TEST_VALUE" -IdentityGroupStatus "TEST_VALUE" -ProvisionState "TEST_VALUE" -RoleId "TEST_VALUE" -Density "TEST_VALUE" -Freshness "TEST_VALUE" -Quality "TEST_VALUE" -Type "TEST_VALUE" -Session "TEST_VALUE"
+            #$NewObject = Initialize-BetaRoleMiningPotentialRoleSummary -Id "TEST_VALUE" -Name "TEST_VALUE" -PotentialRoleRef "TEST_VALUE" -IdentityCount "TEST_VALUE" -EntitlementCount "TEST_VALUE" -IdentityGroupStatus "TEST_VALUE" -ProvisionState "TEST_VALUE" -RoleId "TEST_VALUE" -Density "TEST_VALUE" -Freshness "TEST_VALUE" -Quality "TEST_VALUE" -Type "TEST_VALUE" -CreatedBy "TEST_VALUE" -CreatedDate "TEST_VALUE" -Saved "TEST_VALUE" -Description "TEST_VALUE" -Session "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleMiningPotentialRoleSummary
             #$NewObject.property | Should -Be 0
         }

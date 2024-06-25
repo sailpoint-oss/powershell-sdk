@@ -15,6 +15,10 @@ Name | Type | Description | Notes
 **Freshness** | **Int32** | The freshness metric (0-100) of this potential role. Higher freshness values indicate this potential role is more distinctive compared to existing roles. | [optional] 
 **Quality** | **Int32** | The quality metric (0-100) of this potential role. Higher quality values indicate this potential role has high density and freshness. | [optional] 
 **Type** | [**RoleMiningRoleType**](RoleMiningRoleType.md) |  | [optional] 
+**CreatedBy** | [**RoleMiningPotentialRoleSummaryCreatedBy**](RoleMiningPotentialRoleSummaryCreatedBy.md) |  | [optional] 
+**CreatedDate** | **System.DateTime** | The date-time when this potential role was created. | [optional] 
+**Saved** | **Boolean** | The potential role&#39;s saved status | [optional] [default to $false]
+**Description** | **String** | Description of the potential role | [optional] 
 **Session** | [**RoleMiningSessionParametersDto**](RoleMiningSessionParametersDto.md) |  | [optional] 
 
 ## Examples
@@ -33,6 +37,10 @@ $RoleMiningPotentialRoleSummary = Initialize-PSSailpointBetaRoleMiningPotentialR
  -Freshness 70 `
  -Quality 80 `
  -Type null `
+ -CreatedBy null `
+ -CreatedDate null `
+ -Saved true `
+ -Description null `
  -Session null
 ```
 

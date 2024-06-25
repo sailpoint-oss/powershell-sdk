@@ -3,13 +3,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CronString** | **String** | A valid CRON expression | 
+**Frequency** | **String** | Frequency of execution | 
+**TimeZone** | **String** | Time zone identifier | [optional] 
+**CronString** | **String** |  | [optional] 
+**WeeklyDays** | **String[]** | Scheduled days of the week for execution | [optional] 
+**WeeklyTimes** | **String[]** | Scheduled execution times | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ScheduledAttributes = Initialize-PSSailpointBetaScheduledAttributes  -CronString 0 * */3 */5 *
+$ScheduledAttributes = Initialize-PSSailpointBetaScheduledAttributes  -Frequency null `
+ -TimeZone America/Chicago `
+ -CronString 0 9 * * 1 `
+ -WeeklyDays Monday `
+ -WeeklyTimes Monday
 ```
 
 - Convert the resource to JSON

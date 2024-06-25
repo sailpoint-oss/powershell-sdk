@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **IdentitiesWithAccess** | **Int32** | The number of identities in this role with the entitlement. | [optional] 
 **IdentitiesImpacted** | **Int32** | The number of identities in this role that do not have the specified entitlement. | [optional] 
 **TotalNumberOfIdentities** | **Int32** | The total number of identities. | [optional] 
+**ImpactedIdentityNames** | **String** |  | [optional] 
 
 ## Examples
 
@@ -15,7 +16,8 @@ Name | Type | Description | Notes
 $RoleInsightsInsight = Initialize-PSSailpointBetaRoleInsightsInsight  -Type ADD `
  -IdentitiesWithAccess 850 `
  -IdentitiesImpacted 150 `
- -TotalNumberOfIdentities 1000
+ -TotalNumberOfIdentities 1000 `
+ -ImpactedIdentityNames null
 ```
 
 - Convert the resource to JSON

@@ -104,10 +104,6 @@ function Initialize-BetaSubscription {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if (!$ResponseDeadline) {
-            throw "invalid value for 'ResponseDeadline', 'ResponseDeadline' cannot be null."
-        }
-
         if (!$Enabled) {
             throw "invalid value for 'Enabled', 'Enabled' cannot be null."
         }
@@ -202,12 +198,6 @@ function ConvertFrom-BetaJsonToSubscription {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "responseDeadline"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'responseDeadline' missing."
-        } else {
-            $ResponseDeadline = $JsonParameters.PSobject.Properties["responseDeadline"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "enabled"))) {
             throw "Error! JSON cannot be serialized due to the required property 'enabled' missing."
         } else {
@@ -218,6 +208,12 @@ function ConvertFrom-BetaJsonToSubscription {
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "responseDeadline"))) { #optional property not found
+            $ResponseDeadline = $null
+        } else {
+            $ResponseDeadline = $JsonParameters.PSobject.Properties["responseDeadline"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "httpConfig"))) { #optional property not found

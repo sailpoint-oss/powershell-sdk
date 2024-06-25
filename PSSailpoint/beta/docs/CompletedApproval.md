@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **RequestCreated** | **System.DateTime** | When the access-request was created. | [optional] 
 **RequestType** | [**AccessRequestType**](AccessRequestType.md) |  | [optional] 
 **Requester** | [**AccessItemRequesterDto**](AccessItemRequesterDto.md) |  | [optional] 
-**RequestedFor** | [**AccessItemRequestedForDto[]**](AccessItemRequestedForDto.md) | Identities access was requested for. | [optional] 
+**RequestedFor** | [**RequestedItemStatusRequestedFor**](RequestedItemStatusRequestedFor.md) |  | [optional] 
 **ReviewedBy** | [**CompletedApprovalReviewedBy**](CompletedApprovalReviewedBy.md) |  | [optional] 
 **Owner** | [**AccessItemOwnerDto**](AccessItemOwnerDto.md) |  | [optional] 
 **RequestedObject** | [**RequestableObjectReference**](RequestableObjectReference.md) |  | [optional] 

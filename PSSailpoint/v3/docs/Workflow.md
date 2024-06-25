@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ExecutionCount** | **Int32** | The number of times this workflow has been executed. | [optional] 
 **FailureCount** | **Int32** | The number of times this workflow has failed during execution. | [optional] 
 **Created** | **System.DateTime** | The date and time the workflow was created. | [optional] 
+**Modified** | **System.DateTime** | The date and time the workflow was modified. | [optional] 
 **Creator** | [**WorkflowAllOfCreator**](WorkflowAllOfCreator.md) |  | [optional] 
 
 ## Examples
@@ -29,6 +30,7 @@ $Workflow = Initialize-PSSailpointWorkflow  -Name Send Email `
  -ExecutionCount 2 `
  -FailureCount 0 `
  -Created 2022-01-10T16:06:16.636381447Z `
+ -Modified 2023-12-05T15:18:27.699132301Z `
  -Creator null
 ```
 

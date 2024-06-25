@@ -9,10 +9,8 @@ Name | Type | Description | Notes
 **MinNumIdentitiesInPotentialRole** | **Int32** | Minimum number of identities in a potential role | [optional] 
 **PotentialRoleCount** | **Int32** | Number of potential roles | [optional] 
 **PotentialRolesReadyCount** | **Int32** | Number of potential roles ready | [optional] 
-**Status** | [**RoleMiningSessionStatus**](RoleMiningSessionStatus.md) |  | [optional] 
 **Type** | [**RoleMiningRoleType**](RoleMiningRoleType.md) |  | [optional] 
 **EmailRecipientId** | **String** | The id of the user who will receive an email about the role mining session | [optional] 
-**CreatedBy** | [**RoleMiningSessionDtoCreatedBy**](RoleMiningSessionDtoCreatedBy.md) |  | [optional] 
 **IdentityCount** | **Int32** | Number of identities in the population which meet the search criteria or identity list provided | [optional] 
 **Saved** | **Boolean** | The session&#39;s saved status | [optional] [default to $false]
 **Name** | **String** | The session&#39;s saved name | [optional] 
@@ -22,15 +20,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RoleMiningSessionDto = Initialize-PSSailpointBetaRoleMiningSessionDto  -Scope null `
- -PruneThreshold 5 `
+ -PruneThreshold 50 `
  -PrescribedPruneThreshold 10 `
  -MinNumIdentitiesInPotentialRole 20 `
  -PotentialRoleCount 0 `
  -PotentialRolesReadyCount 0 `
- -Status null `
  -Type null `
  -EmailRecipientId 2c918090761a5aac0176215c46a62d58 `
- -CreatedBy null `
  -IdentityCount 0 `
  -Saved true `
  -Name Saved RM Session - 07/10

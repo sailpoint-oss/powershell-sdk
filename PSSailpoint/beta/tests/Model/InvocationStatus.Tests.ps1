@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaInvocationStatus' {
     Context 'BetaInvocationStatus' {
         It 'Initialize-BetaInvocationStatus' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaInvocationStatus -Id "TEST_VALUE" -TriggerId "TEST_VALUE" -SubscriptionId "TEST_VALUE" -Type "TEST_VALUE" -Created "TEST_VALUE" -Completed "TEST_VALUE" -StartInvocationInput "TEST_VALUE" -CompleteInvocationInput "TEST_VALUE"
+            #$NewObject = Initialize-BetaInvocationStatus -Id "TEST_VALUE" -TriggerId "TEST_VALUE" -SubscriptionName "TEST_VALUE" -SubscriptionId "TEST_VALUE" -Type "TEST_VALUE" -Created "TEST_VALUE" -Completed "TEST_VALUE" -StartInvocationInput "TEST_VALUE" -CompleteInvocationInput "TEST_VALUE"
             #$NewObject | Should -BeOfType InvocationStatus
             #$NewObject.property | Should -Be 0
         }

@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Invocation ID | 
 **TriggerId** | **String** | Trigger ID | 
+**SubscriptionName** | **String** | Subscription name | 
 **SubscriptionId** | **String** | Subscription ID | 
 **Type** | [**InvocationStatusType**](InvocationStatusType.md) |  | 
 **Created** | **System.DateTime** | Invocation created timestamp. ISO-8601 in UTC. | 
@@ -17,7 +18,8 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $InvocationStatus = Initialize-PSSailpointBetaInvocationStatus  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
- -TriggerId idn:access-requested `
+ -TriggerId idn:access-request-post-approval `
+ -SubscriptionName Access request subscription `
  -SubscriptionId 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Type null `
  -Created 2020-03-27T20:40:10.738Z `

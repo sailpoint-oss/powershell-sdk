@@ -22,6 +22,8 @@ The number of identities in this role with the entitlement.
 The number of identities in this role that do not have the specified entitlement.
 .PARAMETER TotalNumberOfIdentities
 The total number of identities.
+.PARAMETER ImpactedIdentityNames
+No description available.
 .OUTPUTS
 
 RoleInsightsInsight<PSCustomObject>
@@ -41,7 +43,10 @@ function Initialize-BetaRoleInsightsInsight {
         ${IdentitiesImpacted},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${TotalNumberOfIdentities}
+        ${TotalNumberOfIdentities},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ImpactedIdentityNames}
     )
 
     Process {
@@ -54,6 +59,7 @@ function Initialize-BetaRoleInsightsInsight {
             "identitiesWithAccess" = ${IdentitiesWithAccess}
             "identitiesImpacted" = ${IdentitiesImpacted}
             "totalNumberOfIdentities" = ${TotalNumberOfIdentities}
+            "impactedIdentityNames" = ${ImpactedIdentityNames}
         }
 
         return $PSO
@@ -90,7 +96,7 @@ function ConvertFrom-BetaJsonToRoleInsightsInsight {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleInsightsInsight
-        $AllProperties = ("type", "identitiesWithAccess", "identitiesImpacted", "totalNumberOfIdentities")
+        $AllProperties = ("type", "identitiesWithAccess", "identitiesImpacted", "totalNumberOfIdentities", "impactedIdentityNames")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,11 +127,18 @@ function ConvertFrom-BetaJsonToRoleInsightsInsight {
             $TotalNumberOfIdentities = $JsonParameters.PSobject.Properties["totalNumberOfIdentities"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "impactedIdentityNames"))) { #optional property not found
+            $ImpactedIdentityNames = $null
+        } else {
+            $ImpactedIdentityNames = $JsonParameters.PSobject.Properties["impactedIdentityNames"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "identitiesWithAccess" = ${IdentitiesWithAccess}
             "identitiesImpacted" = ${IdentitiesImpacted}
             "totalNumberOfIdentities" = ${TotalNumberOfIdentities}
+            "impactedIdentityNames" = ${ImpactedIdentityNames}
         }
 
         return $PSO

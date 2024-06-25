@@ -18,6 +18,8 @@ No description available.
 No description available.
 .PARAMETER MinNumIdentitiesInPotentialRole
 Minimum number of identities in a potential role
+.PARAMETER ScopingMethod
+The scoping method of the role mining session
 .PARAMETER PrescribedPruneThreshold
 The computed (or prescribed) prune threshold for this session
 .PARAMETER PruneThreshold
@@ -28,6 +30,18 @@ The number of potential roles
 The number of potential roles which have completed processing
 .PARAMETER Status
 No description available.
+.PARAMETER EmailRecipientId
+The id of the user who will receive an email about the role mining session
+.PARAMETER CreatedBy
+No description available.
+.PARAMETER IdentityCount
+The number of identities
+.PARAMETER Saved
+The session's saved status
+.PARAMETER Name
+The session's saved name
+.PARAMETER DataFilePath
+The data file path of the role mining session
 .PARAMETER Id
 Session Id for this role mining session
 .PARAMETER CreatedDate
@@ -51,6 +65,9 @@ function Initialize-BetaRoleMiningSessionResponse {
         [System.Nullable[Int32]]
         ${MinNumIdentitiesInPotentialRole},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ScopingMethod},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${PrescribedPruneThreshold},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -65,6 +82,24 @@ function Initialize-BetaRoleMiningSessionResponse {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Status},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${EmailRecipientId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${CreatedBy},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${IdentityCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Saved} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DataFilePath},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
@@ -88,11 +123,18 @@ function Initialize-BetaRoleMiningSessionResponse {
         $PSO = [PSCustomObject]@{
             "scope" = ${Scope}
             "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
+            "scopingMethod" = ${ScopingMethod}
             "prescribedPruneThreshold" = ${PrescribedPruneThreshold}
             "pruneThreshold" = ${PruneThreshold}
             "potentialRoleCount" = ${PotentialRoleCount}
             "potentialRolesReadyCount" = ${PotentialRolesReadyCount}
             "status" = ${Status}
+            "emailRecipientId" = ${EmailRecipientId}
+            "createdBy" = ${CreatedBy}
+            "identityCount" = ${IdentityCount}
+            "saved" = ${Saved}
+            "name" = ${Name}
+            "dataFilePath" = ${DataFilePath}
             "id" = ${Id}
             "createdDate" = ${CreatedDate}
             "modifiedDate" = ${ModifiedDate}
@@ -133,7 +175,7 @@ function ConvertFrom-BetaJsonToRoleMiningSessionResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningSessionResponse
-        $AllProperties = ("scope", "minNumIdentitiesInPotentialRole", "prescribedPruneThreshold", "pruneThreshold", "potentialRoleCount", "potentialRolesReadyCount", "status", "id", "createdDate", "modifiedDate", "type")
+        $AllProperties = ("scope", "minNumIdentitiesInPotentialRole", "scopingMethod", "prescribedPruneThreshold", "pruneThreshold", "potentialRoleCount", "potentialRolesReadyCount", "status", "emailRecipientId", "createdBy", "identityCount", "saved", "name", "dataFilePath", "id", "createdDate", "modifiedDate", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -150,6 +192,12 @@ function ConvertFrom-BetaJsonToRoleMiningSessionResponse {
             $MinNumIdentitiesInPotentialRole = $null
         } else {
             $MinNumIdentitiesInPotentialRole = $JsonParameters.PSobject.Properties["minNumIdentitiesInPotentialRole"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scopingMethod"))) { #optional property not found
+            $ScopingMethod = $null
+        } else {
+            $ScopingMethod = $JsonParameters.PSobject.Properties["scopingMethod"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "prescribedPruneThreshold"))) { #optional property not found
@@ -182,6 +230,42 @@ function ConvertFrom-BetaJsonToRoleMiningSessionResponse {
             $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "emailRecipientId"))) { #optional property not found
+            $EmailRecipientId = $null
+        } else {
+            $EmailRecipientId = $JsonParameters.PSobject.Properties["emailRecipientId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdBy"))) { #optional property not found
+            $CreatedBy = $null
+        } else {
+            $CreatedBy = $JsonParameters.PSobject.Properties["createdBy"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityCount"))) { #optional property not found
+            $IdentityCount = $null
+        } else {
+            $IdentityCount = $JsonParameters.PSobject.Properties["identityCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "saved"))) { #optional property not found
+            $Saved = $null
+        } else {
+            $Saved = $JsonParameters.PSobject.Properties["saved"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dataFilePath"))) { #optional property not found
+            $DataFilePath = $null
+        } else {
+            $DataFilePath = $JsonParameters.PSobject.Properties["dataFilePath"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
             $Id = $null
         } else {
@@ -209,11 +293,18 @@ function ConvertFrom-BetaJsonToRoleMiningSessionResponse {
         $PSO = [PSCustomObject]@{
             "scope" = ${Scope}
             "minNumIdentitiesInPotentialRole" = ${MinNumIdentitiesInPotentialRole}
+            "scopingMethod" = ${ScopingMethod}
             "prescribedPruneThreshold" = ${PrescribedPruneThreshold}
             "pruneThreshold" = ${PruneThreshold}
             "potentialRoleCount" = ${PotentialRoleCount}
             "potentialRolesReadyCount" = ${PotentialRolesReadyCount}
             "status" = ${Status}
+            "emailRecipientId" = ${EmailRecipientId}
+            "createdBy" = ${CreatedBy}
+            "identityCount" = ${IdentityCount}
+            "saved" = ${Saved}
+            "name" = ${Name}
+            "dataFilePath" = ${DataFilePath}
             "id" = ${Id}
             "createdDate" = ${CreatedDate}
             "modifiedDate" = ${ModifiedDate}

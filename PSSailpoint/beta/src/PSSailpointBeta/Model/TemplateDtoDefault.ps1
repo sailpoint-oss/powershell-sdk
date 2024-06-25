@@ -36,6 +36,10 @@ The ""From:"" address of the default template
 The ""Reply To"" field of the default template
 .PARAMETER Description
 The description of the default template
+.PARAMETER SlackTemplate
+No description available.
+.PARAMETER TeamsTemplate
+No description available.
 .OUTPUTS
 
 TemplateDtoDefault<PSCustomObject>
@@ -77,7 +81,13 @@ function Initialize-BetaTemplateDtoDefault {
         ${ReplyTo},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description}
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${SlackTemplate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${TeamsTemplate}
     )
 
     Process {
@@ -97,6 +107,8 @@ function Initialize-BetaTemplateDtoDefault {
             "from" = ${VarFrom}
             "replyTo" = ${ReplyTo}
             "description" = ${Description}
+            "slackTemplate" = ${SlackTemplate}
+            "teamsTemplate" = ${TeamsTemplate}
         }
 
         return $PSO
@@ -133,7 +145,7 @@ function ConvertFrom-BetaJsonToTemplateDtoDefault {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaTemplateDtoDefault
-        $AllProperties = ("key", "name", "medium", "locale", "subject", "header", "body", "footer", "from", "replyTo", "description")
+        $AllProperties = ("key", "name", "medium", "locale", "subject", "header", "body", "footer", "from", "replyTo", "description", "slackTemplate", "teamsTemplate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -206,6 +218,18 @@ function ConvertFrom-BetaJsonToTemplateDtoDefault {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "slackTemplate"))) { #optional property not found
+            $SlackTemplate = $null
+        } else {
+            $SlackTemplate = $JsonParameters.PSobject.Properties["slackTemplate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "teamsTemplate"))) { #optional property not found
+            $TeamsTemplate = $null
+        } else {
+            $TeamsTemplate = $JsonParameters.PSobject.Properties["teamsTemplate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "key" = ${Key}
             "name" = ${Name}
@@ -218,6 +242,8 @@ function ConvertFrom-BetaJsonToTemplateDtoDefault {
             "from" = ${VarFrom}
             "replyTo" = ${ReplyTo}
             "description" = ${Description}
+            "slackTemplate" = ${SlackTemplate}
+            "teamsTemplate" = ${TeamsTemplate}
         }
 
         return $PSO

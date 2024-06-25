@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaWorkflowLibraryOperator' {
     Context 'BetaWorkflowLibraryOperator' {
         It 'Initialize-BetaWorkflowLibraryOperator' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaWorkflowLibraryOperator -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -Description "TEST_VALUE" -FormFields "TEST_VALUE"
+            #$NewObject = Initialize-BetaWorkflowLibraryOperator -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -Description "TEST_VALUE" -IsDynamicSchema "TEST_VALUE" -Deprecated "TEST_VALUE" -DeprecatedBy "TEST_VALUE" -IsSimulationEnabled "TEST_VALUE" -FormFields "TEST_VALUE"
             #$NewObject | Should -BeOfType WorkflowLibraryOperator
             #$NewObject.property | Should -Be 0
         }

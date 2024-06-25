@@ -15,9 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource
+FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource MySailPoint FormUsedByType
 .PARAMETER Id
 Unique identifier of the system using the form.
+.PARAMETER Name
+Name of the system using the form.
 .OUTPUTS
 
 FormUsedBy<PSCustomObject>
@@ -27,12 +29,15 @@ function Initialize-BetaFormUsedBy {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("WORKFLOW", "SOURCE")]
+        [ValidateSet("WORKFLOW", "SOURCE", "MySailPoint")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id}
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name}
     )
 
     Process {
@@ -43,6 +48,7 @@ function Initialize-BetaFormUsedBy {
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
+            "name" = ${Name}
         }
 
         return $PSO
@@ -79,7 +85,7 @@ function ConvertFrom-BetaJsonToFormUsedBy {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaFormUsedBy
-        $AllProperties = ("type", "id")
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -98,9 +104,16 @@ function ConvertFrom-BetaJsonToFormUsedBy {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
+            "name" = ${Name}
         }
 
         return $PSO

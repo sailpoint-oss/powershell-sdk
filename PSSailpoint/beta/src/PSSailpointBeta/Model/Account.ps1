@@ -22,6 +22,14 @@ The unique ID of the source this account belongs to
 The display name of the source this account belongs to
 .PARAMETER IdentityId
 The unique ID of the identity this account is correlated to
+.PARAMETER CloudLifecycleState
+The lifecycle state of the identity this account is correlated to
+.PARAMETER IdentityState
+The identity state of the identity this account is correlated to
+.PARAMETER ConnectionType
+The connection type of the source this account is from
+.PARAMETER Type
+The type of the account
 .PARAMETER Attributes
 The account attributes that are aggregated
 .PARAMETER Authoritative
@@ -50,6 +58,12 @@ No description available.
 No description available.
 .PARAMETER Features
 A string list containing the owning source's features
+.PARAMETER Origin
+The origin of the account either aggregated or provisioned
+.PARAMETER OwnerIdentity
+No description available.
+.PARAMETER OwnerGroup
+No description available.
 .OUTPUTS
 
 Account<PSCustomObject>
@@ -70,6 +84,18 @@ function Initialize-BetaAccount {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${CloudLifecycleState},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${IdentityState},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ConnectionType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
@@ -111,7 +137,17 @@ function Initialize-BetaAccount {
         ${SourceOwner},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Features}
+        ${Features},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("AGGREGATED", "PROVISIONED", "")]
+        [String]
+        ${Origin},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${OwnerIdentity},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${OwnerGroup}
     )
 
     Process {
@@ -168,6 +204,10 @@ function Initialize-BetaAccount {
             "sourceId" = ${SourceId}
             "sourceName" = ${SourceName}
             "identityId" = ${IdentityId}
+            "cloudLifecycleState" = ${CloudLifecycleState}
+            "identityState" = ${IdentityState}
+            "connectionType" = ${ConnectionType}
+            "type" = ${Type}
             "attributes" = ${Attributes}
             "authoritative" = ${Authoritative}
             "description" = ${Description}
@@ -182,6 +222,9 @@ function Initialize-BetaAccount {
             "identity" = ${Identity}
             "sourceOwner" = ${SourceOwner}
             "features" = ${Features}
+            "origin" = ${Origin}
+            "ownerIdentity" = ${OwnerIdentity}
+            "ownerGroup" = ${OwnerGroup}
         }
 
         return $PSO
@@ -218,7 +261,7 @@ function ConvertFrom-BetaJsonToAccount {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccount
-        $AllProperties = ("id", "name", "created", "modified", "sourceId", "sourceName", "identityId", "attributes", "authoritative", "description", "disabled", "locked", "nativeIdentity", "systemAccount", "uncorrelated", "uuid", "manuallyCorrelated", "hasEntitlements", "identity", "sourceOwner", "features")
+        $AllProperties = ("id", "name", "created", "modified", "sourceId", "sourceName", "identityId", "cloudLifecycleState", "identityState", "connectionType", "type", "attributes", "authoritative", "description", "disabled", "locked", "nativeIdentity", "systemAccount", "uncorrelated", "uuid", "manuallyCorrelated", "hasEntitlements", "identity", "sourceOwner", "features", "origin", "ownerIdentity", "ownerGroup")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -325,6 +368,30 @@ function ConvertFrom-BetaJsonToAccount {
             $IdentityId = $JsonParameters.PSobject.Properties["identityId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cloudLifecycleState"))) { #optional property not found
+            $CloudLifecycleState = $null
+        } else {
+            $CloudLifecycleState = $JsonParameters.PSobject.Properties["cloudLifecycleState"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityState"))) { #optional property not found
+            $IdentityState = $null
+        } else {
+            $IdentityState = $JsonParameters.PSobject.Properties["identityState"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "connectionType"))) { #optional property not found
+            $ConnectionType = $null
+        } else {
+            $ConnectionType = $JsonParameters.PSobject.Properties["connectionType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
@@ -355,6 +422,24 @@ function ConvertFrom-BetaJsonToAccount {
             $Features = $JsonParameters.PSobject.Properties["features"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "origin"))) { #optional property not found
+            $Origin = $null
+        } else {
+            $Origin = $JsonParameters.PSobject.Properties["origin"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerIdentity"))) { #optional property not found
+            $OwnerIdentity = $null
+        } else {
+            $OwnerIdentity = $JsonParameters.PSobject.Properties["ownerIdentity"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerGroup"))) { #optional property not found
+            $OwnerGroup = $null
+        } else {
+            $OwnerGroup = $JsonParameters.PSobject.Properties["ownerGroup"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -363,6 +448,10 @@ function ConvertFrom-BetaJsonToAccount {
             "sourceId" = ${SourceId}
             "sourceName" = ${SourceName}
             "identityId" = ${IdentityId}
+            "cloudLifecycleState" = ${CloudLifecycleState}
+            "identityState" = ${IdentityState}
+            "connectionType" = ${ConnectionType}
+            "type" = ${Type}
             "attributes" = ${Attributes}
             "authoritative" = ${Authoritative}
             "description" = ${Description}
@@ -377,6 +466,9 @@ function ConvertFrom-BetaJsonToAccount {
             "identity" = ${Identity}
             "sourceOwner" = ${SourceOwner}
             "features" = ${Features}
+            "origin" = ${Origin}
+            "ownerIdentity" = ${OwnerIdentity}
+            "ownerGroup" = ${OwnerGroup}
         }
 
         return $PSO

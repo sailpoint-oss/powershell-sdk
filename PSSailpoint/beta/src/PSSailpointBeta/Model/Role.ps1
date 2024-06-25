@@ -40,6 +40,10 @@ No description available.
 No description available.
 .PARAMETER Segments
 List of IDs of segments, if any, to which this Role is assigned.
+.PARAMETER Dimensional
+No description available.
+.PARAMETER DimensionRefs
+No description available.
 .OUTPUTS
 
 Role<PSCustomObject>
@@ -86,7 +90,13 @@ function Initialize-BetaRole {
         ${RevocationRequestConfig},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Segments}
+        ${Segments},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Dimensional},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DimensionRefs}
     )
 
     Process {
@@ -120,6 +130,8 @@ function Initialize-BetaRole {
             "accessRequestConfig" = ${AccessRequestConfig}
             "revocationRequestConfig" = ${RevocationRequestConfig}
             "segments" = ${Segments}
+            "dimensional" = ${Dimensional}
+            "dimensionRefs" = ${DimensionRefs}
         }
 
         return $PSO
@@ -156,7 +168,7 @@ function ConvertFrom-BetaJsonToRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRole
-        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments")
+        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -257,6 +269,18 @@ function ConvertFrom-BetaJsonToRole {
             $Segments = $JsonParameters.PSobject.Properties["segments"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dimensional"))) { #optional property not found
+            $Dimensional = $null
+        } else {
+            $Dimensional = $JsonParameters.PSobject.Properties["dimensional"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dimensionRefs"))) { #optional property not found
+            $DimensionRefs = $null
+        } else {
+            $DimensionRefs = $JsonParameters.PSobject.Properties["dimensionRefs"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -273,6 +297,8 @@ function ConvertFrom-BetaJsonToRole {
             "accessRequestConfig" = ${AccessRequestConfig}
             "revocationRequestConfig" = ${RevocationRequestConfig}
             "segments" = ${Segments}
+            "dimensional" = ${Dimensional}
+            "dimensionRefs" = ${DimensionRefs}
         }
 
         return $PSO

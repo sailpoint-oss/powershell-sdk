@@ -113,9 +113,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $RoleMiningSessionScope = Initialize-RoleMiningSessionScope -IdentityIds "MyIdentityIds" -Criteria "source.name:DataScienceDataset" -AttributeFilterCriteria 
-$RoleMiningSessionStatus = Initialize-RoleMiningSessionStatus -State "CREATED"
-$RoleMiningSessionDtoCreatedBy = Initialize-RoleMiningSessionDtoCreatedBy -Id "2c918090761a5aac0176215c46a62d58" -DisplayName "Ashley.Pierce"
-$RoleMiningSessionDto = Initialize-RoleMiningSessionDto -Scope $RoleMiningSessionScope -PruneThreshold 5 -PrescribedPruneThreshold 10 -MinNumIdentitiesInPotentialRole 20 -PotentialRoleCount 0 -PotentialRolesReadyCount 0 -Status $RoleMiningSessionStatus -Type "SPECIALIZED" -EmailRecipientId "2c918090761a5aac0176215c46a62d58" -CreatedBy $RoleMiningSessionDtoCreatedBy -IdentityCount 0 -Saved $true -Name "Saved RM Session - 07/10" # RoleMiningSessionDto | Role mining session parameters
+$RoleMiningSessionDto = Initialize-RoleMiningSessionDto -Scope $RoleMiningSessionScope -PruneThreshold 50 -PrescribedPruneThreshold 10 -MinNumIdentitiesInPotentialRole 20 -PotentialRoleCount 0 -PotentialRolesReadyCount 0 -Type "SPECIALIZED" -EmailRecipientId "2c918090761a5aac0176215c46a62d58" -IdentityCount 0 -Saved $true -Name "Saved RM Session - 07/10" # RoleMiningSessionDto | Role mining session parameters
 
 # Create a role mining session
 try {
@@ -1106,7 +1104,7 @@ Name | Type | Description  | Notes
 
 <a id="Get-BetaRoleMiningSessions"></a>
 # **Get-BetaRoleMiningSessions**
-> RoleMiningSessionDto[] Get-BetaRoleMiningSessions<br>
+> RoleMiningSessionResponse[] Get-BetaRoleMiningSessions<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
@@ -1154,7 +1152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RoleMiningSessionDto[]**](RoleMiningSessionDto.md) (PSCustomObject)
+[**RoleMiningSessionResponse[]**](RoleMiningSessionResponse.md) (PSCustomObject)
 
 ### Authorization
 

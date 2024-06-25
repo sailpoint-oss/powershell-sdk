@@ -7,6 +7,10 @@ Name | Type | Description | Notes
 **Name** | **String** | Operator friendly name | [optional] 
 **Type** | **String** | Operator type | [optional] 
 **Description** | **String** | Description of the operator | [optional] 
+**IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action&#39;s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
+**Deprecated** | **Boolean** |  | [optional] 
+**DeprecatedBy** | **System.DateTime** |  | [optional] 
+**IsSimulationEnabled** | **Boolean** |  | [optional] 
 **FormFields** | [**WorkflowLibraryFormFields[]**](WorkflowLibraryFormFields.md) | One or more inputs that the operator accepts | [optional] 
 
 ## Examples
@@ -17,6 +21,10 @@ $WorkflowLibraryOperator = Initialize-PSSailpointBetaWorkflowLibraryOperator  -I
  -Name Compare Boolean Values `
  -Type OPERATOR `
  -Description Compare two boolean values and decide what happens based on the result. `
+ -IsDynamicSchema false `
+ -Deprecated null `
+ -DeprecatedBy null `
+ -IsSimulationEnabled null `
  -FormFields [{description&#x3D;Enter the JSONPath to a value from the input to compare to Variable B., helpText&#x3D;, label&#x3D;Variable A, name&#x3D;variableA.$, required&#x3D;true, type&#x3D;text}, {helpText&#x3D;Select an operation., label&#x3D;Operation, name&#x3D;operator, options&#x3D;[{label&#x3D;Equals, value&#x3D;BooleanEquals}], required&#x3D;true, type&#x3D;select}, {description&#x3D;Enter the JSONPath to a value from the input to compare to Variable A., helpText&#x3D;, label&#x3D;Variable B, name&#x3D;variableB.$, required&#x3D;false, type&#x3D;text}, {description&#x3D;Enter True or False., helpText&#x3D;, label&#x3D;Variable B, name&#x3D;variableB, required&#x3D;false, type&#x3D;text}]
 ```
 

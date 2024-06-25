@@ -16,18 +16,18 @@ The state of a work item
 #>
 
 enum WorkItemState {
-    # enum value: "FINISHED"
-    FINISHED
-    # enum value: "REJECTED"
-    REJECTED
-    # enum value: "RETURNED"
-    RETURNED
-    # enum value: "EXPIRED"
-    EXPIRED
-    # enum value: "PENDING"
-    PENDING
-    # enum value: "CANCELED"
-    CANCELED
+    # enum value: "Finished"
+    Finished
+    # enum value: "Rejected"
+    Rejected
+    # enum value: "Returned"
+    Returned
+    # enum value: "Expired"
+    Expired
+    # enum value: "Pending"
+    Pending
+    # enum value: "Canceled"
+    Canceled
     # enum value: "null"
     null
 }

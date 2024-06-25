@@ -20,6 +20,8 @@ Unique ID of the common access item
 No description available.
 .PARAMETER Status
 CONFIRMED or DENIED
+.PARAMETER CommonAccessType
+No description available.
 .PARAMETER ReviewedByUser
 true if user has confirmed or denied status
 .PARAMETER CreatedByUser
@@ -42,6 +44,9 @@ function Initialize-BetaCommonAccessResponse {
         [String]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${CommonAccessType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ReviewedByUser},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -58,6 +63,7 @@ function Initialize-BetaCommonAccessResponse {
             "id" = ${Id}
             "access" = ${Access}
             "status" = ${Status}
+            "commonAccessType" = ${CommonAccessType}
             "reviewedByUser" = ${ReviewedByUser}
             "createdByUser" = ${CreatedByUser}
         }
@@ -96,7 +102,7 @@ function ConvertFrom-BetaJsonToCommonAccessResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCommonAccessResponse
-        $AllProperties = ("id", "access", "status", "lastUpdated", "reviewedByUser", "lastReviewed", "createdByUser")
+        $AllProperties = ("id", "access", "status", "commonAccessType", "lastUpdated", "reviewedByUser", "lastReviewed", "createdByUser")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -119,6 +125,12 @@ function ConvertFrom-BetaJsonToCommonAccessResponse {
             $Status = $null
         } else {
             $Status = $JsonParameters.PSobject.Properties["status"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "commonAccessType"))) { #optional property not found
+            $CommonAccessType = $null
+        } else {
+            $CommonAccessType = $JsonParameters.PSobject.Properties["commonAccessType"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "lastUpdated"))) { #optional property not found
@@ -149,6 +161,7 @@ function ConvertFrom-BetaJsonToCommonAccessResponse {
             "id" = ${Id}
             "access" = ${Access}
             "status" = ${Status}
+            "commonAccessType" = ${CommonAccessType}
             "lastUpdated" = ${LastUpdated}
             "reviewedByUser" = ${ReviewedByUser}
             "lastReviewed" = ${LastReviewed}

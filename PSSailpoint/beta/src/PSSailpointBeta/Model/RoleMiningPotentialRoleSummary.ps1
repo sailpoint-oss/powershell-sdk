@@ -38,6 +38,14 @@ The freshness metric (0-100) of this potential role. Higher freshness values ind
 The quality metric (0-100) of this potential role. Higher quality values indicate this potential role has high density and freshness.
 .PARAMETER Type
 No description available.
+.PARAMETER CreatedBy
+No description available.
+.PARAMETER CreatedDate
+The date-time when this potential role was created.
+.PARAMETER Saved
+The potential role's saved status
+.PARAMETER Description
+Description of the potential role
 .PARAMETER Session
 No description available.
 .OUTPUTS
@@ -88,6 +96,18 @@ function Initialize-BetaRoleMiningPotentialRoleSummary {
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
+        ${CreatedBy},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${CreatedDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Saved} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
         ${Session}
     )
 
@@ -109,6 +129,10 @@ function Initialize-BetaRoleMiningPotentialRoleSummary {
             "freshness" = ${Freshness}
             "quality" = ${Quality}
             "type" = ${Type}
+            "createdBy" = ${CreatedBy}
+            "createdDate" = ${CreatedDate}
+            "saved" = ${Saved}
+            "description" = ${Description}
             "session" = ${Session}
         }
 
@@ -146,7 +170,7 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRoleSummary {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningPotentialRoleSummary
-        $AllProperties = ("id", "name", "potentialRoleRef", "identityCount", "entitlementCount", "identityGroupStatus", "provisionState", "roleId", "density", "freshness", "quality", "type", "session")
+        $AllProperties = ("id", "name", "potentialRoleRef", "identityCount", "entitlementCount", "identityGroupStatus", "provisionState", "roleId", "density", "freshness", "quality", "type", "createdBy", "createdDate", "saved", "description", "session")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -225,6 +249,30 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRoleSummary {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdBy"))) { #optional property not found
+            $CreatedBy = $null
+        } else {
+            $CreatedBy = $JsonParameters.PSobject.Properties["createdBy"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdDate"))) { #optional property not found
+            $CreatedDate = $null
+        } else {
+            $CreatedDate = $JsonParameters.PSobject.Properties["createdDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "saved"))) { #optional property not found
+            $Saved = $null
+        } else {
+            $Saved = $JsonParameters.PSobject.Properties["saved"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "session"))) { #optional property not found
             $Session = $null
         } else {
@@ -244,6 +292,10 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRoleSummary {
             "freshness" = ${Freshness}
             "quality" = ${Quality}
             "type" = ${Type}
+            "createdBy" = ${CreatedBy}
+            "createdDate" = ${CreatedDate}
+            "saved" = ${Saved}
+            "description" = ${Description}
             "session" = ${Session}
         }
 

@@ -484,6 +484,7 @@ docs/ImportObject.md
 docs/ImportOptions.md
 docs/ImportSpConfigRequest.md
 docs/IndexOf.md
+docs/InviteIdentitiesRequest.md
 docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
@@ -773,6 +774,7 @@ docs/Segment.md
 docs/Selector.md
 docs/SelectorType.md
 docs/SelfImportExportDto.md
+docs/SendAccountVerificationRequest.md
 docs/SendManualDiscoverApplicationsCsvTemplateRequest.md
 docs/SendTestNotificationRequestDto.md
 docs/SendTokenRequest.md
@@ -1433,6 +1435,7 @@ src/PSSailpointBeta/Model/ImportObject.ps1
 src/PSSailpointBeta/Model/ImportOptions.ps1
 src/PSSailpointBeta/Model/ImportSpConfigRequest.ps1
 src/PSSailpointBeta/Model/IndexOf.ps1
+src/PSSailpointBeta/Model/InviteIdentitiesRequest.ps1
 src/PSSailpointBeta/Model/Invocation.ps1
 src/PSSailpointBeta/Model/InvocationStatus.ps1
 src/PSSailpointBeta/Model/InvocationStatusType.ps1
@@ -1723,6 +1726,7 @@ src/PSSailpointBeta/Model/Segment.ps1
 src/PSSailpointBeta/Model/Selector.ps1
 src/PSSailpointBeta/Model/SelectorType.ps1
 src/PSSailpointBeta/Model/SelfImportExportDto.ps1
+src/PSSailpointBeta/Model/SendAccountVerificationRequest.ps1
 src/PSSailpointBeta/Model/SendManualDiscoverApplicationsCsvTemplateRequest.ps1
 src/PSSailpointBeta/Model/SendTestNotificationRequestDto.ps1
 src/PSSailpointBeta/Model/SendTokenRequest.ps1
@@ -2389,6 +2393,7 @@ tests/Model/ImportObject.Tests.ps1
 tests/Model/ImportOptions.Tests.ps1
 tests/Model/ImportSpConfigRequest.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
+tests/Model/InviteIdentitiesRequest.Tests.ps1
 tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
@@ -2679,6 +2684,7 @@ tests/Model/Segment.Tests.ps1
 tests/Model/Selector.Tests.ps1
 tests/Model/SelectorType.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
+tests/Model/SendAccountVerificationRequest.Tests.ps1
 tests/Model/SendManualDiscoverApplicationsCsvTemplateRequest.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
 tests/Model/SendTokenRequest.Tests.ps1

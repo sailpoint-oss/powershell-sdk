@@ -239,6 +239,8 @@ Class | Method | HTTP request | Description
 *BetaIdentitiesApi* | [**Get-BetaRoleAssignments**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 *BetaIdentitiesApi* | [**Reset-BetaIdentity**](docs/BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{id}/reset | Reset an identity
+*BetaIdentitiesApi* | [**Send-BetaIdentityVerificationAccountToken**](docs/BetaIdentitiesApi.md#Send-BetaIdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
+*BetaIdentitiesApi* | [**Start-BetaIdentitiesInvite**](docs/BetaIdentitiesApi.md#Start-BetaIdentitiesInvite) | **POST** /identities/invite | Invite identities to register
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *BetaIdentitiesApi* | [**Sync-BetahronizeAttributesForIdentity**](docs/BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 *BetaIdentityAttributesApi* | [**New-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#New-BetaIdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
@@ -980,6 +982,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ImportOptions](docs/ImportOptions.md)
  - [PSSailpointBeta\Model.ImportSpConfigRequest](docs/ImportSpConfigRequest.md)
  - [PSSailpointBeta\Model.IndexOf](docs/IndexOf.md)
+ - [PSSailpointBeta\Model.InviteIdentitiesRequest](docs/InviteIdentitiesRequest.md)
  - [PSSailpointBeta\Model.Invocation](docs/Invocation.md)
  - [PSSailpointBeta\Model.InvocationStatus](docs/InvocationStatus.md)
  - [PSSailpointBeta\Model.InvocationStatusType](docs/InvocationStatusType.md)
@@ -1270,6 +1273,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.Selector](docs/Selector.md)
  - [PSSailpointBeta\Model.SelectorType](docs/SelectorType.md)
  - [PSSailpointBeta\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
+ - [PSSailpointBeta\Model.SendAccountVerificationRequest](docs/SendAccountVerificationRequest.md)
  - [PSSailpointBeta\Model.SendManualDiscoverApplicationsCsvTemplateRequest](docs/SendManualDiscoverApplicationsCsvTemplateRequest.md)
  - [PSSailpointBeta\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpointBeta\Model.SendTokenRequest](docs/SendTokenRequest.md)

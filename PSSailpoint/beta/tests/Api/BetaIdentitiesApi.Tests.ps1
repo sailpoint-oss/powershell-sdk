@@ -62,6 +62,22 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentitiesApi' {
         }
     }
 
+    Context 'Send-BetaIdentityVerificationAccountToken' {
+        It 'Test Send-BetaIdentityVerificationAccountToken' {
+            #$TestResult = Send-BetaIdentityVerificationAccountToken -SendAccountVerificationRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-BetaIdentitiesInvite' {
+        It 'Test Start-BetaIdentitiesInvite' {
+            #$TestResult = Start-BetaIdentitiesInvite -InviteIdentitiesRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Start-BetaIdentityProcessing' {
         It 'Test Start-BetaIdentityProcessing' {
             #$TestResult = Start-BetaIdentityProcessing -ProcessIdentitiesRequest "TEST_VALUE"

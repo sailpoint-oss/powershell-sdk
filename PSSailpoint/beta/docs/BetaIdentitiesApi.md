@@ -11,6 +11,8 @@ Method | HTTP request | Description
 [**Get-BetaRoleAssignments**](BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
 [**Get-BetaIdentities**](BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
 [**Reset-BetaIdentity**](BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{id}/reset | Reset an identity
+[**Send-BetaIdentityVerificationAccountToken**](BetaIdentitiesApi.md#Send-BetaIdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
+[**Start-BetaIdentitiesInvite**](BetaIdentitiesApi.md#Start-BetaIdentitiesInvite) | **POST** /identities/invite | Invite identities to register
 [**Start-BetaIdentityProcessing**](BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 [**Sync-BetahronizeAttributesForIdentity**](BetaIdentitiesApi.md#Sync-BetahronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 
@@ -390,6 +392,108 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Send-BetaIdentityVerificationAccountToken"></a>
+# **Send-BetaIdentityVerificationAccountToken**
+> void Send-BetaIdentityVerificationAccountToken<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SendAccountVerificationRequest] <PSCustomObject><br>
+
+Send password reset email
+
+This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SendAccountVerificationRequest = Initialize-SendAccountVerificationRequest -SourceName "Active Directory Source" -Via "EMAIL_WORK" # SendAccountVerificationRequest | 
+
+# Send password reset email
+try {
+    $Result = Send-BetaIdentityVerificationAccountToken -SendAccountVerificationRequest $SendAccountVerificationRequest
+} catch {
+    Write-Host ("Exception occurred when calling Send-BetaIdentityVerificationAccountToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SendAccountVerificationRequest** | [**SendAccountVerificationRequest**](SendAccountVerificationRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Start-BetaIdentitiesInvite"></a>
+# **Start-BetaIdentitiesInvite**
+> TaskStatus Start-BetaIdentitiesInvite<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InviteIdentitiesRequest] <PSCustomObject><br>
+
+Invite identities to register
+
+This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status)  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$InviteIdentitiesRequest = Initialize-InviteIdentitiesRequest -Ids "MyIds" -Uninvited $false # InviteIdentitiesRequest | 
+
+# Invite identities to register
+try {
+    $Result = Start-BetaIdentitiesInvite -InviteIdentitiesRequest $InviteIdentitiesRequest
+} catch {
+    Write-Host ("Exception occurred when calling Start-BetaIdentitiesInvite: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **InviteIdentitiesRequest** | [**InviteIdentitiesRequest**](InviteIdentitiesRequest.md)|  | 
+
+### Return type
+
+[**TaskStatus**](TaskStatus.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

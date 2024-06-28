@@ -156,8 +156,14 @@ Class | Method | HTTP request | Description
 *ConnectorsApi* | [**Send-Translations**](docs/ConnectorsApi.md#Send-Translations) | **PUT** /connectors/{scriptName}/translations/{locale} | 
 *ConnectorsApi* | [**Update-Connector**](docs/ConnectorsApi.md#Update-Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
 *GlobalTenantSecuritySettingsApi* | [**New-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#New-AuthOrgNetworkConfig) | **POST** /auth-org/network-config | Create security network configuration.
+*GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgLockoutConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgLockoutConfig) | **GET** /auth-org/lockout-config | Get Auth Org Lockout Configuration.
 *GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgNetworkConfig) | **GET** /auth-org/network-config | Get security network configuration.
+*GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgServiceProviderConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgServiceProviderConfig) | **GET** /auth-org/service-provider-config | Get Service Provider Configuration.
+*GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgSessionConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgSessionConfig) | **GET** /auth-org/session-config | Get Auth Org Session Configuration.
+*GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgLockoutConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgLockoutConfig) | **PATCH** /auth-org/lockout-config | Update Auth Org Lockout Configuration
 *GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgNetworkConfig) | **PATCH** /auth-org/network-config | Update security network configuration.
+*GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgServiceProviderConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgServiceProviderConfig) | **PATCH** /auth-org/service-provider-config | Update Service Provider Configuration
+*GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgSessionConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgSessionConfig) | **PATCH** /auth-org/session-config | Update Auth Org Session Configuration
 *IdentityProfilesApi* | [**Remove-IdentityProfile**](docs/IdentityProfilesApi.md#Remove-IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
 *IdentityProfilesApi* | [**Remove-IdentityProfiles**](docs/IdentityProfilesApi.md#Remove-IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 *IdentityProfilesApi* | [**Export-IdentityProfiles**](docs/IdentityProfilesApi.md#Export-IdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
@@ -586,6 +592,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.Expression](docs/Expression.md)
  - [PSSailpoint\Model.ExpressionChildrenInner](docs/ExpressionChildrenInner.md)
  - [PSSailpoint\Model.ExternalAttributes](docs/ExternalAttributes.md)
+ - [PSSailpoint\Model.FederationProtocolDetails](docs/FederationProtocolDetails.md)
  - [PSSailpoint\Model.FieldDetailsDto](docs/FieldDetailsDto.md)
  - [PSSailpoint\Model.FilterAggregation](docs/FilterAggregation.md)
  - [PSSailpoint\Model.FilterType](docs/FilterType.md)
@@ -627,12 +634,14 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpoint\Model.IdentityWithNewAccess1](docs/IdentityWithNewAccess1.md)
  - [PSSailpoint\Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
+ - [PSSailpoint\Model.IdpDetails](docs/IdpDetails.md)
  - [PSSailpoint\Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint\Model.ImportObject](docs/ImportObject.md)
  - [PSSailpoint\Model.ImportUploadedBackupRequest](docs/ImportUploadedBackupRequest.md)
  - [PSSailpoint\Model.Index](docs/Index.md)
  - [PSSailpoint\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint\Model.InnerHit](docs/InnerHit.md)
+ - [PSSailpoint\Model.JITConfiguration](docs/JITConfiguration.md)
  - [PSSailpoint\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpoint\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
  - [PSSailpoint\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
@@ -648,6 +657,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ListCampaignFilters200Response](docs/ListCampaignFilters200Response.md)
  - [PSSailpoint\Model.ListCompleteWorkflowLibrary200ResponseInner](docs/ListCompleteWorkflowLibrary200ResponseInner.md)
  - [PSSailpoint\Model.LocaleOrigin](docs/LocaleOrigin.md)
+ - [PSSailpoint\Model.LockoutConfiguration](docs/LockoutConfiguration.md)
  - [PSSailpoint\Model.Lookup](docs/Lookup.md)
  - [PSSailpoint\Model.Lower](docs/Lower.md)
  - [PSSailpoint\Model.ManagedClient](docs/ManagedClient.md)
@@ -855,6 +865,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)
  - [PSSailpoint\Model.ServiceDeskIntegrationTemplateType](docs/ServiceDeskIntegrationTemplateType.md)
  - [PSSailpoint\Model.ServiceDeskSource](docs/ServiceDeskSource.md)
+ - [PSSailpoint\Model.ServiceProviderConfiguration](docs/ServiceProviderConfiguration.md)
+ - [PSSailpoint\Model.ServiceProviderConfigurationFederationProtocolDetailsInner](docs/ServiceProviderConfigurationFederationProtocolDetailsInner.md)
+ - [PSSailpoint\Model.SessionConfiguration](docs/SessionConfiguration.md)
  - [PSSailpoint\Model.SetLifecycleState200Response](docs/SetLifecycleState200Response.md)
  - [PSSailpoint\Model.SetLifecycleStateRequest](docs/SetLifecycleStateRequest.md)
  - [PSSailpoint\Model.SlimCampaign](docs/SlimCampaign.md)
@@ -888,6 +901,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.SourceUsage](docs/SourceUsage.md)
  - [PSSailpoint\Model.SourceUsageStatus](docs/SourceUsageStatus.md)
  - [PSSailpoint\Model.SpConfigMessage](docs/SpConfigMessage.md)
+ - [PSSailpoint\Model.SpDetails](docs/SpDetails.md)
  - [PSSailpoint\Model.Split](docs/Split.md)
  - [PSSailpoint\Model.StandardLevel](docs/StandardLevel.md)
  - [PSSailpoint\Model.Static](docs/Static.md)

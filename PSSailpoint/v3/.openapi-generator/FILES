@@ -208,6 +208,7 @@ docs/ExpansionItem.md
 docs/Expression.md
 docs/ExpressionChildrenInner.md
 docs/ExternalAttributes.md
+docs/FederationProtocolDetails.md
 docs/FieldDetailsDto.md
 docs/Filter.md
 docs/FilterAggregation.md
@@ -252,12 +253,14 @@ docs/IdentitySummary.md
 docs/IdentityWithNewAccess.md
 docs/IdentityWithNewAccess1.md
 docs/IdentityWithNewAccessAccessRefsInner.md
+docs/IdpDetails.md
 docs/ImportNonEmployeeRecordsInBulkRequest.md
 docs/ImportObject.md
 docs/ImportUploadedBackupRequest.md
 docs/Index.md
 docs/IndexOf.md
 docs/InnerHit.md
+docs/JITConfiguration.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
 docs/KbaAnswerRequestItem.md
@@ -274,6 +277,7 @@ docs/ListAccessProfiles429Response.md
 docs/ListCampaignFilters200Response.md
 docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/LocaleOrigin.md
+docs/LockoutConfiguration.md
 docs/Lookup.md
 docs/Lower.md
 docs/MFAConfigurationApi.md
@@ -503,6 +507,9 @@ docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationTemplateDto.md
 docs/ServiceDeskIntegrationTemplateType.md
 docs/ServiceDeskSource.md
+docs/ServiceProviderConfiguration.md
+docs/ServiceProviderConfigurationFederationProtocolDetailsInner.md
+docs/SessionConfiguration.md
 docs/SetLifecycleState200Response.md
 docs/SetLifecycleStateRequest.md
 docs/SlimCampaign.md
@@ -538,6 +545,7 @@ docs/SourceUsageStatus.md
 docs/SourceUsagesApi.md
 docs/SourcesApi.md
 docs/SpConfigMessage.md
+docs/SpDetails.md
 docs/Split.md
 docs/StandardLevel.md
 docs/Static.md
@@ -846,6 +854,7 @@ src/PSSailpoint/Model/ExpansionItem.ps1
 src/PSSailpoint/Model/Expression.ps1
 src/PSSailpoint/Model/ExpressionChildrenInner.ps1
 src/PSSailpoint/Model/ExternalAttributes.ps1
+src/PSSailpoint/Model/FederationProtocolDetails.ps1
 src/PSSailpoint/Model/FieldDetailsDto.ps1
 src/PSSailpoint/Model/FilterAggregation.ps1
 src/PSSailpoint/Model/FilterType.ps1
@@ -887,12 +896,14 @@ src/PSSailpoint/Model/IdentitySummary.ps1
 src/PSSailpoint/Model/IdentityWithNewAccess.ps1
 src/PSSailpoint/Model/IdentityWithNewAccess1.ps1
 src/PSSailpoint/Model/IdentityWithNewAccessAccessRefsInner.ps1
+src/PSSailpoint/Model/IdpDetails.ps1
 src/PSSailpoint/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint/Model/ImportObject.ps1
 src/PSSailpoint/Model/ImportUploadedBackupRequest.ps1
 src/PSSailpoint/Model/Index.ps1
 src/PSSailpoint/Model/IndexOf.ps1
 src/PSSailpoint/Model/InnerHit.ps1
+src/PSSailpoint/Model/JITConfiguration.ps1
 src/PSSailpoint/Model/JsonPatchOperation.ps1
 src/PSSailpoint/Model/JsonPatchOperationValue.ps1
 src/PSSailpoint/Model/KbaAnswerRequestItem.ps1
@@ -908,6 +919,7 @@ src/PSSailpoint/Model/ListAccessProfiles429Response.ps1
 src/PSSailpoint/Model/ListCampaignFilters200Response.ps1
 src/PSSailpoint/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpoint/Model/LocaleOrigin.ps1
+src/PSSailpoint/Model/LockoutConfiguration.ps1
 src/PSSailpoint/Model/Lookup.ps1
 src/PSSailpoint/Model/Lower.ps1
 src/PSSailpoint/Model/ManagedClient.ps1
@@ -1115,6 +1127,9 @@ src/PSSailpoint/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationTemplateDto.ps1
 src/PSSailpoint/Model/ServiceDeskIntegrationTemplateType.ps1
 src/PSSailpoint/Model/ServiceDeskSource.ps1
+src/PSSailpoint/Model/ServiceProviderConfiguration.ps1
+src/PSSailpoint/Model/ServiceProviderConfigurationFederationProtocolDetailsInner.ps1
+src/PSSailpoint/Model/SessionConfiguration.ps1
 src/PSSailpoint/Model/SetLifecycleState200Response.ps1
 src/PSSailpoint/Model/SetLifecycleStateRequest.ps1
 src/PSSailpoint/Model/SlimCampaign.ps1
@@ -1148,6 +1163,7 @@ src/PSSailpoint/Model/SourceSchemasInner.ps1
 src/PSSailpoint/Model/SourceUsage.ps1
 src/PSSailpoint/Model/SourceUsageStatus.ps1
 src/PSSailpoint/Model/SpConfigMessage.ps1
+src/PSSailpoint/Model/SpDetails.ps1
 src/PSSailpoint/Model/Split.ps1
 src/PSSailpoint/Model/StandardLevel.ps1
 src/PSSailpoint/Model/Static.ps1
@@ -1458,6 +1474,7 @@ tests/Model/ExpansionItem.Tests.ps1
 tests/Model/Expression.Tests.ps1
 tests/Model/ExpressionChildrenInner.Tests.ps1
 tests/Model/ExternalAttributes.Tests.ps1
+tests/Model/FederationProtocolDetails.Tests.ps1
 tests/Model/FieldDetailsDto.Tests.ps1
 tests/Model/FilterAggregation.Tests.ps1
 tests/Model/FilterType.Tests.ps1
@@ -1499,12 +1516,14 @@ tests/Model/IdentitySummary.Tests.ps1
 tests/Model/IdentityWithNewAccess.Tests.ps1
 tests/Model/IdentityWithNewAccess1.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
+tests/Model/IdpDetails.Tests.ps1
 tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/ImportObject.Tests.ps1
 tests/Model/ImportUploadedBackupRequest.Tests.ps1
 tests/Model/Index.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
 tests/Model/InnerHit.Tests.ps1
+tests/Model/JITConfiguration.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
 tests/Model/KbaAnswerRequestItem.Tests.ps1
@@ -1520,6 +1539,7 @@ tests/Model/ListAccessProfiles429Response.Tests.ps1
 tests/Model/ListCampaignFilters200Response.Tests.ps1
 tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/LocaleOrigin.Tests.ps1
+tests/Model/LockoutConfiguration.Tests.ps1
 tests/Model/Lookup.Tests.ps1
 tests/Model/Lower.Tests.ps1
 tests/Model/ManagedClient.Tests.ps1
@@ -1727,6 +1747,9 @@ tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateType.Tests.ps1
 tests/Model/ServiceDeskSource.Tests.ps1
+tests/Model/ServiceProviderConfiguration.Tests.ps1
+tests/Model/ServiceProviderConfigurationFederationProtocolDetailsInner.Tests.ps1
+tests/Model/SessionConfiguration.Tests.ps1
 tests/Model/SetLifecycleState200Response.Tests.ps1
 tests/Model/SetLifecycleStateRequest.Tests.ps1
 tests/Model/SlimCampaign.Tests.ps1
@@ -1760,6 +1783,7 @@ tests/Model/SourceSchemasInner.Tests.ps1
 tests/Model/SourceUsage.Tests.ps1
 tests/Model/SourceUsageStatus.Tests.ps1
 tests/Model/SpConfigMessage.Tests.ps1
+tests/Model/SpDetails.Tests.ps1
 tests/Model/Split.Tests.ps1
 tests/Model/StandardLevel.Tests.ps1
 tests/Model/Static.Tests.ps1

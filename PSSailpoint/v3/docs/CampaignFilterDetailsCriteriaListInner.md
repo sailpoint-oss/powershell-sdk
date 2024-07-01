@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | [**CriteriaType**](CriteriaType.md) |  | 
 **Operation** | [**Operation**](Operation.md) |  | 
-**Property** | **String** | The specified key from the Type of criteria. | 
-**Value** | **String** | The value for the specified key from the Type of Criteria | 
+**Property** | **String** | Specified key from the type of criteria. | 
+**Value** | **String** | Value for the specified key from the type of criteria. | 
 
 ## Examples
 

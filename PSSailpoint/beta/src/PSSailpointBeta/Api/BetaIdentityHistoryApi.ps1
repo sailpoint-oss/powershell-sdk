@@ -985,20 +985,20 @@ function Get-BetaIdentityAccessItems {
 <#
 .SYNOPSIS
 
-Gets the list of identity access items at a given date filterd by item type
+Get Identity Access Items Snapshot
 
 .DESCRIPTION
 
-This method retrieves the list of identity access items at a given date filterd by item type Requires authorization scope of 'idn:identity-history:read' 
+Use this API to get a list of identity access items at a specified date, filtered by item type.
 
 .PARAMETER Id
-The identity id
+Identity ID.
 
 .PARAMETER Date
-The specified date
+Specified date.
 
 .PARAMETER Type
-The access item type
+Access item type.
 
 .PARAMETER WithHttpInfo
 

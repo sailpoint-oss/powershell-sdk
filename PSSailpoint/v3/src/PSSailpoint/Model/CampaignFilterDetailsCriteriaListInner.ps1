@@ -19,9 +19,9 @@ No description available.
 .PARAMETER Operation
 No description available.
 .PARAMETER Property
-The specified key from the Type of criteria.
+Specified key from the type of criteria.
 .PARAMETER Value
-The value for the specified key from the Type of Criteria
+Value for the specified key from the type of criteria.
 .OUTPUTS
 
 CampaignFilterDetailsCriteriaListInner<PSCustomObject>

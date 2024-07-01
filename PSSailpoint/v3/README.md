@@ -91,7 +91,7 @@ Class | Method | HTTP request | Description
 *BrandingApi* | [**Get-Branding**](docs/BrandingApi.md#Get-Branding) | **GET** /brandings/{name} | Get a branding item
 *BrandingApi* | [**Get-BrandingList**](docs/BrandingApi.md#Get-BrandingList) | **GET** /brandings | List of branding items
 *BrandingApi* | [**Set-BrandingItem**](docs/BrandingApi.md#Set-BrandingItem) | **PUT** /brandings/{name} | Update a branding item
-*CertificationCampaignFiltersApi* | [**New-CampaignFilter**](docs/CertificationCampaignFiltersApi.md#New-CampaignFilter) | **POST** /campaign-filters | Create a Campaign Filter
+*CertificationCampaignFiltersApi* | [**New-CampaignFilter**](docs/CertificationCampaignFiltersApi.md#New-CampaignFilter) | **POST** /campaign-filters | Create Campaign Filter
 *CertificationCampaignFiltersApi* | [**Remove-CampaignFilters**](docs/CertificationCampaignFiltersApi.md#Remove-CampaignFilters) | **POST** /campaign-filters/delete | Deletes Campaign Filters
 *CertificationCampaignFiltersApi* | [**Get-CampaignFilterById**](docs/CertificationCampaignFiltersApi.md#Get-CampaignFilterById) | **GET** /campaign-filters/{id} | Get Campaign Filter by ID
 *CertificationCampaignFiltersApi* | [**Get-CampaignFilters**](docs/CertificationCampaignFiltersApi.md#Get-CampaignFilters) | **GET** /campaign-filters | List Campaign Filters

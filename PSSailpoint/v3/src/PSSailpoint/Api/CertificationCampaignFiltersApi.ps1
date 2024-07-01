@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Create a Campaign Filter
+Create Campaign Filter
 
 .DESCRIPTION
 
-Create a campaign Filter based on filter details and criteria.
+Use this API to create a campaign filter based on filter details and criteria.
 
 .PARAMETER CampaignFilterDetails
 No description available.
@@ -266,7 +266,7 @@ List Campaign Filters
 
 .DESCRIPTION
 
-Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -275,7 +275,7 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER IncludeSystemFilters
-If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
 
 .PARAMETER WithHttpInfo
 

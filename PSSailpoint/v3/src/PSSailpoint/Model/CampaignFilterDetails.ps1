@@ -14,16 +14,14 @@ No summary available.
 
 Campaign Filter Details
 
-.PARAMETER Id
-Id of the campaign filter
 .PARAMETER Name
-This is campaign filter's name.
+Campaign filter name.
 .PARAMETER Description
-This is campaign filter's description.
+Campaign filter description.
 .PARAMETER Owner
-The owner of this filter. This field is automatically populated at creation time with the current user.
+Owner of the filter. This field automatically populates at creation time with the current user.
 .PARAMETER Mode
-The mode/type of Filter, where it is of INCLUSION or EXCLUSION type. INCLUSION type will include the data in generated campaign  as per specified in criteria, whereas EXCLUSION type will exclude the the data in generated campaign as per specified in criteria.
+Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns  as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria.
 .PARAMETER CriteriaList
 List of criteria.
 .OUTPUTS
@@ -34,9 +32,6 @@ CampaignFilterDetails<PSCustomObject>
 function Initialize-CampaignFilterDetails {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
@@ -63,17 +58,12 @@ function Initialize-CampaignFilterDetails {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Description) {
-            throw "invalid value for 'Description', 'Description' cannot be null."
-        }
-
         if (!$Mode) {
             throw "invalid value for 'Mode', 'Mode' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
             "owner" = ${Owner}
@@ -115,7 +105,7 @@ function ConvertFrom-JsonToCampaignFilterDetails {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CampaignFilterDetails
-        $AllProperties = ("id", "name", "description", "owner", "mode", "criteriaList")
+        $AllProperties = ("name", "description", "owner", "mode", "criteriaList")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -132,12 +122,6 @@ function ConvertFrom-JsonToCampaignFilterDetails {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'description' missing."
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) {
             throw "Error! JSON cannot be serialized due to the required property 'owner' missing."
         } else {
@@ -150,10 +134,10 @@ function ConvertFrom-JsonToCampaignFilterDetails {
             $Mode = $JsonParameters.PSobject.Properties["mode"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "criteriaList"))) { #optional property not found
@@ -163,7 +147,6 @@ function ConvertFrom-JsonToCampaignFilterDetails {
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
             "owner" = ${Owner}

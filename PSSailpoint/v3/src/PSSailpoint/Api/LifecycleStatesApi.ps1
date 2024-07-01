@@ -394,10 +394,10 @@ Set Lifecycle State
 
 .DESCRIPTION
 
-Use this endpoint to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
+Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
 
 .PARAMETER IdentityId
-The ID of the identity to update.
+ID of the identity to update.
 
 .PARAMETER SetLifecycleStateRequest
 No description available.

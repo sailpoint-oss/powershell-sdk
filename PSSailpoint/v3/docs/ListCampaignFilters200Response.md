@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**CampaignFilterDetails[]**](CampaignFilterDetails.md) | The list of campaign filters | [optional] 
-**Count** | **Int32** | The number of filters returned | [optional] 
+**Items** | [**CampaignFilterDetails[]**](CampaignFilterDetails.md) | List of campaign filters. | [optional] 
+**Count** | **Int32** | Number of filters returned. | [optional] 
 
 ## Examples
 

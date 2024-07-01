@@ -4,7 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-CampaignFilter**](CertificationCampaignFiltersApi.md#New-CampaignFilter) | **POST** /campaign-filters | Create a Campaign Filter
+[**New-CampaignFilter**](CertificationCampaignFiltersApi.md#New-CampaignFilter) | **POST** /campaign-filters | Create Campaign Filter
 [**Remove-CampaignFilters**](CertificationCampaignFiltersApi.md#Remove-CampaignFilters) | **POST** /campaign-filters/delete | Deletes Campaign Filters
 [**Get-CampaignFilterById**](CertificationCampaignFiltersApi.md#Get-CampaignFilterById) | **GET** /campaign-filters/{id} | Get Campaign Filter by ID
 [**Get-CampaignFilters**](CertificationCampaignFiltersApi.md#Get-CampaignFilters) | **GET** /campaign-filters | List Campaign Filters
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 > CampaignFilterDetails New-CampaignFilter<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CampaignFilterDetails] <PSCustomObject><br>
 
-Create a Campaign Filter
+Create Campaign Filter
 
-Create a campaign Filter based on filter details and criteria.
+Use this API to create a campaign filter based on filter details and criteria.
 
 ### Example
 ```powershell
@@ -33,9 +33,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Operation = Initialize-Operation 
 $CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation $Operation -Property "displayName" -Value "Allie"
 
-$CampaignFilterDetails = Initialize-CampaignFilterDetails -Id "e9f9a1397b842fd5a65842087040d3ac" -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on specified property of Identity Attribute." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | 
+$CampaignFilterDetails = Initialize-CampaignFilterDetails -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on an identity attribute's specified property." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | 
 
-# Create a Campaign Filter
+# Create Campaign Filter
 try {
     $Result = New-CampaignFilter -CampaignFilterDetails $CampaignFilterDetails
 } catch {
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 List Campaign Filters
 
-Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
 ### Example
 ```powershell
@@ -190,7 +190,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Start = 0 # Int32 | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$IncludeSystemFilters = $true # Boolean | If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true. (optional) (default to $true)
+$IncludeSystemFilters = $true # Boolean | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to $true)
 
 # List Campaign Filters
 try {
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
  **Start** | **Int32**| Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
- **IncludeSystemFilters** | **Boolean**| If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true. | [optional] [default to $true]
+ **IncludeSystemFilters** | **Boolean**| If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  | [optional] [default to $true]
 
 ### Return type
 
@@ -248,7 +248,7 @@ $FilterId = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign
 $Operation = Initialize-Operation 
 $CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation $Operation -Property "displayName" -Value "Allie"
 
-$CampaignFilterDetails = Initialize-CampaignFilterDetails -Id "e9f9a1397b842fd5a65842087040d3ac" -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on specified property of Identity Attribute." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | A campaign filter details with updated field values.
+$CampaignFilterDetails = Initialize-CampaignFilterDetails -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on an identity attribute's specified property." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | A campaign filter details with updated field values.
 
 # Updates a Campaign Filter
 try {

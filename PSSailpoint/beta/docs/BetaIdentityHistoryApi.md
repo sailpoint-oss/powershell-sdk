@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**Get-BetaIdentityStartDate**](BetaIdentityHistoryApi.md#Get-BetaIdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 [**Get-BetaHistoricalIdentities**](BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentities) | **GET** /historical-identities | Lists all the identities
 [**Get-BetaIdentityAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
-[**Get-BetaIdentitySnapshotAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
+[**Get-BetaIdentitySnapshotAccessItems**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Get Identity Access Items Snapshot
 [**Get-BetaIdentitySnapshots**](BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
 
 
@@ -576,9 +576,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Date] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
 
-Gets the list of identity access items at a given date filterd by item type
+Get Identity Access Items Snapshot
 
-This method retrieves the list of identity access items at a given date filterd by item type Requires authorization scope of 'idn:identity-history:read' 
+Use this API to get a list of identity access items at a specified date, filtered by item type.
 
 ### Example
 ```powershell
@@ -590,11 +590,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
-$Date = "2007-03-01T13:00:00Z" # String | The specified date
-$Type = "account" # String | The access item type (optional)
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Identity ID.
+$Date = "2007-03-01T13:00:00Z" # String | Specified date.
+$Type = "account" # String | Access item type. (optional)
 
-# Gets the list of identity access items at a given date filterd by item type
+# Get Identity Access Items Snapshot
 try {
     $Result = Get-BetaIdentitySnapshotAccessItems -Id $Id -Date $Date -Type $Type
 } catch {
@@ -607,9 +607,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The identity id | 
- **Date** | **String**| The specified date | 
- **Type** | **String**| The access item type | [optional] 
+ **Id** | **String**| Identity ID. | 
+ **Date** | **String**| Specified date. | 
+ **Type** | **String**| Access item type. | [optional] 
 
 ### Return type
 

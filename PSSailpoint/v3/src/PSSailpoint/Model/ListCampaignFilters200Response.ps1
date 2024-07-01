@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Items
-The list of campaign filters
+List of campaign filters.
 .PARAMETER Count
-The number of filters returned
+Number of filters returned.
 .OUTPUTS
 
 ListCampaignFilters200Response<PSCustomObject>

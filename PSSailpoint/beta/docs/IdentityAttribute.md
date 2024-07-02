@@ -16,12 +16,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttribute = Initialize-PSSailpointBetaIdentityAttribute  -Name uid `
- -DisplayName Identity Security Cloud Username `
- -Standard true `
+$IdentityAttribute = Initialize-PSSailpointBetaIdentityAttribute  -Name costCenter `
+ -DisplayName Cost Center `
+ -Standard false `
  -Type string `
  -Multi false `
- -Searchable true `
+ -Searchable false `
  -System false `
  -Sources null
 ```

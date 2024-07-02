@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | Source type. | [optional] 
-**Properties** | [**SystemCollectionsHashtable**](.md) | Source properties. | [optional] 
+**Type** | **String** | Attribute mapping type. | [optional] 
+**Properties** | [**SystemCollectionsHashtable**](.md) | Attribute mapping properties. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $Source1 = Initialize-PSSailpointBetaSource1  -Type rule `
- -Properties {attribute&#x3D;null, sourceName&#x3D;Employees}
+ -Properties {ruleType&#x3D;IdentityAttribute, ruleName&#x3D;Cloud Promote Identity Attribute}
 ```
 
 - Convert the resource to JSON

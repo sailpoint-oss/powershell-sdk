@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Create Identity Attribute
 
-Use this API to create a new identity attribute.
+Use this API to create a new identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -32,7 +32,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Source1 = Initialize-Source1 -Type "rule" -Properties 
-$IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
+$IdentityAttribute = Initialize-IdentityAttribute -Name "costCenter" -DisplayName "Cost Center" -Standard $false -Type "string" -Multi $false -Searchable $false -System $false -Sources $Source1 # IdentityAttribute | 
 
 # Create Identity Attribute
 try {
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 Delete Identity Attribute
 
-This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
+This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -122,7 +122,7 @@ void (empty response body)
 
 Bulk delete Identity Attributes
 
-Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
+Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 Update Identity Attribute
 
-This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
+This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.   A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -299,7 +299,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "displayName" # String | The attribute's technical name.
 $Source1 = Initialize-Source1 -Type "rule" -Properties 
-$IdentityAttribute = Initialize-IdentityAttribute -Name "uid" -DisplayName "Identity Security Cloud Username" -Standard $true -Type "string" -Multi $false -Searchable $true -System $false -Sources $Source1 # IdentityAttribute | 
+$IdentityAttribute = Initialize-IdentityAttribute -Name "costCenter" -DisplayName "Cost Center" -Standard $false -Type "string" -Multi $false -Searchable $false -System $false -Sources $Source1 # IdentityAttribute | 
 
 # Update Identity Attribute
 try {

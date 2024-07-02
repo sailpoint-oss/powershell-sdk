@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-Source type.
+Attribute mapping type.
 .PARAMETER Properties
-Source properties.
+Attribute mapping properties.
 .OUTPUTS
 
 Source1<PSCustomObject>

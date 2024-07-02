@@ -12,7 +12,7 @@ Create Identity Attribute
 
 .DESCRIPTION
 
-Use this API to create a new identity attribute.
+Use this API to create a new identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER IdentityAttribute
 No description available.
@@ -102,7 +102,7 @@ Delete Identity Attribute
 
 .DESCRIPTION
 
-This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
+This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Name
 The attribute's technical name.
@@ -176,7 +176,7 @@ Bulk delete Identity Attributes
 
 .DESCRIPTION
 
-Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
+Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER IdentityAttributeNames
 No description available.
@@ -444,7 +444,7 @@ Update Identity Attribute
 
 .DESCRIPTION
 
-This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
+This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.   A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER Name
 The attribute's technical name.

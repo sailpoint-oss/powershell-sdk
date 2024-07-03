@@ -107,6 +107,7 @@ docs/BrandingItemCreate.md
 docs/BucketAggregation.md
 docs/BucketType.md
 docs/BulkTaggedObject.md
+docs/BulkTaggedObjectResponse.md
 docs/Campaign.md
 docs/CampaignAlert.md
 docs/CampaignAllOfFilter.md
@@ -760,6 +761,7 @@ src/PSSailpoint/Model/BrandingItemCreate.ps1
 src/PSSailpoint/Model/BucketAggregation.ps1
 src/PSSailpoint/Model/BucketType.ps1
 src/PSSailpoint/Model/BulkTaggedObject.ps1
+src/PSSailpoint/Model/BulkTaggedObjectResponse.ps1
 src/PSSailpoint/Model/Campaign.ps1
 src/PSSailpoint/Model/CampaignAlert.ps1
 src/PSSailpoint/Model/CampaignAllOfFilter.ps1
@@ -1380,6 +1382,7 @@ tests/Model/BrandingItemCreate.Tests.ps1
 tests/Model/BucketAggregation.Tests.ps1
 tests/Model/BucketType.Tests.ps1
 tests/Model/BulkTaggedObject.Tests.ps1
+tests/Model/BulkTaggedObjectResponse.Tests.ps1
 tests/Model/Campaign.Tests.ps1
 tests/Model/CampaignAlert.Tests.ps1
 tests/Model/CampaignAllOfFilter.Tests.ps1

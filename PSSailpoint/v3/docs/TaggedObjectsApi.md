@@ -409,7 +409,7 @@ void (empty response body)
 
 <a id="Set-TagsToManyObjects"></a>
 # **Set-TagsToManyObjects**
-> BulkTaggedObject Set-TagsToManyObjects<br>
+> BulkTaggedObjectResponse[] Set-TagsToManyObjects<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
 
 Tag Multiple Objects
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BulkTaggedObject**](BulkTaggedObject.md) (PSCustomObject)
+[**BulkTaggedObjectResponse[]**](BulkTaggedObjectResponse.md) (PSCustomObject)
 
 ### Authorization
 

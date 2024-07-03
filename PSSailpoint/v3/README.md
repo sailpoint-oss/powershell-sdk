@@ -498,6 +498,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.BucketAggregation](docs/BucketAggregation.md)
  - [PSSailpoint\Model.BucketType](docs/BucketType.md)
  - [PSSailpoint\Model.BulkTaggedObject](docs/BulkTaggedObject.md)
+ - [PSSailpoint\Model.BulkTaggedObjectResponse](docs/BulkTaggedObjectResponse.md)
  - [PSSailpoint\Model.Campaign](docs/Campaign.md)
  - [PSSailpoint\Model.CampaignAlert](docs/CampaignAlert.md)
  - [PSSailpoint\Model.CampaignAllOfFilter](docs/CampaignAllOfFilter.md)

@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **SourceId** | **String** | the id of the source | [optional] 
 **Description** | **String** | the description for the entitlment | [optional] 
 **DisplayName** | **String** | the display name of the identity | [optional] 
+**Standalone** | **Boolean** | indicates whether the entitlement is standalone | 
+**Privileged** | **Boolean** | indicates whether the entitlement is privileged | 
+**CloudGoverned** | **Boolean** | indicates whether the entitlement is cloud governed | 
 
 ## Examples
 
@@ -25,7 +28,10 @@ $AccessItemEntitlementResponse = Initialize-PSSailpointBetaAccessItemEntitlement
  -SourceName DataScienceDataset `
  -SourceId 2793o32dwd `
  -Description Entitlement - Workday/Citizenship access `
- -DisplayName Dr. Arden Rogahn MD
+ -DisplayName Dr. Arden Rogahn MD `
+ -Standalone true `
+ -Privileged false `
+ -CloudGoverned true
 ```
 
 - Convert the resource to JSON

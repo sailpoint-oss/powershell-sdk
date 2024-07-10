@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaAccessItemEntitlementResponse' {
     Context 'BetaAccessItemEntitlementResponse' {
         It 'Initialize-BetaAccessItemEntitlementResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccessItemEntitlementResponse -AccessType "TEST_VALUE" -Id "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -EntitlementType "TEST_VALUE" -SourceName "TEST_VALUE" -SourceId "TEST_VALUE" -Description "TEST_VALUE" -DisplayName "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccessItemEntitlementResponse -AccessType "TEST_VALUE" -Id "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -EntitlementType "TEST_VALUE" -SourceName "TEST_VALUE" -SourceId "TEST_VALUE" -Description "TEST_VALUE" -DisplayName "TEST_VALUE" -Standalone "TEST_VALUE" -Privileged "TEST_VALUE" -CloudGoverned "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemEntitlementResponse
             #$NewObject.property | Should -Be 0
         }

@@ -31,7 +31,13 @@ the display name of the identity
 .PARAMETER EntitlementCount
 the number of entitlements the access profile will create
 .PARAMETER AppDisplayName
-the name of app
+the name of
+.PARAMETER RemoveDate
+the date the access profile is no longer assigned to the specified identity
+.PARAMETER Standalone
+indicates whether the access profile is standalone
+.PARAMETER Revocable
+indicates whether the access profile is
 .OUTPUTS
 
 AccessItemAccessProfileResponse<PSCustomObject>
@@ -66,12 +72,29 @@ function Initialize-BetaAccessItemAccessProfileResponse {
         ${EntitlementCount},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AppDisplayName}
+        ${AppDisplayName},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${RemoveDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Boolean]
+        ${Standalone},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Boolean]
+        ${Revocable}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessItemAccessProfileResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$Standalone) {
+            throw "invalid value for 'Standalone', 'Standalone' cannot be null."
+        }
+
+        if (!$Revocable) {
+            throw "invalid value for 'Revocable', 'Revocable' cannot be null."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -84,6 +107,9 @@ function Initialize-BetaAccessItemAccessProfileResponse {
             "displayName" = ${DisplayName}
             "entitlementCount" = ${EntitlementCount}
             "appDisplayName" = ${AppDisplayName}
+            "removeDate" = ${RemoveDate}
+            "standalone" = ${Standalone}
+            "revocable" = ${Revocable}
         }
 
         return $PSO
@@ -120,11 +146,27 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessItemAccessProfileResponse
-        $AllProperties = ("accessType", "id", "name", "sourceName", "sourceId", "description", "displayName", "entitlementCount", "appDisplayName")
+        $AllProperties = ("accessType", "id", "name", "sourceName", "sourceId", "description", "displayName", "entitlementCount", "appDisplayName", "removeDate", "standalone", "revocable")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'standalone' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "standalone"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'standalone' missing."
+        } else {
+            $Standalone = $JsonParameters.PSobject.Properties["standalone"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "revocable"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'revocable' missing."
+        } else {
+            $Revocable = $JsonParameters.PSobject.Properties["revocable"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
@@ -181,6 +223,12 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
             $AppDisplayName = $JsonParameters.PSobject.Properties["appDisplayName"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
+            $RemoveDate = $null
+        } else {
+            $RemoveDate = $JsonParameters.PSobject.Properties["removeDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "accessType" = ${AccessType}
             "id" = ${Id}
@@ -191,6 +239,9 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
             "displayName" = ${DisplayName}
             "entitlementCount" = ${EntitlementCount}
             "appDisplayName" = ${AppDisplayName}
+            "removeDate" = ${RemoveDate}
+            "standalone" = ${Standalone}
+            "revocable" = ${Revocable}
         }
 
         return $PSO

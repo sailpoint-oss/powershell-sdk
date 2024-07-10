@@ -24,6 +24,10 @@ the role display name
 the description for the role
 .PARAMETER SourceName
 the associated source name if it exists
+.PARAMETER RemoveDate
+the date the role is no longer assigned to the specified identity
+.PARAMETER Revocable
+indicates whether the role is revocable
 .OUTPUTS
 
 AccessItemRoleResponse<PSCustomObject>
@@ -46,12 +50,22 @@ function Initialize-BetaAccessItemRoleResponse {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceName}
+        ${SourceName},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${RemoveDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Boolean]
+        ${Revocable}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessItemRoleResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$Revocable) {
+            throw "invalid value for 'Revocable', 'Revocable' cannot be null."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -60,6 +74,8 @@ function Initialize-BetaAccessItemRoleResponse {
             "displayName" = ${DisplayName}
             "description" = ${Description}
             "sourceName" = ${SourceName}
+            "removeDate" = ${RemoveDate}
+            "revocable" = ${Revocable}
         }
 
         return $PSO
@@ -96,11 +112,21 @@ function ConvertFrom-BetaJsonToAccessItemRoleResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessItemRoleResponse
-        $AllProperties = ("accessType", "id", "displayName", "description", "sourceName")
+        $AllProperties = ("accessType", "id", "displayName", "description", "sourceName", "removeDate", "revocable")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'revocable' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "revocable"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'revocable' missing."
+        } else {
+            $Revocable = $JsonParameters.PSobject.Properties["revocable"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
@@ -133,12 +159,20 @@ function ConvertFrom-BetaJsonToAccessItemRoleResponse {
             $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
+            $RemoveDate = $null
+        } else {
+            $RemoveDate = $JsonParameters.PSobject.Properties["removeDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "accessType" = ${AccessType}
             "id" = ${Id}
             "displayName" = ${DisplayName}
             "description" = ${Description}
             "sourceName" = ${SourceName}
+            "removeDate" = ${RemoveDate}
+            "revocable" = ${Revocable}
         }
 
         return $PSO

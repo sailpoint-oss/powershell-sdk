@@ -32,6 +32,12 @@ the id of the source
 the description for the entitlment
 .PARAMETER DisplayName
 the display name of the identity
+.PARAMETER Standalone
+indicates whether the entitlement is standalone
+.PARAMETER Privileged
+indicates whether the entitlement is privileged
+.PARAMETER CloudGoverned
+indicates whether the entitlement is cloud governed
 .OUTPUTS
 
 AccessItemEntitlementResponse<PSCustomObject>
@@ -66,12 +72,33 @@ function Initialize-BetaAccessItemEntitlementResponse {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DisplayName}
+        ${DisplayName},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Boolean]
+        ${Standalone},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Boolean]
+        ${Privileged},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Boolean]
+        ${CloudGoverned}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpointBeta => BetaAccessItemEntitlementResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$Standalone) {
+            throw "invalid value for 'Standalone', 'Standalone' cannot be null."
+        }
+
+        if (!$Privileged) {
+            throw "invalid value for 'Privileged', 'Privileged' cannot be null."
+        }
+
+        if (!$CloudGoverned) {
+            throw "invalid value for 'CloudGoverned', 'CloudGoverned' cannot be null."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -84,6 +111,9 @@ function Initialize-BetaAccessItemEntitlementResponse {
             "sourceId" = ${SourceId}
             "description" = ${Description}
             "displayName" = ${DisplayName}
+            "standalone" = ${Standalone}
+            "privileged" = ${Privileged}
+            "cloudGoverned" = ${CloudGoverned}
         }
 
         return $PSO
@@ -120,11 +150,33 @@ function ConvertFrom-BetaJsonToAccessItemEntitlementResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessItemEntitlementResponse
-        $AllProperties = ("accessType", "id", "attribute", "value", "entitlementType", "sourceName", "sourceId", "description", "displayName")
+        $AllProperties = ("accessType", "id", "attribute", "value", "entitlementType", "sourceName", "sourceId", "description", "displayName", "standalone", "privileged", "cloudGoverned")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'standalone' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "standalone"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'standalone' missing."
+        } else {
+            $Standalone = $JsonParameters.PSobject.Properties["standalone"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privileged"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'privileged' missing."
+        } else {
+            $Privileged = $JsonParameters.PSobject.Properties["privileged"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cloudGoverned"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'cloudGoverned' missing."
+        } else {
+            $CloudGoverned = $JsonParameters.PSobject.Properties["cloudGoverned"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
@@ -191,6 +243,9 @@ function ConvertFrom-BetaJsonToAccessItemEntitlementResponse {
             "sourceId" = ${SourceId}
             "description" = ${Description}
             "displayName" = ${DisplayName}
+            "standalone" = ${Standalone}
+            "privileged" = ${Privileged}
+            "cloudGoverned" = ${CloudGoverned}
         }
 
         return $PSO

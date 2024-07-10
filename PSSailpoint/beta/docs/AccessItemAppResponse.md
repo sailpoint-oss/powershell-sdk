@@ -5,8 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessType** | **String** | the access item type. entitlement in this case | [optional] 
 **Id** | **String** | the access item id | [optional] 
-**DisplayName** | **String** | the access profile display name | [optional] 
+**DisplayName** | **String** | the access item display name | [optional] 
 **SourceName** | **String** | the associated source name if it exists | [optional] 
+**AppRoleId** | **String** | the app role id | [optional] 
 
 ## Examples
 
@@ -15,7 +16,8 @@ Name | Type | Description | Notes
 $AccessItemAppResponse = Initialize-PSSailpointBetaAccessItemAppResponse  -AccessType app `
  -Id 2c918087763e69d901763e72e97f006f `
  -DisplayName Display Name `
- -SourceName appName
+ -SourceName appName `
+ -AppRoleId 2c918087763e69d901763e72e97f006f
 ```
 
 - Convert the resource to JSON

@@ -72,7 +72,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityHistoryApi' {
 
     Context 'Get-BetaIdentityAccessItems' {
         It 'Test Get-BetaIdentityAccessItems' {
-            #$TestResult = Get-BetaIdentityAccessItems -Id "TEST_VALUE" -Type "TEST_VALUE"
+            #$TestResult = Get-BetaIdentityAccessItems -Id "TEST_VALUE" -Type "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Query "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -11,7 +11,10 @@ Name | Type | Description | Notes
 **Description** | **String** | the description for the access profile | [optional] 
 **DisplayName** | **String** | the display name of the identity | [optional] 
 **EntitlementCount** | **String** | the number of entitlements the access profile will create | [optional] 
-**AppDisplayName** | **String** | the name of app | [optional] 
+**AppDisplayName** | **String** | the name of | [optional] 
+**RemoveDate** | **String** | the date the access profile is no longer assigned to the specified identity | [optional] 
+**Standalone** | **Boolean** | indicates whether the access profile is standalone | 
+**Revocable** | **Boolean** | indicates whether the access profile is | 
 
 ## Examples
 
@@ -25,7 +28,10 @@ $AccessItemAccessProfileResponse = Initialize-PSSailpointBetaAccessItemAccessPro
  -Description AccessProfile - Workday/Citizenship access `
  -DisplayName Dr. Arden Rogahn MD `
  -EntitlementCount 12 `
- -AppDisplayName AppName
+ -AppDisplayName AppName `
+ -RemoveDate 2024-07-01T06:00:00.00Z `
+ -Standalone false `
+ -Revocable true
 ```
 
 - Convert the resource to JSON

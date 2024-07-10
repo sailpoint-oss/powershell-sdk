@@ -19,9 +19,11 @@ the access item type. entitlement in this case
 .PARAMETER Id
 the access item id
 .PARAMETER DisplayName
-the access profile display name
+the access item display name
 .PARAMETER SourceName
 the associated source name if it exists
+.PARAMETER AppRoleId
+the app role id
 .OUTPUTS
 
 AccessItemAppResponse<PSCustomObject>
@@ -41,7 +43,10 @@ function Initialize-BetaAccessItemAppResponse {
         ${DisplayName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceName}
+        ${SourceName},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${AppRoleId}
     )
 
     Process {
@@ -54,6 +59,7 @@ function Initialize-BetaAccessItemAppResponse {
             "id" = ${Id}
             "displayName" = ${DisplayName}
             "sourceName" = ${SourceName}
+            "appRoleId" = ${AppRoleId}
         }
 
         return $PSO
@@ -90,7 +96,7 @@ function ConvertFrom-BetaJsonToAccessItemAppResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessItemAppResponse
-        $AllProperties = ("accessType", "id", "displayName", "sourceName")
+        $AllProperties = ("accessType", "id", "displayName", "sourceName", "appRoleId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,11 +127,18 @@ function ConvertFrom-BetaJsonToAccessItemAppResponse {
             $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "appRoleId"))) { #optional property not found
+            $AppRoleId = $null
+        } else {
+            $AppRoleId = $JsonParameters.PSobject.Properties["appRoleId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "accessType" = ${AccessType}
             "id" = ${Id}
             "displayName" = ${DisplayName}
             "sourceName" = ${SourceName}
+            "appRoleId" = ${AppRoleId}
         }
 
         return $PSO

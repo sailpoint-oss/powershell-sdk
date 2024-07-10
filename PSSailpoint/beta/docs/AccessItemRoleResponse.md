@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **DisplayName** | **String** | the role display name | [optional] 
 **Description** | **String** | the description for the role | [optional] 
 **SourceName** | **String** | the associated source name if it exists | [optional] 
+**RemoveDate** | **String** | the date the role is no longer assigned to the specified identity | [optional] 
+**Revocable** | **Boolean** | indicates whether the role is revocable | 
 
 ## Examples
 
@@ -17,7 +19,9 @@ $AccessItemRoleResponse = Initialize-PSSailpointBetaAccessItemRoleResponse  -Acc
  -Id 2c918087763e69d901763e72e97f006f `
  -DisplayName sample `
  -Description Role - Workday/Citizenship access `
- -SourceName Source Name
+ -SourceName Source Name `
+ -RemoveDate 2024-07-01T06:00:00.00Z `
+ -Revocable true
 ```
 
 - Convert the resource to JSON

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaAccessItemRoleResponse' {
     Context 'BetaAccessItemRoleResponse' {
         It 'Initialize-BetaAccessItemRoleResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccessItemRoleResponse -AccessType "TEST_VALUE" -Id "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -SourceName "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccessItemRoleResponse -AccessType "TEST_VALUE" -Id "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -SourceName "TEST_VALUE" -RemoveDate "TEST_VALUE" -Revocable "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemRoleResponse
             #$NewObject.property | Should -Be 0
         }

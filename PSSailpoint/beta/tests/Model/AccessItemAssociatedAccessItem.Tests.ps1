@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaAccessItemAssociatedAccessItem' {
     Context 'BetaAccessItemAssociatedAccessItem' {
         It 'Initialize-BetaAccessItemAssociatedAccessItem' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccessItemAssociatedAccessItem -AccessType "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -SourceName "TEST_VALUE" -SourceId "TEST_VALUE" -Description "TEST_VALUE" -DisplayName "TEST_VALUE" -EntitlementCount "TEST_VALUE" -AppDisplayName "TEST_VALUE" -NativeIdentity "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -EntitlementType "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccessItemAssociatedAccessItem -AccessType "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -SourceName "TEST_VALUE" -SourceId "TEST_VALUE" -Description "TEST_VALUE" -DisplayName "TEST_VALUE" -EntitlementCount "TEST_VALUE" -AppDisplayName "TEST_VALUE" -RemoveDate "TEST_VALUE" -Standalone "TEST_VALUE" -Revocable "TEST_VALUE" -NativeIdentity "TEST_VALUE" -AppRoleId "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -EntitlementType "TEST_VALUE" -Privileged "TEST_VALUE" -CloudGoverned "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemAssociatedAccessItem
             #$NewObject.property | Should -Be 0
         }

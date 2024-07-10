@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaManualDiscoverApplicationsTemplate' {
     Context 'BetaManualDiscoverApplicationsTemplate' {
         It 'Initialize-BetaManualDiscoverApplicationsTemplate' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaManualDiscoverApplicationsTemplate -ApplicationName "TEST_VALUE" -Domain "TEST_VALUE"
+            #$NewObject = Initialize-BetaManualDiscoverApplicationsTemplate -ApplicationName "TEST_VALUE" -Description "TEST_VALUE"
             #$NewObject | Should -BeOfType ManualDiscoverApplicationsTemplate
             #$NewObject.property | Should -Be 0
         }

@@ -1,20 +1,20 @@
-# SendManualDiscoverApplicationsCsvTemplateRequest
+# DeleteVendorConnectorMapping200Response
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CsvFile** | **System.IO.FileInfo** |  | 
+**Count** | **Int32** | The number of vendor connector mappings successfully deleted. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SendManualDiscoverApplicationsCsvTemplateRequest = Initialize-PSSailpointBetaSendManualDiscoverApplicationsCsvTemplateRequest  -CsvFile null
+$DeleteVendorConnectorMapping200Response = Initialize-PSSailpointDeleteVendorConnectorMapping200Response  -Count 1
 ```
 
 - Convert the resource to JSON
 ```powershell
-$SendManualDiscoverApplicationsCsvTemplateRequest | ConvertTo-JSON
+$DeleteVendorConnectorMapping200Response | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

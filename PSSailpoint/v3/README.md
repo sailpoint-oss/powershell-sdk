@@ -84,6 +84,10 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Submit-ReloadAccount**](docs/AccountsApi.md#Submit-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *AccountsApi* | [**Unlock-Account**](docs/AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
+*ApplicationDiscoveryApi* | [**Get-DiscoveredApplications**](docs/ApplicationDiscoveryApi.md#Get-DiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
+*ApplicationDiscoveryApi* | [**Get-ManualDiscoverApplicationsCsvTemplate**](docs/ApplicationDiscoveryApi.md#Get-ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
+*ApplicationDiscoveryApi* | [**Get-VendorConnectorMappings**](docs/ApplicationDiscoveryApi.md#Get-VendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
+*ApplicationDiscoveryApi* | [**Send-ManualDiscoverApplicationsCsvTemplate**](docs/ApplicationDiscoveryApi.md#Send-ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
 *AuthUsersApi* | [**Get-AuthUser**](docs/AuthUsersApi.md#Get-AuthUser) | **GET** /auth-users/{id} | Auth User Details
 *AuthUsersApi* | [**Update-AuthUser**](docs/AuthUsersApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
 *BrandingApi* | [**New-BrandingItem**](docs/BrandingApi.md#New-BrandingItem) | **POST** /brandings | Create a branding item
@@ -367,6 +371,8 @@ Class | Method | HTTP request | Description
 *TransformsApi* | [**Get-Transform**](docs/TransformsApi.md#Get-Transform) | **GET** /transforms/{id} | Transform by ID
 *TransformsApi* | [**Get-Transforms**](docs/TransformsApi.md#Get-Transforms) | **GET** /transforms | List transforms
 *TransformsApi* | [**Update-Transform**](docs/TransformsApi.md#Update-Transform) | **PUT** /transforms/{id} | Update a transform
+*VendorConnectorMappingsApi* | [**New-VendorConnectorMapping**](docs/VendorConnectorMappingsApi.md#New-VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
+*VendorConnectorMappingsApi* | [**Remove-VendorConnectorMapping**](docs/VendorConnectorMappingsApi.md#Remove-VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
 *WorkItemsApi* | [**Approve-ApprovalItem**](docs/WorkItemsApi.md#Approve-ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *WorkItemsApi* | [**Approve-ApprovalItemsInBulk**](docs/WorkItemsApi.md#Approve-ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *WorkItemsApi* | [**Complete-WorkItem**](docs/WorkItemsApi.md#Complete-WorkItem) | **POST** /work-items/{id} | Complete a Work Item
@@ -565,6 +571,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.DecomposeDiacriticalMarks](docs/DecomposeDiacriticalMarks.md)
  - [PSSailpoint\Model.DeleteNonEmployeeRecordsInBulkRequest](docs/DeleteNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint\Model.DeleteSource202Response](docs/DeleteSource202Response.md)
+ - [PSSailpoint\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
+ - [PSSailpoint\Model.DiscoveredApplicationsInner](docs/DiscoveredApplicationsInner.md)
  - [PSSailpoint\Model.DisplayReference](docs/DisplayReference.md)
  - [PSSailpoint\Model.DocumentType](docs/DocumentType.md)
  - [PSSailpoint\Model.DtoType](docs/DtoType.md)
@@ -607,6 +615,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpoint\Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
  - [PSSailpoint\Model.GetReferenceIdentityAttribute](docs/GetReferenceIdentityAttribute.md)
+ - [PSSailpoint\Model.GetVendorConnectorMappings405Response](docs/GetVendorConnectorMappings405Response.md)
  - [PSSailpoint\Model.GrantType](docs/GrantType.md)
  - [PSSailpoint\Model.ISO3166](docs/ISO3166.md)
  - [PSSailpoint\Model.IdentitiesDetailsReportArguments](docs/IdentitiesDetailsReportArguments.md)
@@ -674,6 +683,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ManagedClusterRequest](docs/ManagedClusterRequest.md)
  - [PSSailpoint\Model.ManagedClusterTypes](docs/ManagedClusterTypes.md)
  - [PSSailpoint\Model.ManagerCorrelationMapping](docs/ManagerCorrelationMapping.md)
+ - [PSSailpoint\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
+ - [PSSailpoint\Model.ManualDiscoverApplicationsTemplate](docs/ManualDiscoverApplicationsTemplate.md)
  - [PSSailpoint\Model.ManualWorkItemDetails](docs/ManualWorkItemDetails.md)
  - [PSSailpoint\Model.ManualWorkItemDetailsCurrentOwner](docs/ManualWorkItemDetailsCurrentOwner.md)
  - [PSSailpoint\Model.ManualWorkItemDetailsOriginalOwner](docs/ManualWorkItemDetailsOriginalOwner.md)
@@ -939,6 +950,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.V3ConnectorDto](docs/V3ConnectorDto.md)
  - [PSSailpoint\Model.V3CreateConnectorDto](docs/V3CreateConnectorDto.md)
  - [PSSailpoint\Model.Value](docs/Value.md)
+ - [PSSailpoint\Model.VendorConnectorMapping](docs/VendorConnectorMapping.md)
+ - [PSSailpoint\Model.VendorConnectorMappingDeletedAt](docs/VendorConnectorMappingDeletedAt.md)
+ - [PSSailpoint\Model.VendorConnectorMappingDeletedBy](docs/VendorConnectorMappingDeletedBy.md)
+ - [PSSailpoint\Model.VendorConnectorMappingUpdatedAt](docs/VendorConnectorMappingUpdatedAt.md)
+ - [PSSailpoint\Model.VendorConnectorMappingUpdatedBy](docs/VendorConnectorMappingUpdatedBy.md)
  - [PSSailpoint\Model.VerificationPollRequest](docs/VerificationPollRequest.md)
  - [PSSailpoint\Model.VerificationResponse](docs/VerificationResponse.md)
  - [PSSailpoint\Model.ViolationContext](docs/ViolationContext.md)

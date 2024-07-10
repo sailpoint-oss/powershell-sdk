@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationName** | **String** | Name of the example application. | [optional] 
-**Description** | **String** | Description of the example application. | [optional] 
+**ApplicationName** | **String** | Name of the application. | [optional] 
+**Description** | **String** | Description of the application. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ManualDiscoverApplicationsTemplate = Initialize-PSSailpointBetaManualDiscoverApplicationsTemplate  -ApplicationName Example Application `
+$ManualDiscoverApplicationsTemplate = Initialize-PSSailpointManualDiscoverApplicationsTemplate  -ApplicationName Example Application `
  -Description Example Description
 ```
 

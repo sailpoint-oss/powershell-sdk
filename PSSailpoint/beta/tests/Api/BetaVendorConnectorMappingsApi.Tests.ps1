@@ -22,12 +22,4 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaVendorConnectorMappingsApi' {
         }
     }
 
-    Context 'Get-BetaVendorConnectorMappings' {
-        It 'Test Get-BetaVendorConnectorMappings' {
-            #$TestResult = Get-BetaVendorConnectorMappings
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
 }

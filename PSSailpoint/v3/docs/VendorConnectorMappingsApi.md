@@ -1,16 +1,16 @@
-# PSSailpointBeta.PSSailpointBeta\Api.BetaVendorConnectorMappingsApi
+# PSSailpoint.PSSailpoint\Api.VendorConnectorMappingsApi
 
-All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
+All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaVendorConnectorMapping**](BetaVendorConnectorMappingsApi.md#New-BetaVendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
-[**Remove-BetaVendorConnectorMapping**](BetaVendorConnectorMappingsApi.md#Remove-BetaVendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
+[**New-VendorConnectorMapping**](VendorConnectorMappingsApi.md#New-VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
+[**Remove-VendorConnectorMapping**](VendorConnectorMappingsApi.md#Remove-VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
 
 
-<a id="New-BetaVendorConnectorMapping"></a>
-# **New-BetaVendorConnectorMapping**
-> VendorConnectorMapping New-BetaVendorConnectorMapping<br>
+<a id="New-VendorConnectorMapping"></a>
+# **New-VendorConnectorMapping**
+> VendorConnectorMapping New-VendorConnectorMapping<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-VendorConnectorMapping] <PSCustomObject><br>
 
 Create a vendor connector mapping
@@ -35,9 +35,9 @@ $VendorConnectorMapping = Initialize-VendorConnectorMapping -Id "78733556-9ea3-4
 
 # Create a vendor connector mapping
 try {
-    $Result = New-BetaVendorConnectorMapping -VendorConnectorMapping $VendorConnectorMapping
+    $Result = New-VendorConnectorMapping -VendorConnectorMapping $VendorConnectorMapping
 } catch {
-    Write-Host ("Exception occurred when calling New-BetaVendorConnectorMapping: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling New-VendorConnectorMapping: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Remove-BetaVendorConnectorMapping"></a>
-# **Remove-BetaVendorConnectorMapping**
-> DeleteVendorConnectorMapping200Response Remove-BetaVendorConnectorMapping<br>
+<a id="Remove-VendorConnectorMapping"></a>
+# **Remove-VendorConnectorMapping**
+> DeleteVendorConnectorMapping200Response Remove-VendorConnectorMapping<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-VendorConnectorMapping] <PSCustomObject><br>
 
 Delete a vendor connector mapping
@@ -90,9 +90,9 @@ $VendorConnectorMapping = Initialize-VendorConnectorMapping -Id "78733556-9ea3-4
 
 # Delete a vendor connector mapping
 try {
-    $Result = Remove-BetaVendorConnectorMapping -VendorConnectorMapping $VendorConnectorMapping
+    $Result = Remove-VendorConnectorMapping -VendorConnectorMapping $VendorConnectorMapping
 } catch {
-    Write-Host ("Exception occurred when calling Remove-BetaVendorConnectorMapping: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-VendorConnectorMapping: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

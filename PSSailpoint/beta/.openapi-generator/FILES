@@ -160,6 +160,7 @@ docs/BetaAccountActivitiesApi.md
 docs/BetaAccountAggregationsApi.md
 docs/BetaAccountUsagesApi.md
 docs/BetaAccountsApi.md
+docs/BetaApplicationDiscoveryApi.md
 docs/BetaApprovalsApi.md
 docs/BetaAuthProfileApi.md
 docs/BetaCertificationCampaignsApi.md
@@ -168,7 +169,6 @@ docs/BetaConnectorRuleManagementApi.md
 docs/BetaConnectorsApi.md
 docs/BetaCustomFormsApi.md
 docs/BetaCustomPasswordInstructionsApi.md
-docs/BetaDiscoveredApplicationsApi.md
 docs/BetaEntitlementsApi.md
 docs/BetaGovernanceGroupsApi.md
 docs/BetaIAIAccessRequestRecommendationsApi.md
@@ -188,8 +188,6 @@ docs/BetaMFAConfigurationApi.md
 docs/BetaMFAControllerApi.md
 docs/BetaManagedClientsApi.md
 docs/BetaManagedClustersApi.md
-docs/BetaManualDiscoverApplicationsApi.md
-docs/BetaManualDiscoverApplicationsTemplateApi.md
 docs/BetaNonEmployeeLifecycleManagementApi.md
 docs/BetaNotificationsApi.md
 docs/BetaOAuthClientsApi.md
@@ -775,7 +773,6 @@ docs/Selector.md
 docs/SelectorType.md
 docs/SelfImportExportDto.md
 docs/SendAccountVerificationRequest.md
-docs/SendManualDiscoverApplicationsCsvTemplateRequest.md
 docs/SendTestNotificationRequestDto.md
 docs/SendTokenRequest.md
 docs/SendTokenResponse.md
@@ -962,6 +959,7 @@ src/PSSailpointBeta/Api/BetaAccountActivitiesApi.ps1
 src/PSSailpointBeta/Api/BetaAccountAggregationsApi.ps1
 src/PSSailpointBeta/Api/BetaAccountUsagesApi.ps1
 src/PSSailpointBeta/Api/BetaAccountsApi.ps1
+src/PSSailpointBeta/Api/BetaApplicationDiscoveryApi.ps1
 src/PSSailpointBeta/Api/BetaApprovalsApi.ps1
 src/PSSailpointBeta/Api/BetaAuthProfileApi.ps1
 src/PSSailpointBeta/Api/BetaCertificationCampaignsApi.ps1
@@ -970,7 +968,6 @@ src/PSSailpointBeta/Api/BetaConnectorRuleManagementApi.ps1
 src/PSSailpointBeta/Api/BetaConnectorsApi.ps1
 src/PSSailpointBeta/Api/BetaCustomFormsApi.ps1
 src/PSSailpointBeta/Api/BetaCustomPasswordInstructionsApi.ps1
-src/PSSailpointBeta/Api/BetaDiscoveredApplicationsApi.ps1
 src/PSSailpointBeta/Api/BetaEntitlementsApi.ps1
 src/PSSailpointBeta/Api/BetaGovernanceGroupsApi.ps1
 src/PSSailpointBeta/Api/BetaIAIAccessRequestRecommendationsApi.ps1
@@ -990,8 +987,6 @@ src/PSSailpointBeta/Api/BetaMFAConfigurationApi.ps1
 src/PSSailpointBeta/Api/BetaMFAControllerApi.ps1
 src/PSSailpointBeta/Api/BetaManagedClientsApi.ps1
 src/PSSailpointBeta/Api/BetaManagedClustersApi.ps1
-src/PSSailpointBeta/Api/BetaManualDiscoverApplicationsApi.ps1
-src/PSSailpointBeta/Api/BetaManualDiscoverApplicationsTemplateApi.ps1
 src/PSSailpointBeta/Api/BetaNonEmployeeLifecycleManagementApi.ps1
 src/PSSailpointBeta/Api/BetaNotificationsApi.ps1
 src/PSSailpointBeta/Api/BetaOAuthClientsApi.ps1
@@ -1727,7 +1722,6 @@ src/PSSailpointBeta/Model/Selector.ps1
 src/PSSailpointBeta/Model/SelectorType.ps1
 src/PSSailpointBeta/Model/SelfImportExportDto.ps1
 src/PSSailpointBeta/Model/SendAccountVerificationRequest.ps1
-src/PSSailpointBeta/Model/SendManualDiscoverApplicationsCsvTemplateRequest.ps1
 src/PSSailpointBeta/Model/SendTestNotificationRequestDto.ps1
 src/PSSailpointBeta/Model/SendTokenRequest.ps1
 src/PSSailpointBeta/Model/SendTokenResponse.ps1
@@ -1921,6 +1915,7 @@ tests/Api/BetaAccountActivitiesApi.Tests.ps1
 tests/Api/BetaAccountAggregationsApi.Tests.ps1
 tests/Api/BetaAccountUsagesApi.Tests.ps1
 tests/Api/BetaAccountsApi.Tests.ps1
+tests/Api/BetaApplicationDiscoveryApi.Tests.ps1
 tests/Api/BetaApprovalsApi.Tests.ps1
 tests/Api/BetaAuthProfileApi.Tests.ps1
 tests/Api/BetaCertificationCampaignsApi.Tests.ps1
@@ -1929,7 +1924,6 @@ tests/Api/BetaConnectorRuleManagementApi.Tests.ps1
 tests/Api/BetaConnectorsApi.Tests.ps1
 tests/Api/BetaCustomFormsApi.Tests.ps1
 tests/Api/BetaCustomPasswordInstructionsApi.Tests.ps1
-tests/Api/BetaDiscoveredApplicationsApi.Tests.ps1
 tests/Api/BetaEntitlementsApi.Tests.ps1
 tests/Api/BetaGovernanceGroupsApi.Tests.ps1
 tests/Api/BetaIAIAccessRequestRecommendationsApi.Tests.ps1
@@ -1949,8 +1943,6 @@ tests/Api/BetaMFAConfigurationApi.Tests.ps1
 tests/Api/BetaMFAControllerApi.Tests.ps1
 tests/Api/BetaManagedClientsApi.Tests.ps1
 tests/Api/BetaManagedClustersApi.Tests.ps1
-tests/Api/BetaManualDiscoverApplicationsApi.Tests.ps1
-tests/Api/BetaManualDiscoverApplicationsTemplateApi.Tests.ps1
 tests/Api/BetaNonEmployeeLifecycleManagementApi.Tests.ps1
 tests/Api/BetaNotificationsApi.Tests.ps1
 tests/Api/BetaOAuthClientsApi.Tests.ps1
@@ -2685,7 +2677,6 @@ tests/Model/Selector.Tests.ps1
 tests/Model/SelectorType.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
 tests/Model/SendAccountVerificationRequest.Tests.ps1
-tests/Model/SendManualDiscoverApplicationsCsvTemplateRequest.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
 tests/Model/SendTokenRequest.Tests.ps1
 tests/Model/SendTokenResponse.Tests.ps1

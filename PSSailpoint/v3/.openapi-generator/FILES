@@ -68,6 +68,7 @@ docs/AggregationType.md
 docs/Aggregations.md
 docs/App.md
 docs/AppAllOfAccount.md
+docs/ApplicationDiscoveryApi.md
 docs/Approval.md
 docs/ApprovalComment.md
 docs/ApprovalForwardHistory.md
@@ -180,6 +181,8 @@ docs/DateMath.md
 docs/DecomposeDiacriticalMarks.md
 docs/DeleteNonEmployeeRecordsInBulkRequest.md
 docs/DeleteSource202Response.md
+docs/DeleteVendorConnectorMapping200Response.md
+docs/DiscoveredApplicationsInner.md
 docs/DisplayReference.md
 docs/DocumentType.md
 docs/DtoType.md
@@ -224,6 +227,7 @@ docs/GetActiveCampaigns200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
+docs/GetVendorConnectorMappings405Response.md
 docs/GlobalTenantSecuritySettingsApi.md
 docs/GrantType.md
 docs/ISO3166.md
@@ -298,6 +302,8 @@ docs/ManagedClusterRequest.md
 docs/ManagedClusterTypes.md
 docs/ManagedClustersApi.md
 docs/ManagerCorrelationMapping.md
+docs/ManualDiscoverApplications.md
+docs/ManualDiscoverApplicationsTemplate.md
 docs/ManualWorkItemDetails.md
 docs/ManualWorkItemDetailsCurrentOwner.md
 docs/ManualWorkItemDetailsOriginalOwner.md
@@ -585,6 +591,12 @@ docs/UsageType.md
 docs/V3ConnectorDto.md
 docs/V3CreateConnectorDto.md
 docs/Value.md
+docs/VendorConnectorMapping.md
+docs/VendorConnectorMappingDeletedAt.md
+docs/VendorConnectorMappingDeletedBy.md
+docs/VendorConnectorMappingUpdatedAt.md
+docs/VendorConnectorMappingUpdatedBy.md
+docs/VendorConnectorMappingsApi.md
 docs/VerificationPollRequest.md
 docs/VerificationResponse.md
 docs/ViolationContext.md
@@ -622,6 +634,7 @@ src/PSSailpoint/Api/AccessRequestsApi.ps1
 src/PSSailpoint/Api/AccountActivitiesApi.ps1
 src/PSSailpoint/Api/AccountUsagesApi.ps1
 src/PSSailpoint/Api/AccountsApi.ps1
+src/PSSailpoint/Api/ApplicationDiscoveryApi.ps1
 src/PSSailpoint/Api/AuthUsersApi.ps1
 src/PSSailpoint/Api/BrandingApi.ps1
 src/PSSailpoint/Api/CertificationCampaignFiltersApi.ps1
@@ -661,6 +674,7 @@ src/PSSailpoint/Api/SourceUsagesApi.ps1
 src/PSSailpoint/Api/SourcesApi.ps1
 src/PSSailpoint/Api/TaggedObjectsApi.ps1
 src/PSSailpoint/Api/TransformsApi.ps1
+src/PSSailpoint/Api/VendorConnectorMappingsApi.ps1
 src/PSSailpoint/Api/WorkItemsApi.ps1
 src/PSSailpoint/Api/WorkflowsApi.ps1
 src/PSSailpoint/Client/Configuration.ps1
@@ -828,6 +842,8 @@ src/PSSailpoint/Model/DateMath.ps1
 src/PSSailpoint/Model/DecomposeDiacriticalMarks.ps1
 src/PSSailpoint/Model/DeleteNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint/Model/DeleteSource202Response.ps1
+src/PSSailpoint/Model/DeleteVendorConnectorMapping200Response.ps1
+src/PSSailpoint/Model/DiscoveredApplicationsInner.ps1
 src/PSSailpoint/Model/DisplayReference.ps1
 src/PSSailpoint/Model/DocumentType.ps1
 src/PSSailpoint/Model/DtoType.ps1
@@ -870,6 +886,7 @@ src/PSSailpoint/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpoint/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpoint/Model/GetReferenceIdentityAttribute.ps1
+src/PSSailpoint/Model/GetVendorConnectorMappings405Response.ps1
 src/PSSailpoint/Model/GrantType.ps1
 src/PSSailpoint/Model/ISO3166.ps1
 src/PSSailpoint/Model/IdentitiesDetailsReportArguments.ps1
@@ -937,6 +954,8 @@ src/PSSailpoint/Model/ManagedClusterRedis.ps1
 src/PSSailpoint/Model/ManagedClusterRequest.ps1
 src/PSSailpoint/Model/ManagedClusterTypes.ps1
 src/PSSailpoint/Model/ManagerCorrelationMapping.ps1
+src/PSSailpoint/Model/ManualDiscoverApplications.ps1
+src/PSSailpoint/Model/ManualDiscoverApplicationsTemplate.ps1
 src/PSSailpoint/Model/ManualWorkItemDetails.ps1
 src/PSSailpoint/Model/ManualWorkItemDetailsCurrentOwner.ps1
 src/PSSailpoint/Model/ManualWorkItemDetailsOriginalOwner.ps1
@@ -1202,6 +1221,11 @@ src/PSSailpoint/Model/UsageType.ps1
 src/PSSailpoint/Model/V3ConnectorDto.ps1
 src/PSSailpoint/Model/V3CreateConnectorDto.ps1
 src/PSSailpoint/Model/Value.ps1
+src/PSSailpoint/Model/VendorConnectorMapping.ps1
+src/PSSailpoint/Model/VendorConnectorMappingDeletedAt.ps1
+src/PSSailpoint/Model/VendorConnectorMappingDeletedBy.ps1
+src/PSSailpoint/Model/VendorConnectorMappingUpdatedAt.ps1
+src/PSSailpoint/Model/VendorConnectorMappingUpdatedBy.ps1
 src/PSSailpoint/Model/VerificationPollRequest.ps1
 src/PSSailpoint/Model/VerificationResponse.ps1
 src/PSSailpoint/Model/ViolationContext.ps1
@@ -1244,6 +1268,7 @@ tests/Api/AccessRequestsApi.Tests.ps1
 tests/Api/AccountActivitiesApi.Tests.ps1
 tests/Api/AccountUsagesApi.Tests.ps1
 tests/Api/AccountsApi.Tests.ps1
+tests/Api/ApplicationDiscoveryApi.Tests.ps1
 tests/Api/AuthUsersApi.Tests.ps1
 tests/Api/BrandingApi.Tests.ps1
 tests/Api/CertificationCampaignFiltersApi.Tests.ps1
@@ -1283,6 +1308,7 @@ tests/Api/SourceUsagesApi.Tests.ps1
 tests/Api/SourcesApi.Tests.ps1
 tests/Api/TaggedObjectsApi.Tests.ps1
 tests/Api/TransformsApi.Tests.ps1
+tests/Api/VendorConnectorMappingsApi.Tests.ps1
 tests/Api/WorkItemsApi.Tests.ps1
 tests/Api/WorkflowsApi.Tests.ps1
 tests/Model/Access.Tests.ps1
@@ -1449,6 +1475,8 @@ tests/Model/DateMath.Tests.ps1
 tests/Model/DecomposeDiacriticalMarks.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/DeleteSource202Response.Tests.ps1
+tests/Model/DeleteVendorConnectorMapping200Response.Tests.ps1
+tests/Model/DiscoveredApplicationsInner.Tests.ps1
 tests/Model/DisplayReference.Tests.ps1
 tests/Model/DocumentType.Tests.ps1
 tests/Model/DtoType.Tests.ps1
@@ -1491,6 +1519,7 @@ tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1
+tests/Model/GetVendorConnectorMappings405Response.Tests.ps1
 tests/Model/GrantType.Tests.ps1
 tests/Model/ISO3166.Tests.ps1
 tests/Model/IdentitiesDetailsReportArguments.Tests.ps1
@@ -1558,6 +1587,8 @@ tests/Model/ManagedClusterRedis.Tests.ps1
 tests/Model/ManagedClusterRequest.Tests.ps1
 tests/Model/ManagedClusterTypes.Tests.ps1
 tests/Model/ManagerCorrelationMapping.Tests.ps1
+tests/Model/ManualDiscoverApplications.Tests.ps1
+tests/Model/ManualDiscoverApplicationsTemplate.Tests.ps1
 tests/Model/ManualWorkItemDetails.Tests.ps1
 tests/Model/ManualWorkItemDetailsCurrentOwner.Tests.ps1
 tests/Model/ManualWorkItemDetailsOriginalOwner.Tests.ps1
@@ -1823,6 +1854,11 @@ tests/Model/UsageType.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1
 tests/Model/V3CreateConnectorDto.Tests.ps1
 tests/Model/Value.Tests.ps1
+tests/Model/VendorConnectorMapping.Tests.ps1
+tests/Model/VendorConnectorMappingDeletedAt.Tests.ps1
+tests/Model/VendorConnectorMappingDeletedBy.Tests.ps1
+tests/Model/VendorConnectorMappingUpdatedAt.Tests.ps1
+tests/Model/VendorConnectorMappingUpdatedBy.Tests.ps1
 tests/Model/VerificationPollRequest.Tests.ps1
 tests/Model/VerificationResponse.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1

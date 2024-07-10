@@ -97,6 +97,10 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Submit-BetaReloadAccount**](docs/BetaAccountsApi.md#Submit-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *BetaAccountsApi* | [**Unlock-BetaAccount**](docs/BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
+*BetaApplicationDiscoveryApi* | [**Get-BetaDiscoveredApplications**](docs/BetaApplicationDiscoveryApi.md#Get-BetaDiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
+*BetaApplicationDiscoveryApi* | [**Get-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
+*BetaApplicationDiscoveryApi* | [**Get-BetaVendorConnectorMappings**](docs/BetaApplicationDiscoveryApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
+*BetaApplicationDiscoveryApi* | [**Send-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
 *BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval
 *BetaApprovalsApi* | [**Get-BetaApprovals**](docs/BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get Approvals
 *BetaApprovalsApi* | [**Update-BetaApproval**](docs/BetaApprovalsApi.md#Update-BetaApproval) | **PATCH** /generic-approvals/{id} | Change an approval
@@ -158,7 +162,6 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**New-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
-*BetaDiscoveredApplicationsApi* | [**Get-BetaDiscoveredApplications**](docs/BetaDiscoveredApplicationsApi.md#Get-BetaDiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
 *BetaEntitlementsApi* | [**New-BetaAccessModelMetadataForEntitlement**](docs/BetaEntitlementsApi.md#New-BetaAccessModelMetadataForEntitlement) | **POST** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add metadata to an entitlement.
 *BetaEntitlementsApi* | [**Remove-BetaAccessModelMetadataFromEntitlement**](docs/BetaEntitlementsApi.md#Remove-BetaAccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
@@ -293,8 +296,6 @@ Class | Method | HTTP request | Description
 *BetaManagedClustersApi* | [**Get-BetaManagedCluster**](docs/BetaManagedClustersApi.md#Get-BetaManagedCluster) | **GET** /managed-clusters/{id} | Get a specified ManagedCluster.
 *BetaManagedClustersApi* | [**Get-BetaManagedClusters**](docs/BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
 *BetaManagedClustersApi* | [**Send-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Send-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
-*BetaManualDiscoverApplicationsApi* | [**Send-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaManualDiscoverApplicationsApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
-*BetaManualDiscoverApplicationsTemplateApi* | [**Get-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaManualDiscoverApplicationsTemplateApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
 *BetaNonEmployeeLifecycleManagementApi* | [**Approve-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Approve-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -529,7 +530,6 @@ Class | Method | HTTP request | Description
 *BetaUIMetadataApi* | [**Set-BetaTenantUiMetadata**](docs/BetaUIMetadataApi.md#Set-BetaTenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant UI metadata
 *BetaVendorConnectorMappingsApi* | [**New-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#New-BetaVendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
 *BetaVendorConnectorMappingsApi* | [**Remove-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#Remove-BetaVendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
-*BetaVendorConnectorMappingsApi* | [**Get-BetaVendorConnectorMappings**](docs/BetaVendorConnectorMappingsApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item
@@ -1274,7 +1274,6 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.SelectorType](docs/SelectorType.md)
  - [PSSailpointBeta\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
  - [PSSailpointBeta\Model.SendAccountVerificationRequest](docs/SendAccountVerificationRequest.md)
- - [PSSailpointBeta\Model.SendManualDiscoverApplicationsCsvTemplateRequest](docs/SendManualDiscoverApplicationsCsvTemplateRequest.md)
  - [PSSailpointBeta\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpointBeta\Model.SendTokenRequest](docs/SendTokenRequest.md)
  - [PSSailpointBeta\Model.SendTokenResponse](docs/SendTokenResponse.md)

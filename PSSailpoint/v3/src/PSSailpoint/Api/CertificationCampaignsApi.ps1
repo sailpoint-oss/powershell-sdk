@@ -656,13 +656,16 @@ Use this API to get information for an existing certification campaign by the ca
 .PARAMETER Id
 ID of the campaign to be retrieved.
 
+.PARAMETER Detail
+Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
 
 .OUTPUTS
 
-SlimCampaign
+GetActiveCampaigns200ResponseInner
 #>
 function Get-Campaign {
     [CmdletBinding()]
@@ -670,6 +673,10 @@ function Get-Campaign {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("SLIM", "FULL")]
+        [String]
+        ${Detail},
         [Switch]
         $WithHttpInfo
     )
@@ -696,6 +703,10 @@ function Get-Campaign {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
+        if ($Detail) {
+            $LocalVarQueryParameters['detail'] = $Detail
+        }
+
 
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
@@ -707,8 +718,11 @@ function Get-Campaign {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SlimCampaign" `
+                                -ReturnType "GetActiveCampaigns200ResponseInner" `
                                 -IsBodyNullable $false
+
+        # process oneOf response
+        $LocalVarResult["Response"] = ConvertFrom-JsonToGetActiveCampaigns200ResponseInner (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult

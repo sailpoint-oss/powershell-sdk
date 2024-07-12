@@ -420,8 +420,9 @@ Name | Type | Description  | Notes
 
 <a id="Get-Campaign"></a>
 # **Get-Campaign**
-> SlimCampaign Get-Campaign<br>
+> GetActiveCampaigns200ResponseInner Get-Campaign<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Detail] <String><br>
 
 Get Campaign
 
@@ -438,10 +439,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be retrieved.
+$Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
 
 # Get Campaign
 try {
-    $Result = Get-Campaign -Id $Id
+    $Result = Get-Campaign -Id $Id -Detail $Detail
 } catch {
     Write-Host ("Exception occurred when calling Get-Campaign: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -453,10 +455,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| ID of the campaign to be retrieved. | 
+ **Detail** | **String**| Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. | [optional] 
 
 ### Return type
 
-[**SlimCampaign**](SlimCampaign.md) (PSCustomObject)
+[**GetActiveCampaigns200ResponseInner**](GetActiveCampaigns200ResponseInner.md) (PSCustomObject)
 
 ### Authorization
 

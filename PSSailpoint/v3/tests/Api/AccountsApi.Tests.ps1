@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint' -name 'AccountsApi' {
 
     Context 'Update-Account' {
         It 'Test Update-Account' {
-            #$TestResult = Update-Account -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-Account -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

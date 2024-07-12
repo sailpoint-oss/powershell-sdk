@@ -827,11 +827,11 @@ Name | Type | Description  | Notes
 # **Update-BetaAccount**
 > SystemCollectionsHashtable Update-BetaAccount<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RequestBody] <PSCustomObject[]><br>
 
 Update Account
 
-This updates account details. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This endpoint supports updating an account's correlation. The identityId and manuallyCorrelated fields can be modified for any account. The attributes fields can be modified just for flat file accounts.  To re-assign an account from one identity to another, replace the current identityId with a new value.  If the account you're assigning was provisioned by IdentityNow, it's possible IdentityNow could create a new account  for the previous identity as soon as the account is moved. If the account you're assigning is authoritative,  this will cause the previous identity to become uncorrelated and could even result in its deletion. All accounts that are reassigned will be set to manuallyCorrelated: true unless otherwise specified
+Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This API supports updating an account's correlation. You can modify only the `identityId` and `manuallyCorrelated` fields for any flat file account.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you're assigning was provisioned by Identity Security Cloud (ISC), it's possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you're assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise. >**Note:** The `attributes` field can only be modified for flat file accounts. 
 
 ### Example
 ```powershell
@@ -844,12 +844,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+$RequestBody =  # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 # Update Account
 try {
-    $Result = Update-BetaAccount -Id $Id -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-BetaAccount -Id $Id -RequestBody $RequestBody
 } catch {
     Write-Host ("Exception occurred when calling Update-BetaAccount: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -861,7 +860,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| Account ID. | 
- **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+ **RequestBody** | [**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md)| A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
 
 ### Return type
 

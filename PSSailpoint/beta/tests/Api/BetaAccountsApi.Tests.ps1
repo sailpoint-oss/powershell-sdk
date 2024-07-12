@@ -128,7 +128,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaAccountsApi' {
 
     Context 'Update-BetaAccount' {
         It 'Test Update-BetaAccount' {
-            #$TestResult = Update-BetaAccount -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-BetaAccount -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

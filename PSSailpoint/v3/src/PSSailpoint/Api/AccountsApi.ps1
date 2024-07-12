@@ -942,12 +942,12 @@ Update Account
 
 .DESCRIPTION
 
-This updates account details. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This endpoint supports updating an account's correlation. The identityId and manuallyCorrelated fields can be modified for any account. The attributes fields can be modified just for flat file accounts.  To re-assign an account from one identity to another, replace the current identityId with a new value.  If the account you're assigning was provisioned by IdentityNow, it's possible IdentityNow could create a new account  for the previous identity as soon as the account is moved. If the account you're assigning is authoritative,  this will cause the previous identity to become uncorrelated and could even result in its deletion. All accounts that are reassigned will be set to manuallyCorrelated: true unless otherwise specified
+Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This API supports updating an account's correlation. You can modify only the `identityId` and `manuallyCorrelated` fields for any flat file account.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you're assigning was provisioned by Identity Security Cloud (ISC), it's possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you're assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise. >**Note:** The `attributes` field can only be modified for flat file accounts. 
 
 .PARAMETER Id
 Account ID.
 
-.PARAMETER JsonPatchOperation
+.PARAMETER RequestBody
 A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER WithHttpInfo
@@ -966,7 +966,7 @@ function Update-Account {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${JsonPatchOperation},
+        ${RequestBody},
         [Switch]
         $WithHttpInfo
     )
@@ -996,14 +996,14 @@ function Update-Account {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$JsonPatchOperation) {
-            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateAccount."
+        if (!$RequestBody) {
+            throw "Error! The required parameter `RequestBody` missing when calling updateAccount."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
-            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
+            $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            $LocalVarBodyParameter = $RequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

@@ -535,7 +535,7 @@ Class | Method | HTTP request | Description
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item
 *BetaWorkItemsApi* | [**Invoke-BetaForwardWorkItem**](docs/BetaWorkItemsApi.md#Invoke-BetaForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a Work Item
 *BetaWorkItemsApi* | [**Get-BetaCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
-*BetaWorkItemsApi* | [**Get-BetaCountCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountCompletedWorkItems) | **GET** /work-items/count/completed | Count Completed Work Items
+*BetaWorkItemsApi* | [**Get-BetaCountCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
 *BetaWorkItemsApi* | [**Get-BetaCountWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountWorkItems) | **GET** /work-items/count | Count Work Items
 *BetaWorkItemsApi* | [**Get-BetaWorkItem**](docs/BetaWorkItemsApi.md#Get-BetaWorkItem) | **GET** /work-items/{id} | Get a Work Item
 *BetaWorkItemsApi* | [**Get-BetaWorkItemsSummary**](docs/BetaWorkItemsApi.md#Get-BetaWorkItemsSummary) | **GET** /work-items/summary | Work Items Summary

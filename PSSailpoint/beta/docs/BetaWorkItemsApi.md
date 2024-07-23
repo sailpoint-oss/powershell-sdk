@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**Complete-BetaWorkItem**](BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item
 [**Invoke-BetaForwardWorkItem**](BetaWorkItemsApi.md#Invoke-BetaForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a Work Item
 [**Get-BetaCompletedWorkItems**](BetaWorkItemsApi.md#Get-BetaCompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
-[**Get-BetaCountCompletedWorkItems**](BetaWorkItemsApi.md#Get-BetaCountCompletedWorkItems) | **GET** /work-items/count/completed | Count Completed Work Items
+[**Get-BetaCountCompletedWorkItems**](BetaWorkItemsApi.md#Get-BetaCountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
 [**Get-BetaCountWorkItems**](BetaWorkItemsApi.md#Get-BetaCountWorkItems) | **GET** /work-items/count | Count Work Items
 [**Get-BetaWorkItem**](BetaWorkItemsApi.md#Get-BetaWorkItem) | **GET** /work-items/{id} | Get a Work Item
 [**Get-BetaWorkItemsSummary**](BetaWorkItemsApi.md#Get-BetaWorkItemsSummary) | **GET** /work-items/summary | Work Items Summary

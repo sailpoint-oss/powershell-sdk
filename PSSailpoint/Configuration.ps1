@@ -58,6 +58,10 @@ function Get-DefaultConfiguration {
         $Configuration["Proxy"] = $null
     }
 
+    if (!$Configuration.containsKey("Experimental")) {
+        $Configuration["Experimental"] = $false
+    }
+
     Return $Configuration
 
 }
@@ -124,6 +128,7 @@ function Set-DefaultConfiguration {
         [string]$ClientSecret,
         [System.Nullable[Int32]]$MaximumRetryCount,
         [System.Nullable[Int32]]$RetryIntervalSeconds,
+        [System.Nullable[Boolean]]$Experimental,
         [System.Object]$Proxy,
         [switch]$PassThru
     )
@@ -165,6 +170,10 @@ function Set-DefaultConfiguration {
 
         If ($MaximumRetryCount) {
             $Script:Configuration['MaximumRetryCount'] = $MaximumRetryCount
+        }
+
+        If ($Experimental) {
+            $Script:Configuration['Experimental'] = $Experimental
         }
 
         If ($null -ne $Proxy) {

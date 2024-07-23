@@ -40,9 +40,14 @@ function {{{vendorExtensions.x-powershell-method-name}}} {
         {{/allowableValues}}
         {{/isEnum}}
         [{{{vendorExtensions.x-powershell-data-type}}}]
+        {{#isHeaderParam}}
+        ${{paramName}} = {{{defaultValue}}},
+        {{/isHeaderParam}}
+        {{^isHeaderParam}}
         {{=<% %>=}}
         ${<%paramName%>},
         <%={{ }}=%>
+        {{/isHeaderParam}}
     {{/allParams}}
         {{#vendorExtensions.x-powershell-select-accept}}
         [String]

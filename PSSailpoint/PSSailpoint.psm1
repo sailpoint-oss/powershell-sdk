@@ -35,7 +35,12 @@ $BetaClient = @( Get-ChildItem -Path "$PSScriptRoot\beta\src\PSSailpointBeta\Cli
 $BetaModel = @( Get-ChildItem -Path "$PSScriptRoot\beta\src\PSSailpointBeta\Model\*.ps1" )
 $BetaPrivate = @( Get-ChildItem -Path "$PSScriptRoot\beta\src\PSSailpointBeta\Private\*.ps1" )
 
-Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $BetaClient + $BetaModel + $BetaPrivate)) {
+$V2024API = @( Get-ChildItem -Path "$PSScriptRoot\v2024\src\PSSailpointV2024\Api\*.ps1")
+$V2024Client = @( Get-ChildItem -Path "$PSScriptRoot\v2024\src\PSSailpointV2024\Client\*.ps1" )
+$V2024Model = @( Get-ChildItem -Path "$PSScriptRoot\v2024\src\PSSailpointV2024\Model\*.ps1" )
+$V2024Private = @( Get-ChildItem -Path "$PSScriptRoot\v2024\src\PSSailpointV2024\Private\*.ps1" )
+
+Foreach ($import in @($V3API + $V3Client + $V3Model + $V3Private + $BetaAPI + $BetaClient + $BetaModel + $BetaPrivate + $V2024API + $V2024Client + $V2024Model + $V2024Private)) {
     Try {
         . $import.fullname
     }

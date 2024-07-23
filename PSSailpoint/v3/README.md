@@ -316,6 +316,11 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**Search-Count**](docs/SearchApi.md#Search-Count) | **POST** /search/count | Count Documents Satisfying a Query
 *SearchApi* | [**Search-Get**](docs/SearchApi.md#Search-Get) | **GET** /search/{index}/{id} | Get a Document by ID
 *SearchApi* | [**Search-Post**](docs/SearchApi.md#Search-Post) | **POST** /search | Perform Search
+*SearchAttributeConfigurationApi* | [**New-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#New-SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create search attributes in IdentityNow.
+*SearchAttributeConfigurationApi* | [**Remove-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Remove-SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete search attribute in IdentityNow.
+*SearchAttributeConfigurationApi* | [**Get-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Get-SearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve attribute list in IdentityNow.
+*SearchAttributeConfigurationApi* | [**Get-SingleSearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Get-SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get specific attribute in IdentityNow.
+*SearchAttributeConfigurationApi* | [**Update-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Update-SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update search attribute in IdentityNow.
 *SegmentsApi* | [**New-Segment**](docs/SegmentsApi.md#New-Segment) | **POST** /segments | Create Segment
 *SegmentsApi* | [**Remove-Segment**](docs/SegmentsApi.md#Remove-Segment) | **DELETE** /segments/{id} | Delete Segment by ID
 *SegmentsApi* | [**Get-Segment**](docs/SegmentsApi.md#Get-Segment) | **GET** /segments/{id} | Get Segment by ID
@@ -862,6 +867,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.Search](docs/Search.md)
  - [PSSailpoint\Model.SearchAggregationSpecification](docs/SearchAggregationSpecification.md)
  - [PSSailpoint\Model.SearchArguments](docs/SearchArguments.md)
+ - [PSSailpoint\Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
  - [PSSailpoint\Model.SearchExportReportArguments](docs/SearchExportReportArguments.md)
  - [PSSailpoint\Model.SearchFilterType](docs/SearchFilterType.md)
  - [PSSailpoint\Model.SearchSchedule](docs/SearchSchedule.md)

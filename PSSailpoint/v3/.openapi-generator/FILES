@@ -497,6 +497,8 @@ docs/Search.md
 docs/SearchAggregationSpecification.md
 docs/SearchApi.md
 docs/SearchArguments.md
+docs/SearchAttributeConfig.md
+docs/SearchAttributeConfigurationApi.md
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchSchedule.md
@@ -668,6 +670,7 @@ src/PSSailpoint/Api/SODViolationsApi.ps1
 src/PSSailpoint/Api/SavedSearchApi.ps1
 src/PSSailpoint/Api/ScheduledSearchApi.ps1
 src/PSSailpoint/Api/SearchApi.ps1
+src/PSSailpoint/Api/SearchAttributeConfigurationApi.ps1
 src/PSSailpoint/Api/SegmentsApi.ps1
 src/PSSailpoint/Api/ServiceDeskIntegrationApi.ps1
 src/PSSailpoint/Api/SourceUsagesApi.ps1
@@ -1133,6 +1136,7 @@ src/PSSailpoint/Model/Schema.ps1
 src/PSSailpoint/Model/Search.ps1
 src/PSSailpoint/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint/Model/SearchArguments.ps1
+src/PSSailpoint/Model/SearchAttributeConfig.ps1
 src/PSSailpoint/Model/SearchExportReportArguments.ps1
 src/PSSailpoint/Model/SearchFilterType.ps1
 src/PSSailpoint/Model/SearchSchedule.ps1
@@ -1302,6 +1306,7 @@ tests/Api/SODViolationsApi.Tests.ps1
 tests/Api/SavedSearchApi.Tests.ps1
 tests/Api/ScheduledSearchApi.Tests.ps1
 tests/Api/SearchApi.Tests.ps1
+tests/Api/SearchAttributeConfigurationApi.Tests.ps1
 tests/Api/SegmentsApi.Tests.ps1
 tests/Api/ServiceDeskIntegrationApi.Tests.ps1
 tests/Api/SourceUsagesApi.Tests.ps1
@@ -1766,6 +1771,7 @@ tests/Model/Schema.Tests.ps1
 tests/Model/Search.Tests.ps1
 tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
+tests/Model/SearchAttributeConfig.Tests.ps1
 tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchSchedule.Tests.ps1

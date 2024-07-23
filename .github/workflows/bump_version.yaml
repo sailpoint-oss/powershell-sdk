@@ -64,6 +64,7 @@ jobs:
         run: |
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/beta-config.yaml
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v3-config.yaml
+          yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2024-config.yaml
 
       ## Update Build.ps1 file with new version
       - name: Update Build.ps1 ModuleVersion

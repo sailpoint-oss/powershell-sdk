@@ -12,23 +12,18 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+This content type is provided for compatibility with services that don't support multipart/form-data, such as SailPoint Workflows. This content type does not support files, so it can only be used for direct connect sources.
 
-.PARAMETER File
-The CSV file containing the source accounts to aggregate.
 .PARAMETER DisableOptimization
 Use this flag to reprocess every account whether or not the data has changed.
 .OUTPUTS
 
-ImportAccountsRequest<PSCustomObject>
+ImportAccountsRequest1<PSCustomObject>
 #>
 
-function Initialize-BetaImportAccountsRequest {
+function Initialize-BetaImportAccountsRequest1 {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.IO.FileInfo]
-        ${File},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("true", "false")]
         [String]
@@ -36,12 +31,11 @@ function Initialize-BetaImportAccountsRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaImportAccountsRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaImportAccountsRequest1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "file" = ${File}
             "disableOptimization" = ${DisableOptimization}
         }
 
@@ -52,11 +46,11 @@ function Initialize-BetaImportAccountsRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to ImportAccountsRequest<PSCustomObject>
+Convert from JSON to ImportAccountsRequest1<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ImportAccountsRequest<PSCustomObject>
+Convert from JSON to ImportAccountsRequest1<PSCustomObject>
 
 .PARAMETER Json
 
@@ -64,32 +58,26 @@ Json object
 
 .OUTPUTS
 
-ImportAccountsRequest<PSCustomObject>
+ImportAccountsRequest1<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToImportAccountsRequest {
+function ConvertFrom-BetaJsonToImportAccountsRequest1 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportAccountsRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaImportAccountsRequest1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaImportAccountsRequest
-        $AllProperties = ("file", "disableOptimization")
+        # check if Json contains properties not defined in BetaImportAccountsRequest1
+        $AllProperties = ("disableOptimization")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "file"))) { #optional property not found
-            $File = $null
-        } else {
-            $File = $JsonParameters.PSobject.Properties["file"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "disableOptimization"))) { #optional property not found
@@ -99,7 +87,6 @@ function ConvertFrom-BetaJsonToImportAccountsRequest {
         }
 
         $PSO = [PSCustomObject]@{
-            "file" = ${File}
             "disableOptimization" = ${DisableOptimization}
         }
 

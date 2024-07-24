@@ -972,6 +972,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpointBeta\Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
  - [PSSailpointBeta\Model.ImportAccountsRequest](docs/ImportAccountsRequest.md)
+ - [PSSailpointBeta\Model.ImportAccountsRequest1](docs/ImportAccountsRequest1.md)
  - [PSSailpointBeta\Model.ImportEntitlementsBySourceRequest](docs/ImportEntitlementsBySourceRequest.md)
  - [PSSailpointBeta\Model.ImportEntitlementsRequest](docs/ImportEntitlementsRequest.md)
  - [PSSailpointBeta\Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)

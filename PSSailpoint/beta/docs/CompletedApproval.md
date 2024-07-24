@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **PreApprovalTriggerResult** | [**CompletedApprovalPreApprovalTriggerResult**](CompletedApprovalPreApprovalTriggerResult.md) |  | [optional] 
 **ClientMetadata** | **System.Collections.Hashtable** | Arbitrary key-value pairs provided during the request. | [optional] 
 **RequestedAccounts** | **String** | Information about the requested accounts | [optional] 
+**AssignmentContext** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
 
 ## Examples
 
@@ -55,7 +56,8 @@ $CompletedApproval = Initialize-PSSailpointBetaCompletedApproval  -Id 2c93808363
  -SodViolationContext null `
  -PreApprovalTriggerResult null `
  -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1} `
- -RequestedAccounts null
+ -RequestedAccounts null `
+ -AssignmentContext null
 ```
 
 - Convert the resource to JSON

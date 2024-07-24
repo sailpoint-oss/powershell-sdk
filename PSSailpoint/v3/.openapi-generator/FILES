@@ -44,6 +44,9 @@ docs/AccountActivityDocument.md
 docs/AccountActivityItem.md
 docs/AccountActivityItemOperation.md
 docs/AccountActivitySearchedItem.md
+docs/AccountAllOfOwnerGroup.md
+docs/AccountAllOfOwnerIdentity.md
+docs/AccountAllOfSourceOwner.md
 docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesCreate.md
@@ -623,9 +626,11 @@ docs/WorkflowDefinition.md
 docs/WorkflowExecution.md
 docs/WorkflowExecutionEvent.md
 docs/WorkflowLibraryAction.md
+docs/WorkflowLibraryActionExampleOutput.md
 docs/WorkflowLibraryFormFields.md
 docs/WorkflowLibraryOperator.md
 docs/WorkflowLibraryTrigger.md
+docs/WorkflowModifiedBy.md
 docs/WorkflowOAuthClient.md
 docs/WorkflowTrigger.md
 docs/WorkflowTriggerAttributes.md
@@ -719,6 +724,9 @@ src/PSSailpoint/Model/AccountActivityDocument.ps1
 src/PSSailpoint/Model/AccountActivityItem.ps1
 src/PSSailpoint/Model/AccountActivityItemOperation.ps1
 src/PSSailpoint/Model/AccountActivitySearchedItem.ps1
+src/PSSailpoint/Model/AccountAllOfOwnerGroup.ps1
+src/PSSailpoint/Model/AccountAllOfOwnerIdentity.ps1
+src/PSSailpoint/Model/AccountAllOfSourceOwner.ps1
 src/PSSailpoint/Model/AccountAttribute.ps1
 src/PSSailpoint/Model/AccountAttributes.ps1
 src/PSSailpoint/Model/AccountAttributesCreate.ps1
@@ -1253,9 +1261,11 @@ src/PSSailpoint/Model/WorkflowDefinition.ps1
 src/PSSailpoint/Model/WorkflowExecution.ps1
 src/PSSailpoint/Model/WorkflowExecutionEvent.ps1
 src/PSSailpoint/Model/WorkflowLibraryAction.ps1
+src/PSSailpoint/Model/WorkflowLibraryActionExampleOutput.ps1
 src/PSSailpoint/Model/WorkflowLibraryFormFields.ps1
 src/PSSailpoint/Model/WorkflowLibraryOperator.ps1
 src/PSSailpoint/Model/WorkflowLibraryTrigger.ps1
+src/PSSailpoint/Model/WorkflowModifiedBy.ps1
 src/PSSailpoint/Model/WorkflowOAuthClient.ps1
 src/PSSailpoint/Model/WorkflowTrigger.ps1
 src/PSSailpoint/Model/WorkflowTriggerAttributes.ps1
@@ -1354,6 +1364,9 @@ tests/Model/AccountActivityDocument.Tests.ps1
 tests/Model/AccountActivityItem.Tests.ps1
 tests/Model/AccountActivityItemOperation.Tests.ps1
 tests/Model/AccountActivitySearchedItem.Tests.ps1
+tests/Model/AccountAllOfOwnerGroup.Tests.ps1
+tests/Model/AccountAllOfOwnerIdentity.Tests.ps1
+tests/Model/AccountAllOfSourceOwner.Tests.ps1
 tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesCreate.Tests.ps1
@@ -1888,9 +1901,11 @@ tests/Model/WorkflowDefinition.Tests.ps1
 tests/Model/WorkflowExecution.Tests.ps1
 tests/Model/WorkflowExecutionEvent.Tests.ps1
 tests/Model/WorkflowLibraryAction.Tests.ps1
+tests/Model/WorkflowLibraryActionExampleOutput.Tests.ps1
 tests/Model/WorkflowLibraryFormFields.Tests.ps1
 tests/Model/WorkflowLibraryOperator.Tests.ps1
 tests/Model/WorkflowLibraryTrigger.Tests.ps1
+tests/Model/WorkflowModifiedBy.Tests.ps1
 tests/Model/WorkflowOAuthClient.Tests.ps1
 tests/Model/WorkflowTrigger.Tests.ps1
 tests/Model/WorkflowTriggerAttributes.Tests.ps1

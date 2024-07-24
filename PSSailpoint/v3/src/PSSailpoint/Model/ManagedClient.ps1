@@ -14,6 +14,10 @@ No summary available.
 
 Managed Client
 
+.PARAMETER ApiGatewayBaseUrl
+No description available.
+.PARAMETER Cookbook
+No description available.
 .PARAMETER CcId
 Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
 .PARAMETER ClientId
@@ -40,6 +44,12 @@ ManagedClient<PSCustomObject>
 function Initialize-ManagedClient {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ApiGatewayBaseUrl},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Cookbook},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${CcId},
@@ -91,6 +101,8 @@ function Initialize-ManagedClient {
 
 
         $PSO = [PSCustomObject]@{
+            "apiGatewayBaseUrl" = ${ApiGatewayBaseUrl}
+            "cookbook" = ${Cookbook}
             "ccId" = ${CcId}
             "clientId" = ${ClientId}
             "clusterId" = ${ClusterId}
@@ -136,7 +148,7 @@ function ConvertFrom-JsonToManagedClient {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ManagedClient
-        $AllProperties = ("id", "alertKey", "ccId", "clientId", "clusterId", "description", "ipAddress", "lastSeen", "name", "sinceLastSeen", "status", "type", "clusterType", "vaDownloadUrl", "vaVersion", "secret", "createdAt", "updatedAt", "provisionStatus")
+        $AllProperties = ("id", "alertKey", "apiGatewayBaseUrl", "cookbook", "ccId", "clientId", "clusterId", "description", "ipAddress", "lastSeen", "name", "sinceLastSeen", "status", "type", "clusterType", "vaDownloadUrl", "vaVersion", "secret", "createdAt", "updatedAt", "provisionStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -181,6 +193,18 @@ function ConvertFrom-JsonToManagedClient {
             $AlertKey = $null
         } else {
             $AlertKey = $JsonParameters.PSobject.Properties["alertKey"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "apiGatewayBaseUrl"))) { #optional property not found
+            $ApiGatewayBaseUrl = $null
+        } else {
+            $ApiGatewayBaseUrl = $JsonParameters.PSobject.Properties["apiGatewayBaseUrl"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cookbook"))) { #optional property not found
+            $Cookbook = $null
+        } else {
+            $Cookbook = $JsonParameters.PSobject.Properties["cookbook"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "ccId"))) { #optional property not found
@@ -264,6 +288,8 @@ function ConvertFrom-JsonToManagedClient {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "alertKey" = ${AlertKey}
+            "apiGatewayBaseUrl" = ${ApiGatewayBaseUrl}
+            "cookbook" = ${Cookbook}
             "ccId" = ${CcId}
             "clientId" = ${ClientId}
             "clusterId" = ${ClusterId}

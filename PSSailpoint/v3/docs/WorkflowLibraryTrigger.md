@@ -4,7 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Trigger ID. This is a static namespaced ID for the trigger. | [optional] 
-**Type** | [**SystemCollectionsHashtable**](.md) | Trigger type | [optional] 
+**Type** | **String** | Trigger type | [optional] 
+**Deprecated** | **Boolean** |  | [optional] 
+**DeprecatedBy** | **System.DateTime** |  | [optional] 
+**IsSimulationEnabled** | **Boolean** |  | [optional] 
+**OutputSchema** | [**SystemCollectionsHashtable**](.md) | Example output schema | [optional] 
 **Name** | **String** | Trigger Name | [optional] 
 **Description** | **String** | Trigger Description | [optional] 
 **IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action&#39;s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] [default to $false]
@@ -17,6 +21,10 @@ Name | Type | Description | Notes
 ```powershell
 $WorkflowLibraryTrigger = Initialize-PSSailpointWorkflowLibraryTrigger  -Id idn:identity-attributes-changed `
  -Type EVENT `
+ -Deprecated null `
+ -DeprecatedBy null `
+ -IsSimulationEnabled null `
+ -OutputSchema null `
  -Name Identity Attributes Changed `
  -Description One or more identity attributes changed. `
  -IsDynamicSchema false `

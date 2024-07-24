@@ -18,6 +18,10 @@ Attributes related to an external trigger
 A unique name for the external trigger
 .PARAMETER Description
 Additonal context about the external trigger
+.PARAMETER ClientId
+OAuth Client ID to authenticate with this trigger
+.PARAMETER Url
+URL to invoke this workflow
 .OUTPUTS
 
 ExternalAttributes<PSCustomObject>
@@ -31,21 +35,25 @@ function Initialize-ExternalAttributes {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description}
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ClientId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Url}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => ExternalAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "description" = ${Description}
+            "clientId" = ${ClientId}
+            "url" = ${Url}
         }
 
         return $PSO
@@ -82,19 +90,15 @@ function ConvertFrom-JsonToExternalAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ExternalAttributes
-        $AllProperties = ("name", "description")
+        $AllProperties = ("name", "description", "clientId", "url")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
@@ -105,9 +109,23 @@ function ConvertFrom-JsonToExternalAttributes {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "clientId"))) { #optional property not found
+            $ClientId = $null
+        } else {
+            $ClientId = $JsonParameters.PSobject.Properties["clientId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "url"))) { #optional property not found
+            $Url = $null
+        } else {
+            $Url = $JsonParameters.PSobject.Properties["url"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "description" = ${Description}
+            "clientId" = ${ClientId}
+            "url" = ${Url}
         }
 
         return $PSO

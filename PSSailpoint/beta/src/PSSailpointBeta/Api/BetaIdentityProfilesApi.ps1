@@ -12,7 +12,7 @@ Create an Identity Profile
 
 .DESCRIPTION
 
-This creates an Identity Profile A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
 
 .PARAMETER IdentityProfile
 No description available.
@@ -376,96 +376,6 @@ function Export-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
-Generate Identity Profile Preview
-
-.DESCRIPTION
-
-Use this API to generate a non-persisted `IdentityDetails` object that represents a preview of the identity attributes with a specified policy's attribute config applied. This API supports the `accountAttribute`, `rule`, and `reference` transform types.  A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
-
-.PARAMETER IdentityPreviewRequest
-Identity Preview request body.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-IdentityPreviewResponse
-#>
-function New-BetaIdentityPreview {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${IdentityPreviewRequest},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: New-BetaIdentityPreview' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/identity-profiles/identity-preview'
-
-        if (!$IdentityPreviewRequest) {
-            throw "Error! The required parameter `IdentityPreviewRequest` missing when calling generateIdentityPreview."
-        }
-
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityPreviewRequest -is [array])) {
-            $LocalVarBodyParameter = $IdentityPreviewRequest | ConvertTo-Json -AsArray -Depth 100
-        } else {
-            $LocalVarBodyParameter = $IdentityPreviewRequest | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-            }
-        }
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "IdentityPreviewResponse" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 Default identity attribute config
 
 .DESCRIPTION
@@ -544,7 +454,7 @@ Gets a single Identity Profile
 
 .DESCRIPTION
 
-This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID
@@ -704,7 +614,7 @@ function Import-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
-Identity Profiles list
+Identity Profiles List
 
 .DESCRIPTION
 
@@ -818,6 +728,96 @@ function Get-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
+Generate Identity Profile Preview
+
+.DESCRIPTION
+
+Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+
+.PARAMETER IdentityPreviewRequest
+Identity Preview request body.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IdentityPreviewResponse
+#>
+function Show-BetaGenerateIdentityPreview {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${IdentityPreviewRequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Show-BetaGenerateIdentityPreview' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/identity-profiles/identity-preview'
+
+        if (!$IdentityPreviewRequest) {
+            throw "Error! The required parameter `IdentityPreviewRequest` missing when calling showGenerateIdentityPreview."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityPreviewRequest -is [array])) {
+            $LocalVarBodyParameter = $IdentityPreviewRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $IdentityPreviewRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IdentityPreviewResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Process identities under profile
 
 .DESCRIPTION
@@ -896,7 +896,7 @@ Update the Identity Profile
 
 .DESCRIPTION
 
-This updates the specified Identity Profile. A token with ORG_ADMIN authority is required to call this API to update the Identity Profile. Some fields of the Schema cannot be updated. These fields are listed below. * id * name * created * modified
+This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID

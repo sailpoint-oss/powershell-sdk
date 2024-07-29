@@ -4,6 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-IdentityProfile**](IdentityProfilesApi.md#New-IdentityProfile) | **POST** /identity-profiles | Create an Identity Profile
 [**Remove-IdentityProfile**](IdentityProfilesApi.md#Remove-IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
 [**Remove-IdentityProfiles**](IdentityProfilesApi.md#Remove-IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 [**Export-IdentityProfiles**](IdentityProfilesApi.md#Export-IdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
@@ -11,8 +12,72 @@ Method | HTTP request | Description
 [**Get-IdentityProfile**](IdentityProfilesApi.md#Get-IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get single Identity Profile
 [**Import-IdentityProfiles**](IdentityProfilesApi.md#Import-IdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
 [**Get-IdentityProfiles**](IdentityProfilesApi.md#Get-IdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
+[**Show-IdentityPreview**](IdentityProfilesApi.md#Show-IdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 [**Sync-IdentityProfile**](IdentityProfilesApi.md#Sync-IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
+[**Update-IdentityProfile**](IdentityProfilesApi.md#Update-IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
 
+
+<a id="New-IdentityProfile"></a>
+# **New-IdentityProfile**
+> IdentityProfile New-IdentityProfile<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfile] <PSCustomObject><br>
+
+Create an Identity Profile
+
+This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$IdentityProfileAllOfOwner = Initialize-IdentityProfileAllOfOwner -Type "IDENTITY" -Id "2c9180835d191a86015d28455b4b232a" -Name "William Wilson"
+$IdentityProfileAllOfAuthoritativeSource = Initialize-IdentityProfileAllOfAuthoritativeSource -Type "SOURCE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
+
+$TransformDefinitionAttributesValue = Initialize-TransformDefinitionAttributesValue 
+$TransformDefinition = Initialize-TransformDefinition -Type "accountAttribute" -Attributes @{ key_example = $TransformDefinitionAttributesValue }
+
+$IdentityAttributeTransform = Initialize-IdentityAttributeTransform -IdentityAttributeName "email" -TransformDefinition $TransformDefinition
+
+$IdentityAttributeConfig = Initialize-IdentityAttributeConfig -Enabled $true -AttributeTransforms $IdentityAttributeTransform
+
+$IdentityExceptionReportReference = Initialize-IdentityExceptionReportReference -TaskResultId "2b838de9-db9b-abcf-e646-d4f274ad4238" -ReportName "My annual report"
+$IdentityProfile = Initialize-IdentityProfile -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "My custom flat file profile" -Owner $IdentityProfileAllOfOwner -Priority 10 -AuthoritativeSource $IdentityProfileAllOfAuthoritativeSource -IdentityRefreshRequired $true -IdentityCount 8 -IdentityAttributeConfig $IdentityAttributeConfig -IdentityExceptionReportReference $IdentityExceptionReportReference -HasTimeBasedAttr $true # IdentityProfile | 
+
+# Create an Identity Profile
+try {
+    $Result = New-IdentityProfile -IdentityProfile $IdentityProfile
+} catch {
+    Write-Host ("Exception occurred when calling New-IdentityProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentityProfile** | [**IdentityProfile**](IdentityProfile.md)|  | 
+
+### Return type
+
+[**IdentityProfile**](IdentityProfile.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="Remove-IdentityProfile"></a>
 # **Remove-IdentityProfile**
@@ -237,7 +302,7 @@ Name | Type | Description  | Notes
 
 Get single Identity Profile
 
-This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
 
 ### Example
 ```powershell
@@ -410,6 +475,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Show-IdentityPreview"></a>
+# **Show-IdentityPreview**
+> IdentityPreviewResponse Show-IdentityPreview<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityPreviewRequest] <PSCustomObject><br>
+
+Generate Identity Profile Preview
+
+Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$TransformDefinitionAttributesValue = Initialize-TransformDefinitionAttributesValue 
+$TransformDefinition = Initialize-TransformDefinition -Type "accountAttribute" -Attributes @{ key_example = $TransformDefinitionAttributesValue }
+
+$IdentityAttributeTransform = Initialize-IdentityAttributeTransform -IdentityAttributeName "email" -TransformDefinition $TransformDefinition
+
+$IdentityAttributeConfig = Initialize-IdentityAttributeConfig -Enabled $true -AttributeTransforms $IdentityAttributeTransform
+
+$IdentityPreviewRequest = Initialize-IdentityPreviewRequest -IdentityId "MyIdentityId" -IdentityAttributeConfig $IdentityAttributeConfig # IdentityPreviewRequest | Identity Preview request body.
+
+# Generate Identity Profile Preview
+try {
+    $Result = Show-IdentityPreview -IdentityPreviewRequest $IdentityPreviewRequest
+} catch {
+    Write-Host ("Exception occurred when calling Show-IdentityPreview: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentityPreviewRequest** | [**IdentityPreviewRequest**](IdentityPreviewRequest.md)| Identity Preview request body. | 
+
+### Return type
+
+[**IdentityPreviewResponse**](IdentityPreviewResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Sync-IdentityProfile"></a>
 # **Sync-IdentityProfile**
 > SystemCollectionsHashtable Sync-IdentityProfile<br>
@@ -457,6 +580,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-IdentityProfile"></a>
+# **Update-IdentityProfile**
+> IdentityProfile Update-IdentityProfile<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityProfileId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
+
+Update the Identity Profile
+
+This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID
+$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+# Update the Identity Profile
+try {
+    $Result = Update-IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $JsonPatchOperation
+} catch {
+    Write-Host ("Exception occurred when calling Update-IdentityProfile: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentityProfileId** | **String**| The Identity Profile ID | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+
+### Return type
+
+[**IdentityProfile**](IdentityProfile.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

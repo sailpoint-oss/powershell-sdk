@@ -8,6 +8,96 @@
 <#
 .SYNOPSIS
 
+Create an Identity Profile
+
+.DESCRIPTION
+
+This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+
+.PARAMETER IdentityProfile
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IdentityProfile
+#>
+function New-IdentityProfile {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${IdentityProfile},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-IdentityProfile' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/identity-profiles'
+
+        if (!$IdentityProfile) {
+            throw "Error! The required parameter `IdentityProfile` missing when calling createIdentityProfile."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityProfile -is [array])) {
+            $LocalVarBodyParameter = $IdentityProfile | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $IdentityProfile | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IdentityProfile" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Delete an Identity Profile
 
 .DESCRIPTION
@@ -364,7 +454,7 @@ Get single Identity Profile
 
 .DESCRIPTION
 
-This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID.
@@ -638,6 +728,96 @@ function Get-IdentityProfiles {
 <#
 .SYNOPSIS
 
+Generate Identity Profile Preview
+
+.DESCRIPTION
+
+Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+
+.PARAMETER IdentityPreviewRequest
+Identity Preview request body.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IdentityPreviewResponse
+#>
+function Show-IdentityPreview {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${IdentityPreviewRequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Show-IdentityPreview' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/identity-profiles/identity-preview'
+
+        if (!$IdentityPreviewRequest) {
+            throw "Error! The required parameter `IdentityPreviewRequest` missing when calling showIdentityPreview."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityPreviewRequest -is [array])) {
+            $LocalVarBodyParameter = $IdentityPreviewRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $IdentityPreviewRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IdentityPreviewResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Process identities under profile
 
 .DESCRIPTION
@@ -699,6 +879,106 @@ function Sync-IdentityProfile {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "SystemCollectionsHashtable" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Update the Identity Profile
+
+.DESCRIPTION
+
+This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+
+.PARAMETER IdentityProfileId
+The Identity Profile ID
+
+.PARAMETER JsonPatchOperation
+A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IdentityProfile
+#>
+function Update-IdentityProfile {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${IdentityProfileId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${JsonPatchOperation},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-IdentityProfile' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json-patch+json')
+
+        $LocalVarUri = '/identity-profiles/{identity-profile-id}'
+        if (!$IdentityProfileId) {
+            throw "Error! The required parameter `IdentityProfileId` missing when calling updateIdentityProfile."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateIdentityProfile."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IdentityProfile" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

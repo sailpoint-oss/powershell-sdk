@@ -267,11 +267,11 @@ Class | Method | HTTP request | Description
 *BetaIdentityProfilesApi* | [**Remove-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Remove-BetaIdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
 *BetaIdentityProfilesApi* | [**Remove-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Remove-BetaIdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 *BetaIdentityProfilesApi* | [**Export-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Export-BetaIdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
-*BetaIdentityProfilesApi* | [**New-BetaIdentityPreview**](docs/BetaIdentityProfilesApi.md#New-BetaIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 *BetaIdentityProfilesApi* | [**Get-BetaDefaultIdentityAttributeConfig**](docs/BetaIdentityProfilesApi.md#Get-BetaDefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Default identity attribute config
 *BetaIdentityProfilesApi* | [**Get-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Gets a single Identity Profile
 *BetaIdentityProfilesApi* | [**Import-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Import-BetaIdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-*BetaIdentityProfilesApi* | [**Get-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles list
+*BetaIdentityProfilesApi* | [**Get-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
+*BetaIdentityProfilesApi* | [**Show-BetaGenerateIdentityPreview**](docs/BetaIdentityProfilesApi.md#Show-BetaGenerateIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 *BetaIdentityProfilesApi* | [**Sync-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Sync-BetaIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 *BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
 *BetaLifecycleStatesApi* | [**Get-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State

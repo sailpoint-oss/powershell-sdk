@@ -240,6 +240,7 @@ docs/IdentityAccess.md
 docs/IdentityAttribute.md
 docs/IdentityAttribute1.md
 docs/IdentityAttributeConfig.md
+docs/IdentityAttributePreview.md
 docs/IdentityAttributeTransform.md
 docs/IdentityCertDecisionSummary.md
 docs/IdentityCertificationDto.md
@@ -248,6 +249,9 @@ docs/IdentityDocumentAllOfIdentityProfile.md
 docs/IdentityDocumentAllOfManager.md
 docs/IdentityDocumentAllOfSource.md
 docs/IdentityExceptionReportReference.md
+docs/IdentityPreviewRequest.md
+docs/IdentityPreviewResponse.md
+docs/IdentityPreviewResponseIdentity.md
 docs/IdentityProfile.md
 docs/IdentityProfileAllOfAuthoritativeSource.md
 docs/IdentityProfileAllOfOwner.md
@@ -906,6 +910,7 @@ src/PSSailpoint/Model/IdentityAccess.ps1
 src/PSSailpoint/Model/IdentityAttribute.ps1
 src/PSSailpoint/Model/IdentityAttribute1.ps1
 src/PSSailpoint/Model/IdentityAttributeConfig.ps1
+src/PSSailpoint/Model/IdentityAttributePreview.ps1
 src/PSSailpoint/Model/IdentityAttributeTransform.ps1
 src/PSSailpoint/Model/IdentityCertDecisionSummary.ps1
 src/PSSailpoint/Model/IdentityCertificationDto.ps1
@@ -914,6 +919,9 @@ src/PSSailpoint/Model/IdentityDocumentAllOfIdentityProfile.ps1
 src/PSSailpoint/Model/IdentityDocumentAllOfManager.ps1
 src/PSSailpoint/Model/IdentityDocumentAllOfSource.ps1
 src/PSSailpoint/Model/IdentityExceptionReportReference.ps1
+src/PSSailpoint/Model/IdentityPreviewRequest.ps1
+src/PSSailpoint/Model/IdentityPreviewResponse.ps1
+src/PSSailpoint/Model/IdentityPreviewResponseIdentity.ps1
 src/PSSailpoint/Model/IdentityProfile.ps1
 src/PSSailpoint/Model/IdentityProfileAllOfAuthoritativeSource.ps1
 src/PSSailpoint/Model/IdentityProfileAllOfOwner.ps1
@@ -1546,6 +1554,7 @@ tests/Model/IdentityAccess.Tests.ps1
 tests/Model/IdentityAttribute.Tests.ps1
 tests/Model/IdentityAttribute1.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
+tests/Model/IdentityAttributePreview.Tests.ps1
 tests/Model/IdentityAttributeTransform.Tests.ps1
 tests/Model/IdentityCertDecisionSummary.Tests.ps1
 tests/Model/IdentityCertificationDto.Tests.ps1
@@ -1554,6 +1563,9 @@ tests/Model/IdentityDocumentAllOfIdentityProfile.Tests.ps1
 tests/Model/IdentityDocumentAllOfManager.Tests.ps1
 tests/Model/IdentityDocumentAllOfSource.Tests.ps1
 tests/Model/IdentityExceptionReportReference.Tests.ps1
+tests/Model/IdentityPreviewRequest.Tests.ps1
+tests/Model/IdentityPreviewResponse.Tests.ps1
+tests/Model/IdentityPreviewResponseIdentity.Tests.ps1
 tests/Model/IdentityProfile.Tests.ps1
 tests/Model/IdentityProfileAllOfAuthoritativeSource.Tests.ps1
 tests/Model/IdentityProfileAllOfOwner.Tests.ps1

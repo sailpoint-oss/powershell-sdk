@@ -14,6 +14,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaCustomFormsApi' {
         }
     }
 
+    Context 'New-BetaFormDefinitionByTemplate' {
+        It 'Test New-BetaFormDefinitionByTemplate' {
+            #$TestResult = New-BetaFormDefinitionByTemplate -CreateFormDefinitionRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-BetaFormDefinitionDynamicSchema' {
         It 'Test New-BetaFormDefinitionDynamicSchema' {
             #$TestResult = New-BetaFormDefinitionDynamicSchema -Body "TEST_VALUE"

@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
 *BetaConnectorRuleManagementApi* | [**Confirm-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Confirm-BetaConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
 *BetaConnectorsApi* | [**Get-BetaConnectorList**](docs/BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Gets connector list
 *BetaCustomFormsApi* | [**New-BetaFormDefinition**](docs/BetaCustomFormsApi.md#New-BetaFormDefinition) | **POST** /form-definitions | Creates a form definition.
+*BetaCustomFormsApi* | [**New-BetaFormDefinitionByTemplate**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionByTemplate) | **POST** /form-definitions/template | Create a form definition by template.
 *BetaCustomFormsApi* | [**New-BetaFormDefinitionDynamicSchema**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
 *BetaCustomFormsApi* | [**New-BetaFormDefinitionFileRequest**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionFileRequest) | **POST** /form-definitions/{formDefinitionID}/upload | Upload new form definition file.
 *BetaCustomFormsApi* | [**New-BetaFormInstance**](docs/BetaCustomFormsApi.md#New-BetaFormInstance) | **POST** /form-instances | Creates a form instance.

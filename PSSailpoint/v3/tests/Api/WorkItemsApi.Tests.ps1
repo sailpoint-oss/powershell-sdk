@@ -94,6 +94,14 @@ Describe -tag 'PSSailpoint' -name 'WorkItemsApi' {
         }
     }
 
+    Context 'Send-WorkItemForward' {
+        It 'Test Send-WorkItemForward' {
+            #$TestResult = Send-WorkItemForward -Id "TEST_VALUE" -WorkItemForward "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Submit-AccountSelection' {
         It 'Test Submit-AccountSelection' {
             #$TestResult = Submit-AccountSelection -Id "TEST_VALUE" -RequestBody "TEST_VALUE"

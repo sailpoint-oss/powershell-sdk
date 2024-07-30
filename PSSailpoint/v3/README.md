@@ -392,6 +392,7 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**Get-WorkItems**](docs/WorkItemsApi.md#Get-WorkItems) | **GET** /work-items | List Work Items
 *WorkItemsApi* | [**Deny-ApprovalItem**](docs/WorkItemsApi.md#Deny-ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
 *WorkItemsApi* | [**Deny-ApprovalItemsInBulk**](docs/WorkItemsApi.md#Deny-ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
+*WorkItemsApi* | [**Send-WorkItemForward**](docs/WorkItemsApi.md#Send-WorkItemForward) | **POST** /work-items/{id}/forward | Forward a Work Item
 *WorkItemsApi* | [**Submit-AccountSelection**](docs/WorkItemsApi.md#Submit-AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
 *WorkflowsApi* | [**Suspend-WorkflowExecution**](docs/WorkflowsApi.md#Suspend-WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
 *WorkflowsApi* | [**New-ExternalExecuteWorkflow**](docs/WorkflowsApi.md#New-ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
@@ -979,6 +980,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.ViolationOwnerAssignmentConfigOwnerRef](docs/ViolationOwnerAssignmentConfigOwnerRef.md)
  - [PSSailpoint\Model.ViolationPrediction](docs/ViolationPrediction.md)
  - [PSSailpoint\Model.VisibilityCriteria](docs/VisibilityCriteria.md)
+ - [PSSailpoint\Model.WorkItemForward](docs/WorkItemForward.md)
  - [PSSailpoint\Model.WorkItemState](docs/WorkItemState.md)
  - [PSSailpoint\Model.WorkItemStateManualWorkItems](docs/WorkItemStateManualWorkItems.md)
  - [PSSailpoint\Model.WorkItemTypeManualWorkItems](docs/WorkItemTypeManualWorkItems.md)

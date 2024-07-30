@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**Get-WorkItems**](WorkItemsApi.md#Get-WorkItems) | **GET** /work-items | List Work Items
 [**Deny-ApprovalItem**](WorkItemsApi.md#Deny-ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
 [**Deny-ApprovalItemsInBulk**](WorkItemsApi.md#Deny-ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
+[**Send-WorkItemForward**](WorkItemsApi.md#Send-WorkItemForward) | **POST** /work-items/{id}/forward | Forward a Work Item
 [**Submit-AccountSelection**](WorkItemsApi.md#Submit-AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
 
 
@@ -599,6 +600,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Send-WorkItemForward"></a>
+# **Send-WorkItemForward**
+> void Send-WorkItemForward<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-WorkItemForward] <PSCustomObject><br>
+
+Forward a Work Item
+
+This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+$WorkItemForward = Initialize-WorkItemForward -TargetOwnerId "2c9180835d2e5168015d32f890ca1581" -Comment "I'm going on vacation." -SendNotifications $true # WorkItemForward | 
+
+# Forward a Work Item
+try {
+    $Result = Send-WorkItemForward -Id $Id -WorkItemForward $WorkItemForward
+} catch {
+    Write-Host ("Exception occurred when calling Send-WorkItemForward: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The ID of the work item | 
+ **WorkItemForward** | [**WorkItemForward**](WorkItemForward.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

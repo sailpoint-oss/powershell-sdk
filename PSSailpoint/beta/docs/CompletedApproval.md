@@ -26,8 +26,6 @@ Name | Type | Description | Notes
 **SodViolationContext** | [**SodViolationContextCheckCompleted1**](SodViolationContextCheckCompleted1.md) |  | [optional] 
 **PreApprovalTriggerResult** | [**CompletedApprovalPreApprovalTriggerResult**](CompletedApprovalPreApprovalTriggerResult.md) |  | [optional] 
 **ClientMetadata** | **System.Collections.Hashtable** | Arbitrary key-value pairs provided during the request. | [optional] 
-**RequestedAccounts** | **String** | Information about the requested accounts | [optional] 
-**AssignmentContext** | [**SystemCollectionsHashtable**](.md) |  | [optional] 
 
 ## Examples
 
@@ -55,9 +53,7 @@ $CompletedApproval = Initialize-PSSailpointBetaCompletedApproval  -Id 2c93808363
  -CurrentRemoveDate 2020-07-11T00:00Z `
  -SodViolationContext null `
  -PreApprovalTriggerResult null `
- -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1} `
- -RequestedAccounts null `
- -AssignmentContext null
+ -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1}
 ```
 
 - Convert the resource to JSON

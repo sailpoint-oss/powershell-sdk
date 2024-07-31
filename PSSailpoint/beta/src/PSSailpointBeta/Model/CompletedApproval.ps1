@@ -60,10 +60,6 @@ No description available.
 No description available.
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs provided during the request.
-.PARAMETER RequestedAccounts
-Information about the requested accounts
-.PARAMETER AssignmentContext
-No description available.
 .OUTPUTS
 
 CompletedApproval<PSCustomObject>
@@ -142,13 +138,7 @@ function Initialize-BetaCompletedApproval {
         ${PreApprovalTriggerResult},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
-        ${ClientMetadata},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${RequestedAccounts},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${AssignmentContext}
+        ${ClientMetadata}
     )
 
     Process {
@@ -180,8 +170,6 @@ function Initialize-BetaCompletedApproval {
             "sodViolationContext" = ${SodViolationContext}
             "preApprovalTriggerResult" = ${PreApprovalTriggerResult}
             "clientMetadata" = ${ClientMetadata}
-            "requestedAccounts" = ${RequestedAccounts}
-            "assignmentContext" = ${AssignmentContext}
         }
 
         return $PSO
@@ -218,7 +206,7 @@ function ConvertFrom-BetaJsonToCompletedApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCompletedApproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts", "assignmentContext")
+        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -363,18 +351,6 @@ function ConvertFrom-BetaJsonToCompletedApproval {
             $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedAccounts"))) { #optional property not found
-            $RequestedAccounts = $null
-        } else {
-            $RequestedAccounts = $JsonParameters.PSobject.Properties["requestedAccounts"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "assignmentContext"))) { #optional property not found
-            $AssignmentContext = $null
-        } else {
-            $AssignmentContext = $JsonParameters.PSobject.Properties["assignmentContext"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -399,8 +375,6 @@ function ConvertFrom-BetaJsonToCompletedApproval {
             "sodViolationContext" = ${SodViolationContext}
             "preApprovalTriggerResult" = ${PreApprovalTriggerResult}
             "clientMetadata" = ${ClientMetadata}
-            "requestedAccounts" = ${RequestedAccounts}
-            "assignmentContext" = ${AssignmentContext}
         }
 
         return $PSO

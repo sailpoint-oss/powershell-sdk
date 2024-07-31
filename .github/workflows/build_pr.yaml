@@ -62,16 +62,11 @@ jobs:
 
           Install-Module -Name Pester -Force
           Invoke-Pester -Output Detailed ./PSSailpoint/tests/
-  failing-job:
-      runs-on: ubuntu-latest
-      steps:
-        - name: failing step
-          run: exit 1
   build_powershell_sdk-failure:
       runs-on: ubuntu-latest
-      if: ${{ always() && (needs.failing-job.result == 'failure' || needs.failing-job.result == 'timed_out') }}
+      if: ${{ always() && (needs.build_powershell_sdk.result == 'failure' || needs.build_powershell_sdk.result == 'timed_out') }}
       needs:
-        - failing-job
+        - build_powershell_sdk
       steps:
         - name: Invoke GithubNotificationsFunction Lambda
           run: |

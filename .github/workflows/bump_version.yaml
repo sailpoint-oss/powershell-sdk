@@ -118,3 +118,24 @@ jobs:
           release_name: v${{ github.event.inputs.version }}
           draft: false
           prerelease: false
+  failing-job:
+            runs-on: ubuntu-latest
+            steps:
+              - name: failing step
+                run: exit 1
+  update_powershell_version-failure:
+            runs-on: ubuntu-latest
+            if: ${{ always() && (needs.failing-job.result == 'failure' || needs.failing-job.result == 'timed_out') }}
+            needs:
+              - failing-job
+            steps:
+              - name: Invoke GithubNotificationsFunction Lambda
+                run: |
+                  curl -X POST \
+                    -H "Content-Type: application/json" \
+                    -d '{
+                      "workflowName": "${{ github.job }}",
+                      "repositoryName": "${{ github.event.repository.name }}",
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }' \
+                    "${{ secrets.NOTIFICATIONS_FUNCTION_URL }}"

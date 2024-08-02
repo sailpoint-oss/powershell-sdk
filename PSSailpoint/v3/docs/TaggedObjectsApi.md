@@ -71,7 +71,7 @@ void (empty response body)
 <a id="Remove-TagsToManyObject"></a>
 # **Remove-TagsToManyObject**
 > void Remove-TagsToManyObject<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkRemoveTaggedObject] <PSCustomObject><br>
 
 Remove Tags from Multiple Objects
 
@@ -88,11 +88,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+$BulkRemoveTaggedObject = Initialize-BulkRemoveTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" # BulkRemoveTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 # Remove Tags from Multiple Objects
 try {
-    $Result = Remove-TagsToManyObject -BulkTaggedObject $BulkTaggedObject
+    $Result = Remove-TagsToManyObject -BulkRemoveTaggedObject $BulkRemoveTaggedObject
 } catch {
     Write-Host ("Exception occurred when calling Remove-TagsToManyObject: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -103,7 +103,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
+ **BulkRemoveTaggedObject** | [**BulkRemoveTaggedObject**](BulkRemoveTaggedObject.md)| Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
 
 ### Return type
 
@@ -410,7 +410,7 @@ void (empty response body)
 <a id="Set-TagsToManyObjects"></a>
 # **Set-TagsToManyObjects**
 > BulkTaggedObjectResponse[] Set-TagsToManyObjects<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkTaggedObject] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkAddTaggedObject] <PSCustomObject><br>
 
 Tag Multiple Objects
 
@@ -427,11 +427,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
-$BulkTaggedObject = Initialize-BulkTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+$BulkAddTaggedObject = Initialize-BulkAddTaggedObject -ObjectRefs $TaggedObjectDto -Tags "MyTags" -Operation "APPEND" # BulkAddTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 # Tag Multiple Objects
 try {
-    $Result = Set-TagsToManyObjects -BulkTaggedObject $BulkTaggedObject
+    $Result = Set-TagsToManyObjects -BulkAddTaggedObject $BulkAddTaggedObject
 } catch {
     Write-Host ("Exception occurred when calling Set-TagsToManyObjects: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -442,7 +442,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **BulkTaggedObject** | [**BulkTaggedObject**](BulkTaggedObject.md)| Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
+ **BulkAddTaggedObject** | [**BulkAddTaggedObject**](BulkAddTaggedObject.md)| Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
 
 ### Return type
 

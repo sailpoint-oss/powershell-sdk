@@ -226,7 +226,6 @@ docs/FormDetails.md
 docs/FormItemDetails.md
 docs/ForwardApprovalDto.md
 docs/GenerateRandomString.md
-docs/GenericRule.md
 docs/GetActiveCampaigns200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
@@ -588,6 +587,7 @@ docs/TransformAttributes.md
 docs/TransformDefinition.md
 docs/TransformDefinitionAttributesValue.md
 docs/TransformRead.md
+docs/TransformRule.md
 docs/TransformsApi.md
 docs/Trim.md
 docs/TypeAheadQuery.md
@@ -899,7 +899,6 @@ src/PSSailpoint/Model/FormDetails.ps1
 src/PSSailpoint/Model/FormItemDetails.ps1
 src/PSSailpoint/Model/ForwardApprovalDto.ps1
 src/PSSailpoint/Model/GenerateRandomString.ps1
-src/PSSailpoint/Model/GenericRule.ps1
 src/PSSailpoint/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpoint/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint/Model/GetPersonalAccessTokenResponse.ps1
@@ -1232,6 +1231,7 @@ src/PSSailpoint/Model/TransformAttributes.ps1
 src/PSSailpoint/Model/TransformDefinition.ps1
 src/PSSailpoint/Model/TransformDefinitionAttributesValue.ps1
 src/PSSailpoint/Model/TransformRead.ps1
+src/PSSailpoint/Model/TransformRule.ps1
 src/PSSailpoint/Model/Trim.ps1
 src/PSSailpoint/Model/TypeAheadQuery.ps1
 src/PSSailpoint/Model/TypedReference.ps1
@@ -1545,7 +1545,6 @@ tests/Model/FormDetails.Tests.ps1
 tests/Model/FormItemDetails.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
-tests/Model/GenericRule.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
@@ -1878,6 +1877,7 @@ tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformDefinition.Tests.ps1
 tests/Model/TransformDefinitionAttributesValue.Tests.ps1
 tests/Model/TransformRead.Tests.ps1
+tests/Model/TransformRule.Tests.ps1
 tests/Model/Trim.Tests.ps1
 tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1

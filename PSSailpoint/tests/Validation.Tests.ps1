@@ -93,3 +93,16 @@ Describe 'Beta' {
 
 }
 
+Set-DefaultConfiguration -Experimental $True
+
+Describe 'V2024' {
+    It 'Returns results for Get-V2024Identities' {
+        $Response = Get-V2024Identities -WithHttpInfo
+        
+        $Response.Response | Should -Not -BeNullOrEmpty
+        $Response.StatusCode | Should -Be 200
+
+    }
+
+}
+

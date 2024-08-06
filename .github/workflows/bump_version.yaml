@@ -64,6 +64,7 @@ jobs:
         run: |
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/beta-config.yaml
           yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v3-config.yaml
+          yq -i '.packageVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2024-config.yaml
 
       ## Update Build.ps1 file with new version
       - name: Update Build.ps1 ModuleVersion
@@ -74,9 +75,17 @@ jobs:
           cd PSSailpoint
           sed -e "s/ModuleVersion     = '${LATEST_TAG:1}'/ModuleVersion     = '${{ github.event.inputs.version }}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
 
+      - name: Build V2024 SDK
+        id: buildV2024
+        if: steps.updateModuleVersion.outcome == 'success'
+        run: |
+          rm -rf ./PSSailpoint/v2024
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2024.yaml -g powershell -o PSSailpoint/v2024 --global-property skipFormModel=false --config sdk-resources/v2024-config.yaml
+          node sdk-resources/postscript.js ./PSSailpoint/v2024
+
       - name: Build V3 SDK
         id: buildV3
-        if: steps.updateModuleVersion.outcome == 'success'
+        if: steps.buildV2024.outcome == 'success'
         run: |
           rm -rf ./PSSailpoint/v3
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g powershell -o PSSailpoint/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml

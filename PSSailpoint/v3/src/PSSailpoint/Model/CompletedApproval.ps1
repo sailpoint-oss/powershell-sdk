@@ -29,7 +29,7 @@ No description available.
 .PARAMETER Requester
 No description available.
 .PARAMETER RequestedFor
-Identities access was requested for.
+No description available.
 .PARAMETER ReviewedBy
 No description available.
 .PARAMETER Owner
@@ -60,8 +60,6 @@ No description available.
 No description available.
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs provided during the request.
-.PARAMETER RequestedAccounts
-Information about the requested accounts
 .OUTPUTS
 
 CompletedApproval<PSCustomObject>
@@ -93,7 +91,7 @@ function Initialize-CompletedApproval {
         [PSCustomObject]
         ${Requester},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
+        [PSCustomObject]
         ${RequestedFor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -140,23 +138,12 @@ function Initialize-CompletedApproval {
         ${PreApprovalTriggerResult},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
-        ${ClientMetadata},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${RequestedAccounts}
+        ${ClientMetadata}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint => CompletedApproval' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$RequestedFor -and $RequestedFor.length -gt 10) {
-            throw "invalid value for 'RequestedFor', number of items must be less than or equal to 10."
-        }
-
-        if (!$RequestedFor -and $RequestedFor.length -lt 1) {
-            throw "invalid value for 'RequestedFor', number of items must be greater than or equal to 1."
-        }
 
 
         $PSO = [PSCustomObject]@{
@@ -183,7 +170,6 @@ function Initialize-CompletedApproval {
             "sodViolationContext" = ${SodViolationContext}
             "preApprovalTriggerResult" = ${PreApprovalTriggerResult}
             "clientMetadata" = ${ClientMetadata}
-            "requestedAccounts" = ${RequestedAccounts}
         }
 
         return $PSO
@@ -220,7 +206,7 @@ function ConvertFrom-JsonToCompletedApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CompletedApproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts")
+        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -365,12 +351,6 @@ function ConvertFrom-JsonToCompletedApproval {
             $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedAccounts"))) { #optional property not found
-            $RequestedAccounts = $null
-        } else {
-            $RequestedAccounts = $JsonParameters.PSobject.Properties["requestedAccounts"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -395,7 +375,6 @@ function ConvertFrom-JsonToCompletedApproval {
             "sodViolationContext" = ${SodViolationContext}
             "preApprovalTriggerResult" = ${PreApprovalTriggerResult}
             "clientMetadata" = ${ClientMetadata}
-            "requestedAccounts" = ${RequestedAccounts}
         }
 
         return $PSO

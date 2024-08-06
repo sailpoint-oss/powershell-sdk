@@ -17,7 +17,7 @@ No description available.
 .PARAMETER Config
 No description available.
 .PARAMETER DataSourceType
-DataSourceType is a FormElementDataSourceType value STATIC FormElementDataSourceTypeStatic INTERNAL FormElementDataSourceTypeInternal SEARCH FormElementDataSourceTypeSearch
+DataSourceType is a FormElementDataSourceType value STATIC FormElementDataSourceTypeStatic INTERNAL FormElementDataSourceTypeInternal SEARCH FormElementDataSourceTypeSearch FORM_INPUT FormElementDataSourceTypeFormInput
 .OUTPUTS
 
 FormElementDynamicDataSource<PSCustomObject>
@@ -30,7 +30,7 @@ function Initialize-BetaFormElementDynamicDataSource {
         [PSCustomObject]
         ${Config},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("STATIC", "INTERNAL", "SEARCH")]
+        [ValidateSet("STATIC", "INTERNAL", "SEARCH", "FORM_INPUT")]
         [String]
         ${DataSourceType}
     )

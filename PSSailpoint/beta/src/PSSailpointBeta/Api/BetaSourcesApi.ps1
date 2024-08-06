@@ -1611,6 +1611,7 @@ function Import-BetaAccounts {
         [System.IO.FileInfo]
         ${File},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("true", "false")]
         [String]
         ${DisableOptimization},
         [Switch]
@@ -1634,7 +1635,7 @@ function Import-BetaAccounts {
         $LocalVarAccepts = @('application/json')
 
         # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('multipart/form-data')
+        $LocalVarContentTypes = @('multipart/form-data', 'application/x-www-form-urlencoded')
 
         $LocalVarUri = '/sources/{id}/load-accounts'
         if (!$Id) {

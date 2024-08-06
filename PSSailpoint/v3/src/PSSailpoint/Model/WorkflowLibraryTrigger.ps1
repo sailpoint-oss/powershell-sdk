@@ -18,6 +18,14 @@ No description available.
 Trigger ID. This is a static namespaced ID for the trigger.
 .PARAMETER Type
 Trigger type
+.PARAMETER Deprecated
+No description available.
+.PARAMETER DeprecatedBy
+No description available.
+.PARAMETER IsSimulationEnabled
+No description available.
+.PARAMETER OutputSchema
+Example output schema
 .PARAMETER Name
 Trigger Name
 .PARAMETER Description
@@ -41,8 +49,20 @@ function Initialize-WorkflowLibraryTrigger {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("EVENT", "SCHEDULED", "EXTERNAL")]
-        [PSCustomObject]
+        [String]
         ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Deprecated},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${DeprecatedBy},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsSimulationEnabled},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${OutputSchema},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
@@ -68,6 +88,10 @@ function Initialize-WorkflowLibraryTrigger {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "type" = ${Type}
+            "deprecated" = ${Deprecated}
+            "deprecatedBy" = ${DeprecatedBy}
+            "isSimulationEnabled" = ${IsSimulationEnabled}
+            "outputSchema" = ${OutputSchema}
             "name" = ${Name}
             "description" = ${Description}
             "isDynamicSchema" = ${IsDynamicSchema}
@@ -109,7 +133,7 @@ function ConvertFrom-JsonToWorkflowLibraryTrigger {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in WorkflowLibraryTrigger
-        $AllProperties = ("id", "type", "name", "description", "isDynamicSchema", "inputExample", "formFields")
+        $AllProperties = ("id", "type", "deprecated", "deprecatedBy", "isSimulationEnabled", "outputSchema", "name", "description", "isDynamicSchema", "inputExample", "formFields")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -126,6 +150,30 @@ function ConvertFrom-JsonToWorkflowLibraryTrigger {
             $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "deprecated"))) { #optional property not found
+            $Deprecated = $null
+        } else {
+            $Deprecated = $JsonParameters.PSobject.Properties["deprecated"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "deprecatedBy"))) { #optional property not found
+            $DeprecatedBy = $null
+        } else {
+            $DeprecatedBy = $JsonParameters.PSobject.Properties["deprecatedBy"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isSimulationEnabled"))) { #optional property not found
+            $IsSimulationEnabled = $null
+        } else {
+            $IsSimulationEnabled = $JsonParameters.PSobject.Properties["isSimulationEnabled"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "outputSchema"))) { #optional property not found
+            $OutputSchema = $null
+        } else {
+            $OutputSchema = $JsonParameters.PSobject.Properties["outputSchema"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -161,6 +209,10 @@ function ConvertFrom-JsonToWorkflowLibraryTrigger {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "type" = ${Type}
+            "deprecated" = ${Deprecated}
+            "deprecatedBy" = ${DeprecatedBy}
+            "isSimulationEnabled" = ${IsSimulationEnabled}
+            "outputSchema" = ${OutputSchema}
             "name" = ${Name}
             "description" = ${Description}
             "isDynamicSchema" = ${IsDynamicSchema}

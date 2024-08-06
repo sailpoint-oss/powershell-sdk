@@ -18,14 +18,12 @@ No description available.
 No description available.
 .PARAMETER Tags
 Label to be applied to an Object
-.PARAMETER Operation
-If APPEND, tags are appended to the list of tags for the object. A 400 error is returned if this would add duplicate tags to the object.  If MERGE, tags are merged with the existing tags. Duplicate tags are silently ignored.
 .OUTPUTS
 
-BulkTaggedObject<PSCustomObject>
+BulkRemoveTaggedObject<PSCustomObject>
 #>
 
-function Initialize-BulkTaggedObject {
+function Initialize-BulkRemoveTaggedObject {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -33,22 +31,17 @@ function Initialize-BulkTaggedObject {
         ${ObjectRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Tags},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("APPEND", "MERGE")]
-        [String]
-        ${Operation} = "APPEND"
+        ${Tags}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => BulkTaggedObject' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => BulkRemoveTaggedObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
             "objectRefs" = ${ObjectRefs}
             "tags" = ${Tags}
-            "operation" = ${Operation}
         }
 
         return $PSO
@@ -58,11 +51,11 @@ function Initialize-BulkTaggedObject {
 <#
 .SYNOPSIS
 
-Convert from JSON to BulkTaggedObject<PSCustomObject>
+Convert from JSON to BulkRemoveTaggedObject<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to BulkTaggedObject<PSCustomObject>
+Convert from JSON to BulkRemoveTaggedObject<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,22 +63,22 @@ Json object
 
 .OUTPUTS
 
-BulkTaggedObject<PSCustomObject>
+BulkRemoveTaggedObject<PSCustomObject>
 #>
-function ConvertFrom-JsonToBulkTaggedObject {
+function ConvertFrom-JsonToBulkRemoveTaggedObject {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => BulkTaggedObject' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => BulkRemoveTaggedObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BulkTaggedObject
-        $AllProperties = ("objectRefs", "tags", "operation")
+        # check if Json contains properties not defined in BulkRemoveTaggedObject
+        $AllProperties = ("objectRefs", "tags")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -104,16 +97,9 @@ function ConvertFrom-JsonToBulkTaggedObject {
             $Tags = $JsonParameters.PSobject.Properties["tags"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "operation"))) { #optional property not found
-            $Operation = $null
-        } else {
-            $Operation = $JsonParameters.PSobject.Properties["operation"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "objectRefs" = ${ObjectRefs}
             "tags" = ${Tags}
-            "operation" = ${Operation}
         }
 
         return $PSO

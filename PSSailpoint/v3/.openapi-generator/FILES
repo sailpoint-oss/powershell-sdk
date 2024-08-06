@@ -44,6 +44,9 @@ docs/AccountActivityDocument.md
 docs/AccountActivityItem.md
 docs/AccountActivityItemOperation.md
 docs/AccountActivitySearchedItem.md
+docs/AccountAllOfOwnerGroup.md
+docs/AccountAllOfOwnerIdentity.md
+docs/AccountAllOfSourceOwner.md
 docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesCreate.md
@@ -107,7 +110,8 @@ docs/BrandingItem.md
 docs/BrandingItemCreate.md
 docs/BucketAggregation.md
 docs/BucketType.md
-docs/BulkTaggedObject.md
+docs/BulkAddTaggedObject.md
+docs/BulkRemoveTaggedObject.md
 docs/BulkTaggedObjectResponse.md
 docs/Campaign.md
 docs/CampaignAlert.md
@@ -222,7 +226,6 @@ docs/FormDetails.md
 docs/FormItemDetails.md
 docs/ForwardApprovalDto.md
 docs/GenerateRandomString.md
-docs/GenericRule.md
 docs/GetActiveCampaigns200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
@@ -237,6 +240,7 @@ docs/IdentityAccess.md
 docs/IdentityAttribute.md
 docs/IdentityAttribute1.md
 docs/IdentityAttributeConfig.md
+docs/IdentityAttributePreview.md
 docs/IdentityAttributeTransform.md
 docs/IdentityCertDecisionSummary.md
 docs/IdentityCertificationDto.md
@@ -245,6 +249,9 @@ docs/IdentityDocumentAllOfIdentityProfile.md
 docs/IdentityDocumentAllOfManager.md
 docs/IdentityDocumentAllOfSource.md
 docs/IdentityExceptionReportReference.md
+docs/IdentityPreviewRequest.md
+docs/IdentityPreviewResponse.md
+docs/IdentityPreviewResponseIdentity.md
 docs/IdentityProfile.md
 docs/IdentityProfileAllOfAuthoritativeSource.md
 docs/IdentityProfileAllOfOwner.md
@@ -497,6 +504,8 @@ docs/Search.md
 docs/SearchAggregationSpecification.md
 docs/SearchApi.md
 docs/SearchArguments.md
+docs/SearchAttributeConfig.md
+docs/SearchAttributeConfigurationApi.md
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchSchedule.md
@@ -578,6 +587,7 @@ docs/TransformAttributes.md
 docs/TransformDefinition.md
 docs/TransformDefinitionAttributesValue.md
 docs/TransformRead.md
+docs/TransformRule.md
 docs/TransformsApi.md
 docs/Trim.md
 docs/TypeAheadQuery.md
@@ -605,6 +615,7 @@ docs/ViolationOwnerAssignmentConfig.md
 docs/ViolationOwnerAssignmentConfigOwnerRef.md
 docs/ViolationPrediction.md
 docs/VisibilityCriteria.md
+docs/WorkItemForward.md
 docs/WorkItemState.md
 docs/WorkItemStateManualWorkItems.md
 docs/WorkItemTypeManualWorkItems.md
@@ -621,9 +632,11 @@ docs/WorkflowDefinition.md
 docs/WorkflowExecution.md
 docs/WorkflowExecutionEvent.md
 docs/WorkflowLibraryAction.md
+docs/WorkflowLibraryActionExampleOutput.md
 docs/WorkflowLibraryFormFields.md
 docs/WorkflowLibraryOperator.md
 docs/WorkflowLibraryTrigger.md
+docs/WorkflowModifiedBy.md
 docs/WorkflowOAuthClient.md
 docs/WorkflowTrigger.md
 docs/WorkflowTriggerAttributes.md
@@ -668,6 +681,7 @@ src/PSSailpoint/Api/SODViolationsApi.ps1
 src/PSSailpoint/Api/SavedSearchApi.ps1
 src/PSSailpoint/Api/ScheduledSearchApi.ps1
 src/PSSailpoint/Api/SearchApi.ps1
+src/PSSailpoint/Api/SearchAttributeConfigurationApi.ps1
 src/PSSailpoint/Api/SegmentsApi.ps1
 src/PSSailpoint/Api/ServiceDeskIntegrationApi.ps1
 src/PSSailpoint/Api/SourceUsagesApi.ps1
@@ -716,6 +730,9 @@ src/PSSailpoint/Model/AccountActivityDocument.ps1
 src/PSSailpoint/Model/AccountActivityItem.ps1
 src/PSSailpoint/Model/AccountActivityItemOperation.ps1
 src/PSSailpoint/Model/AccountActivitySearchedItem.ps1
+src/PSSailpoint/Model/AccountAllOfOwnerGroup.ps1
+src/PSSailpoint/Model/AccountAllOfOwnerIdentity.ps1
+src/PSSailpoint/Model/AccountAllOfSourceOwner.ps1
 src/PSSailpoint/Model/AccountAttribute.ps1
 src/PSSailpoint/Model/AccountAttributes.ps1
 src/PSSailpoint/Model/AccountAttributesCreate.ps1
@@ -774,7 +791,8 @@ src/PSSailpoint/Model/BrandingItem.ps1
 src/PSSailpoint/Model/BrandingItemCreate.ps1
 src/PSSailpoint/Model/BucketAggregation.ps1
 src/PSSailpoint/Model/BucketType.ps1
-src/PSSailpoint/Model/BulkTaggedObject.ps1
+src/PSSailpoint/Model/BulkAddTaggedObject.ps1
+src/PSSailpoint/Model/BulkRemoveTaggedObject.ps1
 src/PSSailpoint/Model/BulkTaggedObjectResponse.ps1
 src/PSSailpoint/Model/Campaign.ps1
 src/PSSailpoint/Model/CampaignAlert.ps1
@@ -881,7 +899,6 @@ src/PSSailpoint/Model/FormDetails.ps1
 src/PSSailpoint/Model/FormItemDetails.ps1
 src/PSSailpoint/Model/ForwardApprovalDto.ps1
 src/PSSailpoint/Model/GenerateRandomString.ps1
-src/PSSailpoint/Model/GenericRule.ps1
 src/PSSailpoint/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpoint/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint/Model/GetPersonalAccessTokenResponse.ps1
@@ -895,6 +912,7 @@ src/PSSailpoint/Model/IdentityAccess.ps1
 src/PSSailpoint/Model/IdentityAttribute.ps1
 src/PSSailpoint/Model/IdentityAttribute1.ps1
 src/PSSailpoint/Model/IdentityAttributeConfig.ps1
+src/PSSailpoint/Model/IdentityAttributePreview.ps1
 src/PSSailpoint/Model/IdentityAttributeTransform.ps1
 src/PSSailpoint/Model/IdentityCertDecisionSummary.ps1
 src/PSSailpoint/Model/IdentityCertificationDto.ps1
@@ -903,6 +921,9 @@ src/PSSailpoint/Model/IdentityDocumentAllOfIdentityProfile.ps1
 src/PSSailpoint/Model/IdentityDocumentAllOfManager.ps1
 src/PSSailpoint/Model/IdentityDocumentAllOfSource.ps1
 src/PSSailpoint/Model/IdentityExceptionReportReference.ps1
+src/PSSailpoint/Model/IdentityPreviewRequest.ps1
+src/PSSailpoint/Model/IdentityPreviewResponse.ps1
+src/PSSailpoint/Model/IdentityPreviewResponseIdentity.ps1
 src/PSSailpoint/Model/IdentityProfile.ps1
 src/PSSailpoint/Model/IdentityProfileAllOfAuthoritativeSource.ps1
 src/PSSailpoint/Model/IdentityProfileAllOfOwner.ps1
@@ -1133,6 +1154,7 @@ src/PSSailpoint/Model/Schema.ps1
 src/PSSailpoint/Model/Search.ps1
 src/PSSailpoint/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint/Model/SearchArguments.ps1
+src/PSSailpoint/Model/SearchAttributeConfig.ps1
 src/PSSailpoint/Model/SearchExportReportArguments.ps1
 src/PSSailpoint/Model/SearchFilterType.ps1
 src/PSSailpoint/Model/SearchSchedule.ps1
@@ -1209,6 +1231,7 @@ src/PSSailpoint/Model/TransformAttributes.ps1
 src/PSSailpoint/Model/TransformDefinition.ps1
 src/PSSailpoint/Model/TransformDefinitionAttributesValue.ps1
 src/PSSailpoint/Model/TransformRead.ps1
+src/PSSailpoint/Model/TransformRule.ps1
 src/PSSailpoint/Model/Trim.ps1
 src/PSSailpoint/Model/TypeAheadQuery.ps1
 src/PSSailpoint/Model/TypedReference.ps1
@@ -1234,6 +1257,7 @@ src/PSSailpoint/Model/ViolationOwnerAssignmentConfig.ps1
 src/PSSailpoint/Model/ViolationOwnerAssignmentConfigOwnerRef.ps1
 src/PSSailpoint/Model/ViolationPrediction.ps1
 src/PSSailpoint/Model/VisibilityCriteria.ps1
+src/PSSailpoint/Model/WorkItemForward.ps1
 src/PSSailpoint/Model/WorkItemState.ps1
 src/PSSailpoint/Model/WorkItemStateManualWorkItems.ps1
 src/PSSailpoint/Model/WorkItemTypeManualWorkItems.ps1
@@ -1249,9 +1273,11 @@ src/PSSailpoint/Model/WorkflowDefinition.ps1
 src/PSSailpoint/Model/WorkflowExecution.ps1
 src/PSSailpoint/Model/WorkflowExecutionEvent.ps1
 src/PSSailpoint/Model/WorkflowLibraryAction.ps1
+src/PSSailpoint/Model/WorkflowLibraryActionExampleOutput.ps1
 src/PSSailpoint/Model/WorkflowLibraryFormFields.ps1
 src/PSSailpoint/Model/WorkflowLibraryOperator.ps1
 src/PSSailpoint/Model/WorkflowLibraryTrigger.ps1
+src/PSSailpoint/Model/WorkflowModifiedBy.ps1
 src/PSSailpoint/Model/WorkflowOAuthClient.ps1
 src/PSSailpoint/Model/WorkflowTrigger.ps1
 src/PSSailpoint/Model/WorkflowTriggerAttributes.ps1
@@ -1302,6 +1328,7 @@ tests/Api/SODViolationsApi.Tests.ps1
 tests/Api/SavedSearchApi.Tests.ps1
 tests/Api/ScheduledSearchApi.Tests.ps1
 tests/Api/SearchApi.Tests.ps1
+tests/Api/SearchAttributeConfigurationApi.Tests.ps1
 tests/Api/SegmentsApi.Tests.ps1
 tests/Api/ServiceDeskIntegrationApi.Tests.ps1
 tests/Api/SourceUsagesApi.Tests.ps1
@@ -1349,6 +1376,9 @@ tests/Model/AccountActivityDocument.Tests.ps1
 tests/Model/AccountActivityItem.Tests.ps1
 tests/Model/AccountActivityItemOperation.Tests.ps1
 tests/Model/AccountActivitySearchedItem.Tests.ps1
+tests/Model/AccountAllOfOwnerGroup.Tests.ps1
+tests/Model/AccountAllOfOwnerIdentity.Tests.ps1
+tests/Model/AccountAllOfSourceOwner.Tests.ps1
 tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesCreate.Tests.ps1
@@ -1407,7 +1437,8 @@ tests/Model/BrandingItem.Tests.ps1
 tests/Model/BrandingItemCreate.Tests.ps1
 tests/Model/BucketAggregation.Tests.ps1
 tests/Model/BucketType.Tests.ps1
-tests/Model/BulkTaggedObject.Tests.ps1
+tests/Model/BulkAddTaggedObject.Tests.ps1
+tests/Model/BulkRemoveTaggedObject.Tests.ps1
 tests/Model/BulkTaggedObjectResponse.Tests.ps1
 tests/Model/Campaign.Tests.ps1
 tests/Model/CampaignAlert.Tests.ps1
@@ -1514,7 +1545,6 @@ tests/Model/FormDetails.Tests.ps1
 tests/Model/FormItemDetails.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
-tests/Model/GenericRule.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
@@ -1528,6 +1558,7 @@ tests/Model/IdentityAccess.Tests.ps1
 tests/Model/IdentityAttribute.Tests.ps1
 tests/Model/IdentityAttribute1.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
+tests/Model/IdentityAttributePreview.Tests.ps1
 tests/Model/IdentityAttributeTransform.Tests.ps1
 tests/Model/IdentityCertDecisionSummary.Tests.ps1
 tests/Model/IdentityCertificationDto.Tests.ps1
@@ -1536,6 +1567,9 @@ tests/Model/IdentityDocumentAllOfIdentityProfile.Tests.ps1
 tests/Model/IdentityDocumentAllOfManager.Tests.ps1
 tests/Model/IdentityDocumentAllOfSource.Tests.ps1
 tests/Model/IdentityExceptionReportReference.Tests.ps1
+tests/Model/IdentityPreviewRequest.Tests.ps1
+tests/Model/IdentityPreviewResponse.Tests.ps1
+tests/Model/IdentityPreviewResponseIdentity.Tests.ps1
 tests/Model/IdentityProfile.Tests.ps1
 tests/Model/IdentityProfileAllOfAuthoritativeSource.Tests.ps1
 tests/Model/IdentityProfileAllOfOwner.Tests.ps1
@@ -1766,6 +1800,7 @@ tests/Model/Schema.Tests.ps1
 tests/Model/Search.Tests.ps1
 tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
+tests/Model/SearchAttributeConfig.Tests.ps1
 tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchSchedule.Tests.ps1
@@ -1842,6 +1877,7 @@ tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformDefinition.Tests.ps1
 tests/Model/TransformDefinitionAttributesValue.Tests.ps1
 tests/Model/TransformRead.Tests.ps1
+tests/Model/TransformRule.Tests.ps1
 tests/Model/Trim.Tests.ps1
 tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1
@@ -1867,6 +1903,7 @@ tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfigOwnerRef.Tests.ps1
 tests/Model/ViolationPrediction.Tests.ps1
 tests/Model/VisibilityCriteria.Tests.ps1
+tests/Model/WorkItemForward.Tests.ps1
 tests/Model/WorkItemState.Tests.ps1
 tests/Model/WorkItemStateManualWorkItems.Tests.ps1
 tests/Model/WorkItemTypeManualWorkItems.Tests.ps1
@@ -1882,9 +1919,11 @@ tests/Model/WorkflowDefinition.Tests.ps1
 tests/Model/WorkflowExecution.Tests.ps1
 tests/Model/WorkflowExecutionEvent.Tests.ps1
 tests/Model/WorkflowLibraryAction.Tests.ps1
+tests/Model/WorkflowLibraryActionExampleOutput.Tests.ps1
 tests/Model/WorkflowLibraryFormFields.Tests.ps1
 tests/Model/WorkflowLibraryOperator.Tests.ps1
 tests/Model/WorkflowLibraryTrigger.Tests.ps1
+tests/Model/WorkflowModifiedBy.Tests.ps1
 tests/Model/WorkflowOAuthClient.Tests.ps1
 tests/Model/WorkflowTrigger.Tests.ps1
 tests/Model/WorkflowTriggerAttributes.Tests.ps1

@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint' -name 'IdentityProfilesApi' {
+    Context 'New-IdentityProfile' {
+        It 'Test New-IdentityProfile' {
+            #$TestResult = New-IdentityProfile -IdentityProfile "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-IdentityProfile' {
         It 'Test Remove-IdentityProfile' {
             #$TestResult = Remove-IdentityProfile -IdentityProfileId "TEST_VALUE"
@@ -62,9 +70,25 @@ Describe -tag 'PSSailpoint' -name 'IdentityProfilesApi' {
         }
     }
 
+    Context 'Show-IdentityPreview' {
+        It 'Test Show-IdentityPreview' {
+            #$TestResult = Show-IdentityPreview -IdentityPreviewRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Sync-IdentityProfile' {
         It 'Test Sync-IdentityProfile' {
             #$TestResult = Sync-IdentityProfile -IdentityProfileId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-IdentityProfile' {
+        It 'Test Update-IdentityProfile' {
+            #$TestResult = Update-IdentityProfile -IdentityProfileId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

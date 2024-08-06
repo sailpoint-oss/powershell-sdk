@@ -15,15 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER Name
-This is the name of the Generic rule that needs to be invoked by the transform
+This is the name of the Transform rule that needs to be invoked by the transform
 .PARAMETER RequiresPeriodicRefresh
 A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
 .OUTPUTS
 
-GenericRule<PSCustomObject>
+TransformRule<PSCustomObject>
 #>
 
-function Initialize-BetaGenericRule {
+function Initialize-BetaTransformRule {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -31,11 +31,11 @@ function Initialize-BetaGenericRule {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${RequiresPeriodicRefresh}
+        ${RequiresPeriodicRefresh} = $false
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaGenericRule' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaTransformRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -55,11 +55,11 @@ function Initialize-BetaGenericRule {
 <#
 .SYNOPSIS
 
-Convert from JSON to GenericRule<PSCustomObject>
+Convert from JSON to TransformRule<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to GenericRule<PSCustomObject>
+Convert from JSON to TransformRule<PSCustomObject>
 
 .PARAMETER Json
 
@@ -67,21 +67,21 @@ Json object
 
 .OUTPUTS
 
-GenericRule<PSCustomObject>
+TransformRule<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToGenericRule {
+function ConvertFrom-BetaJsonToTransformRule {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaGenericRule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaTransformRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaGenericRule
+        # check if Json contains properties not defined in BetaTransformRule
         $AllProperties = ("name", "requiresPeriodicRefresh")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

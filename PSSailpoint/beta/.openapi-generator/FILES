@@ -404,7 +404,6 @@ docs/FullcampaignAllOfSearchCampaignInfoReviewer.md
 docs/FullcampaignAllOfSourceOwnerCampaignInfo.md
 docs/FullcampaignAllOfSourcesWithOrphanEntitlements.md
 docs/GenerateRandomString.md
-docs/GenericRule.md
 docs/GetActiveCampaigns200ResponseInner.md
 docs/GetFormDefinitionByKey400Response.md
 docs/GetHistoricalIdentityEvents200ResponseInner.md
@@ -472,6 +471,7 @@ docs/IdentitySyncPayload.md
 docs/IdentityWithNewAccess.md
 docs/IdentityWithNewAccessAccessRefsInner.md
 docs/ImportAccountsRequest.md
+docs/ImportAccountsRequest1.md
 docs/ImportEntitlementsBySourceRequest.md
 docs/ImportEntitlementsRequest.md
 docs/ImportFormDefinitions202Response.md
@@ -890,6 +890,7 @@ docs/TransformDefinition.md
 docs/TransformDefinition1.md
 docs/TransformDefinition1AttributesValue.md
 docs/TransformRead.md
+docs/TransformRule.md
 docs/TranslationMessage.md
 docs/Trigger.md
 docs/TriggerExampleInput.md
@@ -1352,7 +1353,6 @@ src/PSSailpointBeta/Model/FullcampaignAllOfSearchCampaignInfoReviewer.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfSourceOwnerCampaignInfo.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfSourcesWithOrphanEntitlements.ps1
 src/PSSailpointBeta/Model/GenerateRandomString.ps1
-src/PSSailpointBeta/Model/GenericRule.ps1
 src/PSSailpointBeta/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpointBeta/Model/GetFormDefinitionByKey400Response.ps1
 src/PSSailpointBeta/Model/GetHistoricalIdentityEvents200ResponseInner.ps1
@@ -1420,6 +1420,7 @@ src/PSSailpointBeta/Model/IdentitySyncPayload.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccess.ps1
 src/PSSailpointBeta/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpointBeta/Model/ImportAccountsRequest.ps1
+src/PSSailpointBeta/Model/ImportAccountsRequest1.ps1
 src/PSSailpointBeta/Model/ImportEntitlementsBySourceRequest.ps1
 src/PSSailpointBeta/Model/ImportEntitlementsRequest.ps1
 src/PSSailpointBeta/Model/ImportFormDefinitions202Response.ps1
@@ -1839,6 +1840,7 @@ src/PSSailpointBeta/Model/TransformDefinition.ps1
 src/PSSailpointBeta/Model/TransformDefinition1.ps1
 src/PSSailpointBeta/Model/TransformDefinition1AttributesValue.ps1
 src/PSSailpointBeta/Model/TransformRead.ps1
+src/PSSailpointBeta/Model/TransformRule.ps1
 src/PSSailpointBeta/Model/TranslationMessage.ps1
 src/PSSailpointBeta/Model/Trigger.ps1
 src/PSSailpointBeta/Model/TriggerExampleInput.ps1
@@ -2307,7 +2309,6 @@ tests/Model/FullcampaignAllOfSearchCampaignInfoReviewer.Tests.ps1
 tests/Model/FullcampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
 tests/Model/FullcampaignAllOfSourcesWithOrphanEntitlements.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
-tests/Model/GenericRule.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetFormDefinitionByKey400Response.Tests.ps1
 tests/Model/GetHistoricalIdentityEvents200ResponseInner.Tests.ps1
@@ -2375,6 +2376,7 @@ tests/Model/IdentitySyncPayload.Tests.ps1
 tests/Model/IdentityWithNewAccess.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/ImportAccountsRequest.Tests.ps1
+tests/Model/ImportAccountsRequest1.Tests.ps1
 tests/Model/ImportEntitlementsBySourceRequest.Tests.ps1
 tests/Model/ImportEntitlementsRequest.Tests.ps1
 tests/Model/ImportFormDefinitions202Response.Tests.ps1
@@ -2794,6 +2796,7 @@ tests/Model/TransformDefinition.Tests.ps1
 tests/Model/TransformDefinition1.Tests.ps1
 tests/Model/TransformDefinition1AttributesValue.Tests.ps1
 tests/Model/TransformRead.Tests.ps1
+tests/Model/TransformRule.Tests.ps1
 tests/Model/TranslationMessage.Tests.ps1
 tests/Model/Trigger.Tests.ps1
 tests/Model/TriggerExampleInput.Tests.ps1

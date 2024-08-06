@@ -260,7 +260,7 @@ Patch Personal Access Token
 
 .DESCRIPTION
 
-This performs a targeted update to the field(s) of a Personal Access Token.
+This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
 
 .PARAMETER Id
 The Personal Access Token id

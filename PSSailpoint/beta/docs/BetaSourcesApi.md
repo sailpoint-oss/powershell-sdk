@@ -1086,7 +1086,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
-$DisableOptimization = "MyDisableOptimization" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
+$DisableOptimization = "true" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
 # Account Aggregation
 try {
@@ -1115,7 +1115,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

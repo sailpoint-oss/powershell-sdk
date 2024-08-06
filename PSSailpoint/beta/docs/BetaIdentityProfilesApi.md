@@ -8,11 +8,11 @@ Method | HTTP request | Description
 [**Remove-BetaIdentityProfile**](BetaIdentityProfilesApi.md#Remove-BetaIdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
 [**Remove-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Remove-BetaIdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 [**Export-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Export-BetaIdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
-[**New-BetaIdentityPreview**](BetaIdentityProfilesApi.md#New-BetaIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 [**Get-BetaDefaultIdentityAttributeConfig**](BetaIdentityProfilesApi.md#Get-BetaDefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Default identity attribute config
 [**Get-BetaIdentityProfile**](BetaIdentityProfilesApi.md#Get-BetaIdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Gets a single Identity Profile
 [**Import-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Import-BetaIdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-[**Get-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles list
+[**Get-BetaIdentityProfiles**](BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
+[**Show-BetaGenerateIdentityPreview**](BetaIdentityProfilesApi.md#Show-BetaGenerateIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 [**Sync-BetaIdentityProfile**](BetaIdentityProfilesApi.md#Sync-BetaIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 [**Update-BetaIdentityProfile**](BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
 
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 Create an Identity Profile
 
-This creates an Identity Profile A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
 
 ### Example
 ```powershell
@@ -242,62 +242,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="New-BetaIdentityPreview"></a>
-# **New-BetaIdentityPreview**
-> IdentityPreviewResponse New-BetaIdentityPreview<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityPreviewRequest] <PSCustomObject><br>
-
-Generate Identity Profile Preview
-
-This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy's attribute config is applied. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$TransformDefinition = Initialize-TransformDefinition -Type "accountAttribute" -Attributes @{ key_example =  }
-$IdentityAttributeTransform = Initialize-IdentityAttributeTransform -IdentityAttributeName "email" -TransformDefinition $TransformDefinition
-
-$IdentityAttributeConfig = Initialize-IdentityAttributeConfig -Enabled $true -AttributeTransforms $IdentityAttributeTransform
-
-$IdentityPreviewRequest = Initialize-IdentityPreviewRequest -IdentityId "MyIdentityId" -IdentityAttributeConfig $IdentityAttributeConfig # IdentityPreviewRequest | Identity Preview request body.
-
-# Generate Identity Profile Preview
-try {
-    $Result = New-BetaIdentityPreview -IdentityPreviewRequest $IdentityPreviewRequest
-} catch {
-    Write-Host ("Exception occurred when calling New-BetaIdentityPreview: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **IdentityPreviewRequest** | [**IdentityPreviewRequest**](IdentityPreviewRequest.md)| Identity Preview request body. | 
-
-### Return type
-
-[**IdentityPreviewResponse**](IdentityPreviewResponse.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="Get-BetaDefaultIdentityAttributeConfig"></a>
 # **Get-BetaDefaultIdentityAttributeConfig**
 > IdentityAttributeConfig Get-BetaDefaultIdentityAttributeConfig<br>
@@ -356,7 +300,7 @@ Name | Type | Description  | Notes
 
 Gets a single Identity Profile
 
-This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
 
 ### Example
 ```powershell
@@ -475,7 +419,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
 
-Identity Profiles list
+Identity Profiles List
 
 This returns a list of Identity Profiles based on the specified query parameters. A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
 
@@ -495,7 +439,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = "id eq 8c190e6787aa4ed9a90bd9d5344523fb" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, in, le, lt, isnull, sw*  **priority**: *eq, ne* (optional)
 $Sorters = "name,-priority" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
-# Identity Profiles list
+# Identity Profiles List
 try {
     $Result = Get-BetaIdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters
 } catch {
@@ -525,6 +469,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Show-BetaGenerateIdentityPreview"></a>
+# **Show-BetaGenerateIdentityPreview**
+> IdentityPreviewResponse Show-BetaGenerateIdentityPreview<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityPreviewRequest] <PSCustomObject><br>
+
+Generate Identity Profile Preview
+
+Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$TransformDefinition = Initialize-TransformDefinition -Type "accountAttribute" -Attributes @{ key_example =  }
+$IdentityAttributeTransform = Initialize-IdentityAttributeTransform -IdentityAttributeName "email" -TransformDefinition $TransformDefinition
+
+$IdentityAttributeConfig = Initialize-IdentityAttributeConfig -Enabled $true -AttributeTransforms $IdentityAttributeTransform
+
+$IdentityPreviewRequest = Initialize-IdentityPreviewRequest -IdentityId "MyIdentityId" -IdentityAttributeConfig $IdentityAttributeConfig # IdentityPreviewRequest | Identity Preview request body.
+
+# Generate Identity Profile Preview
+try {
+    $Result = Show-BetaGenerateIdentityPreview -IdentityPreviewRequest $IdentityPreviewRequest
+} catch {
+    Write-Host ("Exception occurred when calling Show-BetaGenerateIdentityPreview: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **IdentityPreviewRequest** | [**IdentityPreviewRequest**](IdentityPreviewRequest.md)| Identity Preview request body. | 
+
+### Return type
+
+[**IdentityPreviewResponse**](IdentityPreviewResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -588,7 +588,7 @@ Name | Type | Description  | Notes
 
 Update the Identity Profile
 
-This updates the specified Identity Profile. A token with ORG_ADMIN authority is required to call this API to update the Identity Profile. Some fields of the Schema cannot be updated. These fields are listed below. * id * name * created * modified
+This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
 
 ### Example
 ```powershell

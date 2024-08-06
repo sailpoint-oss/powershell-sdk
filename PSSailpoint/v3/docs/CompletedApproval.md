@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **RequestCreated** | **System.DateTime** | When the access-request was created. | [optional] 
 **RequestType** | [**AccessRequestType**](AccessRequestType.md) |  | [optional] 
 **Requester** | [**AccessItemRequester**](AccessItemRequester.md) |  | [optional] 
-**RequestedFor** | [**AccessItemRequestedFor[]**](AccessItemRequestedFor.md) | Identities access was requested for. | [optional] 
+**RequestedFor** | [**RequestedItemStatusRequestedFor**](RequestedItemStatusRequestedFor.md) |  | [optional] 
 **ReviewedBy** | [**AccessItemReviewedBy**](AccessItemReviewedBy.md) |  | [optional] 
 **Owner** | [**OwnerDto**](OwnerDto.md) |  | [optional] 
 **RequestedObject** | [**RequestableObjectReference**](RequestableObjectReference.md) |  | [optional] 
@@ -26,7 +26,6 @@ Name | Type | Description | Notes
 **SodViolationContext** | [**SodViolationContextCheckCompleted**](SodViolationContextCheckCompleted.md) |  | [optional] 
 **PreApprovalTriggerResult** | [**CompletedApprovalPreApprovalTriggerResult**](CompletedApprovalPreApprovalTriggerResult.md) |  | [optional] 
 **ClientMetadata** | **System.Collections.Hashtable** | Arbitrary key-value pairs provided during the request. | [optional] 
-**RequestedAccounts** | **String** | Information about the requested accounts | [optional] 
 
 ## Examples
 
@@ -54,8 +53,7 @@ $CompletedApproval = Initialize-PSSailpointCompletedApproval  -Id id12345 `
  -CurrentRemoveDate 2020-07-11T00:00Z `
  -SodViolationContext null `
  -PreApprovalTriggerResult null `
- -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1} `
- -RequestedAccounts null
+ -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1}
 ```
 
 - Convert the resource to JSON

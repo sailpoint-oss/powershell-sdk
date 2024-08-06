@@ -38,14 +38,6 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityProfilesApi' {
         }
     }
 
-    Context 'New-BetaIdentityPreview' {
-        It 'Test New-BetaIdentityPreview' {
-            #$TestResult = New-BetaIdentityPreview -IdentityPreviewRequest "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaDefaultIdentityAttributeConfig' {
         It 'Test Get-BetaDefaultIdentityAttributeConfig' {
             #$TestResult = Get-BetaDefaultIdentityAttributeConfig -IdentityProfileId "TEST_VALUE"
@@ -73,6 +65,14 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaIdentityProfilesApi' {
     Context 'Get-BetaIdentityProfiles' {
         It 'Test Get-BetaIdentityProfiles' {
             #$TestResult = Get-BetaIdentityProfiles -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Show-BetaGenerateIdentityPreview' {
+        It 'Test Show-BetaGenerateIdentityPreview' {
+            #$TestResult = Show-BetaGenerateIdentityPreview -IdentityPreviewRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

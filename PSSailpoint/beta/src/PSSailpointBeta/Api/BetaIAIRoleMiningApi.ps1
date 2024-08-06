@@ -1246,7 +1246,7 @@ function Get-BetaIdentitiesPotentialRole {
 <#
 .SYNOPSIS
 
-Retrieves a specific potential role
+Retrieve potential role in session
 
 .DESCRIPTION
 
@@ -1568,7 +1568,7 @@ function Get-BetaPotentialRoleSourceIdentityUsage {
 <#
 .SYNOPSIS
 
-Retrieves all potential role summaries
+Retrieve session's potential role summaries
 
 .DESCRIPTION
 
@@ -2132,11 +2132,11 @@ function Get-BetaSavedPotentialRoles {
 <#
 .SYNOPSIS
 
-Update a potential role
+Update a potential role in session
 
 .DESCRIPTION
 
-The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
+This method updates an existing potential role using the role mining session id and the potential role summary id.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
 
 .PARAMETER SessionId
 The role mining session id
@@ -2246,10 +2246,7 @@ Update a potential role
 
 .DESCRIPTION
 
-The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
-
-.PARAMETER SessionId
-The role mining session id
+This method updates an existing potential role.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
 
 .PARAMETER PotentialRoleId
 The potential role summary id
@@ -2265,16 +2262,13 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Update-BetaPotentialRole0 {
+function Update-BetaRoleMiningPotentialRole {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${SessionId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
         ${PotentialRoleId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${PatchPotentialRoleRequestInner},
         [Switch]
@@ -2282,7 +2276,7 @@ function Update-BetaPotentialRole0 {
     )
 
     Process {
-        'Calling method: Update-BetaPotentialRole0' | Write-Debug
+        'Calling method: Update-BetaRoleMiningPotentialRole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -2301,17 +2295,13 @@ function Update-BetaPotentialRole0 {
         $LocalVarContentTypes = @('application/json-patch+json')
 
         $LocalVarUri = '/role-mining-potential-roles/{potentialRoleId}'
-        if (!$SessionId) {
-            throw "Error! The required parameter `SessionId` missing when calling patchPotentialRole_0."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
         if (!$PotentialRoleId) {
-            throw "Error! The required parameter `PotentialRoleId` missing when calling patchPotentialRole_0."
+            throw "Error! The required parameter `PotentialRoleId` missing when calling patchRoleMiningPotentialRole."
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
         if (!$PatchPotentialRoleRequestInner) {
-            throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchPotentialRole_0."
+            throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchRoleMiningPotentialRole."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchPotentialRoleRequestInner -is [array])) {

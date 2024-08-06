@@ -487,7 +487,7 @@ function Get-BetaCountCompletedWorkItems {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/work-items/count/completed'
+        $LocalVarUri = '/work-items/completed/count'
 
         if ($OwnerId) {
             $LocalVarQueryParameters['ownerId'] = $OwnerId

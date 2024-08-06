@@ -5,6 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaFormDefinition**](BetaCustomFormsApi.md#New-BetaFormDefinition) | **POST** /form-definitions | Creates a form definition.
+[**New-BetaFormDefinitionByTemplate**](BetaCustomFormsApi.md#New-BetaFormDefinitionByTemplate) | **POST** /form-definitions/template | Create a form definition by template.
 [**New-BetaFormDefinitionDynamicSchema**](BetaCustomFormsApi.md#New-BetaFormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
 [**New-BetaFormDefinitionFileRequest**](BetaCustomFormsApi.md#New-BetaFormDefinitionFileRequest) | **POST** /form-definitions/{formDefinitionID}/upload | Upload new form definition file.
 [**New-BetaFormInstance**](BetaCustomFormsApi.md#New-BetaFormInstance) | **POST** /form-instances | Creates a form instance.
@@ -61,6 +62,68 @@ try {
     $Result = New-BetaFormDefinition -CreateFormDefinitionRequest $CreateFormDefinitionRequest
 } catch {
     Write-Host ("Exception occurred when calling New-BetaFormDefinition: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **CreateFormDefinitionRequest** | [**CreateFormDefinitionRequest**](CreateFormDefinitionRequest.md)| Body is the request payload to create form definition request | [optional] 
+
+### Return type
+
+[**FormDefinitionResponse**](FormDefinitionResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="New-BetaFormDefinitionByTemplate"></a>
+# **New-BetaFormDefinitionByTemplate**
+> FormDefinitionResponse New-BetaFormDefinitionByTemplate<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CreateFormDefinitionRequest] <PSCustomObject><br>
+
+Create a form definition by template.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value 
+
+$ConditionEffectConfig = Initialize-ConditionEffectConfig -DefaultValueLabel "Access to Remove" -Element "8110662963316867"
+$ConditionEffect = Initialize-ConditionEffect -EffectType "HIDE" -Config $ConditionEffectConfig
+
+$FormCondition = Initialize-FormCondition -RuleOperator "AND" -Rules $ConditionRule -Effects $ConditionEffect
+
+$FormElementValidationsSet = Initialize-FormElementValidationsSet -ValidationType "REQUIRED"
+$FormElement = Initialize-FormElement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations $FormElementValidationsSet
+
+$FormDefinitionInput = Initialize-FormDefinitionInput -Id "00000000-0000-0000-0000-000000000000" -Type "STRING" -Label "input1" -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic"
+$FormOwner = Initialize-FormOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67" -Name "Grant Smith"
+$FormUsedBy = Initialize-FormUsedBy -Type "WORKFLOW" -Id "61940a92-5484-42bc-bc10-b9982b218cdf" -Name "Access Request Form"
+$CreateFormDefinitionRequest = Initialize-CreateFormDefinitionRequest -Description "My form description" -FormConditions $FormCondition -FormElements $FormElement -FormInput $FormDefinitionInput -Name "My form" -Owner $FormOwner -UsedBy $FormUsedBy # CreateFormDefinitionRequest | Body is the request payload to create form definition request (optional)
+
+# Create a form definition by template.
+try {
+    $Result = New-BetaFormDefinitionByTemplate -CreateFormDefinitionRequest $CreateFormDefinitionRequest
+} catch {
+    Write-Host ("Exception occurred when calling New-BetaFormDefinitionByTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

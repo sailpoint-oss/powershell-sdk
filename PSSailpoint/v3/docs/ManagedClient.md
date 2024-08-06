@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | ManagedClient ID | [optional] [readonly] 
 **AlertKey** | **String** | ManagedClient alert key | [optional] [readonly] 
+**ApiGatewayBaseUrl** | **String** |  | [optional] 
+**Cookbook** | **String** |  | [optional] 
 **CcId** | **Int64** | Previous CC ID to be used in data migration. (This field will be deleted after CC migration!) | [optional] 
 **ClientId** | **String** | The client ID used in API management | 
 **ClusterId** | **String** | Cluster ID that the ManagedClient is linked to | 
@@ -29,6 +31,8 @@ Name | Type | Description | Notes
 ```powershell
 $ManagedClient = Initialize-PSSailpointManagedClient  -Id 2c9180878eaf4204018eb019c3570003 `
  -AlertKey CLIENT_STATUS_NOT_CONFIGURED `
+ -ApiGatewayBaseUrl null `
+ -Cookbook null `
  -CcId 2248 `
  -ClientId 00be54a2-bb6d-402f-9159-beb2d5319347 `
  -ClusterId e1ff7bb24c934240bbf55e1aa39e41c5 `

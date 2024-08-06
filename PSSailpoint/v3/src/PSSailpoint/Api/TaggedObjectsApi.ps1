@@ -99,7 +99,7 @@ Remove Tags from Multiple Objects
 
 This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-.PARAMETER BulkTaggedObject
+.PARAMETER BulkRemoveTaggedObject
 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 .PARAMETER WithHttpInfo
@@ -115,7 +115,7 @@ function Remove-TagsToManyObject {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${BulkTaggedObject},
+        ${BulkRemoveTaggedObject},
         [Switch]
         $WithHttpInfo
     )
@@ -141,14 +141,14 @@ function Remove-TagsToManyObject {
 
         $LocalVarUri = '/tagged-objects/bulk-remove'
 
-        if (!$BulkTaggedObject) {
-            throw "Error! The required parameter `BulkTaggedObject` missing when calling deleteTagsToManyObject."
+        if (!$BulkRemoveTaggedObject) {
+            throw "Error! The required parameter `BulkRemoveTaggedObject` missing when calling deleteTagsToManyObject."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkTaggedObject -is [array])) {
-            $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkRemoveTaggedObject -is [array])) {
+            $LocalVarBodyParameter = $BulkRemoveTaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
+            $LocalVarBodyParameter = $BulkRemoveTaggedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -694,7 +694,7 @@ Tag Multiple Objects
 
 This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-.PARAMETER BulkTaggedObject
+.PARAMETER BulkAddTaggedObject
 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
 .PARAMETER WithHttpInfo
@@ -710,7 +710,7 @@ function Set-TagsToManyObjects {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${BulkTaggedObject},
+        ${BulkAddTaggedObject},
         [Switch]
         $WithHttpInfo
     )
@@ -736,14 +736,14 @@ function Set-TagsToManyObjects {
 
         $LocalVarUri = '/tagged-objects/bulk-add'
 
-        if (!$BulkTaggedObject) {
-            throw "Error! The required parameter `BulkTaggedObject` missing when calling setTagsToManyObjects."
+        if (!$BulkAddTaggedObject) {
+            throw "Error! The required parameter `BulkAddTaggedObject` missing when calling setTagsToManyObjects."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkTaggedObject -is [array])) {
-            $LocalVarBodyParameter = $BulkTaggedObject | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkAddTaggedObject -is [array])) {
+            $LocalVarBodyParameter = $BulkAddTaggedObject | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $BulkTaggedObject | ForEach-Object {
+            $LocalVarBodyParameter = $BulkAddTaggedObject | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

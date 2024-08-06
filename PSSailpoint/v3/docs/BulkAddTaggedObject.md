@@ -1,4 +1,4 @@
-# BulkTaggedObject
+# BulkAddTaggedObject
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkTaggedObject = Initialize-PSSailpointBulkTaggedObject  -ObjectRefs null `
+$BulkAddTaggedObject = Initialize-PSSailpointBulkAddTaggedObject  -ObjectRefs null `
  -Tags [BU_FINANCE, PCI] `
  -Operation MERGE
 ```
 
 - Convert the resource to JSON
 ```powershell
-$BulkTaggedObject | ConvertTo-JSON
+$BulkAddTaggedObject | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

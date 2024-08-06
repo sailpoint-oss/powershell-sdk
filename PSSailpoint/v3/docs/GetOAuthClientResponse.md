@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **ClaimsSupported** | **Boolean** | An indicator of whether the API Client supports the serialization of SAML claims when used with the authorization_code flow | 
 **Created** | **System.DateTime** | The date and time, down to the millisecond, when the API Client was created | 
 **Modified** | **System.DateTime** | The date and time, down to the millisecond, when the API Client was last updated | 
+**Secret** | **String** |  | [optional] 
+**Metadata** | **String** |  | [optional] 
 **LastUsed** | **System.DateTime** | The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed. | [optional] 
 **Scope** | **String[]** | Scopes of the API Client. | 
 
@@ -44,6 +46,8 @@ $GetOAuthClientResponse = Initialize-PSSailpointGetOAuthClientResponse  -Id 2c91
  -ClaimsSupported false `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-06-25T20:22:28.104Z `
+ -Secret null `
+ -Metadata null `
  -LastUsed 2017-07-11T18:45:37.098Z `
  -Scope [demo:api-client-scope:first, demo:api-client-scope:second]
 ```

@@ -12,7 +12,7 @@ Create security network configuration.
 
 .DESCRIPTION
 
-This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:create'
+This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:manage'
 
 .PARAMETER NetworkConfiguration
 Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
@@ -448,7 +448,7 @@ Update security network configuration.
 
 .DESCRIPTION
 
-This API updates an existing network configuration for an org using PATCH  Requires security scope of:  'sp:auth-org:update'
+This API updates an existing network configuration for an org using PATCH  Requires security scope of:  'sp:auth-org:manage'
 
 .PARAMETER JsonPatchOperation
 A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.

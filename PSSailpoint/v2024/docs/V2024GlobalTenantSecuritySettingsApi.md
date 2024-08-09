@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create security network configuration.
 
-This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:create'
+This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:manage'
 
 ### Example
 ```powershell
@@ -113,7 +113,7 @@ This endpoint does not need any parameter.
 
 Update security network configuration.
 
-This API updates an existing network configuration for an org using PATCH  Requires security scope of:  'sp:auth-org:update'
+This API updates an existing network configuration for an org using PATCH  Requires security scope of:  'sp:auth-org:manage'
 
 ### Example
 ```powershell

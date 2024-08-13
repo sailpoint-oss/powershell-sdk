@@ -26,14 +26,18 @@ The vendor associated with the discovered application.
 A brief description of the discovered application.
 .PARAMETER RecommendedConnectors
 List of recommended connectors for the application.
-.PARAMETER DiscoveredTimestamp
-The timestamp when the application was discovered, in ISO 8601 format.
+.PARAMETER DiscoveredAt
+The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
+.PARAMETER CreatedAt
+The timestamp when the application was first discovered, in ISO 8601 format.
+.PARAMETER Status
+The status of an application within the discovery source.  By default this field is set to ""ACTIVE"" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to ""INACTIVE"".
 .OUTPUTS
 
-DiscoveredApplicationsInner<PSCustomObject>
+SlimDiscoveredApplicationsInner<PSCustomObject>
 #>
 
-function Initialize-DiscoveredApplicationsInner {
+function Initialize-SlimDiscoveredApplicationsInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -56,11 +60,17 @@ function Initialize-DiscoveredApplicationsInner {
         ${RecommendedConnectors},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${DiscoveredTimestamp}
+        ${DiscoveredAt},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${CreatedAt},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Status}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint => DiscoveredApplicationsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint => SlimDiscoveredApplicationsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -71,7 +81,9 @@ function Initialize-DiscoveredApplicationsInner {
             "discoveredVendor" = ${DiscoveredVendor}
             "description" = ${Description}
             "recommendedConnectors" = ${RecommendedConnectors}
-            "discoveredTimestamp" = ${DiscoveredTimestamp}
+            "discoveredAt" = ${DiscoveredAt}
+            "createdAt" = ${CreatedAt}
+            "status" = ${Status}
         }
 
         return $PSO
@@ -81,11 +93,11 @@ function Initialize-DiscoveredApplicationsInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to DiscoveredApplicationsInner<PSCustomObject>
+Convert from JSON to SlimDiscoveredApplicationsInner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to DiscoveredApplicationsInner<PSCustomObject>
+Convert from JSON to SlimDiscoveredApplicationsInner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -93,22 +105,22 @@ Json object
 
 .OUTPUTS
 
-DiscoveredApplicationsInner<PSCustomObject>
+SlimDiscoveredApplicationsInner<PSCustomObject>
 #>
-function ConvertFrom-JsonToDiscoveredApplicationsInner {
+function ConvertFrom-JsonToSlimDiscoveredApplicationsInner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint => DiscoveredApplicationsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint => SlimDiscoveredApplicationsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in DiscoveredApplicationsInner
-        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredTimestamp")
+        # check if Json contains properties not defined in SlimDiscoveredApplicationsInner
+        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -151,10 +163,22 @@ function ConvertFrom-JsonToDiscoveredApplicationsInner {
             $RecommendedConnectors = $JsonParameters.PSobject.Properties["recommendedConnectors"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "discoveredTimestamp"))) { #optional property not found
-            $DiscoveredTimestamp = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "discoveredAt"))) { #optional property not found
+            $DiscoveredAt = $null
         } else {
-            $DiscoveredTimestamp = $JsonParameters.PSobject.Properties["discoveredTimestamp"].value
+            $DiscoveredAt = $JsonParameters.PSobject.Properties["discoveredAt"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdAt"))) { #optional property not found
+            $CreatedAt = $null
+        } else {
+            $CreatedAt = $JsonParameters.PSobject.Properties["createdAt"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
+            $Status = $null
+        } else {
+            $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -164,7 +188,9 @@ function ConvertFrom-JsonToDiscoveredApplicationsInner {
             "discoveredVendor" = ${DiscoveredVendor}
             "description" = ${Description}
             "recommendedConnectors" = ${RecommendedConnectors}
-            "discoveredTimestamp" = ${DiscoveredTimestamp}
+            "discoveredAt" = ${DiscoveredAt}
+            "createdAt" = ${CreatedAt}
+            "status" = ${Status}
         }
 
         return $PSO

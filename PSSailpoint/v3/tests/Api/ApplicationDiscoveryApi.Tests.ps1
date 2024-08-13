@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint' -name 'ApplicationDiscoveryApi' {
     Context 'Get-DiscoveredApplications' {
         It 'Test Get-DiscoveredApplications' {
-            #$TestResult = Get-DiscoveredApplications -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filter "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-DiscoveredApplications -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Detail "TEST_VALUE" -Filter "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

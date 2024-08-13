@@ -326,7 +326,6 @@ docs/Delete202Response.md
 docs/DeleteCampaignsRequest.md
 docs/DeleteNonEmployeeRecordInBulkRequest.md
 docs/DeleteVendorConnectorMapping200Response.md
-docs/DiscoveredApplicationsInner.md
 docs/DkimAttributes.md
 docs/DomainAddress.md
 docs/DomainStatusDto.md
@@ -395,6 +394,7 @@ docs/FormItemDetails.md
 docs/FormOwner.md
 docs/FormUsedBy.md
 docs/ForwardApprovalDto.md
+docs/FullDiscoveredApplicationsInner.md
 docs/Fullcampaign.md
 docs/FullcampaignAllOfFilter.md
 docs/FullcampaignAllOfRoleCompositionCampaignInfo.md
@@ -405,6 +405,7 @@ docs/FullcampaignAllOfSourceOwnerCampaignInfo.md
 docs/FullcampaignAllOfSourcesWithOrphanEntitlements.md
 docs/GenerateRandomString.md
 docs/GetActiveCampaigns200ResponseInner.md
+docs/GetDiscoveredApplications200ResponseInner.md
 docs/GetFormDefinitionByKey400Response.md
 docs/GetHistoricalIdentityEvents200ResponseInner.md
 docs/GetOAuthClientResponse.md
@@ -784,6 +785,7 @@ docs/SetIcon200Response.md
 docs/SetIconRequest.md
 docs/SimIntegrationDetails.md
 docs/SimIntegrationDetailsAllOfBeforeProvisioningRule.md
+docs/SlimDiscoveredApplicationsInner.md
 docs/Slimcampaign.md
 docs/SodExemptCriteria.md
 docs/SodExemptCriteria1.md
@@ -1276,7 +1278,6 @@ src/PSSailpointBeta/Model/Delete202Response.ps1
 src/PSSailpointBeta/Model/DeleteCampaignsRequest.ps1
 src/PSSailpointBeta/Model/DeleteNonEmployeeRecordInBulkRequest.ps1
 src/PSSailpointBeta/Model/DeleteVendorConnectorMapping200Response.ps1
-src/PSSailpointBeta/Model/DiscoveredApplicationsInner.ps1
 src/PSSailpointBeta/Model/DkimAttributes.ps1
 src/PSSailpointBeta/Model/DomainAddress.ps1
 src/PSSailpointBeta/Model/DomainStatusDto.ps1
@@ -1344,6 +1345,7 @@ src/PSSailpointBeta/Model/FormItemDetails.ps1
 src/PSSailpointBeta/Model/FormOwner.ps1
 src/PSSailpointBeta/Model/FormUsedBy.ps1
 src/PSSailpointBeta/Model/ForwardApprovalDto.ps1
+src/PSSailpointBeta/Model/FullDiscoveredApplicationsInner.ps1
 src/PSSailpointBeta/Model/Fullcampaign.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfFilter.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfRoleCompositionCampaignInfo.ps1
@@ -1354,6 +1356,7 @@ src/PSSailpointBeta/Model/FullcampaignAllOfSourceOwnerCampaignInfo.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfSourcesWithOrphanEntitlements.ps1
 src/PSSailpointBeta/Model/GenerateRandomString.ps1
 src/PSSailpointBeta/Model/GetActiveCampaigns200ResponseInner.ps1
+src/PSSailpointBeta/Model/GetDiscoveredApplications200ResponseInner.ps1
 src/PSSailpointBeta/Model/GetFormDefinitionByKey400Response.ps1
 src/PSSailpointBeta/Model/GetHistoricalIdentityEvents200ResponseInner.ps1
 src/PSSailpointBeta/Model/GetOAuthClientResponse.ps1
@@ -1734,6 +1737,7 @@ src/PSSailpointBeta/Model/SetIcon200Response.ps1
 src/PSSailpointBeta/Model/SetIconRequest.ps1
 src/PSSailpointBeta/Model/SimIntegrationDetails.ps1
 src/PSSailpointBeta/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.ps1
+src/PSSailpointBeta/Model/SlimDiscoveredApplicationsInner.ps1
 src/PSSailpointBeta/Model/Slimcampaign.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria1.ps1
@@ -2232,7 +2236,6 @@ tests/Model/Delete202Response.Tests.ps1
 tests/Model/DeleteCampaignsRequest.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordInBulkRequest.Tests.ps1
 tests/Model/DeleteVendorConnectorMapping200Response.Tests.ps1
-tests/Model/DiscoveredApplicationsInner.Tests.ps1
 tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1
 tests/Model/DomainStatusDto.Tests.ps1
@@ -2300,6 +2303,7 @@ tests/Model/FormItemDetails.Tests.ps1
 tests/Model/FormOwner.Tests.ps1
 tests/Model/FormUsedBy.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
+tests/Model/FullDiscoveredApplicationsInner.Tests.ps1
 tests/Model/Fullcampaign.Tests.ps1
 tests/Model/FullcampaignAllOfFilter.Tests.ps1
 tests/Model/FullcampaignAllOfRoleCompositionCampaignInfo.Tests.ps1
@@ -2310,6 +2314,7 @@ tests/Model/FullcampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
 tests/Model/FullcampaignAllOfSourcesWithOrphanEntitlements.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
+tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
 tests/Model/GetFormDefinitionByKey400Response.Tests.ps1
 tests/Model/GetHistoricalIdentityEvents200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
@@ -2690,6 +2695,7 @@ tests/Model/SetIcon200Response.Tests.ps1
 tests/Model/SetIconRequest.Tests.ps1
 tests/Model/SimIntegrationDetails.Tests.ps1
 tests/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.Tests.ps1
+tests/Model/SlimDiscoveredApplicationsInner.Tests.ps1
 tests/Model/Slimcampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodExemptCriteria1.Tests.ps1

@@ -26,14 +26,20 @@ The vendor associated with the discovered application.
 A brief description of the discovered application.
 .PARAMETER RecommendedConnectors
 List of recommended connectors for the application.
-.PARAMETER DiscoveredTimestamp
-The timestamp when the application was discovered, in ISO 8601 format.
+.PARAMETER DiscoveredAt
+The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
+.PARAMETER CreatedAt
+The timestamp when the application was first discovered, in ISO 8601 format.
+.PARAMETER Status
+The status of an application within the discovery source.  By default this field is set to ""ACTIVE"" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to ""INACTIVE"".
+.PARAMETER AssociatedSources
+List of associated sources related to this discovered application.
 .OUTPUTS
 
-DiscoveredApplicationsInner<PSCustomObject>
+FullDiscoveredApplicationsInner<PSCustomObject>
 #>
 
-function Initialize-V2024DiscoveredApplicationsInner {
+function Initialize-V2024FullDiscoveredApplicationsInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -56,11 +62,20 @@ function Initialize-V2024DiscoveredApplicationsInner {
         ${RecommendedConnectors},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${DiscoveredTimestamp}
+        ${DiscoveredAt},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${CreatedAt},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Status},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${AssociatedSources}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointV2024 => V2024DiscoveredApplicationsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpointV2024 => V2024FullDiscoveredApplicationsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -71,7 +86,10 @@ function Initialize-V2024DiscoveredApplicationsInner {
             "discoveredVendor" = ${DiscoveredVendor}
             "description" = ${Description}
             "recommendedConnectors" = ${RecommendedConnectors}
-            "discoveredTimestamp" = ${DiscoveredTimestamp}
+            "discoveredAt" = ${DiscoveredAt}
+            "createdAt" = ${CreatedAt}
+            "status" = ${Status}
+            "associatedSources" = ${AssociatedSources}
         }
 
         return $PSO
@@ -81,11 +99,11 @@ function Initialize-V2024DiscoveredApplicationsInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to DiscoveredApplicationsInner<PSCustomObject>
+Convert from JSON to FullDiscoveredApplicationsInner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to DiscoveredApplicationsInner<PSCustomObject>
+Convert from JSON to FullDiscoveredApplicationsInner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -93,22 +111,22 @@ Json object
 
 .OUTPUTS
 
-DiscoveredApplicationsInner<PSCustomObject>
+FullDiscoveredApplicationsInner<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToDiscoveredApplicationsInner {
+function ConvertFrom-V2024JsonToFullDiscoveredApplicationsInner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointV2024 => V2024DiscoveredApplicationsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointV2024 => V2024FullDiscoveredApplicationsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024DiscoveredApplicationsInner
-        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredTimestamp")
+        # check if Json contains properties not defined in V2024FullDiscoveredApplicationsInner
+        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status", "associatedSources")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -151,10 +169,28 @@ function ConvertFrom-V2024JsonToDiscoveredApplicationsInner {
             $RecommendedConnectors = $JsonParameters.PSobject.Properties["recommendedConnectors"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "discoveredTimestamp"))) { #optional property not found
-            $DiscoveredTimestamp = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "discoveredAt"))) { #optional property not found
+            $DiscoveredAt = $null
         } else {
-            $DiscoveredTimestamp = $JsonParameters.PSobject.Properties["discoveredTimestamp"].value
+            $DiscoveredAt = $JsonParameters.PSobject.Properties["discoveredAt"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdAt"))) { #optional property not found
+            $CreatedAt = $null
+        } else {
+            $CreatedAt = $JsonParameters.PSobject.Properties["createdAt"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
+            $Status = $null
+        } else {
+            $Status = $JsonParameters.PSobject.Properties["status"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "associatedSources"))) { #optional property not found
+            $AssociatedSources = $null
+        } else {
+            $AssociatedSources = $JsonParameters.PSobject.Properties["associatedSources"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -164,7 +200,10 @@ function ConvertFrom-V2024JsonToDiscoveredApplicationsInner {
             "discoveredVendor" = ${DiscoveredVendor}
             "description" = ${Description}
             "recommendedConnectors" = ${RecommendedConnectors}
-            "discoveredTimestamp" = ${DiscoveredTimestamp}
+            "discoveredAt" = ${DiscoveredAt}
+            "createdAt" = ${CreatedAt}
+            "status" = ${Status}
+            "associatedSources" = ${AssociatedSources}
         }
 
         return $PSO

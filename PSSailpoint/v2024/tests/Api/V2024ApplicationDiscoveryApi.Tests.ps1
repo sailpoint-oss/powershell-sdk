@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpointV2024' -name 'V2024V2024ApplicationDiscoveryApi' {
     Context 'Get-V2024DiscoveredApplications' {
         It 'Test Get-V2024DiscoveredApplications' {
-            #$TestResult = Get-V2024DiscoveredApplications -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filter "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024DiscoveredApplications -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Detail "TEST_VALUE" -Filter "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

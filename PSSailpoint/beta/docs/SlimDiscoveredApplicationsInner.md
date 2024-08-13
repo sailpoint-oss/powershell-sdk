@@ -1,4 +1,4 @@
-# DiscoveredApplicationsInner
+# SlimDiscoveredApplicationsInner
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,24 +9,28 @@ Name | Type | Description | Notes
 **DiscoveredVendor** | **String** | The vendor associated with the discovered application. | [optional] 
 **Description** | **String** | A brief description of the discovered application. | [optional] 
 **RecommendedConnectors** | **String[]** | List of recommended connectors for the application. | [optional] 
-**DiscoveredTimestamp** | **System.DateTime** | The timestamp when the application was discovered, in ISO 8601 format. | [optional] 
+**DiscoveredAt** | **System.DateTime** | The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format. | [optional] 
+**CreatedAt** | **System.DateTime** | The timestamp when the application was first discovered, in ISO 8601 format. | [optional] 
+**Status** | **String** | The status of an application within the discovery source.  By default this field is set to &quot;&quot;ACTIVE&quot;&quot; when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to &quot;&quot;INACTIVE&quot;&quot;. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$DiscoveredApplicationsInner = Initialize-PSSailpointV2024DiscoveredApplicationsInner  -Id null `
+$SlimDiscoveredApplicationsInner = Initialize-PSSailpointBetaSlimDiscoveredApplicationsInner  -Id null `
  -Name ExampleApp `
- -DiscoverySource CSV `
+ -DiscoverySource csv `
  -DiscoveredVendor ExampleVendor `
  -Description An application for managing examples. `
  -RecommendedConnectors [ConnectorA, ConnectorB] `
- -DiscoveredTimestamp 2023-01-01T12:00Z
+ -DiscoveredAt 2023-01-01T12:00Z `
+ -CreatedAt 2023-01-01T12:00Z `
+ -Status ACTIVE
 ```
 
 - Convert the resource to JSON
 ```powershell
-$DiscoveredApplicationsInner | ConvertTo-JSON
+$SlimDiscoveredApplicationsInner | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

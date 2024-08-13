@@ -20,8 +20,11 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
+.PARAMETER Detail
+Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+
 .PARAMETER Filter
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
@@ -32,7 +35,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Array[]
+GetDiscoveredApplications200ResponseInner[]
 #>
 function Get-V2024DiscoveredApplications {
     [CmdletBinding()]
@@ -44,9 +47,13 @@ function Get-V2024DiscoveredApplications {
         [System.Nullable[Int32]]
         ${Offset},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("SLIM", "FULL")]
+        [String]
+        ${Detail},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filter},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -79,6 +86,10 @@ function Get-V2024DiscoveredApplications {
             $LocalVarQueryParameters['offset'] = $Offset
         }
 
+        if ($Detail) {
+            $LocalVarQueryParameters['detail'] = $Detail
+        }
+
         if ($Filter) {
             $LocalVarQueryParameters['filter'] = $Filter
         }
@@ -98,7 +109,7 @@ function Get-V2024DiscoveredApplications {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Array[]" `
+                                -ReturnType "GetDiscoveredApplications200ResponseInner[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

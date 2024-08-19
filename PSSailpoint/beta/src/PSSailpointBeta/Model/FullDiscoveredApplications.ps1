@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Discovered applications with their respective associated sources
 
 .PARAMETER Id
 Unique identifier for the discovered application.
@@ -32,12 +32,14 @@ The timestamp when the application was last received via an entitlement aggregat
 The timestamp when the application was first discovered, in ISO 8601 format.
 .PARAMETER Status
 The status of an application within the discovery source.  By default this field is set to ""ACTIVE"" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to ""INACTIVE"".
+.PARAMETER AssociatedSources
+List of associated sources related to this discovered application.
 .OUTPUTS
 
-SlimDiscoveredApplicationsInner<PSCustomObject>
+FullDiscoveredApplications<PSCustomObject>
 #>
 
-function Initialize-BetaSlimDiscoveredApplicationsInner {
+function Initialize-BetaFullDiscoveredApplications {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -66,11 +68,14 @@ function Initialize-BetaSlimDiscoveredApplicationsInner {
         ${CreatedAt},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Status}
+        ${Status},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${AssociatedSources}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaSlimDiscoveredApplicationsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaFullDiscoveredApplications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,6 +89,7 @@ function Initialize-BetaSlimDiscoveredApplicationsInner {
             "discoveredAt" = ${DiscoveredAt}
             "createdAt" = ${CreatedAt}
             "status" = ${Status}
+            "associatedSources" = ${AssociatedSources}
         }
 
         return $PSO
@@ -93,11 +99,11 @@ function Initialize-BetaSlimDiscoveredApplicationsInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to SlimDiscoveredApplicationsInner<PSCustomObject>
+Convert from JSON to FullDiscoveredApplications<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SlimDiscoveredApplicationsInner<PSCustomObject>
+Convert from JSON to FullDiscoveredApplications<PSCustomObject>
 
 .PARAMETER Json
 
@@ -105,22 +111,22 @@ Json object
 
 .OUTPUTS
 
-SlimDiscoveredApplicationsInner<PSCustomObject>
+FullDiscoveredApplications<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSlimDiscoveredApplicationsInner {
+function ConvertFrom-BetaJsonToFullDiscoveredApplications {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSlimDiscoveredApplicationsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaFullDiscoveredApplications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSlimDiscoveredApplicationsInner
-        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status")
+        # check if Json contains properties not defined in BetaFullDiscoveredApplications
+        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status", "associatedSources")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -181,6 +187,12 @@ function ConvertFrom-BetaJsonToSlimDiscoveredApplicationsInner {
             $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "associatedSources"))) { #optional property not found
+            $AssociatedSources = $null
+        } else {
+            $AssociatedSources = $JsonParameters.PSobject.Properties["associatedSources"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -191,6 +203,7 @@ function ConvertFrom-BetaJsonToSlimDiscoveredApplicationsInner {
             "discoveredAt" = ${DiscoveredAt}
             "createdAt" = ${CreatedAt}
             "status" = ${Status}
+            "associatedSources" = ${AssociatedSources}
         }
 
         return $PSO

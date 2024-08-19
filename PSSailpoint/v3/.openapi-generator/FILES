@@ -224,7 +224,7 @@ docs/FirstValid.md
 docs/FormDetails.md
 docs/FormItemDetails.md
 docs/ForwardApprovalDto.md
-docs/FullDiscoveredApplicationsInner.md
+docs/FullDiscoveredApplications.md
 docs/GenerateRandomString.md
 docs/GetActiveCampaigns200ResponseInner.md
 docs/GetDiscoveredApplications200ResponseInner.md
@@ -530,7 +530,7 @@ docs/SessionConfiguration.md
 docs/SetLifecycleState200Response.md
 docs/SetLifecycleStateRequest.md
 docs/SlimCampaign.md
-docs/SlimDiscoveredApplicationsInner.md
+docs/SlimDiscoveredApplications.md
 docs/SodExemptCriteria.md
 docs/SodPolicy.md
 docs/SodPolicyConflictingAccessCriteria.md
@@ -899,7 +899,7 @@ src/PSSailpoint/Model/FirstValid.ps1
 src/PSSailpoint/Model/FormDetails.ps1
 src/PSSailpoint/Model/FormItemDetails.ps1
 src/PSSailpoint/Model/ForwardApprovalDto.ps1
-src/PSSailpoint/Model/FullDiscoveredApplicationsInner.ps1
+src/PSSailpoint/Model/FullDiscoveredApplications.ps1
 src/PSSailpoint/Model/GenerateRandomString.ps1
 src/PSSailpoint/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpoint/Model/GetDiscoveredApplications200ResponseInner.ps1
@@ -1179,7 +1179,7 @@ src/PSSailpoint/Model/SessionConfiguration.ps1
 src/PSSailpoint/Model/SetLifecycleState200Response.ps1
 src/PSSailpoint/Model/SetLifecycleStateRequest.ps1
 src/PSSailpoint/Model/SlimCampaign.ps1
-src/PSSailpoint/Model/SlimDiscoveredApplicationsInner.ps1
+src/PSSailpoint/Model/SlimDiscoveredApplications.ps1
 src/PSSailpoint/Model/SodExemptCriteria.ps1
 src/PSSailpoint/Model/SodPolicy.ps1
 src/PSSailpoint/Model/SodPolicyConflictingAccessCriteria.ps1
@@ -1547,7 +1547,7 @@ tests/Model/FirstValid.Tests.ps1
 tests/Model/FormDetails.Tests.ps1
 tests/Model/FormItemDetails.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
-tests/Model/FullDiscoveredApplicationsInner.Tests.ps1
+tests/Model/FullDiscoveredApplications.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
@@ -1827,7 +1827,7 @@ tests/Model/SessionConfiguration.Tests.ps1
 tests/Model/SetLifecycleState200Response.Tests.ps1
 tests/Model/SetLifecycleStateRequest.Tests.ps1
 tests/Model/SlimCampaign.Tests.ps1
-tests/Model/SlimDiscoveredApplicationsInner.Tests.ps1
+tests/Model/SlimDiscoveredApplications.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1

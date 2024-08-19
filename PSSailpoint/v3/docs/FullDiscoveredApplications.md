@@ -1,4 +1,4 @@
-# FullDiscoveredApplicationsInner
+# FullDiscoveredApplications
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FullDiscoveredApplicationsInner = Initialize-PSSailpointV2024FullDiscoveredApplicationsInner  -Id null `
+$FullDiscoveredApplications = Initialize-PSSailpointFullDiscoveredApplications  -Id null `
  -Name ExampleApp `
  -DiscoverySource csv `
  -DiscoveredVendor ExampleVendor `
@@ -32,7 +32,7 @@ $FullDiscoveredApplicationsInner = Initialize-PSSailpointV2024FullDiscoveredAppl
 
 - Convert the resource to JSON
 ```powershell
-$FullDiscoveredApplicationsInner | ConvertTo-JSON
+$FullDiscoveredApplications | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

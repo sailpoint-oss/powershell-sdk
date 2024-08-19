@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaGetDiscoveredApplications200ResponseI
     Context 'BetaGetDiscoveredApplications200ResponseInner' {
         It 'Initialize-BetaGetDiscoveredApplications200ResponseInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaGetDiscoveredApplications200ResponseInner
+            #$NewObject = Initialize-BetaGetDiscoveredApplications200ResponseInner -Id "TEST_VALUE" -Name "TEST_VALUE" -DiscoverySource "TEST_VALUE" -DiscoveredVendor "TEST_VALUE" -Description "TEST_VALUE" -RecommendedConnectors "TEST_VALUE" -DiscoveredAt "TEST_VALUE" -CreatedAt "TEST_VALUE" -Status "TEST_VALUE" -AssociatedSources "TEST_VALUE"
             #$NewObject | Should -BeOfType GetDiscoveredApplications200ResponseInner
             #$NewObject.property | Should -Be 0
         }

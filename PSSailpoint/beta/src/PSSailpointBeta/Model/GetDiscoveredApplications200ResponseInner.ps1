@@ -34,48 +34,48 @@ function ConvertFrom-BetaJsonToGetDiscoveredApplications200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match FullDiscoveredApplicationsInner[] defined in the oneOf schemas
+        # try to match FullDiscoveredApplications defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-BetaJsonToFullDiscoveredApplicationsInner[] $Json
+            $matchInstance = ConvertFrom-BetaJsonToFullDiscoveredApplications $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "FullDiscoveredApplicationsInner[]"
+                    $matchType = "FullDiscoveredApplications"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'FullDiscoveredApplicationsInner[]' defined in oneOf (BetaGetDiscoveredApplications200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'FullDiscoveredApplications' defined in oneOf (BetaGetDiscoveredApplications200ResponseInner). Proceeding to the next one if any."
         }
 
-        # try to match SlimDiscoveredApplicationsInner[] defined in the oneOf schemas
+        # try to match SlimDiscoveredApplications defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-BetaJsonToSlimDiscoveredApplicationsInner[] $Json
+            $matchInstance = ConvertFrom-BetaJsonToSlimDiscoveredApplications $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "SlimDiscoveredApplicationsInner[]"
+                    $matchType = "SlimDiscoveredApplications"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'SlimDiscoveredApplicationsInner[]' defined in oneOf (BetaGetDiscoveredApplications200ResponseInner). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SlimDiscoveredApplications' defined in oneOf (BetaGetDiscoveredApplications200ResponseInner). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([FullDiscoveredApplicationsInner[], SlimDiscoveredApplicationsInner[]]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([FullDiscoveredApplications, SlimDiscoveredApplications]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("FullDiscoveredApplicationsInner[]", "SlimDiscoveredApplicationsInner[]")
+                "OneOfSchemas" = @("FullDiscoveredApplications", "SlimDiscoveredApplications")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([FullDiscoveredApplicationsInner[], SlimDiscoveredApplicationsInner[]]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([FullDiscoveredApplications, SlimDiscoveredApplications]). JSON Payload: $($Json)"
         }
     }
 }

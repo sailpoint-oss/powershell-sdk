@@ -390,7 +390,7 @@ docs/FormItemDetails.md
 docs/FormOwner.md
 docs/FormUsedBy.md
 docs/ForwardApprovalDto.md
-docs/FullDiscoveredApplicationsInner.md
+docs/FullDiscoveredApplications.md
 docs/GenerateRandomString.md
 docs/GetActiveCampaigns200ResponseInner.md
 docs/GetDiscoveredApplications200ResponseInner.md
@@ -835,7 +835,7 @@ docs/SetLifecycleStateRequest.md
 docs/SimIntegrationDetails.md
 docs/SimIntegrationDetailsAllOfBeforeProvisioningRule.md
 docs/SlimCampaign.md
-docs/SlimDiscoveredApplicationsInner.md
+docs/SlimDiscoveredApplications.md
 docs/SodExemptCriteria.md
 docs/SodPolicy.md
 docs/SodPolicyConflictingAccessCriteria.md
@@ -1553,7 +1553,7 @@ src/PSSailpointV2024/Model/FormItemDetails.ps1
 src/PSSailpointV2024/Model/FormOwner.ps1
 src/PSSailpointV2024/Model/FormUsedBy.ps1
 src/PSSailpointV2024/Model/ForwardApprovalDto.ps1
-src/PSSailpointV2024/Model/FullDiscoveredApplicationsInner.ps1
+src/PSSailpointV2024/Model/FullDiscoveredApplications.ps1
 src/PSSailpointV2024/Model/GenerateRandomString.ps1
 src/PSSailpointV2024/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpointV2024/Model/GetDiscoveredApplications200ResponseInner.ps1
@@ -2001,7 +2001,7 @@ src/PSSailpointV2024/Model/SetLifecycleStateRequest.ps1
 src/PSSailpointV2024/Model/SimIntegrationDetails.ps1
 src/PSSailpointV2024/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.ps1
 src/PSSailpointV2024/Model/SlimCampaign.ps1
-src/PSSailpointV2024/Model/SlimDiscoveredApplicationsInner.ps1
+src/PSSailpointV2024/Model/SlimDiscoveredApplications.ps1
 src/PSSailpointV2024/Model/SodExemptCriteria.ps1
 src/PSSailpointV2024/Model/SodPolicy.ps1
 src/PSSailpointV2024/Model/SodPolicyConflictingAccessCriteria.ps1
@@ -2645,7 +2645,7 @@ tests/Model/FormItemDetails.Tests.ps1
 tests/Model/FormOwner.Tests.ps1
 tests/Model/FormUsedBy.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
-tests/Model/FullDiscoveredApplicationsInner.Tests.ps1
+tests/Model/FullDiscoveredApplications.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
@@ -3093,7 +3093,7 @@ tests/Model/SetLifecycleStateRequest.Tests.ps1
 tests/Model/SimIntegrationDetails.Tests.ps1
 tests/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.Tests.ps1
 tests/Model/SlimCampaign.Tests.ps1
-tests/Model/SlimDiscoveredApplicationsInner.Tests.ps1
+tests/Model/SlimDiscoveredApplications.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1

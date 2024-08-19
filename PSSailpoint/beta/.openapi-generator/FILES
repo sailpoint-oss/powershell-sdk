@@ -394,7 +394,7 @@ docs/FormItemDetails.md
 docs/FormOwner.md
 docs/FormUsedBy.md
 docs/ForwardApprovalDto.md
-docs/FullDiscoveredApplicationsInner.md
+docs/FullDiscoveredApplications.md
 docs/Fullcampaign.md
 docs/FullcampaignAllOfFilter.md
 docs/FullcampaignAllOfRoleCompositionCampaignInfo.md
@@ -785,7 +785,7 @@ docs/SetIcon200Response.md
 docs/SetIconRequest.md
 docs/SimIntegrationDetails.md
 docs/SimIntegrationDetailsAllOfBeforeProvisioningRule.md
-docs/SlimDiscoveredApplicationsInner.md
+docs/SlimDiscoveredApplications.md
 docs/Slimcampaign.md
 docs/SodExemptCriteria.md
 docs/SodExemptCriteria1.md
@@ -1345,7 +1345,7 @@ src/PSSailpointBeta/Model/FormItemDetails.ps1
 src/PSSailpointBeta/Model/FormOwner.ps1
 src/PSSailpointBeta/Model/FormUsedBy.ps1
 src/PSSailpointBeta/Model/ForwardApprovalDto.ps1
-src/PSSailpointBeta/Model/FullDiscoveredApplicationsInner.ps1
+src/PSSailpointBeta/Model/FullDiscoveredApplications.ps1
 src/PSSailpointBeta/Model/Fullcampaign.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfFilter.ps1
 src/PSSailpointBeta/Model/FullcampaignAllOfRoleCompositionCampaignInfo.ps1
@@ -1737,7 +1737,7 @@ src/PSSailpointBeta/Model/SetIcon200Response.ps1
 src/PSSailpointBeta/Model/SetIconRequest.ps1
 src/PSSailpointBeta/Model/SimIntegrationDetails.ps1
 src/PSSailpointBeta/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.ps1
-src/PSSailpointBeta/Model/SlimDiscoveredApplicationsInner.ps1
+src/PSSailpointBeta/Model/SlimDiscoveredApplications.ps1
 src/PSSailpointBeta/Model/Slimcampaign.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria.ps1
 src/PSSailpointBeta/Model/SodExemptCriteria1.ps1
@@ -2303,7 +2303,7 @@ tests/Model/FormItemDetails.Tests.ps1
 tests/Model/FormOwner.Tests.ps1
 tests/Model/FormUsedBy.Tests.ps1
 tests/Model/ForwardApprovalDto.Tests.ps1
-tests/Model/FullDiscoveredApplicationsInner.Tests.ps1
+tests/Model/FullDiscoveredApplications.Tests.ps1
 tests/Model/Fullcampaign.Tests.ps1
 tests/Model/FullcampaignAllOfFilter.Tests.ps1
 tests/Model/FullcampaignAllOfRoleCompositionCampaignInfo.Tests.ps1
@@ -2695,7 +2695,7 @@ tests/Model/SetIcon200Response.Tests.ps1
 tests/Model/SetIconRequest.Tests.ps1
 tests/Model/SimIntegrationDetails.Tests.ps1
 tests/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.Tests.ps1
-tests/Model/SlimDiscoveredApplicationsInner.Tests.ps1
+tests/Model/SlimDiscoveredApplications.Tests.ps1
 tests/Model/Slimcampaign.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodExemptCriteria1.Tests.ps1

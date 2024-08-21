@@ -62,7 +62,7 @@ function Initialize-Search {
         [PSCustomObject]
         ${QueryType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[String]]
+        [AllowNull()]
         ${QueryVersion},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -87,7 +87,7 @@ function Initialize-Search {
         [PSCustomObject]
         ${AggregationType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[String]]
+        [AllowNull()]
         ${AggregationsVersion},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]

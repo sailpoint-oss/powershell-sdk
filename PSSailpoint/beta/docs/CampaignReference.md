@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Type** | **String** | The type of object that is being referenced. | 
 **CampaignType** | **String** | The type of the campaign. | 
 **Description** | **String** | The description of the campaign set by the admin who created it. | 
-**CorrelatedStatus** | [**SystemCollectionsHashtable**](.md) | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source). | 
+**CorrelatedStatus** | **String** | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source). | 
 **MandatoryCommentRequirement** | **String** | Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions. | 
 
 ## Examples

@@ -55,7 +55,7 @@ function Initialize-BetaCampaignReference {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CORRELATED", "UNCORRELATED")]
-        [PSCustomObject]
+        [String]
         ${CorrelatedStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ALL_DECISIONS", "REVOKE_ONLY_DECISIONS", "NO_DECISIONS")]

@@ -74,7 +74,7 @@ function Initialize-BetaFullcampaign {
         ${RecommendationsEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CORRELATED", "UNCORRELATED")]
-        [PSCustomObject]
+        [String]
         ${CorrelatedStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]

@@ -29,8 +29,8 @@ function Initialize-V2024WorkflowExecutionEvent {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("WorkflowExecutionScheduled", "WorkflowExecutionStarted", "WorkflowExecutionCompleted", "WorkflowExecutionFailed", "WorkflowTaskScheduled", "WorkflowTaskStarted", "WorkflowTaskCompleted", "WorkflowTaskFailed", "ActivityTaskScheduled", "ActivityTaskStarted", "ActivityTaskCompleted", "ActivityTaskFailed")]
-        [PSCustomObject]
+        [ValidateSet("WorkflowExecutionScheduled", "WorkflowExecutionStarted", "WorkflowExecutionCompleted", "WorkflowExecutionFailed", "WorkflowTaskScheduled", "WorkflowTaskStarted", "WorkflowTaskCompleted", "WorkflowTaskFailed", "ActivityTaskScheduled", "ActivityTaskStarted", "ActivityTaskCompleted", "ActivityTaskFailed", "StartChildWorkflowExecutionInitiated", "ChildWorkflowExecutionStarted", "ChildWorkflowExecutionCompleted", "ChildWorkflowExecutionFailed")]
+        [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]

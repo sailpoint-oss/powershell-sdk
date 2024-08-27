@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SystemCollectionsHashtable**](.md) | The type of event | [optional] 
+**Type** | **String** | The type of event | [optional] 
 **Timestamp** | **System.DateTime** | The date-time when the event occurred | [optional] 
 **Attributes** | [**SystemCollectionsHashtable**](.md) | Additional attributes associated with the event | [optional] 
 

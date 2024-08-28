@@ -74,7 +74,7 @@ function Initialize-V2024Campaign {
         ${RecommendationsEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CORRELATED", "UNCORRELATED")]
-        [PSCustomObject]
+        [String]
         ${CorrelatedStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]

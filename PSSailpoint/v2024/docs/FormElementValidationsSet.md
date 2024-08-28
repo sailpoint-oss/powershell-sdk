@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ValidationType** | **String** |  | [optional] 
+**ValidationType** | **String** | The type of data validation that you wish to enforce, e.g., a required field, a minimum length, etc. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$FormElementValidationsSet = Initialize-PSSailpointV2024FormElementValidationsSet  -ValidationType null
+$FormElementValidationsSet = Initialize-PSSailpointV2024FormElementValidationsSet  -ValidationType REQUIRED
 ```
 
 - Convert the resource to JSON

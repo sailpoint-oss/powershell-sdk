@@ -48,7 +48,7 @@ function Initialize-BetaConditionRule {
         [String]
         ${ValueType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Value}
     )
 

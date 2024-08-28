@@ -15,7 +15,7 @@ No summary available.
 Set of FormElementValidation items.
 
 .PARAMETER ValidationType
-No description available.
+The type of data validation that you wish to enforce, e.g., a required field, a minimum length, etc.
 .OUTPUTS
 
 FormElementValidationsSet<PSCustomObject>

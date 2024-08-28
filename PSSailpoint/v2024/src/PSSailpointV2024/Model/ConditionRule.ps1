@@ -48,7 +48,7 @@ function Initialize-V2024ConditionRule {
         [String]
         ${ValueType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Value}
     )
 

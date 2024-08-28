@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Form element identifier. | [optional] 
 **ElementType** | **String** | FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMN_SET FormElementTypeColumns IMAGE FormElementTypeImage DESCRIPTION FormElementTypeDescription | [optional] 
-**Config** | [**System.Collections.Hashtable**](SystemCollectionsHashtable.md) | Config object. | [optional] 
+**Config** | [**System.Collections.Hashtable**](AnyType.md) | Config object. | [optional] 
 **Key** | **String** | Technical key. | [optional] 
 **Validations** | [**FormElementValidationsSet[]**](FormElementValidationsSet.md) |  | [optional] 
 

@@ -42,7 +42,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value 
+$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value "Engineering"
 
 $ConditionEffectConfig = Initialize-ConditionEffectConfig -DefaultValueLabel "Access to Remove" -Element "8110662963316867"
 $ConditionEffect = Initialize-ConditionEffect -EffectType "HIDE" -Config $ConditionEffectConfig
@@ -104,7 +104,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value 
+$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value "Engineering"
 
 $ConditionEffectConfig = Initialize-ConditionEffectConfig -DefaultValueLabel "Access to Remove" -Element "8110662963316867"
 $ConditionEffect = Initialize-ConditionEffect -EffectType "HIDE" -Config $ConditionEffectConfig
@@ -645,7 +645,7 @@ $FormDefinitionInput = Initialize-FormDefinitionInput -Id "00000000-0000-0000-00
 $FormElementValidationsSet = Initialize-FormElementValidationsSet -ValidationType "REQUIRED"
 $FormElement = Initialize-FormElement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations $FormElementValidationsSet
 
-$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value 
+$ConditionRule = Initialize-ConditionRule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value "Engineering"
 
 $ConditionEffectConfig = Initialize-ConditionEffectConfig -DefaultValueLabel "Access to Remove" -Element "8110662963316867"
 $ConditionEffect = Initialize-ConditionEffect -EffectType "HIDE" -Config $ConditionEffectConfig

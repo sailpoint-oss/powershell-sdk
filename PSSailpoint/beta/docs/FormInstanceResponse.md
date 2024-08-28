@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **CreatedBy** | [**FormInstanceCreatedBy**](FormInstanceCreatedBy.md) |  | [optional] 
 **Expire** | **String** | Expire is the maximum amount of time that a form can be in progress. After this time is reached then the form will be moved to a CANCELED state automatically. The user will no longer be able to complete the submission. When a form instance is expires an audit log will be generated for that record | [optional] 
 **FormConditions** | [**FormCondition[]**](FormCondition.md) | FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form | [optional] 
-**FormData** | [**System.Collections.Hashtable**](SystemCollectionsHashtable.md) | FormData is the data provided by the form on submit. The data is in a key -&gt; value map | [optional] 
+**FormData** | [**System.Collections.Hashtable**](AnyType.md) | FormData is the data provided by the form on submit. The data is in a key -&gt; value map | [optional] 
 **FormDefinitionId** | **String** | FormDefinitionID is the id of the form definition that created this form | [optional] 
 **FormElements** | [**FormElement[]**](FormElement.md) | FormElements is the configuration of the form, this would be a repeat of the fields from the form-config | [optional] 
 **FormErrors** | [**FormError[]**](FormError.md) | FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors | [optional] 

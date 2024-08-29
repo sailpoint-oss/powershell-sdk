@@ -66,6 +66,7 @@ function Initialize-V2024AccountActivity {
         [System.Nullable[System.DateTime]]
         ${Completed},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("SUCCESS", "FAILURE", "INCOMPLETE", "PENDING", "")]
         [PSCustomObject]
         ${CompletionStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

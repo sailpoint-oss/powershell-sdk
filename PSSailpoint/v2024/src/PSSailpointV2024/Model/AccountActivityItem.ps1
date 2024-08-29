@@ -64,6 +64,7 @@ function Initialize-V2024AccountActivityItem {
         [System.Nullable[System.DateTime]]
         ${Requested},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("FINISHED", "REJECTED", "RETURNED", "EXPIRED", "PENDING", "CANCELED", "")]
         [PSCustomObject]
         ${ApprovalStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -80,6 +81,7 @@ function Initialize-V2024AccountActivityItem {
         [PSCustomObject]
         ${ReviewerComment},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ADD", "CREATE", "MODIFY", "DELETE", "DISABLE", "ENABLE", "UNLOCK", "LOCK", "REMOVE", "SET", "")]
         [PSCustomObject]
         ${Operation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

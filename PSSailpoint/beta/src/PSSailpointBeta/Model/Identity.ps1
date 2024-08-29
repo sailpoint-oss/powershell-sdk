@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Name
-Name of the Object
+The identity's name is equivalent to its Display Name attribute.
 .PARAMETER Alias
-Alternate unique identifier for the identity
+The identity's alternate unique identifier is equivalent to its Account Name on the authoritative source account schema.
 .PARAMETER EmailAddress
 The email address of the identity
 .PARAMETER ProcessingState

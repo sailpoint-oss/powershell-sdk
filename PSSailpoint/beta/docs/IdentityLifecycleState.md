@@ -1,4 +1,4 @@
-# IdentityDtoLifecycleState
+# IdentityLifecycleState
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDtoLifecycleState = Initialize-PSSailpointBetaIdentityDtoLifecycleState  -StateName active `
+$IdentityLifecycleState = Initialize-PSSailpointBetaIdentityLifecycleState  -StateName active `
  -ManuallyUpdated true
 ```
 
 - Convert the resource to JSON
 ```powershell
-$IdentityDtoLifecycleState | ConvertTo-JSON
+$IdentityLifecycleState | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

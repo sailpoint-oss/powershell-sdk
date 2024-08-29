@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**Get-EntitlementsSchema**](SourcesApi.md#Get-EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 [**Get-ProvisioningPolicy**](SourcesApi.md#Get-ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 [**Get-Source**](SourcesApi.md#Get-Source) | **GET** /sources/{id} | Get Source by ID
+[**Get-SourceConnections**](SourcesApi.md#Get-SourceConnections) | **GET** /sources/{sourceId}/connections | Get Source Connections by ID
 [**Get-SourceHealth**](SourcesApi.md#Get-SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
 [**Get-SourceSchema**](SourcesApi.md#Get-SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 [**Get-SourceSchemas**](SourcesApi.md#Get-SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
@@ -574,6 +575,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Source**](Source.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-SourceConnections"></a>
+# **Get-SourceConnections**
+> SourceConnectionsDto Get-SourceConnections<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get Source Connections by ID
+
+Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
+# Get Source Connections by ID
+try {
+    $Result = Get-SourceConnections -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-SourceConnections: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| Source ID. | 
+
+### Return type
+
+[**SourceConnectionsDto**](SourceConnectionsDto.md) (PSCustomObject)
 
 ### Authorization
 

@@ -86,6 +86,14 @@ Describe -tag 'PSSailpoint' -name 'SourcesApi' {
         }
     }
 
+    Context 'Get-SourceConnections' {
+        It 'Test Get-SourceConnections' {
+            #$TestResult = Get-SourceConnections -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SourceHealth' {
         It 'Test Get-SourceHealth' {
             #$TestResult = Get-SourceHealth -SourceId "TEST_VALUE"

@@ -351,6 +351,7 @@ Class | Method | HTTP request | Description
 *SourcesApi* | [**Get-EntitlementsSchema**](docs/SourcesApi.md#Get-EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 *SourcesApi* | [**Get-ProvisioningPolicy**](docs/SourcesApi.md#Get-ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 *SourcesApi* | [**Get-Source**](docs/SourcesApi.md#Get-Source) | **GET** /sources/{id} | Get Source by ID
+*SourcesApi* | [**Get-SourceConnections**](docs/SourcesApi.md#Get-SourceConnections) | **GET** /sources/{sourceId}/connections | Get Source Connections by ID
 *SourcesApi* | [**Get-SourceHealth**](docs/SourcesApi.md#Get-SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
 *SourcesApi* | [**Get-SourceSchema**](docs/SourcesApi.md#Get-SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *SourcesApi* | [**Get-SourceSchemas**](docs/SourcesApi.md#Get-SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
@@ -585,6 +586,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.DeleteNonEmployeeRecordsInBulkRequest](docs/DeleteNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint\Model.DeleteSource202Response](docs/DeleteSource202Response.md)
  - [PSSailpoint\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
+ - [PSSailpoint\Model.DependantAppConnections](docs/DependantAppConnections.md)
+ - [PSSailpoint\Model.DependantAppConnectionsAccountSource](docs/DependantAppConnectionsAccountSource.md)
+ - [PSSailpoint\Model.DependantAppConnectionsAccountSourcePasswordPoliciesInner](docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md)
+ - [PSSailpoint\Model.DependantConnectionsMissingDto](docs/DependantConnectionsMissingDto.md)
  - [PSSailpoint\Model.DisplayReference](docs/DisplayReference.md)
  - [PSSailpoint\Model.DocumentType](docs/DocumentType.md)
  - [PSSailpoint\Model.DtoType](docs/DtoType.md)
@@ -655,6 +660,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.IdentityProfileExportedObject](docs/IdentityProfileExportedObject.md)
  - [PSSailpoint\Model.IdentityProfileExportedObjectSelf](docs/IdentityProfileExportedObjectSelf.md)
  - [PSSailpoint\Model.IdentityProfileIdentityErrorReportArguments](docs/IdentityProfileIdentityErrorReportArguments.md)
+ - [PSSailpoint\Model.IdentityProfilesConnections](docs/IdentityProfilesConnections.md)
  - [PSSailpoint\Model.IdentityReference](docs/IdentityReference.md)
  - [PSSailpoint\Model.IdentityReferenceWithNameAndEmail](docs/IdentityReferenceWithNameAndEmail.md)
  - [PSSailpoint\Model.IdentitySummary](docs/IdentitySummary.md)
@@ -922,6 +928,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint\Model.SourceBeforeProvisioningRule](docs/SourceBeforeProvisioningRule.md)
  - [PSSailpoint\Model.SourceCluster](docs/SourceCluster.md)
  - [PSSailpoint\Model.SourceClusterDto](docs/SourceClusterDto.md)
+ - [PSSailpoint\Model.SourceConnectionsDto](docs/SourceConnectionsDto.md)
  - [PSSailpoint\Model.SourceHealthDto](docs/SourceHealthDto.md)
  - [PSSailpoint\Model.SourceManagementWorkgroup](docs/SourceManagementWorkgroup.md)
  - [PSSailpoint\Model.SourceManagerCorrelationMapping](docs/SourceManagerCorrelationMapping.md)

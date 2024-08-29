@@ -186,6 +186,10 @@ docs/DecomposeDiacriticalMarks.md
 docs/DeleteNonEmployeeRecordsInBulkRequest.md
 docs/DeleteSource202Response.md
 docs/DeleteVendorConnectorMapping200Response.md
+docs/DependantAppConnections.md
+docs/DependantAppConnectionsAccountSource.md
+docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md
+docs/DependantConnectionsMissingDto.md
 docs/DisplayReference.md
 docs/DocumentType.md
 docs/DtoType.md
@@ -260,6 +264,7 @@ docs/IdentityProfileExportedObject.md
 docs/IdentityProfileExportedObjectSelf.md
 docs/IdentityProfileIdentityErrorReportArguments.md
 docs/IdentityProfilesApi.md
+docs/IdentityProfilesConnections.md
 docs/IdentityReference.md
 docs/IdentityReferenceWithNameAndEmail.md
 docs/IdentitySummary.md
@@ -551,6 +556,7 @@ docs/SourceAccountCorrelationRule.md
 docs/SourceBeforeProvisioningRule.md
 docs/SourceCluster.md
 docs/SourceClusterDto.md
+docs/SourceConnectionsDto.md
 docs/SourceHealthDto.md
 docs/SourceManagementWorkgroup.md
 docs/SourceManagerCorrelationMapping.md
@@ -863,6 +869,10 @@ src/PSSailpoint/Model/DecomposeDiacriticalMarks.ps1
 src/PSSailpoint/Model/DeleteNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint/Model/DeleteSource202Response.ps1
 src/PSSailpoint/Model/DeleteVendorConnectorMapping200Response.ps1
+src/PSSailpoint/Model/DependantAppConnections.ps1
+src/PSSailpoint/Model/DependantAppConnectionsAccountSource.ps1
+src/PSSailpoint/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.ps1
+src/PSSailpoint/Model/DependantConnectionsMissingDto.ps1
 src/PSSailpoint/Model/DisplayReference.ps1
 src/PSSailpoint/Model/DocumentType.ps1
 src/PSSailpoint/Model/DtoType.ps1
@@ -933,6 +943,7 @@ src/PSSailpoint/Model/IdentityProfileAllOfOwner.ps1
 src/PSSailpoint/Model/IdentityProfileExportedObject.ps1
 src/PSSailpoint/Model/IdentityProfileExportedObjectSelf.ps1
 src/PSSailpoint/Model/IdentityProfileIdentityErrorReportArguments.ps1
+src/PSSailpoint/Model/IdentityProfilesConnections.ps1
 src/PSSailpoint/Model/IdentityReference.ps1
 src/PSSailpoint/Model/IdentityReferenceWithNameAndEmail.ps1
 src/PSSailpoint/Model/IdentitySummary.ps1
@@ -1200,6 +1211,7 @@ src/PSSailpoint/Model/SourceAccountCorrelationRule.ps1
 src/PSSailpoint/Model/SourceBeforeProvisioningRule.ps1
 src/PSSailpoint/Model/SourceCluster.ps1
 src/PSSailpoint/Model/SourceClusterDto.ps1
+src/PSSailpoint/Model/SourceConnectionsDto.ps1
 src/PSSailpoint/Model/SourceHealthDto.ps1
 src/PSSailpoint/Model/SourceManagementWorkgroup.ps1
 src/PSSailpoint/Model/SourceManagerCorrelationMapping.ps1
@@ -1511,6 +1523,10 @@ tests/Model/DecomposeDiacriticalMarks.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/DeleteSource202Response.Tests.ps1
 tests/Model/DeleteVendorConnectorMapping200Response.Tests.ps1
+tests/Model/DependantAppConnections.Tests.ps1
+tests/Model/DependantAppConnectionsAccountSource.Tests.ps1
+tests/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.Tests.ps1
+tests/Model/DependantConnectionsMissingDto.Tests.ps1
 tests/Model/DisplayReference.Tests.ps1
 tests/Model/DocumentType.Tests.ps1
 tests/Model/DtoType.Tests.ps1
@@ -1581,6 +1597,7 @@ tests/Model/IdentityProfileAllOfOwner.Tests.ps1
 tests/Model/IdentityProfileExportedObject.Tests.ps1
 tests/Model/IdentityProfileExportedObjectSelf.Tests.ps1
 tests/Model/IdentityProfileIdentityErrorReportArguments.Tests.ps1
+tests/Model/IdentityProfilesConnections.Tests.ps1
 tests/Model/IdentityReference.Tests.ps1
 tests/Model/IdentityReferenceWithNameAndEmail.Tests.ps1
 tests/Model/IdentitySummary.Tests.ps1
@@ -1848,6 +1865,7 @@ tests/Model/SourceAccountCorrelationRule.Tests.ps1
 tests/Model/SourceBeforeProvisioningRule.Tests.ps1
 tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
+tests/Model/SourceConnectionsDto.Tests.ps1
 tests/Model/SourceHealthDto.Tests.ps1
 tests/Model/SourceManagementWorkgroup.Tests.ps1
 tests/Model/SourceManagerCorrelationMapping.Tests.ps1

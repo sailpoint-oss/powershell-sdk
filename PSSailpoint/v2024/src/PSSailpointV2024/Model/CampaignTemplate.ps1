@@ -25,7 +25,7 @@ No description available.
 .PARAMETER DeadlineDuration
 The time period during which the campaign should be completed, formatted as an ISO-8601 Duration. When this template generates a campaign, the campaign's deadline will be the current date plus this duration. For example, if generation occurred on 2020-01-01 and this field was ""P2W"" (two weeks), the resulting campaign's deadline would be 2020-01-15 (the current date plus 14 days).
 .PARAMETER Campaign
-This will hold campaign related information like name, description etc.
+No description available.
 .OUTPUTS
 
 CampaignTemplate<PSCustomObject>

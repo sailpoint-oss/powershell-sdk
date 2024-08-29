@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Scheduled** | **Boolean** | Indicates if this campaign template has been scheduled. | [optional] [readonly] [default to $false]
 **OwnerRef** | [**CampaignTemplateOwnerRef**](CampaignTemplateOwnerRef.md) |  | [optional] 
 **DeadlineDuration** | **String** | The time period during which the campaign should be completed, formatted as an ISO-8601 Duration. When this template generates a campaign, the campaign&#39;s deadline will be the current date plus this duration. For example, if generation occurred on 2020-01-01 and this field was &quot;&quot;P2W&quot;&quot; (two weeks), the resulting campaign&#39;s deadline would be 2020-01-15 (the current date plus 14 days). | [optional] 
-**Campaign** | [**Campaign**](.md) | This will hold campaign related information like name, description etc. | 
+**Campaign** | [**Campaign**](Campaign.md) |  | 
 
 ## Examples
 

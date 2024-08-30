@@ -1503,7 +1503,10 @@ Use this API to list the schemas that exist on the specified source in Identity 
 Source ID.
 
 .PARAMETER IncludeTypes
-If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized.
+If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+
+.PARAMETER IncludeNames
+A comma-separated list of schema names to filter result.
 
 .PARAMETER WithHttpInfo
 
@@ -1523,6 +1526,9 @@ function Get-BetaSourceSchemas {
         [ValidateSet("group", "user")]
         [String]
         ${IncludeTypes},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${IncludeNames},
         [Switch]
         $WithHttpInfo
     )
@@ -1551,6 +1557,10 @@ function Get-BetaSourceSchemas {
 
         if ($IncludeTypes) {
             $LocalVarQueryParameters['include-types'] = $IncludeTypes
+        }
+
+        if ($IncludeNames) {
+            $LocalVarQueryParameters['include-names'] = $IncludeNames
         }
 
 

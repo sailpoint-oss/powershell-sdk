@@ -152,7 +152,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaBetaSourcesApi' {
 
     Context 'Get-BetaSourceSchemas' {
         It 'Test Get-BetaSourceSchemas' {
-            #$TestResult = Get-BetaSourceSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE"
+            #$TestResult = Get-BetaSourceSchemas -SourceId "TEST_VALUE" -IncludeTypes "TEST_VALUE" -IncludeNames "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

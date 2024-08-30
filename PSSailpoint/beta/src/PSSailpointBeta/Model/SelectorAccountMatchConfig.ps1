@@ -14,34 +14,28 @@ No summary available.
 
 No description available.
 
-.PARAMETER ApplicationId
-The application id
-.PARAMETER AccountMatchConfig
+.PARAMETER MatchExpression
 No description available.
 .OUTPUTS
 
-Selector<PSCustomObject>
+SelectorAccountMatchConfig<PSCustomObject>
 #>
 
-function Initialize-BetaSelector {
+function Initialize-BetaSelectorAccountMatchConfig {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ApplicationId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${AccountMatchConfig}
+        ${MatchExpression}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaSelector' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaSelectorAccountMatchConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "applicationId" = ${ApplicationId}
-            "accountMatchConfig" = ${AccountMatchConfig}
+            "matchExpression" = ${MatchExpression}
         }
 
         return $PSO
@@ -51,11 +45,11 @@ function Initialize-BetaSelector {
 <#
 .SYNOPSIS
 
-Convert from JSON to Selector<PSCustomObject>
+Convert from JSON to SelectorAccountMatchConfig<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Selector<PSCustomObject>
+Convert from JSON to SelectorAccountMatchConfig<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,43 +57,36 @@ Json object
 
 .OUTPUTS
 
-Selector<PSCustomObject>
+SelectorAccountMatchConfig<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSelector {
+function ConvertFrom-BetaJsonToSelectorAccountMatchConfig {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSelector' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSelectorAccountMatchConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSelector
-        $AllProperties = ("applicationId", "accountMatchConfig")
+        # check if Json contains properties not defined in BetaSelectorAccountMatchConfig
+        $AllProperties = ("matchExpression")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "applicationId"))) { #optional property not found
-            $ApplicationId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "matchExpression"))) { #optional property not found
+            $MatchExpression = $null
         } else {
-            $ApplicationId = $JsonParameters.PSobject.Properties["applicationId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountMatchConfig"))) { #optional property not found
-            $AccountMatchConfig = $null
-        } else {
-            $AccountMatchConfig = $JsonParameters.PSobject.Properties["accountMatchConfig"].value
+            $MatchExpression = $JsonParameters.PSobject.Properties["matchExpression"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "applicationId" = ${ApplicationId}
-            "accountMatchConfig" = ${AccountMatchConfig}
+            "matchExpression" = ${MatchExpression}
         }
 
         return $PSO

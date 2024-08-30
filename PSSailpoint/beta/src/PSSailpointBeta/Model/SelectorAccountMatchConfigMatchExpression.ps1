@@ -14,34 +14,34 @@ No summary available.
 
 No description available.
 
-.PARAMETER ApplicationId
-The application id
-.PARAMETER AccountMatchConfig
+.PARAMETER MatchTerms
 No description available.
+.PARAMETER And
+If it is AND operators for match terms
 .OUTPUTS
 
-Schedule1Hours<PSCustomObject>
+SelectorAccountMatchConfigMatchExpression<PSCustomObject>
 #>
 
-function Initialize-BetaSchedule1Hours {
+function Initialize-BetaSelectorAccountMatchConfigMatchExpression {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ApplicationId},
+        [PSCustomObject[]]
+        ${MatchTerms},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${AccountMatchConfig}
+        [System.Nullable[Boolean]]
+        ${And} = $true
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpointBeta => BetaSchedule1Hours' | Write-Debug
+        'Creating PSCustomObject: PSSailpointBeta => BetaSelectorAccountMatchConfigMatchExpression' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "applicationId" = ${ApplicationId}
-            "accountMatchConfig" = ${AccountMatchConfig}
+            "matchTerms" = ${MatchTerms}
+            "and" = ${And}
         }
 
         return $PSO
@@ -51,11 +51,11 @@ function Initialize-BetaSchedule1Hours {
 <#
 .SYNOPSIS
 
-Convert from JSON to Schedule1Hours<PSCustomObject>
+Convert from JSON to SelectorAccountMatchConfigMatchExpression<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Schedule1Hours<PSCustomObject>
+Convert from JSON to SelectorAccountMatchConfigMatchExpression<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,43 +63,43 @@ Json object
 
 .OUTPUTS
 
-Schedule1Hours<PSCustomObject>
+SelectorAccountMatchConfigMatchExpression<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSchedule1Hours {
+function ConvertFrom-BetaJsonToSelectorAccountMatchConfigMatchExpression {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSchedule1Hours' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpointBeta => BetaSelectorAccountMatchConfigMatchExpression' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSchedule1Hours
-        $AllProperties = ("applicationId", "accountMatchConfig")
+        # check if Json contains properties not defined in BetaSelectorAccountMatchConfigMatchExpression
+        $AllProperties = ("matchTerms", "and")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "applicationId"))) { #optional property not found
-            $ApplicationId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "matchTerms"))) { #optional property not found
+            $MatchTerms = $null
         } else {
-            $ApplicationId = $JsonParameters.PSobject.Properties["applicationId"].value
+            $MatchTerms = $JsonParameters.PSobject.Properties["matchTerms"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountMatchConfig"))) { #optional property not found
-            $AccountMatchConfig = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "and"))) { #optional property not found
+            $And = $null
         } else {
-            $AccountMatchConfig = $JsonParameters.PSobject.Properties["accountMatchConfig"].value
+            $And = $JsonParameters.PSobject.Properties["and"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "applicationId" = ${ApplicationId}
-            "accountMatchConfig" = ${AccountMatchConfig}
+            "matchTerms" = ${MatchTerms}
+            "and" = ${And}
         }
 
         return $PSO

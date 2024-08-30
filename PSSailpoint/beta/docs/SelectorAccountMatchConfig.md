@@ -1,22 +1,20 @@
-# Schedule1Days
+# SelectorAccountMatchConfig
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | **String** | The application id | [optional] 
-**AccountMatchConfig** | [**SelectorAccountMatchConfig**](SelectorAccountMatchConfig.md) |  | [optional] 
+**MatchExpression** | [**SelectorAccountMatchConfigMatchExpression**](SelectorAccountMatchConfigMatchExpression.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Schedule1Days = Initialize-PSSailpointBetaSchedule1Days  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
- -AccountMatchConfig null
+$SelectorAccountMatchConfig = Initialize-PSSailpointBetaSelectorAccountMatchConfig  -MatchExpression null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$Schedule1Days | ConvertTo-JSON
+$SelectorAccountMatchConfig | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

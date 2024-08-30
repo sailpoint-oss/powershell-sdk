@@ -104,6 +104,20 @@ Class | Method | HTTP request | Description
 *BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval
 *BetaApprovalsApi* | [**Get-BetaApprovals**](docs/BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get Approvals
 *BetaApprovalsApi* | [**Update-BetaApproval**](docs/BetaApprovalsApi.md#Update-BetaApproval) | **PATCH** /generic-approvals/{id} | Change an approval
+*BetaAppsApi* | [**New-BetaSourceApp**](docs/BetaAppsApi.md#New-BetaSourceApp) | **POST** /source-apps | Create source app
+*BetaAppsApi* | [**Remove-BetaAccessProfilesFromSourceAppByBulk**](docs/BetaAppsApi.md#Remove-BetaAccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
+*BetaAppsApi* | [**Remove-BetaSourceApp**](docs/BetaAppsApi.md#Remove-BetaSourceApp) | **DELETE** /source-apps/{id} | Delete source app by ID
+*BetaAppsApi* | [**Get-BetaSourceApp**](docs/BetaAppsApi.md#Get-BetaSourceApp) | **GET** /source-apps/{id} | Get source app by ID
+*BetaAppsApi* | [**Get-BetaAccessProfilesForSourceApp**](docs/BetaAppsApi.md#Get-BetaAccessProfilesForSourceApp) | **GET** /source-apps/{id}/access-profiles | List access profiles for the specified source app
+*BetaAppsApi* | [**Get-BetaAllSourceApp**](docs/BetaAppsApi.md#Get-BetaAllSourceApp) | **GET** /source-apps/all | List all source apps
+*BetaAppsApi* | [**Get-BetaAllUserApps**](docs/BetaAppsApi.md#Get-BetaAllUserApps) | **GET** /user-apps/all | List all user apps
+*BetaAppsApi* | [**Get-BetaAssignedSourceApp**](docs/BetaAppsApi.md#Get-BetaAssignedSourceApp) | **GET** /source-apps/assigned | List assigned source apps
+*BetaAppsApi* | [**Get-BetaAvailableAccountsForUserApp**](docs/BetaAppsApi.md#Get-BetaAvailableAccountsForUserApp) | **GET** /user-apps/{id}/available-accounts | List available accounts for user app
+*BetaAppsApi* | [**Get-BetaAvailableSourceApps**](docs/BetaAppsApi.md#Get-BetaAvailableSourceApps) | **GET** /source-apps | List available source apps
+*BetaAppsApi* | [**Get-BetaOwnedUserApps**](docs/BetaAppsApi.md#Get-BetaOwnedUserApps) | **GET** /user-apps | List owned user apps
+*BetaAppsApi* | [**Update-BetaSourceApp**](docs/BetaAppsApi.md#Update-BetaSourceApp) | **PATCH** /source-apps/{id} | Patch source app by ID
+*BetaAppsApi* | [**Update-BetaUserApp**](docs/BetaAppsApi.md#Update-BetaUserApp) | **PATCH** /user-apps/{id} | Patch user app by ID
+*BetaAppsApi* | [**Update-BetaSourceAppsInBulk**](docs/BetaAppsApi.md#Update-BetaSourceAppsInBulk) | **POST** /source-apps/bulk-update | Bulk update source apps
 *BetaAuthProfileApi* | [**Get-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile.
 *BetaAuthProfileApi* | [**Get-BetaProfileConfigList**](docs/BetaAuthProfileApi.md#Get-BetaProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles.
 *BetaAuthProfileApi* | [**Update-BetaProfileConfig**](docs/BetaAuthProfileApi.md#Update-BetaProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
@@ -599,6 +613,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.AccessProfileBulkDeleteRequest](docs/AccessProfileBulkDeleteRequest.md)
  - [PSSailpointBeta\Model.AccessProfileBulkDeleteResponse](docs/AccessProfileBulkDeleteResponse.md)
  - [PSSailpointBeta\Model.AccessProfileBulkUpdateRequestInner](docs/AccessProfileBulkUpdateRequestInner.md)
+ - [PSSailpointBeta\Model.AccessProfileDetails](docs/AccessProfileDetails.md)
+ - [PSSailpointBeta\Model.AccessProfileDetailsAccountSelector](docs/AccessProfileDetailsAccountSelector.md)
  - [PSSailpointBeta\Model.AccessProfileRef](docs/AccessProfileRef.md)
  - [PSSailpointBeta\Model.AccessProfileSourceRef](docs/AccessProfileSourceRef.md)
  - [PSSailpointBeta\Model.AccessProfileUpdateItem](docs/AccessProfileUpdateItem.md)
@@ -679,6 +695,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ActivateCampaignOptions](docs/ActivateCampaignOptions.md)
  - [PSSailpointBeta\Model.AdminReviewReassign](docs/AdminReviewReassign.md)
  - [PSSailpointBeta\Model.AdminReviewReassignReassignTo](docs/AdminReviewReassignReassignTo.md)
+ - [PSSailpointBeta\Model.AppAccountDetails](docs/AppAccountDetails.md)
+ - [PSSailpointBeta\Model.AppAccountDetailsSourceAccount](docs/AppAccountDetailsSourceAccount.md)
  - [PSSailpointBeta\Model.Approval](docs/Approval.md)
  - [PSSailpointBeta\Model.ApprovalBatch](docs/ApprovalBatch.md)
  - [PSSailpointBeta\Model.ApprovalComment](docs/ApprovalComment.md)
@@ -721,6 +739,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.BaseCommonDto](docs/BaseCommonDto.md)
  - [PSSailpointBeta\Model.BaseCommonDto1](docs/BaseCommonDto1.md)
  - [PSSailpointBeta\Model.BaseReferenceDto](docs/BaseReferenceDto.md)
+ - [PSSailpointBeta\Model.BaseReferenceDto1](docs/BaseReferenceDto1.md)
  - [PSSailpointBeta\Model.BasicAuthConfig](docs/BasicAuthConfig.md)
  - [PSSailpointBeta\Model.BearerTokenAuthConfig](docs/BearerTokenAuthConfig.md)
  - [PSSailpointBeta\Model.BeforeProvisioningRuleDto](docs/BeforeProvisioningRuleDto.md)
@@ -1046,6 +1065,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ManualWorkItemDetailsOriginalOwner](docs/ManualWorkItemDetailsOriginalOwner.md)
  - [PSSailpointBeta\Model.ManualWorkItemState](docs/ManualWorkItemState.md)
  - [PSSailpointBeta\Model.ManuallyUpdatedFieldsDTO](docs/ManuallyUpdatedFieldsDTO.md)
+ - [PSSailpointBeta\Model.MatchTerm](docs/MatchTerm.md)
  - [PSSailpointBeta\Model.Medium](docs/Medium.md)
  - [PSSailpointBeta\Model.MessageCatalogDto](docs/MessageCatalogDto.md)
  - [PSSailpointBeta\Model.MetricResponse](docs/MetricResponse.md)
@@ -1273,7 +1293,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.SedPatch](docs/SedPatch.md)
  - [PSSailpointBeta\Model.Segment](docs/Segment.md)
  - [PSSailpointBeta\Model.Selector](docs/Selector.md)
- - [PSSailpointBeta\Model.SelectorType](docs/SelectorType.md)
+ - [PSSailpointBeta\Model.SelectorAccountMatchConfig](docs/SelectorAccountMatchConfig.md)
+ - [PSSailpointBeta\Model.SelectorAccountMatchConfigMatchExpression](docs/SelectorAccountMatchConfigMatchExpression.md)
  - [PSSailpointBeta\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
  - [PSSailpointBeta\Model.SendAccountVerificationRequest](docs/SendAccountVerificationRequest.md)
  - [PSSailpointBeta\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
@@ -1315,6 +1336,13 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.SourceAccountCreated](docs/SourceAccountCreated.md)
  - [PSSailpointBeta\Model.SourceAccountDeleted](docs/SourceAccountDeleted.md)
  - [PSSailpointBeta\Model.SourceAccountUpdated](docs/SourceAccountUpdated.md)
+ - [PSSailpointBeta\Model.SourceApp](docs/SourceApp.md)
+ - [PSSailpointBeta\Model.SourceAppAccountSource](docs/SourceAppAccountSource.md)
+ - [PSSailpointBeta\Model.SourceAppBulkUpdateRequest](docs/SourceAppBulkUpdateRequest.md)
+ - [PSSailpointBeta\Model.SourceAppCreateDto](docs/SourceAppCreateDto.md)
+ - [PSSailpointBeta\Model.SourceAppCreateDtoAccountSource](docs/SourceAppCreateDtoAccountSource.md)
+ - [PSSailpointBeta\Model.SourceAppOwner](docs/SourceAppOwner.md)
+ - [PSSailpointBeta\Model.SourceAppPatchDto](docs/SourceAppPatchDto.md)
  - [PSSailpointBeta\Model.SourceBeforeProvisioningRule](docs/SourceBeforeProvisioningRule.md)
  - [PSSailpointBeta\Model.SourceCluster](docs/SourceCluster.md)
  - [PSSailpointBeta\Model.SourceClusterDto](docs/SourceClusterDto.md)
@@ -1405,6 +1433,11 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.UpdateAccessProfilesInBulk412Response](docs/UpdateAccessProfilesInBulk412Response.md)
  - [PSSailpointBeta\Model.Upper](docs/Upper.md)
  - [PSSailpointBeta\Model.UsageType](docs/UsageType.md)
+ - [PSSailpointBeta\Model.UserApp](docs/UserApp.md)
+ - [PSSailpointBeta\Model.UserAppAccount](docs/UserAppAccount.md)
+ - [PSSailpointBeta\Model.UserAppOwner](docs/UserAppOwner.md)
+ - [PSSailpointBeta\Model.UserAppSource](docs/UserAppSource.md)
+ - [PSSailpointBeta\Model.UserAppSourceApp](docs/UserAppSourceApp.md)
  - [PSSailpointBeta\Model.V3ConnectorDto](docs/V3ConnectorDto.md)
  - [PSSailpointBeta\Model.VAClusterStatusChangeEvent](docs/VAClusterStatusChangeEvent.md)
  - [PSSailpointBeta\Model.VAClusterStatusChangeEventApplication](docs/VAClusterStatusChangeEventApplication.md)

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpointBeta' -name 'BetaSchedule1Months' {
     Context 'BetaSchedule1Months' {
         It 'Initialize-BetaSchedule1Months' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaSchedule1Months -Type "TEST_VALUE" -Values "TEST_VALUE" -Interval "TEST_VALUE"
+            #$NewObject = Initialize-BetaSchedule1Months -ApplicationId "TEST_VALUE" -AccountMatchConfig "TEST_VALUE"
             #$NewObject | Should -BeOfType Schedule1Months
             #$NewObject.property | Should -Be 0
         }

@@ -1,22 +1,24 @@
-# Schedule1Days
+# UserAppSource
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | **String** | The application id | [optional] 
-**AccountMatchConfig** | [**SelectorAccountMatchConfig**](SelectorAccountMatchConfig.md) |  | [optional] 
+**Id** | **String** | the source ID | [optional] 
+**Type** | **String** | It will always be &quot;&quot;SOURCE&quot;&quot; | [optional] 
+**Name** | **String** | the source name | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Schedule1Days = Initialize-PSSailpointBetaSchedule1Days  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
- -AccountMatchConfig null
+$UserAppSource = Initialize-PSSailpointBetaUserAppSource  -Id 9870808a7190d06e01719938fcd20792 `
+ -Type SOURCE `
+ -Name test-source
 ```
 
 - Convert the resource to JSON
 ```powershell
-$Schedule1Days | ConvertTo-JSON
+$UserAppSource | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

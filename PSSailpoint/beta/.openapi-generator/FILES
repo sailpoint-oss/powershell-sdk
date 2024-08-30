@@ -26,6 +26,8 @@ docs/AccessProfileApprovalScheme.md
 docs/AccessProfileBulkDeleteRequest.md
 docs/AccessProfileBulkDeleteResponse.md
 docs/AccessProfileBulkUpdateRequestInner.md
+docs/AccessProfileDetails.md
+docs/AccessProfileDetailsAccountSelector.md
 docs/AccessProfileRef.md
 docs/AccessProfileSourceRef.md
 docs/AccessProfileUpdateItem.md
@@ -106,6 +108,8 @@ docs/AccountsCollectedForAggregationStats.md
 docs/ActivateCampaignOptions.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
+docs/AppAccountDetails.md
+docs/AppAccountDetailsSourceAccount.md
 docs/Approval.md
 docs/ApprovalBatch.md
 docs/ApprovalComment.md
@@ -148,6 +152,7 @@ docs/Base64Encode.md
 docs/BaseCommonDto.md
 docs/BaseCommonDto1.md
 docs/BaseReferenceDto.md
+docs/BaseReferenceDto1.md
 docs/BasicAuthConfig.md
 docs/BearerTokenAuthConfig.md
 docs/BeforeProvisioningRuleDto.md
@@ -162,6 +167,7 @@ docs/BetaAccountUsagesApi.md
 docs/BetaAccountsApi.md
 docs/BetaApplicationDiscoveryApi.md
 docs/BetaApprovalsApi.md
+docs/BetaAppsApi.md
 docs/BetaAuthProfileApi.md
 docs/BetaCertificationCampaignsApi.md
 docs/BetaCertificationsApi.md
@@ -545,6 +551,7 @@ docs/ManualWorkItemDetailsCurrentOwner.md
 docs/ManualWorkItemDetailsOriginalOwner.md
 docs/ManualWorkItemState.md
 docs/ManuallyUpdatedFieldsDTO.md
+docs/MatchTerm.md
 docs/Medium.md
 docs/MessageCatalogDto.md
 docs/MetricResponse.md
@@ -771,7 +778,8 @@ docs/SedBatchStatus.md
 docs/SedPatch.md
 docs/Segment.md
 docs/Selector.md
-docs/SelectorType.md
+docs/SelectorAccountMatchConfig.md
+docs/SelectorAccountMatchConfigMatchExpression.md
 docs/SelfImportExportDto.md
 docs/SendAccountVerificationRequest.md
 docs/SendTestNotificationRequestDto.md
@@ -813,6 +821,13 @@ docs/SourceAccountCorrelationRule.md
 docs/SourceAccountCreated.md
 docs/SourceAccountDeleted.md
 docs/SourceAccountUpdated.md
+docs/SourceApp.md
+docs/SourceAppAccountSource.md
+docs/SourceAppBulkUpdateRequest.md
+docs/SourceAppCreateDto.md
+docs/SourceAppCreateDtoAccountSource.md
+docs/SourceAppOwner.md
+docs/SourceAppPatchDto.md
 docs/SourceBeforeProvisioningRule.md
 docs/SourceCluster.md
 docs/SourceClusterDto.md
@@ -903,6 +918,11 @@ docs/UUIDGenerator.md
 docs/UpdateAccessProfilesInBulk412Response.md
 docs/Upper.md
 docs/UsageType.md
+docs/UserApp.md
+docs/UserAppAccount.md
+docs/UserAppOwner.md
+docs/UserAppSource.md
+docs/UserAppSourceApp.md
 docs/V3ConnectorDto.md
 docs/VAClusterStatusChangeEvent.md
 docs/VAClusterStatusChangeEventApplication.md
@@ -964,6 +984,7 @@ src/PSSailpointBeta/Api/BetaAccountUsagesApi.ps1
 src/PSSailpointBeta/Api/BetaAccountsApi.ps1
 src/PSSailpointBeta/Api/BetaApplicationDiscoveryApi.ps1
 src/PSSailpointBeta/Api/BetaApprovalsApi.ps1
+src/PSSailpointBeta/Api/BetaAppsApi.ps1
 src/PSSailpointBeta/Api/BetaAuthProfileApi.ps1
 src/PSSailpointBeta/Api/BetaCertificationCampaignsApi.ps1
 src/PSSailpointBeta/Api/BetaCertificationsApi.ps1
@@ -1049,6 +1070,8 @@ src/PSSailpointBeta/Model/AccessProfileApprovalScheme.ps1
 src/PSSailpointBeta/Model/AccessProfileBulkDeleteRequest.ps1
 src/PSSailpointBeta/Model/AccessProfileBulkDeleteResponse.ps1
 src/PSSailpointBeta/Model/AccessProfileBulkUpdateRequestInner.ps1
+src/PSSailpointBeta/Model/AccessProfileDetails.ps1
+src/PSSailpointBeta/Model/AccessProfileDetailsAccountSelector.ps1
 src/PSSailpointBeta/Model/AccessProfileRef.ps1
 src/PSSailpointBeta/Model/AccessProfileSourceRef.ps1
 src/PSSailpointBeta/Model/AccessProfileUpdateItem.ps1
@@ -1129,6 +1152,8 @@ src/PSSailpointBeta/Model/AccountsCollectedForAggregationStats.ps1
 src/PSSailpointBeta/Model/ActivateCampaignOptions.ps1
 src/PSSailpointBeta/Model/AdminReviewReassign.ps1
 src/PSSailpointBeta/Model/AdminReviewReassignReassignTo.ps1
+src/PSSailpointBeta/Model/AppAccountDetails.ps1
+src/PSSailpointBeta/Model/AppAccountDetailsSourceAccount.ps1
 src/PSSailpointBeta/Model/Approval.ps1
 src/PSSailpointBeta/Model/ApprovalBatch.ps1
 src/PSSailpointBeta/Model/ApprovalComment.ps1
@@ -1171,6 +1196,7 @@ src/PSSailpointBeta/Model/Base64Encode.ps1
 src/PSSailpointBeta/Model/BaseCommonDto.ps1
 src/PSSailpointBeta/Model/BaseCommonDto1.ps1
 src/PSSailpointBeta/Model/BaseReferenceDto.ps1
+src/PSSailpointBeta/Model/BaseReferenceDto1.ps1
 src/PSSailpointBeta/Model/BasicAuthConfig.ps1
 src/PSSailpointBeta/Model/BearerTokenAuthConfig.ps1
 src/PSSailpointBeta/Model/BeforeProvisioningRuleDto.ps1
@@ -1496,6 +1522,7 @@ src/PSSailpointBeta/Model/ManualWorkItemDetailsCurrentOwner.ps1
 src/PSSailpointBeta/Model/ManualWorkItemDetailsOriginalOwner.ps1
 src/PSSailpointBeta/Model/ManualWorkItemState.ps1
 src/PSSailpointBeta/Model/ManuallyUpdatedFieldsDTO.ps1
+src/PSSailpointBeta/Model/MatchTerm.ps1
 src/PSSailpointBeta/Model/Medium.ps1
 src/PSSailpointBeta/Model/MessageCatalogDto.ps1
 src/PSSailpointBeta/Model/MetricResponse.ps1
@@ -1723,7 +1750,8 @@ src/PSSailpointBeta/Model/SedBatchStatus.ps1
 src/PSSailpointBeta/Model/SedPatch.ps1
 src/PSSailpointBeta/Model/Segment.ps1
 src/PSSailpointBeta/Model/Selector.ps1
-src/PSSailpointBeta/Model/SelectorType.ps1
+src/PSSailpointBeta/Model/SelectorAccountMatchConfig.ps1
+src/PSSailpointBeta/Model/SelectorAccountMatchConfigMatchExpression.ps1
 src/PSSailpointBeta/Model/SelfImportExportDto.ps1
 src/PSSailpointBeta/Model/SendAccountVerificationRequest.ps1
 src/PSSailpointBeta/Model/SendTestNotificationRequestDto.ps1
@@ -1765,6 +1793,13 @@ src/PSSailpointBeta/Model/SourceAccountCorrelationRule.ps1
 src/PSSailpointBeta/Model/SourceAccountCreated.ps1
 src/PSSailpointBeta/Model/SourceAccountDeleted.ps1
 src/PSSailpointBeta/Model/SourceAccountUpdated.ps1
+src/PSSailpointBeta/Model/SourceApp.ps1
+src/PSSailpointBeta/Model/SourceAppAccountSource.ps1
+src/PSSailpointBeta/Model/SourceAppBulkUpdateRequest.ps1
+src/PSSailpointBeta/Model/SourceAppCreateDto.ps1
+src/PSSailpointBeta/Model/SourceAppCreateDtoAccountSource.ps1
+src/PSSailpointBeta/Model/SourceAppOwner.ps1
+src/PSSailpointBeta/Model/SourceAppPatchDto.ps1
 src/PSSailpointBeta/Model/SourceBeforeProvisioningRule.ps1
 src/PSSailpointBeta/Model/SourceCluster.ps1
 src/PSSailpointBeta/Model/SourceClusterDto.ps1
@@ -1855,6 +1890,11 @@ src/PSSailpointBeta/Model/UUIDGenerator.ps1
 src/PSSailpointBeta/Model/UpdateAccessProfilesInBulk412Response.ps1
 src/PSSailpointBeta/Model/Upper.ps1
 src/PSSailpointBeta/Model/UsageType.ps1
+src/PSSailpointBeta/Model/UserApp.ps1
+src/PSSailpointBeta/Model/UserAppAccount.ps1
+src/PSSailpointBeta/Model/UserAppOwner.ps1
+src/PSSailpointBeta/Model/UserAppSource.ps1
+src/PSSailpointBeta/Model/UserAppSourceApp.ps1
 src/PSSailpointBeta/Model/V3ConnectorDto.ps1
 src/PSSailpointBeta/Model/VAClusterStatusChangeEvent.ps1
 src/PSSailpointBeta/Model/VAClusterStatusChangeEventApplication.ps1
@@ -1923,6 +1963,7 @@ tests/Api/BetaAccountUsagesApi.Tests.ps1
 tests/Api/BetaAccountsApi.Tests.ps1
 tests/Api/BetaApplicationDiscoveryApi.Tests.ps1
 tests/Api/BetaApprovalsApi.Tests.ps1
+tests/Api/BetaAppsApi.Tests.ps1
 tests/Api/BetaAuthProfileApi.Tests.ps1
 tests/Api/BetaCertificationCampaignsApi.Tests.ps1
 tests/Api/BetaCertificationsApi.Tests.ps1
@@ -2007,6 +2048,8 @@ tests/Model/AccessProfileApprovalScheme.Tests.ps1
 tests/Model/AccessProfileBulkDeleteRequest.Tests.ps1
 tests/Model/AccessProfileBulkDeleteResponse.Tests.ps1
 tests/Model/AccessProfileBulkUpdateRequestInner.Tests.ps1
+tests/Model/AccessProfileDetails.Tests.ps1
+tests/Model/AccessProfileDetailsAccountSelector.Tests.ps1
 tests/Model/AccessProfileRef.Tests.ps1
 tests/Model/AccessProfileSourceRef.Tests.ps1
 tests/Model/AccessProfileUpdateItem.Tests.ps1
@@ -2087,6 +2130,8 @@ tests/Model/AccountsCollectedForAggregationStats.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
+tests/Model/AppAccountDetails.Tests.ps1
+tests/Model/AppAccountDetailsSourceAccount.Tests.ps1
 tests/Model/Approval.Tests.ps1
 tests/Model/ApprovalBatch.Tests.ps1
 tests/Model/ApprovalComment.Tests.ps1
@@ -2129,6 +2174,7 @@ tests/Model/Base64Encode.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseCommonDto1.Tests.ps1
 tests/Model/BaseReferenceDto.Tests.ps1
+tests/Model/BaseReferenceDto1.Tests.ps1
 tests/Model/BasicAuthConfig.Tests.ps1
 tests/Model/BearerTokenAuthConfig.Tests.ps1
 tests/Model/BeforeProvisioningRuleDto.Tests.ps1
@@ -2454,6 +2500,7 @@ tests/Model/ManualWorkItemDetailsCurrentOwner.Tests.ps1
 tests/Model/ManualWorkItemDetailsOriginalOwner.Tests.ps1
 tests/Model/ManualWorkItemState.Tests.ps1
 tests/Model/ManuallyUpdatedFieldsDTO.Tests.ps1
+tests/Model/MatchTerm.Tests.ps1
 tests/Model/Medium.Tests.ps1
 tests/Model/MessageCatalogDto.Tests.ps1
 tests/Model/MetricResponse.Tests.ps1
@@ -2681,7 +2728,8 @@ tests/Model/SedBatchStatus.Tests.ps1
 tests/Model/SedPatch.Tests.ps1
 tests/Model/Segment.Tests.ps1
 tests/Model/Selector.Tests.ps1
-tests/Model/SelectorType.Tests.ps1
+tests/Model/SelectorAccountMatchConfig.Tests.ps1
+tests/Model/SelectorAccountMatchConfigMatchExpression.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
 tests/Model/SendAccountVerificationRequest.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
@@ -2723,6 +2771,13 @@ tests/Model/SourceAccountCorrelationRule.Tests.ps1
 tests/Model/SourceAccountCreated.Tests.ps1
 tests/Model/SourceAccountDeleted.Tests.ps1
 tests/Model/SourceAccountUpdated.Tests.ps1
+tests/Model/SourceApp.Tests.ps1
+tests/Model/SourceAppAccountSource.Tests.ps1
+tests/Model/SourceAppBulkUpdateRequest.Tests.ps1
+tests/Model/SourceAppCreateDto.Tests.ps1
+tests/Model/SourceAppCreateDtoAccountSource.Tests.ps1
+tests/Model/SourceAppOwner.Tests.ps1
+tests/Model/SourceAppPatchDto.Tests.ps1
 tests/Model/SourceBeforeProvisioningRule.Tests.ps1
 tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
@@ -2813,6 +2868,11 @@ tests/Model/UUIDGenerator.Tests.ps1
 tests/Model/UpdateAccessProfilesInBulk412Response.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
+tests/Model/UserApp.Tests.ps1
+tests/Model/UserAppAccount.Tests.ps1
+tests/Model/UserAppOwner.Tests.ps1
+tests/Model/UserAppSource.Tests.ps1
+tests/Model/UserAppSourceApp.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1
 tests/Model/VAClusterStatusChangeEvent.Tests.ps1
 tests/Model/VAClusterStatusChangeEventApplication.Tests.ps1

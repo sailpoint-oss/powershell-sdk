@@ -1,19 +1,20 @@
-# SelectorType
+# AccessProfileDetailsAccountSelector
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Selectors** | [**Selector[]**](Selector.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SelectorType = Initialize-PSSailpointBetaSelectorType 
+$AccessProfileDetailsAccountSelector = Initialize-PSSailpointBetaAccessProfileDetailsAccountSelector  -Selectors null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$SelectorType | ConvertTo-JSON
+$AccessProfileDetailsAccountSelector | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

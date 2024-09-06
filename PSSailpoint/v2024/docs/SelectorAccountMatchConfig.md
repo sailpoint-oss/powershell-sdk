@@ -1,19 +1,20 @@
-# SelectorType
+# SelectorAccountMatchConfig
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**MatchExpression** | [**SelectorAccountMatchConfigMatchExpression**](SelectorAccountMatchConfigMatchExpression.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SelectorType = Initialize-PSSailpointV2024SelectorType 
+$SelectorAccountMatchConfig = Initialize-PSSailpointV2024SelectorAccountMatchConfig  -MatchExpression null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$SelectorType | ConvertTo-JSON
+$SelectorAccountMatchConfig | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

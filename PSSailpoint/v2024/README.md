@@ -104,6 +104,20 @@ Class | Method | HTTP request | Description
 *V2024ApprovalsApi* | [**Get-V2024Approval**](docs/V2024ApprovalsApi.md#Get-V2024Approval) | **GET** /generic-approvals/{id} | Get an approval
 *V2024ApprovalsApi* | [**Get-V2024Approvals**](docs/V2024ApprovalsApi.md#Get-V2024Approvals) | **GET** /generic-approvals | Get Approvals
 *V2024ApprovalsApi* | [**Update-V2024Approval**](docs/V2024ApprovalsApi.md#Update-V2024Approval) | **PATCH** /generic-approvals/{id} | Change an approval
+*V2024AppsApi* | [**New-V2024SourceApp**](docs/V2024AppsApi.md#New-V2024SourceApp) | **POST** /source-apps | Create source app
+*V2024AppsApi* | [**Remove-V2024AccessProfilesFromSourceAppByBulk**](docs/V2024AppsApi.md#Remove-V2024AccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
+*V2024AppsApi* | [**Remove-V2024SourceApp**](docs/V2024AppsApi.md#Remove-V2024SourceApp) | **DELETE** /source-apps/{id} | Delete source app by ID
+*V2024AppsApi* | [**Get-V2024SourceApp**](docs/V2024AppsApi.md#Get-V2024SourceApp) | **GET** /source-apps/{id} | Get source app by ID
+*V2024AppsApi* | [**Get-V2024AccessProfilesForSourceApp**](docs/V2024AppsApi.md#Get-V2024AccessProfilesForSourceApp) | **GET** /source-apps/{id}/access-profiles | List access profiles for the specified source app
+*V2024AppsApi* | [**Get-V2024AllSourceApp**](docs/V2024AppsApi.md#Get-V2024AllSourceApp) | **GET** /source-apps/all | List all source apps
+*V2024AppsApi* | [**Get-V2024AllUserApps**](docs/V2024AppsApi.md#Get-V2024AllUserApps) | **GET** /user-apps/all | List all user apps
+*V2024AppsApi* | [**Get-V2024AssignedSourceApp**](docs/V2024AppsApi.md#Get-V2024AssignedSourceApp) | **GET** /source-apps/assigned | List assigned source apps
+*V2024AppsApi* | [**Get-V2024AvailableAccountsForUserApp**](docs/V2024AppsApi.md#Get-V2024AvailableAccountsForUserApp) | **GET** /user-apps/{id}/available-accounts | List available accounts for user app
+*V2024AppsApi* | [**Get-V2024AvailableSourceApps**](docs/V2024AppsApi.md#Get-V2024AvailableSourceApps) | **GET** /source-apps | List available source apps
+*V2024AppsApi* | [**Get-V2024OwnedUserApps**](docs/V2024AppsApi.md#Get-V2024OwnedUserApps) | **GET** /user-apps | List owned user apps
+*V2024AppsApi* | [**Update-V2024SourceApp**](docs/V2024AppsApi.md#Update-V2024SourceApp) | **PATCH** /source-apps/{id} | Patch source app by ID
+*V2024AppsApi* | [**Update-V2024UserApp**](docs/V2024AppsApi.md#Update-V2024UserApp) | **PATCH** /user-apps/{id} | Patch user app by ID
+*V2024AppsApi* | [**Update-V2024SourceAppsInBulk**](docs/V2024AppsApi.md#Update-V2024SourceAppsInBulk) | **POST** /source-apps/bulk-update | Bulk update source apps
 *V2024AuthProfileApi* | [**Get-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile.
 *V2024AuthProfileApi* | [**Get-V2024ProfileConfigList**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles.
 *V2024AuthProfileApi* | [**Update-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Update-V2024ProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
@@ -665,6 +679,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointV2024\Model.AccessProfileBulkDeleteRequest](docs/AccessProfileBulkDeleteRequest.md)
  - [PSSailpointV2024\Model.AccessProfileBulkDeleteResponse](docs/AccessProfileBulkDeleteResponse.md)
  - [PSSailpointV2024\Model.AccessProfileBulkUpdateRequestInner](docs/AccessProfileBulkUpdateRequestInner.md)
+ - [PSSailpointV2024\Model.AccessProfileDetails](docs/AccessProfileDetails.md)
+ - [PSSailpointV2024\Model.AccessProfileDetailsAccountSelector](docs/AccessProfileDetailsAccountSelector.md)
  - [PSSailpointV2024\Model.AccessProfileDocument](docs/AccessProfileDocument.md)
  - [PSSailpointV2024\Model.AccessProfileDocumentAllOfSource](docs/AccessProfileDocumentAllOfSource.md)
  - [PSSailpointV2024\Model.AccessProfileEntitlement](docs/AccessProfileEntitlement.md)
@@ -764,6 +780,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointV2024\Model.AggregationType](docs/AggregationType.md)
  - [PSSailpointV2024\Model.Aggregations](docs/Aggregations.md)
  - [PSSailpointV2024\Model.App](docs/App.md)
+ - [PSSailpointV2024\Model.AppAccountDetails](docs/AppAccountDetails.md)
+ - [PSSailpointV2024\Model.AppAccountDetailsSourceAccount](docs/AppAccountDetailsSourceAccount.md)
  - [PSSailpointV2024\Model.AppAllOfAccount](docs/AppAllOfAccount.md)
  - [PSSailpointV2024\Model.Approval](docs/Approval.md)
  - [PSSailpointV2024\Model.Approval1](docs/Approval1.md)
@@ -1174,6 +1192,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointV2024\Model.ManualWorkItemDetailsOriginalOwner](docs/ManualWorkItemDetailsOriginalOwner.md)
  - [PSSailpointV2024\Model.ManualWorkItemState](docs/ManualWorkItemState.md)
  - [PSSailpointV2024\Model.ManuallyUpdatedFieldsDTO](docs/ManuallyUpdatedFieldsDTO.md)
+ - [PSSailpointV2024\Model.MatchTerm](docs/MatchTerm.md)
  - [PSSailpointV2024\Model.Medium](docs/Medium.md)
  - [PSSailpointV2024\Model.MetricAggregation](docs/MetricAggregation.md)
  - [PSSailpointV2024\Model.MetricResponse](docs/MetricResponse.md)
@@ -1458,7 +1477,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointV2024\Model.Segment](docs/Segment.md)
  - [PSSailpointV2024\Model.SegmentVisibilityCriteria](docs/SegmentVisibilityCriteria.md)
  - [PSSailpointV2024\Model.Selector](docs/Selector.md)
- - [PSSailpointV2024\Model.SelectorType](docs/SelectorType.md)
+ - [PSSailpointV2024\Model.SelectorAccountMatchConfig](docs/SelectorAccountMatchConfig.md)
+ - [PSSailpointV2024\Model.SelectorAccountMatchConfigMatchExpression](docs/SelectorAccountMatchConfigMatchExpression.md)
  - [PSSailpointV2024\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
  - [PSSailpointV2024\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpointV2024\Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
@@ -1495,6 +1515,13 @@ Class | Method | HTTP request | Description
  - [PSSailpointV2024\Model.SourceAccountCreated](docs/SourceAccountCreated.md)
  - [PSSailpointV2024\Model.SourceAccountDeleted](docs/SourceAccountDeleted.md)
  - [PSSailpointV2024\Model.SourceAccountUpdated](docs/SourceAccountUpdated.md)
+ - [PSSailpointV2024\Model.SourceApp](docs/SourceApp.md)
+ - [PSSailpointV2024\Model.SourceAppAccountSource](docs/SourceAppAccountSource.md)
+ - [PSSailpointV2024\Model.SourceAppBulkUpdateRequest](docs/SourceAppBulkUpdateRequest.md)
+ - [PSSailpointV2024\Model.SourceAppCreateDto](docs/SourceAppCreateDto.md)
+ - [PSSailpointV2024\Model.SourceAppCreateDtoAccountSource](docs/SourceAppCreateDtoAccountSource.md)
+ - [PSSailpointV2024\Model.SourceAppOwner](docs/SourceAppOwner.md)
+ - [PSSailpointV2024\Model.SourceAppPatchDto](docs/SourceAppPatchDto.md)
  - [PSSailpointV2024\Model.SourceBeforeProvisioningRule](docs/SourceBeforeProvisioningRule.md)
  - [PSSailpointV2024\Model.SourceCluster](docs/SourceCluster.md)
  - [PSSailpointV2024\Model.SourceClusterDto](docs/SourceClusterDto.md)
@@ -1594,6 +1621,11 @@ Class | Method | HTTP request | Description
  - [PSSailpointV2024\Model.UploadsResponse](docs/UploadsResponse.md)
  - [PSSailpointV2024\Model.Upper](docs/Upper.md)
  - [PSSailpointV2024\Model.UsageType](docs/UsageType.md)
+ - [PSSailpointV2024\Model.UserApp](docs/UserApp.md)
+ - [PSSailpointV2024\Model.UserAppAccount](docs/UserAppAccount.md)
+ - [PSSailpointV2024\Model.UserAppOwner](docs/UserAppOwner.md)
+ - [PSSailpointV2024\Model.UserAppSource](docs/UserAppSource.md)
+ - [PSSailpointV2024\Model.UserAppSourceApp](docs/UserAppSourceApp.md)
  - [PSSailpointV2024\Model.V3ConnectorDto](docs/V3ConnectorDto.md)
  - [PSSailpointV2024\Model.V3CreateConnectorDto](docs/V3CreateConnectorDto.md)
  - [PSSailpointV2024\Model.VAClusterStatusChangeEvent](docs/VAClusterStatusChangeEvent.md)

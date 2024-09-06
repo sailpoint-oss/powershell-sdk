@@ -3,17 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**SelectorType**](SelectorType.md) |  | 
-**Values** | **String[]** | The selected values.  | 
-**Interval** | **Int32** | The selected interval for RANGE selectors.  | [optional] 
+**ApplicationId** | **String** | The application id | [optional] 
+**AccountMatchConfig** | [**SelectorAccountMatchConfig**](SelectorAccountMatchConfig.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Schedule1Hours = Initialize-PSSailpointV2024Schedule1Hours  -Type null `
- -Values [MON, WED] `
- -Interval 3
+$Schedule1Hours = Initialize-PSSailpointV2024Schedule1Hours  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
+ -AccountMatchConfig null
 ```
 
 - Convert the resource to JSON

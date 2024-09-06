@@ -31,9 +31,18 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Schedule1Months = Initialize-Schedule1Months -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
+$MatchTerm = Initialize-MatchTerm -Name "mail" -Value "1234 Albany Dr" -Op "eq" -Container $true -And $false -Children $MatchTerm
+
+$SelectorAccountMatchConfigMatchExpression = Initialize-SelectorAccountMatchConfigMatchExpression -MatchTerms $MatchTerm -And $true
+
+$SelectorAccountMatchConfig = Initialize-SelectorAccountMatchConfig -MatchExpression $SelectorAccountMatchConfigMatchExpression
+
+$Schedule1Months = Initialize-Schedule1Months -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+
+$Schedule1Days = Initialize-Schedule1Days -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+
+$Schedule1Hours = Initialize-Schedule1Hours -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+
 $Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Schedule1Months -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
@@ -306,9 +315,18 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-$Schedule1Months = Initialize-Schedule1Months -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1Days = Initialize-Schedule1Days -Type "LIST" -Values "MyValues" -Interval 3
-$Schedule1Hours = Initialize-Schedule1Hours -Type "LIST" -Values "MyValues" -Interval 3
+$MatchTerm = Initialize-MatchTerm -Name "mail" -Value "1234 Albany Dr" -Op "eq" -Container $true -And $false -Children $MatchTerm
+
+$SelectorAccountMatchConfigMatchExpression = Initialize-SelectorAccountMatchConfigMatchExpression -MatchTerms $MatchTerm -And $true
+
+$SelectorAccountMatchConfig = Initialize-SelectorAccountMatchConfig -MatchExpression $SelectorAccountMatchConfigMatchExpression
+
+$Schedule1Months = Initialize-Schedule1Months -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+
+$Schedule1Days = Initialize-Schedule1Days -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+
+$Schedule1Hours = Initialize-Schedule1Hours -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+
 $Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Schedule1Months -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"

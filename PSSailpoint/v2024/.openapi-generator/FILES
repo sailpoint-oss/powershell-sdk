@@ -27,6 +27,8 @@ docs/AccessProfileApprovalScheme.md
 docs/AccessProfileBulkDeleteRequest.md
 docs/AccessProfileBulkDeleteResponse.md
 docs/AccessProfileBulkUpdateRequestInner.md
+docs/AccessProfileDetails.md
+docs/AccessProfileDetailsAccountSelector.md
 docs/AccessProfileDocument.md
 docs/AccessProfileDocumentAllOfSource.md
 docs/AccessProfileEntitlement.md
@@ -126,6 +128,8 @@ docs/AggregationResult.md
 docs/AggregationType.md
 docs/Aggregations.md
 docs/App.md
+docs/AppAccountDetails.md
+docs/AppAccountDetailsSourceAccount.md
 docs/AppAllOfAccount.md
 docs/Approval.md
 docs/Approval1.md
@@ -539,6 +543,7 @@ docs/ManualWorkItemDetailsCurrentOwner.md
 docs/ManualWorkItemDetailsOriginalOwner.md
 docs/ManualWorkItemState.md
 docs/ManuallyUpdatedFieldsDTO.md
+docs/MatchTerm.md
 docs/Medium.md
 docs/MetricAggregation.md
 docs/MetricResponse.md
@@ -820,7 +825,8 @@ docs/SedPatch.md
 docs/Segment.md
 docs/SegmentVisibilityCriteria.md
 docs/Selector.md
-docs/SelectorType.md
+docs/SelectorAccountMatchConfig.md
+docs/SelectorAccountMatchConfigMatchExpression.md
 docs/SelfImportExportDto.md
 docs/SendTestNotificationRequestDto.md
 docs/ServiceDeskIntegrationDto.md
@@ -857,6 +863,13 @@ docs/SourceAccountCorrelationRule.md
 docs/SourceAccountCreated.md
 docs/SourceAccountDeleted.md
 docs/SourceAccountUpdated.md
+docs/SourceApp.md
+docs/SourceAppAccountSource.md
+docs/SourceAppBulkUpdateRequest.md
+docs/SourceAppCreateDto.md
+docs/SourceAppCreateDtoAccountSource.md
+docs/SourceAppOwner.md
+docs/SourceAppPatchDto.md
 docs/SourceBeforeProvisioningRule.md
 docs/SourceCluster.md
 docs/SourceClusterDto.md
@@ -956,6 +969,11 @@ docs/UploadsRequest.md
 docs/UploadsResponse.md
 docs/Upper.md
 docs/UsageType.md
+docs/UserApp.md
+docs/UserAppAccount.md
+docs/UserAppOwner.md
+docs/UserAppSource.md
+docs/UserAppSourceApp.md
 docs/V2024AccessModelMetadataApi.md
 docs/V2024AccessProfilesApi.md
 docs/V2024AccessRequestApprovalsApi.md
@@ -967,6 +985,7 @@ docs/V2024AccountUsagesApi.md
 docs/V2024AccountsApi.md
 docs/V2024ApplicationDiscoveryApi.md
 docs/V2024ApprovalsApi.md
+docs/V2024AppsApi.md
 docs/V2024AuthProfileApi.md
 docs/V2024AuthUsersApi.md
 docs/V2024BrandingApi.md
@@ -1098,6 +1117,7 @@ src/PSSailpointV2024/Api/V2024AccountUsagesApi.ps1
 src/PSSailpointV2024/Api/V2024AccountsApi.ps1
 src/PSSailpointV2024/Api/V2024ApplicationDiscoveryApi.ps1
 src/PSSailpointV2024/Api/V2024ApprovalsApi.ps1
+src/PSSailpointV2024/Api/V2024AppsApi.ps1
 src/PSSailpointV2024/Api/V2024AuthProfileApi.ps1
 src/PSSailpointV2024/Api/V2024AuthUsersApi.ps1
 src/PSSailpointV2024/Api/V2024BrandingApi.ps1
@@ -1193,6 +1213,8 @@ src/PSSailpointV2024/Model/AccessProfileApprovalScheme.ps1
 src/PSSailpointV2024/Model/AccessProfileBulkDeleteRequest.ps1
 src/PSSailpointV2024/Model/AccessProfileBulkDeleteResponse.ps1
 src/PSSailpointV2024/Model/AccessProfileBulkUpdateRequestInner.ps1
+src/PSSailpointV2024/Model/AccessProfileDetails.ps1
+src/PSSailpointV2024/Model/AccessProfileDetailsAccountSelector.ps1
 src/PSSailpointV2024/Model/AccessProfileDocument.ps1
 src/PSSailpointV2024/Model/AccessProfileDocumentAllOfSource.ps1
 src/PSSailpointV2024/Model/AccessProfileEntitlement.ps1
@@ -1292,6 +1314,8 @@ src/PSSailpointV2024/Model/AggregationResult.ps1
 src/PSSailpointV2024/Model/AggregationType.ps1
 src/PSSailpointV2024/Model/Aggregations.ps1
 src/PSSailpointV2024/Model/App.ps1
+src/PSSailpointV2024/Model/AppAccountDetails.ps1
+src/PSSailpointV2024/Model/AppAccountDetailsSourceAccount.ps1
 src/PSSailpointV2024/Model/AppAllOfAccount.ps1
 src/PSSailpointV2024/Model/Approval.ps1
 src/PSSailpointV2024/Model/Approval1.ps1
@@ -1702,6 +1726,7 @@ src/PSSailpointV2024/Model/ManualWorkItemDetailsCurrentOwner.ps1
 src/PSSailpointV2024/Model/ManualWorkItemDetailsOriginalOwner.ps1
 src/PSSailpointV2024/Model/ManualWorkItemState.ps1
 src/PSSailpointV2024/Model/ManuallyUpdatedFieldsDTO.ps1
+src/PSSailpointV2024/Model/MatchTerm.ps1
 src/PSSailpointV2024/Model/Medium.ps1
 src/PSSailpointV2024/Model/MetricAggregation.ps1
 src/PSSailpointV2024/Model/MetricResponse.ps1
@@ -1986,7 +2011,8 @@ src/PSSailpointV2024/Model/SedPatch.ps1
 src/PSSailpointV2024/Model/Segment.ps1
 src/PSSailpointV2024/Model/SegmentVisibilityCriteria.ps1
 src/PSSailpointV2024/Model/Selector.ps1
-src/PSSailpointV2024/Model/SelectorType.ps1
+src/PSSailpointV2024/Model/SelectorAccountMatchConfig.ps1
+src/PSSailpointV2024/Model/SelectorAccountMatchConfigMatchExpression.ps1
 src/PSSailpointV2024/Model/SelfImportExportDto.ps1
 src/PSSailpointV2024/Model/SendTestNotificationRequestDto.ps1
 src/PSSailpointV2024/Model/ServiceDeskIntegrationDto.ps1
@@ -2023,6 +2049,13 @@ src/PSSailpointV2024/Model/SourceAccountCorrelationRule.ps1
 src/PSSailpointV2024/Model/SourceAccountCreated.ps1
 src/PSSailpointV2024/Model/SourceAccountDeleted.ps1
 src/PSSailpointV2024/Model/SourceAccountUpdated.ps1
+src/PSSailpointV2024/Model/SourceApp.ps1
+src/PSSailpointV2024/Model/SourceAppAccountSource.ps1
+src/PSSailpointV2024/Model/SourceAppBulkUpdateRequest.ps1
+src/PSSailpointV2024/Model/SourceAppCreateDto.ps1
+src/PSSailpointV2024/Model/SourceAppCreateDtoAccountSource.ps1
+src/PSSailpointV2024/Model/SourceAppOwner.ps1
+src/PSSailpointV2024/Model/SourceAppPatchDto.ps1
 src/PSSailpointV2024/Model/SourceBeforeProvisioningRule.ps1
 src/PSSailpointV2024/Model/SourceCluster.ps1
 src/PSSailpointV2024/Model/SourceClusterDto.ps1
@@ -2122,6 +2155,11 @@ src/PSSailpointV2024/Model/UploadsRequest.ps1
 src/PSSailpointV2024/Model/UploadsResponse.ps1
 src/PSSailpointV2024/Model/Upper.ps1
 src/PSSailpointV2024/Model/UsageType.ps1
+src/PSSailpointV2024/Model/UserApp.ps1
+src/PSSailpointV2024/Model/UserAppAccount.ps1
+src/PSSailpointV2024/Model/UserAppOwner.ps1
+src/PSSailpointV2024/Model/UserAppSource.ps1
+src/PSSailpointV2024/Model/UserAppSourceApp.ps1
 src/PSSailpointV2024/Model/V3ConnectorDto.ps1
 src/PSSailpointV2024/Model/V3CreateConnectorDto.ps1
 src/PSSailpointV2024/Model/VAClusterStatusChangeEvent.ps1
@@ -2191,6 +2229,7 @@ tests/Api/V2024AccountUsagesApi.Tests.ps1
 tests/Api/V2024AccountsApi.Tests.ps1
 tests/Api/V2024ApplicationDiscoveryApi.Tests.ps1
 tests/Api/V2024ApprovalsApi.Tests.ps1
+tests/Api/V2024AppsApi.Tests.ps1
 tests/Api/V2024AuthProfileApi.Tests.ps1
 tests/Api/V2024AuthUsersApi.Tests.ps1
 tests/Api/V2024BrandingApi.Tests.ps1
@@ -2285,6 +2324,8 @@ tests/Model/AccessProfileApprovalScheme.Tests.ps1
 tests/Model/AccessProfileBulkDeleteRequest.Tests.ps1
 tests/Model/AccessProfileBulkDeleteResponse.Tests.ps1
 tests/Model/AccessProfileBulkUpdateRequestInner.Tests.ps1
+tests/Model/AccessProfileDetails.Tests.ps1
+tests/Model/AccessProfileDetailsAccountSelector.Tests.ps1
 tests/Model/AccessProfileDocument.Tests.ps1
 tests/Model/AccessProfileDocumentAllOfSource.Tests.ps1
 tests/Model/AccessProfileEntitlement.Tests.ps1
@@ -2384,6 +2425,8 @@ tests/Model/AggregationResult.Tests.ps1
 tests/Model/AggregationType.Tests.ps1
 tests/Model/Aggregations.Tests.ps1
 tests/Model/App.Tests.ps1
+tests/Model/AppAccountDetails.Tests.ps1
+tests/Model/AppAccountDetailsSourceAccount.Tests.ps1
 tests/Model/AppAllOfAccount.Tests.ps1
 tests/Model/Approval.Tests.ps1
 tests/Model/Approval1.Tests.ps1
@@ -2794,6 +2837,7 @@ tests/Model/ManualWorkItemDetailsCurrentOwner.Tests.ps1
 tests/Model/ManualWorkItemDetailsOriginalOwner.Tests.ps1
 tests/Model/ManualWorkItemState.Tests.ps1
 tests/Model/ManuallyUpdatedFieldsDTO.Tests.ps1
+tests/Model/MatchTerm.Tests.ps1
 tests/Model/Medium.Tests.ps1
 tests/Model/MetricAggregation.Tests.ps1
 tests/Model/MetricResponse.Tests.ps1
@@ -3078,7 +3122,8 @@ tests/Model/SedPatch.Tests.ps1
 tests/Model/Segment.Tests.ps1
 tests/Model/SegmentVisibilityCriteria.Tests.ps1
 tests/Model/Selector.Tests.ps1
-tests/Model/SelectorType.Tests.ps1
+tests/Model/SelectorAccountMatchConfig.Tests.ps1
+tests/Model/SelectorAccountMatchConfigMatchExpression.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
@@ -3115,6 +3160,13 @@ tests/Model/SourceAccountCorrelationRule.Tests.ps1
 tests/Model/SourceAccountCreated.Tests.ps1
 tests/Model/SourceAccountDeleted.Tests.ps1
 tests/Model/SourceAccountUpdated.Tests.ps1
+tests/Model/SourceApp.Tests.ps1
+tests/Model/SourceAppAccountSource.Tests.ps1
+tests/Model/SourceAppBulkUpdateRequest.Tests.ps1
+tests/Model/SourceAppCreateDto.Tests.ps1
+tests/Model/SourceAppCreateDtoAccountSource.Tests.ps1
+tests/Model/SourceAppOwner.Tests.ps1
+tests/Model/SourceAppPatchDto.Tests.ps1
 tests/Model/SourceBeforeProvisioningRule.Tests.ps1
 tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
@@ -3214,6 +3266,11 @@ tests/Model/UploadsRequest.Tests.ps1
 tests/Model/UploadsResponse.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
+tests/Model/UserApp.Tests.ps1
+tests/Model/UserAppAccount.Tests.ps1
+tests/Model/UserAppOwner.Tests.ps1
+tests/Model/UserAppSource.Tests.ps1
+tests/Model/UserAppSourceApp.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1
 tests/Model/V3CreateConnectorDto.Tests.ps1
 tests/Model/VAClusterStatusChangeEvent.Tests.ps1

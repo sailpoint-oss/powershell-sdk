@@ -57,7 +57,7 @@ function New-BetaDigitToken {
         $LocalVarUri = '/generate-password-reset-token/digit'
 
         if (!$PasswordDigitTokenReset) {
-            throw "Error! The required parameter `PasswordDigitTokenReset` missing when calling generateDigitToken."
+            throw "Error! The required parameter `PasswordDigitTokenReset` missing when calling createDigitToken."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordDigitTokenReset -is [array])) {

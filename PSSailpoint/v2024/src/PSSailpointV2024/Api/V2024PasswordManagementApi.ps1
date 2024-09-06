@@ -63,12 +63,12 @@ function New-V2024DigitToken {
         $LocalVarUri = '/generate-password-reset-token/digit'
 
         if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling generateDigitToken."
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling createDigitToken."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$PasswordDigitTokenReset) {
-            throw "Error! The required parameter `PasswordDigitTokenReset` missing when calling generateDigitToken."
+            throw "Error! The required parameter `PasswordDigitTokenReset` missing when calling createDigitToken."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordDigitTokenReset -is [array])) {

@@ -97,9 +97,11 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Submit-BetaReloadAccount**](docs/BetaAccountsApi.md#Submit-BetaReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *BetaAccountsApi* | [**Unlock-BetaAccount**](docs/BetaAccountsApi.md#Unlock-BetaAccount) | **POST** /accounts/{id}/unlock | Unlock Account
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
+*BetaApplicationDiscoveryApi* | [**Get-BetaDiscoveredApplicationByID**](docs/BetaApplicationDiscoveryApi.md#Get-BetaDiscoveredApplicationByID) | **GET** /discovered-applications/{id} | Get Discovered Application by ID
 *BetaApplicationDiscoveryApi* | [**Get-BetaDiscoveredApplications**](docs/BetaApplicationDiscoveryApi.md#Get-BetaDiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
 *BetaApplicationDiscoveryApi* | [**Get-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
 *BetaApplicationDiscoveryApi* | [**Get-BetaVendorConnectorMappings**](docs/BetaApplicationDiscoveryApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
+*BetaApplicationDiscoveryApi* | [**Update-BetaDiscoveredApplicationByID**](docs/BetaApplicationDiscoveryApi.md#Update-BetaDiscoveredApplicationByID) | **PATCH** /discovered-applications/{id} | Patch Discovered Application by Id
 *BetaApplicationDiscoveryApi* | [**Send-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
 *BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval
 *BetaApprovalsApi* | [**Get-BetaApprovals**](docs/BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get Approvals
@@ -719,6 +721,7 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.ApprovalSummary](docs/ApprovalSummary.md)
  - [PSSailpointBeta\Model.Argument](docs/Argument.md)
  - [PSSailpointBeta\Model.ArrayInner](docs/ArrayInner.md)
+ - [PSSailpointBeta\Model.ArrayInner1](docs/ArrayInner1.md)
  - [PSSailpointBeta\Model.AssignmentContextDto](docs/AssignmentContextDto.md)
  - [PSSailpointBeta\Model.AttrSyncSource](docs/AttrSyncSource.md)
  - [PSSailpointBeta\Model.AttrSyncSourceAttributeConfig](docs/AttrSyncSourceAttributeConfig.md)
@@ -1010,6 +1013,8 @@ Class | Method | HTTP request | Description
  - [PSSailpointBeta\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpointBeta\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpointBeta\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
+ - [PSSailpointBeta\Model.JsonPatchOperations](docs/JsonPatchOperations.md)
+ - [PSSailpointBeta\Model.JsonPatchOperationsValue](docs/JsonPatchOperationsValue.md)
  - [PSSailpointBeta\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
  - [PSSailpointBeta\Model.KbaAnswerResponseItem](docs/KbaAnswerResponseItem.md)
  - [PSSailpointBeta\Model.KbaAuthResponse](docs/KbaAuthResponse.md)

@@ -132,6 +132,7 @@ docs/ApprovalStatusDtoOriginalOwner.md
 docs/ApprovalSummary.md
 docs/Argument.md
 docs/ArrayInner.md
+docs/ArrayInner1.md
 docs/AssignmentContextDto.md
 docs/AttrSyncSource.md
 docs/AttrSyncSourceAttributeConfig.md
@@ -496,6 +497,8 @@ docs/InvocationStatusType.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationValue.md
+docs/JsonPatchOperations.md
+docs/JsonPatchOperationsValue.md
 docs/KbaAnswerRequestItem.md
 docs/KbaAnswerResponseItem.md
 docs/KbaAuthResponse.md
@@ -1176,6 +1179,7 @@ src/PSSailpointBeta/Model/ApprovalStatusDtoOriginalOwner.ps1
 src/PSSailpointBeta/Model/ApprovalSummary.ps1
 src/PSSailpointBeta/Model/Argument.ps1
 src/PSSailpointBeta/Model/ArrayInner.ps1
+src/PSSailpointBeta/Model/ArrayInner1.ps1
 src/PSSailpointBeta/Model/AssignmentContextDto.ps1
 src/PSSailpointBeta/Model/AttrSyncSource.ps1
 src/PSSailpointBeta/Model/AttrSyncSourceAttributeConfig.ps1
@@ -1467,6 +1471,8 @@ src/PSSailpointBeta/Model/InvocationStatusType.ps1
 src/PSSailpointBeta/Model/JsonPatch.ps1
 src/PSSailpointBeta/Model/JsonPatchOperation.ps1
 src/PSSailpointBeta/Model/JsonPatchOperationValue.ps1
+src/PSSailpointBeta/Model/JsonPatchOperations.ps1
+src/PSSailpointBeta/Model/JsonPatchOperationsValue.ps1
 src/PSSailpointBeta/Model/KbaAnswerRequestItem.ps1
 src/PSSailpointBeta/Model/KbaAnswerResponseItem.ps1
 src/PSSailpointBeta/Model/KbaAuthResponse.ps1
@@ -2154,6 +2160,7 @@ tests/Model/ApprovalStatusDtoOriginalOwner.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
 tests/Model/Argument.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
+tests/Model/ArrayInner1.Tests.ps1
 tests/Model/AssignmentContextDto.Tests.ps1
 tests/Model/AttrSyncSource.Tests.ps1
 tests/Model/AttrSyncSourceAttributeConfig.Tests.ps1
@@ -2445,6 +2452,8 @@ tests/Model/InvocationStatusType.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationValue.Tests.ps1
+tests/Model/JsonPatchOperations.Tests.ps1
+tests/Model/JsonPatchOperationsValue.Tests.ps1
 tests/Model/KbaAnswerRequestItem.Tests.ps1
 tests/Model/KbaAnswerResponseItem.Tests.ps1
 tests/Model/KbaAuthResponse.Tests.ps1

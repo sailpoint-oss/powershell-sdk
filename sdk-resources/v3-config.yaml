@@ -1,5 +1,5 @@
 templateDir: ./sdk-resources/resources
-packageName: PSSailpoint
+packageName: Tm.V3
 packageVersion: 1.4.3
 apiVersion: v3
 companyName: SailPoint Technologies

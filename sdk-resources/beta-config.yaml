@@ -1,5 +1,5 @@
 templateDir: ./sdk-resources/resources
-packageName: PSSailpointBeta
+packageName: Tm.Beta
 packageVersion: 1.4.3
 apiNamePrefix: Beta
 apiVersion: beta

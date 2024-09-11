@@ -42,31 +42,34 @@ jobs:
         id: buildV2024
         run: |
           rm -rf ./PSSailpoint/v2024
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2024.yaml -g powershell -o PSSailpoint/v2024 --global-property skipFormModel=false --config sdk-resources/v2024-config.yaml
-          node sdk-resources/postscript.js ./PSSailpoint/v2024
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2024.yaml -g powershell -o Tm/v2024 --global-property skipFormModel=false --config sdk-resources/v2024-config.yaml
+          node sdk-resources/postscript.js ./Tm/v2024
 
       - name: Build V3 SDK
         id: buildV3
         if: steps.buildV2024.outcome == 'success'
         run: |
-          rm -rf ./PSSailpoint/v3
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g powershell -o PSSailpoint/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml
-          node sdk-resources/postscript.js ./PSSailpoint/v3
+          rm -rf ./Tm/v3
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g powershell -o Tm/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml
+          node sdk-resources/postscript.js ./Tm/v3
 
       - name: Build Beta SDK
         id: buildBeta
         if: steps.buildV3.outcome == 'success'
         run: |
-          rm -rf ./PSSailpoint/beta
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g powershell -o PSSailpoint/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml
-          node sdk-resources/postscript.js ./PSSailpoint/beta
+          rm -rf ./Tm/beta
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g powershell -o Tm/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml
+          node sdk-resources/postscript.js ./Tm/beta
 
       - name: After SDK Build
         if: steps.buildBeta.outcome == 'success'
         shell: pwsh
         run: |
           $DebugPreference="Continue"
-          Import-Module -Name '.\PSSailpoint' -Verbose
+          Import-Module -Name '.\Tm\beta\src\Tm.Beta' -Verbose
+          Import-Module -Name '.\Tm\v3\src\Tm.V3' -Verbose
+          Import-Module -Name '.\Tm\v2024\src\Tm.V2024' -Verbose
+          Import-Module -Name '.\Tm' -Verbose
 
           Install-Module -Name Pester -Force
-          Invoke-Pester -Output Detailed ./PSSailpoint/tests/
+          Invoke-Pester -Output Detailed ./Tm/tests/

@@ -21,8 +21,20 @@ jobs:
         shell: pwsh
         run: |
           $DebugPreference="Continue"
-          Install-Module -Name PSYaml -RequiredVersion 1.0.2 -Force
           Publish-Module `
-              -Path './PSSailpoint' `
+              -Path './Tm/beta/src/Tm.Beta' `
               -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
               -Verbose -Force
+          Publish-Module `
+              -Path './Tm/v3/src/Tm.V3' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+          Publish-Module `
+              -Path './Tm/v2024/src/Tm.V2024' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+          Publish-Module `
+              -Path './Tm' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+          

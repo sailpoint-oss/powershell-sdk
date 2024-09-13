@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignFilterDetailsCriteriaListInner = Initialize-PSSailpointV2024CampaignFilterDetailsCriteriaListInner  -Type null `
+$CampaignFilterDetailsCriteriaListInner = Initialize-PSSailpoint.V2024CampaignFilterDetailsCriteriaListInner  -Type null `
  -Operation null `
  -Property displayName `
  -Value Allie

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LockoutConfiguration = Initialize-PSSailpointLockoutConfiguration  -MaximumAttempts 5 `
+$LockoutConfiguration = Initialize-PSSailpoint.V3LockoutConfiguration  -MaximumAttempts 5 `
  -LockoutDuration 15 `
  -LockoutWindow 5
 ```

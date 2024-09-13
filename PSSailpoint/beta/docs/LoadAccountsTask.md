@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsTask = Initialize-PSSailpointBetaLoadAccountsTask  -Success true `
+$LoadAccountsTask = Initialize-PSSailpoint.BetaLoadAccountsTask  -Success true `
  -Task null
 ```
 

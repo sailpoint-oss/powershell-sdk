@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantUiMetadataItemResponse = Initialize-PSSailpointV2024TenantUiMetadataItemResponse  -IframeWhiteList http://example.com http://example2.com `
+$TenantUiMetadataItemResponse = Initialize-PSSailpoint.V2024TenantUiMetadataItemResponse  -IframeWhiteList http://example.com http://example2.com `
  -UsernameLabel Email `
  -UsernameEmptyText Please provide your work email address...
 ```

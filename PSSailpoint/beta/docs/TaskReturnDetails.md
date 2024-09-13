@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskReturnDetails = Initialize-PSSailpointBetaTaskReturnDetails  -Name label `
+$TaskReturnDetails = Initialize-PSSailpoint.BetaTaskReturnDetails  -Name label `
  -AttributeName identityCount
 ```
 

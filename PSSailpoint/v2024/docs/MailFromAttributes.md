@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MailFromAttributes = Initialize-PSSailpointV2024MailFromAttributes  -Identity bob.smith@sailpoint.com `
+$MailFromAttributes = Initialize-PSSailpoint.V2024MailFromAttributes  -Identity bob.smith@sailpoint.com `
  -MailFromDomain foo.sailpoint.com `
  -MxRecord 10 feedback-smtp.us-east-1.amazonses.com `
  -TxtRecord v&#x3D;spf1 include:amazonses.com ~all `

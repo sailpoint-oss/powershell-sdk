@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectMappingBulkPatchResponse = Initialize-PSSailpointV2024ObjectMappingBulkPatchResponse  -PatchedObjects null
+$ObjectMappingBulkPatchResponse = Initialize-PSSailpoint.V2024ObjectMappingBulkPatchResponse  -PatchedObjects null
 ```
 
 - Convert the resource to JSON

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Lower = Initialize-PSSailpointV2024Lower  -RequiresPeriodicRefresh false `
+$Lower = Initialize-PSSailpoint.V2024Lower  -RequiresPeriodicRefresh false `
  -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
 ```
 

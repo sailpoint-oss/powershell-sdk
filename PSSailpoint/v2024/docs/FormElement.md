@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElement = Initialize-PSSailpointV2024FormElement  -Id 00000000-0000-0000-0000-000000000000 `
+$FormElement = Initialize-PSSailpoint.V2024FormElement  -Id 00000000-0000-0000-0000-000000000000 `
  -ElementType TEXT `
  -Config {label&#x3D;Department} `
  -Key department `

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ForwardApprovalDto = Initialize-PSSailpointBetaForwardApprovalDto  -NewOwnerId null `
+$ForwardApprovalDto = Initialize-PSSailpoint.BetaForwardApprovalDto  -NewOwnerId null `
  -Comment null
 ```
 

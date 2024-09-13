@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetRoleAssignments200ResponseInner = Initialize-PSSailpointBetaGetRoleAssignments200ResponseInner  -Id 1cbb0705b38c4226b1334eadd8874086 `
+$GetRoleAssignments200ResponseInner = Initialize-PSSailpoint.BetaGetRoleAssignments200ResponseInner  -Id 1cbb0705b38c4226b1334eadd8874086 `
  -Role null `
  -Comments I&#39;m a new Engineer and need this role to do my work `
  -AssignmentSource UI `

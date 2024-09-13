@@ -74,6 +74,7 @@ jobs:
           LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           cd PSSailpoint
           sed -e "s/ModuleVersion     = '${LATEST_TAG:1}'/ModuleVersion     = '${{ github.event.inputs.version }}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
+          sed -e "s/RequiredVersion = '${LATEST_TAG:1}'/RequiredVersion = '${{ github.event.inputs.version }}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
 
       - name: Build V2024 SDK
         id: buildV2024
@@ -106,7 +107,16 @@ jobs:
         run: |
           $DebugPreference="Continue"
           ./PSSailpoint/Build.ps1
-          Import-Module -Name '.\PSSailpoint' -Verbose
+          ./PSSailpoint/v3/Build.ps1
+          ./PSSailpoint/v2024/Build.ps1
+          ./PSSailpoint/beta/Build.ps1
+
+          Import-Module -Name '.\PSSailpoint\beta\src\Tm.Beta' -Verbose
+          Import-Module -Name '.\PSSailpoint\v3\src\Tm.V3' -Verbose
+          Import-Module -Name '.\PSSailpoint\v2024\src\Tm.V2024' -Verbose
+
+          . .\Tm\Configuration.ps1
+          . .\Tm\Pagination.ps1
 
       - name: Commit changes and create new version tag
         if: steps.buildSDK.outcome == 'success'

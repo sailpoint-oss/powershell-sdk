@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionDto = Initialize-PSSailpointV2024RoleMiningSessionDto  -Scope null `
+$RoleMiningSessionDto = Initialize-PSSailpoint.V2024RoleMiningSessionDto  -Scope null `
  -PruneThreshold 50 `
  -PrescribedPruneThreshold 10 `
  -MinNumIdentitiesInPotentialRole 20 `

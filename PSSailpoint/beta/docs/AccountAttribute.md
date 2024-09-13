@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttribute = Initialize-PSSailpointBetaAccountAttribute  -SourceName Workday `
+$AccountAttribute = Initialize-PSSailpoint.BetaAccountAttribute  -SourceName Workday `
  -AttributeName DEPARTMENT `
  -AccountSortAttribute created `
  -AccountSortDescending false `

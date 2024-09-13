@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutSourceConfigRequest = Initialize-PSSailpointPutSourceConfigRequest  -File null
+$PutSourceConfigRequest = Initialize-PSSailpoint.V3PutSourceConfigRequest  -File null
 ```
 
 - Convert the resource to JSON

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElementPreviewRequest = Initialize-PSSailpointV2024FormElementPreviewRequest  -DataSource null
+$FormElementPreviewRequest = Initialize-PSSailpoint.V2024FormElementPreviewRequest  -DataSource null
 ```
 
 - Convert the resource to JSON

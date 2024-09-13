@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRejectApprovalDecision = Initialize-PSSailpointNonEmployeeRejectApprovalDecision  -Comment approved
+$NonEmployeeRejectApprovalDecision = Initialize-PSSailpoint.V3NonEmployeeRejectApprovalDecision  -Comment approved
 ```
 
 - Convert the resource to JSON

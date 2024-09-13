@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportUploadedBackupRequest = Initialize-PSSailpointV2024ImportUploadedBackupRequest  -VarData null `
+$ImportUploadedBackupRequest = Initialize-PSSailpoint.V2024ImportUploadedBackupRequest  -VarData null `
  -Name null
 ```
 

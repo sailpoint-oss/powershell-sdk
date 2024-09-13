@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationTemplateType = Initialize-PSSailpointV2024ServiceDeskIntegrationTemplateType  -Name aName `
+$ServiceDeskIntegrationTemplateType = Initialize-PSSailpoint.V2024ServiceDeskIntegrationTemplateType  -Name aName `
  -Type aType `
  -ScriptName aScriptName
 ```

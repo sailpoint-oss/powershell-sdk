@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClientStatusEnum = Initialize-PSSailpointBetaManagedClientStatusEnum 
+$ManagedClientStatusEnum = Initialize-PSSailpoint.BetaManagedClientStatusEnum 
 ```
 
 - Convert the resource to JSON

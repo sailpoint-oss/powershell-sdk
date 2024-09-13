@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementSourceResetBaseReferenceDto = Initialize-PSSailpointV2024EntitlementSourceResetBaseReferenceDto  -Type TASK_RESULT `
+$EntitlementSourceResetBaseReferenceDto = Initialize-PSSailpoint.V2024EntitlementSourceResetBaseReferenceDto  -Type TASK_RESULT `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Entitlement Source Reset
 ```

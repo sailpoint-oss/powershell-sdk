@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$HttpDispatchMode = Initialize-PSSailpointV2024HttpDispatchMode 
+$HttpDispatchMode = Initialize-PSSailpoint.V2024HttpDispatchMode 
 ```
 
 - Convert the resource to JSON

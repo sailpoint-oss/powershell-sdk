@@ -1,4 +1,4 @@
-# PSSailpointV2024.PSSailpointV2024\Api.V2024SearchAttributeConfigurationApi
+# PSSailpoint.V2024.PSSailpoint.V2024\Api.V2024SearchAttributeConfigurationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

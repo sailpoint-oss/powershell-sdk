@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceHealthDto = Initialize-PSSailpointV2024SourceHealthDto  -Id 2c91808568c529c60168cca6f90c1324 `
+$SourceHealthDto = Initialize-PSSailpoint.V2024SourceHealthDto  -Id 2c91808568c529c60168cca6f90c1324 `
  -Type OpenLDAP - Direct `
  -Name Source1234 `
  -Org denali-cjh `

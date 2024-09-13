@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsTaskTaskMessagesInner = Initialize-PSSailpointV2024LoadAccountsTaskTaskMessagesInner  -Type WARN `
+$LoadAccountsTaskTaskMessagesInner = Initialize-PSSailpoint.V2024LoadAccountsTaskTaskMessagesInner  -Type WARN `
  -VarError false `
  -Warning true `
  -Key This aggregation failed because the currently running aggregation must complete before the next one can start. `

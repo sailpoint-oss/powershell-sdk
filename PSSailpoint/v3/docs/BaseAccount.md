@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseAccount = Initialize-PSSailpointBaseAccount  -Id 2c91808568c529c60168cca6f90c1313 `
+$BaseAccount = Initialize-PSSailpoint.V3BaseAccount  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -AccountId John.Doe `
  -Source null `

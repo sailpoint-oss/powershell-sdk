@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskResultResponse = Initialize-PSSailpointV2024TaskResultResponse  -Type TASK_RESULT `
+$TaskResultResponse = Initialize-PSSailpoint.V2024TaskResultResponse  -Type TASK_RESULT `
  -Id 78733556-9ea3-4f59-bf69-e5cd92b011b4 `
  -Name null
 ```

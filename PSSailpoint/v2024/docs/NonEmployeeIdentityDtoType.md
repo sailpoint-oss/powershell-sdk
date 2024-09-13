@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeIdentityDtoType = Initialize-PSSailpointV2024NonEmployeeIdentityDtoType 
+$NonEmployeeIdentityDtoType = Initialize-PSSailpoint.V2024NonEmployeeIdentityDtoType 
 ```
 
 - Convert the resource to JSON

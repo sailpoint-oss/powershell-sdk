@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigurationResponse = Initialize-PSSailpointV2024ConfigurationResponse  -Identity null `
+$ConfigurationResponse = Initialize-PSSailpoint.V2024ConfigurationResponse  -Identity null `
  -ConfigDetails null
 ```
 

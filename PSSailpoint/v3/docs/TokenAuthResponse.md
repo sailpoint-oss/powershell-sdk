@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TokenAuthResponse = Initialize-PSSailpointTokenAuthResponse  -Status PENDING
+$TokenAuthResponse = Initialize-PSSailpoint.V3TokenAuthResponse  -Status PENDING
 ```
 
 - Convert the resource to JSON

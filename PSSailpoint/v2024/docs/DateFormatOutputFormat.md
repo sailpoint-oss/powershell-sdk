@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateFormatOutputFormat = Initialize-PSSailpointV2024DateFormatOutputFormat 
+$DateFormatOutputFormat = Initialize-PSSailpoint.V2024DateFormatOutputFormat 
 ```
 
 - Convert the resource to JSON

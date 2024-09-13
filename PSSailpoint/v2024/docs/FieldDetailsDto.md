@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FieldDetailsDto = Initialize-PSSailpointV2024FieldDetailsDto  -Name userName `
+$FieldDetailsDto = Initialize-PSSailpoint.V2024FieldDetailsDto  -Name userName `
  -Transform {type&#x3D;rule, attributes&#x3D;{name&#x3D;Create Unique LDAP Attribute}} `
  -Attributes {template&#x3D;${firstname}.${lastname}${uniqueCounter}, cloudMaxUniqueChecks&#x3D;50, cloudMaxSize&#x3D;20, cloudRequired&#x3D;true} `
  -IsRequired false `

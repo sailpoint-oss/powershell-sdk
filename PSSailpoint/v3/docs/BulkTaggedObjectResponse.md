@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkTaggedObjectResponse = Initialize-PSSailpointBulkTaggedObjectResponse  -ObjectRefs null `
+$BulkTaggedObjectResponse = Initialize-PSSailpoint.V3BulkTaggedObjectResponse  -ObjectRefs null `
  -Tags [BU_FINANCE, PCI]
 ```
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DependantAppConnectionsAccountSource = Initialize-PSSailpointDependantAppConnectionsAccountSource  -UseForPasswordManagement false `
+$DependantAppConnectionsAccountSource = Initialize-PSSailpoint.V3DependantAppConnectionsAccountSource  -UseForPasswordManagement false `
  -PasswordPolicies null
 ```
 

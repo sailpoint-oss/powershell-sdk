@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountsExportReportArguments = Initialize-PSSailpointV2024AccountsExportReportArguments  -Application 2c9180897eSourceIde781782f705b9 `
+$AccountsExportReportArguments = Initialize-PSSailpoint.V2024AccountsExportReportArguments  -Application 2c9180897eSourceIde781782f705b9 `
  -SourceName DataScienceSourceName
 ```
 

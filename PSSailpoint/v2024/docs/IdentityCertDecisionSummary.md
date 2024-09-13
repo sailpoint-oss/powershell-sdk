@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityCertDecisionSummary = Initialize-PSSailpointV2024IdentityCertDecisionSummary  -EntitlementDecisionsMade 3 `
+$IdentityCertDecisionSummary = Initialize-PSSailpoint.V2024IdentityCertDecisionSummary  -EntitlementDecisionsMade 3 `
  -AccessProfileDecisionsMade 5 `
  -RoleDecisionsMade 2 `
  -AccountDecisionsMade 4 `

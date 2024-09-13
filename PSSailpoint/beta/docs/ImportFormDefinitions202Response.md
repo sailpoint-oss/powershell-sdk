@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportFormDefinitions202Response = Initialize-PSSailpointBetaImportFormDefinitions202Response  -Errors null `
+$ImportFormDefinitions202Response = Initialize-PSSailpoint.BetaImportFormDefinitions202Response  -Errors null `
  -ImportedObjects null `
  -Infos null `
  -Warnings null

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleCriteriaKeyType = Initialize-PSSailpointRoleCriteriaKeyType 
+$RoleCriteriaKeyType = Initialize-PSSailpoint.V3RoleCriteriaKeyType 
 ```
 
 - Convert the resource to JSON

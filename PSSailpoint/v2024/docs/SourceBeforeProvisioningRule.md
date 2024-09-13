@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceBeforeProvisioningRule = Initialize-PSSailpointV2024SourceBeforeProvisioningRule  -Type RULE `
+$SourceBeforeProvisioningRule = Initialize-PSSailpoint.V2024SourceBeforeProvisioningRule  -Type RULE `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
 ```

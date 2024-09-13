@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkRemoveTaggedObject = Initialize-PSSailpointBulkRemoveTaggedObject  -ObjectRefs null `
+$BulkRemoveTaggedObject = Initialize-PSSailpoint.V3BulkRemoveTaggedObject  -ObjectRefs null `
  -Tags [BU_FINANCE, PCI]
 ```
 

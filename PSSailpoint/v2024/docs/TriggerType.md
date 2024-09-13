@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TriggerType = Initialize-PSSailpointV2024TriggerType 
+$TriggerType = Initialize-PSSailpoint.V2024TriggerType 
 ```
 
 - Convert the resource to JSON

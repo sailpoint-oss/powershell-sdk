@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ModelFilter = Initialize-PSSailpointV2024ModelFilter  -Type null `
+$ModelFilter = Initialize-PSSailpoint.V2024ModelFilter  -Type null `
  -Range null `
  -Terms null `
  -Exclude false

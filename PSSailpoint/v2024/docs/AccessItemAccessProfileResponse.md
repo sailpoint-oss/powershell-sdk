@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemAccessProfileResponse = Initialize-PSSailpointV2024AccessItemAccessProfileResponse  -AccessType accessProfile `
+$AccessItemAccessProfileResponse = Initialize-PSSailpoint.V2024AccessItemAccessProfileResponse  -AccessType accessProfile `
  -Id 2c918087763e69d901763e72e97f006f `
  -Name sample `
  -SourceName DataScienceDataset `

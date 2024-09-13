@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleSourceUsage = Initialize-PSSailpointV2024RoleMiningPotentialRoleSourceUsage  -Id 2c918089762475180176267f894b54dc `
+$RoleMiningPotentialRoleSourceUsage = Initialize-PSSailpoint.V2024RoleMiningPotentialRoleSourceUsage  -Id 2c918089762475180176267f894b54dc `
  -DisplayName Kirk Koepp `
  -Email kirk.koepp@testmail.identitynow.com `
  -UsageCount 25

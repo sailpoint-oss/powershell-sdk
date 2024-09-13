@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManualWorkItemDetails = Initialize-PSSailpointV2024ManualWorkItemDetails  -Forwarded true `
+$ManualWorkItemDetails = Initialize-PSSailpoint.V2024ManualWorkItemDetails  -Forwarded true `
  -OriginalOwner null `
  -CurrentOwner null `
  -Modified 2019-08-23T18:52:57.398Z `

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchFormDefinitionsByTenant400Response = Initialize-PSSailpointV2024SearchFormDefinitionsByTenant400Response  -DetailCode null `
+$SearchFormDefinitionsByTenant400Response = Initialize-PSSailpoint.V2024SearchFormDefinitionsByTenant400Response  -DetailCode null `
  -Messages null `
  -StatusCode null `
  -TrackingId null

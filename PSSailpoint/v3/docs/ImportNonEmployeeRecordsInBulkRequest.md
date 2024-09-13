@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportNonEmployeeRecordsInBulkRequest = Initialize-PSSailpointImportNonEmployeeRecordsInBulkRequest  -VarData null
+$ImportNonEmployeeRecordsInBulkRequest = Initialize-PSSailpoint.V3ImportNonEmployeeRecordsInBulkRequest  -VarData null
 ```
 
 - Convert the resource to JSON

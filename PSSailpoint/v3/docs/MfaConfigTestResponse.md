@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MfaConfigTestResponse = Initialize-PSSailpointMfaConfigTestResponse  -State SUCCESS `
+$MfaConfigTestResponse = Initialize-PSSailpoint.V3MfaConfigTestResponse  -State SUCCESS `
  -VarError MFA Method is disabled.
 ```
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributesChangedChangesInner = Initialize-PSSailpointV2024IdentityAttributesChangedChangesInner  -Attribute department `
+$IdentityAttributesChangedChangesInner = Initialize-PSSailpoint.V2024IdentityAttributesChangedChangesInner  -Attribute department `
  -OldValue null `
  -NewValue null
 ```

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationDto = Initialize-PSSailpointServiceDeskIntegrationDto  -Id 62945a496ef440189b1f03e3623411c8 `
+$ServiceDeskIntegrationDto = Initialize-PSSailpoint.V3ServiceDeskIntegrationDto  -Id 62945a496ef440189b1f03e3623411c8 `
  -Name Service Desk Integration Name `
  -Created 2024-01-17T18:45:25.994Z `
  -Modified 2024-02-18T18:45:25.994Z `

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceUsageStatus = Initialize-PSSailpointBetaSourceUsageStatus  -Status COMPLETE
+$SourceUsageStatus = Initialize-PSSailpoint.BetaSourceUsageStatus  -Status COMPLETE
 ```
 
 - Convert the resource to JSON

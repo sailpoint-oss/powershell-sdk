@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityReferenceWithNameAndEmail = Initialize-PSSailpointIdentityReferenceWithNameAndEmail  -Type IDENTITY `
+$IdentityReferenceWithNameAndEmail = Initialize-PSSailpoint.V3IdentityReferenceWithNameAndEmail  -Type IDENTITY `
  -Id 5168015d32f890ca15812c9180835d2e `
  -Name Alison Ferguso `
  -Email alison.ferguso@identitysoon.com

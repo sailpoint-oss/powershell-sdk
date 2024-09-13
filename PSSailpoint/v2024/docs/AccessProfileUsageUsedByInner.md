@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileUsageUsedByInner = Initialize-PSSailpointV2024AccessProfileUsageUsedByInner  -Type ROLE `
+$AccessProfileUsageUsedByInner = Initialize-PSSailpoint.V2024AccessProfileUsageUsedByInner  -Type ROLE `
  -Id 2c8180857a9b3da0017aa03418480f9d `
  -Name Manager Role
 ```

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountStatusChanged = Initialize-PSSailpointBetaAccountStatusChanged  -EventType null `
+$AccountStatusChanged = Initialize-PSSailpoint.BetaAccountStatusChanged  -EventType null `
  -IdentityId null `
  -Dt null `
  -Account null `

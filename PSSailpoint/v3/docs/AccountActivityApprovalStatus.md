@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivityApprovalStatus = Initialize-PSSailpointAccountActivityApprovalStatus 
+$AccountActivityApprovalStatus = Initialize-PSSailpoint.V3AccountActivityApprovalStatus 
 ```
 
 - Convert the resource to JSON

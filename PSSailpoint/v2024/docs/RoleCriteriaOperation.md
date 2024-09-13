@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleCriteriaOperation = Initialize-PSSailpointV2024RoleCriteriaOperation 
+$RoleCriteriaOperation = Initialize-PSSailpoint.V2024RoleCriteriaOperation 
 ```
 
 - Convert the resource to JSON

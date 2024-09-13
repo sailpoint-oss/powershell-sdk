@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportType = Initialize-PSSailpointReportType 
+$ReportType = Initialize-PSSailpoint.V3ReportType 
 ```
 
 - Convert the resource to JSON

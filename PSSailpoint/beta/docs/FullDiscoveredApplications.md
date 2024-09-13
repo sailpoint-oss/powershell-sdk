@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FullDiscoveredApplications = Initialize-PSSailpointBetaFullDiscoveredApplications  -Id null `
+$FullDiscoveredApplications = Initialize-PSSailpoint.BetaFullDiscoveredApplications  -Id null `
  -Name ExampleApp `
  -DiscoverySource csv `
  -DiscoveredVendor ExampleVendor `

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskStatusMessage = Initialize-PSSailpointV2024TaskStatusMessage  -Type INFO `
+$TaskStatusMessage = Initialize-PSSailpoint.V2024TaskStatusMessage  -Type INFO `
  -LocalizedText null `
  -Key akey `
  -Parameters [{name&#x3D;value}]

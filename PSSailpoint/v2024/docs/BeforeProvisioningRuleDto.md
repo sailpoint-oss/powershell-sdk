@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BeforeProvisioningRuleDto = Initialize-PSSailpointV2024BeforeProvisioningRuleDto  -Type RULE `
+$BeforeProvisioningRuleDto = Initialize-PSSailpoint.V2024BeforeProvisioningRuleDto  -Type RULE `
  -Id 048eb3d55c5a4758bd07dccb87741c78 `
  -Name Before Provisioning Airtable Rule
 ```

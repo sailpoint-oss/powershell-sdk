@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppOwner = Initialize-PSSailpointV2024SourceAppOwner  -Type null `
+$SourceAppOwner = Initialize-PSSailpoint.V2024SourceAppOwner  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
 ```

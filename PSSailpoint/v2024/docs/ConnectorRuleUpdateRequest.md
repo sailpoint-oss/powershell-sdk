@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleUpdateRequest = Initialize-PSSailpointV2024ConnectorRuleUpdateRequest  -Name WebServiceBeforeOperationRule `
+$ConnectorRuleUpdateRequest = Initialize-PSSailpoint.V2024ConnectorRuleUpdateRequest  -Name WebServiceBeforeOperationRule `
  -Description This rule does that `
  -Type BuildMap `
  -Signature null `

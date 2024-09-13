@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalDescription = Initialize-PSSailpointBetaApprovalDescription  -Value This access allows viewing and editing of workflow resource `
+$ApprovalDescription = Initialize-PSSailpoint.BetaApprovalDescription  -Value This access allows viewing and editing of workflow resource `
  -Locale en_US
 ```
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Value = Initialize-PSSailpointBetaValue  -Type STRING `
+$Value = Initialize-PSSailpoint.BetaValue  -Type STRING `
  -Value Austin
 ```
 

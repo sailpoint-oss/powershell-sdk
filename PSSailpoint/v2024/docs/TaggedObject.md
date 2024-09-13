@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaggedObject = Initialize-PSSailpointV2024TaggedObject  -ObjectRef null `
+$TaggedObject = Initialize-PSSailpoint.V2024TaggedObject  -ObjectRef null `
  -Tags [BU_FINANCE, PCI]
 ```
 

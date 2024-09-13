@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodPolicySchedule = Initialize-PSSailpointV2024SodPolicySchedule  -Name SCH-1584312283015 `
+$SodPolicySchedule = Initialize-PSSailpoint.V2024SodPolicySchedule  -Name SCH-1584312283015 `
  -Created 2020-01-01T00:00Z `
  -Modified 2020-01-01T00:00Z `
  -Description Schedule for policy xyz `

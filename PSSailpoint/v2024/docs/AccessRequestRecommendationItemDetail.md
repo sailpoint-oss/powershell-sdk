@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestRecommendationItemDetail = Initialize-PSSailpointV2024AccessRequestRecommendationItemDetail  -IdentityId 2c91808570313110017040b06f344ec9 `
+$AccessRequestRecommendationItemDetail = Initialize-PSSailpoint.V2024AccessRequestRecommendationItemDetail  -IdentityId 2c91808570313110017040b06f344ec9 `
  -Access null `
  -Ignored true `
  -Requested true `

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EventAttributes = Initialize-PSSailpointV2024EventAttributes  -Id idn:identity-attributes-changed `
+$EventAttributes = Initialize-PSSailpoint.V2024EventAttributes  -Id idn:identity-attributes-changed `
  -VarFilter $.changes[?(@.attribute &#x3D;&#x3D; &#39;manager&#39;)] `
  -Description null
 ```

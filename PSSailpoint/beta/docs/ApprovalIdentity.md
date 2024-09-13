@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalIdentity = Initialize-PSSailpointBetaApprovalIdentity  -Id 85d173e7d57e496569df763231d6deb6a `
+$ApprovalIdentity = Initialize-PSSailpoint.BetaApprovalIdentity  -Id 85d173e7d57e496569df763231d6deb6a `
  -Type IDENTITY `
  -Name John Doe
 ```

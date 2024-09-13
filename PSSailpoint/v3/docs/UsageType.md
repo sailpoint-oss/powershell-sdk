@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UsageType = Initialize-PSSailpointUsageType 
+$UsageType = Initialize-PSSailpoint.V3UsageType 
 ```
 
 - Convert the resource to JSON

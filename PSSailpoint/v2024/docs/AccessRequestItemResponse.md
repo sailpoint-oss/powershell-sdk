@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestItemResponse = Initialize-PSSailpointV2024AccessRequestItemResponse  -Operation Add `
+$AccessRequestItemResponse = Initialize-PSSailpoint.V2024AccessRequestItemResponse  -Operation Add `
  -AccessItemType role `
  -Name Role-1 `
  -Decision APPROVED `

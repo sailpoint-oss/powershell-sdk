@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubscriptionPatchRequestInner = Initialize-PSSailpointV2024SubscriptionPatchRequestInner  -Op replace `
+$SubscriptionPatchRequestInner = Initialize-PSSailpoint.V2024SubscriptionPatchRequestInner  -Op replace `
  -Path /description `
  -Value null
 ```

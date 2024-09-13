@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormCondition = Initialize-PSSailpointV2024FormCondition  -RuleOperator AND `
+$FormCondition = Initialize-PSSailpoint.V2024FormCondition  -RuleOperator AND `
  -Rules null `
  -Effects null
 ```

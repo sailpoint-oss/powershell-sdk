@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OwnerReferenceDto = Initialize-PSSailpointV2024OwnerReferenceDto  -Id 2a2fdacca5e345f18bf7970cfbb8fec2 `
+$OwnerReferenceDto = Initialize-PSSailpoint.V2024OwnerReferenceDto  -Id 2a2fdacca5e345f18bf7970cfbb8fec2 `
  -Name identity 1 `
  -Type IDENTITY
 ```

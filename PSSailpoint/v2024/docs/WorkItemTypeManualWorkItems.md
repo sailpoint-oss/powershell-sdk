@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkItemTypeManualWorkItems = Initialize-PSSailpointV2024WorkItemTypeManualWorkItems 
+$WorkItemTypeManualWorkItems = Initialize-PSSailpoint.V2024WorkItemTypeManualWorkItems 
 ```
 
 - Convert the resource to JSON

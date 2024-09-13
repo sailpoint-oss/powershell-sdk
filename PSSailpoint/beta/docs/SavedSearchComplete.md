@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchComplete = Initialize-PSSailpointBetaSavedSearchComplete  -FileName Modified.zip `
+$SavedSearchComplete = Initialize-PSSailpoint.BetaSavedSearchComplete  -FileName Modified.zip `
  -OwnerEmail test@sailpoint.com `
  -OwnerName Cloud Support `
  -Query modified:[now-7y/d TO now] `

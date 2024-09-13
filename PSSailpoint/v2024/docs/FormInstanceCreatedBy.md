@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormInstanceCreatedBy = Initialize-PSSailpointV2024FormInstanceCreatedBy  -Id 00000000-0000-0000-0000-000000000000 `
+$FormInstanceCreatedBy = Initialize-PSSailpoint.V2024FormInstanceCreatedBy  -Id 00000000-0000-0000-0000-000000000000 `
  -Type WORKFLOW_EXECUTION
 ```
 

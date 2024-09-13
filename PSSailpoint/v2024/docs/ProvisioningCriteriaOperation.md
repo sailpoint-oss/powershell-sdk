@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCriteriaOperation = Initialize-PSSailpointV2024ProvisioningCriteriaOperation 
+$ProvisioningCriteriaOperation = Initialize-PSSailpoint.V2024ProvisioningCriteriaOperation 
 ```
 
 - Convert the resource to JSON

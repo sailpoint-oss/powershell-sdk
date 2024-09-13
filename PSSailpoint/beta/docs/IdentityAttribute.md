@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttribute = Initialize-PSSailpointBetaIdentityAttribute  -Name costCenter `
+$IdentityAttribute = Initialize-PSSailpoint.BetaIdentityAttribute  -Name costCenter `
  -DisplayName Cost Center `
  -Standard false `
  -Type string `

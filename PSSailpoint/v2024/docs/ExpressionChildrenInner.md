@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExpressionChildrenInner = Initialize-PSSailpointV2024ExpressionChildrenInner  -Operator EQUALS `
+$ExpressionChildrenInner = Initialize-PSSailpoint.V2024ExpressionChildrenInner  -Operator EQUALS `
  -Attribute location `
  -Value null `
  -Children null

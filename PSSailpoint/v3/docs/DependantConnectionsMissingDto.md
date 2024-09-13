@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DependantConnectionsMissingDto = Initialize-PSSailpointDependantConnectionsMissingDto  -DependencyType dependantApps `
+$DependantConnectionsMissingDto = Initialize-PSSailpoint.V3DependantConnectionsMissingDto  -DependencyType dependantApps `
  -Reason If there was an error retrieving any dependencies, it would lbe listed here
 ```
 

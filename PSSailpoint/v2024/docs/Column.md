@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Column = Initialize-PSSailpointV2024Column  -Field email `
+$Column = Initialize-PSSailpoint.V2024Column  -Field email `
  -Header Work Email
 ```
 

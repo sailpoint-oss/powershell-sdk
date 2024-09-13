@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestRecommendationActionItemResponseDto = Initialize-PSSailpointV2024AccessRequestRecommendationActionItemResponseDto  -IdentityId 2c91808570313110017040b06f344ec9 `
+$AccessRequestRecommendationActionItemResponseDto = Initialize-PSSailpoint.V2024AccessRequestRecommendationActionItemResponseDto  -IdentityId 2c91808570313110017040b06f344ec9 `
  -Access null `
  -Timestamp 2017-07-11T18:45:37.098Z
 ```

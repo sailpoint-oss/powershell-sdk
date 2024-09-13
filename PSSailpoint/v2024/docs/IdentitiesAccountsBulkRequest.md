@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentitiesAccountsBulkRequest = Initialize-PSSailpointV2024IdentitiesAccountsBulkRequest  -IdentityIds [2c91808384203c2d018437e631158308, 2c9180858082150f0180893dbaf553fe]
+$IdentitiesAccountsBulkRequest = Initialize-PSSailpoint.V2024IdentitiesAccountsBulkRequest  -IdentityIds [2c91808384203c2d018437e631158308, 2c9180858082150f0180893dbaf553fe]
 ```
 
 - Convert the resource to JSON

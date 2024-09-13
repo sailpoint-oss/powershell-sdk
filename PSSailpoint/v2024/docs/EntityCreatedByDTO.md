@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntityCreatedByDTO = Initialize-PSSailpointV2024EntityCreatedByDTO  -Id 2c918090761a5aac0176215c46a62d58 `
+$EntityCreatedByDTO = Initialize-PSSailpoint.V2024EntityCreatedByDTO  -Id 2c918090761a5aac0176215c46a62d58 `
  -DisplayName Ashley.Pierce
 ```
 

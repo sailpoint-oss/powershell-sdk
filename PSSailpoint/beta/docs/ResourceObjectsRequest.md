@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ResourceObjectsRequest = Initialize-PSSailpointBetaResourceObjectsRequest  -ObjectType group `
+$ResourceObjectsRequest = Initialize-PSSailpoint.BetaResourceObjectsRequest  -ObjectType group `
  -MaxCount 100
 ```
 

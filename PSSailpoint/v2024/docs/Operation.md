@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Operation = Initialize-PSSailpointV2024Operation 
+$Operation = Initialize-PSSailpoint.V2024Operation 
 ```
 
 - Convert the resource to JSON

@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.BrandingApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.BrandingApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

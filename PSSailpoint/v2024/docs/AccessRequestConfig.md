@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestConfig = Initialize-PSSailpointV2024AccessRequestConfig  -ApprovalsMustBeExternal true `
+$AccessRequestConfig = Initialize-PSSailpoint.V2024AccessRequestConfig  -ApprovalsMustBeExternal true `
  -AutoApprovalEnabled true `
  -RequestOnBehalfOfConfig null `
  -ApprovalReminderAndEscalationConfig null `

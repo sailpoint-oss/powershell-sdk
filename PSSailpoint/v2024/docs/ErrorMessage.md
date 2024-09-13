@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ErrorMessage = Initialize-PSSailpointV2024ErrorMessage  -Locale en-US `
+$ErrorMessage = Initialize-PSSailpoint.V2024ErrorMessage  -Locale en-US `
  -LocaleOrigin DEFAULT `
  -Text This is an error
 ```

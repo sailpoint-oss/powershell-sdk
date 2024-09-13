@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseEntitlement = Initialize-PSSailpointV2024BaseEntitlement  -HasPermissions false `
+$BaseEntitlement = Initialize-PSSailpoint.V2024BaseEntitlement  -HasPermissions false `
  -Description Cloud engineering `
  -Attribute memberOf `
  -Value CN&#x3D;Cloud Engineering,DC&#x3D;sailpoint,DC&#x3D;COM `

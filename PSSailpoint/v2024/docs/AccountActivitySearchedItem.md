@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivitySearchedItem = Initialize-PSSailpointV2024AccountActivitySearchedItem  -Id 2c91808375d8e80a0175e1f88a575222 `
+$AccountActivitySearchedItem = Initialize-PSSailpoint.V2024AccountActivitySearchedItem  -Id 2c91808375d8e80a0175e1f88a575222 `
  -Name john.doe `
  -Type null `
  -Action Identity Refresh. `

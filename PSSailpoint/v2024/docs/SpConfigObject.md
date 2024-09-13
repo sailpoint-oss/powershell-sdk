@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigObject = Initialize-PSSailpointV2024SpConfigObject  -ObjectType TRIGGER_SUBSCRIPTION `
+$SpConfigObject = Initialize-PSSailpoint.V2024SpConfigObject  -ObjectType TRIGGER_SUBSCRIPTION `
  -ResolveByIdUrl null `
  -ResolveByNameUrl null `
  -ExportUrl null `

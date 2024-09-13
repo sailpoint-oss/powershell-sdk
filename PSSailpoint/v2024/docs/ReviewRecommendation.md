@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewRecommendation = Initialize-PSSailpointV2024ReviewRecommendation  -Recommendation null `
+$ReviewRecommendation = Initialize-PSSailpoint.V2024ReviewRecommendation  -Recommendation null `
  -Reasons [Reason 1, Reason 2] `
  -Timestamp 2020-06-01T13:49:37.385Z
 ```

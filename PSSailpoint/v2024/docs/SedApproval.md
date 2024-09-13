@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedApproval = Initialize-PSSailpointV2024SedApproval  -Items 016629d1-1d25-463f-97f3-c6686846650
+$SedApproval = Initialize-PSSailpoint.V2024SedApproval  -Items 016629d1-1d25-463f-97f3-c6686846650
 ```
 
 - Convert the resource to JSON

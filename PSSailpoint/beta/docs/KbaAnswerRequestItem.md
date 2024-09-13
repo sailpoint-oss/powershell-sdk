@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$KbaAnswerRequestItem = Initialize-PSSailpointBetaKbaAnswerRequestItem  -Id c54fee53-2d63-4fc5-9259-3e93b9994135 `
+$KbaAnswerRequestItem = Initialize-PSSailpoint.BetaKbaAnswerRequestItem  -Id c54fee53-2d63-4fc5-9259-3e93b9994135 `
  -Answer Your answer
 ```
 

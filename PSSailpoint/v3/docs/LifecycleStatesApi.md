@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.LifecycleStatesApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.LifecycleStatesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

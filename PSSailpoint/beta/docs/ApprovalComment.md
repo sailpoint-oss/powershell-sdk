@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalComment = Initialize-PSSailpointBetaApprovalComment  -Author null `
+$ApprovalComment = Initialize-PSSailpoint.BetaApprovalComment  -Author null `
  -Comment Looks good `
  -CreatedDate 2023-04-12T23:20:50.52Z
 ```

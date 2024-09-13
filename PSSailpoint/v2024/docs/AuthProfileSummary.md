@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AuthProfileSummary = Initialize-PSSailpointV2024AuthProfileSummary  -Tenant test-tenant `
+$AuthProfileSummary = Initialize-PSSailpoint.V2024AuthProfileSummary  -Tenant test-tenant `
  -Id 2c91808458ae7a4f0158b1bbf8af0628
 ```
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DtoType = Initialize-PSSailpointDtoType 
+$DtoType = Initialize-PSSailpoint.V3DtoType 
 ```
 
 - Convert the resource to JSON

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LocaleOrigin = Initialize-PSSailpointBetaLocaleOrigin 
+$LocaleOrigin = Initialize-PSSailpoint.BetaLocaleOrigin 
 ```
 
 - Convert the resource to JSON

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManualWorkItemState = Initialize-PSSailpointV2024ManualWorkItemState 
+$ManualWorkItemState = Initialize-PSSailpoint.V2024ManualWorkItemState 
 ```
 
 - Convert the resource to JSON

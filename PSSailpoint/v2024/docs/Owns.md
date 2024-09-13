@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Owns = Initialize-PSSailpointV2024Owns  -Sources null `
+$Owns = Initialize-PSSailpoint.V2024Owns  -Sources null `
  -Entitlements null `
  -AccessProfiles null `
  -Roles null `

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListPredefinedSelectOptionsResponse = Initialize-PSSailpointV2024ListPredefinedSelectOptionsResponse  -Results null
+$ListPredefinedSelectOptionsResponse = Initialize-PSSailpoint.V2024ListPredefinedSelectOptionsResponse  -Results null
 ```
 
 - Convert the resource to JSON

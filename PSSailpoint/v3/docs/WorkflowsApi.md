@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.WorkflowsApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.WorkflowsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

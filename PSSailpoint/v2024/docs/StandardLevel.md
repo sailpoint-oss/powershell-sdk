@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$StandardLevel = Initialize-PSSailpointV2024StandardLevel 
+$StandardLevel = Initialize-PSSailpoint.V2024StandardLevel 
 ```
 
 - Convert the resource to JSON

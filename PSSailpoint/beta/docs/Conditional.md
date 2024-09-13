@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Conditional = Initialize-PSSailpointBetaConditional  -Expression ValueA eq ValueB `
+$Conditional = Initialize-PSSailpoint.BetaConditional  -Expression ValueA eq ValueB `
  -PositiveCondition true `
  -NegativeCondition false `
  -RequiresPeriodicRefresh false `

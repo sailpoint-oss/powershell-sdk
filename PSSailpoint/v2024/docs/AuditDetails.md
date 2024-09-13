@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AuditDetails = Initialize-PSSailpointV2024AuditDetails  -Created 2022-07-21T11:13:12.345Z `
+$AuditDetails = Initialize-PSSailpoint.V2024AuditDetails  -Created 2022-07-21T11:13:12.345Z `
  -CreatedBy null `
  -Modified 2022-07-21T11:13:12.345Z `
  -ModifiedBy null

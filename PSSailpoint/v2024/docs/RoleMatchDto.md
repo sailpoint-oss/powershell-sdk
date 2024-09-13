@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMatchDto = Initialize-PSSailpointV2024RoleMatchDto  -RoleRef null `
+$RoleMatchDto = Initialize-PSSailpoint.V2024RoleMatchDto  -RoleRef null `
  -MatchedAttributes null
 ```
 

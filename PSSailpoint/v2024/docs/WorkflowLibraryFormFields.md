@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryFormFields = Initialize-PSSailpointV2024WorkflowLibraryFormFields  -Description First value to compare `
+$WorkflowLibraryFormFields = Initialize-PSSailpoint.V2024WorkflowLibraryFormFields  -Description First value to compare `
  -HelpText The name to give to this certification campaign. `
  -Label Campaign Name `
  -Name name `

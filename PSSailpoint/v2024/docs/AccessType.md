@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessType = Initialize-PSSailpointV2024AccessType 
+$AccessType = Initialize-PSSailpoint.V2024AccessType 
 ```
 
 - Convert the resource to JSON

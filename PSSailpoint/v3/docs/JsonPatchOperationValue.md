@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$JsonPatchOperationValue = Initialize-PSSailpointJsonPatchOperationValue 
+$JsonPatchOperationValue = Initialize-PSSailpoint.V3JsonPatchOperationValue 
 ```
 
 - Convert the resource to JSON

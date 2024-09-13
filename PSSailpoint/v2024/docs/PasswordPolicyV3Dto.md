@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordPolicyV3Dto = Initialize-PSSailpointV2024PasswordPolicyV3Dto  -Id 2c91808e7d976f3b017d9f5ceae440c8 `
+$PasswordPolicyV3Dto = Initialize-PSSailpoint.V2024PasswordPolicyV3Dto  -Id 2c91808e7d976f3b017d9f5ceae440c8 `
  -Description Information about the Password Policy `
  -Name PasswordPolicy Example `
  -DateCreated null `

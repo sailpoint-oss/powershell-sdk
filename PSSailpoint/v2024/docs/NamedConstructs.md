@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NamedConstructs = Initialize-PSSailpointV2024NamedConstructs 
+$NamedConstructs = Initialize-PSSailpoint.V2024NamedConstructs 
 ```
 
 - Convert the resource to JSON

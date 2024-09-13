@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DataAccessCategoriesInner = Initialize-PSSailpointV2024DataAccessCategoriesInner  -Value email-7 `
+$DataAccessCategoriesInner = Initialize-PSSailpoint.V2024DataAccessCategoriesInner  -Value email-7 `
  -MatchCount 10
 ```
 

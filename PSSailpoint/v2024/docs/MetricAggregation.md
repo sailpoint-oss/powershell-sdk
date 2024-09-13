@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MetricAggregation = Initialize-PSSailpointV2024MetricAggregation  -Name Access Name Count `
+$MetricAggregation = Initialize-PSSailpoint.V2024MetricAggregation  -Name Access Name Count `
  -Type null `
  -Field @access.name
 ```

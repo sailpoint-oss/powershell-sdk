@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportDetails = Initialize-PSSailpointV2024ReportDetails  -ReportType IDENTITIES_DETAILS `
+$ReportDetails = Initialize-PSSailpoint.V2024ReportDetails  -ReportType IDENTITIES_DETAILS `
  -Arguments null
 ```
 

@@ -1,9 +1,9 @@
 templateDir: ./sdk-resources/resources
-packageName: PSSailpointV2024
+packageName: PSSailpoint.V2024
 packageVersion: 1.4.3
 apiNamePrefix: V2024
 apiVersion: v2024
 companyName: SailPoint Technologies
-packageGuid: 51EC9F24-1977-40CE-A990-D0186150E0A2
+packageGuid: 51EC9F24-1977-40CE-A990-D0186150E0A1
 commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select
 discardReadOnly: true

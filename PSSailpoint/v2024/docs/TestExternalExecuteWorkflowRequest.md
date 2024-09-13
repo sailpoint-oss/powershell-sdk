@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TestExternalExecuteWorkflowRequest = Initialize-PSSailpointV2024TestExternalExecuteWorkflowRequest  -VarInput {test&#x3D;hello world}
+$TestExternalExecuteWorkflowRequest = Initialize-PSSailpoint.V2024TestExternalExecuteWorkflowRequest  -VarInput {test&#x3D;hello world}
 ```
 
 - Convert the resource to JSON

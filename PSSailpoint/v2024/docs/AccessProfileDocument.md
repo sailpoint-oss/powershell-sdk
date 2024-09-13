@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileDocument = Initialize-PSSailpointV2024AccessProfileDocument  -Id 2c9180825a6c1adc015a71c9023f0818 `
+$AccessProfileDocument = Initialize-PSSailpoint.V2024AccessProfileDocument  -Id 2c9180825a6c1adc015a71c9023f0818 `
  -Name Cloud Eng `
  -Description The admin role `
  -Created 2018-06-25T20:22:28.104Z `

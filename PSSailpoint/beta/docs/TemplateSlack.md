@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateSlack = Initialize-PSSailpointBetaTemplateSlack  -Key null `
+$TemplateSlack = Initialize-PSSailpoint.BetaTemplateSlack  -Key null `
  -Text null `
  -Blocks null `
  -Attachments null `

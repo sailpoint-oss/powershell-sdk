@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatusProvisioningDetails = Initialize-PSSailpointRequestedItemStatusProvisioningDetails  -OrderedSubPhaseReferences manualWorkItemDetails
+$RequestedItemStatusProvisioningDetails = Initialize-PSSailpoint.V3RequestedItemStatusProvisioningDetails  -OrderedSubPhaseReferences manualWorkItemDetails
 ```
 
 - Convert the resource to JSON

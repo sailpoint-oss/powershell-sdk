@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAllOfRoleCompositionCampaignInfo = Initialize-PSSailpointV2024CampaignAllOfRoleCompositionCampaignInfo  -Reviewer null `
+$CampaignAllOfRoleCompositionCampaignInfo = Initialize-PSSailpoint.V2024CampaignAllOfRoleCompositionCampaignInfo  -Reviewer null `
  -RoleIds [2c90ad2a70ace7d50170acf22ca90010] `
  -RemediatorRef null `
  -Query Search Query `

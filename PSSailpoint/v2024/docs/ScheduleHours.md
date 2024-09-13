@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduleHours = Initialize-PSSailpointV2024ScheduleHours  -Type LIST `
+$ScheduleHours = Initialize-PSSailpoint.V2024ScheduleHours  -Type LIST `
  -Values [1] `
  -Interval 2
 ```

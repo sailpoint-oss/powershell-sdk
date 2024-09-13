@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConditionRule = Initialize-PSSailpointV2024ConditionRule  -SourceType ELEMENT `
+$ConditionRule = Initialize-PSSailpoint.V2024ConditionRule  -SourceType ELEMENT `
  -Source department `
  -Operator EQ `
  -ValueType STRING `

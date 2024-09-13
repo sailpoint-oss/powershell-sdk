@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigurationDetailsResponse = Initialize-PSSailpointV2024ConfigurationDetailsResponse  -ConfigType null `
+$ConfigurationDetailsResponse = Initialize-PSSailpoint.V2024ConfigurationDetailsResponse  -ConfigType null `
  -TargetIdentity null `
  -StartDate 2022-07-21T11:13:12.345Z `
  -EndDate 0001-01-01T00:00Z `

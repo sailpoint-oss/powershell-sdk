@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivityItemOperation = Initialize-PSSailpointV2024AccountActivityItemOperation 
+$AccountActivityItemOperation = Initialize-PSSailpoint.V2024AccountActivityItemOperation 
 ```
 
 - Convert the resource to JSON

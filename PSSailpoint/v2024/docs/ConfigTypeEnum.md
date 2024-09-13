@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigTypeEnum = Initialize-PSSailpointV2024ConfigTypeEnum 
+$ConfigTypeEnum = Initialize-PSSailpoint.V2024ConfigTypeEnum 
 ```
 
 - Convert the resource to JSON

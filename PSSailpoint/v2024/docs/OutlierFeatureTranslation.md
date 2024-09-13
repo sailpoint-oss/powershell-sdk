@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierFeatureTranslation = Initialize-PSSailpointV2024OutlierFeatureTranslation  -DisplayName null `
+$OutlierFeatureTranslation = Initialize-PSSailpoint.V2024OutlierFeatureTranslation  -DisplayName null `
  -Description null
 ```
 

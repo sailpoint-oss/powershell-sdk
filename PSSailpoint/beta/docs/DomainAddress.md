@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DomainAddress = Initialize-PSSailpointBetaDomainAddress  -Domain sailpoint.com
+$DomainAddress = Initialize-PSSailpoint.BetaDomainAddress  -Domain sailpoint.com
 ```
 
 - Convert the resource to JSON

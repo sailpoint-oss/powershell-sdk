@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfOwnerGroup = Initialize-PSSailpointV2024AccountAllOfOwnerGroup  -Type GOVERNANCE_GROUP `
+$AccountAllOfOwnerGroup = Initialize-PSSailpoint.V2024AccountAllOfOwnerGroup  -Type GOVERNANCE_GROUP `
  -Id 8d3e0094e99445de98eef6c75e25jc04 `
  -Name GovGroup AX17Z
 ```

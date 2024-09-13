@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRole = Initialize-PSSailpointV2024RoleMiningPotentialRole  -CreatedBy null `
+$RoleMiningPotentialRole = Initialize-PSSailpoint.V2024RoleMiningPotentialRole  -CreatedBy null `
  -Density 75 `
  -Description Potential Role for Accounting dept `
  -EntitlementCount 25 `

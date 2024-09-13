@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DtoType = Initialize-PSSailpointBetaDtoType 
+$DtoType = Initialize-PSSailpoint.BetaDtoType 
 ```
 
 - Convert the resource to JSON

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributesChangedIdentity = Initialize-PSSailpointV2024IdentityAttributesChangedIdentity  -Type IDENTITY `
+$IdentityAttributesChangedIdentity = Initialize-PSSailpoint.V2024IdentityAttributesChangedIdentity  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

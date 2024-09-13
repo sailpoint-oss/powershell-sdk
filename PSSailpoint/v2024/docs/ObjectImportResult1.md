@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectImportResult1 = Initialize-PSSailpointV2024ObjectImportResult1  -Infos null `
+$ObjectImportResult1 = Initialize-PSSailpoint.V2024ObjectImportResult1  -Infos null `
  -Warnings null `
  -Errors null `
  -ImportedObjects null

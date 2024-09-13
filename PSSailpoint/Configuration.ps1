@@ -20,6 +20,10 @@ System.Collections.Hashtable
 #>
 function Get-DefaultConfiguration {
 
+    if($null -eq $Script:Configuration) {
+        $Script:Configuration = [System.Collections.Hashtable]::new()
+    }
+
     $Script:Configuration = Get-Config
     $Configuration = $Script:Configuration
 
@@ -134,6 +138,10 @@ function Set-DefaultConfiguration {
     )
 
     Process {
+
+        if($null -eq $Script:Configuration) {
+            $Script:Configuration = [System.Collections.Hashtable]::new()
+        }
 
         If ($BaseUrl) {
             # validate URL

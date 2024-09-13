@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PendingApproval = Initialize-PSSailpointV2024PendingApproval  -Id id12345 `
+$PendingApproval = Initialize-PSSailpoint.V2024PendingApproval  -Id id12345 `
  -Name aName `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-07-25T20:22:28.104Z `

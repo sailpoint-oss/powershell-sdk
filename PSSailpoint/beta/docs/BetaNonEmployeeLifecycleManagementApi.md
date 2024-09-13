@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta\Api.BetaNonEmployeeLifecycleManagementApi
+# PSSailpoint.Beta.PSSailpoint.Beta\Api.BetaNonEmployeeLifecycleManagementApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

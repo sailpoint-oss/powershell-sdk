@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsTaskTask = Initialize-PSSailpointV2024LoadAccountsTaskTask  -Id ef38f94347e94562b5bb8424a56397d8 `
+$LoadAccountsTaskTask = Initialize-PSSailpoint.V2024LoadAccountsTaskTask  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Type QUARTZ `
  -Name Cloud Account Aggregation `
  -Description Aggregate from the specified application `

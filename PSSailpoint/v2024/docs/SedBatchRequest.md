@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedBatchRequest = Initialize-PSSailpointV2024SedBatchRequest  -Entitlements null
+$SedBatchRequest = Initialize-PSSailpoint.V2024SedBatchRequest  -Entitlements null
 ```
 
 - Convert the resource to JSON

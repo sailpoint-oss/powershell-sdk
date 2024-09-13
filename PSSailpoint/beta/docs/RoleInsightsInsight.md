@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsInsight = Initialize-PSSailpointBetaRoleInsightsInsight  -Type ADD `
+$RoleInsightsInsight = Initialize-PSSailpoint.BetaRoleInsightsInsight  -Type ADD `
  -IdentitiesWithAccess 850 `
  -IdentitiesImpacted 150 `
  -TotalNumberOfIdentities 1000 `

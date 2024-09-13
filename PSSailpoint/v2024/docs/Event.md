@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ModelEvent = Initialize-PSSailpointV2024ModelEvent  -Id 2c91808375d8e80a0175e1f88a575222 `
+$ModelEvent = Initialize-PSSailpoint.V2024ModelEvent  -Id 2c91808375d8e80a0175e1f88a575222 `
  -Name john.doe `
  -Type null `
  -Created 2018-06-25T20:22:28.104Z `

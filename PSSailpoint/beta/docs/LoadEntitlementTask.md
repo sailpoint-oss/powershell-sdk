@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadEntitlementTask = Initialize-PSSailpointBetaLoadEntitlementTask  -Id ef38f94347e94562b5bb8424a56397d8 `
+$LoadEntitlementTask = Initialize-PSSailpoint.BetaLoadEntitlementTask  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Type QUARTZ `
  -UniqueName Cloud Group Aggregation `
  -Description Aggregate from the specified application `

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowTrigger = Initialize-PSSailpointBetaWorkflowTrigger  -Type EVENT `
+$WorkflowTrigger = Initialize-PSSailpoint.BetaWorkflowTrigger  -Type EVENT `
  -DisplayName null `
  -Attributes null
 ```

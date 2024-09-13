@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportFormDefinitionsRequestInner = Initialize-PSSailpointBetaImportFormDefinitionsRequestInner  -Object null `
+$ImportFormDefinitionsRequestInner = Initialize-PSSailpoint.BetaImportFormDefinitionsRequestInner  -Object null `
  -Self null `
  -Version null
 ```

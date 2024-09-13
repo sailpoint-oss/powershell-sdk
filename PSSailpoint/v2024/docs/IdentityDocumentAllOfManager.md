@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDocumentAllOfManager = Initialize-PSSailpointV2024IdentityDocumentAllOfManager  -Id 2c9180867dfe694b017e208e27c05799 `
+$IdentityDocumentAllOfManager = Initialize-PSSailpoint.V2024IdentityDocumentAllOfManager  -Id 2c9180867dfe694b017e208e27c05799 `
  -Name Amanda.Ross `
  -DisplayName Amanda.Ross
 ```

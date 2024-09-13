@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignCompleteOptions = Initialize-PSSailpointV2024CampaignCompleteOptions  -AutoCompleteAction REVOKE
+$CampaignCompleteOptions = Initialize-PSSailpoint.V2024CampaignCompleteOptions  -AutoCompleteAction REVOKE
 ```
 
 - Convert the resource to JSON

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Split = Initialize-PSSailpointSplit  -Delimiter , `
+$Split = Initialize-PSSailpoint.V3Split  -Delimiter , `
  -Index 5 `
  -Throws true `
  -RequiresPeriodicRefresh false `

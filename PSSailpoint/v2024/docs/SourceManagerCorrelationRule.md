@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceManagerCorrelationRule = Initialize-PSSailpointV2024SourceManagerCorrelationRule  -Type RULE `
+$SourceManagerCorrelationRule = Initialize-PSSailpoint.V2024SourceManagerCorrelationRule  -Type RULE `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
 ```

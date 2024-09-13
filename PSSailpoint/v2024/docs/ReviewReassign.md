@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewReassign = Initialize-PSSailpointV2024ReviewReassign  -Reassign null `
+$ReviewReassign = Initialize-PSSailpoint.V2024ReviewReassign  -Reassign null `
  -ReassignTo ef38f94347e94562b5bb8424a56397d8 `
  -Reason reassigned for some reason
 ```

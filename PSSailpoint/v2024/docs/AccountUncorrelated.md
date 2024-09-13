@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountUncorrelated = Initialize-PSSailpointV2024AccountUncorrelated  -Identity null `
+$AccountUncorrelated = Initialize-PSSailpoint.V2024AccountUncorrelated  -Identity null `
  -Source null `
  -Account null `
  -EntitlementCount 0

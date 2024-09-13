@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchExportReportArguments = Initialize-PSSailpointV2024SearchExportReportArguments  -Indices [entitlements] `
+$SearchExportReportArguments = Initialize-PSSailpoint.V2024SearchExportReportArguments  -Indices [entitlements] `
  -Filters {source.id&#x3D;{type&#x3D;TERMS, terms&#x3D;[2c9180897termsId780bd2920576]}, source.name.exact&#x3D;{type&#x3D;TERMS, terms&#x3D;[IdentityNow], exclude&#x3D;true}} `
  -Query null `
  -IncludeNested true `

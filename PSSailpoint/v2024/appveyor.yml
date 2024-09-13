@@ -18,7 +18,7 @@ build: off
 test_script:
   - pwsh: |
       .\Build.ps1
-      Import-Module -Name '.\src\PSSailpointV2024'
+      Import-Module -Name '.\src\PSSailpoint.V2024'
       $Result = Invoke-Pester -PassThru
       if ($Result.FailedCount -gt 0) {
           $host.SetShouldExit($Result.FailedCount)
@@ -29,7 +29,7 @@ deploy_script:
       if ($env:APPVEYOR_REPO_TAG -eq $true -and $null -ne $env:NuGetApiKey) {
           .\Build.ps1
           try {
-              Publish-Module -NuGetApiKey $env:NuGetApiKey -Path .\src\PSSailpointV2024\ -Confirm:$False -Verbose
+              Publish-Module -NuGetApiKey $env:NuGetApiKey -Path .\src\PSSailpoint.V2024\ -Confirm:$False -Verbose
               Write-Host "Successfully published the PowerShell module."
           } catch {
               $host.SetShouldExit($LastExitCode)

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleSummary = Initialize-PSSailpointV2024RoleSummary  -Id 2c91808568c529c60168cca6f90c1313 `
+$RoleSummary = Initialize-PSSailpoint.V2024RoleSummary  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
  -Type null `

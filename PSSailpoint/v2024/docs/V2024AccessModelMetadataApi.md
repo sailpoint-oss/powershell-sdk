@@ -1,4 +1,4 @@
-# PSSailpointV2024.PSSailpointV2024\Api.V2024AccessModelMetadataApi
+# PSSailpoint.V2024.PSSailpoint.V2024\Api.V2024AccessModelMetadataApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

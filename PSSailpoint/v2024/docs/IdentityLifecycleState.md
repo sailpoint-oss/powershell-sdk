@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityLifecycleState = Initialize-PSSailpointV2024IdentityLifecycleState  -StateName active `
+$IdentityLifecycleState = Initialize-PSSailpoint.V2024IdentityLifecycleState  -StateName active `
  -ManuallyUpdated true
 ```
 

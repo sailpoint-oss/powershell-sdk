@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Reassignment = Initialize-PSSailpointV2024Reassignment  -VarFrom null `
+$Reassignment = Initialize-PSSailpoint.V2024Reassignment  -VarFrom null `
  -Comment Reassigned for a reason
 ```
 

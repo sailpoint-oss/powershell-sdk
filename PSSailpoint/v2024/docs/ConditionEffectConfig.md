@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConditionEffectConfig = Initialize-PSSailpointV2024ConditionEffectConfig  -DefaultValueLabel Access to Remove `
+$ConditionEffectConfig = Initialize-PSSailpoint.V2024ConditionEffectConfig  -DefaultValueLabel Access to Remove `
  -Element 8110662963316867
 ```
 

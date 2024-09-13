@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$HttpAuthenticationType = Initialize-PSSailpointV2024HttpAuthenticationType 
+$HttpAuthenticationType = Initialize-PSSailpoint.V2024HttpAuthenticationType 
 ```
 
 - Convert the resource to JSON

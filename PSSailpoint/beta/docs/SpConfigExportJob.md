@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Expiration** | **System.DateTime** | The time until which the artifacts will be available for download. | 
 **Created** | **System.DateTime** | The time the job was started. | 
 **Modified** | **System.DateTime** | The time of the last update to the job. | 
-**Description** | **String** | Optional user defined description/name for export job. | 
+**Description** | **String** | Optional user defined description/name for export job. | [optional] 
 
 ## Examples
 

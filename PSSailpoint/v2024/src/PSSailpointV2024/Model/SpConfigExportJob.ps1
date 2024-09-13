@@ -89,10 +89,6 @@ function Initialize-V2024SpConfigExportJob {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
-        if (!$Description) {
-            throw "invalid value for 'Description', 'Description' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "jobId" = ${JobId}
@@ -185,8 +181,8 @@ function ConvertFrom-V2024JsonToSpConfigExportJob {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'description' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }

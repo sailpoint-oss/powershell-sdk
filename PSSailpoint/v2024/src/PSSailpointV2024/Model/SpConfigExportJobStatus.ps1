@@ -94,10 +94,6 @@ function Initialize-V2024SpConfigExportJobStatus {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
-        if (!$Description) {
-            throw "invalid value for 'Description', 'Description' cannot be null."
-        }
-
         if (!$Completed) {
             throw "invalid value for 'Completed', 'Completed' cannot be null."
         }
@@ -195,16 +191,16 @@ function ConvertFrom-V2024JsonToSpConfigExportJobStatus {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'description' missing."
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "completed"))) {
             throw "Error! JSON cannot be serialized due to the required property 'completed' missing."
         } else {
             $Completed = $JsonParameters.PSobject.Properties["completed"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
         $PSO = [PSCustomObject]@{

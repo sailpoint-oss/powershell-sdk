@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigObject = Initialize-PSSailpointBetaSpConfigObject  -ObjectType TRIGGER_SUBSCRIPTION `
+$SpConfigObject = Initialize-PSSailpoint.BetaSpConfigObject  -ObjectType TRIGGER_SUBSCRIPTION `
  -ResolveByIdUrl null `
  -ResolveByNameUrl null `
  -ExportUrl null `

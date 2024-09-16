@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskSource = Initialize-PSSailpointV2024ServiceDeskSource  -Type SOURCE `
+$ServiceDeskSource = Initialize-PSSailpoint.V2024ServiceDeskSource  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
 ```

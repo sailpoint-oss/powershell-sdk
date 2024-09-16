@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordOrgConfig = Initialize-PSSailpointV2024PasswordOrgConfig  -CustomInstructionsEnabled true `
+$PasswordOrgConfig = Initialize-PSSailpoint.V2024PasswordOrgConfig  -CustomInstructionsEnabled true `
  -DigitTokenEnabled true `
  -DigitTokenDurationMinutes 10 `
  -DigitTokenLength 9

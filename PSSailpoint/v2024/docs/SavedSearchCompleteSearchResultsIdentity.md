@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchCompleteSearchResultsIdentity = Initialize-PSSailpointV2024SavedSearchCompleteSearchResultsIdentity  -Count 2 `
+$SavedSearchCompleteSearchResultsIdentity = Initialize-PSSailpoint.V2024SavedSearchCompleteSearchResultsIdentity  -Count 2 `
  -Noun identities `
  -Preview null
 ```

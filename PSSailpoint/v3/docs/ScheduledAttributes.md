@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledAttributes = Initialize-PSSailpointScheduledAttributes  -CronString 0 9 * * 1 `
+$ScheduledAttributes = Initialize-PSSailpoint.V3ScheduledAttributes  -CronString 0 9 * * 1 `
  -Frequency null `
  -TimeZone America/Chicago `
  -WeeklyDays Monday `

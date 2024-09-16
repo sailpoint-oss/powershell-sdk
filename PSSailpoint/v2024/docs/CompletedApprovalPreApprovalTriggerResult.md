@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompletedApprovalPreApprovalTriggerResult = Initialize-PSSailpointV2024CompletedApprovalPreApprovalTriggerResult  -Comment This request was autoapproved by our automated ETS subscriber `
+$CompletedApprovalPreApprovalTriggerResult = Initialize-PSSailpoint.V2024CompletedApprovalPreApprovalTriggerResult  -Comment This request was autoapproved by our automated ETS subscriber `
  -Decision null `
  -Reviewer Automated AR Approval `
  -Date 2022-06-07T19:18:40.748Z

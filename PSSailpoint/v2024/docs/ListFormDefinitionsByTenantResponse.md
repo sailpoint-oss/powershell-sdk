@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListFormDefinitionsByTenantResponse = Initialize-PSSailpointV2024ListFormDefinitionsByTenantResponse  -Count 1 `
+$ListFormDefinitionsByTenantResponse = Initialize-PSSailpoint.V2024ListFormDefinitionsByTenantResponse  -Count 1 `
  -Results null
 ```
 

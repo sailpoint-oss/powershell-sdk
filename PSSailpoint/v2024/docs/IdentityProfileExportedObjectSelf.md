@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfileExportedObjectSelf = Initialize-PSSailpointV2024IdentityProfileExportedObjectSelf  -Type SOURCE `
+$IdentityProfileExportedObjectSelf = Initialize-PSSailpoint.V2024IdentityProfileExportedObjectSelf  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
 ```

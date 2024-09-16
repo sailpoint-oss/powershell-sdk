@@ -45,19 +45,20 @@ function Get-FunctionsToExport {
 }
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
-$FunctionPath = 'Api', 'Model', 'Client' | ForEach-Object {Join-Path "$ScriptDir\src\PSSailpointBeta\" $_}
+$FunctionPath = "$PSScriptRoot/src/PSSailpoint.Beta/Api", "$PSScriptRoot/src/PSSailpoint.Beta/Client","$PSScriptRoot/src/PSSailpoint.Beta/Model" | ForEach-Object { $_ }
+
 
 $Manifest = @{
-    Path = "$ScriptDir\src\PSSailpointBeta\PSSailpointBeta.psd1"
+    Path = "$ScriptDir\src\PSSailpoint.Beta\PSSailpoint.Beta.psd1"
 
     Author = 'OpenAPI Generator Team'
     CompanyName = 'SailPoint Technologies'
-    Description = 'PSSailpointBeta - the PowerShell module for Identity Security Cloud Beta API'
+    Description = 'PSSailpoint.Beta - the PowerShell module for Identity Security Cloud Beta API'
 
     ModuleVersion = '1.4.3'
 
-    RootModule = 'PSSailpointBeta.psm1'
-    Guid = '61785CF2-2EB2-4FB6-9F7C-C5BD5B1733EB' # Has to be static, otherwise each new build will be considered different module
+    RootModule = 'PSSailpoint.Beta.psm1'
+    Guid = '61785CF2-2EB2-4FB6-9F7C-C5BD5B1733E8' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '6.2'
 

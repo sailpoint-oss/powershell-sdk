@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewableAccessProfile = Initialize-PSSailpointV2024ReviewableAccessProfile  -Id 2c91808a7190d06e01719938fcd20792 `
+$ReviewableAccessProfile = Initialize-PSSailpoint.V2024ReviewableAccessProfile  -Id 2c91808a7190d06e01719938fcd20792 `
  -Name Employee-database-read-write `
  -Description Collection of entitlements to read/write the employee database `
  -Privileged false `

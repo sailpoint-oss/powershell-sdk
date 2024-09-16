@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreatePersonalAccessTokenRequest = Initialize-PSSailpointV2024CreatePersonalAccessTokenRequest  -Name NodeJS Integration `
+$CreatePersonalAccessTokenRequest = Initialize-PSSailpoint.V2024CreatePersonalAccessTokenRequest  -Name NodeJS Integration `
  -Scope [demo:personal-access-token-scope:first, demo:personal-access-token-scope:second]
 ```
 

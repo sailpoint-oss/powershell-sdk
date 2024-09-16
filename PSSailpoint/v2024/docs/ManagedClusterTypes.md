@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterTypes = Initialize-PSSailpointV2024ManagedClusterTypes 
+$ManagedClusterTypes = Initialize-PSSailpoint.V2024ManagedClusterTypes 
 ```
 
 - Convert the resource to JSON

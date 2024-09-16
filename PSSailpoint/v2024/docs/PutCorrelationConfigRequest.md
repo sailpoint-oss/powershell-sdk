@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutCorrelationConfigRequest = Initialize-PSSailpointV2024PutCorrelationConfigRequest  -File null
+$PutCorrelationConfigRequest = Initialize-PSSailpoint.V2024PutCorrelationConfigRequest  -File null
 ```
 
 - Convert the resource to JSON

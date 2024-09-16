@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubscriptionType = Initialize-PSSailpointV2024SubscriptionType 
+$SubscriptionType = Initialize-PSSailpoint.V2024SubscriptionType 
 ```
 
 - Convert the resource to JSON

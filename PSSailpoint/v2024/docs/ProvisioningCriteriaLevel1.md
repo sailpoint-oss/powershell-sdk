@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCriteriaLevel1 = Initialize-PSSailpointV2024ProvisioningCriteriaLevel1  -Operation null `
+$ProvisioningCriteriaLevel1 = Initialize-PSSailpoint.V2024ProvisioningCriteriaLevel1  -Operation null `
  -Attribute email `
  -Value carlee.cert1c9f9b6fd@mailinator.com `
  -Children null

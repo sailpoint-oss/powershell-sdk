@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceCode = Initialize-PSSailpointV2024SourceCode  -Version 1.0 `
+$SourceCode = Initialize-PSSailpoint.V2024SourceCode  -Version 1.0 `
  -Script return &quot;Mr. &quot; + firstName;
 ```
 

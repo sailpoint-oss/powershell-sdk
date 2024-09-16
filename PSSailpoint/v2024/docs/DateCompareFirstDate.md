@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateCompareFirstDate = Initialize-PSSailpointV2024DateCompareFirstDate  -SourceName Workday `
+$DateCompareFirstDate = Initialize-PSSailpoint.V2024DateCompareFirstDate  -SourceName Workday `
  -AttributeName DEPARTMENT `
  -AccountSortAttribute created `
  -AccountSortDescending false `

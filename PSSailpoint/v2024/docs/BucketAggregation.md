@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BucketAggregation = Initialize-PSSailpointV2024BucketAggregation  -Name Identity Locations `
+$BucketAggregation = Initialize-PSSailpoint.V2024BucketAggregation  -Name Identity Locations `
  -Type null `
  -Field attributes.city `
  -Size 100 `

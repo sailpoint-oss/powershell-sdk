@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.SearchAttributeConfigurationApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.SearchAttributeConfigurationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

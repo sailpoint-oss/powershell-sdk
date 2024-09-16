@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttrSyncSourceAttributeConfig = Initialize-PSSailpointV2024AttrSyncSourceAttributeConfig  -Name email `
+$AttrSyncSourceAttributeConfig = Initialize-PSSailpoint.V2024AttrSyncSourceAttributeConfig  -Name email `
  -DisplayName Email `
  -Enabled true `
  -Target mail

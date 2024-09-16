@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseAccess = Initialize-PSSailpointV2024BaseAccess  -Id 2c91808568c529c60168cca6f90c1313 `
+$BaseAccess = Initialize-PSSailpoint.V2024BaseAccess  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Description The admin role `
  -Created 2018-06-25T20:22:28.104Z `

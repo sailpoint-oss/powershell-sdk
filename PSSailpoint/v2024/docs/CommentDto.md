@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommentDto = Initialize-PSSailpointV2024CommentDto  -Comment This is a comment. `
+$CommentDto = Initialize-PSSailpoint.V2024CommentDto  -Comment This is a comment. `
  -Created 2017-07-11T18:45:37.098Z `
  -Author null
 ```

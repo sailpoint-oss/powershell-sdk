@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeChange = Initialize-PSSailpointBetaAttributeChange  -Name null `
+$AttributeChange = Initialize-PSSailpoint.BetaAttributeChange  -Name null `
  -PreviousValue null `
  -NewValue null
 ```

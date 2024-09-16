@@ -66,7 +66,12 @@ jobs:
         shell: pwsh
         run: |
           $DebugPreference="Continue"
-          Import-Module -Name '.\PSSailpoint' -Verbose
+          Import-Module -Name '.\PSSailpoint\beta\src\PSSailpoint.Beta' -Verbose
+          Import-Module -Name '.\PSSailpoint\v3\src\PSSailpoint.V3' -Verbose
+          Import-Module -Name '.\PSSailpoint\v2024\src\PSSailpoint.V2024' -Verbose
+
+          . .\PSSailpoint\Configuration.ps1
+          . .\PSSailpoint\Pagination.ps1
 
           Install-Module -Name Pester -Force
           Invoke-Pester -Output Detailed ./PSSailpoint/tests/

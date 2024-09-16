@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$KbaQuestion = Initialize-PSSailpointBetaKbaQuestion  -Id 143cfd3b-c23f-426b-ae5f-d3db06fa5919 `
+$KbaQuestion = Initialize-PSSailpoint.BetaKbaQuestion  -Id 143cfd3b-c23f-426b-ae5f-d3db06fa5919 `
  -Text [{&quot;text&quot;:&quot;Nouvelle question MFA -1 ?&quot;,&quot;locale&quot;:&quot;fr&quot;},{&quot;text&quot;:&quot;MFA new question -1 ?&quot;,&quot;locale&quot;:&quot;&quot;}] `
  -HasAnswer true `
  -NumAnswers 5

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeDefinitionSchema = Initialize-PSSailpointV2024AttributeDefinitionSchema  -Type CONNECTOR_SCHEMA `
+$AttributeDefinitionSchema = Initialize-PSSailpoint.V2024AttributeDefinitionSchema  -Type CONNECTOR_SCHEMA `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name group
 ```

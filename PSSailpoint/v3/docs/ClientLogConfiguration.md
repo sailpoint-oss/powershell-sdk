@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClientLogConfiguration = Initialize-PSSailpointClientLogConfiguration  -ClientId aClientId `
+$ClientLogConfiguration = Initialize-PSSailpoint.V3ClientLogConfiguration  -ClientId aClientId `
  -DurationMinutes 120 `
  -Expiration 2020-12-15T19:13:36.079Z `
  -RootLevel null `

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAggregationStatus = Initialize-PSSailpointV2024AccountAggregationStatus  -Start 2021-01-31T14:30:05.104Z `
+$AccountAggregationStatus = Initialize-PSSailpoint.V2024AccountAggregationStatus  -Start 2021-01-31T14:30:05.104Z `
  -Status ACCOUNTS_COLLECTED `
  -TotalAccounts 520 `
  -ProcessedAccounts 150

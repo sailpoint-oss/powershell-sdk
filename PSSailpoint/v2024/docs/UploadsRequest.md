@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UploadsRequest = Initialize-PSSailpointV2024UploadsRequest  -JobId 3469b87d-48ca-439a-868f-2160001da8c1 `
+$UploadsRequest = Initialize-PSSailpoint.V2024UploadsRequest  -JobId 3469b87d-48ca-439a-868f-2160001da8c1 `
  -Status COMPLETE `
  -Type BACKUP `
  -Tenant uploaderTenant `

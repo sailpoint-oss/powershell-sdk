@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleApplication = Initialize-PSSailpointBetaRoleMiningPotentialRoleApplication  -Id null `
+$RoleMiningPotentialRoleApplication = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleApplication  -Id null `
  -Name null
 ```
 

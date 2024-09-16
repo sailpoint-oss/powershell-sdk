@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfSourceOwner = Initialize-PSSailpointBetaAccountAllOfSourceOwner  -Type IDENTITY `
+$AccountAllOfSourceOwner = Initialize-PSSailpoint.BetaAccountAllOfSourceOwner  -Type IDENTITY `
  -Id 4c5c8534e99445de98eef6c75e25eb01 `
  -Name SailPoint Support
 ```

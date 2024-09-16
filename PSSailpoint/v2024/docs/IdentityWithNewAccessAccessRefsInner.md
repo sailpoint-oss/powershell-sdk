@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityWithNewAccessAccessRefsInner = Initialize-PSSailpointV2024IdentityWithNewAccessAccessRefsInner  -Type ENTITLEMENT `
+$IdentityWithNewAccessAccessRefsInner = Initialize-PSSailpoint.V2024IdentityWithNewAccessAccessRefsInner  -Type ENTITLEMENT `
  -Id 2c91809773dee32014e13e122092014e `
  -Name CN&#x3D;entitlement.490efde5,OU&#x3D;OrgCo,OU&#x3D;ServiceDept,DC&#x3D;HQAD,DC&#x3D;local
 ```

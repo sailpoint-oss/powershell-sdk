@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SegmentVisibilityCriteria = Initialize-PSSailpointV2024SegmentVisibilityCriteria  -Expression null
+$SegmentVisibilityCriteria = Initialize-PSSailpoint.V2024SegmentVisibilityCriteria  -Expression null
 ```
 
 - Convert the resource to JSON

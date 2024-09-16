@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttributesChanged = Initialize-PSSailpointV2024AccountAttributesChanged  -Identity null `
+$AccountAttributesChanged = Initialize-PSSailpoint.V2024AccountAttributesChanged  -Identity null `
  -Source null `
  -Account null `
  -Changes null

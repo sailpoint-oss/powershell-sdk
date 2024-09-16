@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BrandingItemCreate = Initialize-PSSailpointV2024BrandingItemCreate  -Name custom-branding-item `
+$BrandingItemCreate = Initialize-PSSailpoint.V2024BrandingItemCreate  -Name custom-branding-item `
  -ProductName product name `
  -ActionButtonColor 0074D9 `
  -ActiveLinkColor 011E69 `

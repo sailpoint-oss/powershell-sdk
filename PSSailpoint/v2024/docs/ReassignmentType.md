@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReassignmentType = Initialize-PSSailpointV2024ReassignmentType 
+$ReassignmentType = Initialize-PSSailpoint.V2024ReassignmentType 
 ```
 
 - Convert the resource to JSON

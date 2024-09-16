@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledSearchName = Initialize-PSSailpointV2024ScheduledSearchName  -Name Daily disabled accounts `
+$ScheduledSearchName = Initialize-PSSailpoint.V2024ScheduledSearchName  -Name Daily disabled accounts `
  -Description Daily disabled accounts
 ```
 

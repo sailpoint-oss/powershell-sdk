@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.SegmentsApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.SegmentsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

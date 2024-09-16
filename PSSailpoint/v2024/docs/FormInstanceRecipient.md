@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormInstanceRecipient = Initialize-PSSailpointV2024FormInstanceRecipient  -Id 00000000-0000-0000-0000-000000000000 `
+$FormInstanceRecipient = Initialize-PSSailpoint.V2024FormInstanceRecipient  -Id 00000000-0000-0000-0000-000000000000 `
  -Type IDENTITY
 ```
 

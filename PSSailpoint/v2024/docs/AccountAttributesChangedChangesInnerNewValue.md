@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttributesChangedChangesInnerNewValue = Initialize-PSSailpointV2024AccountAttributesChangedChangesInnerNewValue 
+$AccountAttributesChangedChangesInnerNewValue = Initialize-PSSailpoint.V2024AccountAttributesChangedChangesInnerNewValue 
 ```
 
 - Convert the resource to JSON

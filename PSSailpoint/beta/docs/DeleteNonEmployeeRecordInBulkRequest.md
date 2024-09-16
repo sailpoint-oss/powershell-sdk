@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DeleteNonEmployeeRecordInBulkRequest = Initialize-PSSailpointBetaDeleteNonEmployeeRecordInBulkRequest  -Ids null
+$DeleteNonEmployeeRecordInBulkRequest = Initialize-PSSailpoint.BetaDeleteNonEmployeeRecordInBulkRequest  -Ids null
 ```
 
 - Convert the resource to JSON

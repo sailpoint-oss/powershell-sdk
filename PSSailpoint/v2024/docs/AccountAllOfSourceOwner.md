@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfSourceOwner = Initialize-PSSailpointV2024AccountAllOfSourceOwner  -Type IDENTITY `
+$AccountAllOfSourceOwner = Initialize-PSSailpoint.V2024AccountAllOfSourceOwner  -Type IDENTITY `
  -Id 4c5c8534e99445de98eef6c75e25eb01 `
  -Name John Cavender
 ```

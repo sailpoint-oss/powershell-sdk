@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodViolationContextConflictingAccessCriteriaLeftCriteria = Initialize-PSSailpointV2024SodViolationContextConflictingAccessCriteriaLeftCriteria  -CriteriaList null
+$SodViolationContextConflictingAccessCriteriaLeftCriteria = Initialize-PSSailpoint.V2024SodViolationContextConflictingAccessCriteriaLeftCriteria  -CriteriaList null
 ```
 
 - Convert the resource to JSON

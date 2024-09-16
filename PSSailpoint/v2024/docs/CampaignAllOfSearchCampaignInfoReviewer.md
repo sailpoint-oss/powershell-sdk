@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAllOfSearchCampaignInfoReviewer = Initialize-PSSailpointV2024CampaignAllOfSearchCampaignInfoReviewer  -Type IDENTITY `
+$CampaignAllOfSearchCampaignInfoReviewer = Initialize-PSSailpoint.V2024CampaignAllOfSearchCampaignInfoReviewer  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
 ```

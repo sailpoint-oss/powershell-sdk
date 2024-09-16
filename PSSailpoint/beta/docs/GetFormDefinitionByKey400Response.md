@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetFormDefinitionByKey400Response = Initialize-PSSailpointBetaGetFormDefinitionByKey400Response  -DetailCode null `
+$GetFormDefinitionByKey400Response = Initialize-PSSailpoint.BetaGetFormDefinitionByKey400Response  -DetailCode null `
  -Messages null `
  -StatusCode null `
  -TrackingId null

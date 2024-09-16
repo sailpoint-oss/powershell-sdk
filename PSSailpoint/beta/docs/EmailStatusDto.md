@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EmailStatusDto = Initialize-PSSailpointBetaEmailStatusDto  -Id null `
+$EmailStatusDto = Initialize-PSSailpoint.BetaEmailStatusDto  -Id null `
  -Email sender@example.com `
  -IsVerifiedByDomain false `
  -VerificationStatus null

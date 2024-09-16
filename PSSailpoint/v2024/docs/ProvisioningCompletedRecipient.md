@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCompletedRecipient = Initialize-PSSailpointV2024ProvisioningCompletedRecipient  -Type IDENTITY `
+$ProvisioningCompletedRecipient = Initialize-PSSailpoint.V2024ProvisioningCompletedRecipient  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

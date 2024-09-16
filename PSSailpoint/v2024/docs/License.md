@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$License = Initialize-PSSailpointV2024License  -LicenseId idn:access-request `
+$License = Initialize-PSSailpoint.V2024License  -LicenseId idn:access-request `
  -LegacyFeatureName ACCESS_REQUEST
 ```
 

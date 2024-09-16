@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatusRequesterComment = Initialize-PSSailpointRequestedItemStatusRequesterComment  -Comment This is a comment. `
+$RequestedItemStatusRequesterComment = Initialize-PSSailpoint.V3RequestedItemStatusRequesterComment  -Comment This is a comment. `
  -Created 2017-07-11T18:45:37.098Z `
  -Author null
 ```

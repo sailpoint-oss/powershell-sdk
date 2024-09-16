@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DeleteVendorConnectorMapping200Response = Initialize-PSSailpointBetaDeleteVendorConnectorMapping200Response  -Count 1
+$DeleteVendorConnectorMapping200Response = Initialize-PSSailpoint.BetaDeleteVendorConnectorMapping200Response  -Count 1
 ```
 
 - Convert the resource to JSON

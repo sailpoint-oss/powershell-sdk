@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ArrayInner = Initialize-PSSailpointArrayInner 
+$ArrayInner = Initialize-PSSailpoint.V3ArrayInner 
 ```
 
 - Convert the resource to JSON

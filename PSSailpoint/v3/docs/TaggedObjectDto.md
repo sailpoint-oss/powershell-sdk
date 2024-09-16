@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaggedObjectDto = Initialize-PSSailpointTaggedObjectDto  -Type IDENTITY `
+$TaggedObjectDto = Initialize-PSSailpoint.V3TaggedObjectDto  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
 ```

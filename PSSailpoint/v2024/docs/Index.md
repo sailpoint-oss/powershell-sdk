@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Index = Initialize-PSSailpointV2024Index 
+$Index = Initialize-PSSailpoint.V2024Index 
 ```
 
 - Convert the resource to JSON

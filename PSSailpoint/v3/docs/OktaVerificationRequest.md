@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OktaVerificationRequest = Initialize-PSSailpointOktaVerificationRequest  -UserId example@mail.com
+$OktaVerificationRequest = Initialize-PSSailpoint.V3OktaVerificationRequest  -UserId example@mail.com
 ```
 
 - Convert the resource to JSON

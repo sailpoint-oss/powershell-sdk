@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountUnlockRequest = Initialize-PSSailpointAccountUnlockRequest  -ExternalVerificationId 3f9180835d2e5168015d32f890ca1581 `
+$AccountUnlockRequest = Initialize-PSSailpoint.V3AccountUnlockRequest  -ExternalVerificationId 3f9180835d2e5168015d32f890ca1581 `
  -UnlockIDNAccount false `
  -ForceProvisioning false
 ```

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigExportJobStatus = Initialize-PSSailpointV2024SpConfigExportJobStatus  -JobId 3469b87d-48ca-439a-868f-2160001da8c1 `
+$SpConfigExportJobStatus = Initialize-PSSailpoint.V2024SpConfigExportJobStatus  -JobId 3469b87d-48ca-439a-868f-2160001da8c1 `
  -Status COMPLETE `
  -Type IMPORT `
  -Expiration 2021-05-11T22:23:16Z `

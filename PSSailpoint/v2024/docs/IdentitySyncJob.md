@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentitySyncJob = Initialize-PSSailpointV2024IdentitySyncJob  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$IdentitySyncJob = Initialize-PSSailpoint.V2024IdentitySyncJob  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Status IN_PROGRESS `
  -Payload null
 ```

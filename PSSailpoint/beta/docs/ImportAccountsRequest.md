@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportAccountsRequest = Initialize-PSSailpointBetaImportAccountsRequest  -File null `
+$ImportAccountsRequest = Initialize-PSSailpoint.BetaImportAccountsRequest  -File null `
  -DisableOptimization true
 ```
 

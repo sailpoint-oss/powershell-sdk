@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.ManagedClustersApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.ManagedClustersApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListCompleteWorkflowLibrary200ResponseInner = Initialize-PSSailpointListCompleteWorkflowLibrary200ResponseInner  -Id sp:compare-boolean `
+$ListCompleteWorkflowLibrary200ResponseInner = Initialize-PSSailpoint.V3ListCompleteWorkflowLibrary200ResponseInner  -Id sp:compare-boolean `
  -Name Compare Boolean Values `
  -Type OPERATOR `
  -Description Compare two boolean values and decide what happens based on the result. `

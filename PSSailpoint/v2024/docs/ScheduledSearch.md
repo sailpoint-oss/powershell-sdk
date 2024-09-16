@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledSearch = Initialize-PSSailpointV2024ScheduledSearch  -Name Daily disabled accounts `
+$ScheduledSearch = Initialize-PSSailpoint.V2024ScheduledSearch  -Name Daily disabled accounts `
  -Description Daily disabled accounts `
  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
  -Created 2018-06-25T20:22:28.104Z `

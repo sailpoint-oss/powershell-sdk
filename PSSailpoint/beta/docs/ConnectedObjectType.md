@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectedObjectType = Initialize-PSSailpointBetaConnectedObjectType 
+$ConnectedObjectType = Initialize-PSSailpoint.BetaConnectedObjectType 
 ```
 
 - Convert the resource to JSON

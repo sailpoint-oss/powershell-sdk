@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorDetail = Initialize-PSSailpointV2024ConnectorDetail  -Name name `
+$ConnectorDetail = Initialize-PSSailpoint.V2024ConnectorDetail  -Name name `
  -Type ServiceNow `
  -ClassName class name `
  -ScriptName servicenow `

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttributesCreate = Initialize-PSSailpointV2024AccountAttributesCreate  -Attributes null
+$AccountAttributesCreate = Initialize-PSSailpoint.V2024AccountAttributesCreate  -Attributes null
 ```
 
 - Convert the resource to JSON

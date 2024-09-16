@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsTaskTaskReturnsInner = Initialize-PSSailpointV2024LoadAccountsTaskTaskReturnsInner  -DisplayLabel TASK_OUT_ACCOUNT_AGGREGATION_APPLICATIONS `
+$LoadAccountsTaskTaskReturnsInner = Initialize-PSSailpoint.V2024LoadAccountsTaskTaskReturnsInner  -DisplayLabel TASK_OUT_ACCOUNT_AGGREGATION_APPLICATIONS `
  -AttributeName applications
 ```
 

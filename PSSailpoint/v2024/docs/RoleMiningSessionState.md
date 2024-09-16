@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionState = Initialize-PSSailpointV2024RoleMiningSessionState 
+$RoleMiningSessionState = Initialize-PSSailpoint.V2024RoleMiningSessionState 
 ```
 
 - Convert the resource to JSON

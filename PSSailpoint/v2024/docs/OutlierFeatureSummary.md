@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierFeatureSummary = Initialize-PSSailpointV2024OutlierFeatureSummary  -ContributingFeatureName Rare Access `
+$OutlierFeatureSummary = Initialize-PSSailpoint.V2024OutlierFeatureSummary  -ContributingFeatureName Rare Access `
  -IdentityOutlierDisplayName John Smith `
  -OutlierFeatureDisplayValues null `
  -FeatureDefinition Identity total number of entitlements `

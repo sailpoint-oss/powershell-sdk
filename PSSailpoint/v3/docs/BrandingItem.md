@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BrandingItem = Initialize-PSSailpointBrandingItem  -Name default `
+$BrandingItem = Initialize-PSSailpoint.V3BrandingItem  -Name default `
  -ProductName product name `
  -ActionButtonColor 0074D9 `
  -ActiveLinkColor 011E69 `

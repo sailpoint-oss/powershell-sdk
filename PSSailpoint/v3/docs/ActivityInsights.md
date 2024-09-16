@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ActivityInsights = Initialize-PSSailpointActivityInsights  -AccountID c4ddd5421d8549f0abd309162cafd3b1 `
+$ActivityInsights = Initialize-PSSailpoint.V3ActivityInsights  -AccountID c4ddd5421d8549f0abd309162cafd3b1 `
  -UsageDays 45 `
  -UsageDaysState COMPLETE
 ```

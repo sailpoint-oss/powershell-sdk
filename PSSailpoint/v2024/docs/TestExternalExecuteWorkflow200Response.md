@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TestExternalExecuteWorkflow200Response = Initialize-PSSailpointV2024TestExternalExecuteWorkflow200Response  -Payload {test&#x3D;hello world}
+$TestExternalExecuteWorkflow200Response = Initialize-PSSailpoint.V2024TestExternalExecuteWorkflow200Response  -Payload {test&#x3D;hello world}
 ```
 
 - Convert the resource to JSON

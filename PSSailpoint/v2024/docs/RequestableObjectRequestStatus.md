@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestableObjectRequestStatus = Initialize-PSSailpointV2024RequestableObjectRequestStatus 
+$RequestableObjectRequestStatus = Initialize-PSSailpoint.V2024RequestableObjectRequestStatus 
 ```
 
 - Convert the resource to JSON

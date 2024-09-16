@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfileIdentityErrorReportArguments = Initialize-PSSailpointV2024IdentityProfileIdentityErrorReportArguments  -AuthoritativeSource 1234sourceId5678902
+$IdentityProfileIdentityErrorReportArguments = Initialize-PSSailpoint.V2024IdentityProfileIdentityErrorReportArguments  -AuthoritativeSource 1234sourceId5678902
 ```
 
 - Convert the resource to JSON

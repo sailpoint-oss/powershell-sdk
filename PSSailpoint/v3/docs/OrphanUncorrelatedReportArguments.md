@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OrphanUncorrelatedReportArguments = Initialize-PSSailpointOrphanUncorrelatedReportArguments  -SelectedFormats [CSV]
+$OrphanUncorrelatedReportArguments = Initialize-PSSailpoint.V3OrphanUncorrelatedReportArguments  -SelectedFormats [CSV]
 ```
 
 - Convert the resource to JSON

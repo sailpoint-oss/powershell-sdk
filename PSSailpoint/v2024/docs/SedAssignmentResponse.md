@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedAssignmentResponse = Initialize-PSSailpointV2024SedAssignmentResponse  -BatchId 016629d1-1d25-463f-97f3-0c6686846650
+$SedAssignmentResponse = Initialize-PSSailpoint.V2024SedAssignmentResponse  -BatchId 016629d1-1d25-463f-97f3-0c6686846650
 ```
 
 - Convert the resource to JSON

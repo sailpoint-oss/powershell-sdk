@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodViolationContext = Initialize-PSSailpointSodViolationContext  -Policy null `
+$SodViolationContext = Initialize-PSSailpoint.V3SodViolationContext  -Policy null `
  -ConflictingAccessCriteria null
 ```
 

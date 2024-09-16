@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClientRequest = Initialize-PSSailpointManagedClientRequest  -ClusterId aClusterId `
+$ManagedClientRequest = Initialize-PSSailpoint.V3ManagedClientRequest  -ClusterId aClusterId `
  -Description A short description of the ManagedClient `
  -Name aName `
  -Type VA

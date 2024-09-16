@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeBulkUploadStatus = Initialize-PSSailpointV2024NonEmployeeBulkUploadStatus  -Status PENDING
+$NonEmployeeBulkUploadStatus = Initialize-PSSailpoint.V2024NonEmployeeBulkUploadStatus  -Status PENDING
 ```
 
 - Convert the resource to JSON

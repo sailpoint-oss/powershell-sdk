@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommonAccessItemResponse = Initialize-PSSailpointV2024CommonAccessItemResponse  -Id null `
+$CommonAccessItemResponse = Initialize-PSSailpoint.V2024CommonAccessItemResponse  -Id null `
  -Access null `
  -Status null `
  -LastUpdated null `

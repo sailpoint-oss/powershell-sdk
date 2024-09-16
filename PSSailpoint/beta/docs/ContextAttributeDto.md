@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ContextAttributeDto = Initialize-PSSailpointBetaContextAttributeDto  -Attribute location `
+$ContextAttributeDto = Initialize-PSSailpoint.BetaContextAttributeDto  -Attribute location `
  -Value null `
  -Derived false
 ```

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedPatch = Initialize-PSSailpointBetaSedPatch  -Op replace `
+$SedPatch = Initialize-PSSailpoint.BetaSedPatch  -Op replace `
  -Path status `
  -Value approved
 ```

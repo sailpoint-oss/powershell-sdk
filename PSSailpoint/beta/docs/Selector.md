@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Selector = Initialize-PSSailpointBetaSelector  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
+$Selector = Initialize-PSSailpoint.BetaSelector  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
  -AccountMatchConfig null
 ```
 

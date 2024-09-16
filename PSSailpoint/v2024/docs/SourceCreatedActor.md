@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceCreatedActor = Initialize-PSSailpointV2024SourceCreatedActor  -Type IDENTITY `
+$SourceCreatedActor = Initialize-PSSailpoint.V2024SourceCreatedActor  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
 ```

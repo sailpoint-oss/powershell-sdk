@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BasicAuthConfig = Initialize-PSSailpointV2024BasicAuthConfig  -UserName user@example.com `
+$BasicAuthConfig = Initialize-PSSailpoint.V2024BasicAuthConfig  -UserName user@example.com `
  -Password null
 ```
 

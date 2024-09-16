@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppCreateDto = Initialize-PSSailpointBetaSourceAppCreateDto  -Name my app `
+$SourceAppCreateDto = Initialize-PSSailpoint.BetaSourceAppCreateDto  -Name my app `
  -Description the source app for engineers `
  -MatchAllAccounts true `
  -AccountSource null

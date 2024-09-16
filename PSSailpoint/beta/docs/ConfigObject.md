@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigObject = Initialize-PSSailpointBetaConfigObject  -Version 1 `
+$ConfigObject = Initialize-PSSailpoint.BetaConfigObject  -Version 1 `
  -Self null `
  -Object null
 ```

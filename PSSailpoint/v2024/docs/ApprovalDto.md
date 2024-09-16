@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalDto = Initialize-PSSailpointV2024ApprovalDto  -Comments {author&#x3D;85d173e7d57e496569df763231d6deb6a, comment&#x3D;Looks good, createdDate&#x3D;2023-04-12T23:20:50.52Z} `
+$ApprovalDto = Initialize-PSSailpoint.V2024ApprovalDto  -Comments {author&#x3D;85d173e7d57e496569df763231d6deb6a, comment&#x3D;Looks good, createdDate&#x3D;2023-04-12T23:20:50.52Z} `
  -ApprovedBy null `
  -RejectedBy null `
  -ReassignFrom null `

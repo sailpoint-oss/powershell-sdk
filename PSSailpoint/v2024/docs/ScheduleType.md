@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduleType = Initialize-PSSailpointV2024ScheduleType 
+$ScheduleType = Initialize-PSSailpoint.V2024ScheduleType 
 ```
 
 - Convert the resource to JSON

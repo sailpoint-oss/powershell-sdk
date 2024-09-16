@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDefinitionDynamicSchemaRequest = Initialize-PSSailpointV2024FormDefinitionDynamicSchemaRequest  -Attributes null `
+$FormDefinitionDynamicSchemaRequest = Initialize-PSSailpoint.V2024FormDefinitionDynamicSchemaRequest  -Attributes null `
  -Description A description `
  -Id 00000000-0000-0000-0000-000000000000 `
  -Type action `

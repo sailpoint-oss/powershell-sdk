@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeSchemaAttributeBody = Initialize-PSSailpointV2024NonEmployeeSchemaAttributeBody  -Type TEXT `
+$NonEmployeeSchemaAttributeBody = Initialize-PSSailpoint.V2024NonEmployeeSchemaAttributeBody  -Type TEXT `
  -Label Account Name `
  -TechnicalName account.name `
  -HelpText The unique identifier for the account `

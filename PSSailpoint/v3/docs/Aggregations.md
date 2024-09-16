@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Aggregations = Initialize-PSSailpointAggregations  -Nested null `
+$Aggregations = Initialize-PSSailpoint.V3Aggregations  -Nested null `
  -Metric null `
  -VarFilter null `
  -Bucket null

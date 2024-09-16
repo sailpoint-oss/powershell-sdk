@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormOwner = Initialize-PSSailpointV2024FormOwner  -Type IDENTITY `
+$FormOwner = Initialize-PSSailpoint.V2024FormOwner  -Type IDENTITY `
  -Id 2c9180867624cbd7017642d8c8c81f67 `
  -Name Grant Smith
 ```

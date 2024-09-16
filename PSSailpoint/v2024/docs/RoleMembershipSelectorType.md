@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMembershipSelectorType = Initialize-PSSailpointV2024RoleMembershipSelectorType 
+$RoleMembershipSelectorType = Initialize-PSSailpoint.V2024RoleMembershipSelectorType 
 ```
 
 - Convert the resource to JSON

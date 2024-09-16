@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AggregationType = Initialize-PSSailpointAggregationType 
+$AggregationType = Initialize-PSSailpoint.V3AggregationType 
 ```
 
 - Convert the resource to JSON

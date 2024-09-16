@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigTypeEnumCamel = Initialize-PSSailpointV2024ConfigTypeEnumCamel 
+$ConfigTypeEnumCamel = Initialize-PSSailpoint.V2024ConfigTypeEnumCamel 
 ```
 
 - Convert the resource to JSON

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityOwnershipAssociationDetails = Initialize-PSSailpointV2024IdentityOwnershipAssociationDetails  -AssociationDetails null
+$IdentityOwnershipAssociationDetails = Initialize-PSSailpoint.V2024IdentityOwnershipAssociationDetails  -AssociationDetails null
 ```
 
 - Convert the resource to JSON

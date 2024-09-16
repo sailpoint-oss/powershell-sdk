@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExecutionStatus = Initialize-PSSailpointV2024ExecutionStatus 
+$ExecutionStatus = Initialize-PSSailpoint.V2024ExecutionStatus 
 ```
 
 - Convert the resource to JSON

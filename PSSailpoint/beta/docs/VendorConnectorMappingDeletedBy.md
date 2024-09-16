@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VendorConnectorMappingDeletedBy = Initialize-PSSailpointBetaVendorConnectorMappingDeletedBy  -String  `
+$VendorConnectorMappingDeletedBy = Initialize-PSSailpoint.BetaVendorConnectorMappingDeletedBy  -String  `
  -Valid false
 ```
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagerCorrelationMapping = Initialize-PSSailpointV2024ManagerCorrelationMapping  -AccountAttributeName manager `
+$ManagerCorrelationMapping = Initialize-PSSailpoint.V2024ManagerCorrelationMapping  -AccountAttributeName manager `
  -IdentityAttributeName manager
 ```
 

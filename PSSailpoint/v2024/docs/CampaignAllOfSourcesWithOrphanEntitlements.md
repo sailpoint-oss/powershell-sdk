@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAllOfSourcesWithOrphanEntitlements = Initialize-PSSailpointV2024CampaignAllOfSourcesWithOrphanEntitlements  -Id 2c90ad2a70ace7d50170acf22ca90010 `
+$CampaignAllOfSourcesWithOrphanEntitlements = Initialize-PSSailpoint.V2024CampaignAllOfSourcesWithOrphanEntitlements  -Id 2c90ad2a70ace7d50170acf22ca90010 `
  -Type SOURCE `
  -Name Source with orphan entitlements
 ```

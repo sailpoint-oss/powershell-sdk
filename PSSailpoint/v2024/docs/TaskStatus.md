@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskStatus = Initialize-PSSailpointV2024TaskStatus  -Id id12345 `
+$TaskStatus = Initialize-PSSailpoint.V2024TaskStatus  -Id id12345 `
  -Type QUARTZ `
  -UniqueName Big Task `
  -Description A Really Big Task `

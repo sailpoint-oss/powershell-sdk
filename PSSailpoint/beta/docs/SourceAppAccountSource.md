@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppAccountSource = Initialize-PSSailpointBetaSourceAppAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
+$SourceAppAccountSource = Initialize-PSSailpoint.BetaSourceAppAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type SOURCE `
  -Name ODS-AD-Source `
  -UseForPasswordManagement false `

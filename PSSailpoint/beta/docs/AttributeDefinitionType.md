@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeDefinitionType = Initialize-PSSailpointBetaAttributeDefinitionType 
+$AttributeDefinitionType = Initialize-PSSailpoint.BetaAttributeDefinitionType 
 ```
 
 - Convert the resource to JSON

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateSlackAutoApprovalData = Initialize-PSSailpointBetaTemplateSlackAutoApprovalData  -IsAutoApproved null `
+$TemplateSlackAutoApprovalData = Initialize-PSSailpoint.BetaTemplateSlackAutoApprovalData  -IsAutoApproved null `
  -ItemId null `
  -ItemType null `
  -AutoApprovalMessageJSON null `

@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.PasswordManagementApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.PasswordManagementApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

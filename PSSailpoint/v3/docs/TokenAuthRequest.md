@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TokenAuthRequest = Initialize-PSSailpointTokenAuthRequest  -Token 12345 `
+$TokenAuthRequest = Initialize-PSSailpoint.V3TokenAuthRequest  -Token 12345 `
  -UserAlias will.albin `
  -DeliveryType EMAIL_WORK
 ```

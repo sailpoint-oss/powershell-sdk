@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfIdentity = Initialize-PSSailpointBetaAccountAllOfIdentity  -Type IDENTITY `
+$AccountAllOfIdentity = Initialize-PSSailpoint.BetaAccountAllOfIdentity  -Type IDENTITY `
  -Id 2c918084660f45d6016617daa9210584 `
  -Name Adam Kennedy
 ```

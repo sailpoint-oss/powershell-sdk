@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAllOfRoleCompositionCampaignInfoRemediatorRef = Initialize-PSSailpointV2024CampaignAllOfRoleCompositionCampaignInfoRemediatorRef  -Type IDENTITY `
+$CampaignAllOfRoleCompositionCampaignInfoRemediatorRef = Initialize-PSSailpoint.V2024CampaignAllOfRoleCompositionCampaignInfoRemediatorRef  -Type IDENTITY `
  -Id 2c90ad2a70ace7d50170acf22ca90010 `
  -Name Role Admin
 ```

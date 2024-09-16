@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$App = Initialize-PSSailpointV2024App  -Id 2c91808568c529c60168cca6f90c1313 `
+$App = Initialize-PSSailpoint.V2024App  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Source null `
  -Account null

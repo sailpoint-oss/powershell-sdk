@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TypeAheadQuery = Initialize-PSSailpointV2024TypeAheadQuery  -Query Work `
+$TypeAheadQuery = Initialize-PSSailpoint.V2024TypeAheadQuery  -Query Work `
  -Field source.name `
  -NestedType access `
  -MaxExpansions 10 `

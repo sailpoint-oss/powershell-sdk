@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalName = Initialize-PSSailpointV2024ApprovalName  -Value Audit DB Access `
+$ApprovalName = Initialize-PSSailpoint.V2024ApprovalName  -Value Audit DB Access `
  -Locale en_US
 ```
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutSourceTemplateRequest = Initialize-PSSailpointV2024PutSourceTemplateRequest  -File null
+$PutSourceTemplateRequest = Initialize-PSSailpoint.V2024PutSourceTemplateRequest  -File null
 ```
 
 - Convert the resource to JSON

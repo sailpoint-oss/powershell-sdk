@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FederationProtocolDetails = Initialize-PSSailpointFederationProtocolDetails  -Role SAML_IDP `
+$FederationProtocolDetails = Initialize-PSSailpoint.V3FederationProtocolDetails  -Role SAML_IDP `
  -EntityId http://www.okta.com/exkdaruy8Ln5Ry7C54x6
 ```
 

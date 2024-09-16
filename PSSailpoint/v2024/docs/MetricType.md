@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MetricType = Initialize-PSSailpointV2024MetricType 
+$MetricType = Initialize-PSSailpoint.V2024MetricType 
 ```
 
 - Convert the resource to JSON

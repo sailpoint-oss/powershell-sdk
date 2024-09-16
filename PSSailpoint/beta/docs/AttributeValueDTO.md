@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeValueDTO = Initialize-PSSailpointBetaAttributeValueDTO  -Value public `
+$AttributeValueDTO = Initialize-PSSailpoint.BetaAttributeValueDTO  -Value public `
  -Name Public `
  -Status active
 ```

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalScheme = Initialize-PSSailpointBetaApprovalScheme 
+$ApprovalScheme = Initialize-PSSailpoint.BetaApprovalScheme 
 ```
 
 - Convert the resource to JSON

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningIdentity = Initialize-PSSailpointV2024RoleMiningIdentity  -Id null `
+$RoleMiningIdentity = Initialize-PSSailpoint.V2024RoleMiningIdentity  -Id null `
  -Name null `
  -Attributes null
 ```

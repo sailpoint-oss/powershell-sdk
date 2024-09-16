@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BucketType = Initialize-PSSailpointBucketType 
+$BucketType = Initialize-PSSailpoint.V3BucketType 
 ```
 
 - Convert the resource to JSON

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewableEntitlementAccount = Initialize-PSSailpointV2024ReviewableEntitlementAccount  -NativeIdentity CN&#x3D;Alison Ferguso `
+$ReviewableEntitlementAccount = Initialize-PSSailpoint.V2024ReviewableEntitlementAccount  -NativeIdentity CN&#x3D;Alison Ferguso `
  -Disabled false `
  -Locked false `
  -Type null `

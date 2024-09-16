@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalSummary = Initialize-PSSailpointV2024ApprovalSummary  -Pending 0 `
+$ApprovalSummary = Initialize-PSSailpoint.V2024ApprovalSummary  -Pending 0 `
  -Approved 0 `
  -Rejected 0
 ```

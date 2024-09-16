@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.SourceUsagesApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.SourceUsagesApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

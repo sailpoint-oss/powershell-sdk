@@ -46,7 +46,7 @@ function Get-FunctionsToExport {
 }
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
-$FunctionPath = "$PSScriptRoot/v3/src/PSSailpoint/Api", "$PSScriptRoot/v3/src/PSSailpoint/Model", "$PSScriptRoot/v3/src/PSSailpoint/Client", "$PSScriptRoot/beta/src/PSSailpointBeta/Api", "$PSScriptRoot/beta/src/PSSailpointBeta/Model", "$PSScriptRoot/beta/src/PSSailpointBeta/Client","$PSScriptRoot/v2024/src/PSSailpointV2024/Api", "$PSScriptRoot/v2024/src/PSSailpointV2024/Model", "$PSScriptRoot/v2024/src/PSSailpointV2024/Client", "$PSScriptRoot" | ForEach-Object { $_ }
+$FunctionPath = "$PSScriptRoot" | ForEach-Object { $_ }
 
 $Manifest = @{
     Path              = "$ScriptDir\PSSailpoint.psd1"
@@ -63,6 +63,12 @@ $Manifest = @{
     PowerShellVersion = '6.2'
 
     FunctionsToExport = $FunctionPath | Get-ChildItem -Filter *.ps1 | Get-FunctionsToExport
+
+    RequiredModules = @(
+        @{ModuleName = 'PSSailpoint.Beta'; RequiredVersion = '1.4.3'; }, 
+        @{ModuleName = 'PSSailpoint.V3'; RequiredVersion = '1.4.3'; },
+        @{ModuleName = 'PSSailpoint.V2024'; RequiredVersion = '1.4.3'; }
+    )
 
     VariablesToExport = @()
     AliasesToExport   = @()

@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta\Api.BetaPasswordConfigurationApi
+# PSSailpoint.Beta.PSSailpoint.Beta\Api.BetaPasswordConfigurationApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

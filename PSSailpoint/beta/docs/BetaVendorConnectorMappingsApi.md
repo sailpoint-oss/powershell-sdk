@@ -1,4 +1,4 @@
-# PSSailpointBeta.PSSailpointBeta\Api.BetaVendorConnectorMappingsApi
+# PSSailpoint.Beta.PSSailpoint.Beta\Api.BetaVendorConnectorMappingsApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

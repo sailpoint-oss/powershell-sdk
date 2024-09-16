@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommonAccessType = Initialize-PSSailpointV2024CommonAccessType 
+$CommonAccessType = Initialize-PSSailpoint.V2024CommonAccessType 
 ```
 
 - Convert the resource to JSON

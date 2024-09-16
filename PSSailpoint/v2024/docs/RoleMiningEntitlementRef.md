@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningEntitlementRef = Initialize-PSSailpointV2024RoleMiningEntitlementRef  -Id 2c91808a7e95e6e0017e96e2086206c8 `
+$RoleMiningEntitlementRef = Initialize-PSSailpoint.V2024RoleMiningEntitlementRef  -Id 2c91808a7e95e6e0017e96e2086206c8 `
  -Name App.entitlement.1 `
  -Description Entitlement 1 `
  -Attribute groups

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsRole = Initialize-PSSailpointV2024RoleInsightsRole  -Name Software Engineer `
+$RoleInsightsRole = Initialize-PSSailpoint.V2024RoleInsightsRole  -Name Software Engineer `
  -Id 1467e61e-f284-439c-ba2d-c6cc11cf0941 `
  -Description Person who develops software `
  -OwnerName Bob `

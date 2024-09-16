@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Access = Initialize-PSSailpointV2024Access  -Id 2c91808568c529c60168cca6f90c1313 `
+$Access = Initialize-PSSailpoint.V2024Access  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
  -Type null `

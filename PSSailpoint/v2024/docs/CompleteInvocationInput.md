@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompleteInvocationInput = Initialize-PSSailpointV2024CompleteInvocationInput  -LocalizedError null `
+$CompleteInvocationInput = Initialize-PSSailpoint.V2024CompleteInvocationInput  -LocalizedError null `
  -Output {approved&#x3D;false}
 ```
 

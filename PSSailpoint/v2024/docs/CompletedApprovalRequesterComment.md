@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompletedApprovalRequesterComment = Initialize-PSSailpointV2024CompletedApprovalRequesterComment  -Comment This is a comment. `
+$CompletedApprovalRequesterComment = Initialize-PSSailpoint.V2024CompletedApprovalRequesterComment  -Comment This is a comment. `
  -Created 2017-07-11T18:45:37.098Z `
  -Author null
 ```

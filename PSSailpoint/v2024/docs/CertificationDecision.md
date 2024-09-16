@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationDecision = Initialize-PSSailpointV2024CertificationDecision 
+$CertificationDecision = Initialize-PSSailpoint.V2024CertificationDecision 
 ```
 
 - Convert the resource to JSON

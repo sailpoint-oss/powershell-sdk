@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationReferenceDto = Initialize-PSSailpointV2024CertificationReferenceDto  -Type IDENTITY `
+$CertificationReferenceDto = Initialize-PSSailpoint.V2024CertificationReferenceDto  -Type IDENTITY `
  -Id 7589a83cec4b4f138ce56c1a5ef0756d `
  -Name Manager Access for Michael Michaels
 ```

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManuallyUpdatedFieldsDTO = Initialize-PSSailpointV2024ManuallyUpdatedFieldsDTO  -DISPLAYNAME true `
+$ManuallyUpdatedFieldsDTO = Initialize-PSSailpoint.V2024ManuallyUpdatedFieldsDTO  -DISPLAYNAME true `
  -DESCRIPTION true
 ```
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Medium = Initialize-PSSailpointV2024Medium 
+$Medium = Initialize-PSSailpoint.V2024Medium 
 ```
 
 - Convert the resource to JSON

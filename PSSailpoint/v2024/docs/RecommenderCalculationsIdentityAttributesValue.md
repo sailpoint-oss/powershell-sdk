@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommenderCalculationsIdentityAttributesValue = Initialize-PSSailpointV2024RecommenderCalculationsIdentityAttributesValue  -Value null
+$RecommenderCalculationsIdentityAttributesValue = Initialize-PSSailpoint.V2024RecommenderCalculationsIdentityAttributesValue  -Value null
 ```
 
 - Convert the resource to JSON

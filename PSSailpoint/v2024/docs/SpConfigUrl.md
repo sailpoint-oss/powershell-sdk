@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigUrl = Initialize-PSSailpointV2024SpConfigUrl  -Url ets://trigger-subscriptions/$id `
+$SpConfigUrl = Initialize-PSSailpoint.V2024SpConfigUrl  -Url ets://trigger-subscriptions/$id `
  -Query null
 ```
 

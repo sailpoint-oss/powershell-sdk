@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VendorConnectorMappingUpdatedBy = Initialize-PSSailpointV2024VendorConnectorMappingUpdatedBy  -String user-67891 `
+$VendorConnectorMappingUpdatedBy = Initialize-PSSailpoint.V2024VendorConnectorMappingUpdatedBy  -String user-67891 `
  -Valid true
 ```
 

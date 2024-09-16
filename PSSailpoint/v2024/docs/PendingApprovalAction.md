@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PendingApprovalAction = Initialize-PSSailpointV2024PendingApprovalAction 
+$PendingApprovalAction = Initialize-PSSailpoint.V2024PendingApprovalAction 
 ```
 
 - Convert the resource to JSON

@@ -1,4 +1,4 @@
-# PSSailpoint.PSSailpoint\Api.ReportsDataExtractionApi
+# PSSailpoint.V3.PSSailpoint.V3\Api.ReportsDataExtractionApi
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 

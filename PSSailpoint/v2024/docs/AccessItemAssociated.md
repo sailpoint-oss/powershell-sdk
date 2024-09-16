@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemAssociated = Initialize-PSSailpointV2024AccessItemAssociated  -AccessItem null `
+$AccessItemAssociated = Initialize-PSSailpoint.V2024AccessItemAssociated  -AccessItem null `
  -IdentityId 8c190e6787aa4ed9a90bd9d5344523fb `
  -EventType AccessItemAssociated `
  -Dt 2019-03-08T22:37:33.901Z `

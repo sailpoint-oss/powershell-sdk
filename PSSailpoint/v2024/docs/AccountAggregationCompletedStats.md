@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAggregationCompletedStats = Initialize-PSSailpointV2024AccountAggregationCompletedStats  -Scanned 200 `
+$AccountAggregationCompletedStats = Initialize-PSSailpoint.V2024AccountAggregationCompletedStats  -Scanned 200 `
  -Unchanged 190 `
  -Changed 6 `
  -Added 4 `

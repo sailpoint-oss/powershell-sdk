@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Search = Initialize-PSSailpointSearch  -Indices [identities] `
+$Search = Initialize-PSSailpoint.V3Search  -Indices [identities] `
  -QueryType null `
  -QueryVersion null `
  -Query null `

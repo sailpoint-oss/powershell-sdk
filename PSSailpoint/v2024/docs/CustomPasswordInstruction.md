@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CustomPasswordInstruction = Initialize-PSSailpointV2024CustomPasswordInstruction  -PageId null `
+$CustomPasswordInstruction = Initialize-PSSailpoint.V2024CustomPasswordInstruction  -PageId null `
  -PageContent null `
  -Locale en
 ```

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Entitlement1 = Initialize-PSSailpointV2024Entitlement1  -Id 2c91808874ff91550175097daaec161c `
+$Entitlement1 = Initialize-PSSailpoint.V2024Entitlement1  -Id 2c91808874ff91550175097daaec161c `
  -Name LauncherTest2 `
  -Created 2020-10-08T18:33:52.029Z `
  -Modified 2020-10-08T18:33:52.029Z `

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Entitlement1Source = Initialize-PSSailpointV2024Entitlement1Source  -Id 2c9180827ca885d7017ca8ce28a000eb `
+$Entitlement1Source = Initialize-PSSailpoint.V2024Entitlement1Source  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type SOURCE `
  -Name ODS-AD-Source
 ```

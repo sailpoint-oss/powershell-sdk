@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMembershipIdentity = Initialize-PSSailpointV2024RoleMembershipIdentity  -Type null `
+$RoleMembershipIdentity = Initialize-PSSailpoint.V2024RoleMembershipIdentity  -Type null `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Thomas Edison `
  -AliasName t.edison

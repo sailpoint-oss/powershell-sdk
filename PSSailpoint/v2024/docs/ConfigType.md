@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigType = Initialize-PSSailpointV2024ConfigType  -Priority 1 `
+$ConfigType = Initialize-PSSailpoint.V2024ConfigType  -Priority 1 `
  -InternalName null `
  -InternalNameCamel null `
  -DisplayName Access Requests `

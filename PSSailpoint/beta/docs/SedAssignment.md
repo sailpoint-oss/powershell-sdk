@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedAssignment = Initialize-PSSailpointBetaSedAssignment  -Assignee null `
+$SedAssignment = Initialize-PSSailpoint.BetaSedAssignment  -Assignee null `
  -Items null
 ```
 

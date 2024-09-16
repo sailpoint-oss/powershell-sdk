@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutPasswordDictionaryRequest = Initialize-PSSailpointBetaPutPasswordDictionaryRequest  -File null
+$PutPasswordDictionaryRequest = Initialize-PSSailpoint.BetaPutPasswordDictionaryRequest  -File null
 ```
 
 - Convert the resource to JSON

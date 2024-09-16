@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestRecommendationItemType = Initialize-PSSailpointBetaAccessRequestRecommendationItemType 
+$AccessRequestRecommendationItemType = Initialize-PSSailpoint.BetaAccessRequestRecommendationItemType 
 ```
 
 - Convert the resource to JSON

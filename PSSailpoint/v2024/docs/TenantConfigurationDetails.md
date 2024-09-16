@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantConfigurationDetails = Initialize-PSSailpointV2024TenantConfigurationDetails  -Disabled true
+$TenantConfigurationDetails = Initialize-PSSailpoint.V2024TenantConfigurationDetails  -Disabled true
 ```
 
 - Convert the resource to JSON

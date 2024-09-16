@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleAssignmentSourceType = Initialize-PSSailpointV2024RoleAssignmentSourceType 
+$RoleAssignmentSourceType = Initialize-PSSailpoint.V2024RoleAssignmentSourceType 
 ```
 
 - Convert the resource to JSON

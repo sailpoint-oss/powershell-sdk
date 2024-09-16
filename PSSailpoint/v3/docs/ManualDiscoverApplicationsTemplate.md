@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManualDiscoverApplicationsTemplate = Initialize-PSSailpointManualDiscoverApplicationsTemplate  -ApplicationName Example Application `
+$ManualDiscoverApplicationsTemplate = Initialize-PSSailpoint.V3ManualDiscoverApplicationsTemplate  -ApplicationName Example Application `
  -Description Example Description
 ```
 

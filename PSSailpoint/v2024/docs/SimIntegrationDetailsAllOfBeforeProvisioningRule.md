@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SimIntegrationDetailsAllOfBeforeProvisioningRule = Initialize-PSSailpointV2024SimIntegrationDetailsAllOfBeforeProvisioningRule  -Type null `
+$SimIntegrationDetailsAllOfBeforeProvisioningRule = Initialize-PSSailpoint.V2024SimIntegrationDetailsAllOfBeforeProvisioningRule  -Type null `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
 ```

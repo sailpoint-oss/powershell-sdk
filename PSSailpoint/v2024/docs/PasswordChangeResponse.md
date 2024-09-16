@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordChangeResponse = Initialize-PSSailpointV2024PasswordChangeResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
+$PasswordChangeResponse = Initialize-PSSailpoint.V2024PasswordChangeResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
  -State IN_PROGRESS
 ```
 

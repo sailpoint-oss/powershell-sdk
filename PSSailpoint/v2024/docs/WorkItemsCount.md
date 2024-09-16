@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkItemsCount = Initialize-PSSailpointV2024WorkItemsCount  -Count 29
+$WorkItemsCount = Initialize-PSSailpoint.V2024WorkItemsCount  -Count 29
 ```
 
 - Convert the resource to JSON

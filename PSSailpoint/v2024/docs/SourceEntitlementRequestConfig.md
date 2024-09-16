@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceEntitlementRequestConfig = Initialize-PSSailpointV2024SourceEntitlementRequestConfig  -AccessRequestConfig null
+$SourceEntitlementRequestConfig = Initialize-PSSailpoint.V2024SourceEntitlementRequestConfig  -AccessRequestConfig null
 ```
 
 - Convert the resource to JSON

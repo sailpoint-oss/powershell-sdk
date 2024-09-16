@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationPhase = Initialize-PSSailpointV2024CertificationPhase 
+$CertificationPhase = Initialize-PSSailpoint.V2024CertificationPhase 
 ```
 
 - Convert the resource to JSON

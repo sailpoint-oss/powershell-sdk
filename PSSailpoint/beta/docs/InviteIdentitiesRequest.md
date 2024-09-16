@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$InviteIdentitiesRequest = Initialize-PSSailpointBetaInviteIdentitiesRequest  -Ids [2b568c65bc3c4c57a43bd97e3a8e55, 2c9180867769897d01776ed5f125512f] `
+$InviteIdentitiesRequest = Initialize-PSSailpoint.BetaInviteIdentitiesRequest  -Ids [2b568c65bc3c4c57a43bd97e3a8e55, 2c9180867769897d01776ed5f125512f] `
  -Uninvited false
 ```
 

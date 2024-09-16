@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SendTokenResponse = Initialize-PSSailpointSendTokenResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
+$SendTokenResponse = Initialize-PSSailpoint.V3SendTokenResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
  -Status SUCCESS `
  -ErrorMessage Unable to sent text message
 ```

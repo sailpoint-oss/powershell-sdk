@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeDefinitionType = Initialize-PSSailpointV2024AttributeDefinitionType 
+$AttributeDefinitionType = Initialize-PSSailpoint.V2024AttributeDefinitionType 
 ```
 
 - Convert the resource to JSON

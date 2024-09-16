@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleExportState = Initialize-PSSailpointBetaRoleMiningPotentialRoleExportState 
+$RoleMiningPotentialRoleExportState = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleExportState 
 ```
 
 - Convert the resource to JSON

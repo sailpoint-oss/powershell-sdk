@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$KbaAuthResponse = Initialize-PSSailpointBetaKbaAuthResponse  -KbaAuthResponseItems [{questionId&#x3D;089899f13a8f4da7824996191587bab9, isVerified&#x3D;false}] `
+$KbaAuthResponse = Initialize-PSSailpoint.BetaKbaAuthResponse  -KbaAuthResponseItems [{questionId&#x3D;089899f13a8f4da7824996191587bab9, isVerified&#x3D;false}] `
  -Status PENDING
 ```
 

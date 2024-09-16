@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleDocument = Initialize-PSSailpointV2024RoleDocument  -Id 2c91808568c529c60168cca6f90c1313 `
+$RoleDocument = Initialize-PSSailpoint.V2024RoleDocument  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type null `
  -Description The admin role `

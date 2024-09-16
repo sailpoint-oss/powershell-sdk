@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceProviderConfigurationFederationProtocolDetailsInner = Initialize-PSSailpointServiceProviderConfigurationFederationProtocolDetailsInner  -Role SAML_SP `
+$ServiceProviderConfigurationFederationProtocolDetailsInner = Initialize-PSSailpoint.V3ServiceProviderConfigurationFederationProtocolDetailsInner  -Role SAML_SP `
  -EntityId http://www.okta.com/exkdaruy8Ln5Ry7C54x6 `
  -Binding urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST `
  -AuthContext urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport `

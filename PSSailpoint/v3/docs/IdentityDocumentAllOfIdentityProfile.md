@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDocumentAllOfIdentityProfile = Initialize-PSSailpointIdentityDocumentAllOfIdentityProfile  -Id 3bc8ad26b8664945866b31339d1ff7d2 `
+$IdentityDocumentAllOfIdentityProfile = Initialize-PSSailpoint.V3IdentityDocumentAllOfIdentityProfile  -Id 3bc8ad26b8664945866b31339d1ff7d2 `
  -Name HR Employees
 ```
 

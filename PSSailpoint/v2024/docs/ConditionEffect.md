@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConditionEffect = Initialize-PSSailpointV2024ConditionEffect  -EffectType HIDE `
+$ConditionEffect = Initialize-PSSailpoint.V2024ConditionEffect  -EffectType HIDE `
  -Config null
 ```
 

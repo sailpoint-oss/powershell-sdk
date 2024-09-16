@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportType = Initialize-PSSailpointBetaReportType 
+$ReportType = Initialize-PSSailpoint.BetaReportType 
 ```
 
 - Convert the resource to JSON

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantUiMetadataItemUpdateRequest = Initialize-PSSailpointBetaTenantUiMetadataItemUpdateRequest  -IframeWhiteList http://example.com http://example2.com `
+$TenantUiMetadataItemUpdateRequest = Initialize-PSSailpoint.BetaTenantUiMetadataItemUpdateRequest  -IframeWhiteList http://example.com http://example2.com `
  -UsernameLabel Email `
  -UsernameEmptyText Please provide your work email address...
 ```

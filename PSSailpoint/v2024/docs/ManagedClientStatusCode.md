@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClientStatusCode = Initialize-PSSailpointV2024ManagedClientStatusCode 
+$ManagedClientStatusCode = Initialize-PSSailpoint.V2024ManagedClientStatusCode 
 ```
 
 - Convert the resource to JSON

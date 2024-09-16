@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileDetailsAccountSelector = Initialize-PSSailpointBetaAccessProfileDetailsAccountSelector  -Selectors null
+$AccessProfileDetailsAccountSelector = Initialize-PSSailpoint.BetaAccessProfileDetailsAccountSelector  -Selectors null
 ```
 
 - Convert the resource to JSON

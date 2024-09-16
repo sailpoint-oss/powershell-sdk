@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$InvocationStatusType = Initialize-PSSailpointBetaInvocationStatusType 
+$InvocationStatusType = Initialize-PSSailpoint.BetaInvocationStatusType 
 ```
 
 - Convert the resource to JSON

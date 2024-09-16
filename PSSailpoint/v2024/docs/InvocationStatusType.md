@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$InvocationStatusType = Initialize-PSSailpointV2024InvocationStatusType 
+$InvocationStatusType = Initialize-PSSailpoint.V2024InvocationStatusType 
 ```
 
 - Convert the resource to JSON

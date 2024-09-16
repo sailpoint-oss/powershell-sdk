@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseReferenceDto = Initialize-PSSailpointBetaBaseReferenceDto  -Id ff8081814d977c21014da056804a0af3 `
+$BaseReferenceDto = Initialize-PSSailpoint.BetaBaseReferenceDto  -Id ff8081814d977c21014da056804a0af3 `
  -Name Github
 ```
 

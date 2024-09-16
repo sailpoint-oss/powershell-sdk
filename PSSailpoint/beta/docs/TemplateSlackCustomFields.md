@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateSlackCustomFields = Initialize-PSSailpointBetaTemplateSlackCustomFields  -RequestType null `
+$TemplateSlackCustomFields = Initialize-PSSailpoint.BetaTemplateSlackCustomFields  -RequestType null `
  -ContainsDeny null `
  -CampaignId null `
  -CampaignStatus null

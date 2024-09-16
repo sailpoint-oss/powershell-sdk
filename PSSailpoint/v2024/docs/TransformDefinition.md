@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformDefinition = Initialize-PSSailpointV2024TransformDefinition  -Type accountAttribute `
+$TransformDefinition = Initialize-PSSailpoint.V2024TransformDefinition  -Type accountAttribute `
  -Attributes {attributeName&#x3D;e-mail, sourceName&#x3D;MySource, sourceId&#x3D;2c9180877a826e68017a8c0b03da1a53}
 ```
 

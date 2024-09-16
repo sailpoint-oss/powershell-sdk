@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$HttpAuthenticationType = Initialize-PSSailpointBetaHttpAuthenticationType 
+$HttpAuthenticationType = Initialize-PSSailpoint.BetaHttpAuthenticationType 
 ```
 
 - Convert the resource to JSON

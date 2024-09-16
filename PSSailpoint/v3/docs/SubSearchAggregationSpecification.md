@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubSearchAggregationSpecification = Initialize-PSSailpointSubSearchAggregationSpecification  -Nested null `
+$SubSearchAggregationSpecification = Initialize-PSSailpoint.V3SubSearchAggregationSpecification  -Nested null `
  -Metric null `
  -VarFilter null `
  -Bucket null `

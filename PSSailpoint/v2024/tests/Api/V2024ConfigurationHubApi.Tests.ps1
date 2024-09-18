@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
         }
     }
 
+    Context 'Remove-V2024Draft' {
+        It 'Test Remove-V2024Draft' {
+            #$TestResult = Remove-V2024Draft -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-V2024ObjectMapping' {
         It 'Test Remove-V2024ObjectMapping' {
             #$TestResult = Remove-V2024ObjectMapping -SourceOrg "TEST_VALUE" -ObjectMappingId "TEST_VALUE"
@@ -65,6 +73,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
     Context 'Import-V2024UploadedBackup' {
         It 'Test Import-V2024UploadedBackup' {
             #$TestResult = Import-V2024UploadedBackup -Data "TEST_VALUE" -Name "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024Drafts' {
+        It 'Test Get-V2024Drafts' {
+            #$TestResult = Get-V2024Drafts -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

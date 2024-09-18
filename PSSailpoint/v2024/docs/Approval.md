@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Description** | [**ApprovalDescription[]**](ApprovalDescription.md) | The description of the approval for a given locale | [optional] 
 **Priority** | **String** | The priority of the approval | [optional] 
 **Requester** | [**ApprovalIdentity**](.md) | Object representation of the requester of the approval | [optional] 
-**Comments** | [**ApprovalComment[]**](ApprovalComment.md) | Object representation of a comment on the approval | [optional] 
+**Comments** | [**ApprovalComment1[]**](ApprovalComment1.md) | Object representation of a comment on the approval | [optional] 
 **ApprovedBy** | [**ApprovalIdentity[]**](ApprovalIdentity.md) | Array of approvers who have approved the approval | [optional] 
 **RejectedBy** | [**ApprovalIdentity[]**](ApprovalIdentity.md) | Array of approvers who have rejected the approval | [optional] 
 **CompletedDate** | **String** | Date the approval was completed | [optional] 

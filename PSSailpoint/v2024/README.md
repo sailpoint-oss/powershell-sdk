@@ -172,12 +172,14 @@ Class | Method | HTTP request | Description
 *V2024CertificationsApi* | [**Submit-V2024ReassignCertsAsync**](docs/V2024CertificationsApi.md#Submit-V2024ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
+*V2024ConfigurationHubApi* | [**Remove-V2024Draft**](docs/V2024ConfigurationHubApi.md#Remove-V2024Draft) | **DELETE** /configuration-hub/drafts/{id} | Delete a draft
 *V2024ConfigurationHubApi* | [**Remove-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#Remove-V2024ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
 *V2024ConfigurationHubApi* | [**Remove-V2024UploadedBackup**](docs/V2024ConfigurationHubApi.md#Remove-V2024UploadedBackup) | **DELETE** /configuration-hub/backups/uploads/{id} | Deletes an uploaded backup file
 *V2024ConfigurationHubApi* | [**Get-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Get-V2024ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
 *V2024ConfigurationHubApi* | [**Get-V2024UploadedBackup**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedBackup) | **GET** /configuration-hub/backups/uploads/{id} | Get an uploaded backup's information
 *V2024ConfigurationHubApi* | [**Get-V2024UploadedBackups**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedBackups) | **GET** /configuration-hub/backups/uploads | Gets list of Uploaded backups
 *V2024ConfigurationHubApi* | [**Import-V2024UploadedBackup**](docs/V2024ConfigurationHubApi.md#Import-V2024UploadedBackup) | **POST** /configuration-hub/backups/uploads | Uploads a backup file
+*V2024ConfigurationHubApi* | [**Get-V2024Drafts**](docs/V2024ConfigurationHubApi.md#Get-V2024Drafts) | **GET** /configuration-hub/drafts | List Drafts
 *V2024ConfigurationHubApi* | [**Update-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *V2024ConnectorRuleManagementApi* | [**New-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#New-V2024ConnectorRule) | **POST** /connector-rules | Create Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete a Connector-Rule
@@ -788,6 +790,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ApprovalBatch](docs/ApprovalBatch.md)
  - [PSSailpoint.V2024\Model.ApprovalComment](docs/ApprovalComment.md)
  - [PSSailpoint.V2024\Model.ApprovalComment1](docs/ApprovalComment1.md)
+ - [PSSailpoint.V2024\Model.ApprovalComment2](docs/ApprovalComment2.md)
  - [PSSailpoint.V2024\Model.ApprovalDescription](docs/ApprovalDescription.md)
  - [PSSailpoint.V2024\Model.ApprovalDto](docs/ApprovalDto.md)
  - [PSSailpoint.V2024\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
@@ -973,6 +976,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.DocumentType](docs/DocumentType.md)
  - [PSSailpoint.V2024\Model.DomainAddress](docs/DomainAddress.md)
  - [PSSailpoint.V2024\Model.DomainStatusDto](docs/DomainStatusDto.md)
+ - [PSSailpoint.V2024\Model.DraftResponse](docs/DraftResponse.md)
  - [PSSailpoint.V2024\Model.DtoType](docs/DtoType.md)
  - [PSSailpoint.V2024\Model.E164phone](docs/E164phone.md)
  - [PSSailpoint.V2024\Model.EmailNotificationOption](docs/EmailNotificationOption.md)

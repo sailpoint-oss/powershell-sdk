@@ -3,17 +3,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Author** | [**ApprovalIdentity**](ApprovalIdentity.md) |  | [optional] 
-**Comment** | **String** | Comment to be left on an approval | [optional] 
-**CreatedDate** | **String** | Date the comment was created | [optional] 
+**Comment** | **String** | Comment provided either by the approval requester or the approver. | 
+**Timestamp** | **System.DateTime** | The time when this comment was provided. | 
+**User** | **String** | Name of the user that provided this comment. | 
+**Id** | **String** | Id of the user that provided this comment. | 
+**ChangedToStatus** | **String** | Status transition of the draft. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ApprovalComment = Initialize-PSSailpoint.V2024ApprovalComment  -Author null `
- -Comment Looks good `
- -CreatedDate 2023-04-12T23:20:50.52Z
+$ApprovalComment = Initialize-PSSailpoint.V2024ApprovalComment  -Comment Approval comment `
+ -Timestamp 2021-05-11T22:23:16Z `
+ -User user.name `
+ -Id 549bf881-1ac4-4a64-9acf-6014e8a3a887 `
+ -ChangedToStatus PENDING_APPROVAL
 ```
 
 - Convert the resource to JSON

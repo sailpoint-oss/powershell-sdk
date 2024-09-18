@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comments** | [**ApprovalComment1[]**](ApprovalComment1.md) |  | [optional] 
+**Comments** | [**ApprovalComment2[]**](ApprovalComment2.md) |  | [optional] 
 **Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
 **Owner** | [**AccountSource**](AccountSource.md) |  | [optional] 

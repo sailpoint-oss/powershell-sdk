@@ -12,42 +12,42 @@ No summary available.
 
 .DESCRIPTION
 
-Comments Object
-
-.PARAMETER Author
 No description available.
+
 .PARAMETER Comment
-Comment to be left on an approval
-.PARAMETER CreatedDate
-Date the comment was created
+The comment text
+.PARAMETER Commenter
+The name of the commenter
+.PARAMETER Date
+A date-time in ISO-8601 format
 .OUTPUTS
 
-ApprovalComment1<PSCustomObject>
+ApprovalComment2<PSCustomObject>
 #>
 
-function Initialize-V2024ApprovalComment1 {
+function Initialize-V2024ApprovalComment2 {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Author},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CreatedDate}
+        ${Commenter},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Date}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024ApprovalComment1' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024ApprovalComment2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "author" = ${Author}
             "comment" = ${Comment}
-            "createdDate" = ${CreatedDate}
+            "commenter" = ${Commenter}
+            "date" = ${Date}
         }
 
         return $PSO
@@ -57,11 +57,11 @@ function Initialize-V2024ApprovalComment1 {
 <#
 .SYNOPSIS
 
-Convert from JSON to ApprovalComment1<PSCustomObject>
+Convert from JSON to ApprovalComment2<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ApprovalComment1<PSCustomObject>
+Convert from JSON to ApprovalComment2<PSCustomObject>
 
 .PARAMETER Json
 
@@ -69,32 +69,26 @@ Json object
 
 .OUTPUTS
 
-ApprovalComment1<PSCustomObject>
+ApprovalComment2<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToApprovalComment1 {
+function ConvertFrom-V2024JsonToApprovalComment2 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024ApprovalComment1' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024ApprovalComment2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024ApprovalComment1
-        $AllProperties = ("author", "comment", "createdDate")
+        # check if Json contains properties not defined in V2024ApprovalComment2
+        $AllProperties = ("comment", "commenter", "date")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "author"))) { #optional property not found
-            $Author = $null
-        } else {
-            $Author = $JsonParameters.PSobject.Properties["author"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "comment"))) { #optional property not found
@@ -103,16 +97,22 @@ function ConvertFrom-V2024JsonToApprovalComment1 {
             $Comment = $JsonParameters.PSobject.Properties["comment"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdDate"))) { #optional property not found
-            $CreatedDate = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "commenter"))) { #optional property not found
+            $Commenter = $null
         } else {
-            $CreatedDate = $JsonParameters.PSobject.Properties["createdDate"].value
+            $Commenter = $JsonParameters.PSobject.Properties["commenter"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "date"))) { #optional property not found
+            $Date = $null
+        } else {
+            $Date = $JsonParameters.PSobject.Properties["date"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "author" = ${Author}
             "comment" = ${Comment}
-            "createdDate" = ${CreatedDate}
+            "commenter" = ${Commenter}
+            "date" = ${Date}
         }
 
         return $PSO

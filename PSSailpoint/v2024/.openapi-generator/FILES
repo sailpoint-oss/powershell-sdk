@@ -136,6 +136,7 @@ docs/Approval1.md
 docs/ApprovalBatch.md
 docs/ApprovalComment.md
 docs/ApprovalComment1.md
+docs/ApprovalComment2.md
 docs/ApprovalDescription.md
 docs/ApprovalDto.md
 docs/ApprovalForwardHistory.md
@@ -321,6 +322,7 @@ docs/DkimAttributes.md
 docs/DocumentType.md
 docs/DomainAddress.md
 docs/DomainStatusDto.md
+docs/DraftResponse.md
 docs/DtoType.md
 docs/E164phone.md
 docs/EmailNotificationOption.md
@@ -1322,6 +1324,7 @@ src/PSSailpoint.V2024/Model/Approval1.ps1
 src/PSSailpoint.V2024/Model/ApprovalBatch.ps1
 src/PSSailpoint.V2024/Model/ApprovalComment.ps1
 src/PSSailpoint.V2024/Model/ApprovalComment1.ps1
+src/PSSailpoint.V2024/Model/ApprovalComment2.ps1
 src/PSSailpoint.V2024/Model/ApprovalDescription.ps1
 src/PSSailpoint.V2024/Model/ApprovalDto.ps1
 src/PSSailpoint.V2024/Model/ApprovalForwardHistory.ps1
@@ -1507,6 +1510,7 @@ src/PSSailpoint.V2024/Model/DkimAttributes.ps1
 src/PSSailpoint.V2024/Model/DocumentType.ps1
 src/PSSailpoint.V2024/Model/DomainAddress.ps1
 src/PSSailpoint.V2024/Model/DomainStatusDto.ps1
+src/PSSailpoint.V2024/Model/DraftResponse.ps1
 src/PSSailpoint.V2024/Model/DtoType.ps1
 src/PSSailpoint.V2024/Model/E164phone.ps1
 src/PSSailpoint.V2024/Model/EmailNotificationOption.ps1
@@ -2433,6 +2437,7 @@ tests/Model/Approval1.Tests.ps1
 tests/Model/ApprovalBatch.Tests.ps1
 tests/Model/ApprovalComment.Tests.ps1
 tests/Model/ApprovalComment1.Tests.ps1
+tests/Model/ApprovalComment2.Tests.ps1
 tests/Model/ApprovalDescription.Tests.ps1
 tests/Model/ApprovalDto.Tests.ps1
 tests/Model/ApprovalForwardHistory.Tests.ps1
@@ -2618,6 +2623,7 @@ tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DocumentType.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1
 tests/Model/DomainStatusDto.Tests.ps1
+tests/Model/DraftResponse.Tests.ps1
 tests/Model/DtoType.Tests.ps1
 tests/Model/E164phone.Tests.ps1
 tests/Model/EmailNotificationOption.Tests.ps1

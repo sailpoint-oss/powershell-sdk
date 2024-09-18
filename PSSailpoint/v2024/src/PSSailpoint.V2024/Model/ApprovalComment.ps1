@@ -12,14 +12,18 @@ No summary available.
 
 .DESCRIPTION
 
-Comments Object
-
-.PARAMETER Author
 No description available.
+
 .PARAMETER Comment
-Comment to be left on an approval
-.PARAMETER CreatedDate
-Date the comment was created
+Comment provided either by the approval requester or the approver.
+.PARAMETER Timestamp
+The time when this comment was provided.
+.PARAMETER User
+Name of the user that provided this comment.
+.PARAMETER Id
+Id of the user that provided this comment.
+.PARAMETER ChangedToStatus
+Status transition of the draft.
 .OUTPUTS
 
 ApprovalComment<PSCustomObject>
@@ -29,25 +33,54 @@ function Initialize-V2024ApprovalComment {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Author},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Comment},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.DateTime]
+        ${Timestamp},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CreatedDate}
+        ${User},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("PENDING_APPROVAL", "APPROVED", "REJECTED")]
+        [String]
+        ${ChangedToStatus}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024ApprovalComment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Comment) {
+            throw "invalid value for 'Comment', 'Comment' cannot be null."
+        }
+
+        if (!$Timestamp) {
+            throw "invalid value for 'Timestamp', 'Timestamp' cannot be null."
+        }
+
+        if (!$User) {
+            throw "invalid value for 'User', 'User' cannot be null."
+        }
+
+        if (!$Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
+        }
+
+        if (!$ChangedToStatus) {
+            throw "invalid value for 'ChangedToStatus', 'ChangedToStatus' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "author" = ${Author}
             "comment" = ${Comment}
-            "createdDate" = ${CreatedDate}
+            "timestamp" = ${Timestamp}
+            "user" = ${User}
+            "id" = ${Id}
+            "changedToStatus" = ${ChangedToStatus}
         }
 
         return $PSO
@@ -84,35 +117,53 @@ function ConvertFrom-V2024JsonToApprovalComment {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024ApprovalComment
-        $AllProperties = ("author", "comment", "createdDate")
+        $AllProperties = ("comment", "timestamp", "user", "id", "changedToStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "author"))) { #optional property not found
-            $Author = $null
-        } else {
-            $Author = $JsonParameters.PSobject.Properties["author"].value
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'comment' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "comment"))) { #optional property not found
-            $Comment = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "comment"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'comment' missing."
         } else {
             $Comment = $JsonParameters.PSobject.Properties["comment"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "createdDate"))) { #optional property not found
-            $CreatedDate = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timestamp"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'timestamp' missing."
         } else {
-            $CreatedDate = $JsonParameters.PSobject.Properties["createdDate"].value
+            $Timestamp = $JsonParameters.PSobject.Properties["timestamp"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "user"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'user' missing."
+        } else {
+            $User = $JsonParameters.PSobject.Properties["user"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "changedToStatus"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'changedToStatus' missing."
+        } else {
+            $ChangedToStatus = $JsonParameters.PSobject.Properties["changedToStatus"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "author" = ${Author}
             "comment" = ${Comment}
-            "createdDate" = ${CreatedDate}
+            "timestamp" = ${Timestamp}
+            "user" = ${User}
+            "id" = ${Id}
+            "changedToStatus" = ${ChangedToStatus}
         }
 
         return $PSO

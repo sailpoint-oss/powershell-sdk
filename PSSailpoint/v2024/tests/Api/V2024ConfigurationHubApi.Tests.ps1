@@ -22,6 +22,22 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
         }
     }
 
+    Context 'New-V2024UploadedConfiguration' {
+        It 'Test New-V2024UploadedConfiguration' {
+            #$TestResult = New-V2024UploadedConfiguration -Data "TEST_VALUE" -Name "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-V2024Backup' {
+        It 'Test Remove-V2024Backup' {
+            #$TestResult = Remove-V2024Backup -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-V2024Draft' {
         It 'Test Remove-V2024Draft' {
             #$TestResult = Remove-V2024Draft -Id "TEST_VALUE"
@@ -38,9 +54,9 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
         }
     }
 
-    Context 'Remove-V2024UploadedBackup' {
-        It 'Test Remove-V2024UploadedBackup' {
-            #$TestResult = Remove-V2024UploadedBackup -Id "TEST_VALUE"
+    Context 'Remove-V2024UploadedConfiguration' {
+        It 'Test Remove-V2024UploadedConfiguration' {
+            #$TestResult = Remove-V2024UploadedConfiguration -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -54,25 +70,17 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
         }
     }
 
-    Context 'Get-V2024UploadedBackup' {
-        It 'Test Get-V2024UploadedBackup' {
-            #$TestResult = Get-V2024UploadedBackup -Id "TEST_VALUE"
+    Context 'Get-V2024UploadedConfiguration' {
+        It 'Test Get-V2024UploadedConfiguration' {
+            #$TestResult = Get-V2024UploadedConfiguration -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-V2024UploadedBackups' {
-        It 'Test Get-V2024UploadedBackups' {
-            #$TestResult = Get-V2024UploadedBackups -Status "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Import-V2024UploadedBackup' {
-        It 'Test Import-V2024UploadedBackup' {
-            #$TestResult = Import-V2024UploadedBackup -Data "TEST_VALUE" -Name "TEST_VALUE"
+    Context 'Get-V2024Backups' {
+        It 'Test Get-V2024Backups' {
+            #$TestResult = Get-V2024Backups -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -81,6 +89,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
     Context 'Get-V2024Drafts' {
         It 'Test Get-V2024Drafts' {
             #$TestResult = Get-V2024Drafts -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024UploadedConfigurations' {
+        It 'Test Get-V2024UploadedConfigurations' {
+            #$TestResult = Get-V2024UploadedConfigurations -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

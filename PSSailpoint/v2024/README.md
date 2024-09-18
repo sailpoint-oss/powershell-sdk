@@ -172,14 +172,16 @@ Class | Method | HTTP request | Description
 *V2024CertificationsApi* | [**Submit-V2024ReassignCertsAsync**](docs/V2024CertificationsApi.md#Submit-V2024ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
+*V2024ConfigurationHubApi* | [**New-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#New-V2024UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a Configuration
+*V2024ConfigurationHubApi* | [**Remove-V2024Backup**](docs/V2024ConfigurationHubApi.md#Remove-V2024Backup) | **DELETE** /configuration-hub/backups/{id} | Delete a Backup
 *V2024ConfigurationHubApi* | [**Remove-V2024Draft**](docs/V2024ConfigurationHubApi.md#Remove-V2024Draft) | **DELETE** /configuration-hub/drafts/{id} | Delete a draft
 *V2024ConfigurationHubApi* | [**Remove-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#Remove-V2024ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
-*V2024ConfigurationHubApi* | [**Remove-V2024UploadedBackup**](docs/V2024ConfigurationHubApi.md#Remove-V2024UploadedBackup) | **DELETE** /configuration-hub/backups/uploads/{id} | Deletes an uploaded backup file
+*V2024ConfigurationHubApi* | [**Remove-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Remove-V2024UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an Uploaded Configuration
 *V2024ConfigurationHubApi* | [**Get-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Get-V2024ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
-*V2024ConfigurationHubApi* | [**Get-V2024UploadedBackup**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedBackup) | **GET** /configuration-hub/backups/uploads/{id} | Get an uploaded backup's information
-*V2024ConfigurationHubApi* | [**Get-V2024UploadedBackups**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedBackups) | **GET** /configuration-hub/backups/uploads | Gets list of Uploaded backups
-*V2024ConfigurationHubApi* | [**Import-V2024UploadedBackup**](docs/V2024ConfigurationHubApi.md#Import-V2024UploadedBackup) | **POST** /configuration-hub/backups/uploads | Uploads a backup file
+*V2024ConfigurationHubApi* | [**Get-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
+*V2024ConfigurationHubApi* | [**Get-V2024Backups**](docs/V2024ConfigurationHubApi.md#Get-V2024Backups) | **GET** /configuration-hub/backups | List Backups
 *V2024ConfigurationHubApi* | [**Get-V2024Drafts**](docs/V2024ConfigurationHubApi.md#Get-V2024Drafts) | **GET** /configuration-hub/drafts | List Drafts
+*V2024ConfigurationHubApi* | [**Get-V2024UploadedConfigurations**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *V2024ConfigurationHubApi* | [**Update-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *V2024ConnectorRuleManagementApi* | [**New-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#New-V2024ConnectorRule) | **POST** /connector-rules | Create Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete a Connector-Rule
@@ -827,6 +829,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AuthProfile](docs/AuthProfile.md)
  - [PSSailpoint.V2024\Model.AuthProfileSummary](docs/AuthProfileSummary.md)
  - [PSSailpoint.V2024\Model.AuthUser](docs/AuthUser.md)
+ - [PSSailpoint.V2024\Model.BackupOptions](docs/BackupOptions.md)
+ - [PSSailpoint.V2024\Model.BackupResponse](docs/BackupResponse.md)
  - [PSSailpoint.V2024\Model.Base64Decode](docs/Base64Decode.md)
  - [PSSailpoint.V2024\Model.Base64Encode](docs/Base64Encode.md)
  - [PSSailpoint.V2024\Model.BaseAccess](docs/BaseAccess.md)
@@ -953,6 +957,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.CreatePersonalAccessTokenResponse](docs/CreatePersonalAccessTokenResponse.md)
  - [PSSailpoint.V2024\Model.CreateSavedSearchRequest](docs/CreateSavedSearchRequest.md)
  - [PSSailpoint.V2024\Model.CreateScheduledSearchRequest](docs/CreateScheduledSearchRequest.md)
+ - [PSSailpoint.V2024\Model.CreateUploadedConfigurationRequest](docs/CreateUploadedConfigurationRequest.md)
  - [PSSailpoint.V2024\Model.CreateWorkflowRequest](docs/CreateWorkflowRequest.md)
  - [PSSailpoint.V2024\Model.CriteriaType](docs/CriteriaType.md)
  - [PSSailpoint.V2024\Model.CustomPasswordInstruction](docs/CustomPasswordInstruction.md)
@@ -1129,7 +1134,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ImportObject](docs/ImportObject.md)
  - [PSSailpoint.V2024\Model.ImportOptions](docs/ImportOptions.md)
  - [PSSailpoint.V2024\Model.ImportSpConfigRequest](docs/ImportSpConfigRequest.md)
- - [PSSailpoint.V2024\Model.ImportUploadedBackupRequest](docs/ImportUploadedBackupRequest.md)
  - [PSSailpoint.V2024\Model.Index](docs/Index.md)
  - [PSSailpoint.V2024\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint.V2024\Model.InnerHit](docs/InnerHit.md)
@@ -1240,6 +1244,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.NonEmployeeSourceWithCloudExternalId](docs/NonEmployeeSourceWithCloudExternalId.md)
  - [PSSailpoint.V2024\Model.NonEmployeeSourceWithNECount](docs/NonEmployeeSourceWithNECount.md)
  - [PSSailpoint.V2024\Model.NotificationTemplateContext](docs/NotificationTemplateContext.md)
+ - [PSSailpoint.V2024\Model.ObjectExportImportNames](docs/ObjectExportImportNames.md)
  - [PSSailpoint.V2024\Model.ObjectExportImportOptions](docs/ObjectExportImportOptions.md)
  - [PSSailpoint.V2024\Model.ObjectImportResult](docs/ObjectImportResult.md)
  - [PSSailpoint.V2024\Model.ObjectImportResult1](docs/ObjectImportResult1.md)
@@ -1621,8 +1626,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.UUIDGenerator](docs/UUIDGenerator.md)
  - [PSSailpoint.V2024\Model.UpdateAccessProfilesInBulk412Response](docs/UpdateAccessProfilesInBulk412Response.md)
  - [PSSailpoint.V2024\Model.UpdateDetail](docs/UpdateDetail.md)
- - [PSSailpoint.V2024\Model.UploadsRequest](docs/UploadsRequest.md)
- - [PSSailpoint.V2024\Model.UploadsResponse](docs/UploadsResponse.md)
  - [PSSailpoint.V2024\Model.Upper](docs/Upper.md)
  - [PSSailpoint.V2024\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint.V2024\Model.UserApp](docs/UserApp.md)

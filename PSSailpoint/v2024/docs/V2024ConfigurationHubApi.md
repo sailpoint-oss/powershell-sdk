@@ -6,14 +6,16 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024ObjectMapping**](V2024ConfigurationHubApi.md#New-V2024ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 [**New-V2024ObjectMappings**](V2024ConfigurationHubApi.md#New-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
+[**New-V2024UploadedConfiguration**](V2024ConfigurationHubApi.md#New-V2024UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a Configuration
+[**Remove-V2024Backup**](V2024ConfigurationHubApi.md#Remove-V2024Backup) | **DELETE** /configuration-hub/backups/{id} | Delete a Backup
 [**Remove-V2024Draft**](V2024ConfigurationHubApi.md#Remove-V2024Draft) | **DELETE** /configuration-hub/drafts/{id} | Delete a draft
 [**Remove-V2024ObjectMapping**](V2024ConfigurationHubApi.md#Remove-V2024ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
-[**Remove-V2024UploadedBackup**](V2024ConfigurationHubApi.md#Remove-V2024UploadedBackup) | **DELETE** /configuration-hub/backups/uploads/{id} | Deletes an uploaded backup file
+[**Remove-V2024UploadedConfiguration**](V2024ConfigurationHubApi.md#Remove-V2024UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an Uploaded Configuration
 [**Get-V2024ObjectMappings**](V2024ConfigurationHubApi.md#Get-V2024ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
-[**Get-V2024UploadedBackup**](V2024ConfigurationHubApi.md#Get-V2024UploadedBackup) | **GET** /configuration-hub/backups/uploads/{id} | Get an uploaded backup&#39;s information
-[**Get-V2024UploadedBackups**](V2024ConfigurationHubApi.md#Get-V2024UploadedBackups) | **GET** /configuration-hub/backups/uploads | Gets list of Uploaded backups
-[**Import-V2024UploadedBackup**](V2024ConfigurationHubApi.md#Import-V2024UploadedBackup) | **POST** /configuration-hub/backups/uploads | Uploads a backup file
+[**Get-V2024UploadedConfiguration**](V2024ConfigurationHubApi.md#Get-V2024UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
+[**Get-V2024Backups**](V2024ConfigurationHubApi.md#Get-V2024Backups) | **GET** /configuration-hub/backups | List Backups
 [**Get-V2024Drafts**](V2024ConfigurationHubApi.md#Get-V2024Drafts) | **GET** /configuration-hub/drafts | List Drafts
+[**Get-V2024UploadedConfigurations**](V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 [**Update-V2024ObjectMappings**](V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 
 
@@ -126,6 +128,111 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="New-V2024UploadedConfiguration"></a>
+# **New-V2024UploadedConfiguration**
+> BackupResponse New-V2024UploadedConfiguration<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Data] <System.IO.FileInfo><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
+
+Upload a Configuration
+
+This API uploads a JSON configuration file into a tenant.  Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.  Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
+$Name = "MyName" # String | Name that will be assigned to the uploaded configuration file.
+
+# Upload a Configuration
+try {
+    $Result = New-V2024UploadedConfiguration -Data $Data -Name $Name
+} catch {
+    Write-Host ("Exception occurred when calling New-V2024UploadedConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Data** | **System.IO.FileInfo****System.IO.FileInfo**| JSON file containing the objects to be imported. | 
+ **Name** | **String**| Name that will be assigned to the uploaded configuration file. | 
+
+### Return type
+
+[**BackupResponse**](BackupResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Remove-V2024Backup"></a>
+# **Remove-V2024Backup**
+> void Remove-V2024Backup<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Delete a Backup
+
+This API deletes an existing backup for the current tenant.  On success, this endpoint will return an empty response.  The backup id can be obtained from the response after a backup was successfully created, or from the list backups endpoint.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the backup to delete.
+
+# Delete a Backup
+try {
+    $Result = Remove-V2024Backup -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Remove-V2024Backup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The id of the backup to delete. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Remove-V2024Draft"></a>
 # **Remove-V2024Draft**
 > void Remove-V2024Draft<br>
@@ -231,14 +338,14 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Remove-V2024UploadedBackup"></a>
-# **Remove-V2024UploadedBackup**
-> void Remove-V2024UploadedBackup<br>
+<a id="Remove-V2024UploadedConfiguration"></a>
+# **Remove-V2024UploadedConfiguration**
+> void Remove-V2024UploadedConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Deletes an uploaded backup file
+Delete an Uploaded Configuration
 
-This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
+This API deletes an uploaded configuration based on Id.  On success, this endpoint will return an empty response.  The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
 
 ### Example
 ```powershell
@@ -250,13 +357,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded backup.
+$Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
-# Deletes an uploaded backup file
+# Delete an Uploaded Configuration
 try {
-    $Result = Remove-V2024UploadedBackup -Id $Id
+    $Result = Remove-V2024UploadedConfiguration -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Remove-V2024UploadedBackup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Remove-V2024UploadedConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -265,7 +372,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The id of the uploaded backup. | 
+ **Id** | **String**| The id of the uploaded configuration. | 
 
 ### Return type
 
@@ -333,14 +440,14 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-V2024UploadedBackup"></a>
-# **Get-V2024UploadedBackup**
-> SystemCollectionsHashtable Get-V2024UploadedBackup<br>
+<a id="Get-V2024UploadedConfiguration"></a>
+# **Get-V2024UploadedConfiguration**
+> BackupResponse Get-V2024UploadedConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get an uploaded backup's information
+Get an Uploaded Configuration
 
-Returns all the information and status of an upload job. - sp:config-backups:read
+This API gets an existing uploaded configuration for the current tenant.
 
 ### Example
 ```powershell
@@ -352,13 +459,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded backup.
+$Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
-# Get an uploaded backup's information
+# Get an Uploaded Configuration
 try {
-    $Result = Get-V2024UploadedBackup -Id $Id
+    $Result = Get-V2024UploadedConfiguration -Id $Id
 } catch {
-    Write-Host ("Exception occurred when calling Get-V2024UploadedBackup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-V2024UploadedConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -367,11 +474,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| The id of the uploaded backup. | 
+ **Id** | **String**| The id of the uploaded configuration. | 
 
 ### Return type
 
-[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+[**BackupResponse**](BackupResponse.md) (PSCustomObject)
 
 ### Authorization
 
@@ -384,14 +491,14 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-V2024UploadedBackups"></a>
-# **Get-V2024UploadedBackups**
-> UploadsResponse[] Get-V2024UploadedBackups<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Status] <String><br>
+<a id="Get-V2024Backups"></a>
+# **Get-V2024Backups**
+> BackupResponse[] Get-V2024Backups<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 
-Gets list of Uploaded backups
+List Backups
 
-Returns a list of the current uploaded backups associated with the current tenant. A filter ""status"" can be added to only return the Completed, Failed, or Successful uploads
+This API gets a list of existing backups for the current tenant.
 
 ### Example
 ```powershell
@@ -403,13 +510,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: UserContextAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Status = "COMPLETE" # String | Filter listed uploaded backups by status of operation (optional)
+$Filters = "status eq "COMPLETE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-# Gets list of Uploaded backups
+# List Backups
 try {
-    $Result = Get-V2024UploadedBackups -Status $Status
+    $Result = Get-V2024Backups -Filters $Filters
 } catch {
-    Write-Host ("Exception occurred when calling Get-V2024UploadedBackups: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-V2024Backups: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -418,11 +525,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Status** | **String**| Filter listed uploaded backups by status of operation | [optional] 
+ **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* | [optional] 
 
 ### Return type
 
-[**UploadsResponse[]**](UploadsResponse.md) (PSCustomObject)
+[**BackupResponse[]**](BackupResponse.md) (PSCustomObject)
 
 ### Authorization
 
@@ -431,60 +538,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Import-V2024UploadedBackup"></a>
-# **Import-V2024UploadedBackup**
-> UploadsRequest Import-V2024UploadedBackup<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Data] <System.IO.FileInfo><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
-
-Uploads a backup file
-
-This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
-$Name = "MyName" # String | Name that will be assigned to the uploaded file.
-
-# Uploads a backup file
-try {
-    $Result = Import-V2024UploadedBackup -Data $Data -Name $Name
-} catch {
-    Write-Host ("Exception occurred when calling Import-V2024UploadedBackup: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **Data** | **System.IO.FileInfo****System.IO.FileInfo**| JSON file containing the objects to be imported. | 
- **Name** | **String**| Name that will be assigned to the uploaded file. | 
-
-### Return type
-
-[**UploadsRequest**](UploadsRequest.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -528,6 +581,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DraftResponse[]**](DraftResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-V2024UploadedConfigurations"></a>
+# **Get-V2024UploadedConfigurations**
+> BackupResponse[] Get-V2024UploadedConfigurations<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
+
+List Uploaded Configurations
+
+This API gets a list of existing uploaded configurations for the current tenant.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Filters = "status eq "COMPLETE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+
+# List Uploaded Configurations
+try {
+    $Result = Get-V2024UploadedConfigurations -Filters $Filters
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024UploadedConfigurations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* | [optional] 
+
+### Return type
+
+[**BackupResponse[]**](BackupResponse.md) (PSCustomObject)
 
 ### Authorization
 

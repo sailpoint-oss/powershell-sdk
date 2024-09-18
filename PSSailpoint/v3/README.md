@@ -139,12 +139,12 @@ Class | Method | HTTP request | Description
 *CertificationsApi* | [**Submit-ReassignCertsAsync**](docs/CertificationsApi.md#Submit-ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 *ConfigurationHubApi* | [**New-ObjectMapping**](docs/ConfigurationHubApi.md#New-ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *ConfigurationHubApi* | [**New-ObjectMappings**](docs/ConfigurationHubApi.md#New-ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
+*ConfigurationHubApi* | [**New-UploadedConfiguration**](docs/ConfigurationHubApi.md#New-UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a Configuration
 *ConfigurationHubApi* | [**Remove-ObjectMapping**](docs/ConfigurationHubApi.md#Remove-ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
-*ConfigurationHubApi* | [**Remove-UploadedBackup**](docs/ConfigurationHubApi.md#Remove-UploadedBackup) | **DELETE** /configuration-hub/backups/uploads/{id} | Deletes an uploaded backup file
+*ConfigurationHubApi* | [**Remove-UploadedConfiguration**](docs/ConfigurationHubApi.md#Remove-UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an Uploaded Configuration
 *ConfigurationHubApi* | [**Get-ObjectMappings**](docs/ConfigurationHubApi.md#Get-ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
-*ConfigurationHubApi* | [**Get-UploadedBackup**](docs/ConfigurationHubApi.md#Get-UploadedBackup) | **GET** /configuration-hub/backups/uploads/{id} | Get an uploaded backup's information
-*ConfigurationHubApi* | [**Get-UploadedBackups**](docs/ConfigurationHubApi.md#Get-UploadedBackups) | **GET** /configuration-hub/backups/uploads | Gets list of Uploaded backups
-*ConfigurationHubApi* | [**Import-UploadedBackup**](docs/ConfigurationHubApi.md#Import-UploadedBackup) | **POST** /configuration-hub/backups/uploads | Uploads a backup file
+*ConfigurationHubApi* | [**Get-UploadedConfiguration**](docs/ConfigurationHubApi.md#Get-UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
+*ConfigurationHubApi* | [**Get-UploadedConfigurations**](docs/ConfigurationHubApi.md#Get-UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *ConfigurationHubApi* | [**Update-ObjectMappings**](docs/ConfigurationHubApi.md#Update-ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *ConnectorsApi* | [**New-CustomConnector**](docs/ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create custom connector
 *ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | Deletes connector by script name
@@ -499,6 +499,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.AttributeDefinitionType](docs/AttributeDefinitionType.md)
  - [PSSailpoint.V3\Model.AttributeRequest](docs/AttributeRequest.md)
  - [PSSailpoint.V3\Model.AuthUser](docs/AuthUser.md)
+ - [PSSailpoint.V3\Model.BackupOptions](docs/BackupOptions.md)
+ - [PSSailpoint.V3\Model.BackupResponse](docs/BackupResponse.md)
  - [PSSailpoint.V3\Model.Base64Decode](docs/Base64Decode.md)
  - [PSSailpoint.V3\Model.Base64Encode](docs/Base64Encode.md)
  - [PSSailpoint.V3\Model.BaseAccess](docs/BaseAccess.md)
@@ -569,6 +571,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.CreatePersonalAccessTokenResponse](docs/CreatePersonalAccessTokenResponse.md)
  - [PSSailpoint.V3\Model.CreateSavedSearchRequest](docs/CreateSavedSearchRequest.md)
  - [PSSailpoint.V3\Model.CreateScheduledSearchRequest](docs/CreateScheduledSearchRequest.md)
+ - [PSSailpoint.V3\Model.CreateUploadedConfigurationRequest](docs/CreateUploadedConfigurationRequest.md)
  - [PSSailpoint.V3\Model.CreateWorkflowRequest](docs/CreateWorkflowRequest.md)
  - [PSSailpoint.V3\Model.CriteriaType](docs/CriteriaType.md)
  - [PSSailpoint.V3\Model.DataAccess](docs/DataAccess.md)
@@ -670,7 +673,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.IdpDetails](docs/IdpDetails.md)
  - [PSSailpoint.V3\Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint.V3\Model.ImportObject](docs/ImportObject.md)
- - [PSSailpoint.V3\Model.ImportUploadedBackupRequest](docs/ImportUploadedBackupRequest.md)
  - [PSSailpoint.V3\Model.Index](docs/Index.md)
  - [PSSailpoint.V3\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint.V3\Model.InnerHit](docs/InnerHit.md)
@@ -750,6 +752,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.NonEmployeeSourceRequestBody](docs/NonEmployeeSourceRequestBody.md)
  - [PSSailpoint.V3\Model.NonEmployeeSourceWithCloudExternalId](docs/NonEmployeeSourceWithCloudExternalId.md)
  - [PSSailpoint.V3\Model.NonEmployeeSourceWithNECount](docs/NonEmployeeSourceWithNECount.md)
+ - [PSSailpoint.V3\Model.ObjectExportImportNames](docs/ObjectExportImportNames.md)
  - [PSSailpoint.V3\Model.ObjectImportResult](docs/ObjectImportResult.md)
  - [PSSailpoint.V3\Model.ObjectMappingBulkCreateRequest](docs/ObjectMappingBulkCreateRequest.md)
  - [PSSailpoint.V3\Model.ObjectMappingBulkCreateResponse](docs/ObjectMappingBulkCreateResponse.md)
@@ -970,8 +973,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.TypedReference](docs/TypedReference.md)
  - [PSSailpoint.V3\Model.UUIDGenerator](docs/UUIDGenerator.md)
  - [PSSailpoint.V3\Model.UpdateDetail](docs/UpdateDetail.md)
- - [PSSailpoint.V3\Model.UploadsRequest](docs/UploadsRequest.md)
- - [PSSailpoint.V3\Model.UploadsResponse](docs/UploadsResponse.md)
  - [PSSailpoint.V3\Model.Upper](docs/Upper.md)
  - [PSSailpoint.V3\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint.V3\Model.V3ConnectorDto](docs/V3ConnectorDto.md)

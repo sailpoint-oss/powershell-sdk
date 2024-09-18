@@ -208,6 +208,169 @@ function New-V2024ObjectMappings {
 <#
 .SYNOPSIS
 
+Upload a Configuration
+
+.DESCRIPTION
+
+This API uploads a JSON configuration file into a tenant.  Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.  Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+
+.PARAMETER Data
+JSON file containing the objects to be imported.
+
+.PARAMETER Name
+Name that will be assigned to the uploaded configuration file.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+BackupResponse
+#>
+function New-V2024UploadedConfiguration {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${Data},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Name},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-V2024UploadedConfiguration' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data')
+
+        $LocalVarUri = '/configuration-hub/backups/uploads'
+
+        if (!$Data) {
+            throw "Error! The required parameter `Data` missing when calling createUploadedConfiguration."
+        }
+        $LocalVarFormParameters['data'] = $Data
+
+        if (!$Name) {
+            throw "Error! The required parameter `Name` missing when calling createUploadedConfiguration."
+        }
+        $LocalVarFormParameters['name'] = $Name
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "BackupResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Delete a Backup
+
+.DESCRIPTION
+
+This API deletes an existing backup for the current tenant.  On success, this endpoint will return an empty response.  The backup id can be obtained from the response after a backup was successfully created, or from the list backups endpoint.
+
+.PARAMETER Id
+The id of the backup to delete.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-V2024Backup {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-V2024Backup' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/configuration-hub/backups/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling deleteBackup."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Delete a draft
 
 .DESCRIPTION
@@ -366,14 +529,14 @@ function Remove-V2024ObjectMapping {
 <#
 .SYNOPSIS
 
-Deletes an uploaded backup file
+Delete an Uploaded Configuration
 
 .DESCRIPTION
 
-This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
+This API deletes an uploaded configuration based on Id.  On success, this endpoint will return an empty response.  The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
 
 .PARAMETER Id
-The id of the uploaded backup.
+The id of the uploaded configuration.
 
 .PARAMETER WithHttpInfo
 
@@ -383,7 +546,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Remove-V2024UploadedBackup {
+function Remove-V2024UploadedConfiguration {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -394,7 +557,7 @@ function Remove-V2024UploadedBackup {
     )
 
     Process {
-        'Calling method: Remove-V2024UploadedBackup' | Write-Debug
+        'Calling method: Remove-V2024UploadedConfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -411,7 +574,7 @@ function Remove-V2024UploadedBackup {
 
         $LocalVarUri = '/configuration-hub/backups/uploads/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling deleteUploadedBackup."
+            throw "Error! The required parameter `Id` missing when calling deleteUploadedConfiguration."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -514,14 +677,14 @@ function Get-V2024ObjectMappings {
 <#
 .SYNOPSIS
 
-Get an uploaded backup's information
+Get an Uploaded Configuration
 
 .DESCRIPTION
 
-Returns all the information and status of an upload job. - sp:config-backups:read
+This API gets an existing uploaded configuration for the current tenant.
 
 .PARAMETER Id
-The id of the uploaded backup.
+The id of the uploaded configuration.
 
 .PARAMETER WithHttpInfo
 
@@ -529,9 +692,9 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SystemCollectionsHashtable
+BackupResponse
 #>
-function Get-V2024UploadedBackup {
+function Get-V2024UploadedConfiguration {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -542,7 +705,7 @@ function Get-V2024UploadedBackup {
     )
 
     Process {
-        'Calling method: Get-V2024UploadedBackup' | Write-Debug
+        'Calling method: Get-V2024UploadedConfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -559,7 +722,7 @@ function Get-V2024UploadedBackup {
 
         $LocalVarUri = '/configuration-hub/backups/uploads/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getUploadedBackup."
+            throw "Error! The required parameter `Id` missing when calling getUploadedConfiguration."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -574,7 +737,7 @@ function Get-V2024UploadedBackup {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SystemCollectionsHashtable" `
+                                -ReturnType "BackupResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -588,14 +751,14 @@ function Get-V2024UploadedBackup {
 <#
 .SYNOPSIS
 
-Gets list of Uploaded backups
+List Backups
 
 .DESCRIPTION
 
-Returns a list of the current uploaded backups associated with the current tenant. A filter ""status"" can be added to only return the Completed, Failed, or Successful uploads
+This API gets a list of existing backups for the current tenant.
 
-.PARAMETER Status
-Filter listed uploaded backups by status of operation
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
 
 .PARAMETER WithHttpInfo
 
@@ -603,20 +766,20 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-UploadsResponse[]
+BackupResponse[]
 #>
-function Get-V2024UploadedBackups {
+function Get-V2024Backups {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Status},
+        ${Filters},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Get-V2024UploadedBackups' | Write-Debug
+        'Calling method: Get-V2024Backups' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -631,10 +794,10 @@ function Get-V2024UploadedBackups {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/configuration-hub/backups/uploads'
+        $LocalVarUri = '/configuration-hub/backups'
 
-        if ($Status) {
-            $LocalVarQueryParameters['status'] = $Status
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
         }
 
 
@@ -648,96 +811,7 @@ function Get-V2024UploadedBackups {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "UploadsResponse[]" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Uploads a backup file
-
-.DESCRIPTION
-
-This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
-
-.PARAMETER Data
-JSON file containing the objects to be imported.
-
-.PARAMETER Name
-Name that will be assigned to the uploaded file.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-UploadsRequest
-#>
-function Import-V2024UploadedBackup {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.IO.FileInfo]
-        ${Data},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Name},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Import-V2024UploadedBackup' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('multipart/form-data')
-
-        $LocalVarUri = '/configuration-hub/backups/uploads'
-
-        if (!$Data) {
-            throw "Error! The required parameter `Data` missing when calling importUploadedBackup."
-        }
-        $LocalVarFormParameters['data'] = $Data
-
-        if (!$Name) {
-            throw "Error! The required parameter `Name` missing when calling importUploadedBackup."
-        }
-        $LocalVarFormParameters['name'] = $Name
-
-
-
-        $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "UploadsRequest" `
+                                -ReturnType "BackupResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -812,6 +886,80 @@ function Get-V2024Drafts {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "DraftResponse[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+List Uploaded Configurations
+
+.DESCRIPTION
+
+This API gets a list of existing uploaded configurations for the current tenant.
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+BackupResponse[]
+#>
+function Get-V2024UploadedConfigurations {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2024UploadedConfigurations' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/configuration-hub/backups/uploads'
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "BackupResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

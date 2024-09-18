@@ -17,13 +17,13 @@ No description available.
 .PARAMETER VarData
 JSON file containing the objects to be imported.
 .PARAMETER Name
-Name that will be assigned to the uploaded file.
+Name that will be assigned to the uploaded configuration file.
 .OUTPUTS
 
-ImportUploadedBackupRequest<PSCustomObject>
+CreateUploadedConfigurationRequest<PSCustomObject>
 #>
 
-function Initialize-ImportUploadedBackupRequest {
+function Initialize-CreateUploadedConfigurationRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-ImportUploadedBackupRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V3 => ImportUploadedBackupRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V3 => CreateUploadedConfigurationRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarData) {
@@ -59,11 +59,11 @@ function Initialize-ImportUploadedBackupRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to ImportUploadedBackupRequest<PSCustomObject>
+Convert from JSON to CreateUploadedConfigurationRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ImportUploadedBackupRequest<PSCustomObject>
+Convert from JSON to CreateUploadedConfigurationRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -71,21 +71,21 @@ Json object
 
 .OUTPUTS
 
-ImportUploadedBackupRequest<PSCustomObject>
+CreateUploadedConfigurationRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToImportUploadedBackupRequest {
+function ConvertFrom-JsonToCreateUploadedConfigurationRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V3 => ImportUploadedBackupRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V3 => CreateUploadedConfigurationRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in ImportUploadedBackupRequest
+        # check if Json contains properties not defined in CreateUploadedConfigurationRequest
         $AllProperties = ("data", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

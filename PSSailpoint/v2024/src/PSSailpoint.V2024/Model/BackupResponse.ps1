@@ -15,35 +15,45 @@ No summary available.
 No description available.
 
 .PARAMETER JobId
-Unique id assigned to this job.
+Unique id assigned to this backup.
 .PARAMETER Status
-Status of the job.
+Status of the backup.
 .PARAMETER Type
-Type of the job, either Backup or Draft.
+Type of the job, will always be BACKUP for this type of job.
 .PARAMETER Tenant
 The name of the tenant performing the upload
 .PARAMETER RequesterName
 The name of the requester.
+.PARAMETER FileExists
+Whether or not a file was created and stored for this backup.
 .PARAMETER Created
 The time the job was started.
 .PARAMETER Modified
 The time of the last update to the job.
+.PARAMETER Completed
+The time the job was completed.
 .PARAMETER Name
 The name assigned to the upload file in the request body.
 .PARAMETER UserCanDelete
-Is the job a regular backup job, if so is the user allowed to delete the backup file. Since this is an upload job it remains as false.
+Whether this backup can be deleted by a regular user.
 .PARAMETER IsPartial
-Is the job a regular backup job, if so is it partial. Since this is an upload job it remains as false.
+Whether this backup contains all supported object types or only some of them.
 .PARAMETER BackupType
-What kind of backup is this being treated as.
+Denotes how this backup was created. - MANUAL - The backup was created by a user. - AUTOMATED - The backup was created by devops. - AUTOMATED_DRAFT - The backup was created during a draft process. - UPLOADED - The backup was created by uploading an existing configuration file.
+.PARAMETER Options
+No description available.
 .PARAMETER HydrationStatus
-have the objects contained in the upload file been hydrated.
+Whether the object details of this backup are ready.
+.PARAMETER TotalObjectCount
+Number of objects contained in this backup.
+.PARAMETER CloudStorageStatus
+Whether this backup has been transferred to a customer storage location.
 .OUTPUTS
 
-UploadsRequest<PSCustomObject>
+BackupResponse<PSCustomObject>
 #>
 
-function Initialize-V2024UploadsRequest {
+function Initialize-V2024BackupResponse {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -54,7 +64,7 @@ function Initialize-V2024UploadsRequest {
         [String]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("BACKUP", "DRAFT")]
+        [ValidateSet("BACKUP")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -64,11 +74,17 @@ function Initialize-V2024UploadsRequest {
         [String]
         ${RequesterName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
+        [System.Nullable[Boolean]]
+        ${FileExists} = $true,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
+        [System.Nullable[System.DateTime]]
         ${Modified},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${Completed},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
@@ -83,34 +99,24 @@ function Initialize-V2024UploadsRequest {
         [String]
         ${BackupType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Options},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("HYDRATED", "NOT_HYDRATED")]
         [String]
-        ${HydrationStatus}
+        ${HydrationStatus},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int64]]
+        ${TotalObjectCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("SYNCED", "NOT_SYNCED", "SYNC_FAILED")]
+        [String]
+        ${CloudStorageStatus}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024UploadsRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024BackupResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$JobId) {
-            throw "invalid value for 'JobId', 'JobId' cannot be null."
-        }
-
-        if (!$Status) {
-            throw "invalid value for 'Status', 'Status' cannot be null."
-        }
-
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
-        if (!$Created) {
-            throw "invalid value for 'Created', 'Created' cannot be null."
-        }
-
-        if (!$Modified) {
-            throw "invalid value for 'Modified', 'Modified' cannot be null."
-        }
 
 
         $PSO = [PSCustomObject]@{
@@ -119,13 +125,18 @@ function Initialize-V2024UploadsRequest {
             "type" = ${Type}
             "tenant" = ${Tenant}
             "requesterName" = ${RequesterName}
+            "fileExists" = ${FileExists}
             "created" = ${Created}
             "modified" = ${Modified}
+            "completed" = ${Completed}
             "name" = ${Name}
             "userCanDelete" = ${UserCanDelete}
             "isPartial" = ${IsPartial}
             "backupType" = ${BackupType}
+            "options" = ${Options}
             "hydrationStatus" = ${HydrationStatus}
+            "totalObjectCount" = ${TotalObjectCount}
+            "cloudStorageStatus" = ${CloudStorageStatus}
         }
 
         return $PSO
@@ -135,11 +146,11 @@ function Initialize-V2024UploadsRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to UploadsRequest<PSCustomObject>
+Convert from JSON to BackupResponse<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to UploadsRequest<PSCustomObject>
+Convert from JSON to BackupResponse<PSCustomObject>
 
 .PARAMETER Json
 
@@ -147,60 +158,44 @@ Json object
 
 .OUTPUTS
 
-UploadsRequest<PSCustomObject>
+BackupResponse<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToUploadsRequest {
+function ConvertFrom-V2024JsonToBackupResponse {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024UploadsRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024BackupResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024UploadsRequest
-        $AllProperties = ("jobId", "status", "type", "tenant", "requesterName", "created", "modified", "name", "userCanDelete", "isPartial", "backupType", "hydrationStatus")
+        # check if Json contains properties not defined in V2024BackupResponse
+        $AllProperties = ("jobId", "status", "type", "tenant", "requesterName", "fileExists", "created", "modified", "completed", "name", "userCanDelete", "isPartial", "backupType", "options", "hydrationStatus", "totalObjectCount", "cloudStorageStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'jobId' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "jobId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'jobId' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "jobId"))) { #optional property not found
+            $JobId = $null
         } else {
             $JobId = $JsonParameters.PSobject.Properties["jobId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'status' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
+            $Status = $null
         } else {
             $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'type' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'created' missing."
-        } else {
-            $Created = $JsonParameters.PSobject.Properties["created"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'modified' missing."
-        } else {
-            $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenant"))) { #optional property not found
@@ -213,6 +208,30 @@ function ConvertFrom-V2024JsonToUploadsRequest {
             $RequesterName = $null
         } else {
             $RequesterName = $JsonParameters.PSobject.Properties["requesterName"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fileExists"))) { #optional property not found
+            $FileExists = $null
+        } else {
+            $FileExists = $JsonParameters.PSobject.Properties["fileExists"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
+            $Created = $null
+        } else {
+            $Created = $JsonParameters.PSobject.Properties["created"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
+            $Modified = $null
+        } else {
+            $Modified = $JsonParameters.PSobject.Properties["modified"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completed"))) { #optional property not found
+            $Completed = $null
+        } else {
+            $Completed = $JsonParameters.PSobject.Properties["completed"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -239,10 +258,28 @@ function ConvertFrom-V2024JsonToUploadsRequest {
             $BackupType = $JsonParameters.PSobject.Properties["backupType"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "options"))) { #optional property not found
+            $Options = $null
+        } else {
+            $Options = $JsonParameters.PSobject.Properties["options"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "hydrationStatus"))) { #optional property not found
             $HydrationStatus = $null
         } else {
             $HydrationStatus = $JsonParameters.PSobject.Properties["hydrationStatus"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalObjectCount"))) { #optional property not found
+            $TotalObjectCount = $null
+        } else {
+            $TotalObjectCount = $JsonParameters.PSobject.Properties["totalObjectCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cloudStorageStatus"))) { #optional property not found
+            $CloudStorageStatus = $null
+        } else {
+            $CloudStorageStatus = $JsonParameters.PSobject.Properties["cloudStorageStatus"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -251,13 +288,18 @@ function ConvertFrom-V2024JsonToUploadsRequest {
             "type" = ${Type}
             "tenant" = ${Tenant}
             "requesterName" = ${RequesterName}
+            "fileExists" = ${FileExists}
             "created" = ${Created}
             "modified" = ${Modified}
+            "completed" = ${Completed}
             "name" = ${Name}
             "userCanDelete" = ${UserCanDelete}
             "isPartial" = ${IsPartial}
             "backupType" = ${BackupType}
+            "options" = ${Options}
             "hydrationStatus" = ${HydrationStatus}
+            "totalObjectCount" = ${TotalObjectCount}
+            "cloudStorageStatus" = ${CloudStorageStatus}
         }
 
         return $PSO

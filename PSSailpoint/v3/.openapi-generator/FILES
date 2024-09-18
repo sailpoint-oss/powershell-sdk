@@ -92,6 +92,8 @@ docs/AttributeDefinitionType.md
 docs/AttributeRequest.md
 docs/AuthUser.md
 docs/AuthUsersApi.md
+docs/BackupOptions.md
+docs/BackupResponse.md
 docs/Base64Decode.md
 docs/Base64Encode.md
 docs/BaseAccess.md
@@ -169,6 +171,7 @@ docs/CreatePersonalAccessTokenRequest.md
 docs/CreatePersonalAccessTokenResponse.md
 docs/CreateSavedSearchRequest.md
 docs/CreateScheduledSearchRequest.md
+docs/CreateUploadedConfigurationRequest.md
 docs/CreateWorkflowRequest.md
 docs/CriteriaType.md
 docs/DataAccess.md
@@ -274,7 +277,6 @@ docs/IdentityWithNewAccessAccessRefsInner.md
 docs/IdpDetails.md
 docs/ImportNonEmployeeRecordsInBulkRequest.md
 docs/ImportObject.md
-docs/ImportUploadedBackupRequest.md
 docs/Index.md
 docs/IndexOf.md
 docs/InnerHit.md
@@ -359,6 +361,7 @@ docs/NonEmployeeSourceRequestBody.md
 docs/NonEmployeeSourceWithCloudExternalId.md
 docs/NonEmployeeSourceWithNECount.md
 docs/OAuthClientsApi.md
+docs/ObjectExportImportNames.md
 docs/ObjectImportResult.md
 docs/ObjectMappingBulkCreateRequest.md
 docs/ObjectMappingBulkCreateResponse.md
@@ -602,8 +605,6 @@ docs/TypeAheadQuery.md
 docs/TypedReference.md
 docs/UUIDGenerator.md
 docs/UpdateDetail.md
-docs/UploadsRequest.md
-docs/UploadsResponse.md
 docs/Upper.md
 docs/UsageType.md
 docs/V3ConnectorDto.md
@@ -782,6 +783,8 @@ src/PSSailpoint.V3/Model/AttributeDefinitionSchema.ps1
 src/PSSailpoint.V3/Model/AttributeDefinitionType.ps1
 src/PSSailpoint.V3/Model/AttributeRequest.ps1
 src/PSSailpoint.V3/Model/AuthUser.ps1
+src/PSSailpoint.V3/Model/BackupOptions.ps1
+src/PSSailpoint.V3/Model/BackupResponse.ps1
 src/PSSailpoint.V3/Model/Base64Decode.ps1
 src/PSSailpoint.V3/Model/Base64Encode.ps1
 src/PSSailpoint.V3/Model/BaseAccess.ps1
@@ -852,6 +855,7 @@ src/PSSailpoint.V3/Model/CreatePersonalAccessTokenRequest.ps1
 src/PSSailpoint.V3/Model/CreatePersonalAccessTokenResponse.ps1
 src/PSSailpoint.V3/Model/CreateSavedSearchRequest.ps1
 src/PSSailpoint.V3/Model/CreateScheduledSearchRequest.ps1
+src/PSSailpoint.V3/Model/CreateUploadedConfigurationRequest.ps1
 src/PSSailpoint.V3/Model/CreateWorkflowRequest.ps1
 src/PSSailpoint.V3/Model/CriteriaType.ps1
 src/PSSailpoint.V3/Model/DataAccess.ps1
@@ -953,7 +957,6 @@ src/PSSailpoint.V3/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpoint.V3/Model/IdpDetails.ps1
 src/PSSailpoint.V3/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint.V3/Model/ImportObject.ps1
-src/PSSailpoint.V3/Model/ImportUploadedBackupRequest.ps1
 src/PSSailpoint.V3/Model/Index.ps1
 src/PSSailpoint.V3/Model/IndexOf.ps1
 src/PSSailpoint.V3/Model/InnerHit.ps1
@@ -1033,6 +1036,7 @@ src/PSSailpoint.V3/Model/NonEmployeeSourceLiteWithSchemaAttributes.ps1
 src/PSSailpoint.V3/Model/NonEmployeeSourceRequestBody.ps1
 src/PSSailpoint.V3/Model/NonEmployeeSourceWithCloudExternalId.ps1
 src/PSSailpoint.V3/Model/NonEmployeeSourceWithNECount.ps1
+src/PSSailpoint.V3/Model/ObjectExportImportNames.ps1
 src/PSSailpoint.V3/Model/ObjectImportResult.ps1
 src/PSSailpoint.V3/Model/ObjectMappingBulkCreateRequest.ps1
 src/PSSailpoint.V3/Model/ObjectMappingBulkCreateResponse.ps1
@@ -1253,8 +1257,6 @@ src/PSSailpoint.V3/Model/TypeAheadQuery.ps1
 src/PSSailpoint.V3/Model/TypedReference.ps1
 src/PSSailpoint.V3/Model/UUIDGenerator.ps1
 src/PSSailpoint.V3/Model/UpdateDetail.ps1
-src/PSSailpoint.V3/Model/UploadsRequest.ps1
-src/PSSailpoint.V3/Model/UploadsResponse.ps1
 src/PSSailpoint.V3/Model/Upper.ps1
 src/PSSailpoint.V3/Model/UsageType.ps1
 src/PSSailpoint.V3/Model/V3ConnectorDto.ps1
@@ -1436,6 +1438,8 @@ tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
 tests/Model/AttributeRequest.Tests.ps1
 tests/Model/AuthUser.Tests.ps1
+tests/Model/BackupOptions.Tests.ps1
+tests/Model/BackupResponse.Tests.ps1
 tests/Model/Base64Decode.Tests.ps1
 tests/Model/Base64Encode.Tests.ps1
 tests/Model/BaseAccess.Tests.ps1
@@ -1506,6 +1510,7 @@ tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
 tests/Model/CreatePersonalAccessTokenResponse.Tests.ps1
 tests/Model/CreateSavedSearchRequest.Tests.ps1
 tests/Model/CreateScheduledSearchRequest.Tests.ps1
+tests/Model/CreateUploadedConfigurationRequest.Tests.ps1
 tests/Model/CreateWorkflowRequest.Tests.ps1
 tests/Model/CriteriaType.Tests.ps1
 tests/Model/DataAccess.Tests.ps1
@@ -1607,7 +1612,6 @@ tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/IdpDetails.Tests.ps1
 tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/ImportObject.Tests.ps1
-tests/Model/ImportUploadedBackupRequest.Tests.ps1
 tests/Model/Index.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
 tests/Model/InnerHit.Tests.ps1
@@ -1687,6 +1691,7 @@ tests/Model/NonEmployeeSourceLiteWithSchemaAttributes.Tests.ps1
 tests/Model/NonEmployeeSourceRequestBody.Tests.ps1
 tests/Model/NonEmployeeSourceWithCloudExternalId.Tests.ps1
 tests/Model/NonEmployeeSourceWithNECount.Tests.ps1
+tests/Model/ObjectExportImportNames.Tests.ps1
 tests/Model/ObjectImportResult.Tests.ps1
 tests/Model/ObjectMappingBulkCreateRequest.Tests.ps1
 tests/Model/ObjectMappingBulkCreateResponse.Tests.ps1
@@ -1907,8 +1912,6 @@ tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
 tests/Model/UpdateDetail.Tests.ps1
-tests/Model/UploadsRequest.Tests.ps1
-tests/Model/UploadsResponse.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1

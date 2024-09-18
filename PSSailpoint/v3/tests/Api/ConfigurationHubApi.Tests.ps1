@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint.V3' -name 'ConfigurationHubApi' {
         }
     }
 
+    Context 'New-UploadedConfiguration' {
+        It 'Test New-UploadedConfiguration' {
+            #$TestResult = New-UploadedConfiguration -Data "TEST_VALUE" -Name "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-ObjectMapping' {
         It 'Test Remove-ObjectMapping' {
             #$TestResult = Remove-ObjectMapping -SourceOrg "TEST_VALUE" -ObjectMappingId "TEST_VALUE"
@@ -30,9 +38,9 @@ Describe -tag 'PSSailpoint.V3' -name 'ConfigurationHubApi' {
         }
     }
 
-    Context 'Remove-UploadedBackup' {
-        It 'Test Remove-UploadedBackup' {
-            #$TestResult = Remove-UploadedBackup -Id "TEST_VALUE"
+    Context 'Remove-UploadedConfiguration' {
+        It 'Test Remove-UploadedConfiguration' {
+            #$TestResult = Remove-UploadedConfiguration -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -46,25 +54,17 @@ Describe -tag 'PSSailpoint.V3' -name 'ConfigurationHubApi' {
         }
     }
 
-    Context 'Get-UploadedBackup' {
-        It 'Test Get-UploadedBackup' {
-            #$TestResult = Get-UploadedBackup -Id "TEST_VALUE"
+    Context 'Get-UploadedConfiguration' {
+        It 'Test Get-UploadedConfiguration' {
+            #$TestResult = Get-UploadedConfiguration -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-UploadedBackups' {
-        It 'Test Get-UploadedBackups' {
-            #$TestResult = Get-UploadedBackups -Status "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Import-UploadedBackup' {
-        It 'Test Import-UploadedBackup' {
-            #$TestResult = Import-UploadedBackup -Data "TEST_VALUE" -Name "TEST_VALUE"
+    Context 'Get-UploadedConfigurations' {
+        It 'Test Get-UploadedConfigurations' {
+            #$TestResult = Get-UploadedConfigurations -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

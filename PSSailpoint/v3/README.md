@@ -207,8 +207,10 @@ Class | Method | HTTP request | Description
 *ManagedClientsApi* | [**Update-ManagedClient**](docs/ManagedClientsApi.md#Update-ManagedClient) | **PATCH** /managed-clients/{id} | Update a Managed Client
 *ManagedClustersApi* | [**New-ManagedCluster**](docs/ManagedClustersApi.md#New-ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
 *ManagedClustersApi* | [**Remove-ManagedCluster**](docs/ManagedClustersApi.md#Remove-ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
+*ManagedClustersApi* | [**Get-ClientLogConfiguration**](docs/ManagedClustersApi.md#Get-ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster's log configuration
 *ManagedClustersApi* | [**Get-ManagedCluster**](docs/ManagedClustersApi.md#Get-ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
 *ManagedClustersApi* | [**Get-ManagedClusters**](docs/ManagedClustersApi.md#Get-ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
+*ManagedClustersApi* | [**Send-ClientLogConfiguration**](docs/ManagedClustersApi.md#Send-ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
 *ManagedClustersApi* | [**Update-ManagedCluster**](docs/ManagedClustersApi.md#Update-ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
 *NonEmployeeLifecycleManagementApi* | [**Approve-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Approve-NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record

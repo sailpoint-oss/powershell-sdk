@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint.V3' -name 'ManagedClustersApi' {
         }
     }
 
+    Context 'Get-ClientLogConfiguration' {
+        It 'Test Get-ClientLogConfiguration' {
+            #$TestResult = Get-ClientLogConfiguration -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-ManagedCluster' {
         It 'Test Get-ManagedCluster' {
             #$TestResult = Get-ManagedCluster -Id "TEST_VALUE"
@@ -33,6 +41,14 @@ Describe -tag 'PSSailpoint.V3' -name 'ManagedClustersApi' {
     Context 'Get-ManagedClusters' {
         It 'Test Get-ManagedClusters' {
             #$TestResult = Get-ManagedClusters -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-ClientLogConfiguration' {
+        It 'Test Send-ClientLogConfiguration' {
+            #$TestResult = Send-ClientLogConfiguration -Id "TEST_VALUE" -ClientLogConfiguration "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

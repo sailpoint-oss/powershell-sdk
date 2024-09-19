@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ManagedClustersApi' {
         }
     }
 
+    Context 'Get-V2024ClientLogConfiguration' {
+        It 'Test Get-V2024ClientLogConfiguration' {
+            #$TestResult = Get-V2024ClientLogConfiguration -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024ManagedCluster' {
         It 'Test Get-V2024ManagedCluster' {
             #$TestResult = Get-V2024ManagedCluster -Id "TEST_VALUE"
@@ -33,6 +41,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ManagedClustersApi' {
     Context 'Get-V2024ManagedClusters' {
         It 'Test Get-V2024ManagedClusters' {
             #$TestResult = Get-V2024ManagedClusters -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-V2024ClientLogConfiguration' {
+        It 'Test Send-V2024ClientLogConfiguration' {
+            #$TestResult = Send-V2024ClientLogConfiguration -Id "TEST_VALUE" -ClientLogConfiguration "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

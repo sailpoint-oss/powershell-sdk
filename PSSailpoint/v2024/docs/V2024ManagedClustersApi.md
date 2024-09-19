@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024ManagedCluster**](V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
 [**Remove-V2024ManagedCluster**](V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
+[**Get-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster&#39;s log configuration
 [**Get-V2024ManagedCluster**](V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
 [**Get-V2024ManagedClusters**](V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
+[**Send-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster&#39;s log configuration
 [**Update-V2024ManagedCluster**](V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
 
 
@@ -104,6 +106,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-V2024ClientLogConfiguration"></a>
+# **Get-V2024ClientLogConfiguration**
+> ClientLogConfiguration Get-V2024ClientLogConfiguration<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get managed cluster's log configuration
+
+Get managed cluster's log configuration.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of ManagedCluster to get log configuration for
+
+# Get managed cluster's log configuration
+try {
+    $Result = Get-V2024ClientLogConfiguration -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024ClientLogConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| ID of ManagedCluster to get log configuration for | 
+
+### Return type
+
+[**ClientLogConfiguration**](ClientLogConfiguration.md) (PSCustomObject)
 
 ### Authorization
 
@@ -223,6 +276,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Send-V2024ClientLogConfiguration"></a>
+# **Send-V2024ClientLogConfiguration**
+> ClientLogConfiguration Send-V2024ClientLogConfiguration<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ClientLogConfiguration] <PSCustomObject><br>
+
+Update managed cluster's log configuration
+
+Update managed cluster's log configuration
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of ManagedCluster to update log configuration for
+$ClientLogConfiguration = Initialize-ClientLogConfiguration -ClientId "aClientId" -DurationMinutes 120 -Expiration (Get-Date) -RootLevel "false" -LogLevels @{ key_example = "false" } # ClientLogConfiguration | ClientLogConfiguration for given ManagedCluster
+
+# Update managed cluster's log configuration
+try {
+    $Result = Send-V2024ClientLogConfiguration -Id $Id -ClientLogConfiguration $ClientLogConfiguration
+} catch {
+    Write-Host ("Exception occurred when calling Send-V2024ClientLogConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| ID of ManagedCluster to update log configuration for | 
+ **ClientLogConfiguration** | [**ClientLogConfiguration**](ClientLogConfiguration.md)| ClientLogConfiguration for given ManagedCluster | 
+
+### Return type
+
+[**ClientLogConfiguration**](ClientLogConfiguration.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

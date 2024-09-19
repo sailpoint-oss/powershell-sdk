@@ -14,83 +14,53 @@ No summary available.
 
 Sed Batch Request
 
-.PARAMETER Entitlements
-list of entitlement ids
-.OUTPUTS
-
-SedBatchRequest<PSCustomObject>
-#>
-
-function Initialize-V2024SedBatchRequest {
-    [CmdletBinding()]
-    Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${Entitlements}
-    )
-
-    Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024SedBatchRequest' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-
-        $PSO = [PSCustomObject]@{
-            "entitlements" = ${Entitlements}
-        }
-
-        return $PSO
-    }
-}
-
-<#
-.SYNOPSIS
-
-Convert from JSON to SedBatchRequest<PSCustomObject>
-
-.DESCRIPTION
-
-Convert from JSON to SedBatchRequest<PSCustomObject>
-
 .PARAMETER Json
 
-Json object
+JSON object
 
 .OUTPUTS
 
 SedBatchRequest<PSCustomObject>
 #>
 function ConvertFrom-V2024JsonToSedBatchRequest {
-    Param(
+    [CmdletBinding()]
+    Param (
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024SedBatchRequest' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
+        $match = 0
+        $matchType = $null
+        $matchInstance = $null
 
-        $JsonParameters = ConvertFrom-Json -InputObject $Json
+        # try to match SystemCollectionsHashtable defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-V2024JsonToSystemCollectionsHashtable $Json
 
-        # check if Json contains properties not defined in V2024SedBatchRequest
-        $AllProperties = ("entitlements")
-        foreach ($name in $JsonParameters.PsObject.Properties.Name) {
-            if (!($AllProperties.Contains($name))) {
-                throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "SystemCollectionsHashtable"
+                    $match++
+                    break
+                }
             }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'SystemCollectionsHashtable' defined in oneOf (V2024SedBatchRequest). Proceeding to the next one if any."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlements"))) { #optional property not found
-            $Entitlements = $null
+        if ($match -gt 1) {
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([SystemCollectionsHashtable]). JSON Payload: $($Json)"
+        } elseif ($match -eq 1) {
+            return [PSCustomObject]@{
+                "ActualType" = ${matchType}
+                "ActualInstance" = ${matchInstance}
+                "OneOfSchemas" = @("SystemCollectionsHashtable")
+            }
         } else {
-            $Entitlements = $JsonParameters.PSobject.Properties["entitlements"].value
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([SystemCollectionsHashtable]). JSON Payload: $($Json)"
         }
-
-        $PSO = [PSCustomObject]@{
-            "entitlements" = ${Entitlements}
-        }
-
-        return $PSO
     }
-
 }
 

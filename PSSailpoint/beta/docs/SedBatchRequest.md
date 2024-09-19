@@ -4,12 +4,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Entitlements** | **String[]** | list of entitlement ids | [optional] 
+**Seds** | **String[]** | list of sed ids | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SedBatchRequest = Initialize-PSSailpoint.BetaSedBatchRequest  -Entitlements null
+$SedBatchRequest = Initialize-PSSailpoint.BetaSedBatchRequest  -Entitlements null `
+ -Seds null
 ```
 
 - Convert the resource to JSON

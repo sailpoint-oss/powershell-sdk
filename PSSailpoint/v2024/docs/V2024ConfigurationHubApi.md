@@ -4,6 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-V2024Deploy**](V2024ConfigurationHubApi.md#New-V2024Deploy) | **POST** /configuration-hub/deploys | Create a Deploy
 [**New-V2024ObjectMapping**](V2024ConfigurationHubApi.md#New-V2024ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 [**New-V2024ObjectMappings**](V2024ConfigurationHubApi.md#New-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
 [**New-V2024UploadedConfiguration**](V2024ConfigurationHubApi.md#New-V2024UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a Configuration
@@ -11,13 +12,66 @@ Method | HTTP request | Description
 [**Remove-V2024Draft**](V2024ConfigurationHubApi.md#Remove-V2024Draft) | **DELETE** /configuration-hub/drafts/{id} | Delete a draft
 [**Remove-V2024ObjectMapping**](V2024ConfigurationHubApi.md#Remove-V2024ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
 [**Remove-V2024UploadedConfiguration**](V2024ConfigurationHubApi.md#Remove-V2024UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an Uploaded Configuration
+[**Get-V2024Deploy**](V2024ConfigurationHubApi.md#Get-V2024Deploy) | **GET** /configuration-hub/deploys/{id} | Get a Deploy
 [**Get-V2024ObjectMappings**](V2024ConfigurationHubApi.md#Get-V2024ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
 [**Get-V2024UploadedConfiguration**](V2024ConfigurationHubApi.md#Get-V2024UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
 [**Get-V2024Backups**](V2024ConfigurationHubApi.md#Get-V2024Backups) | **GET** /configuration-hub/backups | List Backups
+[**Get-V2024Deploys**](V2024ConfigurationHubApi.md#Get-V2024Deploys) | **GET** /configuration-hub/deploys | List Deploys
 [**Get-V2024Drafts**](V2024ConfigurationHubApi.md#Get-V2024Drafts) | **GET** /configuration-hub/drafts | List Drafts
 [**Get-V2024UploadedConfigurations**](V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 [**Update-V2024ObjectMappings**](V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 
+
+<a id="New-V2024Deploy"></a>
+# **New-V2024Deploy**
+> DeployResponse New-V2024Deploy<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-DeployRequest] <PSCustomObject><br>
+
+Create a Deploy
+
+This API performs a deploy based on an existing daft.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$DeployRequest = Initialize-DeployRequest -DraftId "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # DeployRequest | The deploy request body.
+
+# Create a Deploy
+try {
+    $Result = New-V2024Deploy -DeployRequest $DeployRequest
+} catch {
+    Write-Host ("Exception occurred when calling New-V2024Deploy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **DeployRequest** | [**DeployRequest**](DeployRequest.md)| The deploy request body. | 
+
+### Return type
+
+[**DeployResponse**](DeployResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="New-V2024ObjectMapping"></a>
 # **New-V2024ObjectMapping**
@@ -389,6 +443,57 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-V2024Deploy"></a>
+# **Get-V2024Deploy**
+> DeployResponse Get-V2024Deploy<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get a Deploy
+
+This API gets an existing deploy for the current tenant.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the deploy.
+
+# Get a Deploy
+try {
+    $Result = Get-V2024Deploy -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024Deploy: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The id of the deploy. | 
+
+### Return type
+
+[**DeployResponse**](DeployResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Get-V2024ObjectMappings"></a>
 # **Get-V2024ObjectMappings**
 > ObjectMappingResponse[] Get-V2024ObjectMappings<br>
@@ -530,6 +635,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BackupResponse[]**](BackupResponse.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-V2024Deploys"></a>
+# **Get-V2024Deploys**
+> DeployResponse[] Get-V2024Deploys<br>
+
+List Deploys
+
+This API gets a list of deploys for the current tenant.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+
+# List Deploys
+try {
+    $Result = Get-V2024Deploys
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024Deploys: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DeployResponse[]**](DeployResponse.md) (PSCustomObject)
 
 ### Authorization
 

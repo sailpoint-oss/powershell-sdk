@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
 *V2024CertificationsApi* | [**Invoke-V2024ReassignIdentityCertifications**](docs/V2024CertificationsApi.md#Invoke-V2024ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
 *V2024CertificationsApi* | [**Invoke-V2024SignOffIdentityCertification**](docs/V2024CertificationsApi.md#Invoke-V2024SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
 *V2024CertificationsApi* | [**Submit-V2024ReassignCertsAsync**](docs/V2024CertificationsApi.md#Submit-V2024ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
+*V2024ConfigurationHubApi* | [**New-V2024Deploy**](docs/V2024ConfigurationHubApi.md#New-V2024Deploy) | **POST** /configuration-hub/deploys | Create a Deploy
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
 *V2024ConfigurationHubApi* | [**New-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#New-V2024UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a Configuration
@@ -177,9 +178,11 @@ Class | Method | HTTP request | Description
 *V2024ConfigurationHubApi* | [**Remove-V2024Draft**](docs/V2024ConfigurationHubApi.md#Remove-V2024Draft) | **DELETE** /configuration-hub/drafts/{id} | Delete a draft
 *V2024ConfigurationHubApi* | [**Remove-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#Remove-V2024ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
 *V2024ConfigurationHubApi* | [**Remove-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Remove-V2024UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an Uploaded Configuration
+*V2024ConfigurationHubApi* | [**Get-V2024Deploy**](docs/V2024ConfigurationHubApi.md#Get-V2024Deploy) | **GET** /configuration-hub/deploys/{id} | Get a Deploy
 *V2024ConfigurationHubApi* | [**Get-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Get-V2024ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
 *V2024ConfigurationHubApi* | [**Get-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
 *V2024ConfigurationHubApi* | [**Get-V2024Backups**](docs/V2024ConfigurationHubApi.md#Get-V2024Backups) | **GET** /configuration-hub/backups | List Backups
+*V2024ConfigurationHubApi* | [**Get-V2024Deploys**](docs/V2024ConfigurationHubApi.md#Get-V2024Deploys) | **GET** /configuration-hub/deploys | List Deploys
 *V2024ConfigurationHubApi* | [**Get-V2024Drafts**](docs/V2024ConfigurationHubApi.md#Get-V2024Drafts) | **GET** /configuration-hub/drafts | List Drafts
 *V2024ConfigurationHubApi* | [**Get-V2024UploadedConfigurations**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *V2024ConfigurationHubApi* | [**Update-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
@@ -978,6 +981,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.DeleteNonEmployeeRecordsInBulkRequest](docs/DeleteNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint.V2024\Model.DeleteSource202Response](docs/DeleteSource202Response.md)
  - [PSSailpoint.V2024\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
+ - [PSSailpoint.V2024\Model.DeployRequest](docs/DeployRequest.md)
+ - [PSSailpoint.V2024\Model.DeployResponse](docs/DeployResponse.md)
  - [PSSailpoint.V2024\Model.DisplayReference](docs/DisplayReference.md)
  - [PSSailpoint.V2024\Model.DkimAttributes](docs/DkimAttributes.md)
  - [PSSailpoint.V2024\Model.DocumentType](docs/DocumentType.md)

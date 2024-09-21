@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
+    Context 'New-V2024Deploy' {
+        It 'Test New-V2024Deploy' {
+            #$TestResult = New-V2024Deploy -DeployRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-V2024ObjectMapping' {
         It 'Test New-V2024ObjectMapping' {
             #$TestResult = New-V2024ObjectMapping -SourceOrg "TEST_VALUE" -ObjectMappingRequest "TEST_VALUE"
@@ -62,6 +70,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
         }
     }
 
+    Context 'Get-V2024Deploy' {
+        It 'Test Get-V2024Deploy' {
+            #$TestResult = Get-V2024Deploy -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024ObjectMappings' {
         It 'Test Get-V2024ObjectMappings' {
             #$TestResult = Get-V2024ObjectMappings -SourceOrg "TEST_VALUE"
@@ -81,6 +97,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
     Context 'Get-V2024Backups' {
         It 'Test Get-V2024Backups' {
             #$TestResult = Get-V2024Backups -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024Deploys' {
+        It 'Test Get-V2024Deploys' {
+            #$TestResult = Get-V2024Deploys
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

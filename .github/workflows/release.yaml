@@ -36,9 +36,9 @@ jobs:
 
           Start-Sleep -Seconds 60
           
-          Import-Module -Name 'PSSailpoint.Beta' -Force
-          Import-Module -Name 'PSSailpoint.V3' -Force
-          Import-Module -Name 'PSSailpoint.V2024' -Force    
+          Install-Module -Name 'PSSailpoint.Beta' -Force
+          Install-Module -Name 'PSSailpoint.V3' -Force
+          Install-Module -Name 'PSSailpoint.V2024' -Force    
           
           Publish-Module `
               -Path './PSSailpoint' `

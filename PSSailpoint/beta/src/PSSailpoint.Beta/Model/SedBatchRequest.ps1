@@ -14,53 +14,104 @@ No summary available.
 
 Sed Batch Request
 
+.PARAMETER Entitlements
+list of entitlement ids
+.PARAMETER Seds
+list of sed ids
+.OUTPUTS
+
+SedBatchRequest<PSCustomObject>
+#>
+
+function Initialize-BetaSedBatchRequest {
+    [CmdletBinding()]
+    Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${Entitlements},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${Seds}
+    )
+
+    Process {
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaSedBatchRequest' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$Entitlements -and $Entitlements.length -lt 1) {
+            throw "invalid value for 'Entitlements', number of items must be greater than or equal to 1."
+        }
+
+        if (!$Seds -and $Seds.length -lt 1) {
+            throw "invalid value for 'Seds', number of items must be greater than or equal to 1."
+        }
+
+
+        $PSO = [PSCustomObject]@{
+            "entitlements" = ${Entitlements}
+            "seds" = ${Seds}
+        }
+
+        return $PSO
+    }
+}
+
+<#
+.SYNOPSIS
+
+Convert from JSON to SedBatchRequest<PSCustomObject>
+
+.DESCRIPTION
+
+Convert from JSON to SedBatchRequest<PSCustomObject>
+
 .PARAMETER Json
 
-JSON object
+Json object
 
 .OUTPUTS
 
 SedBatchRequest<PSCustomObject>
 #>
 function ConvertFrom-BetaJsonToSedBatchRequest {
-    [CmdletBinding()]
-    Param (
+    Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        $match = 0
-        $matchType = $null
-        $matchInstance = $null
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSedBatchRequest' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        # try to match SystemCollectionsHashtable defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToSystemCollectionsHashtable $Json
+        $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "SystemCollectionsHashtable"
-                    $match++
-                    break
-                }
+        # check if Json contains properties not defined in BetaSedBatchRequest
+        $AllProperties = ("entitlements", "seds")
+        foreach ($name in $JsonParameters.PsObject.Properties.Name) {
+            if (!($AllProperties.Contains($name))) {
+                throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'SystemCollectionsHashtable' defined in oneOf (BetaSedBatchRequest). Proceeding to the next one if any."
         }
 
-        if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([SystemCollectionsHashtable]). JSON Payload: $($Json)"
-        } elseif ($match -eq 1) {
-            return [PSCustomObject]@{
-                "ActualType" = ${matchType}
-                "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("SystemCollectionsHashtable")
-            }
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlements"))) { #optional property not found
+            $Entitlements = $null
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([SystemCollectionsHashtable]). JSON Payload: $($Json)"
+            $Entitlements = $JsonParameters.PSobject.Properties["entitlements"].value
         }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "seds"))) { #optional property not found
+            $Seds = $null
+        } else {
+            $Seds = $JsonParameters.PSobject.Properties["seds"].value
+        }
+
+        $PSO = [PSCustomObject]@{
+            "entitlements" = ${Entitlements}
+            "seds" = ${Seds}
+        }
+
+        return $PSO
     }
+
 }
 

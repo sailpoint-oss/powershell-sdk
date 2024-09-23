@@ -103,7 +103,6 @@ Class | Method | HTTP request | Description
 *V2024ApplicationDiscoveryApi* | [**Send-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Send-V2024ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
 *V2024ApprovalsApi* | [**Get-V2024Approval**](docs/V2024ApprovalsApi.md#Get-V2024Approval) | **GET** /generic-approvals/{id} | Get an approval
 *V2024ApprovalsApi* | [**Get-V2024Approvals**](docs/V2024ApprovalsApi.md#Get-V2024Approvals) | **GET** /generic-approvals | Get Approvals
-*V2024ApprovalsApi* | [**Update-V2024Approval**](docs/V2024ApprovalsApi.md#Update-V2024Approval) | **PATCH** /generic-approvals/{id} | Change an approval
 *V2024AppsApi* | [**New-V2024SourceApp**](docs/V2024AppsApi.md#New-V2024SourceApp) | **POST** /source-apps | Create source app
 *V2024AppsApi* | [**Remove-V2024AccessProfilesFromSourceAppByBulk**](docs/V2024AppsApi.md#Remove-V2024AccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
 *V2024AppsApi* | [**Remove-V2024SourceApp**](docs/V2024AppsApi.md#Remove-V2024SourceApp) | **DELETE** /source-apps/{id} | Delete source app by ID
@@ -799,7 +798,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ApprovalComment1](docs/ApprovalComment1.md)
  - [PSSailpoint.V2024\Model.ApprovalComment2](docs/ApprovalComment2.md)
  - [PSSailpoint.V2024\Model.ApprovalDescription](docs/ApprovalDescription.md)
- - [PSSailpoint.V2024\Model.ApprovalDto](docs/ApprovalDto.md)
  - [PSSailpoint.V2024\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
  - [PSSailpoint.V2024\Model.ApprovalIdentity](docs/ApprovalIdentity.md)
  - [PSSailpoint.V2024\Model.ApprovalInfoResponse](docs/ApprovalInfoResponse.md)

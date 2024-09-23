@@ -138,7 +138,6 @@ docs/ApprovalComment.md
 docs/ApprovalComment1.md
 docs/ApprovalComment2.md
 docs/ApprovalDescription.md
-docs/ApprovalDto.md
 docs/ApprovalForwardHistory.md
 docs/ApprovalIdentity.md
 docs/ApprovalInfoResponse.md
@@ -1329,7 +1328,6 @@ src/PSSailpoint.V2024/Model/ApprovalComment.ps1
 src/PSSailpoint.V2024/Model/ApprovalComment1.ps1
 src/PSSailpoint.V2024/Model/ApprovalComment2.ps1
 src/PSSailpoint.V2024/Model/ApprovalDescription.ps1
-src/PSSailpoint.V2024/Model/ApprovalDto.ps1
 src/PSSailpoint.V2024/Model/ApprovalForwardHistory.ps1
 src/PSSailpoint.V2024/Model/ApprovalIdentity.ps1
 src/PSSailpoint.V2024/Model/ApprovalInfoResponse.ps1
@@ -2445,7 +2443,6 @@ tests/Model/ApprovalComment.Tests.ps1
 tests/Model/ApprovalComment1.Tests.ps1
 tests/Model/ApprovalComment2.Tests.ps1
 tests/Model/ApprovalDescription.Tests.ps1
-tests/Model/ApprovalDto.Tests.ps1
 tests/Model/ApprovalForwardHistory.Tests.ps1
 tests/Model/ApprovalIdentity.Tests.ps1
 tests/Model/ApprovalInfoResponse.Tests.ps1

@@ -114,7 +114,6 @@ docs/Approval.md
 docs/ApprovalBatch.md
 docs/ApprovalComment.md
 docs/ApprovalDescription.md
-docs/ApprovalDto.md
 docs/ApprovalForwardHistory.md
 docs/ApprovalIdentity.md
 docs/ApprovalInfoResponse.md
@@ -1161,7 +1160,6 @@ src/PSSailpoint.Beta/Model/Approval.ps1
 src/PSSailpoint.Beta/Model/ApprovalBatch.ps1
 src/PSSailpoint.Beta/Model/ApprovalComment.ps1
 src/PSSailpoint.Beta/Model/ApprovalDescription.ps1
-src/PSSailpoint.Beta/Model/ApprovalDto.ps1
 src/PSSailpoint.Beta/Model/ApprovalForwardHistory.ps1
 src/PSSailpoint.Beta/Model/ApprovalIdentity.ps1
 src/PSSailpoint.Beta/Model/ApprovalInfoResponse.ps1
@@ -2142,7 +2140,6 @@ tests/Model/Approval.Tests.ps1
 tests/Model/ApprovalBatch.Tests.ps1
 tests/Model/ApprovalComment.Tests.ps1
 tests/Model/ApprovalDescription.Tests.ps1
-tests/Model/ApprovalDto.Tests.ps1
 tests/Model/ApprovalForwardHistory.Tests.ps1
 tests/Model/ApprovalIdentity.Tests.ps1
 tests/Model/ApprovalInfoResponse.Tests.ps1

@@ -22,12 +22,4 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaApprovalsApi' {
         }
     }
 
-    Context 'Update-BetaApproval' {
-        It 'Test Update-BetaApproval' {
-            #$TestResult = Update-BetaApproval -ApprovalDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
 }

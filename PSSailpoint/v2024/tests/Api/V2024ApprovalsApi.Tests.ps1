@@ -22,12 +22,4 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ApprovalsApi' {
         }
     }
 
-    Context 'Update-V2024Approval' {
-        It 'Test Update-V2024Approval' {
-            #$TestResult = Update-V2024Approval -XSailPointExperimental "TEST_VALUE" -ApprovalDto "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
 }

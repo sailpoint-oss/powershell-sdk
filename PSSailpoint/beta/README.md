@@ -105,7 +105,6 @@ Class | Method | HTTP request | Description
 *BetaApplicationDiscoveryApi* | [**Send-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
 *BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval
 *BetaApprovalsApi* | [**Get-BetaApprovals**](docs/BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get Approvals
-*BetaApprovalsApi* | [**Update-BetaApproval**](docs/BetaApprovalsApi.md#Update-BetaApproval) | **PATCH** /generic-approvals/{id} | Change an approval
 *BetaAppsApi* | [**New-BetaSourceApp**](docs/BetaAppsApi.md#New-BetaSourceApp) | **POST** /source-apps | Create source app
 *BetaAppsApi* | [**Remove-BetaAccessProfilesFromSourceAppByBulk**](docs/BetaAppsApi.md#Remove-BetaAccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
 *BetaAppsApi* | [**Remove-BetaSourceApp**](docs/BetaAppsApi.md#Remove-BetaSourceApp) | **DELETE** /source-apps/{id} | Delete source app by ID
@@ -703,7 +702,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.ApprovalBatch](docs/ApprovalBatch.md)
  - [PSSailpoint.Beta\Model.ApprovalComment](docs/ApprovalComment.md)
  - [PSSailpoint.Beta\Model.ApprovalDescription](docs/ApprovalDescription.md)
- - [PSSailpoint.Beta\Model.ApprovalDto](docs/ApprovalDto.md)
  - [PSSailpoint.Beta\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
  - [PSSailpoint.Beta\Model.ApprovalIdentity](docs/ApprovalIdentity.md)
  - [PSSailpoint.Beta\Model.ApprovalInfoResponse](docs/ApprovalInfoResponse.md)

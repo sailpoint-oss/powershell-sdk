@@ -1,0 +1,30 @@
+name: "Publish Root PowerShell Module"
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  
+jobs:
+  publish_powershell_sdk:
+    name: Publish powershell SDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+
+      - name: Publish Module
+        shell: pwsh
+        run: |
+          $DebugPreference="Continue"
+          
+          Install-Module -Name 'PSSailpoint.Beta' -Force
+          Install-Module -Name 'PSSailpoint.V3' -Force
+          Install-Module -Name 'PSSailpoint.V2024' -Force    
+          
+          Publish-Module `
+              -Path './PSSailpoint' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force

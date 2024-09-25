@@ -368,9 +368,7 @@ $SelfImportExportDto = Initialize-SelfImportExportDto -Type "ACCESS_PROFILE" -Id
 $IdentityProfileAllOfOwner = Initialize-IdentityProfileAllOfOwner -Type "IDENTITY" -Id "2c9180835d191a86015d28455b4b232a" -Name "William Wilson"
 $IdentityProfile1AllOfAuthoritativeSource = Initialize-IdentityProfile1AllOfAuthoritativeSource -Type "SOURCE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
 
-$TransformDefinition1AttributesValue = Initialize-TransformDefinition1AttributesValue 
-$TransformDefinition1 = Initialize-TransformDefinition1 -Type "accountAttribute" -Attributes @{ key_example = $TransformDefinition1AttributesValue }
-
+$TransformDefinition1 = Initialize-TransformDefinition1 -Type "accountAttribute" -Attributes @{ key_example =  }
 $IdentityAttributeTransform1 = Initialize-IdentityAttributeTransform1 -IdentityAttributeName "email" -TransformDefinition $TransformDefinition1
 
 $IdentityAttributeConfig1 = Initialize-IdentityAttributeConfig1 -Enabled $true -AttributeTransforms $IdentityAttributeTransform1

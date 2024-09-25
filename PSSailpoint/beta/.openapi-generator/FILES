@@ -919,7 +919,6 @@ docs/Transform.md
 docs/TransformAttributes.md
 docs/TransformDefinition.md
 docs/TransformDefinition1.md
-docs/TransformDefinition1AttributesValue.md
 docs/TransformRead.md
 docs/TransformRule.md
 docs/TranslationMessage.md
@@ -1906,7 +1905,6 @@ src/PSSailpoint.Beta/Model/Transform.ps1
 src/PSSailpoint.Beta/Model/TransformAttributes.ps1
 src/PSSailpoint.Beta/Model/TransformDefinition.ps1
 src/PSSailpoint.Beta/Model/TransformDefinition1.ps1
-src/PSSailpoint.Beta/Model/TransformDefinition1AttributesValue.ps1
 src/PSSailpoint.Beta/Model/TransformRead.ps1
 src/PSSailpoint.Beta/Model/TransformRule.ps1
 src/PSSailpoint.Beta/Model/TranslationMessage.ps1
@@ -2899,7 +2897,6 @@ tests/Model/Transform.Tests.ps1
 tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformDefinition.Tests.ps1
 tests/Model/TransformDefinition1.Tests.ps1
-tests/Model/TransformDefinition1AttributesValue.Tests.ps1
 tests/Model/TransformRead.Tests.ps1
 tests/Model/TransformRule.Tests.ps1
 tests/Model/TranslationMessage.Tests.ps1

@@ -1617,7 +1617,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.Transform](docs/Transform.md)
  - [PSSailpoint.V2024\Model.TransformAttributes](docs/TransformAttributes.md)
  - [PSSailpoint.V2024\Model.TransformDefinition](docs/TransformDefinition.md)
- - [PSSailpoint.V2024\Model.TransformDefinitionAttributesValue](docs/TransformDefinitionAttributesValue.md)
  - [PSSailpoint.V2024\Model.TransformRead](docs/TransformRead.md)
  - [PSSailpoint.V2024\Model.TransformRule](docs/TransformRule.md)
  - [PSSailpoint.V2024\Model.TranslationMessage](docs/TranslationMessage.md)

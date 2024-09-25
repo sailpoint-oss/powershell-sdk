@@ -1447,7 +1447,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.TransformAttributes](docs/TransformAttributes.md)
  - [PSSailpoint.Beta\Model.TransformDefinition](docs/TransformDefinition.md)
  - [PSSailpoint.Beta\Model.TransformDefinition1](docs/TransformDefinition1.md)
- - [PSSailpoint.Beta\Model.TransformDefinition1AttributesValue](docs/TransformDefinition1AttributesValue.md)
  - [PSSailpoint.Beta\Model.TransformRead](docs/TransformRead.md)
  - [PSSailpoint.Beta\Model.TransformRule](docs/TransformRule.md)
  - [PSSailpoint.Beta\Model.TranslationMessage](docs/TranslationMessage.md)

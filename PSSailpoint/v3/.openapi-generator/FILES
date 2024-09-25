@@ -596,7 +596,6 @@ docs/TokenAuthResponse.md
 docs/Transform.md
 docs/TransformAttributes.md
 docs/TransformDefinition.md
-docs/TransformDefinitionAttributesValue.md
 docs/TransformRead.md
 docs/TransformRule.md
 docs/TransformsApi.md
@@ -1249,7 +1248,6 @@ src/PSSailpoint.V3/Model/TokenAuthResponse.ps1
 src/PSSailpoint.V3/Model/Transform.ps1
 src/PSSailpoint.V3/Model/TransformAttributes.ps1
 src/PSSailpoint.V3/Model/TransformDefinition.ps1
-src/PSSailpoint.V3/Model/TransformDefinitionAttributesValue.ps1
 src/PSSailpoint.V3/Model/TransformRead.ps1
 src/PSSailpoint.V3/Model/TransformRule.ps1
 src/PSSailpoint.V3/Model/Trim.ps1
@@ -1904,7 +1902,6 @@ tests/Model/TokenAuthResponse.Tests.ps1
 tests/Model/Transform.Tests.ps1
 tests/Model/TransformAttributes.Tests.ps1
 tests/Model/TransformDefinition.Tests.ps1
-tests/Model/TransformDefinitionAttributesValue.Tests.ps1
 tests/Model/TransformRead.Tests.ps1
 tests/Model/TransformRule.Tests.ps1
 tests/Model/Trim.Tests.ps1

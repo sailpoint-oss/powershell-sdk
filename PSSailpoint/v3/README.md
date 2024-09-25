@@ -967,7 +967,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.Transform](docs/Transform.md)
  - [PSSailpoint.V3\Model.TransformAttributes](docs/TransformAttributes.md)
  - [PSSailpoint.V3\Model.TransformDefinition](docs/TransformDefinition.md)
- - [PSSailpoint.V3\Model.TransformDefinitionAttributesValue](docs/TransformDefinitionAttributesValue.md)
  - [PSSailpoint.V3\Model.TransformRead](docs/TransformRead.md)
  - [PSSailpoint.V3\Model.TransformRule](docs/TransformRule.md)
  - [PSSailpoint.V3\Model.Trim](docs/Trim.md)

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | The type of the transform definition. | [optional] 
-**Attributes** | [**System.Collections.Hashtable**](TransformDefinition1AttributesValue.md) | Arbitrary key-value pairs to store any metadata for the object | [optional] 
+**Attributes** | [**System.Collections.Hashtable**](AnyType.md) | Arbitrary key-value pairs to store any metadata for the object | [optional] 
 
 ## Examples
 

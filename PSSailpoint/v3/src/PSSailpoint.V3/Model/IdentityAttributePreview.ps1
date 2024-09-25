@@ -34,10 +34,10 @@ function Initialize-IdentityAttributePreview {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Value},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${PreviousValue},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]

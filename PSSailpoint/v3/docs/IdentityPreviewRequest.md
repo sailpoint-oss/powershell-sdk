@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IdentityId** | **String** | The Identity id | [optional] 
-**IdentityAttributeConfig** | [**IdentityAttributeConfig[]**](IdentityAttributeConfig.md) |  | [optional] 
+**IdentityAttributeConfig** | [**IdentityAttributeConfig**](IdentityAttributeConfig.md) |  | [optional] 
 
 ## Examples
 

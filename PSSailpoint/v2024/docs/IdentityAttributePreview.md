@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | Name of the attribute that is being previewed. | [optional] 
-**Value** | [**SystemCollectionsHashtable**](.md) | Value that was derived during the preview. | [optional] 
-**PreviousValue** | [**SystemCollectionsHashtable**](.md) | The value of the attribute before the preview. | [optional] 
+**Value** | **String** | Value that was derived during the preview. | [optional] 
+**PreviousValue** | **String** | The value of the attribute before the preview. | [optional] 
 **ErrorMessages** | [**ErrorMessageDto[]**](ErrorMessageDto.md) |  | [optional] 
 
 ## Examples

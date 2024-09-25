@@ -30,7 +30,7 @@ function Initialize-V2024IdentityPreviewRequest {
         [String]
         ${IdentityId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
+        [PSCustomObject]
         ${IdentityAttributeConfig}
     )
 

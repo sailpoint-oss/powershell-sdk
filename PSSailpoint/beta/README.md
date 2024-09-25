@@ -312,6 +312,19 @@ Class | Method | HTTP request | Description
 *BetaManagedClustersApi* | [**Get-BetaManagedCluster**](docs/BetaManagedClustersApi.md#Get-BetaManagedCluster) | **GET** /managed-clusters/{id} | Get a specified ManagedCluster.
 *BetaManagedClustersApi* | [**Get-BetaManagedClusters**](docs/BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
 *BetaManagedClustersApi* | [**Send-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Send-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
+*BetaMultiHostIntegrationApi* | [**New-BetaMultiHostIntegration**](docs/BetaMultiHostIntegrationApi.md#New-BetaMultiHostIntegration) | **POST** /multihosts | Create Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**New-BetaSourcesWithinMultiHost**](docs/BetaMultiHostIntegrationApi.md#New-BetaSourcesWithinMultiHost) | **POST** /multihosts/{id} | Create Sources Within Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**Remove-BetaMultiHost**](docs/BetaMultiHostIntegrationApi.md#Remove-BetaMultiHost) | **DELETE** /multihosts/{id} | Delete Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**Get-BetaAcctAggregationGroups**](docs/BetaMultiHostIntegrationApi.md#Get-BetaAcctAggregationGroups) | **GET** /multihosts/{multihostId}/acctAggregationGroups | Get Account Aggregation Groups Within Multi-Host Integration ID
+*BetaMultiHostIntegrationApi* | [**Get-BetaEntitlementAggregationGroups**](docs/BetaMultiHostIntegrationApi.md#Get-BetaEntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+*BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostIntegrations**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrations) | **GET** /multihosts/{id} | Get Multi-Host Integration By ID
+*BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostIntegrationsList**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrationsList) | **GET** /multihosts | List All Existing Multi-Host Integrations
+*BetaMultiHostIntegrationApi* | [**Get-BetaMultihostIntegrationTypes**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultihostIntegrationTypes) | **GET** /multihosts/types | List Multi-Host Integration Types
+*BetaMultiHostIntegrationApi* | [**Get-BetaSourcesWithinMultiHost**](docs/BetaMultiHostIntegrationApi.md#Get-BetaSourcesWithinMultiHost) | **GET** /multihosts/{id}/sources | List Sources Within Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**Get-BetaSourcesWithinMultiHost0**](docs/BetaMultiHostIntegrationApi.md#Get-BetaSourcesWithinMultiHost0) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Integration Sources Creation Errors
+*BetaMultiHostIntegrationApi* | [**Test-BetaConnectionMultiHostSources**](docs/BetaMultiHostIntegrationApi.md#Test-BetaConnectionMultiHostSources) | **POST** /multihosts/{multihost_id}/sources/testConnection | Test Configuration For Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**Test-BetaSourceConnectionMultihost**](docs/BetaMultiHostIntegrationApi.md#Test-BetaSourceConnectionMultihost) | **GET** /multihosts/{multihost_id}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration's Single Source
+*BetaMultiHostIntegrationApi* | [**Update-BetaMultiHostSources**](docs/BetaMultiHostIntegrationApi.md#Update-BetaMultiHostSources) | **PATCH** /multihosts/{id} | Update Multi-Host Integration
 *BetaNonEmployeeLifecycleManagementApi* | [**Approve-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Approve-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -1076,6 +1089,24 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.MfaDuoConfig](docs/MfaDuoConfig.md)
  - [PSSailpoint.Beta\Model.MfaOktaConfig](docs/MfaOktaConfig.md)
  - [PSSailpoint.Beta\Model.ModelError](docs/ModelError.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationTemplateType](docs/MultiHostIntegrationTemplateType.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrations](docs/MultiHostIntegrations.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsAggScheduleUpdate](docs/MultiHostIntegrationsAggScheduleUpdate.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsCluster](docs/MultiHostIntegrationsCluster.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsConnectorAttributes](docs/MultiHostIntegrationsConnectorAttributes.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory](docs/MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsConnectorAttributesMultiHostAttributes](docs/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsCreate](docs/MultiHostIntegrationsCreate.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsCreateSources](docs/MultiHostIntegrationsCreateSources.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsManagementWorkgroup](docs/MultiHostIntegrationsManagementWorkgroup.md)
+ - [PSSailpoint.Beta\Model.MultiHostIntegrationsOwner](docs/MultiHostIntegrationsOwner.md)
+ - [PSSailpoint.Beta\Model.MultiHostSources](docs/MultiHostSources.md)
+ - [PSSailpoint.Beta\Model.MultiHostSourcesAccountCorrelationConfig](docs/MultiHostSourcesAccountCorrelationConfig.md)
+ - [PSSailpoint.Beta\Model.MultiHostSourcesAccountCorrelationRule](docs/MultiHostSourcesAccountCorrelationRule.md)
+ - [PSSailpoint.Beta\Model.MultiHostSourcesBeforeProvisioningRule](docs/MultiHostSourcesBeforeProvisioningRule.md)
+ - [PSSailpoint.Beta\Model.MultiHostSourcesManagerCorrelationRule](docs/MultiHostSourcesManagerCorrelationRule.md)
+ - [PSSailpoint.Beta\Model.MultiHostSourcesPasswordPoliciesInner](docs/MultiHostSourcesPasswordPoliciesInner.md)
+ - [PSSailpoint.Beta\Model.MultiHostSourcesSchemasInner](docs/MultiHostSourcesSchemasInner.md)
  - [PSSailpoint.Beta\Model.MultiPolicyRequest](docs/MultiPolicyRequest.md)
  - [PSSailpoint.Beta\Model.NameNormalizer](docs/NameNormalizer.md)
  - [PSSailpoint.Beta\Model.NamedConstructs](docs/NamedConstructs.md)
@@ -1334,8 +1365,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SodViolationContextConflictingAccessCriteriaLeftCriteria](docs/SodViolationContextConflictingAccessCriteriaLeftCriteria.md)
  - [PSSailpoint.Beta\Model.Source](docs/Source.md)
  - [PSSailpoint.Beta\Model.Source1](docs/Source1.md)
- - [PSSailpoint.Beta\Model.SourceAccountCorrelationConfig](docs/SourceAccountCorrelationConfig.md)
- - [PSSailpoint.Beta\Model.SourceAccountCorrelationRule](docs/SourceAccountCorrelationRule.md)
  - [PSSailpoint.Beta\Model.SourceAccountCreated](docs/SourceAccountCreated.md)
  - [PSSailpoint.Beta\Model.SourceAccountDeleted](docs/SourceAccountDeleted.md)
  - [PSSailpoint.Beta\Model.SourceAccountUpdated](docs/SourceAccountUpdated.md)
@@ -1346,20 +1375,14 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SourceAppCreateDtoAccountSource](docs/SourceAppCreateDtoAccountSource.md)
  - [PSSailpoint.Beta\Model.SourceAppOwner](docs/SourceAppOwner.md)
  - [PSSailpoint.Beta\Model.SourceAppPatchDto](docs/SourceAppPatchDto.md)
- - [PSSailpoint.Beta\Model.SourceBeforeProvisioningRule](docs/SourceBeforeProvisioningRule.md)
- - [PSSailpoint.Beta\Model.SourceCluster](docs/SourceCluster.md)
  - [PSSailpoint.Beta\Model.SourceClusterDto](docs/SourceClusterDto.md)
  - [PSSailpoint.Beta\Model.SourceCode](docs/SourceCode.md)
  - [PSSailpoint.Beta\Model.SourceCreated](docs/SourceCreated.md)
  - [PSSailpoint.Beta\Model.SourceCreatedActor](docs/SourceCreatedActor.md)
+ - [PSSailpoint.Beta\Model.SourceCreationErrors](docs/SourceCreationErrors.md)
  - [PSSailpoint.Beta\Model.SourceDeleted](docs/SourceDeleted.md)
  - [PSSailpoint.Beta\Model.SourceDeletedActor](docs/SourceDeletedActor.md)
  - [PSSailpoint.Beta\Model.SourceEntitlementRequestConfig](docs/SourceEntitlementRequestConfig.md)
- - [PSSailpoint.Beta\Model.SourceManagementWorkgroup](docs/SourceManagementWorkgroup.md)
- - [PSSailpoint.Beta\Model.SourceManagerCorrelationRule](docs/SourceManagerCorrelationRule.md)
- - [PSSailpoint.Beta\Model.SourceOwner](docs/SourceOwner.md)
- - [PSSailpoint.Beta\Model.SourcePasswordPoliciesInner](docs/SourcePasswordPoliciesInner.md)
- - [PSSailpoint.Beta\Model.SourceSchemasInner](docs/SourceSchemasInner.md)
  - [PSSailpoint.Beta\Model.SourceSyncJob](docs/SourceSyncJob.md)
  - [PSSailpoint.Beta\Model.SourceSyncPayload](docs/SourceSyncPayload.md)
  - [PSSailpoint.Beta\Model.SourceUpdated](docs/SourceUpdated.md)
@@ -1415,6 +1438,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.TestExternalExecuteWorkflow200Response](docs/TestExternalExecuteWorkflow200Response.md)
  - [PSSailpoint.Beta\Model.TestExternalExecuteWorkflowRequest](docs/TestExternalExecuteWorkflowRequest.md)
  - [PSSailpoint.Beta\Model.TestInvocation](docs/TestInvocation.md)
+ - [PSSailpoint.Beta\Model.TestSourceConnectionMultihost200Response](docs/TestSourceConnectionMultihost200Response.md)
  - [PSSailpoint.Beta\Model.TestWorkflow200Response](docs/TestWorkflow200Response.md)
  - [PSSailpoint.Beta\Model.TestWorkflowRequest](docs/TestWorkflowRequest.md)
  - [PSSailpoint.Beta\Model.TokenAuthRequest](docs/TokenAuthRequest.md)
@@ -1434,6 +1458,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.Trim](docs/Trim.md)
  - [PSSailpoint.Beta\Model.UUIDGenerator](docs/UUIDGenerator.md)
  - [PSSailpoint.Beta\Model.UpdateAccessProfilesInBulk412Response](docs/UpdateAccessProfilesInBulk412Response.md)
+ - [PSSailpoint.Beta\Model.UpdateMultiHostSourcesRequest](docs/UpdateMultiHostSourcesRequest.md)
  - [PSSailpoint.Beta\Model.Upper](docs/Upper.md)
  - [PSSailpoint.Beta\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint.Beta\Model.UserApp](docs/UserApp.md)

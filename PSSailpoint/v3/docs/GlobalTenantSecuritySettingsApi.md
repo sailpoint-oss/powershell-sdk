@@ -28,10 +28,10 @@ This API returns the details of an org's network auth configuration. Requires se
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $NetworkConfiguration = Initialize-NetworkConfiguration -Range "MyRange" -Geolocation "MyGeolocation" -Whitelisted $true # NetworkConfiguration | Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -78,10 +78,10 @@ This API returns the details of an org's lockout auth configuration.
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
@@ -103,7 +103,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -124,10 +124,10 @@ This API returns the details of an org's network auth configuration. Requires se
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
@@ -149,7 +149,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -170,10 +170,10 @@ This API returns the details of an org's service provider auth configuration.
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
@@ -195,7 +195,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -216,10 +216,10 @@ This API returns the details of an org's session auth configuration.
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
@@ -241,7 +241,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -263,10 +263,10 @@ This API updates an existing lockout configuration for an org using PATCH  Requi
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -315,10 +315,10 @@ This API updates an existing network configuration for an org using PATCH  Requi
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -367,10 +367,10 @@ This API updates an existing service provider configuration for an org using PAT
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -419,10 +419,10 @@ This API updates an existing session configuration for an org using PATCH.
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 

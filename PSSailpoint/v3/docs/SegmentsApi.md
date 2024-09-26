@@ -24,10 +24,10 @@ This API creates a segment.  >**Note:** Segment definitions may take time to pro
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $OwnerReferenceSegments = Initialize-OwnerReferenceSegments -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -85,10 +85,10 @@ This API deletes the segment specified by the given ID. >**Note:** that segment 
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
@@ -114,7 +114,7 @@ void (empty response body)
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -136,10 +136,10 @@ This API returns the segment specified by the given ID. A token with ORG_ADMIN o
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -189,10 +189,10 @@ This API returns a list of all segments.  A token with ORG_ADMIN or API authorit
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -245,10 +245,10 @@ Use this API to update segment fields by using the [JSON Patch](https://tools.ie
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to modify.
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 

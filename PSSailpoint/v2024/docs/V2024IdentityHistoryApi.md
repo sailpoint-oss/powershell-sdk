@@ -37,10 +37,10 @@ This method gets a difference of count for each access item types for the given 
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -110,10 +110,10 @@ This method gets a list of differences of specific accessType for the given iden
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -178,10 +178,10 @@ This method retrieves a specified identity Requires authorization scope of 'idn:
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -238,10 +238,10 @@ This method retrieves all access events for the identity Requires authorization 
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -305,10 +305,10 @@ This method retrieves a specified identity snapshot at a given date Requires aut
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -367,10 +367,10 @@ This method gets the summary for the event count for a specific identity by mont
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -433,10 +433,10 @@ This method retrieves start date of the identity Requires authorization scope of
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -491,10 +491,10 @@ This gets the list of identities for the customer. This list end point does not 
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -554,10 +554,10 @@ This method retrieves a list of access item for the identity filtered by the acc
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -612,10 +612,10 @@ This method retrieves the list of identity access items at a given date filterd 
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -647,7 +647,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -675,10 +675,10 @@ This method retrieves all the snapshots for the identity Requires authorization 
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
@@ -716,7 +716,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 

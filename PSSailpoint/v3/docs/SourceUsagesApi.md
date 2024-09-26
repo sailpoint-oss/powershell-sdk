@@ -21,10 +21,10 @@ This API returns the status of the source usage insights setup by IDN source ID.
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -76,10 +76,10 @@ This API returns a summary of source usage insights for past 12 months.
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 

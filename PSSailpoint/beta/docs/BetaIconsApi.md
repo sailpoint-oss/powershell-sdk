@@ -22,10 +22,10 @@ This API endpoint delete an icon by object type and object id. A token with ORG_
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ObjectType = "application" # String | Object type. Available options ['application']
@@ -53,7 +53,7 @@ void (empty response body)
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 
@@ -77,10 +77,10 @@ This API endpoint updates an icon by object type and object id. A token with ORG
 ```powershell
 # general setting of the PowerShell module, e.g. base URL, authentication, etc
 $Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: UserContextAuth
+# Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ObjectType = "application" # String | Object type. Available options ['application']
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 

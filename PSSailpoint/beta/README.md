@@ -1522,8 +1522,8 @@ Class | Method | HTTP request | Description
 
 
 Authentication schemes defined for the API:
-<a id="UserContextAuth"></a>
-### UserContextAuth
+<a id="userAuth"></a>
+### userAuth
 
 
 - **Type**: OAuth
@@ -1533,8 +1533,8 @@ Authentication schemes defined for the API:
   - sp:scopes:default: default scope
   - sp:scopes:all: access to all scopes
 
-<a id="UserContextAuth"></a>
-### UserContextAuth
+<a id="userAuth"></a>
+### userAuth
 
 
 - **Type**: OAuth
@@ -1544,8 +1544,8 @@ Authentication schemes defined for the API:
   - sp:scopes:default: default scope
   - sp:scopes:all: access to all scopes
 
-<a id="ApplicationOnlyAuth"></a>
-### ApplicationOnlyAuth
+<a id="applicationAuth"></a>
+### applicationAuth
 
 
 - **Type**: OAuth
@@ -1553,4 +1553,5 @@ Authentication schemes defined for the API:
 - **Authorization URL**: 
 - **Scopes**: 
   - sp:scopes:default: default scope
+  - sp:scopes:all: access to all scopes
 

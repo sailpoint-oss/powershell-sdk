@@ -20,9 +20,9 @@ JSON object
 
 .OUTPUTS
 
-JsonPatchOperationValue<PSCustomObject>
+UpdateMultiHostSourcesRequestInnerValue<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToJsonPatchOperationValue {
+function ConvertFrom-BetaJsonToUpdateMultiHostSourcesRequestInnerValue {
     [CmdletBinding()]
     Param (
         [AllowEmptyString()]
@@ -47,7 +47,7 @@ function ConvertFrom-BetaJsonToJsonPatchOperationValue {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'ArrayInner[]' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'ArrayInner[]' defined in oneOf (BetaUpdateMultiHostSourcesRequestInnerValue). Proceeding to the next one if any."
         }
 
         # try to match Boolean defined in the oneOf schemas
@@ -63,7 +63,7 @@ function ConvertFrom-BetaJsonToJsonPatchOperationValue {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Boolean' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Boolean' defined in oneOf (BetaUpdateMultiHostSourcesRequestInnerValue). Proceeding to the next one if any."
         }
 
         # try to match Int32 defined in the oneOf schemas
@@ -79,7 +79,7 @@ function ConvertFrom-BetaJsonToJsonPatchOperationValue {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Int32' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'Int32' defined in oneOf (BetaUpdateMultiHostSourcesRequestInnerValue). Proceeding to the next one if any."
         }
 
         # try to match String defined in the oneOf schemas
@@ -95,7 +95,7 @@ function ConvertFrom-BetaJsonToJsonPatchOperationValue {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'String' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'String' defined in oneOf (BetaUpdateMultiHostSourcesRequestInnerValue). Proceeding to the next one if any."
         }
 
         # try to match SystemCollectionsHashtable defined in the oneOf schemas
@@ -111,7 +111,7 @@ function ConvertFrom-BetaJsonToJsonPatchOperationValue {
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'SystemCollectionsHashtable' defined in oneOf (BetaJsonPatchOperationValue). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'SystemCollectionsHashtable' defined in oneOf (BetaUpdateMultiHostSourcesRequestInnerValue). Proceeding to the next one if any."
         }
 
         if ($match -gt 1) {

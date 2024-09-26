@@ -319,9 +319,9 @@ Class | Method | HTTP request | Description
 *BetaMultiHostIntegrationApi* | [**Get-BetaEntitlementAggregationGroups**](docs/BetaMultiHostIntegrationApi.md#Get-BetaEntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | Get Entitlement Aggregation Groups Within Multi-Host Integration ID
 *BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostIntegrations**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrations) | **GET** /multihosts/{id} | Get Multi-Host Integration By ID
 *BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostIntegrationsList**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrationsList) | **GET** /multihosts | List All Existing Multi-Host Integrations
+*BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostSourceCreationErrors**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Source Creation Errors
 *BetaMultiHostIntegrationApi* | [**Get-BetaMultihostIntegrationTypes**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultihostIntegrationTypes) | **GET** /multihosts/types | List Multi-Host Integration Types
 *BetaMultiHostIntegrationApi* | [**Get-BetaSourcesWithinMultiHost**](docs/BetaMultiHostIntegrationApi.md#Get-BetaSourcesWithinMultiHost) | **GET** /multihosts/{id}/sources | List Sources Within Multi-Host Integration
-*BetaMultiHostIntegrationApi* | [**Get-BetaSourcesWithinMultiHost0**](docs/BetaMultiHostIntegrationApi.md#Get-BetaSourcesWithinMultiHost0) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Integration Sources Creation Errors
 *BetaMultiHostIntegrationApi* | [**Test-BetaConnectionMultiHostSources**](docs/BetaMultiHostIntegrationApi.md#Test-BetaConnectionMultiHostSources) | **POST** /multihosts/{multihost_id}/sources/testConnection | Test Configuration For Multi-Host Integration
 *BetaMultiHostIntegrationApi* | [**Test-BetaSourceConnectionMultihost**](docs/BetaMultiHostIntegrationApi.md#Test-BetaSourceConnectionMultihost) | **GET** /multihosts/{multihost_id}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration's Single Source
 *BetaMultiHostIntegrationApi* | [**Update-BetaMultiHostSources**](docs/BetaMultiHostIntegrationApi.md#Update-BetaMultiHostSources) | **PATCH** /multihosts/{id} | Update Multi-Host Integration
@@ -1023,7 +1023,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.InvocationStatusType](docs/InvocationStatusType.md)
  - [PSSailpoint.Beta\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpoint.Beta\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
- - [PSSailpoint.Beta\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
  - [PSSailpoint.Beta\Model.JsonPatchOperations](docs/JsonPatchOperations.md)
  - [PSSailpoint.Beta\Model.JsonPatchOperationsValue](docs/JsonPatchOperationsValue.md)
  - [PSSailpoint.Beta\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
@@ -1457,7 +1456,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.Trim](docs/Trim.md)
  - [PSSailpoint.Beta\Model.UUIDGenerator](docs/UUIDGenerator.md)
  - [PSSailpoint.Beta\Model.UpdateAccessProfilesInBulk412Response](docs/UpdateAccessProfilesInBulk412Response.md)
- - [PSSailpoint.Beta\Model.UpdateMultiHostSourcesRequest](docs/UpdateMultiHostSourcesRequest.md)
+ - [PSSailpoint.Beta\Model.UpdateMultiHostSourcesRequestInner](docs/UpdateMultiHostSourcesRequestInner.md)
+ - [PSSailpoint.Beta\Model.UpdateMultiHostSourcesRequestInnerValue](docs/UpdateMultiHostSourcesRequestInnerValue.md)
  - [PSSailpoint.Beta\Model.Upper](docs/Upper.md)
  - [PSSailpoint.Beta\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint.Beta\Model.UserApp](docs/UserApp.md)

@@ -11,9 +11,9 @@ Method | HTTP request | Description
 [**Get-BetaEntitlementAggregationGroups**](BetaMultiHostIntegrationApi.md#Get-BetaEntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | Get Entitlement Aggregation Groups Within Multi-Host Integration ID
 [**Get-BetaMultiHostIntegrations**](BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrations) | **GET** /multihosts/{id} | Get Multi-Host Integration By ID
 [**Get-BetaMultiHostIntegrationsList**](BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrationsList) | **GET** /multihosts | List All Existing Multi-Host Integrations
+[**Get-BetaMultiHostSourceCreationErrors**](BetaMultiHostIntegrationApi.md#Get-BetaMultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Source Creation Errors
 [**Get-BetaMultihostIntegrationTypes**](BetaMultiHostIntegrationApi.md#Get-BetaMultihostIntegrationTypes) | **GET** /multihosts/types | List Multi-Host Integration Types
 [**Get-BetaSourcesWithinMultiHost**](BetaMultiHostIntegrationApi.md#Get-BetaSourcesWithinMultiHost) | **GET** /multihosts/{id}/sources | List Sources Within Multi-Host Integration
-[**Get-BetaSourcesWithinMultiHost0**](BetaMultiHostIntegrationApi.md#Get-BetaSourcesWithinMultiHost0) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Integration Sources Creation Errors
 [**Test-BetaConnectionMultiHostSources**](BetaMultiHostIntegrationApi.md#Test-BetaConnectionMultiHostSources) | **POST** /multihosts/{multihost_id}/sources/testConnection | Test Configuration For Multi-Host Integration
 [**Test-BetaSourceConnectionMultihost**](BetaMultiHostIntegrationApi.md#Test-BetaSourceConnectionMultihost) | **GET** /multihosts/{multihost_id}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration&#39;s Single Source
 [**Update-BetaMultiHostSources**](BetaMultiHostIntegrationApi.md#Update-BetaMultiHostSources) | **PATCH** /multihosts/{id} | Update Multi-Host Integration
@@ -397,6 +397,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="Get-BetaMultiHostSourceCreationErrors"></a>
+# **Get-BetaMultiHostSourceCreationErrors**
+> SourceCreationErrors[] Get-BetaMultiHostSourceCreationErrors<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MultiHostId] <String><br>
+
+List Multi-Host Source Creation Errors
+
+Get a list of sources creation errors within Multi-Host Integration ID.    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: UserContextAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
+
+# List Multi-Host Source Creation Errors
+try {
+    $Result = Get-BetaMultiHostSourceCreationErrors -MultiHostId $MultiHostId
+} catch {
+    Write-Host ("Exception occurred when calling Get-BetaMultiHostSourceCreationErrors: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **MultiHostId** | **String**| ID of the Multi-Host Integration | 
+
+### Return type
+
+[**SourceCreationErrors[]**](SourceCreationErrors.md) (PSCustomObject)
+
+### Authorization
+
+[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="Get-BetaMultihostIntegrationTypes"></a>
 # **Get-BetaMultihostIntegrationTypes**
 > MultiHostIntegrationTemplateType[] Get-BetaMultihostIntegrationTypes<br>
@@ -494,57 +545,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MultiHostSources[]**](MultiHostSources.md) (PSCustomObject)
-
-### Authorization
-
-[UserContextAuth](../README.md#UserContextAuth), [UserContextAuth](../README.md#UserContextAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="Get-BetaSourcesWithinMultiHost0"></a>
-# **Get-BetaSourcesWithinMultiHost0**
-> SourceCreationErrors[] Get-BetaSourcesWithinMultiHost0<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MultiHostId] <String><br>
-
-List Multi-Host Integration Sources Creation Errors
-
-Get a list of sources creation errors within Multi-Host Integration ID.    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: UserContextAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-$MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
-
-# List Multi-Host Integration Sources Creation Errors
-try {
-    $Result = Get-BetaSourcesWithinMultiHost0 -MultiHostId $MultiHostId
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaSourcesWithinMultiHost0: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **MultiHostId** | **String**| ID of the Multi-Host Integration | 
-
-### Return type
-
-[**SourceCreationErrors[]**](SourceCreationErrors.md) (PSCustomObject)
 
 ### Authorization
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 # **Update-BetaMultiHostSources**
 > void Update-BetaMultiHostSources<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-MultihostId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UpdateMultiHostSourcesRequest] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-UpdateMultiHostSourcesRequestInner] <PSCustomObject[]><br>
 
 Update Multi-Host Integration
 
@@ -683,14 +683,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue
-
-$UpdateMultiHostSourcesRequest = Initialize-UpdateMultiHostSourcesRequest -Operations $JsonPatchOperation # UpdateMultiHostSourcesRequest | A list of Multi-Host Integration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+$UpdateMultiHostSourcesRequestInnerValue = Initialize-UpdateMultiHostSourcesRequestInnerValue 
+$UpdateMultiHostSourcesRequestInner = Initialize-UpdateMultiHostSourcesRequestInner -Op "add" -Path "/description" -Value $UpdateMultiHostSourcesRequestInnerValue # UpdateMultiHostSourcesRequestInner[] | This endpoint allows you to update a Multi-Host Integration. 
 
 # Update Multi-Host Integration
 try {
-    $Result = Update-BetaMultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequest $UpdateMultiHostSourcesRequest
+    $Result = Update-BetaMultiHostSources -MultihostId $MultihostId -UpdateMultiHostSourcesRequestInner $UpdateMultiHostSourcesRequestInner
 } catch {
     Write-Host ("Exception occurred when calling Update-BetaMultiHostSources: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -702,7 +700,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **MultihostId** | **String**| ID of the Multi-Host Integration to update. | 
- **UpdateMultiHostSourcesRequest** | [**UpdateMultiHostSourcesRequest**](UpdateMultiHostSourcesRequest.md)| A list of Multi-Host Integration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed.  | 
+ **UpdateMultiHostSourcesRequestInner** | [**UpdateMultiHostSourcesRequestInner[]**](UpdateMultiHostSourcesRequestInner.md)| This endpoint allows you to update a Multi-Host Integration.  | 
 
 ### Return type
 

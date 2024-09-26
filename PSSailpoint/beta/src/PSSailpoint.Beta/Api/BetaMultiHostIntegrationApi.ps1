@@ -618,6 +618,80 @@ function Get-BetaMultiHostIntegrationsList {
 <#
 .SYNOPSIS
 
+List Multi-Host Source Creation Errors
+
+.DESCRIPTION
+
+Get a list of sources creation errors within Multi-Host Integration ID.    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+
+.PARAMETER MultiHostId
+ID of the Multi-Host Integration
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SourceCreationErrors[]
+#>
+function Get-BetaMultiHostSourceCreationErrors {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${MultiHostId},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaMultiHostSourceCreationErrors' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/multihosts/{multiHostId}/sources/errors'
+        if (!$MultiHostId) {
+            throw "Error! The required parameter `MultiHostId` missing when calling getMultiHostSourceCreationErrors."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{multiHostId}', [System.Web.HTTPUtility]::UrlEncode($MultiHostId))
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SourceCreationErrors[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 List Multi-Host Integration Types
 
 .DESCRIPTION
@@ -783,80 +857,6 @@ function Get-BetaSourcesWithinMultiHost {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "MultiHostSources[]" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-List Multi-Host Integration Sources Creation Errors
-
-.DESCRIPTION
-
-Get a list of sources creation errors within Multi-Host Integration ID.    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
-
-.PARAMETER MultiHostId
-ID of the Multi-Host Integration
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-SourceCreationErrors[]
-#>
-function Get-BetaSourcesWithinMultiHost0 {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${MultiHostId},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-BetaSourcesWithinMultiHost0' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/multihosts/{multiHostId}/sources/errors'
-        if (!$MultiHostId) {
-            throw "Error! The required parameter `MultiHostId` missing when calling getSourcesWithinMultiHost_0."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{multiHostId}', [System.Web.HTTPUtility]::UrlEncode($MultiHostId))
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SourceCreationErrors[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1037,8 +1037,8 @@ Update existing sources within Multi-Host Integration.  A token with Org Admin o
 .PARAMETER MultihostId
 ID of the Multi-Host Integration to update.
 
-.PARAMETER UpdateMultiHostSourcesRequest
-A list of Multi-Host Integration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+.PARAMETER UpdateMultiHostSourcesRequestInner
+This endpoint allows you to update a Multi-Host Integration. 
 
 .PARAMETER WithHttpInfo
 
@@ -1055,8 +1055,8 @@ function Update-BetaMultiHostSources {
         [String]
         ${MultihostId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${UpdateMultiHostSourcesRequest},
+        [PSCustomObject[]]
+        ${UpdateMultiHostSourcesRequestInner},
         [Switch]
         $WithHttpInfo
     )
@@ -1086,14 +1086,14 @@ function Update-BetaMultiHostSources {
         }
         $LocalVarUri = $LocalVarUri.replace('{multihost_id}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
 
-        if (!$UpdateMultiHostSourcesRequest) {
-            throw "Error! The required parameter `UpdateMultiHostSourcesRequest` missing when calling updateMultiHostSources."
+        if (!$UpdateMultiHostSourcesRequestInner) {
+            throw "Error! The required parameter `UpdateMultiHostSourcesRequestInner` missing when calling updateMultiHostSources."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($UpdateMultiHostSourcesRequest -is [array])) {
-            $LocalVarBodyParameter = $UpdateMultiHostSourcesRequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($UpdateMultiHostSourcesRequestInner -is [array])) {
+            $LocalVarBodyParameter = $UpdateMultiHostSourcesRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $UpdateMultiHostSourcesRequest | ForEach-Object {
+            $LocalVarBodyParameter = $UpdateMultiHostSourcesRequestInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

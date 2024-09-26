@@ -1248,8 +1248,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$PatchPotentialRoleRequestInner = Initialize-PatchPotentialRoleRequestInner -Op "remove" -Path "/description" -Value $JsonPatchOperationValue # PatchPotentialRoleRequestInner[] | 
+$UpdateMultiHostSourcesRequestInnerValue = Initialize-UpdateMultiHostSourcesRequestInnerValue 
+$PatchPotentialRoleRequestInner = Initialize-PatchPotentialRoleRequestInner -Op "remove" -Path "/description" -Value $UpdateMultiHostSourcesRequestInnerValue # PatchPotentialRoleRequestInner[] | 
 
 # Update a potential role in session
 try {
@@ -1304,8 +1304,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$PatchPotentialRoleRequestInner = Initialize-PatchPotentialRoleRequestInner -Op "remove" -Path "/description" -Value $JsonPatchOperationValue # PatchPotentialRoleRequestInner[] | 
+$UpdateMultiHostSourcesRequestInnerValue = Initialize-UpdateMultiHostSourcesRequestInnerValue 
+$PatchPotentialRoleRequestInner = Initialize-PatchPotentialRoleRequestInner -Op "remove" -Path "/description" -Value $UpdateMultiHostSourcesRequestInnerValue # PatchPotentialRoleRequestInner[] | 
 
 # Update a potential role
 try {
@@ -1359,8 +1359,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be patched
-$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+$UpdateMultiHostSourcesRequestInnerValue = Initialize-UpdateMultiHostSourcesRequestInnerValue 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $UpdateMultiHostSourcesRequestInnerValue # JsonPatchOperation[] | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
 
 # Patch a role mining session
 try {

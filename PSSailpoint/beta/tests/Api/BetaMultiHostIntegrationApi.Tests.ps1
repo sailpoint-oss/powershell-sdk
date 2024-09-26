@@ -62,6 +62,14 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaMultiHostIntegrationApi' {
         }
     }
 
+    Context 'Get-BetaMultiHostSourceCreationErrors' {
+        It 'Test Get-BetaMultiHostSourceCreationErrors' {
+            #$TestResult = Get-BetaMultiHostSourceCreationErrors -MultiHostId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaMultihostIntegrationTypes' {
         It 'Test Get-BetaMultihostIntegrationTypes' {
             #$TestResult = Get-BetaMultihostIntegrationTypes
@@ -73,14 +81,6 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaMultiHostIntegrationApi' {
     Context 'Get-BetaSourcesWithinMultiHost' {
         It 'Test Get-BetaSourcesWithinMultiHost' {
             #$TestResult = Get-BetaSourcesWithinMultiHost -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE" -Count "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-BetaSourcesWithinMultiHost0' {
-        It 'Test Get-BetaSourcesWithinMultiHost0' {
-            #$TestResult = Get-BetaSourcesWithinMultiHost0 -MultiHostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaMultiHostIntegrationApi' {
 
     Context 'Update-BetaMultiHostSources' {
         It 'Test Update-BetaMultiHostSources' {
-            #$TestResult = Update-BetaMultiHostSources -MultihostId "TEST_VALUE" -UpdateMultiHostSourcesRequest "TEST_VALUE"
+            #$TestResult = Update-BetaMultiHostSources -MultihostId "TEST_VALUE" -UpdateMultiHostSourcesRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

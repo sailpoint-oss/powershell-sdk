@@ -12,7 +12,7 @@ Delete MFA method configuration
 
 .DESCRIPTION
 
-This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API removes the configuration for the specified MFA method.
 
 .PARAMETER Method
 The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
@@ -86,7 +86,7 @@ Configuration of Duo MFA method
 
 .DESCRIPTION
 
-This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API returns the configuration of an Duo MFA method.
 
 .PARAMETER WithHttpInfo
 
@@ -150,7 +150,7 @@ Configuration of KBA MFA method
 
 .DESCRIPTION
 
-This API returns the KBA configuration for MFA. A token with USER or ORG_ADMIN authority is required to call this API.
+This API returns the KBA configuration for MFA.
 
 .PARAMETER AllLanguages
 Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
@@ -224,7 +224,7 @@ Configuration of Okta MFA method
 
 .DESCRIPTION
 
-This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API returns the configuration of an Okta MFA method.
 
 .PARAMETER WithHttpInfo
 
@@ -288,7 +288,7 @@ Set Duo MFA configuration
 
 .DESCRIPTION
 
-This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API sets the configuration of an Duo MFA method.
 
 .PARAMETER MfaDuoConfig
 No description available.
@@ -378,7 +378,7 @@ Set MFA KBA configuration
 
 .DESCRIPTION
 
-This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration. A token with USER authority is required to call this API.
+This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
 .PARAMETER KbaAnswerRequestItem
 No description available.
@@ -468,7 +468,7 @@ Set Okta MFA configuration
 
 .DESCRIPTION
 
-This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API sets the configuration of an Okta MFA method.
 
 .PARAMETER MfaOktaConfig
 No description available.
@@ -558,7 +558,7 @@ MFA method's test configuration
 
 .DESCRIPTION
 
-This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
+This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
 
 .PARAMETER Method
 The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.

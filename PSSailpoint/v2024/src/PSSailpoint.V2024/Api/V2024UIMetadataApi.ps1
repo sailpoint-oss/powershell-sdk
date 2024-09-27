@@ -12,7 +12,7 @@ Get a tenant UI metadata
 
 .DESCRIPTION
 
-This API endpoint retrieves UI metadata configured for your tenant. A token with ORG_ADMIN authority is required to call this API.
+This API endpoint retrieves UI metadata configured for your tenant.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -87,7 +87,7 @@ Update tenant UI metadata
 
 .DESCRIPTION
 
-This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI. A token with ORG_ADMIN authority is required to call this API.
+This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.

@@ -12,7 +12,7 @@ Create new Service Desk integration
 
 .DESCRIPTION
 
-Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Create a new Service Desk Integrations.
 
 .PARAMETER ServiceDeskIntegrationDto
 The specifics of a new integration to create
@@ -102,7 +102,7 @@ Delete a Service Desk integration
 
 .DESCRIPTION
 
-Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Delete an existing Service Desk integration by ID.
 
 .PARAMETER Id
 ID of Service Desk integration to delete
@@ -176,7 +176,7 @@ Get a Service Desk integration
 
 .DESCRIPTION
 
-Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Get an existing Service Desk integration by ID.
 
 .PARAMETER Id
 ID of the Service Desk integration to get
@@ -250,7 +250,7 @@ Service Desk integration template by scriptName.
 
 .DESCRIPTION
 
-This API endpoint returns an existing Service Desk integration template by scriptName.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+This API endpoint returns an existing Service Desk integration template by scriptName.
 
 .PARAMETER ScriptName
 The scriptName value of the Service Desk integration template to get
@@ -324,7 +324,7 @@ Service Desk Integration Types List.
 
 .DESCRIPTION
 
-This API endpoint returns the current list of supported Service Desk integration types.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+This API endpoint returns the current list of supported Service Desk integration types.
 
 .PARAMETER WithHttpInfo
 
@@ -388,7 +388,7 @@ List existing Service Desk Integrations
 
 .DESCRIPTION
 
-Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -502,7 +502,7 @@ Get the time check configuration
 
 .DESCRIPTION
 
-Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Get the time check configuration of queued SDIM tickets.
 
 .PARAMETER WithHttpInfo
 
@@ -666,7 +666,7 @@ Update a Service Desk integration
 
 .DESCRIPTION
 
-Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Update an existing Service Desk integration by ID with updated value in JSON form as the request body.
 
 .PARAMETER Id
 ID of the Service Desk integration to update
@@ -766,7 +766,7 @@ Update the time check configuration
 
 .DESCRIPTION
 
-Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Update the time check configuration of queued SDIM tickets.
 
 .PARAMETER QueuedCheckConfigDetails
 the modified time check configuration

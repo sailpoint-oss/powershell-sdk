@@ -12,7 +12,7 @@ Access Summaries
 
 .DESCRIPTION
 
-This API returns a list of access summaries for the specified identity campaign certification and type. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The identity campaign certification ID
@@ -147,7 +147,7 @@ Summary of Certification Decisions
 
 .DESCRIPTION
 
-This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The certification ID
@@ -231,7 +231,7 @@ Identity Summaries for Campaign Certification
 
 .DESCRIPTION
 
-This API returns a list of the identity summaries for a specific identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The identity campaign certification ID
@@ -355,7 +355,7 @@ Summary for Identity
 
 .DESCRIPTION
 
-This API returns the summary for an identity on a specified identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The identity campaign certification ID

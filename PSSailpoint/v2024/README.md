@@ -460,12 +460,20 @@ Class | Method | HTTP request | Description
 *V2024RoleInsightsApi* | [**Get-V2024RoleInsightsSummary**](docs/V2024RoleInsightsApi.md#Get-V2024RoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
 *V2024RolesApi* | [**New-V2024Role**](docs/V2024RolesApi.md#New-V2024Role) | **POST** /roles | Create a Role
 *V2024RolesApi* | [**Remove-V2024BulkRoles**](docs/V2024RolesApi.md#Remove-V2024BulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
+*V2024RolesApi* | [**Remove-V2024MetadataFromRoleByKeyAndValue**](docs/V2024RolesApi.md#Remove-V2024MetadataFromRoleByKeyAndValue) | **DELETE** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove a Metadata From Role.
 *V2024RolesApi* | [**Remove-V2024Role**](docs/V2024RolesApi.md#Remove-V2024Role) | **DELETE** /roles/{id} | Delete a Role
+*V2024RolesApi* | [**Get-V2024BulkUpdateStatus**](docs/V2024RolesApi.md#Get-V2024BulkUpdateStatus) | **GET** /roles/access-model-metadata/bulk-update | Get Bulk-Update Statuses
+*V2024RolesApi* | [**Get-V2024BulkUpdateStatusById**](docs/V2024RolesApi.md#Get-V2024BulkUpdateStatusById) | **GET** /roles/access-model-metadata/bulk-update/id | Get Bulk-Update Status by ID
 *V2024RolesApi* | [**Get-V2024Role**](docs/V2024RolesApi.md#Get-V2024Role) | **GET** /roles/{id} | Get a Role
 *V2024RolesApi* | [**Get-V2024RoleAssignedIdentities**](docs/V2024RolesApi.md#Get-V2024RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 *V2024RolesApi* | [**Get-V2024RoleEntitlements**](docs/V2024RolesApi.md#Get-V2024RoleEntitlements) | **GET** /roles/{id}/entitlements | List role's Entitlements
 *V2024RolesApi* | [**Get-V2024Roles**](docs/V2024RolesApi.md#Get-V2024Roles) | **GET** /roles | List Roles
 *V2024RolesApi* | [**Update-V2024Role**](docs/V2024RolesApi.md#Update-V2024Role) | **PATCH** /roles/{id} | Patch a specified Role
+*V2024RolesApi* | [**Search-V2024RolesByFilter**](docs/V2024RolesApi.md#Search-V2024RolesByFilter) | **POST** /roles/filter | Filter Roles by Metadata
+*V2024RolesApi* | [**Update-V2024AttributeKeyAndValueToRole**](docs/V2024RolesApi.md#Update-V2024AttributeKeyAndValueToRole) | **POST** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add a Metadata to Role.
+*V2024RolesApi* | [**Update-V2024RolesMetadataByFilter**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByFilter) | **POST** /roles/access-model-metadata/bulk-update/filter | Bulk-Update Roles' Metadata by Filters
+*V2024RolesApi* | [**Update-V2024RolesMetadataByIds**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByIds) | **POST** /roles/access-model-metadata/bulk-update/ids | Bulk-Update Roles' Metadata by ID
+*V2024RolesApi* | [**Update-V2024RolesMetadataByQuery**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByQuery) | **POST** /roles/access-model-metadata/bulk-update/query | Bulk-Update Roles' Metadata by Query
 *V2024SIMIntegrationsApi* | [**New-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#New-V2024SIMIntegration) | **POST** /sim-integrations | Create new SIM integration
 *V2024SIMIntegrationsApi* | [**Remove-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#Remove-V2024SIMIntegration) | **DELETE** /sim-integrations/{id} | Delete a SIM integration
 *V2024SIMIntegrationsApi* | [**Get-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#Get-V2024SIMIntegration) | **GET** /sim-integrations/{id} | Get a SIM integration details.
@@ -1395,6 +1403,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RoleAssignmentRef](docs/RoleAssignmentRef.md)
  - [PSSailpoint.V2024\Model.RoleAssignmentSourceType](docs/RoleAssignmentSourceType.md)
  - [PSSailpoint.V2024\Model.RoleBulkDeleteRequest](docs/RoleBulkDeleteRequest.md)
+ - [PSSailpoint.V2024\Model.RoleBulkUpdateResponse](docs/RoleBulkUpdateResponse.md)
  - [PSSailpoint.V2024\Model.RoleCriteriaKey](docs/RoleCriteriaKey.md)
  - [PSSailpoint.V2024\Model.RoleCriteriaKeyType](docs/RoleCriteriaKeyType.md)
  - [PSSailpoint.V2024\Model.RoleCriteriaLevel1](docs/RoleCriteriaLevel1.md)
@@ -1411,10 +1420,18 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RoleInsightsResponse](docs/RoleInsightsResponse.md)
  - [PSSailpoint.V2024\Model.RoleInsightsRole](docs/RoleInsightsRole.md)
  - [PSSailpoint.V2024\Model.RoleInsightsSummary](docs/RoleInsightsSummary.md)
+ - [PSSailpoint.V2024\Model.RoleListFilterDTO](docs/RoleListFilterDTO.md)
+ - [PSSailpoint.V2024\Model.RoleListFilterDTOAmmKeyValuesInner](docs/RoleListFilterDTOAmmKeyValuesInner.md)
  - [PSSailpoint.V2024\Model.RoleMatchDto](docs/RoleMatchDto.md)
  - [PSSailpoint.V2024\Model.RoleMembershipIdentity](docs/RoleMembershipIdentity.md)
  - [PSSailpoint.V2024\Model.RoleMembershipSelector](docs/RoleMembershipSelector.md)
  - [PSSailpoint.V2024\Model.RoleMembershipSelectorType](docs/RoleMembershipSelectorType.md)
+ - [PSSailpoint.V2024\Model.RoleMetadataBulkUpdateByFilterRequest](docs/RoleMetadataBulkUpdateByFilterRequest.md)
+ - [PSSailpoint.V2024\Model.RoleMetadataBulkUpdateByFilterRequestValuesInner](docs/RoleMetadataBulkUpdateByFilterRequestValuesInner.md)
+ - [PSSailpoint.V2024\Model.RoleMetadataBulkUpdateByIdRequest](docs/RoleMetadataBulkUpdateByIdRequest.md)
+ - [PSSailpoint.V2024\Model.RoleMetadataBulkUpdateByIdRequestValuesInner](docs/RoleMetadataBulkUpdateByIdRequestValuesInner.md)
+ - [PSSailpoint.V2024\Model.RoleMetadataBulkUpdateByQueryRequest](docs/RoleMetadataBulkUpdateByQueryRequest.md)
+ - [PSSailpoint.V2024\Model.RoleMetadataBulkUpdateByQueryRequestValuesInner](docs/RoleMetadataBulkUpdateByQueryRequestValuesInner.md)
  - [PSSailpoint.V2024\Model.RoleMiningEntitlement](docs/RoleMiningEntitlement.md)
  - [PSSailpoint.V2024\Model.RoleMiningEntitlementRef](docs/RoleMiningEntitlementRef.md)
  - [PSSailpoint.V2024\Model.RoleMiningIdentity](docs/RoleMiningIdentity.md)

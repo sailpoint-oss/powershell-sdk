@@ -97,7 +97,7 @@ Remove Tags from Multiple Objects
 
 .DESCRIPTION
 
-This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API removes tags from multiple objects.
 
 .PARAMETER BulkRemoveTaggedObject
 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
@@ -157,6 +157,7 @@ function Remove-V2024TagsToManyObject {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -692,7 +693,7 @@ Tag Multiple Objects
 
 .DESCRIPTION
 
-This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API adds tags to multiple objects.
 
 .PARAMETER BulkAddTaggedObject
 Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
@@ -752,6 +753,7 @@ function Set-V2024TagsToManyObjects {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

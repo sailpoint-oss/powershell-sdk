@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Create Lifecycle State
 
-Use this endpoint to create a lifecycle state. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to create a lifecycle state.
 
 ### Example
 ```powershell
@@ -30,6 +30,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
@@ -59,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -76,7 +79,7 @@ Name | Type | Description  | Notes
 
 Delete Lifecycle State
 
-Use this endpoint to delete the lifecycle state by its ID.  A token with API, or ORG_ADMIN authority is required to call this API.
+Use this endpoint to delete the lifecycle state by its ID. 
 
 ### Example
 ```powershell
@@ -86,6 +89,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
@@ -113,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -130,7 +136,7 @@ Name | Type | Description  | Notes
 
 Get Lifecycle State
 
-Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.  A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 ### Example
 ```powershell
@@ -187,7 +193,7 @@ Name | Type | Description  | Notes
 
 Lists LifecycleStates
 
-Use this endpoint to list all lifecycle states by their associated identity profiles.  A token with API, or ORG_ADMIN authority is required to call this API.
+Use this endpoint to list all lifecycle states by their associated identity profiles. 
 
 ### Example
 ```powershell
@@ -197,6 +203,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
@@ -230,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -247,7 +256,7 @@ Name | Type | Description  | Notes
 
 Set Lifecycle State
 
-Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
+Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
 
 ### Example
 ```powershell
@@ -257,6 +266,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityId = "2c9180857893f1290178944561990364" # String | ID of the identity to update.
@@ -284,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -302,7 +314,7 @@ Name | Type | Description  | Notes
 
 Update Lifecycle State
 
-Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Example
 ```powershell
@@ -312,6 +324,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
@@ -342,7 +357,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 

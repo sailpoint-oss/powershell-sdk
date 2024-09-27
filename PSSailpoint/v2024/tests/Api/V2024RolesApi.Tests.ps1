@@ -22,9 +22,33 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024RolesApi' {
         }
     }
 
+    Context 'Remove-V2024MetadataFromRoleByKeyAndValue' {
+        It 'Test Remove-V2024MetadataFromRoleByKeyAndValue' {
+            #$TestResult = Remove-V2024MetadataFromRoleByKeyAndValue -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-V2024Role' {
         It 'Test Remove-V2024Role' {
             #$TestResult = Remove-V2024Role -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024BulkUpdateStatus' {
+        It 'Test Get-V2024BulkUpdateStatus' {
+            #$TestResult = Get-V2024BulkUpdateStatus
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024BulkUpdateStatusById' {
+        It 'Test Get-V2024BulkUpdateStatusById' {
+            #$TestResult = Get-V2024BulkUpdateStatusById -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -65,6 +89,46 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024RolesApi' {
     Context 'Update-V2024Role' {
         It 'Test Update-V2024Role' {
             #$TestResult = Update-V2024Role -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Search-V2024RolesByFilter' {
+        It 'Test Search-V2024RolesByFilter' {
+            #$TestResult = Search-V2024RolesByFilter -ForSubadmin "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -RoleListFilterDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2024AttributeKeyAndValueToRole' {
+        It 'Test Update-V2024AttributeKeyAndValueToRole' {
+            #$TestResult = Update-V2024AttributeKeyAndValueToRole -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2024RolesMetadataByFilter' {
+        It 'Test Update-V2024RolesMetadataByFilter' {
+            #$TestResult = Update-V2024RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2024RolesMetadataByIds' {
+        It 'Test Update-V2024RolesMetadataByIds' {
+            #$TestResult = Update-V2024RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2024RolesMetadataByQuery' {
+        It 'Test Update-V2024RolesMetadataByQuery' {
+            #$TestResult = Update-V2024RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Create a Role
 
-This API creates a role.  You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.   In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves.   The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+This API creates a role. In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves.   The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
 ### Example
 ```powershell
@@ -30,6 +30,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $OwnerReference = Initialize-OwnerReference -Type "IDENTITY" -Id "2c9180a46faadee4016fb4e018c20639" -Name "support"
@@ -52,7 +55,12 @@ $RequestabilityForRole = Initialize-RequestabilityForRole -CommentsRequired $tru
 
 $RevocabilityForRole = Initialize-RevocabilityForRole -CommentsRequired $false -DenialCommentsRequired $false -ApprovalSchemes $ApprovalSchemeForRole
 
-$Role = Initialize-Role -Id "2c918086749d78830174a1a40e121518" -Name "Role 2567" -Created (Get-Date) -Modified (Get-Date) -Description "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor." -Owner $OwnerReference -AccessProfiles $AccessProfileRef -Entitlements $EntitlementRef -Membership $RoleMembershipSelector -LegacyMembershipInfo @{ key_example =  } -Enabled $true -Requestable $true -AccessRequestConfig $RequestabilityForRole -RevocationRequestConfig $RevocabilityForRole -Segments "MySegments" -Dimensional $false -DimensionRefs "MyDimensionRefs" # Role | 
+$AttributeValueDTO = Initialize-AttributeValueDTO -Value "public" -Name "Public" -Status "active"
+$AttributeDTO = Initialize-AttributeDTO -Key "iscPrivacy" -Name "Privacy" -Multiselect $false -Status "active" -Type "governance" -ObjectTypes "MyObjectTypes" -Description "Specifies the level of privacy associated with an access item." -Values $AttributeValueDTO
+
+$AttributeDTOList = Initialize-AttributeDTOList -Attributes $AttributeDTO
+
+$Role = Initialize-Role -Id "2c918086749d78830174a1a40e121518" -Name "Role 2567" -Created (Get-Date) -Modified (Get-Date) -Description "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor." -Owner $OwnerReference -AccessProfiles $AccessProfileRef -Entitlements $EntitlementRef -Membership $RoleMembershipSelector -LegacyMembershipInfo @{ key_example =  } -Enabled $true -Requestable $true -AccessRequestConfig $RequestabilityForRole -RevocationRequestConfig $RevocabilityForRole -Segments "MySegments" -Dimensional $false -DimensionRefs "MyDimensionRefs" -AccessModelMetadata $AttributeDTOList # Role | 
 
 # Create a Role
 try {
@@ -75,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -91,7 +99,7 @@ Name | Type | Description  | Notes
 
 Delete Role(s)
 
-This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
 
 ### Example
 ```powershell
@@ -142,7 +150,7 @@ Name | Type | Description  | Notes
 
 Delete a Role
 
-This API deletes a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+This API deletes a Role by its ID.  A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 ### Example
 ```powershell
@@ -152,6 +160,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
@@ -177,7 +188,7 @@ void (empty response body)
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -193,7 +204,7 @@ void (empty response body)
 
 Get a Role
 
-This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+This API returns a Role by its ID. A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 ### Example
 ```powershell
@@ -203,6 +214,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
@@ -228,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -315,7 +329,7 @@ Name | Type | Description  | Notes
 
 List Roles
 
-This API returns a list of Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+This API returns a list of Roles.
 
 ### Example
 ```powershell
@@ -325,6 +339,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
@@ -364,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -381,7 +398,7 @@ Name | Type | Description  | Notes
 
 Patch a specified Role
 
-This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:  * name * description * enabled * owner * accessProfiles * membership * requestable * accessRequestConfig * revokeRequestConfig * segments  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: * name * description * enabled * owner * accessProfiles * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata  A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
 
 ### Example
 ```powershell
@@ -391,6 +408,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
@@ -419,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 

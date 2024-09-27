@@ -12,7 +12,7 @@ Create Provisioning Policy
 
 .DESCRIPTION
 
-This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
+This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 .PARAMETER SourceId
 The Source id
@@ -534,7 +534,7 @@ Delete Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
+Deletes the provisioning policy with the specified usage on an application.
 
 .PARAMETER SourceId
 The Source ID.
@@ -588,6 +588,7 @@ function Remove-BetaProvisioningPolicy {
             throw "Error! The required parameter `UsageType` missing when calling deleteProvisioningPolicy."
         }
         $LocalVarUri = $LocalVarUri.replace('{usageType}', [System.Web.HTTPUtility]::UrlEncode($UsageType))
+
 
 
 
@@ -850,7 +851,7 @@ Get Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
 .PARAMETER SourceId
 The Source ID.
@@ -904,6 +905,7 @@ function Get-BetaProvisioningPolicy {
             throw "Error! The required parameter `UsageType` missing when calling getProvisioningPolicy."
         }
         $LocalVarUri = $LocalVarUri.replace('{usageType}', [System.Web.HTTPUtility]::UrlEncode($UsageType))
+
 
 
 
@@ -2135,7 +2137,7 @@ Lists ProvisioningPolicies
 
 .DESCRIPTION
 
-This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+This end-point lists all the ProvisioningPolicies in IdentityNow.
 
 .PARAMETER SourceId
 The Source id
@@ -2179,6 +2181,7 @@ function Get-BetaProvisioningPolicies {
             throw "Error! The required parameter `SourceId` missing when calling listProvisioningPolicies."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -2707,7 +2710,7 @@ Update Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 .PARAMETER SourceId
 The Source ID.
@@ -2787,6 +2790,7 @@ function Send-BetaProvisioningPolicy {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -3349,7 +3353,7 @@ Bulk Update Provisioning Policies
 
 .DESCRIPTION
 
-This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
 .PARAMETER SourceId
 The Source id.
@@ -3422,6 +3426,7 @@ function Update-BetaProvisioningPoliciesInBulk {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3449,7 +3454,7 @@ Partial update of Provisioning Policy
 
 .DESCRIPTION
 
-This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 .PARAMETER SourceId
 The Source id.
@@ -3529,6 +3534,7 @@ function Update-BetaProvisioningPolicy {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

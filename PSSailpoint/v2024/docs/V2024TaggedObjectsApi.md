@@ -75,7 +75,7 @@ void (empty response body)
 
 Remove Tags from Multiple Objects
 
-This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API removes tags from multiple objects.
 
 ### Example
 ```powershell
@@ -85,6 +85,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
@@ -111,7 +114,7 @@ void (empty response body)
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -414,7 +417,7 @@ void (empty response body)
 
 Tag Multiple Objects
 
-This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API adds tags to multiple objects.
 
 ### Example
 ```powershell
@@ -424,6 +427,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $TaggedObjectDto = Initialize-TaggedObjectDto -Type "ACCESS_PROFILE" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
@@ -450,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 

@@ -12,7 +12,7 @@ Create Lifecycle State
 
 .DESCRIPTION
 
-Use this endpoint to create a lifecycle state. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to create a lifecycle state.
 
 .PARAMETER IdentityProfileId
 Identity profile ID.
@@ -85,6 +85,7 @@ function New-LifecycleState {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -112,7 +113,7 @@ Delete Lifecycle State
 
 .DESCRIPTION
 
-Use this endpoint to delete the lifecycle state by its ID.  A token with API, or ORG_ADMIN authority is required to call this API.
+Use this endpoint to delete the lifecycle state by its ID. 
 
 .PARAMETER IdentityProfileId
 Identity profile ID.
@@ -169,6 +170,7 @@ function Remove-LifecycleState {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -196,7 +198,7 @@ Get Lifecycle State
 
 .DESCRIPTION
 
-Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.  A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 .PARAMETER IdentityProfileId
 Identity profile ID.
@@ -280,7 +282,7 @@ Lists LifecycleStates
 
 .DESCRIPTION
 
-Use this endpoint to list all lifecycle states by their associated identity profiles.  A token with API, or ORG_ADMIN authority is required to call this API.
+Use this endpoint to list all lifecycle states by their associated identity profiles. 
 
 .PARAMETER IdentityProfileId
 Identity profile ID.
@@ -367,6 +369,7 @@ function Get-LifecycleStates {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -394,7 +397,7 @@ Set Lifecycle State
 
 .DESCRIPTION
 
-Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
+Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
 
 .PARAMETER IdentityId
 ID of the identity to update.
@@ -467,6 +470,7 @@ function Set-LifecycleState {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -494,7 +498,7 @@ Update Lifecycle State
 
 .DESCRIPTION
 
-Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. A token with ORG_ADMIN or API authority is required to call this API.
+Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER IdentityProfileId
 Identity profile ID.
@@ -574,6 +578,7 @@ function Update-LifecycleStates {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

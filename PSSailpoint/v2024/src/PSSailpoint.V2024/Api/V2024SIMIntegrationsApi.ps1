@@ -12,7 +12,7 @@ Create new SIM integration
 
 .DESCRIPTION
 
-Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Create a new SIM Integrations.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -113,7 +113,7 @@ Delete a SIM integration
 
 .DESCRIPTION
 
-Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Get the details of a SIM integration.
 
 .PARAMETER Id
 The id of the integration to delete.
@@ -198,7 +198,7 @@ Get a SIM integration details.
 
 .DESCRIPTION
 
-Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Get the details of a SIM integration.
 
 .PARAMETER Id
 The id of the integration.
@@ -283,7 +283,7 @@ List the existing SIM integrations.
 
 .DESCRIPTION
 
-List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+List the existing SIM integrations.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -358,7 +358,7 @@ Patch a SIM beforeProvisioningRule attribute.
 
 .DESCRIPTION
 
-Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
 
 .PARAMETER Id
 SIM integration id
@@ -469,7 +469,7 @@ Patch a SIM attribute.
 
 .DESCRIPTION
 
-Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Patch a SIM attribute given a JsonPatch object.
 
 .PARAMETER Id
 SIM integration id
@@ -580,7 +580,7 @@ Update an existing SIM integration
 
 .DESCRIPTION
 
-Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Update an existing SIM integration.
 
 .PARAMETER Id
 The id of the integration.

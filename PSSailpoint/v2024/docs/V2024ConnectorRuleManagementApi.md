@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Create Connector Rule
 
-Creates a new connector rule. A token with ORG_ADMIN authority is required to call this API.
+Creates a new connector rule.
 
 ### Example
 ```powershell
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 Delete a Connector-Rule
 
-Deletes the connector rule specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+Deletes the connector rule specified by the given ID.
 
 ### Example
 ```powershell
@@ -132,7 +132,7 @@ void (empty response body)
 
 Connector-Rule by ID
 
-Returns the connector rule specified by ID. A token with ORG_ADMIN authority is required to call this API.
+Returns the connector rule specified by ID.
 
 ### Example
 ```powershell
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 List Connector Rules
 
-Returns the list of connector rules. A token with ORG_ADMIN authority is required to call this API.
+Returns the list of connector rules.
 
 ### Example
 ```powershell
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 Update a Connector Rule
 
-Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable. A token with ORG_ADMIN authority is required to call this API.
+Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 
 ### Example
 ```powershell
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 Validate Connector Rule
 
-Returns a list of issues within the code to fix, if any. A token with ORG_ADMIN authority is required to call this API.
+Returns a list of issues within the code to fix, if any.
 
 ### Example
 ```powershell

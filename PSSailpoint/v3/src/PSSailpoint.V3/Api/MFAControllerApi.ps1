@@ -102,7 +102,7 @@ Polling MFA method by VerificationPollRequest
 
 .DESCRIPTION
 
-This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API poll the VerificationPollRequest for the specified MFA method.
 
 .PARAMETER Method
 The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa'

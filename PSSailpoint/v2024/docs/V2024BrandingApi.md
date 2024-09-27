@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 Create a branding item
 
-This API endpoint creates a branding item. A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint creates a branding item.
 
 ### Example
 ```powershell
@@ -35,6 +35,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "MyName" # String | name of branding item
@@ -74,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -90,7 +93,7 @@ Name | Type | Description  | Notes
 
 Delete a branding item
 
-This API endpoint delete information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint delete information for an existing branding item by name.    
 
 ### Example
 ```powershell
@@ -100,6 +103,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "default" # String | The name of the branding item to be deleted
@@ -125,7 +131,7 @@ void (empty response body)
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -141,7 +147,7 @@ void (empty response body)
 
 Get a branding item
 
-This API endpoint retrieves information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint retrieves information for an existing branding item by name.    
 
 ### Example
 ```powershell
@@ -151,6 +157,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "default" # String | The name of the branding item to be retrieved
@@ -176,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -191,7 +200,7 @@ Name | Type | Description  | Notes
 
 List of branding items
 
-This API endpoint returns a list of branding items.  A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint returns a list of branding items.
 
 ### Example
 ```powershell
@@ -201,6 +210,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
@@ -222,7 +234,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -246,7 +258,7 @@ This endpoint does not need any parameter.
 
 Update a branding item
 
-This API endpoint updates information for an existing branding item. A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint updates information for an existing branding item.
 
 ### Example
 ```powershell
@@ -256,6 +268,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "default" # String | The name of the branding item to be retrieved
@@ -297,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 

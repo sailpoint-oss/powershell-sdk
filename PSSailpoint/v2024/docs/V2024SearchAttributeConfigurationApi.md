@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Configure/create search attributes in IdentityNow.
 
-This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 
 ### Example
 ```powershell
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 Delete search attribute in IdentityNow.
 
-This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration.
 
 ### Example
 ```powershell
@@ -119,7 +119,7 @@ void (empty response body)
 
 Retrieve attribute list in IdentityNow.
 
-This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow.
 
 ### Example
 ```powershell
@@ -166,7 +166,7 @@ This endpoint does not need any parameter.
 
 Get specific attribute in IdentityNow.
 
-This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration.
 
 ### Example
 ```powershell
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 Update search attribute in IdentityNow.
 
-This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes**
 
 ### Example
 ```powershell

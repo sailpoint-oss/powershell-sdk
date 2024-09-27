@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Predict SOD violations for identity.
 
-This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
+This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 ### Example
 ```powershell
@@ -25,6 +25,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityWithNewAccessAccessRefsInner = Initialize-IdentityWithNewAccessAccessRefsInner -Type "ENTITLEMENT" -Id "2c91809773dee32014e13e122092014e" -Name "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
@@ -51,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -67,7 +70,7 @@ Name | Type | Description  | Notes
 
 Check SOD violations
 
-This API initiates a SOD policy verification asynchronously.  A token with ORG_ADMIN authority is required to call this API.
+This API initiates a SOD policy verification asynchronously.
 
 ### Example
 ```powershell

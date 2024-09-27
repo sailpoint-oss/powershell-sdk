@@ -12,7 +12,7 @@ Certification Task by ID
 
 .DESCRIPTION
 
-This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for the specified certification can also call this API.
+This API returns the certification task for the specified ID. Reviewers for the specified certification can also call this API.
 
 .PARAMETER Id
 The task ID
@@ -86,7 +86,7 @@ Identity Certification by ID
 
 .DESCRIPTION
 
-This API returns a single identity campaign certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The certification id
@@ -160,7 +160,7 @@ Permissions for Entitlement Certification Item
 
 .DESCRIPTION
 
-This API returns the permissions associated with an entitlement certification item based on the certification item's ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+This API returns the permissions associated with an entitlement certification item based on the certification item's ID. Reviewers for this certification can also call this API.
 
 .PARAMETER CertificationId
 The certification ID
@@ -398,7 +398,7 @@ List of Reviewers for certification
 
 .DESCRIPTION
 
-This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+This API returns a list of reviewers for the certification. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The certification ID
@@ -522,7 +522,7 @@ List of Access Review Items
 
 .DESCRIPTION
 
-This API returns a list of access review items for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+This API returns a list of access review items for an identity campaign certification. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The identity campaign certification ID
@@ -800,7 +800,7 @@ Decide on a Certification Item
 
 .DESCRIPTION
 
-The API makes a decision to approve or revoke one or more identity campaign certification items. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The ID of the identity campaign certification on which to make decisions
@@ -1000,7 +1000,7 @@ Finalize Identity Certification Decisions
 
 .DESCRIPTION
 
-This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
 
 .PARAMETER Id
 The identity campaign certification ID
@@ -1074,7 +1074,7 @@ Reassign Certifications Asynchronously
 
 .DESCRIPTION
 
-This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. 
+This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete.   Reviewers for this certification can also call this API. 
 
 .PARAMETER Id
 The identity campaign certification ID

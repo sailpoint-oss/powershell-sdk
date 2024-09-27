@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 Complete a Campaign
 
-:::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+:::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed. 
 
 ### Example
 ```powershell
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 Create a campaign
 
-Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to create a certification campaign with the information provided in the request body.     
 
 ### Example
 ```powershell
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 Create a Campaign Template
 
-Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to create a certification campaign template based on campaign. 
 
 ### Example
 ```powershell
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 Delete a Campaign Template
 
-Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to delete a certification campaign template by ID. 
 
 ### Example
 ```powershell
@@ -274,7 +274,7 @@ void (empty response body)
 
 Delete Campaign Template Schedule
 
-Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. 
 
 ### Example
 ```powershell
@@ -325,7 +325,7 @@ void (empty response body)
 
 Delete Campaigns
 
-Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. 
 
 ### Example
 ```powershell
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 List Campaigns
 
-Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
+Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
 
 ### Example
 ```powershell
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 Get Campaign
 
-Use this API to get information for an existing certification campaign by the campaign's ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to get information for an existing certification campaign by the campaign's ID. 
 
 ### Example
 ```powershell
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 
 Get Campaign Reports
 
-Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
+Use this API to fetch all reports for a certification campaign by campaign ID. 
 
 ### Example
 ```powershell
@@ -546,7 +546,7 @@ Name | Type | Description  | Notes
 
 Get Campaign Reports Configuration
 
-Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  
 
 ### Example
 ```powershell
@@ -593,7 +593,7 @@ This endpoint does not need any parameter.
 
 Get a Campaign Template
 
-Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to fetch a certification campaign template by ID. 
 
 ### Example
 ```powershell
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 
 Get Campaign Template Schedule
 
-Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. 
 
 ### Example
 ```powershell
@@ -699,7 +699,7 @@ Name | Type | Description  | Notes
 
 List Campaign Templates
 
-Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.  
 
 ### Example
 ```powershell
@@ -759,7 +759,7 @@ Name | Type | Description  | Notes
 
 Reassign Certifications
 
-This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+This API reassigns the specified certifications from one identity to another.     
 
 ### Example
 ```powershell
@@ -814,7 +814,7 @@ Name | Type | Description  | Notes
 
 Update a Campaign Template
 
-Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
 
 ### Example
 ```powershell
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 
 Set Campaign Reports Configuration
 
-Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to overwrite the configuration for campaign reports.  
 
 ### Example
 ```powershell
@@ -920,7 +920,7 @@ Name | Type | Description  | Notes
 
 Set Campaign Template Schedule
 
-Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
 
 ### Example
 ```powershell
@@ -977,7 +977,7 @@ void (empty response body)
 
 Activate a Campaign
 
-Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
+Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
 
 ### Example
 ```powershell
@@ -1030,7 +1030,7 @@ Name | Type | Description  | Notes
 
 Run Campaign Remediation Scan
 
-Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
+Use this API to run a remediation scan task for a certification campaign. 
 
 ### Example
 ```powershell
@@ -1082,7 +1082,7 @@ Name | Type | Description  | Notes
 
 Run Campaign Report
 
-Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
+Use this API to run a report for a certification campaign. 
 
 ### Example
 ```powershell
@@ -1135,7 +1135,7 @@ Name | Type | Description  | Notes
 
 Generate a Campaign from Template
 
-Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, ""%Y"" inserts the current year, and a campaign template named ""Campaign for %y"" generates a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign's name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, ""%Y"" inserts the current year, and a campaign template named ""Campaign for %y"" generates a campaign called ""Campaign for 2020"" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). 
 
 ### Example
 ```powershell
@@ -1187,7 +1187,7 @@ Name | Type | Description  | Notes
 
 Update a Campaign
 
-Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
+Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. 
 
 ### Example
 ```powershell

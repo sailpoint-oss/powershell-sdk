@@ -18,8 +18,9 @@ Name | Type | Description | Notes
 **AccessRequestConfig** | [**RequestabilityForRole**](RequestabilityForRole.md) |  | [optional] 
 **RevocationRequestConfig** | [**RevocabilityForRole**](RevocabilityForRole.md) |  | [optional] 
 **Segments** | **String[]** | List of IDs of segments, if any, to which this Role is assigned. | [optional] 
-**Dimensional** | **Boolean** |  | [optional] 
-**DimensionRefs** | **String** |  | [optional] 
+**Dimensional** | **Boolean** | Whether the Role is dimensional. | [optional] [default to $false]
+**DimensionRefs** | **String** | TBD | [optional] 
+**AccessModelMetadata** | [**AttributeDTOList[]**](AttributeDTOList.md) |  | [optional] 
 
 ## Examples
 
@@ -41,7 +42,8 @@ $Role = Initialize-PSSailpoint.V2024Role  -Id 2c918086749d78830174a1a40e121518 `
  -RevocationRequestConfig null `
  -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a] `
  -Dimensional null `
- -DimensionRefs null
+ -DimensionRefs null `
+ -AccessModelMetadata [{key&#x3D;iscFederalClassifications, name&#x3D;Federal Classifications, multiselect&#x3D;true, status&#x3D;active, type&#x3D;governance, objectTypes&#x3D;[general], description&#x3D;Classification used by government organizations to specify the level of confidentiality for an access item., values&#x3D;[{value&#x3D;secret, name&#x3D;Secret, status&#x3D;active}]}]
 ```
 
 - Convert the resource to JSON

@@ -171,6 +171,7 @@ function Remove-V2024Workgroup {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -198,7 +199,7 @@ Remove members from Governance Group
 
 .DESCRIPTION
 
-This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+This API removes one or more  members from a Governance Group.  A >  **Following field of Identity is an optional field in the request.**  >  **name**
 
 .PARAMETER WorkgroupId
 ID of the Governance Group.
@@ -279,6 +280,7 @@ function Remove-V2024WorkgroupMembers {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -465,6 +467,7 @@ function Get-V2024Workgroup {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getWorkgroup."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -870,7 +873,7 @@ Patch a Governance Group
 
 .DESCRIPTION
 
-This API updates an existing governance group by ID.  The following fields and objects are patchable:   * name   * description   * owner  A token with API or ORG_ADMIN authority is required to call this API.
+This API updates an existing governance group by ID. The following fields and objects are patchable: * name * description * owner
 
 .PARAMETER Id
 ID of the Governance Group
@@ -947,6 +950,7 @@ function Update-V2024Workgroup {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

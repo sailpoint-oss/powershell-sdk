@@ -12,7 +12,7 @@ Create Segment
 
 .DESCRIPTION
 
-This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
+This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
 
 .PARAMETER Segment
 No description available.
@@ -75,6 +75,7 @@ function New-V2024Segment {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -102,7 +103,7 @@ Delete Segment by ID
 
 .DESCRIPTION
 
-This API deletes the segment specified by the given ID. >**Note:** that segment deletion may take some time to become effective. A token with ORG_ADMIN or API authority is required to call this API.
+This API deletes the segment specified by the given ID. >**Note:** that segment deletion may take some time to become effective.    
 
 .PARAMETER Id
 The segment ID to delete.
@@ -149,6 +150,7 @@ function Remove-V2024Segment {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -176,7 +178,7 @@ Get Segment by ID
 
 .DESCRIPTION
 
-This API returns the segment specified by the given ID. A token with ORG_ADMIN or API authority is required to call this API.
+This API returns the segment specified by the given ID.
 
 .PARAMETER Id
 The segment ID to retrieve.
@@ -223,6 +225,7 @@ function Get-V2024Segment {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -250,7 +253,7 @@ List Segments
 
 .DESCRIPTION
 
-This API returns a list of all segments.  A token with ORG_ADMIN or API authority is required to call this API.
+This API returns a list of all segments. 
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -317,6 +320,7 @@ function Get-V2024Segments {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -344,7 +348,7 @@ Update Segment
 
 .DESCRIPTION
 
-Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
+Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities.
 
 .PARAMETER Id
 The segment ID to modify.
@@ -414,6 +418,7 @@ function Update-V2024Segment {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

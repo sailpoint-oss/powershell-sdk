@@ -91,6 +91,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
+# Configure OAuth2 access token for authorization: applicationAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
@@ -116,7 +119,7 @@ void (empty response body)
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -134,7 +137,7 @@ void (empty response body)
 
 Remove members from Governance Group
 
-This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+This API removes one or more  members from a Governance Group.  A >  **Following field of Identity is an optional field in the request.**  >  **name**
 
 ### Example
 ```powershell
@@ -144,6 +147,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
@@ -173,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -256,6 +262,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
+# Configure OAuth2 access token for authorization: applicationAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
@@ -281,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -497,7 +506,7 @@ Name | Type | Description  | Notes
 
 Patch a Governance Group
 
-This API updates an existing governance group by ID.  The following fields and objects are patchable:   * name   * description   * owner  A token with API or ORG_ADMIN authority is required to call this API.
+This API updates an existing governance group by ID. The following fields and objects are patchable: * name * description * owner
 
 ### Example
 ```powershell
@@ -507,6 +516,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
@@ -537,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 

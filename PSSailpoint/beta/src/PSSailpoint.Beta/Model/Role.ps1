@@ -41,8 +41,10 @@ No description available.
 .PARAMETER Segments
 List of IDs of segments, if any, to which this Role is assigned.
 .PARAMETER Dimensional
-No description available.
+Whether the Role is dimensional.
 .PARAMETER DimensionRefs
+TBD
+.PARAMETER AccessModelMetadata
 No description available.
 .OUTPUTS
 
@@ -93,10 +95,13 @@ function Initialize-BetaRole {
         ${Segments},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Dimensional},
+        ${Dimensional} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DimensionRefs}
+        ${DimensionRefs},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${AccessModelMetadata}
     )
 
     Process {
@@ -132,6 +137,7 @@ function Initialize-BetaRole {
             "segments" = ${Segments}
             "dimensional" = ${Dimensional}
             "dimensionRefs" = ${DimensionRefs}
+            "accessModelMetadata" = ${AccessModelMetadata}
         }
 
         return $PSO
@@ -168,7 +174,7 @@ function ConvertFrom-BetaJsonToRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRole
-        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs")
+        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs", "accessModelMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -281,6 +287,12 @@ function ConvertFrom-BetaJsonToRole {
             $DimensionRefs = $JsonParameters.PSobject.Properties["dimensionRefs"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessModelMetadata"))) { #optional property not found
+            $AccessModelMetadata = $null
+        } else {
+            $AccessModelMetadata = $JsonParameters.PSobject.Properties["accessModelMetadata"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -299,6 +311,7 @@ function ConvertFrom-BetaJsonToRole {
             "segments" = ${Segments}
             "dimensional" = ${Dimensional}
             "dimensionRefs" = ${DimensionRefs}
+            "accessModelMetadata" = ${AccessModelMetadata}
         }
 
         return $PSO

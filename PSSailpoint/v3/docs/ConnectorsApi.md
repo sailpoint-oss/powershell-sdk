@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 Create custom connector
 
-Create custom connector. A token with ORG_ADMIN authority is required to call this API.
+Create custom connector.    
 
 ### Example
 ```powershell
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 Deletes connector by script name
 
-Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+Delete a custom connector that using its script name.
 
 ### Example
 ```powershell
@@ -129,7 +129,7 @@ void (empty response body)
 
 Gets connector by script name
 
-Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector that using its script name.    
 
 ### Example
 ```powershell
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 
 
-Fetches a connector's correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector's correlation config using its script name.    
 
 ### Example
 ```powershell
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 Gets connector list
 
-Fetches list of connectors that have 'RELEASED' status using filtering and pagination. A token with ORG_ADMIN authority is required to call this API.
+Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 ### Example
 ```powershell
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 
 
-Fetches a connector's source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector's source config using its script name.    
 
 ### Example
 ```powershell
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 
 
-Fetches a connector's source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector's source template using its script name.    
 
 ### Example
 ```powershell
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 
 
-Fetches a connector's translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector's translations using its script name.    
 
 ### Example
 ```powershell
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 
 
-Update a connector's correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+Update a connector's correlation config using its script name.    
 
 ### Example
 ```powershell
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 
 
-Update a connector's source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+Update a connector's source config using its script name.    
 
 ### Example
 ```powershell
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 
 
-Update a connector's source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+Update a connector's source template using its script name.    
 
 ### Example
 ```powershell
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 
 
-Update a connector's translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+Update a connector's translations using its script name.    
 
 ### Example
 ```powershell
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 Update connector by script name
 
-Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+Patch a custom connector that using its script name. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
 
 ### Example
 ```powershell

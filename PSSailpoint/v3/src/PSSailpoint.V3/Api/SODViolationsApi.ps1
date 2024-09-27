@@ -12,7 +12,7 @@ Predict SOD violations for identity.
 
 .DESCRIPTION
 
-This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
+This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 .PARAMETER IdentityWithNewAccess
 No description available.
@@ -75,6 +75,7 @@ function Start-PredictSodViolations {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -102,7 +103,7 @@ Check SOD violations
 
 .DESCRIPTION
 
-This API initiates a SOD policy verification asynchronously.  A token with ORG_ADMIN authority is required to call this API.
+This API initiates a SOD policy verification asynchronously.
 
 .PARAMETER IdentityWithNewAccess1
 No description available.

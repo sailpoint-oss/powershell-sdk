@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create Custom Password Instructions
 
-This API creates the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
+This API creates the custom password instructions for the specified page ID.
 
 ### Example
 ```powershell
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 Delete Custom Password Instructions by page ID
 
-This API delete the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
+This API delete the custom password instructions for the specified page ID.
 
 ### Example
 ```powershell
@@ -129,7 +129,7 @@ void (empty response body)
 
 Get Custom Password Instructions by Page ID
 
-This API returns the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
+This API returns the custom password instructions for the specified page ID.
 
 ### Example
 ```powershell

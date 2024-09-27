@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 Polling MFA method by VerificationPollRequest
 
-This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API poll the VerificationPollRequest for the specified MFA method.
 
 ### Example
 ```powershell

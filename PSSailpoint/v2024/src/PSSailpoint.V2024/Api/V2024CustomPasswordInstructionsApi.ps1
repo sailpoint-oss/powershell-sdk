@@ -12,7 +12,7 @@ Create Custom Password Instructions
 
 .DESCRIPTION
 
-This API creates the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
+This API creates the custom password instructions for the specified page ID.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -113,7 +113,7 @@ Delete Custom Password Instructions by page ID
 
 .DESCRIPTION
 
-This API delete the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
+This API delete the custom password instructions for the specified page ID.
 
 .PARAMETER PageId
 The page ID of custom password instructions to delete.
@@ -209,7 +209,7 @@ Get Custom Password Instructions by Page ID
 
 .DESCRIPTION
 
-This API returns the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
+This API returns the custom password instructions for the specified page ID.
 
 .PARAMETER PageId
 The page ID of custom password instructions to query.

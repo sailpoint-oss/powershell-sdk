@@ -12,7 +12,7 @@ Create Password Policy
 
 .DESCRIPTION
 
-This API creates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+This API creates the specified password policy.
 
 .PARAMETER PasswordPolicyV3Dto
 No description available.
@@ -102,7 +102,7 @@ Delete Password Policy by ID
 
 .DESCRIPTION
 
-This API deletes the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+This API deletes the specified password policy.
 
 .PARAMETER Id
 The ID of password policy to delete.
@@ -176,7 +176,7 @@ Get Password Policy by ID
 
 .DESCRIPTION
 
-This API returns the password policy for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+This API returns the password policy for the specified ID.
 
 .PARAMETER Id
 The ID of password policy to retrieve.
@@ -344,7 +344,7 @@ Update Password Policy by ID
 
 .DESCRIPTION
 
-This API updates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+This API updates the specified password policy.
 
 .PARAMETER Id
 The ID of password policy to update.

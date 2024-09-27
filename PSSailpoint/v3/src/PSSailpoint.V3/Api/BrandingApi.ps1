@@ -12,7 +12,7 @@ Create a branding item
 
 .DESCRIPTION
 
-This API endpoint creates a branding item. A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint creates a branding item.
 
 .PARAMETER Name
 name of branding item
@@ -129,6 +129,7 @@ function New-BrandingItem {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -156,7 +157,7 @@ Delete a branding item
 
 .DESCRIPTION
 
-This API endpoint delete information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint delete information for an existing branding item by name.    
 
 .PARAMETER Name
 The name of the branding item to be deleted
@@ -203,6 +204,7 @@ function Remove-Branding {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -230,7 +232,7 @@ Get a branding item
 
 .DESCRIPTION
 
-This API endpoint retrieves information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint retrieves information for an existing branding item by name.    
 
 .PARAMETER Name
 The name of the branding item to be retrieved
@@ -277,6 +279,7 @@ function Get-Branding {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -304,7 +307,7 @@ List of branding items
 
 .DESCRIPTION
 
-This API endpoint returns a list of branding items.  A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint returns a list of branding items.
 
 .PARAMETER WithHttpInfo
 
@@ -341,6 +344,7 @@ function Get-BrandingList {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -368,7 +372,7 @@ Update a branding item
 
 .DESCRIPTION
 
-This API endpoint updates information for an existing branding item. A token with API, ORG_ADMIN authority is required to call this API.
+This API endpoint updates information for an existing branding item.
 
 .PARAMETER Name
 The name of the branding item to be retrieved
@@ -492,6 +496,7 @@ function Set-BrandingItem {
         if ($FileStandard) {
             $LocalVarFormParameters['fileStandard'] = $FileStandard
         }
+
 
 
 

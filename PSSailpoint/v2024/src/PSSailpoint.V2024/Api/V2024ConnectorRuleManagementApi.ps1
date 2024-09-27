@@ -12,7 +12,7 @@ Create Connector Rule
 
 .DESCRIPTION
 
-Creates a new connector rule. A token with ORG_ADMIN authority is required to call this API.
+Creates a new connector rule.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -113,7 +113,7 @@ Delete a Connector-Rule
 
 .DESCRIPTION
 
-Deletes the connector rule specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+Deletes the connector rule specified by the given ID.
 
 .PARAMETER Id
 ID of the connector rule to delete
@@ -198,7 +198,7 @@ Connector-Rule by ID
 
 .DESCRIPTION
 
-Returns the connector rule specified by ID. A token with ORG_ADMIN authority is required to call this API.
+Returns the connector rule specified by ID.
 
 .PARAMETER Id
 ID of the connector rule to retrieve
@@ -283,7 +283,7 @@ List Connector Rules
 
 .DESCRIPTION
 
-Returns the list of connector rules. A token with ORG_ADMIN authority is required to call this API.
+Returns the list of connector rules.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -358,7 +358,7 @@ Update a Connector Rule
 
 .DESCRIPTION
 
-Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable. A token with ORG_ADMIN authority is required to call this API.
+Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 
 .PARAMETER Id
 ID of the connector rule to update
@@ -465,7 +465,7 @@ Validate Connector Rule
 
 .DESCRIPTION
 
-Returns a list of issues within the code to fix, if any. A token with ORG_ADMIN authority is required to call this API.
+Returns a list of issues within the code to fix, if any.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.

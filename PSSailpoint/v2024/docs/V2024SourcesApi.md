@@ -55,7 +55,7 @@ Method | HTTP request | Description
 
 Create Provisioning Policy
 
-This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
+This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 ### Example
 ```powershell
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 Creates a source in IdentityNow.
 
-This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
 ### Example
 ```powershell
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 Delete Native Change Detection Configuration
 
-Deletes the native change detection configuration for the source specified by the given ID. A token with API, or ORG_ADMIN authority is required to call this API.
+Deletes the native change detection configuration for the source specified by the given ID.
 
 ### Example
 ```powershell
@@ -307,6 +307,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
@@ -334,7 +337,7 @@ void (empty response body)
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -351,7 +354,7 @@ void (empty response body)
 
 Delete Provisioning Policy by UsageType
 
-Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
+Deletes the provisioning policy with the specified usage on an application.
 
 ### Example
 ```powershell
@@ -361,6 +364,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
@@ -388,7 +394,7 @@ void (empty response body)
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -404,7 +410,7 @@ void (empty response body)
 
 Delete Source by ID
 
-Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}` A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
 ### Example
 ```powershell
@@ -613,7 +619,7 @@ void (empty response body)
 
 Native Change Detection Configuration
 
-This API returns the existing native change detection configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+This API returns the existing native change detection configuration for a source specified by the given ID.
 
 ### Example
 ```powershell
@@ -667,7 +673,7 @@ Name | Type | Description  | Notes
 
 Get Provisioning Policy by UsageType
 
-This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
 ### Example
 ```powershell
@@ -677,6 +683,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
@@ -704,7 +713,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -720,7 +729,7 @@ Name | Type | Description  | Notes
 
 Get Source by ID
 
-Use this API to get a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
 ### Example
 ```powershell
@@ -772,7 +781,7 @@ Name | Type | Description  | Notes
 
 Attribute Sync Config
 
-This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN or HELPDESK authority is required to call this API.
+This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
 
 ### Example
 ```powershell
@@ -827,7 +836,7 @@ Name | Type | Description  | Notes
 
 Gets source config with language translations
 
-Looks up and returns the source config for the requested source id after populating the source config values and applying language translations. A token with ORG_ADMIN authority is required to call this API.
+Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
 ### Example
 ```powershell
@@ -882,7 +891,7 @@ Name | Type | Description  | Notes
 
 Get Source Entitlement Request Configuration
 
-This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
 ### Example
 ```powershell
@@ -1095,7 +1104,7 @@ Name | Type | Description  | Notes
 
 Account Aggregation
 
-Starts an account aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+Starts an account aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
 ### Example
 ```powershell
@@ -1207,7 +1216,7 @@ Name | Type | Description  | Notes
 
 Upload connector file to source
 
-This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 
 ### Example
 ```powershell
@@ -1374,7 +1383,7 @@ Name | Type | Description  | Notes
 
 Lists ProvisioningPolicies
 
-This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+This end-point lists all the ProvisioningPolicies in IdentityNow.
 
 ### Example
 ```powershell
@@ -1384,6 +1393,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
@@ -1409,7 +1421,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -1430,7 +1442,7 @@ Name | Type | Description  | Notes
 
 Lists all sources in IdentityNow.
 
-This end-point lists all the sources in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or ROLE_SUBADMIN authority is required to call this API.
+This end-point lists all the sources in IdentityNow.
 
 ### Example
 ```powershell
@@ -1493,7 +1505,7 @@ Name | Type | Description  | Notes
 
 Peek source connector's resource objects
 
-Retrieves a sample of data returned from account and group aggregation requests. A token with ORG_ADMIN authority is required to call this API.
+Retrieves a sample of data returned from account and group aggregation requests.
 
 ### Example
 ```powershell
@@ -1549,7 +1561,7 @@ Name | Type | Description  | Notes
 
 Ping cluster for source connector
 
-This endpoint validates that the cluster being used by the source is reachable from IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
 ### Example
 ```powershell
@@ -1604,7 +1616,7 @@ Name | Type | Description  | Notes
 
 Update Native Change Detection Configuration
 
-Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
+Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
 ### Example
 ```powershell
@@ -1661,7 +1673,7 @@ Name | Type | Description  | Notes
 
 Update Provisioning Policy by UsageType
 
-This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 ### Example
 ```powershell
@@ -1671,6 +1683,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
@@ -1701,7 +1716,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -1718,7 +1733,7 @@ Name | Type | Description  | Notes
 
 Update Source (Full)
 
-Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
+Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
 
 ### Example
 ```powershell
@@ -1793,7 +1808,7 @@ Name | Type | Description  | Notes
 
 Update Attribute Sync Config
 
-Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the ""enabled"" field of the values in the ""attributes"" array is mutable. Attempting to change other attributes or add new values to the ""attributes"" array will result in an error.      A token with ORG_ADMIN authority is required to call this API.
+Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the ""enabled"" field of the values in the ""attributes"" array is mutable. Attempting to change other attributes or add new values to the ""attributes"" array will result in an error. 
 
 ### Example
 ```powershell
@@ -1913,7 +1928,7 @@ Name | Type | Description  | Notes
 
 Synchronize single source attributes.
 
-This end-point performs attribute synchronization for a selected source. A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+This end-point performs attribute synchronization for a selected source.
 
 ### Example
 ```powershell
@@ -1967,7 +1982,7 @@ Name | Type | Description  | Notes
 
 Test configuration for source connector
 
-This endpoint performs a more detailed validation of the source's configuration that can take longer than the lighter weight credential validation performed by the checkConnection API. A token with ORG_ADMIN authority is required to call this API.
+This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
 ### Example
 ```powershell
@@ -2021,7 +2036,7 @@ Name | Type | Description  | Notes
 
 Check connection for source connector.
 
-This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter. A token with ORG_ADMIN authority is required to call this API.
+This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
 ### Example
 ```powershell
@@ -2075,7 +2090,7 @@ Name | Type | Description  | Notes
 
 Bulk Update Provisioning Policies
 
-This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
 ### Example
 ```powershell
@@ -2085,6 +2100,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
@@ -2113,7 +2131,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -2131,7 +2149,7 @@ Name | Type | Description  | Notes
 
 Partial update of Provisioning Policy
 
-This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 ### Example
 ```powershell
@@ -2141,6 +2159,9 @@ $Configuration = Get-Configuration
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: applicationAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
@@ -2171,7 +2192,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 
@@ -2188,7 +2209,7 @@ Name | Type | Description  | Notes
 
 Update Source (Partial)
 
-Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
+Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
 
 ### Example
 ```powershell
@@ -2243,7 +2264,7 @@ Name | Type | Description  | Notes
 
 Update Source Entitlement Request Configuration
 
-This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
 ### Example
 ```powershell

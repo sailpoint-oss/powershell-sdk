@@ -12,7 +12,7 @@ Create Provisioning Policy
 
 .DESCRIPTION
 
-This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
+This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 .PARAMETER SourceId
 The Source id
@@ -112,7 +112,7 @@ Creates a source in IdentityNow.
 
 .DESCRIPTION
 
-This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
 .PARAMETER Source
 No description available.
@@ -312,7 +312,7 @@ Delete Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
+Deletes the provisioning policy with the specified usage on an application.
 
 .PARAMETER SourceId
 The Source ID.
@@ -369,6 +369,7 @@ function Remove-ProvisioningPolicy {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -396,7 +397,7 @@ Delete Source by ID
 
 .DESCRIPTION
 
-Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}` A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
 .PARAMETER Id
 Source ID.
@@ -736,7 +737,7 @@ Get Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
 .PARAMETER SourceId
 The Source ID.
@@ -793,6 +794,7 @@ function Get-ProvisioningPolicy {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -820,7 +822,7 @@ Get Source by ID
 
 .DESCRIPTION
 
-Use this API to get a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
 .PARAMETER Id
 Source ID.
@@ -894,7 +896,7 @@ Get Source Connections by ID
 
 .DESCRIPTION
 
-Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
 .PARAMETER Id
 Source ID.
@@ -1298,7 +1300,7 @@ Upload connector file to source
 
 .DESCRIPTION
 
-This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 
 .PARAMETER SourceId
 The Source id.
@@ -1482,7 +1484,7 @@ Lists ProvisioningPolicies
 
 .DESCRIPTION
 
-This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+This end-point lists all the ProvisioningPolicies in IdentityNow.
 
 .PARAMETER SourceId
 The Source id
@@ -1529,6 +1531,7 @@ function Get-ProvisioningPolicies {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1556,7 +1559,7 @@ Lists all sources in IdentityNow.
 
 .DESCRIPTION
 
-This end-point lists all the sources in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or ROLE_SUBADMIN authority is required to call this API.
+This end-point lists all the sources in IdentityNow.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1680,7 +1683,7 @@ Update Provisioning Policy by UsageType
 
 .DESCRIPTION
 
-This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 .PARAMETER SourceId
 The Source ID.
@@ -1763,6 +1766,7 @@ function Send-ProvisioningPolicy {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1790,7 +1794,7 @@ Update Source (Full)
 
 .DESCRIPTION
 
-Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
+Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
 
 .PARAMETER Id
 Source ID.
@@ -2000,7 +2004,7 @@ Bulk Update Provisioning Policies
 
 .DESCRIPTION
 
-This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
 .PARAMETER SourceId
 The Source id.
@@ -2073,6 +2077,7 @@ function Update-ProvisioningPoliciesInBulk {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2100,7 +2105,7 @@ Partial update of Provisioning Policy
 
 .DESCRIPTION
 
-This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 .PARAMETER SourceId
 The Source id.
@@ -2183,6 +2188,7 @@ function Update-ProvisioningPolicy {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2210,7 +2216,7 @@ Update Source (Partial)
 
 .DESCRIPTION
 
-Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
+Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
 
 .PARAMETER Id
 Source ID.

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Get a tenant UI metadata
 
-This API endpoint retrieves UI metadata configured for your tenant. A token with ORG_ADMIN authority is required to call this API.
+This API endpoint retrieves UI metadata configured for your tenant.
 
 ### Example
 ```powershell
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 Update tenant UI metadata
 
-This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI. A token with ORG_ADMIN authority is required to call this API.
+This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 
 ### Example
 ```powershell

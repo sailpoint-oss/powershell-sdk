@@ -12,7 +12,7 @@ Create custom connector
 
 .DESCRIPTION
 
-Create custom connector. A token with ORG_ADMIN authority is required to call this API.
+Create custom connector.    
 
 .PARAMETER V3CreateConnectorDto
 No description available.
@@ -102,7 +102,7 @@ Deletes connector by script name
 
 .DESCRIPTION
 
-Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+Delete a custom connector that using its script name.
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -176,7 +176,7 @@ Gets connector by script name
 
 .DESCRIPTION
 
-Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector that using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -261,7 +261,7 @@ No summary available.
 
 .DESCRIPTION
 
-Fetches a connector's correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector's correlation config using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -347,7 +347,7 @@ Gets connector list
 
 .DESCRIPTION
 
-Fetches list of connectors that have 'RELEASED' status using filtering and pagination. A token with ORG_ADMIN authority is required to call this API.
+Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
@@ -462,7 +462,7 @@ No summary available.
 
 .DESCRIPTION
 
-Fetches a connector's source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector's source config using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -548,7 +548,7 @@ No summary available.
 
 .DESCRIPTION
 
-Fetches a connector's source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector's source template using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -634,7 +634,7 @@ No summary available.
 
 .DESCRIPTION
 
-Fetches a connector's translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+Fetches a connector's translations using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -731,7 +731,7 @@ No summary available.
 
 .DESCRIPTION
 
-Update a connector's correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+Update a connector's correlation config using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -819,7 +819,7 @@ No summary available.
 
 .DESCRIPTION
 
-Update a connector's source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+Update a connector's source config using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -907,7 +907,7 @@ No summary available.
 
 .DESCRIPTION
 
-Update a connector's source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+Update a connector's source template using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -995,7 +995,7 @@ No summary available.
 
 .DESCRIPTION
 
-Update a connector's translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+Update a connector's translations using its script name.    
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
@@ -1083,7 +1083,7 @@ Update connector by script name
 
 .DESCRIPTION
 
-Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+Patch a custom connector that using its script name. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
 
 .PARAMETER ScriptName
 The scriptName value of the connector. Scriptname is the unique id generated at connector creation.

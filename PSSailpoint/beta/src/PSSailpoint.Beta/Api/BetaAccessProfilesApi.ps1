@@ -176,7 +176,7 @@ Delete Access Profile(s)
 
 .DESCRIPTION
 
-This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this endpoint. In addition, a SOURCE_SUBADMIN can only use this endpoint to delete access profiles associated with sources they're able to administer.
+This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted.
 
 .PARAMETER AccessProfileBulkDeleteRequest
 No description available.
@@ -239,6 +239,7 @@ function Remove-BetaAccessProfilesInBulk {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -266,7 +267,7 @@ Get an Access Profile
 
 .DESCRIPTION
 
-This API returns an Access Profile by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+This API returns an Access Profile by its ID.
 
 .PARAMETER Id
 ID of the Access Profile
@@ -313,6 +314,7 @@ function Get-BetaAccessProfile {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -340,7 +342,7 @@ List Access Profile's Entitlements
 
 .DESCRIPTION
 
-Use this API to get a list of an access profile's entitlements.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with SOURCE_SUBADMIN authority must have access to the source associated with the specified access profile.
+Use this API to get a list of an access profile's entitlements.  A user with SOURCE_SUBADMIN authority must have access to the source associated with the specified access profile.
 
 .PARAMETER Id
 ID of the access profile containing the entitlements.
@@ -434,6 +436,7 @@ function Get-BetaAccessProfileEntitlements {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -708,7 +711,7 @@ Update Access Profile(s) requestable field.
 
 .DESCRIPTION
 
-This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated. >  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated. A SOURCE_SUBADMIN user may only use this API to update Access Profiles which are associated with Sources they are able to administer.
 
 .PARAMETER AccessProfileBulkUpdateRequestInner
 No description available.
@@ -768,6 +771,7 @@ function Update-BetaAccessProfilesInBulk {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

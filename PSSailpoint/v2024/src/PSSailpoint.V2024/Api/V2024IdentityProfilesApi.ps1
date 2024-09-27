@@ -12,7 +12,7 @@ Create an Identity Profile
 
 .DESCRIPTION
 
-This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+This creates an Identity Profile.    
 
 .PARAMETER IdentityProfile
 No description available.
@@ -102,7 +102,7 @@ Delete an Identity Profile
 
 .DESCRIPTION
 
-This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.       The following rights are required to access this endpoint: idn:identity-profile:delete
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID.
@@ -176,7 +176,7 @@ Delete Identity Profiles
 
 .DESCRIPTION
 
-This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  The following rights are required to access this endpoint: idn:identity-profile:delete
 
 .PARAMETER RequestBody
 Identity Profile bulk delete request body.
@@ -380,7 +380,7 @@ Get default Identity Attribute Config
 
 .DESCRIPTION
 
-This returns the default identity attribute config. A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
+This returns the default identity attribute config.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID.
@@ -454,7 +454,7 @@ Get single Identity Profile
 
 .DESCRIPTION
 
-This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
+This returns a single Identity Profile based on ID.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID.
@@ -498,6 +498,7 @@ function Get-V2024IdentityProfile {
             throw "Error! The required parameter `IdentityProfileId` missing when calling getIdentityProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -618,7 +619,7 @@ Identity Profiles List
 
 .DESCRIPTION
 
-This returns a list of Identity Profiles based on the specified query parameters. A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
+This returns a list of Identity Profiles based on the specified query parameters.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -705,6 +706,7 @@ function Get-V2024IdentityProfiles {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -732,7 +734,7 @@ Generate Identity Profile Preview
 
 .DESCRIPTION
 
-Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
 
 .PARAMETER IdentityPreviewRequest
 Identity Preview request body.
@@ -822,7 +824,7 @@ Process identities under profile
 
 .DESCRIPTION
 
-Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity's correct manager through manager correlation. 3. Updates the identity's access according to their assigned lifecycle state. 4. Updates the identity's access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
+Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity's correct manager through manager correlation. 3. Updates the identity's access according to their assigned lifecycle state. 4. Updates the identity's access based on role assignment criteria.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID to be processed
@@ -896,7 +898,7 @@ Update the Identity Profile
 
 .DESCRIPTION
 
-This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+This updates the specified Identity Profile.     Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
 
 .PARAMETER IdentityProfileId
 The Identity Profile ID

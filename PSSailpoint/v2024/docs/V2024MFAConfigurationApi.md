@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Configuration of Duo MFA method
 
-This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API returns the configuration of an Duo MFA method.
 
 ### Example
 ```powershell
@@ -66,7 +66,7 @@ This endpoint does not need any parameter.
 
 Configuration of KBA MFA method
 
-This API returns the KBA configuration for MFA. A token with USER or ORG_ADMIN authority is required to call this API.
+This API returns the KBA configuration for MFA.
 
 ### Example
 ```powershell
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 Configuration of Okta MFA method
 
-This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API returns the configuration of an Okta MFA method.
 
 ### Example
 ```powershell
@@ -163,7 +163,7 @@ This endpoint does not need any parameter.
 
 Set Duo MFA configuration
 
-This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API sets the configuration of an Duo MFA method.
 
 ### Example
 ```powershell
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 Set MFA KBA configuration
 
-This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration. A token with USER authority is required to call this API.
+This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
 ### Example
 ```powershell
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 Set Okta MFA configuration
 
-This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+This API sets the configuration of an Okta MFA method.
 
 ### Example
 ```powershell
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 MFA method's test configuration
 
-This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
+This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
 
 ### Example
 ```powershell

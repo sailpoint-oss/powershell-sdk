@@ -4,11 +4,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#New-BetaSearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create extended search attributes in IdentityNow.
-[**Remove-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Remove-BetaSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete an extended search attribute in IdentityNow.
-[**Get-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Get-BetaSearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve a list of extended search attributes in IdentityNow.
-[**Get-BetaSingleSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Get-BetaSingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get the details of a specific extended search attribute in IdentityNow.
-[**Update-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Update-BetaSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update the details of a specific extended search attribute in IdentityNow.
+[**New-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#New-BetaSearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create Extended Search Attributes
+[**Remove-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Remove-BetaSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete Extended Search Attribute
+[**Get-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Get-BetaSearchAttributeConfig) | **GET** /accounts/search-attribute-config | List Extended Search Attributes
+[**Get-BetaSingleSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Get-BetaSingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get Extended Search Attribute
+[**Update-BetaSearchAttributeConfig**](BetaSearchAttributeConfigurationApi.md#Update-BetaSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update Extended Search Attribute
 
 
 <a id="New-BetaSearchAttributeConfig"></a>
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 > SystemCollectionsHashtable New-BetaSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SearchAttributeConfig] <PSCustomObject><br>
 
-Configure/create extended search attributes in IdentityNow.
+Create Extended Search Attributes
 
-This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -32,7 +32,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SearchAttributeConfig = Initialize-SearchAttributeConfig -Name "newMailAttribute" -DisplayName "New Mail Attribute" -ApplicationAttributes # SearchAttributeConfig | 
 
-# Configure/create extended search attributes in IdentityNow.
+# Create Extended Search Attributes
 try {
     $Result = New-BetaSearchAttributeConfig -SearchAttributeConfig $SearchAttributeConfig
 } catch {
@@ -67,9 +67,9 @@ Name | Type | Description  | Notes
 > void Remove-BetaSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
 
-Delete an extended search attribute in IdentityNow.
+Delete Extended Search Attribute
 
-This API accepts an extended attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+Delete an extended attribute configuration by name.
 
 ### Example
 ```powershell
@@ -83,7 +83,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
 
-# Delete an extended search attribute in IdentityNow.
+# Delete Extended Search Attribute
 try {
     $Result = Remove-BetaSearchAttributeConfig -Name $Name
 } catch {
@@ -117,9 +117,9 @@ void (empty response body)
 # **Get-BetaSearchAttributeConfig**
 > SearchAttributeConfig[] Get-BetaSearchAttributeConfig<br>
 
-Retrieve a list of extended search attributes in IdentityNow.
+List Extended Search Attributes
 
-This API retrieves a list of attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC). A token with ORG_ADMIN authority is required to call this API.
 
 ### Example
 ```powershell
@@ -132,7 +132,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
-# Retrieve a list of extended search attributes in IdentityNow.
+# List Extended Search Attributes
 try {
     $Result = Get-BetaSearchAttributeConfig
 } catch {
@@ -164,9 +164,9 @@ This endpoint does not need any parameter.
 > SearchAttributeConfig[] Get-BetaSingleSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
 
-Get the details of a specific extended search attribute in IdentityNow.
+Get Extended Search Attribute
 
-This API accepts an extended attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+Get an extended attribute configuration by name.
 
 ### Example
 ```powershell
@@ -178,9 +178,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
+$Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
 
-# Get the details of a specific extended search attribute in IdentityNow.
+# Get Extended Search Attribute
 try {
     $Result = Get-BetaSingleSearchAttributeConfig -Name $Name
 } catch {
@@ -193,7 +193,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Name** | **String**| Name of the extended search attribute configuration to delete. | 
+ **Name** | **String**| Name of the extended search attribute configuration to get. | 
 
 ### Return type
 
@@ -216,9 +216,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Update the details of a specific extended search attribute in IdentityNow.
+Update Extended Search Attribute
 
-This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
 
 ### Example
 ```powershell
@@ -230,11 +230,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Name = "promotedMailAttribute" # String | Name of the Search Attribute Configuration to patch.
+$Name = "promotedMailAttribute" # String | Name of the extended search attribute configuration to patch.
 $UpdateMultiHostSourcesRequestInnerValue = Initialize-UpdateMultiHostSourcesRequestInnerValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $UpdateMultiHostSourcesRequestInnerValue # JsonPatchOperation[] | 
 
-# Update the details of a specific extended search attribute in IdentityNow.
+# Update Extended Search Attribute
 try {
     $Result = Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $JsonPatchOperation
 } catch {
@@ -247,7 +247,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Name** | **String**| Name of the Search Attribute Configuration to patch. | 
+ **Name** | **String**| Name of the extended search attribute configuration to patch. | 
  **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)|  | 
 
 ### Return type

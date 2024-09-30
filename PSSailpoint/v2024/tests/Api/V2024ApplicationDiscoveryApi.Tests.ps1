@@ -22,14 +22,6 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ApplicationDiscoveryApi' {
         }
     }
 
-    Context 'Get-V2024VendorConnectorMappings' {
-        It 'Test Get-V2024VendorConnectorMappings' {
-            #$TestResult = Get-V2024VendorConnectorMappings
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Send-V2024ManualDiscoverApplicationsCsvTemplate' {
         It 'Test Send-V2024ManualDiscoverApplicationsCsvTemplate' {
             #$TestResult = Send-V2024ManualDiscoverApplicationsCsvTemplate -File "TEST_VALUE"

@@ -97,10 +97,9 @@ Class | Method | HTTP request | Description
 *V2024AccountsApi* | [**Submit-V2024ReloadAccount**](docs/V2024AccountsApi.md#Submit-V2024ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *V2024AccountsApi* | [**Unlock-V2024Account**](docs/V2024AccountsApi.md#Unlock-V2024Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *V2024AccountsApi* | [**Update-V2024Account**](docs/V2024AccountsApi.md#Update-V2024Account) | **PATCH** /accounts/{id} | Update Account
-*V2024ApplicationDiscoveryApi* | [**Get-V2024DiscoveredApplications**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024DiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
-*V2024ApplicationDiscoveryApi* | [**Get-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
-*V2024ApplicationDiscoveryApi* | [**Get-V2024VendorConnectorMappings**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024VendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
-*V2024ApplicationDiscoveryApi* | [**Send-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Send-V2024ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
+*V2024ApplicationDiscoveryApi* | [**Get-V2024DiscoveredApplications**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024DiscoveredApplications) | **GET** /discovered-applications | Get Discovered Applications for Tenant
+*V2024ApplicationDiscoveryApi* | [**Get-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download CSV Template for Discovery
+*V2024ApplicationDiscoveryApi* | [**Send-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Send-V2024ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload CSV to Discover Applications
 *V2024ApprovalsApi* | [**Get-V2024Approval**](docs/V2024ApprovalsApi.md#Get-V2024Approval) | **GET** /generic-approvals/{id} | Get an approval
 *V2024ApprovalsApi* | [**Get-V2024Approvals**](docs/V2024ApprovalsApi.md#Get-V2024Approvals) | **GET** /generic-approvals | Get Approvals
 *V2024AppsApi* | [**New-V2024SourceApp**](docs/V2024AppsApi.md#New-V2024SourceApp) | **POST** /source-apps | Create source app
@@ -523,11 +522,11 @@ Class | Method | HTTP request | Description
 *V2024SearchApi* | [**Search-V2024Count**](docs/V2024SearchApi.md#Search-V2024Count) | **POST** /search/count | Count Documents Satisfying a Query
 *V2024SearchApi* | [**Search-V2024Get**](docs/V2024SearchApi.md#Search-V2024Get) | **GET** /search/{index}/{id} | Get a Document by ID
 *V2024SearchApi* | [**Search-V2024Post**](docs/V2024SearchApi.md#Search-V2024Post) | **POST** /search | Perform Search
-*V2024SearchAttributeConfigurationApi* | [**New-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#New-V2024SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create search attributes in IdentityNow.
-*V2024SearchAttributeConfigurationApi* | [**Remove-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Remove-V2024SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete search attribute in IdentityNow.
-*V2024SearchAttributeConfigurationApi* | [**Get-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Get-V2024SearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve attribute list in IdentityNow.
-*V2024SearchAttributeConfigurationApi* | [**Get-V2024SingleSearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Get-V2024SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get specific attribute in IdentityNow.
-*V2024SearchAttributeConfigurationApi* | [**Update-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Update-V2024SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update search attribute in IdentityNow.
+*V2024SearchAttributeConfigurationApi* | [**New-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#New-V2024SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create Extended Search Attributes
+*V2024SearchAttributeConfigurationApi* | [**Remove-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Remove-V2024SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete Extended Search Attribute
+*V2024SearchAttributeConfigurationApi* | [**Get-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Get-V2024SearchAttributeConfig) | **GET** /accounts/search-attribute-config | List Extended Search Attributes
+*V2024SearchAttributeConfigurationApi* | [**Get-V2024SingleSearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Get-V2024SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get Extended Search Attribute
+*V2024SearchAttributeConfigurationApi* | [**Update-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Update-V2024SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update Extended Search Attribute
 *V2024SegmentsApi* | [**New-V2024Segment**](docs/V2024SegmentsApi.md#New-V2024Segment) | **POST** /segments | Create Segment
 *V2024SegmentsApi* | [**Remove-V2024Segment**](docs/V2024SegmentsApi.md#Remove-V2024Segment) | **DELETE** /segments/{id} | Delete Segment by ID
 *V2024SegmentsApi* | [**Get-V2024Segment**](docs/V2024SegmentsApi.md#Get-V2024Segment) | **GET** /segments/{id} | Get Segment by ID
@@ -624,8 +623,9 @@ Class | Method | HTTP request | Description
 *V2024TriggersApi* | [**Update-V2024Subscription**](docs/V2024TriggersApi.md#Update-V2024Subscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
 *V2024UIMetadataApi* | [**Get-V2024TenantUiMetadata**](docs/V2024UIMetadataApi.md#Get-V2024TenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant UI metadata
 *V2024UIMetadataApi* | [**Set-V2024TenantUiMetadata**](docs/V2024UIMetadataApi.md#Set-V2024TenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant UI metadata
-*V2024VendorConnectorMappingsApi* | [**New-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#New-V2024VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
-*V2024VendorConnectorMappingsApi* | [**Remove-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#Remove-V2024VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
+*V2024VendorConnectorMappingsApi* | [**New-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#New-V2024VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create Vendor Connector Mapping
+*V2024VendorConnectorMappingsApi* | [**Remove-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#Remove-V2024VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete Vendor Connector Mapping
+*V2024VendorConnectorMapppingApi* | [**Get-V2024VendorConnectorMappings**](docs/V2024VendorConnectorMapppingApi.md#Get-V2024VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
 *V2024WorkItemsApi* | [**Approve-V2024ApprovalItem**](docs/V2024WorkItemsApi.md#Approve-V2024ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *V2024WorkItemsApi* | [**Approve-V2024ApprovalItemsInBulk**](docs/V2024WorkItemsApi.md#Approve-V2024ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *V2024WorkItemsApi* | [**Complete-V2024WorkItem**](docs/V2024WorkItemsApi.md#Complete-V2024WorkItem) | **POST** /work-items/{id} | Complete a Work Item

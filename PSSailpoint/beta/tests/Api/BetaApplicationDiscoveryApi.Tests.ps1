@@ -30,14 +30,6 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaApplicationDiscoveryApi' {
         }
     }
 
-    Context 'Get-BetaVendorConnectorMappings' {
-        It 'Test Get-BetaVendorConnectorMappings' {
-            #$TestResult = Get-BetaVendorConnectorMappings
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Update-BetaDiscoveredApplicationByID' {
         It 'Test Update-BetaDiscoveredApplicationByID' {
             #$TestResult = Update-BetaDiscoveredApplicationByID -Id "TEST_VALUE" -JsonPatchOperations "TEST_VALUE"

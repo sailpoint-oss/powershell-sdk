@@ -12,10 +12,10 @@ Get Discovered Application by ID
 
 .DESCRIPTION
 
-This API returns a discovered application with its associated sources based on the ID provided. 
+Get the discovered application, along with with its associated sources, based on the provided ID. 
 
 .PARAMETER Id
-ID of the discovered application.
+Discovered application's ID.
 
 .PARAMETER WithHttpInfo
 
@@ -86,7 +86,7 @@ Retrieve discovered applications for tenant
 
 .DESCRIPTION
 
-Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -197,11 +197,11 @@ function Get-BetaDiscoveredApplications {
 <#
 .SYNOPSIS
 
-CSV template download for discovery
+Download CSV Template for Discovery
 
 .DESCRIPTION
 
-This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
+Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
 
 .PARAMETER ReturnType
 
@@ -273,78 +273,14 @@ function Get-BetaManualDiscoverApplicationsCsvTemplate {
 <#
 .SYNOPSIS
 
-List vendor connector mappings
+Patch Discovered Application by ID
 
 .DESCRIPTION
 
-Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-VendorConnectorMapping[]
-#>
-function Get-BetaVendorConnectorMappings {
-    [CmdletBinding()]
-    Param (
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-BetaVendorConnectorMappings' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/vendor-connector-mappings'
-
-
-
-        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "VendorConnectorMapping[]" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Patch Discovered Application by Id
-
-.DESCRIPTION
-
-This API updates an existing discovered application using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: - **associatedSources** - **dismissed**
+Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. You can patch these fields: - **associatedSources** - **dismissed**
 
 .PARAMETER Id
-ID of the discovered application.
+Discovered application's ID.
 
 .PARAMETER JsonPatchOperations
 No description available.
@@ -433,11 +369,11 @@ function Update-BetaDiscoveredApplicationByID {
 <#
 .SYNOPSIS
 
-CSV Upload to discover applications
+Upload CSV to Discover Applications
 
 .DESCRIPTION
 
-This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors.  If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
+Upload a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
 .PARAMETER File
 The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.

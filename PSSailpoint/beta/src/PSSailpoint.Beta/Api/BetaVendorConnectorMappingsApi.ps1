@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Create a vendor connector mapping
+Create Vendor Connector Mapping
 
 .DESCRIPTION
 
-Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
+Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths. 
 
 .PARAMETER VendorConnectorMapping
 No description available.
@@ -98,11 +98,11 @@ function New-BetaVendorConnectorMapping {
 <#
 .SYNOPSIS
 
-Delete a vendor connector mapping
+Delete Vendor Connector Mapping
 
 .DESCRIPTION
 
-Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
+Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation. 
 
 .PARAMETER VendorConnectorMapping
 No description available.
@@ -175,6 +175,70 @@ function Remove-BetaVendorConnectorMapping {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "DeleteVendorConnectorMapping200Response" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+List Vendor Connector Mappings
+
+.DESCRIPTION
+
+Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+VendorConnectorMapping[]
+#>
+function Get-BetaVendorConnectorMappings {
+    [CmdletBinding()]
+    Param (
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-BetaVendorConnectorMappings' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/vendor-connector-mappings'
+
+
+
+        $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "VendorConnectorMapping[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

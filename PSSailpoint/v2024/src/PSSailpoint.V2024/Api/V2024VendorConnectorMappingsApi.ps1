@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Create a vendor connector mapping
+Create Vendor Connector Mapping
 
 .DESCRIPTION
 
-Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
+Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths. 
 
 .PARAMETER VendorConnectorMapping
 No description available.
@@ -98,11 +98,11 @@ function New-V2024VendorConnectorMapping {
 <#
 .SYNOPSIS
 
-Delete a vendor connector mapping
+Delete Vendor Connector Mapping
 
 .DESCRIPTION
 
-Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
+Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation. 
 
 .PARAMETER VendorConnectorMapping
 No description available.

@@ -84,10 +84,9 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**Submit-ReloadAccount**](docs/AccountsApi.md#Submit-ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
 *AccountsApi* | [**Unlock-Account**](docs/AccountsApi.md#Unlock-Account) | **POST** /accounts/{id}/unlock | Unlock Account
 *AccountsApi* | [**Update-Account**](docs/AccountsApi.md#Update-Account) | **PATCH** /accounts/{id} | Update Account
-*ApplicationDiscoveryApi* | [**Get-DiscoveredApplications**](docs/ApplicationDiscoveryApi.md#Get-DiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
-*ApplicationDiscoveryApi* | [**Get-ManualDiscoverApplicationsCsvTemplate**](docs/ApplicationDiscoveryApi.md#Get-ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
-*ApplicationDiscoveryApi* | [**Get-VendorConnectorMappings**](docs/ApplicationDiscoveryApi.md#Get-VendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
-*ApplicationDiscoveryApi* | [**Send-ManualDiscoverApplicationsCsvTemplate**](docs/ApplicationDiscoveryApi.md#Send-ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
+*ApplicationDiscoveryApi* | [**Get-DiscoveredApplications**](docs/ApplicationDiscoveryApi.md#Get-DiscoveredApplications) | **GET** /discovered-applications | Get Discovered Applications for Tenant
+*ApplicationDiscoveryApi* | [**Get-ManualDiscoverApplicationsCsvTemplate**](docs/ApplicationDiscoveryApi.md#Get-ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download CSV Template for Discovery
+*ApplicationDiscoveryApi* | [**Send-ManualDiscoverApplicationsCsvTemplate**](docs/ApplicationDiscoveryApi.md#Send-ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload CSV to Discover Applications
 *AuthUsersApi* | [**Get-AuthUser**](docs/AuthUsersApi.md#Get-AuthUser) | **GET** /auth-users/{id} | Auth User Details
 *AuthUsersApi* | [**Update-AuthUser**](docs/AuthUsersApi.md#Update-AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
 *BrandingApi* | [**New-BrandingItem**](docs/BrandingApi.md#New-BrandingItem) | **POST** /brandings | Create a branding item
@@ -321,11 +320,11 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**Search-Count**](docs/SearchApi.md#Search-Count) | **POST** /search/count | Count Documents Satisfying a Query
 *SearchApi* | [**Search-Get**](docs/SearchApi.md#Search-Get) | **GET** /search/{index}/{id} | Get a Document by ID
 *SearchApi* | [**Search-Post**](docs/SearchApi.md#Search-Post) | **POST** /search | Perform Search
-*SearchAttributeConfigurationApi* | [**New-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#New-SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create search attributes in IdentityNow.
-*SearchAttributeConfigurationApi* | [**Remove-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Remove-SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete search attribute in IdentityNow.
-*SearchAttributeConfigurationApi* | [**Get-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Get-SearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve attribute list in IdentityNow.
-*SearchAttributeConfigurationApi* | [**Get-SingleSearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Get-SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get specific attribute in IdentityNow.
-*SearchAttributeConfigurationApi* | [**Update-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Update-SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update search attribute in IdentityNow.
+*SearchAttributeConfigurationApi* | [**New-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#New-SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create Extended Search Attributes
+*SearchAttributeConfigurationApi* | [**Remove-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Remove-SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete Extended Search Attribute
+*SearchAttributeConfigurationApi* | [**Get-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Get-SearchAttributeConfig) | **GET** /accounts/search-attribute-config | List Extended Search Attributes
+*SearchAttributeConfigurationApi* | [**Get-SingleSearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Get-SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get Extended Search Attribute
+*SearchAttributeConfigurationApi* | [**Update-SearchAttributeConfig**](docs/SearchAttributeConfigurationApi.md#Update-SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update Extended Search Attribute
 *SegmentsApi* | [**New-Segment**](docs/SegmentsApi.md#New-Segment) | **POST** /segments | Create Segment
 *SegmentsApi* | [**Remove-Segment**](docs/SegmentsApi.md#Remove-Segment) | **DELETE** /segments/{id} | Delete Segment by ID
 *SegmentsApi* | [**Get-Segment**](docs/SegmentsApi.md#Get-Segment) | **GET** /segments/{id} | Get Segment by ID
@@ -382,8 +381,9 @@ Class | Method | HTTP request | Description
 *TransformsApi* | [**Get-Transform**](docs/TransformsApi.md#Get-Transform) | **GET** /transforms/{id} | Transform by ID
 *TransformsApi* | [**Get-Transforms**](docs/TransformsApi.md#Get-Transforms) | **GET** /transforms | List transforms
 *TransformsApi* | [**Update-Transform**](docs/TransformsApi.md#Update-Transform) | **PUT** /transforms/{id} | Update a transform
-*VendorConnectorMappingsApi* | [**New-VendorConnectorMapping**](docs/VendorConnectorMappingsApi.md#New-VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
-*VendorConnectorMappingsApi* | [**Remove-VendorConnectorMapping**](docs/VendorConnectorMappingsApi.md#Remove-VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
+*VendorConnectorMappingsApi* | [**New-VendorConnectorMapping**](docs/VendorConnectorMappingsApi.md#New-VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create Vendor Connector Mapping
+*VendorConnectorMappingsApi* | [**Remove-VendorConnectorMapping**](docs/VendorConnectorMappingsApi.md#Remove-VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete Vendor Connector Mapping
+*VendorConnectorMapppingApi* | [**Get-VendorConnectorMappings**](docs/VendorConnectorMapppingApi.md#Get-VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
 *WorkItemsApi* | [**Approve-ApprovalItem**](docs/WorkItemsApi.md#Approve-ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *WorkItemsApi* | [**Approve-ApprovalItemsInBulk**](docs/WorkItemsApi.md#Approve-ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *WorkItemsApi* | [**Complete-WorkItem**](docs/WorkItemsApi.md#Complete-WorkItem) | **POST** /work-items/{id} | Complete a Work Item

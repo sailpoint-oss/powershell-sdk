@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Configure/create search attributes in IdentityNow.
+Create Extended Search Attributes
 
 .DESCRIPTION
 
-This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 
 .PARAMETER SearchAttributeConfig
 No description available.
@@ -98,11 +98,11 @@ function New-V2024SearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Delete search attribute in IdentityNow.
+Delete Extended Search Attribute
 
 .DESCRIPTION
 
-This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration.
+Delete an extended attribute configuration by name.
 
 .PARAMETER Name
 Name of the extended search attribute configuration to delete.
@@ -172,11 +172,11 @@ function Remove-V2024SearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Retrieve attribute list in IdentityNow.
+List Extended Search Attributes
 
 .DESCRIPTION
 
-This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow.
+Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
 
 .PARAMETER WithHttpInfo
 
@@ -236,11 +236,11 @@ function Get-V2024SearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Get specific attribute in IdentityNow.
+Get Extended Search Attribute
 
 .DESCRIPTION
 
-This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration.
+Get an extended attribute configuration by name.
 
 .PARAMETER Name
 Name of the extended search attribute configuration to retrieve.
@@ -310,14 +310,14 @@ function Get-V2024SingleSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Update search attribute in IdentityNow.
+Update Extended Search Attribute
 
 .DESCRIPTION
 
-This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes**
+Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
 
 .PARAMETER Name
-Name of the Search Attribute Configuration to patch.
+Name of the search attribute configuration to patch.
 
 .PARAMETER JsonPatchOperation
 No description available.

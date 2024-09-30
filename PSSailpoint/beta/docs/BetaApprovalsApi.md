@@ -4,7 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaApproval**](BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval
+[**Get-BetaApproval**](BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get Approval
 [**Get-BetaApprovals**](BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get Approvals
 
 
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 > Approval Get-BetaApproval<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get an approval
+Get Approval
 
-Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
+Get a single approval for a given approval ID. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and doesn't include access-request-approvals.
 
 ### Example
 ```powershell
@@ -27,9 +27,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that is to be returned
+$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that to be returned.
 
-# Get an approval
+# Get Approval
 try {
     $Result = Get-BetaApproval -Id $Id
 } catch {
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of the approval that is to be returned | 
+ **Id** | **String**| ID of the approval that to be returned. | 
 
 ### Return type
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 Get Approvals
 
-Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. ""Mine"" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.  Absence of all query parameters will will default to mine=true.
+Get a list of approvals, which can be filtered by requester ID, status, or reference type. You can use the ""Mine"" query parameter to return all approvals for the current approver. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals.  Absence of all query parameters will will default to mine=true.
 
 ### Example
 ```powershell
@@ -80,8 +80,8 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Mine = $true # Boolean | Returns the list of approvals for the current caller (optional)
-$RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID (optional)
+$Mine = $true # Boolean | Returns the list of approvals for the current caller. (optional)
+$RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID. (optional)
 $Filters = "filters=status eq PENDING" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
 
 # Get Approvals
@@ -97,8 +97,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Mine** | **Boolean**| Returns the list of approvals for the current caller | [optional] 
- **RequesterId** | **String**| Returns the list of approvals for a given requester ID | [optional] 
+ **Mine** | **Boolean**| Returns the list of approvals for the current caller. | [optional] 
+ **RequesterId** | **String**| Returns the list of approvals for a given requester ID. | [optional] 
  **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* | [optional] 
 
 ### Return type

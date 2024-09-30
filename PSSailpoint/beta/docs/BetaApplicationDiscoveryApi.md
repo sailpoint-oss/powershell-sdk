@@ -6,10 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaDiscoveredApplicationByID**](BetaApplicationDiscoveryApi.md#Get-BetaDiscoveredApplicationByID) | **GET** /discovered-applications/{id} | Get Discovered Application by ID
 [**Get-BetaDiscoveredApplications**](BetaApplicationDiscoveryApi.md#Get-BetaDiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
-[**Get-BetaManualDiscoverApplicationsCsvTemplate**](BetaApplicationDiscoveryApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
-[**Get-BetaVendorConnectorMappings**](BetaApplicationDiscoveryApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
-[**Update-BetaDiscoveredApplicationByID**](BetaApplicationDiscoveryApi.md#Update-BetaDiscoveredApplicationByID) | **PATCH** /discovered-applications/{id} | Patch Discovered Application by Id
-[**Send-BetaManualDiscoverApplicationsCsvTemplate**](BetaApplicationDiscoveryApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
+[**Get-BetaManualDiscoverApplicationsCsvTemplate**](BetaApplicationDiscoveryApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download CSV Template for Discovery
+[**Update-BetaDiscoveredApplicationByID**](BetaApplicationDiscoveryApi.md#Update-BetaDiscoveredApplicationByID) | **PATCH** /discovered-applications/{id} | Patch Discovered Application by ID
+[**Send-BetaManualDiscoverApplicationsCsvTemplate**](BetaApplicationDiscoveryApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload CSV to Discover Applications
 
 
 <a id="Get-BetaDiscoveredApplicationByID"></a>
@@ -19,7 +18,7 @@ Method | HTTP request | Description
 
 Get Discovered Application by ID
 
-This API returns a discovered application with its associated sources based on the ID provided. 
+Get the discovered application, along with with its associated sources, based on the provided ID. 
 
 ### Example
 ```powershell
@@ -31,7 +30,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "123e4567-e89b-12d3-a456-426655440000" # String | ID of the discovered application.
+$Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's ID.
 
 # Get Discovered Application by ID
 try {
@@ -46,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of the discovered application. | 
+ **Id** | **String**| Discovered application&#39;s ID. | 
 
 ### Return type
 
@@ -74,7 +73,7 @@ void (empty response body)
 
 Retrieve discovered applications for tenant
 
-Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
 
 ### Example
 ```powershell
@@ -130,9 +129,9 @@ Name | Type | Description  | Notes
 # **Get-BetaManualDiscoverApplicationsCsvTemplate**
 > ManualDiscoverApplicationsTemplate Get-BetaManualDiscoverApplicationsCsvTemplate<br>
 
-CSV template download for discovery
+Download CSV Template for Discovery
 
-This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
+Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
 
 ### Example
 ```powershell
@@ -145,7 +144,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
-# CSV template download for discovery
+# Download CSV Template for Discovery
 try {
     $Result = Get-BetaManualDiscoverApplicationsCsvTemplate
 } catch {
@@ -172,61 +171,15 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-BetaVendorConnectorMappings"></a>
-# **Get-BetaVendorConnectorMappings**
-> VendorConnectorMapping[] Get-BetaVendorConnectorMappings<br>
-
-List vendor connector mappings
-
-Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: userAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: userAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-
-# List vendor connector mappings
-try {
-    $Result = Get-BetaVendorConnectorMappings
-} catch {
-    Write-Host ("Exception occurred when calling Get-BetaVendorConnectorMappings: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**VendorConnectorMapping[]**](VendorConnectorMapping.md) (PSCustomObject)
-
-### Authorization
-
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="Update-BetaDiscoveredApplicationByID"></a>
 # **Update-BetaDiscoveredApplicationByID**
 > void Update-BetaDiscoveredApplicationByID<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperations] <PSCustomObject[]><br>
 
-Patch Discovered Application by Id
+Patch Discovered Application by ID
 
-This API updates an existing discovered application using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. The following fields are patchable: - **associatedSources** - **dismissed**
+Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax. You can patch these fields: - **associatedSources** - **dismissed**
 
 ### Example
 ```powershell
@@ -238,11 +191,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "123e4567-e89b-12d3-a456-426655440000" # String | ID of the discovered application.
+$Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's ID.
 $JsonPatchOperationsValue = Initialize-JsonPatchOperationsValue 
 $JsonPatchOperations = Initialize-JsonPatchOperations -Op "add" -Path "/dismissed" -Value $JsonPatchOperationsValue # JsonPatchOperations[] |  (optional)
 
-# Patch Discovered Application by Id
+# Patch Discovered Application by ID
 try {
     $Result = Update-BetaDiscoveredApplicationByID -Id $Id -JsonPatchOperations $JsonPatchOperations
 } catch {
@@ -255,7 +208,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of the discovered application. | 
+ **Id** | **String**| Discovered application&#39;s ID. | 
  **JsonPatchOperations** | [**JsonPatchOperations[]**](JsonPatchOperations.md)|  | [optional] 
 
 ### Return type
@@ -278,9 +231,9 @@ void (empty response body)
 > void Send-BetaManualDiscoverApplicationsCsvTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
 
-CSV Upload to discover applications
+Upload CSV to Discover Applications
 
-This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors.  If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
+Upload a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
 ### Example
 ```powershell
@@ -294,7 +247,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
-# CSV Upload to discover applications
+# Upload CSV to Discover Applications
 try {
     $Result = Send-BetaManualDiscoverApplicationsCsvTemplate -File $File
 } catch {

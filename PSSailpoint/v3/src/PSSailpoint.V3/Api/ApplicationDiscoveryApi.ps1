@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Retrieve discovered applications for tenant
+Get Discovered Applications for Tenant
 
 .DESCRIPTION
 
-Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -123,11 +123,11 @@ function Get-DiscoveredApplications {
 <#
 .SYNOPSIS
 
-CSV template download for discovery
+Download CSV Template for Discovery
 
 .DESCRIPTION
 
-This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
+Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
 
 .PARAMETER ReturnType
 
@@ -199,75 +199,11 @@ function Get-ManualDiscoverApplicationsCsvTemplate {
 <#
 .SYNOPSIS
 
-List vendor connector mappings
+Upload CSV to Discover Applications
 
 .DESCRIPTION
 
-Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-VendorConnectorMapping[]
-#>
-function Get-VendorConnectorMappings {
-    [CmdletBinding()]
-    Param (
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-VendorConnectorMappings' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/vendor-connector-mappings'
-
-
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "VendorConnectorMapping[]" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-CSV Upload to discover applications
-
-.DESCRIPTION
-
-This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors.  If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
+Uploading a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
 .PARAMETER File
 The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.

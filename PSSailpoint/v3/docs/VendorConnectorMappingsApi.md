@@ -4,8 +4,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-VendorConnectorMapping**](VendorConnectorMappingsApi.md#New-VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
-[**Remove-VendorConnectorMapping**](VendorConnectorMappingsApi.md#Remove-VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
+[**New-VendorConnectorMapping**](VendorConnectorMappingsApi.md#New-VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create Vendor Connector Mapping
+[**Remove-VendorConnectorMapping**](VendorConnectorMappingsApi.md#Remove-VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete Vendor Connector Mapping
 
 
 <a id="New-VendorConnectorMapping"></a>
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 > VendorConnectorMapping New-VendorConnectorMapping<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-VendorConnectorMapping] <PSCustomObject><br>
 
-Create a vendor connector mapping
+Create Vendor Connector Mapping
 
-Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
+Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths. 
 
 ### Example
 ```powershell
@@ -33,7 +33,7 @@ $VendorConnectorMappingDeletedAt = Initialize-VendorConnectorMappingDeletedAt -T
 $VendorConnectorMappingDeletedBy = Initialize-VendorConnectorMappingDeletedBy -String "MyString" -Valid $false
 $VendorConnectorMapping = Initialize-VendorConnectorMapping -Id "78733556-9ea3-4f59-bf69-e5cd92b011b4" -Vendor "Example vendor" -Connector "Example connector" -CreatedAt (Get-Date) -CreatedBy "admin" -UpdatedAt $VendorConnectorMappingUpdatedAt -UpdatedBy $VendorConnectorMappingUpdatedBy -DeletedAt $VendorConnectorMappingDeletedAt -DeletedBy $VendorConnectorMappingDeletedBy # VendorConnectorMapping | 
 
-# Create a vendor connector mapping
+# Create Vendor Connector Mapping
 try {
     $Result = New-VendorConnectorMapping -VendorConnectorMapping $VendorConnectorMapping
 } catch {
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 > DeleteVendorConnectorMapping200Response Remove-VendorConnectorMapping<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-VendorConnectorMapping] <PSCustomObject><br>
 
-Delete a vendor connector mapping
+Delete Vendor Connector Mapping
 
-Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
+Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation. 
 
 ### Example
 ```powershell
@@ -88,7 +88,7 @@ $VendorConnectorMappingDeletedAt = Initialize-VendorConnectorMappingDeletedAt -T
 $VendorConnectorMappingDeletedBy = Initialize-VendorConnectorMappingDeletedBy -String "MyString" -Valid $false
 $VendorConnectorMapping = Initialize-VendorConnectorMapping -Id "78733556-9ea3-4f59-bf69-e5cd92b011b4" -Vendor "Example vendor" -Connector "Example connector" -CreatedAt (Get-Date) -CreatedBy "admin" -UpdatedAt $VendorConnectorMappingUpdatedAt -UpdatedBy $VendorConnectorMappingUpdatedBy -DeletedAt $VendorConnectorMappingDeletedAt -DeletedBy $VendorConnectorMappingDeletedBy # VendorConnectorMapping | 
 
-# Delete a vendor connector mapping
+# Delete Vendor Connector Mapping
 try {
     $Result = Remove-VendorConnectorMapping -VendorConnectorMapping $VendorConnectorMapping
 } catch {

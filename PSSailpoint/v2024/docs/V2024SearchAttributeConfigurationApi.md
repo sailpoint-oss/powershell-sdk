@@ -4,11 +4,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024SearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#New-V2024SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create search attributes in IdentityNow.
-[**Remove-V2024SearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#Remove-V2024SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete search attribute in IdentityNow.
-[**Get-V2024SearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#Get-V2024SearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve attribute list in IdentityNow.
-[**Get-V2024SingleSearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#Get-V2024SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get specific attribute in IdentityNow.
-[**Update-V2024SearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#Update-V2024SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update search attribute in IdentityNow.
+[**New-V2024SearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#New-V2024SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create Extended Search Attributes
+[**Remove-V2024SearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#Remove-V2024SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete Extended Search Attribute
+[**Get-V2024SearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#Get-V2024SearchAttributeConfig) | **GET** /accounts/search-attribute-config | List Extended Search Attributes
+[**Get-V2024SingleSearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#Get-V2024SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get Extended Search Attribute
+[**Update-V2024SearchAttributeConfig**](V2024SearchAttributeConfigurationApi.md#Update-V2024SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update Extended Search Attribute
 
 
 <a id="New-V2024SearchAttributeConfig"></a>
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 > SystemCollectionsHashtable New-V2024SearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SearchAttributeConfig] <PSCustomObject><br>
 
-Configure/create search attributes in IdentityNow.
+Create Extended Search Attributes
 
-This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 
 ### Example
 ```powershell
@@ -32,7 +32,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SearchAttributeConfig = Initialize-SearchAttributeConfig -Name "newMailAttribute" -DisplayName "New Mail Attribute" -ApplicationAttributes # SearchAttributeConfig | 
 
-# Configure/create search attributes in IdentityNow.
+# Create Extended Search Attributes
 try {
     $Result = New-V2024SearchAttributeConfig -SearchAttributeConfig $SearchAttributeConfig
 } catch {
@@ -67,9 +67,9 @@ Name | Type | Description  | Notes
 > void Remove-V2024SearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
 
-Delete search attribute in IdentityNow.
+Delete Extended Search Attribute
 
-This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration.
+Delete an extended attribute configuration by name.
 
 ### Example
 ```powershell
@@ -83,7 +83,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
 
-# Delete search attribute in IdentityNow.
+# Delete Extended Search Attribute
 try {
     $Result = Remove-V2024SearchAttributeConfig -Name $Name
 } catch {
@@ -117,9 +117,9 @@ void (empty response body)
 # **Get-V2024SearchAttributeConfig**
 > SearchAttributeConfig[] Get-V2024SearchAttributeConfig<br>
 
-Retrieve attribute list in IdentityNow.
+List Extended Search Attributes
 
-This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow.
+Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
 
 ### Example
 ```powershell
@@ -132,7 +132,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
-# Retrieve attribute list in IdentityNow.
+# List Extended Search Attributes
 try {
     $Result = Get-V2024SearchAttributeConfig
 } catch {
@@ -164,9 +164,9 @@ This endpoint does not need any parameter.
 > SearchAttributeConfig[] Get-V2024SingleSearchAttributeConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
 
-Get specific attribute in IdentityNow.
+Get Extended Search Attribute
 
-This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration.
+Get an extended attribute configuration by name.
 
 ### Example
 ```powershell
@@ -180,7 +180,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to retrieve.
 
-# Get specific attribute in IdentityNow.
+# Get Extended Search Attribute
 try {
     $Result = Get-V2024SingleSearchAttributeConfig -Name $Name
 } catch {
@@ -216,9 +216,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Name] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Update search attribute in IdentityNow.
+Update Extended Search Attribute
 
-This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes**
+Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
 
 ### Example
 ```powershell
@@ -230,11 +230,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Name = "promotedMailAttribute" # String | Name of the Search Attribute Configuration to patch.
+$Name = "promotedMailAttribute" # String | Name of the search attribute configuration to patch.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | 
 
-# Update search attribute in IdentityNow.
+# Update Extended Search Attribute
 try {
     $Result = Update-V2024SearchAttributeConfig -Name $Name -JsonPatchOperation $JsonPatchOperation
 } catch {
@@ -247,7 +247,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Name** | **String**| Name of the Search Attribute Configuration to patch. | 
+ **Name** | **String**| Name of the search attribute configuration to patch. | 
  **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)|  | 
 
 ### Return type

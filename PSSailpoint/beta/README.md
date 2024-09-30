@@ -99,11 +99,10 @@ Class | Method | HTTP request | Description
 *BetaAccountsApi* | [**Update-BetaAccount**](docs/BetaAccountsApi.md#Update-BetaAccount) | **PATCH** /accounts/{id} | Update Account
 *BetaApplicationDiscoveryApi* | [**Get-BetaDiscoveredApplicationByID**](docs/BetaApplicationDiscoveryApi.md#Get-BetaDiscoveredApplicationByID) | **GET** /discovered-applications/{id} | Get Discovered Application by ID
 *BetaApplicationDiscoveryApi* | [**Get-BetaDiscoveredApplications**](docs/BetaApplicationDiscoveryApi.md#Get-BetaDiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
-*BetaApplicationDiscoveryApi* | [**Get-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
-*BetaApplicationDiscoveryApi* | [**Get-BetaVendorConnectorMappings**](docs/BetaApplicationDiscoveryApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
-*BetaApplicationDiscoveryApi* | [**Update-BetaDiscoveredApplicationByID**](docs/BetaApplicationDiscoveryApi.md#Update-BetaDiscoveredApplicationByID) | **PATCH** /discovered-applications/{id} | Patch Discovered Application by Id
-*BetaApplicationDiscoveryApi* | [**Send-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
-*BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get an approval
+*BetaApplicationDiscoveryApi* | [**Get-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download CSV Template for Discovery
+*BetaApplicationDiscoveryApi* | [**Update-BetaDiscoveredApplicationByID**](docs/BetaApplicationDiscoveryApi.md#Update-BetaDiscoveredApplicationByID) | **PATCH** /discovered-applications/{id} | Patch Discovered Application by ID
+*BetaApplicationDiscoveryApi* | [**Send-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload CSV to Discover Applications
+*BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get Approval
 *BetaApprovalsApi* | [**Get-BetaApprovals**](docs/BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get Approvals
 *BetaAppsApi* | [**New-BetaSourceApp**](docs/BetaAppsApi.md#New-BetaSourceApp) | **POST** /source-apps | Create source app
 *BetaAppsApi* | [**Remove-BetaAccessProfilesFromSourceAppByBulk**](docs/BetaAppsApi.md#Remove-BetaAccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
@@ -454,11 +453,11 @@ Class | Method | HTTP request | Description
 *BetaSPConfigApi* | [**Get-BetaSpConfigImportStatus**](docs/BetaSPConfigApi.md#Get-BetaSpConfigImportStatus) | **GET** /sp-config/import/{id} | Get import job status
 *BetaSPConfigApi* | [**Import-BetaSpConfig**](docs/BetaSPConfigApi.md#Import-BetaSpConfig) | **POST** /sp-config/import | Initiates configuration objects import job
 *BetaSPConfigApi* | [**Get-BetaSpConfigObjects**](docs/BetaSPConfigApi.md#Get-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get config object details
-*BetaSearchAttributeConfigurationApi* | [**New-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#New-BetaSearchAttributeConfig) | **POST** /accounts/search-attribute-config | Configure/create extended search attributes in IdentityNow.
-*BetaSearchAttributeConfigurationApi* | [**Remove-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Remove-BetaSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete an extended search attribute in IdentityNow.
-*BetaSearchAttributeConfigurationApi* | [**Get-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Get-BetaSearchAttributeConfig) | **GET** /accounts/search-attribute-config | Retrieve a list of extended search attributes in IdentityNow.
-*BetaSearchAttributeConfigurationApi* | [**Get-BetaSingleSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Get-BetaSingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get the details of a specific extended search attribute in IdentityNow.
-*BetaSearchAttributeConfigurationApi* | [**Update-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Update-BetaSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update the details of a specific extended search attribute in IdentityNow.
+*BetaSearchAttributeConfigurationApi* | [**New-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#New-BetaSearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create Extended Search Attributes
+*BetaSearchAttributeConfigurationApi* | [**Remove-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Remove-BetaSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete Extended Search Attribute
+*BetaSearchAttributeConfigurationApi* | [**Get-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Get-BetaSearchAttributeConfig) | **GET** /accounts/search-attribute-config | List Extended Search Attributes
+*BetaSearchAttributeConfigurationApi* | [**Get-BetaSingleSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Get-BetaSingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get Extended Search Attribute
+*BetaSearchAttributeConfigurationApi* | [**Update-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Update-BetaSearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update Extended Search Attribute
 *BetaSegmentsApi* | [**New-BetaSegment**](docs/BetaSegmentsApi.md#New-BetaSegment) | **POST** /segments | Create Segment
 *BetaSegmentsApi* | [**Remove-BetaSegment**](docs/BetaSegmentsApi.md#Remove-BetaSegment) | **DELETE** /segments/{id} | Delete Segment by ID
 *BetaSegmentsApi* | [**Get-BetaSegment**](docs/BetaSegmentsApi.md#Get-BetaSegment) | **GET** /segments/{id} | Get Segment by ID
@@ -557,8 +556,9 @@ Class | Method | HTTP request | Description
 *BetaTriggersApi* | [**Update-BetaSubscription**](docs/BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
 *BetaUIMetadataApi* | [**Get-BetaTenantUiMetadata**](docs/BetaUIMetadataApi.md#Get-BetaTenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant UI metadata
 *BetaUIMetadataApi* | [**Set-BetaTenantUiMetadata**](docs/BetaUIMetadataApi.md#Set-BetaTenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant UI metadata
-*BetaVendorConnectorMappingsApi* | [**New-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#New-BetaVendorConnectorMapping) | **POST** /vendor-connector-mappings | Create a vendor connector mapping
-*BetaVendorConnectorMappingsApi* | [**Remove-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#Remove-BetaVendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete a vendor connector mapping
+*BetaVendorConnectorMappingsApi* | [**New-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#New-BetaVendorConnectorMapping) | **POST** /vendor-connector-mappings | Create Vendor Connector Mapping
+*BetaVendorConnectorMappingsApi* | [**Remove-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#Remove-BetaVendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete Vendor Connector Mapping
+*BetaVendorConnectorMappingsApi* | [**Get-BetaVendorConnectorMappings**](docs/BetaVendorConnectorMappingsApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item

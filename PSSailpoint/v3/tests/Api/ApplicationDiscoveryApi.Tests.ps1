@@ -22,14 +22,6 @@ Describe -tag 'PSSailpoint.V3' -name 'ApplicationDiscoveryApi' {
         }
     }
 
-    Context 'Get-VendorConnectorMappings' {
-        It 'Test Get-VendorConnectorMappings' {
-            #$TestResult = Get-VendorConnectorMappings
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Send-ManualDiscoverApplicationsCsvTemplate' {
         It 'Test Send-ManualDiscoverApplicationsCsvTemplate' {
             #$TestResult = Send-ManualDiscoverApplicationsCsvTemplate -File "TEST_VALUE"

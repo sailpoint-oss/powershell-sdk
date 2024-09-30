@@ -4,10 +4,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-DiscoveredApplications**](ApplicationDiscoveryApi.md#Get-DiscoveredApplications) | **GET** /discovered-applications | Retrieve discovered applications for tenant
-[**Get-ManualDiscoverApplicationsCsvTemplate**](ApplicationDiscoveryApi.md#Get-ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | CSV template download for discovery
-[**Get-VendorConnectorMappings**](ApplicationDiscoveryApi.md#Get-VendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
-[**Send-ManualDiscoverApplicationsCsvTemplate**](ApplicationDiscoveryApi.md#Send-ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | CSV Upload to discover applications
+[**Get-DiscoveredApplications**](ApplicationDiscoveryApi.md#Get-DiscoveredApplications) | **GET** /discovered-applications | Get Discovered Applications for Tenant
+[**Get-ManualDiscoverApplicationsCsvTemplate**](ApplicationDiscoveryApi.md#Get-ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download CSV Template for Discovery
+[**Send-ManualDiscoverApplicationsCsvTemplate**](ApplicationDiscoveryApi.md#Send-ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload CSV to Discover Applications
 
 
 <a id="Get-DiscoveredApplications"></a>
@@ -19,9 +18,9 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filter] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
 
-Retrieve discovered applications for tenant
+Get Discovered Applications for Tenant
 
-Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
 
 ### Example
 ```powershell
@@ -39,7 +38,7 @@ $Detail = "SLIM" # String | Determines whether slim, or increased level of detai
 $Filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional)
 
-# Retrieve discovered applications for tenant
+# Get Discovered Applications for Tenant
 try {
     $Result = Get-DiscoveredApplications -Limit $Limit -Offset $Offset -Detail $Detail -Filter $Filter -Sorters $Sorters
 } catch {
@@ -77,9 +76,9 @@ Name | Type | Description  | Notes
 # **Get-ManualDiscoverApplicationsCsvTemplate**
 > ManualDiscoverApplicationsTemplate Get-ManualDiscoverApplicationsCsvTemplate<br>
 
-CSV template download for discovery
+Download CSV Template for Discovery
 
-This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
+Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
 
 ### Example
 ```powershell
@@ -92,7 +91,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
-# CSV template download for discovery
+# Download CSV Template for Discovery
 try {
     $Result = Get-ManualDiscoverApplicationsCsvTemplate
 } catch {
@@ -119,60 +118,14 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Get-VendorConnectorMappings"></a>
-# **Get-VendorConnectorMappings**
-> VendorConnectorMapping[] Get-VendorConnectorMappings<br>
-
-List vendor connector mappings
-
-Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
-
-### Example
-```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure OAuth2 access token for authorization: userAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-# Configure OAuth2 access token for authorization: userAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
-
-# List vendor connector mappings
-try {
-    $Result = Get-VendorConnectorMappings
-} catch {
-    Write-Host ("Exception occurred when calling Get-VendorConnectorMappings: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
-    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**VendorConnectorMapping[]**](VendorConnectorMapping.md) (PSCustomObject)
-
-### Authorization
-
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="Send-ManualDiscoverApplicationsCsvTemplate"></a>
 # **Send-ManualDiscoverApplicationsCsvTemplate**
 > void Send-ManualDiscoverApplicationsCsvTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
 
-CSV Upload to discover applications
+Upload CSV to Discover Applications
 
-This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors.  If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
+Uploading a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
 ### Example
 ```powershell
@@ -186,7 +139,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
-# CSV Upload to discover applications
+# Upload CSV to Discover Applications
 try {
     $Result = Send-ManualDiscoverApplicationsCsvTemplate -File $File
 } catch {

@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Configure/create extended search attributes in IdentityNow.
+Create Extended Search Attributes
 
 .DESCRIPTION
 
-This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER SearchAttributeConfig
 No description available.
@@ -98,11 +98,11 @@ function New-BetaSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Delete an extended search attribute in IdentityNow.
+Delete Extended Search Attribute
 
 .DESCRIPTION
 
-This API accepts an extended attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+Delete an extended attribute configuration by name.
 
 .PARAMETER Name
 Name of the extended search attribute configuration to delete.
@@ -172,11 +172,11 @@ function Remove-BetaSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Retrieve a list of extended search attributes in IdentityNow.
+List Extended Search Attributes
 
 .DESCRIPTION
 
-This API retrieves a list of attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC). A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER WithHttpInfo
 
@@ -236,14 +236,14 @@ function Get-BetaSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Get the details of a specific extended search attribute in IdentityNow.
+Get Extended Search Attribute
 
 .DESCRIPTION
 
-This API accepts an extended attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+Get an extended attribute configuration by name.
 
 .PARAMETER Name
-Name of the extended search attribute configuration to delete.
+Name of the extended search attribute configuration to get.
 
 .PARAMETER WithHttpInfo
 
@@ -310,14 +310,14 @@ function Get-BetaSingleSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Update the details of a specific extended search attribute in IdentityNow.
+Update Extended Search Attribute
 
 .DESCRIPTION
 
-This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
 
 .PARAMETER Name
-Name of the Search Attribute Configuration to patch.
+Name of the extended search attribute configuration to patch.
 
 .PARAMETER JsonPatchOperation
 No description available.

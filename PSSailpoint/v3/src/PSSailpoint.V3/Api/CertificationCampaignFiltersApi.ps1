@@ -203,7 +203,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-CampaignFilterDetails[]
+CampaignFilterDetails
 #>
 function Get-CampaignFilterById {
     [CmdletBinding()]
@@ -248,7 +248,7 @@ function Get-CampaignFilterById {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "CampaignFilterDetails[]" `
+                                -ReturnType "CampaignFilterDetails" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -118,7 +118,7 @@ void (empty response body)
 
 <a id="Get-V2024CampaignFilterById"></a>
 # **Get-V2024CampaignFilterById**
-> CampaignFilterDetails[] Get-V2024CampaignFilterById<br>
+> CampaignFilterDetails Get-V2024CampaignFilterById<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Campaign Filter by ID
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CampaignFilterDetails[]**](CampaignFilterDetails.md) (PSCustomObject)
+[**CampaignFilterDetails**](CampaignFilterDetails.md) (PSCustomObject)
 
 ### Authorization
 

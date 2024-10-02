@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024CertificationCampaignFiltersA
 
     Context 'Get-V2024CampaignFilterById' {
         It 'Test Get-V2024CampaignFilterById' {
-            #$TestResult = Get-V2024CampaignFilterById -FilterId "TEST_VALUE"
+            #$TestResult = Get-V2024CampaignFilterById -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

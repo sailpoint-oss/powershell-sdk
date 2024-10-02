@@ -14,6 +14,8 @@ No summary available.
 
 Campaign Filter Details
 
+.PARAMETER Id
+The unique ID of the campaign filter
 .PARAMETER Name
 Campaign filter name.
 .PARAMETER Description
@@ -24,6 +26,8 @@ Owner of the filter. This field automatically populates at creation time with th
 Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns  as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria.
 .PARAMETER CriteriaList
 List of criteria.
+.PARAMETER IsSystemFilter
+If true, the filter is created by the system. If false, the filter is created by a user.
 .OUTPUTS
 
 CampaignFilterDetails<PSCustomObject>
@@ -32,6 +36,9 @@ CampaignFilterDetails<PSCustomObject>
 function Initialize-CampaignFilterDetails {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
@@ -47,12 +54,19 @@ function Initialize-CampaignFilterDetails {
         ${Mode},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${CriteriaList}
+        ${CriteriaList},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Boolean]
+        ${IsSystemFilter} = $false
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.V3 => CampaignFilterDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
+        }
 
         if (!$Name) {
             throw "invalid value for 'Name', 'Name' cannot be null."
@@ -62,13 +76,19 @@ function Initialize-CampaignFilterDetails {
             throw "invalid value for 'Mode', 'Mode' cannot be null."
         }
 
+        if (!$IsSystemFilter) {
+            throw "invalid value for 'IsSystemFilter', 'IsSystemFilter' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
             "owner" = ${Owner}
             "mode" = ${Mode}
             "criteriaList" = ${CriteriaList}
+            "isSystemFilter" = ${IsSystemFilter}
         }
 
         return $PSO
@@ -105,7 +125,7 @@ function ConvertFrom-JsonToCampaignFilterDetails {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CampaignFilterDetails
-        $AllProperties = ("name", "description", "owner", "mode", "criteriaList")
+        $AllProperties = ("id", "name", "description", "owner", "mode", "criteriaList", "isSystemFilter")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -113,7 +133,13 @@ function ConvertFrom-JsonToCampaignFilterDetails {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'name' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
@@ -134,6 +160,12 @@ function ConvertFrom-JsonToCampaignFilterDetails {
             $Mode = $JsonParameters.PSobject.Properties["mode"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isSystemFilter"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'isSystemFilter' missing."
+        } else {
+            $IsSystemFilter = $JsonParameters.PSobject.Properties["isSystemFilter"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
@@ -147,11 +179,13 @@ function ConvertFrom-JsonToCampaignFilterDetails {
         }
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
             "description" = ${Description}
             "owner" = ${Owner}
             "mode" = ${Mode}
             "criteriaList" = ${CriteriaList}
+            "isSystemFilter" = ${IsSystemFilter}
         }
 
         return $PSO

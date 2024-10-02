@@ -33,7 +33,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Operation = Initialize-Operation 
 $CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation $Operation -Property "displayName" -Value "Allie"
 
-$CampaignFilterDetails = Initialize-CampaignFilterDetails -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on an identity attribute's specified property." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | 
+$CampaignFilterDetails = Initialize-CampaignFilterDetails -Id "5ec18cef39020d6fd7a60ad3970aba61" -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on an identity attribute's specified property." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner -IsSystemFilter $false # CampaignFilterDetails | 
 
 # Create Campaign Filter
 try {
@@ -119,7 +119,7 @@ void (empty response body)
 <a id="Get-V2024CampaignFilterById"></a>
 # **Get-V2024CampaignFilterById**
 > CampaignFilterDetails[] Get-V2024CampaignFilterById<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-FilterId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Campaign Filter by ID
 
@@ -135,11 +135,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$FilterId = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter to be retrieved.
+$Id = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter to be retrieved.
 
 # Get Campaign Filter by ID
 try {
-    $Result = Get-V2024CampaignFilterById -FilterId $FilterId
+    $Result = Get-V2024CampaignFilterById -Id $Id
 } catch {
     Write-Host ("Exception occurred when calling Get-V2024CampaignFilterById: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -150,7 +150,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **FilterId** | **String**| The ID of the campaign filter to be retrieved. | 
+ **Id** | **String**| The ID of the campaign filter to be retrieved. | 
 
 ### Return type
 
@@ -248,7 +248,7 @@ $FilterId = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign
 $Operation = Initialize-Operation 
 $CampaignFilterDetailsCriteriaListInner = Initialize-CampaignFilterDetailsCriteriaListInner -Type "COMPOSITE" -Operation $Operation -Property "displayName" -Value "Allie"
 
-$CampaignFilterDetails = Initialize-CampaignFilterDetails -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on an identity attribute's specified property." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner # CampaignFilterDetails | A campaign filter details with updated field values.
+$CampaignFilterDetails = Initialize-CampaignFilterDetails -Id "5ec18cef39020d6fd7a60ad3970aba61" -Name "Identity Attribute Campaign Filter" -Description "Campaign filter to certify data based on an identity attribute's specified property." -Owner "SailPoint Support" -Mode "INCLUSION" -CriteriaList $CampaignFilterDetailsCriteriaListInner -IsSystemFilter $false # CampaignFilterDetails | A campaign filter details with updated field values.
 
 # Updates a Campaign Filter
 try {

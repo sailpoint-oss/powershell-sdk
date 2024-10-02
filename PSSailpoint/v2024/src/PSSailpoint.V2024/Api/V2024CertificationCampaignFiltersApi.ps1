@@ -194,7 +194,7 @@ Get Campaign Filter by ID
 
 Retrieves information for an existing campaign filter using the filter's ID.
 
-.PARAMETER FilterId
+.PARAMETER Id
 The ID of the campaign filter to be retrieved.
 
 .PARAMETER WithHttpInfo
@@ -210,7 +210,7 @@ function Get-V2024CampaignFilterById {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${FilterId},
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -232,10 +232,10 @@ function Get-V2024CampaignFilterById {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/campaign-filters/{id}'
-        if (!$FilterId) {
-            throw "Error! The required parameter `FilterId` missing when calling getCampaignFilterById."
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getCampaignFilterById."
         }
-        $LocalVarUri = $LocalVarUri.replace('{filterId}', [System.Web.HTTPUtility]::UrlEncode($FilterId))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
 
 

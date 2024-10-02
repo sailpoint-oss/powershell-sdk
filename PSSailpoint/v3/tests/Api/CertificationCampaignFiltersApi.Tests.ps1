@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V3' -name 'CertificationCampaignFiltersApi' {
 
     Context 'Get-CampaignFilterById' {
         It 'Test Get-CampaignFilterById' {
-            #$TestResult = Get-CampaignFilterById -FilterId "TEST_VALUE"
+            #$TestResult = Get-CampaignFilterById -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

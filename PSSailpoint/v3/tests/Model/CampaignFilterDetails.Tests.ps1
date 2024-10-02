@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'CampaignFilterDetails' {
     Context 'CampaignFilterDetails' {
         It 'Initialize-CampaignFilterDetails' {
             # a simple test to create an object
-            #$NewObject = Initialize-CampaignFilterDetails -Name "TEST_VALUE" -Description "TEST_VALUE" -Owner "TEST_VALUE" -Mode "TEST_VALUE" -CriteriaList "TEST_VALUE"
+            #$NewObject = Initialize-CampaignFilterDetails -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Owner "TEST_VALUE" -Mode "TEST_VALUE" -CriteriaList "TEST_VALUE" -IsSystemFilter "TEST_VALUE"
             #$NewObject | Should -BeOfType CampaignFilterDetails
             #$NewObject.property | Should -Be 0
         }

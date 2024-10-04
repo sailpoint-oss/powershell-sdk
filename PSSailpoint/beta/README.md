@@ -861,6 +861,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.DeleteCampaignsRequest](docs/DeleteCampaignsRequest.md)
  - [PSSailpoint.Beta\Model.DeleteNonEmployeeRecordInBulkRequest](docs/DeleteNonEmployeeRecordInBulkRequest.md)
  - [PSSailpoint.Beta\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
+ - [PSSailpoint.Beta\Model.DimensionRef](docs/DimensionRef.md)
  - [PSSailpoint.Beta\Model.DkimAttributes](docs/DkimAttributes.md)
  - [PSSailpoint.Beta\Model.DomainAddress](docs/DomainAddress.md)
  - [PSSailpoint.Beta\Model.DomainStatusDto](docs/DomainStatusDto.md)

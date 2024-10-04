@@ -196,6 +196,7 @@ docs/DependantAppConnections.md
 docs/DependantAppConnectionsAccountSource.md
 docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md
 docs/DependantConnectionsMissingDto.md
+docs/DimensionRef.md
 docs/DisplayReference.md
 docs/DocumentType.md
 docs/DtoType.md
@@ -884,6 +885,7 @@ src/PSSailpoint.V3/Model/DependantAppConnections.ps1
 src/PSSailpoint.V3/Model/DependantAppConnectionsAccountSource.ps1
 src/PSSailpoint.V3/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.ps1
 src/PSSailpoint.V3/Model/DependantConnectionsMissingDto.ps1
+src/PSSailpoint.V3/Model/DimensionRef.ps1
 src/PSSailpoint.V3/Model/DisplayReference.ps1
 src/PSSailpoint.V3/Model/DocumentType.ps1
 src/PSSailpoint.V3/Model/DtoType.ps1
@@ -1542,6 +1544,7 @@ tests/Model/DependantAppConnections.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSource.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.Tests.ps1
 tests/Model/DependantConnectionsMissingDto.Tests.ps1
+tests/Model/DimensionRef.Tests.ps1
 tests/Model/DisplayReference.Tests.ps1
 tests/Model/DocumentType.Tests.ps1
 tests/Model/DtoType.Tests.ps1

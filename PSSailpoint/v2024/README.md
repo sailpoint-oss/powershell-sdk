@@ -989,6 +989,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
  - [PSSailpoint.V2024\Model.DeployRequest](docs/DeployRequest.md)
  - [PSSailpoint.V2024\Model.DeployResponse](docs/DeployResponse.md)
+ - [PSSailpoint.V2024\Model.DimensionRef](docs/DimensionRef.md)
  - [PSSailpoint.V2024\Model.DisplayReference](docs/DisplayReference.md)
  - [PSSailpoint.V2024\Model.DkimAttributes](docs/DkimAttributes.md)
  - [PSSailpoint.V2024\Model.DocumentType](docs/DocumentType.md)

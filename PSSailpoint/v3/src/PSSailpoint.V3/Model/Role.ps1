@@ -43,7 +43,7 @@ List of IDs of segments, if any, to which this Role is assigned.
 .PARAMETER Dimensional
 Whether the Role is dimensional.
 .PARAMETER DimensionRefs
-TBD
+List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
 .PARAMETER AccessModelMetadata
 No description available.
 .OUTPUTS
@@ -97,7 +97,7 @@ function Initialize-Role {
         [System.Nullable[Boolean]]
         ${Dimensional} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject[]]
         ${DimensionRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]

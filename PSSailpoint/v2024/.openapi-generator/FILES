@@ -321,6 +321,7 @@ docs/DeleteSource202Response.md
 docs/DeleteVendorConnectorMapping200Response.md
 docs/DeployRequest.md
 docs/DeployResponse.md
+docs/DimensionRef.md
 docs/DisplayReference.md
 docs/DkimAttributes.md
 docs/DocumentType.md
@@ -1521,6 +1522,7 @@ src/PSSailpoint.V2024/Model/DeleteSource202Response.ps1
 src/PSSailpoint.V2024/Model/DeleteVendorConnectorMapping200Response.ps1
 src/PSSailpoint.V2024/Model/DeployRequest.ps1
 src/PSSailpoint.V2024/Model/DeployResponse.ps1
+src/PSSailpoint.V2024/Model/DimensionRef.ps1
 src/PSSailpoint.V2024/Model/DisplayReference.ps1
 src/PSSailpoint.V2024/Model/DkimAttributes.ps1
 src/PSSailpoint.V2024/Model/DocumentType.ps1
@@ -2645,6 +2647,7 @@ tests/Model/DeleteSource202Response.Tests.ps1
 tests/Model/DeleteVendorConnectorMapping200Response.Tests.ps1
 tests/Model/DeployRequest.Tests.ps1
 tests/Model/DeployResponse.Tests.ps1
+tests/Model/DimensionRef.Tests.ps1
 tests/Model/DisplayReference.Tests.ps1
 tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DocumentType.Tests.ps1

@@ -598,6 +598,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.DependantAppConnectionsAccountSource](docs/DependantAppConnectionsAccountSource.md)
  - [PSSailpoint.V3\Model.DependantAppConnectionsAccountSourcePasswordPoliciesInner](docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md)
  - [PSSailpoint.V3\Model.DependantConnectionsMissingDto](docs/DependantConnectionsMissingDto.md)
+ - [PSSailpoint.V3\Model.DimensionRef](docs/DimensionRef.md)
  - [PSSailpoint.V3\Model.DisplayReference](docs/DisplayReference.md)
  - [PSSailpoint.V3\Model.DocumentType](docs/DocumentType.md)
  - [PSSailpoint.V3\Model.DtoType](docs/DtoType.md)

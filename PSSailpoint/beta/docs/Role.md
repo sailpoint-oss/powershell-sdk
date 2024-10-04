@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **RevocationRequestConfig** | [**RevocabilityForRole**](RevocabilityForRole.md) |  | [optional] 
 **Segments** | **String[]** | List of IDs of segments, if any, to which this Role is assigned. | [optional] 
 **Dimensional** | **Boolean** | Whether the Role is dimensional. | [optional] [default to $false]
-**DimensionRefs** | **String** | TBD | [optional] 
+**DimensionRefs** | [**DimensionRef[]**](DimensionRef.md) | List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional. | [optional] 
 **AccessModelMetadata** | [**AttributeDTOList[]**](AttributeDTOList.md) |  | [optional] 
 
 ## Examples

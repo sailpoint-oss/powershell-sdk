@@ -64,12 +64,14 @@ $RequestabilityForRole = Initialize-RequestabilityForRole -CommentsRequired $tru
 
 $RevocabilityForRole = Initialize-RevocabilityForRole -CommentsRequired $false -DenialCommentsRequired $false -ApprovalSchemes $ApprovalSchemeForRole
 
+$DimensionRef = Initialize-DimensionRef -Type "DIMENSION" -Id "2c91808568c529c60168cca6f90c1313" -Name "Role 2"
+
 $AttributeValueDTO = Initialize-AttributeValueDTO -Value "public" -Name "Public" -Status "active"
 $AttributeDTO = Initialize-AttributeDTO -Key "iscPrivacy" -Name "Privacy" -Multiselect $false -Status "active" -Type "governance" -ObjectTypes "MyObjectTypes" -Description "Specifies the level of privacy associated with an access item." -Values $AttributeValueDTO
 
 $AttributeDTOList = Initialize-AttributeDTOList -Attributes $AttributeDTO
 
-$Role = Initialize-Role -Id "2c918086749d78830174a1a40e121518" -Name "Role 2567" -Created (Get-Date) -Modified (Get-Date) -Description "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor." -Owner $OwnerReference -AccessProfiles $AccessProfileRef -Entitlements $EntitlementRef -Membership $RoleMembershipSelector -LegacyMembershipInfo @{ key_example =  } -Enabled $true -Requestable $true -AccessRequestConfig $RequestabilityForRole -RevocationRequestConfig $RevocabilityForRole -Segments "MySegments" -Dimensional $false -DimensionRefs "MyDimensionRefs" -AccessModelMetadata $AttributeDTOList # Role | 
+$Role = Initialize-Role -Id "2c918086749d78830174a1a40e121518" -Name "Role 2567" -Created (Get-Date) -Modified (Get-Date) -Description "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor." -Owner $OwnerReference -AccessProfiles $AccessProfileRef -Entitlements $EntitlementRef -Membership $RoleMembershipSelector -LegacyMembershipInfo @{ key_example =  } -Enabled $true -Requestable $true -AccessRequestConfig $RequestabilityForRole -RevocationRequestConfig $RevocabilityForRole -Segments "MySegments" -Dimensional $false -DimensionRefs $DimensionRef -AccessModelMetadata $AttributeDTOList # Role | 
 
 # Create a Role
 try {

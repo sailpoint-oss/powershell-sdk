@@ -1128,13 +1128,16 @@ List Schemas on Source
 
 .DESCRIPTION
 
-Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC). 
+Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
 .PARAMETER SourceId
 Source ID.
 
 .PARAMETER IncludeTypes
-If this is set to `group`, the API filters the account schema and only returns only group schemas. If this is set to `user`, the API returns the account schema for the source. 
+If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+
+.PARAMETER IncludeNames
+A comma-separated list of schema names to filter result.
 
 .PARAMETER WithHttpInfo
 
@@ -1154,6 +1157,9 @@ function Get-SourceSchemas {
         [ValidateSet("group", "user")]
         [String]
         ${IncludeTypes},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${IncludeNames},
         [Switch]
         $WithHttpInfo
     )
@@ -1182,6 +1188,10 @@ function Get-SourceSchemas {
 
         if ($IncludeTypes) {
             $LocalVarQueryParameters['include-types'] = $IncludeTypes
+        }
+
+        if ($IncludeNames) {
+            $LocalVarQueryParameters['include-names'] = $IncludeNames
         }
 
 

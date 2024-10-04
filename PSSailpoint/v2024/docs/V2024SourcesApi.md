@@ -1045,10 +1045,11 @@ Name | Type | Description  | Notes
 > Schema[] Get-V2024SourceSchemas<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeTypes] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IncludeNames] <String><br>
 
 List Schemas on Source
 
-Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC). 
+Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
 ### Example
 ```powershell
@@ -1061,11 +1062,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$IncludeTypes = "group" # String | If this is set to `group`, the API filters the account schema and only returns only group schemas. If this is set to `user`, the API returns the account schema for the source.  (optional)
+$IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
+$IncludeNames = "account" # String | A comma-separated list of schema names to filter result. (optional)
 
 # List Schemas on Source
 try {
-    $Result = Get-V2024SourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes
+    $Result = Get-V2024SourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes -IncludeNames $IncludeNames
 } catch {
     Write-Host ("Exception occurred when calling Get-V2024SourceSchemas: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1077,7 +1079,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| Source ID. | 
- **IncludeTypes** | **String**| If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source.  | [optional] 
+ **IncludeTypes** | **String**| If set to &#39;group&#39;, then the account schema is filtered and only group schemas are returned. Only a value of &#39;group&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. | [optional] 
+ **IncludeNames** | **String**| A comma-separated list of schema names to filter result. | [optional] 
 
 ### Return type
 

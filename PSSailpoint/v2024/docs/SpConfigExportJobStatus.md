@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | The time the job was started. | 
 **Modified** | **System.DateTime** | The time of the last update to the job. | 
 **Description** | **String** | Optional user defined description/name for export job. | [optional] 
-**Completed** | **System.DateTime** | The time the job was completed. | 
+**Completed** | **System.DateTime** | The time the job was completed. | [optional] 
 
 ## Examples
 

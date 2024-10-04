@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | The time the job was started. | 
 **Modified** | **System.DateTime** | The time of the last update to the job. | 
 **Message** | **String** | This message contains additional information about the overall status of the job. | 
-**Completed** | **System.DateTime** | The time the job was completed. | 
+**Completed** | **System.DateTime** | The time the job was completed. | [optional] 
 
 ## Examples
 

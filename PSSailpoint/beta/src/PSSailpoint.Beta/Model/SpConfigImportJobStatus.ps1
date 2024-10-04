@@ -62,7 +62,7 @@ function Initialize-BetaSpConfigImportJobStatus {
         [String]
         ${Message},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
+        [System.Nullable[System.DateTime]]
         ${Completed}
     )
 
@@ -96,10 +96,6 @@ function Initialize-BetaSpConfigImportJobStatus {
 
         if (!$Message) {
             throw "invalid value for 'Message', 'Message' cannot be null."
-        }
-
-        if (!$Completed) {
-            throw "invalid value for 'Completed', 'Completed' cannot be null."
         }
 
 
@@ -201,8 +197,8 @@ function ConvertFrom-BetaJsonToSpConfigImportJobStatus {
             $Message = $JsonParameters.PSobject.Properties["message"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completed"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'completed' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completed"))) { #optional property not found
+            $Completed = $null
         } else {
             $Completed = $JsonParameters.PSobject.Properties["completed"].value
         }

@@ -62,7 +62,7 @@ function Initialize-BetaSpConfigExportJobStatus {
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
+        [System.Nullable[System.DateTime]]
         ${Completed}
     )
 
@@ -92,10 +92,6 @@ function Initialize-BetaSpConfigExportJobStatus {
 
         if (!$Modified) {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
-        }
-
-        if (!$Completed) {
-            throw "invalid value for 'Completed', 'Completed' cannot be null."
         }
 
 
@@ -191,16 +187,16 @@ function ConvertFrom-BetaJsonToSpConfigExportJobStatus {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completed"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'completed' missing."
-        } else {
-            $Completed = $JsonParameters.PSobject.Properties["completed"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "completed"))) { #optional property not found
+            $Completed = $null
+        } else {
+            $Completed = $JsonParameters.PSobject.Properties["completed"].value
         }
 
         $PSO = [PSCustomObject]@{

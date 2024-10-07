@@ -224,6 +224,14 @@ Class | Method | HTTP request | Description
 *V2024CustomPasswordInstructionsApi* | [**New-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#New-V2024CustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *V2024CustomPasswordInstructionsApi* | [**Remove-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#Remove-V2024CustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *V2024CustomPasswordInstructionsApi* | [**Get-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#Get-V2024CustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
+*V2024DimensionsApi* | [**New-V2024Dimension**](docs/V2024DimensionsApi.md#New-V2024Dimension) | **POST** /roles/{roleId}/dimensions | Create a Dimension
+*V2024DimensionsApi* | [**Remove-V2024BulkDimensions**](docs/V2024DimensionsApi.md#Remove-V2024BulkDimensions) | **POST** /roles/{roleId}/dimensions/bulk-delete | Delete Dimension(s)
+*V2024DimensionsApi* | [**Remove-V2024Dimension**](docs/V2024DimensionsApi.md#Remove-V2024Dimension) | **DELETE** /roles/{roleId}/dimensions/{dimensionId} | Delete a Dimension
+*V2024DimensionsApi* | [**Get-V2024Dimension**](docs/V2024DimensionsApi.md#Get-V2024Dimension) | **GET** /roles/{roleId}/dimensions/{dimensionId} | Get a Dimension under Role.
+*V2024DimensionsApi* | [**Get-V2024DimensionEntitlements**](docs/V2024DimensionsApi.md#Get-V2024DimensionEntitlements) | **GET** /roles/{roleId}/dimensions/{dimensionId}/entitlements | List Dimension's Entitlements
+*V2024DimensionsApi* | [**Get-V2024DimensionAccessProfiles**](docs/V2024DimensionsApi.md#Get-V2024DimensionAccessProfiles) | **GET** /roles/{roleId}/dimensions/{dimensionId}/access-profiles | List Dimension's Access Profiles
+*V2024DimensionsApi* | [**Get-V2024Dimensions**](docs/V2024DimensionsApi.md#Get-V2024Dimensions) | **GET** /roles/{roleId}/dimensions | List Dimensions
+*V2024DimensionsApi* | [**Update-V2024Dimension**](docs/V2024DimensionsApi.md#Update-V2024Dimension) | **PATCH** /roles/{roleId}/dimensions/{dimensionId} | Patch a specified Dimension
 *V2024EntitlementsApi* | [**New-V2024AccessModelMetadataForEntitlement**](docs/V2024EntitlementsApi.md#New-V2024AccessModelMetadataForEntitlement) | **POST** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add metadata to an entitlement.
 *V2024EntitlementsApi* | [**Remove-V2024AccessModelMetadataFromEntitlement**](docs/V2024EntitlementsApi.md#Remove-V2024AccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 *V2024EntitlementsApi* | [**Get-V2024Entitlement**](docs/V2024EntitlementsApi.md#Get-V2024Entitlement) | **GET** /entitlements/{id} | Get an entitlement
@@ -989,6 +997,16 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
  - [PSSailpoint.V2024\Model.DeployRequest](docs/DeployRequest.md)
  - [PSSailpoint.V2024\Model.DeployResponse](docs/DeployResponse.md)
+ - [PSSailpoint.V2024\Model.Dimension](docs/Dimension.md)
+ - [PSSailpoint.V2024\Model.DimensionBulkDeleteRequest](docs/DimensionBulkDeleteRequest.md)
+ - [PSSailpoint.V2024\Model.DimensionCriteriaKey](docs/DimensionCriteriaKey.md)
+ - [PSSailpoint.V2024\Model.DimensionCriteriaKeyType](docs/DimensionCriteriaKeyType.md)
+ - [PSSailpoint.V2024\Model.DimensionCriteriaLevel1](docs/DimensionCriteriaLevel1.md)
+ - [PSSailpoint.V2024\Model.DimensionCriteriaLevel2](docs/DimensionCriteriaLevel2.md)
+ - [PSSailpoint.V2024\Model.DimensionCriteriaLevel3](docs/DimensionCriteriaLevel3.md)
+ - [PSSailpoint.V2024\Model.DimensionCriteriaOperation](docs/DimensionCriteriaOperation.md)
+ - [PSSailpoint.V2024\Model.DimensionMembershipSelector](docs/DimensionMembershipSelector.md)
+ - [PSSailpoint.V2024\Model.DimensionMembershipSelectorType](docs/DimensionMembershipSelectorType.md)
  - [PSSailpoint.V2024\Model.DimensionRef](docs/DimensionRef.md)
  - [PSSailpoint.V2024\Model.DisplayReference](docs/DisplayReference.md)
  - [PSSailpoint.V2024\Model.DkimAttributes](docs/DkimAttributes.md)

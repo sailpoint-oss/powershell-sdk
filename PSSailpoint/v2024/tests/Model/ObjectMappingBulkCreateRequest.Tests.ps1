@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024ObjectMappingBulkCreateRequest' {
     Context 'V2024ObjectMappingBulkCreateRequest' {
         It 'Initialize-V2024ObjectMappingBulkCreateRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024ObjectMappingBulkCreateRequest -NewObjectMappings "TEST_VALUE"
+            #$NewObject = Initialize-V2024ObjectMappingBulkCreateRequest -NewObjectsMappings "TEST_VALUE"
             #$NewObject | Should -BeOfType ObjectMappingBulkCreateRequest
             #$NewObject.property | Should -Be 0
         }

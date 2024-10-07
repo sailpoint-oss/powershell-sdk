@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewObjectMappings** | [**ObjectMappingRequest[]**](ObjectMappingRequest.md) |  | 
+**NewObjectsMappings** | [**ObjectMappingRequest[]**](ObjectMappingRequest.md) |  | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ObjectMappingBulkCreateRequest = Initialize-PSSailpoint.V3ObjectMappingBulkCreateRequest  -NewObjectMappings null
+$ObjectMappingBulkCreateRequest = Initialize-PSSailpoint.V3ObjectMappingBulkCreateRequest  -NewObjectsMappings null
 ```
 
 - Convert the resource to JSON

@@ -14,7 +14,7 @@ No summary available.
 
 No description available.
 
-.PARAMETER NewObjectMappings
+.PARAMETER NewObjectsMappings
 No description available.
 .OUTPUTS
 
@@ -26,20 +26,20 @@ function Initialize-V2024ObjectMappingBulkCreateRequest {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${NewObjectMappings}
+        ${NewObjectsMappings}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024ObjectMappingBulkCreateRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$NewObjectMappings) {
-            throw "invalid value for 'NewObjectMappings', 'NewObjectMappings' cannot be null."
+        if (!$NewObjectsMappings) {
+            throw "invalid value for 'NewObjectsMappings', 'NewObjectsMappings' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "newObjectMappings" = ${NewObjectMappings}
+            "newObjectsMappings" = ${NewObjectsMappings}
         }
 
         return $PSO
@@ -76,7 +76,7 @@ function ConvertFrom-V2024JsonToObjectMappingBulkCreateRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024ObjectMappingBulkCreateRequest
-        $AllProperties = ("newObjectMappings")
+        $AllProperties = ("newObjectsMappings")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -84,17 +84,17 @@ function ConvertFrom-V2024JsonToObjectMappingBulkCreateRequest {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'newObjectMappings' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'newObjectsMappings' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "newObjectMappings"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'newObjectMappings' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "newObjectsMappings"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'newObjectsMappings' missing."
         } else {
-            $NewObjectMappings = $JsonParameters.PSobject.Properties["newObjectMappings"].value
+            $NewObjectsMappings = $JsonParameters.PSobject.Properties["newObjectsMappings"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "newObjectMappings" = ${NewObjectMappings}
+            "newObjectsMappings" = ${NewObjectsMappings}
         }
 
         return $PSO

@@ -91,7 +91,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceOrg = "source-org" # String | The name of the source org.
 $ObjectMappingRequest = Initialize-ObjectMappingRequest -ObjectType "ACCESS_PROFILE" -JsonPath "$.name" -SourceValue "My Governance Group Name" -TargetValue "My New Governance Group Name" -Enabled $false
-$ObjectMappingBulkCreateRequest = Initialize-ObjectMappingBulkCreateRequest -NewObjectMappings $ObjectMappingRequest # ObjectMappingBulkCreateRequest | The bulk create object mapping request body.
+$ObjectMappingBulkCreateRequest = Initialize-ObjectMappingBulkCreateRequest -NewObjectsMappings $ObjectMappingRequest # ObjectMappingBulkCreateRequest | The bulk create object mapping request body.
 
 # Bulk creates object mappings
 try {

@@ -94,10 +94,6 @@ function Initialize-V2024SpConfigImportJobStatus {
             throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
-        if (!$Message) {
-            throw "invalid value for 'Message', 'Message' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "jobId" = ${JobId}
@@ -191,8 +187,8 @@ function ConvertFrom-V2024JsonToSpConfigImportJobStatus {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "message"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'message' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "message"))) { #optional property not found
+            $Message = $null
         } else {
             $Message = $JsonParameters.PSobject.Properties["message"].value
         }

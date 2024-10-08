@@ -15,7 +15,7 @@ No summary available.
 Arguments for Identity Profile Identity Error report (IDENTITY_PROFILE_IDENTITY_ERROR)
 
 .PARAMETER AuthoritativeSource
-Source Id to be checked on errors of identity profiles aggregation
+Source ID.
 .OUTPUTS
 
 IdentityProfileIdentityErrorReportArguments<PSCustomObject>

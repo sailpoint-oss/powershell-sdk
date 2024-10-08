@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Application** | **String** | Id of the authoritative source to export related accounts e.g. identities | 
-**SourceName** | **String** | Name of the authoritative source for accounts export | 
+**Application** | **String** | Source ID. | 
+**SourceName** | **String** | Source name. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $AccountsExportReportArguments = Initialize-PSSailpoint.V2024AccountsExportReportArguments  -Application 2c9180897eSourceIde781782f705b9 `
- -SourceName DataScienceSourceName
+ -SourceName Active Directory
 ```
 
 - Convert the resource to JSON

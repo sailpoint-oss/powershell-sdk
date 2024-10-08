@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportDetails = Initialize-PSSailpoint.V3ReportDetails  -ReportType IDENTITIES_DETAILS `
+$ReportDetails = Initialize-PSSailpoint.V3ReportDetails  -ReportType ACCOUNTS `
  -Arguments null
 ```
 

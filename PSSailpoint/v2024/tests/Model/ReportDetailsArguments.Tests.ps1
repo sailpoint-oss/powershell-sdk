@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024ReportDetailsArguments' {
     Context 'V2024ReportDetailsArguments' {
         It 'Initialize-V2024ReportDetailsArguments' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024ReportDetailsArguments -Application "TEST_VALUE" -SourceName "TEST_VALUE" -CorrelatedOnly "TEST_VALUE" -AuthoritativeSource "TEST_VALUE" -SelectedFormats "TEST_VALUE" -Indices "TEST_VALUE" -Filters "TEST_VALUE" -Query "TEST_VALUE" -IncludeNested "TEST_VALUE" -Sort "TEST_VALUE"
+            #$NewObject = Initialize-V2024ReportDetailsArguments -Application "TEST_VALUE" -SourceName "TEST_VALUE" -CorrelatedOnly "TEST_VALUE" -AuthoritativeSource "TEST_VALUE" -SelectedFormats "TEST_VALUE" -Indices "TEST_VALUE" -Query "TEST_VALUE" -Columns "TEST_VALUE" -Sort "TEST_VALUE"
             #$NewObject | Should -BeOfType ReportDetailsArguments
             #$NewObject.property | Should -Be 0
         }

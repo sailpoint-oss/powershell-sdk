@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CorrelatedOnly** | **Boolean** | Boolean FLAG to specify if only correlated identities should be used in report processing | [default to $false]
+**CorrelatedOnly** | **Boolean** | Flag to specify if only correlated identities are included in report. | [default to $false]
 
 ## Examples
 

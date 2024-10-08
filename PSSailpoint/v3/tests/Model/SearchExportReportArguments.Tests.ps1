@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'SearchExportReportArguments' {
     Context 'SearchExportReportArguments' {
         It 'Initialize-SearchExportReportArguments' {
             # a simple test to create an object
-            #$NewObject = Initialize-SearchExportReportArguments -Indices "TEST_VALUE" -Filters "TEST_VALUE" -Query "TEST_VALUE" -IncludeNested "TEST_VALUE" -Sort "TEST_VALUE"
+            #$NewObject = Initialize-SearchExportReportArguments -Indices "TEST_VALUE" -Query "TEST_VALUE" -Columns "TEST_VALUE" -Sort "TEST_VALUE"
             #$NewObject | Should -BeOfType SearchExportReportArguments
             #$NewObject.property | Should -Be 0
         }

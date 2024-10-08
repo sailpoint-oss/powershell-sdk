@@ -12,12 +12,12 @@ No summary available.
 
 .DESCRIPTION
 
-Arguments for Account Export (ACCOUNTS)
+Arguments for Account Export report (ACCOUNTS)
 
 .PARAMETER Application
-Id of the authoritative source to export related accounts e.g. identities
+Source ID.
 .PARAMETER SourceName
-Name of the authoritative source for accounts export
+Source name.
 .OUTPUTS
 
 AccountsExportReportArguments<PSCustomObject>

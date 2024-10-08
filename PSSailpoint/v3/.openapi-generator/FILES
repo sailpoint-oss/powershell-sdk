@@ -376,7 +376,7 @@ docs/ObjectMappingResponse.md
 docs/OktaVerificationRequest.md
 docs/Operation.md
 docs/OriginalRequest.md
-docs/OrphanUncorrelatedReportArguments.md
+docs/OrphanIdentitiesReportArguments.md
 docs/OwnerDto.md
 docs/OwnerReference.md
 docs/OwnerReferenceSegments.md
@@ -607,6 +607,7 @@ docs/Trim.md
 docs/TypeAheadQuery.md
 docs/TypedReference.md
 docs/UUIDGenerator.md
+docs/UncorrelatedAccountsReportArguments.md
 docs/UpdateDetail.md
 docs/Upper.md
 docs/UsageType.md
@@ -1056,7 +1057,7 @@ src/PSSailpoint.V3/Model/ObjectMappingResponse.ps1
 src/PSSailpoint.V3/Model/OktaVerificationRequest.ps1
 src/PSSailpoint.V3/Model/Operation.ps1
 src/PSSailpoint.V3/Model/OriginalRequest.ps1
-src/PSSailpoint.V3/Model/OrphanUncorrelatedReportArguments.ps1
+src/PSSailpoint.V3/Model/OrphanIdentitiesReportArguments.ps1
 src/PSSailpoint.V3/Model/OwnerDto.ps1
 src/PSSailpoint.V3/Model/OwnerReference.ps1
 src/PSSailpoint.V3/Model/OwnerReferenceSegments.ps1
@@ -1264,6 +1265,7 @@ src/PSSailpoint.V3/Model/Trim.ps1
 src/PSSailpoint.V3/Model/TypeAheadQuery.ps1
 src/PSSailpoint.V3/Model/TypedReference.ps1
 src/PSSailpoint.V3/Model/UUIDGenerator.ps1
+src/PSSailpoint.V3/Model/UncorrelatedAccountsReportArguments.ps1
 src/PSSailpoint.V3/Model/UpdateDetail.ps1
 src/PSSailpoint.V3/Model/Upper.ps1
 src/PSSailpoint.V3/Model/UsageType.ps1
@@ -1715,7 +1717,7 @@ tests/Model/ObjectMappingResponse.Tests.ps1
 tests/Model/OktaVerificationRequest.Tests.ps1
 tests/Model/Operation.Tests.ps1
 tests/Model/OriginalRequest.Tests.ps1
-tests/Model/OrphanUncorrelatedReportArguments.Tests.ps1
+tests/Model/OrphanIdentitiesReportArguments.Tests.ps1
 tests/Model/OwnerDto.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
 tests/Model/OwnerReferenceSegments.Tests.ps1
@@ -1923,6 +1925,7 @@ tests/Model/Trim.Tests.ps1
 tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
+tests/Model/UncorrelatedAccountsReportArguments.Tests.ps1
 tests/Model/UpdateDetail.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1

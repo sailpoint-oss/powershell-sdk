@@ -15,7 +15,7 @@ No summary available.
 Arguments for Identities report (IDENTITIES)
 
 .PARAMETER CorrelatedOnly
-Boolean FLAG to specify if only correlated identities should be used in report processing
+Flag to specify if only correlated identities are included in report.
 .OUTPUTS
 
 IdentitiesReportArguments<PSCustomObject>

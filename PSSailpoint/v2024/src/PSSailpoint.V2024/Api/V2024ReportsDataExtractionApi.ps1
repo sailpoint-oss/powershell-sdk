@@ -288,7 +288,7 @@ Run Report
 
 .DESCRIPTION
 
-Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
 
 .PARAMETER ReportDetails
 No description available.
@@ -348,6 +348,7 @@ function Start-V2024Report {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

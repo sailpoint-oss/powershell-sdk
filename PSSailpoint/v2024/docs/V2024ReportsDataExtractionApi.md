@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 Run Report
 
-Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
 
 ### Example
 ```powershell
@@ -194,18 +194,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-"CSV"
+# Configure OAuth2 access token for authorization: applicationAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Bound = Initialize-Bound -Value "1" -Inclusive $false
-$Range = Initialize-Range -Lower $Bound -Upper $Bound
-
-$ModelFilter = Initialize-ModelFilter -Type "EXISTS" -Range $Range -Terms "account_count" -Exclude $false
-
-$InnerHit = Initialize-InnerHit -Query "source.name:\"Active Directory\"" -Type "access"
-$Query = Initialize-Query -Query "name:a*" -Fields "[firstName,lastName,email]" -TimeZone "America/Chicago" -InnerHit $InnerHit
-
-$ReportDetailsArguments = Initialize-ReportDetailsArguments -Application "2c9180897eSourceIde781782f705b9" -SourceName "DataScienceSourceName" -CorrelatedOnly $true -AuthoritativeSource "1234sourceId5678902" -SelectedFormats "CSV" -Indices "accessprofiles" -Filters @{ key_example = $ModelFilter } -Query $Query -IncludeNested $true -Sort "MySort"
-
+"CSV"$ReportDetailsArguments = Initialize-ReportDetailsArguments -Application "2c9180897eSourceIde781782f705b9" -SourceName "Active Directory" -CorrelatedOnly $true -AuthoritativeSource "1234sourceId5678902" -SelectedFormats "CSV" -Indices "accessprofiles" -Query "name:a*" -Columns "displayName,firstName,lastName,email,created,attributes.cloudLifecycleState" -Sort "MySort"
 $ReportDetails = Initialize-ReportDetails -ReportType "ACCOUNTS" -Arguments $ReportDetailsArguments # ReportDetails | 
 
 # Run Report
@@ -229,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
 
 ### HTTP request headers
 

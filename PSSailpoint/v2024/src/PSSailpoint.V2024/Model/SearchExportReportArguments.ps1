@@ -12,16 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Arguments for Search Export report (SEARCH_EXPORT)
+Arguments for Search Export report (SEARCH_EXPORT)  The report file generated will be a zip file containing csv files of the search results. 
 
 .PARAMETER Indices
 The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
-.PARAMETER Filters
-The filters to be applied for each filtered field name.
 .PARAMETER Query
-No description available.
-.PARAMETER IncludeNested
-Indicates whether nested objects from returned search results should be included.
+The query using the Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL extended by SailPoint to support Nested queries.
+.PARAMETER Columns
+Comma separated string consisting of technical attribute names of fields to include in report.  Use `access.spread`, `apps.spread`, `accounts.spread` to include respective identity access details.  Use `accessProfiles.spread` to unclude access profile details.  Use `entitlements.spread` to include entitlement details. 
 .PARAMETER Sort
 The fields to be used to sort the search results. Use + or - to specify the sort direction.
 .OUTPUTS
@@ -36,14 +34,11 @@ function Initialize-V2024SearchExportReportArguments {
         [PSCustomObject[]]
         ${Indices},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable]
-        ${Filters},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Query},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${IncludeNested} = $true,
+        [String]
+        ${Columns},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${Sort}
@@ -60,9 +55,8 @@ function Initialize-V2024SearchExportReportArguments {
 
         $PSO = [PSCustomObject]@{
             "indices" = ${Indices}
-            "filters" = ${Filters}
             "query" = ${Query}
-            "includeNested" = ${IncludeNested}
+            "columns" = ${Columns}
             "sort" = ${Sort}
         }
 
@@ -100,7 +94,7 @@ function ConvertFrom-V2024JsonToSearchExportReportArguments {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024SearchExportReportArguments
-        $AllProperties = ("indices", "filters", "query", "includeNested", "sort")
+        $AllProperties = ("indices", "query", "columns", "sort")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -123,16 +117,10 @@ function ConvertFrom-V2024JsonToSearchExportReportArguments {
             $Indices = $JsonParameters.PSobject.Properties["indices"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "filters"))) { #optional property not found
-            $Filters = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "columns"))) { #optional property not found
+            $Columns = $null
         } else {
-            $Filters = $JsonParameters.PSobject.Properties["filters"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "includeNested"))) { #optional property not found
-            $IncludeNested = $null
-        } else {
-            $IncludeNested = $JsonParameters.PSobject.Properties["includeNested"].value
+            $Columns = $JsonParameters.PSobject.Properties["columns"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sort"))) { #optional property not found
@@ -143,9 +131,8 @@ function ConvertFrom-V2024JsonToSearchExportReportArguments {
 
         $PSO = [PSCustomObject]@{
             "indices" = ${Indices}
-            "filters" = ${Filters}
             "query" = ${Query}
-            "includeNested" = ${IncludeNested}
+            "columns" = ${Columns}
             "sort" = ${Sort}
         }
 

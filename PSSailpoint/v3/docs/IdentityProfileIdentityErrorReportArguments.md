@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthoritativeSource** | **String** | Source Id to be checked on errors of identity profiles aggregation | 
+**AuthoritativeSource** | **String** | Source ID. | 
 
 ## Examples
 

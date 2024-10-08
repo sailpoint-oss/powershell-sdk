@@ -12,10 +12,10 @@ No summary available.
 
 .DESCRIPTION
 
-Arguments for Identities details report (IDENTITIES_DETAILS)
+Arguments for Identities Details report (IDENTITIES_DETAILS)
 
 .PARAMETER CorrelatedOnly
-Boolean FLAG to specify if only correlated identities should be used in report processing
+Flag to specify if only correlated identities are included in report.
 .OUTPUTS
 
 IdentitiesDetailsReportArguments<PSCustomObject>

@@ -175,6 +175,7 @@ docs/BetaConnectorRuleManagementApi.md
 docs/BetaConnectorsApi.md
 docs/BetaCustomFormsApi.md
 docs/BetaCustomPasswordInstructionsApi.md
+docs/BetaDefaultApi.md
 docs/BetaEntitlementsApi.md
 docs/BetaGovernanceGroupsApi.md
 docs/BetaIAIAccessRequestRecommendationsApi.md
@@ -189,6 +190,7 @@ docs/BetaIdentitiesApi.md
 docs/BetaIdentityAttributesApi.md
 docs/BetaIdentityHistoryApi.md
 docs/BetaIdentityProfilesApi.md
+docs/BetaLaunchersApi.md
 docs/BetaLifecycleStatesApi.md
 docs/BetaMFAConfigurationApi.md
 docs/BetaMFAControllerApi.md
@@ -416,6 +418,7 @@ docs/GetActiveCampaigns200ResponseInner.md
 docs/GetDiscoveredApplications200ResponseInner.md
 docs/GetFormDefinitionByKey400Response.md
 docs/GetHistoricalIdentityEvents200ResponseInner.md
+docs/GetLaunchers200Response.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
@@ -505,6 +508,11 @@ docs/KbaAuthResponse.md
 docs/KbaAuthResponseItem.md
 docs/KbaQuestion.md
 docs/LatestOutlierSummary.md
+docs/Launcher.md
+docs/LauncherOwner.md
+docs/LauncherReference.md
+docs/LauncherRequest.md
+docs/LauncherRequestReference.md
 docs/LeftPad.md
 docs/License.md
 docs/LifecycleState.md
@@ -874,6 +882,7 @@ docs/SpConfigRules.md
 docs/Split.md
 docs/StandardLevel.md
 docs/StartInvocationInput.md
+docs/StartLauncher200Response.md
 docs/Static.md
 docs/StatusResponse.md
 docs/Subscription.md
@@ -1008,6 +1017,7 @@ src/PSSailpoint.Beta/Api/BetaConnectorRuleManagementApi.ps1
 src/PSSailpoint.Beta/Api/BetaConnectorsApi.ps1
 src/PSSailpoint.Beta/Api/BetaCustomFormsApi.ps1
 src/PSSailpoint.Beta/Api/BetaCustomPasswordInstructionsApi.ps1
+src/PSSailpoint.Beta/Api/BetaDefaultApi.ps1
 src/PSSailpoint.Beta/Api/BetaEntitlementsApi.ps1
 src/PSSailpoint.Beta/Api/BetaGovernanceGroupsApi.ps1
 src/PSSailpoint.Beta/Api/BetaIAIAccessRequestRecommendationsApi.ps1
@@ -1022,6 +1032,7 @@ src/PSSailpoint.Beta/Api/BetaIdentitiesApi.ps1
 src/PSSailpoint.Beta/Api/BetaIdentityAttributesApi.ps1
 src/PSSailpoint.Beta/Api/BetaIdentityHistoryApi.ps1
 src/PSSailpoint.Beta/Api/BetaIdentityProfilesApi.ps1
+src/PSSailpoint.Beta/Api/BetaLaunchersApi.ps1
 src/PSSailpoint.Beta/Api/BetaLifecycleStatesApi.ps1
 src/PSSailpoint.Beta/Api/BetaMFAConfigurationApi.ps1
 src/PSSailpoint.Beta/Api/BetaMFAControllerApi.ps1
@@ -1403,6 +1414,7 @@ src/PSSailpoint.Beta/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpoint.Beta/Model/GetDiscoveredApplications200ResponseInner.ps1
 src/PSSailpoint.Beta/Model/GetFormDefinitionByKey400Response.ps1
 src/PSSailpoint.Beta/Model/GetHistoricalIdentityEvents200ResponseInner.ps1
+src/PSSailpoint.Beta/Model/GetLaunchers200Response.ps1
 src/PSSailpoint.Beta/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint.Beta/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpoint.Beta/Model/GetReferenceIdentityAttribute.ps1
@@ -1492,6 +1504,11 @@ src/PSSailpoint.Beta/Model/KbaAuthResponse.ps1
 src/PSSailpoint.Beta/Model/KbaAuthResponseItem.ps1
 src/PSSailpoint.Beta/Model/KbaQuestion.ps1
 src/PSSailpoint.Beta/Model/LatestOutlierSummary.ps1
+src/PSSailpoint.Beta/Model/Launcher.ps1
+src/PSSailpoint.Beta/Model/LauncherOwner.ps1
+src/PSSailpoint.Beta/Model/LauncherReference.ps1
+src/PSSailpoint.Beta/Model/LauncherRequest.ps1
+src/PSSailpoint.Beta/Model/LauncherRequestReference.ps1
 src/PSSailpoint.Beta/Model/LeftPad.ps1
 src/PSSailpoint.Beta/Model/License.ps1
 src/PSSailpoint.Beta/Model/LifecycleState.ps1
@@ -1862,6 +1879,7 @@ src/PSSailpoint.Beta/Model/SpConfigRules.ps1
 src/PSSailpoint.Beta/Model/Split.ps1
 src/PSSailpoint.Beta/Model/StandardLevel.ps1
 src/PSSailpoint.Beta/Model/StartInvocationInput.ps1
+src/PSSailpoint.Beta/Model/StartLauncher200Response.ps1
 src/PSSailpoint.Beta/Model/Static.ps1
 src/PSSailpoint.Beta/Model/StatusResponse.ps1
 src/PSSailpoint.Beta/Model/Subscription.ps1
@@ -2003,6 +2021,7 @@ tests/Api/BetaConnectorRuleManagementApi.Tests.ps1
 tests/Api/BetaConnectorsApi.Tests.ps1
 tests/Api/BetaCustomFormsApi.Tests.ps1
 tests/Api/BetaCustomPasswordInstructionsApi.Tests.ps1
+tests/Api/BetaDefaultApi.Tests.ps1
 tests/Api/BetaEntitlementsApi.Tests.ps1
 tests/Api/BetaGovernanceGroupsApi.Tests.ps1
 tests/Api/BetaIAIAccessRequestRecommendationsApi.Tests.ps1
@@ -2017,6 +2036,7 @@ tests/Api/BetaIdentitiesApi.Tests.ps1
 tests/Api/BetaIdentityAttributesApi.Tests.ps1
 tests/Api/BetaIdentityHistoryApi.Tests.ps1
 tests/Api/BetaIdentityProfilesApi.Tests.ps1
+tests/Api/BetaLaunchersApi.Tests.ps1
 tests/Api/BetaLifecycleStatesApi.Tests.ps1
 tests/Api/BetaMFAConfigurationApi.Tests.ps1
 tests/Api/BetaMFAControllerApi.Tests.ps1
@@ -2397,6 +2417,7 @@ tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
 tests/Model/GetFormDefinitionByKey400Response.Tests.ps1
 tests/Model/GetHistoricalIdentityEvents200ResponseInner.Tests.ps1
+tests/Model/GetLaunchers200Response.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1
@@ -2486,6 +2507,11 @@ tests/Model/KbaAuthResponse.Tests.ps1
 tests/Model/KbaAuthResponseItem.Tests.ps1
 tests/Model/KbaQuestion.Tests.ps1
 tests/Model/LatestOutlierSummary.Tests.ps1
+tests/Model/Launcher.Tests.ps1
+tests/Model/LauncherOwner.Tests.ps1
+tests/Model/LauncherReference.Tests.ps1
+tests/Model/LauncherRequest.Tests.ps1
+tests/Model/LauncherRequestReference.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
 tests/Model/License.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
@@ -2856,6 +2882,7 @@ tests/Model/SpConfigRules.Tests.ps1
 tests/Model/Split.Tests.ps1
 tests/Model/StandardLevel.Tests.ps1
 tests/Model/StartInvocationInput.Tests.ps1
+tests/Model/StartLauncher200Response.Tests.ps1
 tests/Model/Static.Tests.ps1
 tests/Model/StatusResponse.Tests.ps1
 tests/Model/Subscription.Tests.ps1

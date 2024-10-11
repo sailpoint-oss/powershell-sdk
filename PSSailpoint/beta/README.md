@@ -177,6 +177,9 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**New-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
+*BetaDefaultApi* | [**New-BetaLauncher**](docs/BetaDefaultApi.md#New-BetaLauncher) | **POST** /launchers | Create launcher
+*BetaDefaultApi* | [**Remove-BetaLauncher**](docs/BetaDefaultApi.md#Remove-BetaLauncher) | **DELETE** /launchers/{launcherID} | Delete Launcher
+*BetaDefaultApi* | [**Send-BetaLauncher**](docs/BetaDefaultApi.md#Send-BetaLauncher) | **PUT** /launchers/{launcherID} | Replace Launcher
 *BetaEntitlementsApi* | [**New-BetaAccessModelMetadataForEntitlement**](docs/BetaEntitlementsApi.md#New-BetaAccessModelMetadataForEntitlement) | **POST** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add metadata to an entitlement.
 *BetaEntitlementsApi* | [**Remove-BetaAccessModelMetadataFromEntitlement**](docs/BetaEntitlementsApi.md#Remove-BetaAccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
@@ -289,6 +292,9 @@ Class | Method | HTTP request | Description
 *BetaIdentityProfilesApi* | [**Show-BetaGenerateIdentityPreview**](docs/BetaIdentityProfilesApi.md#Show-BetaGenerateIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 *BetaIdentityProfilesApi* | [**Sync-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Sync-BetaIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 *BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
+*BetaLaunchersApi* | [**Get-BetaLauncher**](docs/BetaLaunchersApi.md#Get-BetaLauncher) | **GET** /launchers/{launcherID} | Get Launcher by ID
+*BetaLaunchersApi* | [**Get-BetaLaunchers**](docs/BetaLaunchersApi.md#Get-BetaLaunchers) | **GET** /launchers | List all Launchers for tenant
+*BetaLaunchersApi* | [**Start-BetaLauncher**](docs/BetaLaunchersApi.md#Start-BetaLauncher) | **POST** /beta/launchers/{launcherID}/launch | Launch a Launcher
 *BetaLifecycleStatesApi* | [**Get-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
 *BetaLifecycleStatesApi* | [**Update-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
 *BetaMFAConfigurationApi* | [**Remove-BetaMFAConfig**](docs/BetaMFAConfigurationApi.md#Remove-BetaMFAConfig) | **DELETE** /mfa/{method}/delete | Delete MFA method configuration
@@ -943,6 +949,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.GetDiscoveredApplications200ResponseInner](docs/GetDiscoveredApplications200ResponseInner.md)
  - [PSSailpoint.Beta\Model.GetFormDefinitionByKey400Response](docs/GetFormDefinitionByKey400Response.md)
  - [PSSailpoint.Beta\Model.GetHistoricalIdentityEvents200ResponseInner](docs/GetHistoricalIdentityEvents200ResponseInner.md)
+ - [PSSailpoint.Beta\Model.GetLaunchers200Response](docs/GetLaunchers200Response.md)
  - [PSSailpoint.Beta\Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpoint.Beta\Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
  - [PSSailpoint.Beta\Model.GetReferenceIdentityAttribute](docs/GetReferenceIdentityAttribute.md)
@@ -1032,6 +1039,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.KbaAuthResponseItem](docs/KbaAuthResponseItem.md)
  - [PSSailpoint.Beta\Model.KbaQuestion](docs/KbaQuestion.md)
  - [PSSailpoint.Beta\Model.LatestOutlierSummary](docs/LatestOutlierSummary.md)
+ - [PSSailpoint.Beta\Model.Launcher](docs/Launcher.md)
+ - [PSSailpoint.Beta\Model.LauncherOwner](docs/LauncherOwner.md)
+ - [PSSailpoint.Beta\Model.LauncherReference](docs/LauncherReference.md)
+ - [PSSailpoint.Beta\Model.LauncherRequest](docs/LauncherRequest.md)
+ - [PSSailpoint.Beta\Model.LauncherRequestReference](docs/LauncherRequestReference.md)
  - [PSSailpoint.Beta\Model.LeftPad](docs/LeftPad.md)
  - [PSSailpoint.Beta\Model.License](docs/License.md)
  - [PSSailpoint.Beta\Model.LifecycleState](docs/LifecycleState.md)
@@ -1402,6 +1414,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.Split](docs/Split.md)
  - [PSSailpoint.Beta\Model.StandardLevel](docs/StandardLevel.md)
  - [PSSailpoint.Beta\Model.StartInvocationInput](docs/StartInvocationInput.md)
+ - [PSSailpoint.Beta\Model.StartLauncher200Response](docs/StartLauncher200Response.md)
  - [PSSailpoint.Beta\Model.Static](docs/Static.md)
  - [PSSailpoint.Beta\Model.StatusResponse](docs/StatusResponse.md)
  - [PSSailpoint.Beta\Model.Subscription](docs/Subscription.md)

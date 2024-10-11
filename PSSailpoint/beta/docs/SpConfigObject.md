@@ -4,36 +4,24 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjectType** | **String** | The object type this configuration is for. | [optional] 
-**ResolveByIdUrl** | [**SpConfigUrl**](SpConfigUrl.md) |  | [optional] 
-**ResolveByNameUrl** | [**SpConfigUrl[]**](SpConfigUrl.md) | Url and query parameters to be used to resolve this type of object by name. | [optional] 
-**ExportUrl** | [**SpConfigUrl**](SpConfigUrl.md) |  | [optional] 
-**ExportRight** | **String** | Rights needed by the invoker of sp-config/export in order to export this type of object. | [optional] 
-**ExportLimit** | **Int32** | Pagination limit imposed by the target service for this object type. | [optional] 
-**ImportUrl** | [**SpConfigUrl**](SpConfigUrl.md) |  | [optional] 
-**ImportRight** | **String** | Rights needed by the invoker of sp-config/import in order to import this type of object. | [optional] 
-**ImportLimit** | **Int32** | Pagination limit imposed by the target service for this object type. | [optional] 
 **ReferenceExtractors** | **String[]** | List of json paths within an exported object of this type that represent references that need to be resolved. | [optional] 
 **SignatureRequired** | **Boolean** | If true, this type of object will be JWS signed and cannot be modified before import. | [optional] [default to $false]
-**LegacyObject** | **Boolean** |  | [optional] [default to $false]
-**OnePerTenant** | **Boolean** |  | [optional] [default to $false]
+**LegacyObject** | **Boolean** | Whether this is a legacy object | [optional] [default to $false]
+**OnePerTenant** | **Boolean** | Whether there is only one object of this type | [optional] [default to $false]
+**Exportable** | **Boolean** | Whether this object can be exported or it is just a reference object | [optional] [default to $false]
+**Rules** | [**SpConfigRules**](SpConfigRules.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $SpConfigObject = Initialize-PSSailpoint.BetaSpConfigObject  -ObjectType TRIGGER_SUBSCRIPTION `
- -ResolveByIdUrl null `
- -ResolveByNameUrl null `
- -ExportUrl null `
- -ExportRight idn:trigger-service-subscriptions:read `
- -ExportLimit 10 `
- -ImportUrl null `
- -ImportRight idn:trigger-service-subscriptions:create `
- -ImportLimit 10 `
  -ReferenceExtractors [$.owner] `
  -SignatureRequired false `
  -LegacyObject false `
- -OnePerTenant false
+ -OnePerTenant false `
+ -Exportable true `
+ -Rules null
 ```
 
 - Convert the resource to JSON

@@ -869,7 +869,8 @@ docs/SpConfigImportResults.md
 docs/SpConfigJob.md
 docs/SpConfigMessage.md
 docs/SpConfigObject.md
-docs/SpConfigUrl.md
+docs/SpConfigRule.md
+docs/SpConfigRules.md
 docs/Split.md
 docs/StandardLevel.md
 docs/StartInvocationInput.md
@@ -1856,7 +1857,8 @@ src/PSSailpoint.Beta/Model/SpConfigImportResults.ps1
 src/PSSailpoint.Beta/Model/SpConfigJob.ps1
 src/PSSailpoint.Beta/Model/SpConfigMessage.ps1
 src/PSSailpoint.Beta/Model/SpConfigObject.ps1
-src/PSSailpoint.Beta/Model/SpConfigUrl.ps1
+src/PSSailpoint.Beta/Model/SpConfigRule.ps1
+src/PSSailpoint.Beta/Model/SpConfigRules.ps1
 src/PSSailpoint.Beta/Model/Split.ps1
 src/PSSailpoint.Beta/Model/StandardLevel.ps1
 src/PSSailpoint.Beta/Model/StartInvocationInput.ps1
@@ -2849,7 +2851,8 @@ tests/Model/SpConfigImportResults.Tests.ps1
 tests/Model/SpConfigJob.Tests.ps1
 tests/Model/SpConfigMessage.Tests.ps1
 tests/Model/SpConfigObject.Tests.ps1
-tests/Model/SpConfigUrl.Tests.ps1
+tests/Model/SpConfigRule.Tests.ps1
+tests/Model/SpConfigRules.Tests.ps1
 tests/Model/Split.Tests.ps1
 tests/Model/StandardLevel.Tests.ps1
 tests/Model/StartInvocationInput.Tests.ps1

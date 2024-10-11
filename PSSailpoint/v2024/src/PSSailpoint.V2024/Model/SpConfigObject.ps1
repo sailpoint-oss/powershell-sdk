@@ -16,29 +16,17 @@ Response model for get object configuration.
 
 .PARAMETER ObjectType
 The object type this configuration is for.
-.PARAMETER ResolveByIdUrl
-No description available.
-.PARAMETER ResolveByNameUrl
-Url and query parameters to be used to resolve this type of object by name.
-.PARAMETER ExportUrl
-No description available.
-.PARAMETER ExportRight
-Rights needed by the invoker of sp-config/export in order to export this type of object.
-.PARAMETER ExportLimit
-Pagination limit imposed by the target service for this object type.
-.PARAMETER ImportUrl
-No description available.
-.PARAMETER ImportRight
-Rights needed by the invoker of sp-config/import in order to import this type of object.
-.PARAMETER ImportLimit
-Pagination limit imposed by the target service for this object type.
 .PARAMETER ReferenceExtractors
 List of json paths within an exported object of this type that represent references that need to be resolved.
 .PARAMETER SignatureRequired
 If true, this type of object will be JWS signed and cannot be modified before import.
 .PARAMETER LegacyObject
-No description available.
+Whether this is a legacy object
 .PARAMETER OnePerTenant
+Whether there is only one object of this type
+.PARAMETER Exportable
+Whether this object can be exported or it is just a reference object
+.PARAMETER Rules
 No description available.
 .OUTPUTS
 
@@ -52,30 +40,6 @@ function Initialize-V2024SpConfigObject {
         [String]
         ${ObjectType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${ResolveByIdUrl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${ResolveByNameUrl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${ExportUrl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ExportRight},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${ExportLimit},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${ImportUrl},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ImportRight},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${ImportLimit},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${ReferenceExtractors},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -86,7 +50,13 @@ function Initialize-V2024SpConfigObject {
         ${LegacyObject} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${OnePerTenant} = $false
+        ${OnePerTenant} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Exportable} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Rules}
     )
 
     Process {
@@ -96,18 +66,12 @@ function Initialize-V2024SpConfigObject {
 
         $PSO = [PSCustomObject]@{
             "objectType" = ${ObjectType}
-            "resolveByIdUrl" = ${ResolveByIdUrl}
-            "resolveByNameUrl" = ${ResolveByNameUrl}
-            "exportUrl" = ${ExportUrl}
-            "exportRight" = ${ExportRight}
-            "exportLimit" = ${ExportLimit}
-            "importUrl" = ${ImportUrl}
-            "importRight" = ${ImportRight}
-            "importLimit" = ${ImportLimit}
             "referenceExtractors" = ${ReferenceExtractors}
             "signatureRequired" = ${SignatureRequired}
             "legacyObject" = ${LegacyObject}
             "onePerTenant" = ${OnePerTenant}
+            "exportable" = ${Exportable}
+            "rules" = ${Rules}
         }
 
         return $PSO
@@ -144,7 +108,7 @@ function ConvertFrom-V2024JsonToSpConfigObject {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024SpConfigObject
-        $AllProperties = ("objectType", "resolveByIdUrl", "resolveByNameUrl", "exportUrl", "exportRight", "exportLimit", "importUrl", "importRight", "importLimit", "referenceExtractors", "signatureRequired", "legacyObject", "onePerTenant")
+        $AllProperties = ("objectType", "referenceExtractors", "signatureRequired", "legacyObject", "onePerTenant", "exportable", "rules")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -155,54 +119,6 @@ function ConvertFrom-V2024JsonToSpConfigObject {
             $ObjectType = $null
         } else {
             $ObjectType = $JsonParameters.PSobject.Properties["objectType"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "resolveByIdUrl"))) { #optional property not found
-            $ResolveByIdUrl = $null
-        } else {
-            $ResolveByIdUrl = $JsonParameters.PSobject.Properties["resolveByIdUrl"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "resolveByNameUrl"))) { #optional property not found
-            $ResolveByNameUrl = $null
-        } else {
-            $ResolveByNameUrl = $JsonParameters.PSobject.Properties["resolveByNameUrl"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "exportUrl"))) { #optional property not found
-            $ExportUrl = $null
-        } else {
-            $ExportUrl = $JsonParameters.PSobject.Properties["exportUrl"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "exportRight"))) { #optional property not found
-            $ExportRight = $null
-        } else {
-            $ExportRight = $JsonParameters.PSobject.Properties["exportRight"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "exportLimit"))) { #optional property not found
-            $ExportLimit = $null
-        } else {
-            $ExportLimit = $JsonParameters.PSobject.Properties["exportLimit"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "importUrl"))) { #optional property not found
-            $ImportUrl = $null
-        } else {
-            $ImportUrl = $JsonParameters.PSobject.Properties["importUrl"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "importRight"))) { #optional property not found
-            $ImportRight = $null
-        } else {
-            $ImportRight = $JsonParameters.PSobject.Properties["importRight"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "importLimit"))) { #optional property not found
-            $ImportLimit = $null
-        } else {
-            $ImportLimit = $JsonParameters.PSobject.Properties["importLimit"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "referenceExtractors"))) { #optional property not found
@@ -229,20 +145,26 @@ function ConvertFrom-V2024JsonToSpConfigObject {
             $OnePerTenant = $JsonParameters.PSobject.Properties["onePerTenant"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "exportable"))) { #optional property not found
+            $Exportable = $null
+        } else {
+            $Exportable = $JsonParameters.PSobject.Properties["exportable"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "rules"))) { #optional property not found
+            $Rules = $null
+        } else {
+            $Rules = $JsonParameters.PSobject.Properties["rules"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "objectType" = ${ObjectType}
-            "resolveByIdUrl" = ${ResolveByIdUrl}
-            "resolveByNameUrl" = ${ResolveByNameUrl}
-            "exportUrl" = ${ExportUrl}
-            "exportRight" = ${ExportRight}
-            "exportLimit" = ${ExportLimit}
-            "importUrl" = ${ImportUrl}
-            "importRight" = ${ImportRight}
-            "importLimit" = ${ImportLimit}
             "referenceExtractors" = ${ReferenceExtractors}
             "signatureRequired" = ${SignatureRequired}
             "legacyObject" = ${LegacyObject}
             "onePerTenant" = ${OnePerTenant}
+            "exportable" = ${Exportable}
+            "rules" = ${Rules}
         }
 
         return $PSO

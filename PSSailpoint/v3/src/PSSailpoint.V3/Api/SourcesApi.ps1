@@ -1589,6 +1589,9 @@ Sort results using the standard syntax described in [V3 API Standard Collection 
 .PARAMETER ForSubadmin
 Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
 
+.PARAMETER IncludeIDNSource
+Include the IdentityNow source in the response.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1618,6 +1621,9 @@ function Get-Sources {
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ForSubadmin},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IncludeIDNSource},
         [Switch]
         $WithHttpInfo
     )
@@ -1662,6 +1668,10 @@ function Get-Sources {
 
         if ($ForSubadmin) {
             $LocalVarQueryParameters['for-subadmin'] = $ForSubadmin
+        }
+
+        if ($IncludeIDNSource) {
+            $LocalVarQueryParameters['includeIDNSource'] = $IncludeIDNSource
         }
 
 

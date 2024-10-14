@@ -658,7 +658,7 @@ Class | Method | HTTP request | Description
 *V2024WorkReassignmentApi* | [**Send-V2024TenantConfiguration**](docs/V2024WorkReassignmentApi.md#Send-V2024TenantConfiguration) | **PUT** /reassignment-configurations/tenant-config | Update Tenant-wide Reassignment Configuration settings
 *V2024WorkflowsApi* | [**Suspend-V2024WorkflowExecution**](docs/V2024WorkflowsApi.md#Suspend-V2024WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
 *V2024WorkflowsApi* | [**New-V2024ExternalExecuteWorkflow**](docs/V2024WorkflowsApi.md#New-V2024ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
-*V2024WorkflowsApi* | [**New-V2024Workflow**](docs/V2024WorkflowsApi.md#New-V2024Workflow) | **POST** /workflows/{id} | Create Workflow
+*V2024WorkflowsApi* | [**New-V2024Workflow**](docs/V2024WorkflowsApi.md#New-V2024Workflow) | **POST** /workflows | Create Workflow
 *V2024WorkflowsApi* | [**New-V2024WorkflowExternalTrigger**](docs/V2024WorkflowsApi.md#New-V2024WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
 *V2024WorkflowsApi* | [**Remove-V2024Workflow**](docs/V2024WorkflowsApi.md#Remove-V2024Workflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
 *V2024WorkflowsApi* | [**Get-V2024Workflow**](docs/V2024WorkflowsApi.md#Get-V2024Workflow) | **GET** /workflows/{id} | Get Workflow By Id

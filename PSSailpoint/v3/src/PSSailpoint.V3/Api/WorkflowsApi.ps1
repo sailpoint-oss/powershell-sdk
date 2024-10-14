@@ -224,7 +224,7 @@ function New-Workflow {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/workflows/{id}'
+        $LocalVarUri = '/workflows'
 
         if (!$CreateWorkflowRequest) {
             throw "Error! The required parameter `CreateWorkflowRequest` missing when calling createWorkflow."

@@ -62,10 +62,6 @@ function Initialize-CreateWorkflowRequest {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Owner) {
-            throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
@@ -127,8 +123,8 @@ function ConvertFrom-JsonToCreateWorkflowRequest {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'owner' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
+            $Owner = $null
         } else {
             $Owner = $JsonParameters.PSobject.Properties["owner"].value
         }

@@ -399,7 +399,7 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**Submit-AccountSelection**](docs/WorkItemsApi.md#Submit-AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
 *WorkflowsApi* | [**Suspend-WorkflowExecution**](docs/WorkflowsApi.md#Suspend-WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
 *WorkflowsApi* | [**New-ExternalExecuteWorkflow**](docs/WorkflowsApi.md#New-ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
-*WorkflowsApi* | [**New-Workflow**](docs/WorkflowsApi.md#New-Workflow) | **POST** /workflows/{id} | Create Workflow
+*WorkflowsApi* | [**New-Workflow**](docs/WorkflowsApi.md#New-Workflow) | **POST** /workflows | Create Workflow
 *WorkflowsApi* | [**New-WorkflowExternalTrigger**](docs/WorkflowsApi.md#New-WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
 *WorkflowsApi* | [**Remove-Workflow**](docs/WorkflowsApi.md#Remove-Workflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
 *WorkflowsApi* | [**Get-Workflow**](docs/WorkflowsApi.md#Get-Workflow) | **GET** /workflows/{id} | Get Workflow By Id

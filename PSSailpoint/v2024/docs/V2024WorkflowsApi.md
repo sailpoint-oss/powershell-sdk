@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Suspend-V2024WorkflowExecution**](V2024WorkflowsApi.md#Suspend-V2024WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
 [**New-V2024ExternalExecuteWorkflow**](V2024WorkflowsApi.md#New-V2024ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
-[**New-V2024Workflow**](V2024WorkflowsApi.md#New-V2024Workflow) | **POST** /workflows/{id} | Create Workflow
+[**New-V2024Workflow**](V2024WorkflowsApi.md#New-V2024Workflow) | **POST** /workflows | Create Workflow
 [**New-V2024WorkflowExternalTrigger**](V2024WorkflowsApi.md#New-V2024WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
 [**Remove-V2024Workflow**](V2024WorkflowsApi.md#Remove-V2024Workflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
 [**Get-V2024Workflow**](V2024WorkflowsApi.md#Get-V2024Workflow) | **GET** /workflows/{id} | Get Workflow By Id

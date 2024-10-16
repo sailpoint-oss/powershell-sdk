@@ -111,9 +111,9 @@ jobs:
           ./PSSailpoint/v2024/Build.ps1
           ./PSSailpoint/beta/Build.ps1
 
-          Import-Module -Name '.\PSSailpoint\beta\src\Tm.Beta' -Verbose
-          Import-Module -Name '.\PSSailpoint\v3\src\Tm.V3' -Verbose
-          Import-Module -Name '.\PSSailpoint\v2024\src\Tm.V2024' -Verbose
+          Import-Module -Name '.\PSSailpoint\beta\src\PSSailpoint.Beta' -Verbose
+          Import-Module -Name '.\PSSailpoint\v3\src\PSSailpoint.V3' -Verbose
+          Import-Module -Name '.\PSSailpoint\v2024\src\PSSailpoint.V2024' -Verbose
 
           . .\Tm\Configuration.ps1
           . .\Tm\Pagination.ps1

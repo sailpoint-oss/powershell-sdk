@@ -1,22 +1,22 @@
-# Schedule1
+# Schedule2Months
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **String** | The type of the Schedule. | 
-**CronExpression** | **String** | The cron expression of the schedule. | 
+**ApplicationId** | **String** | The application id | [optional] 
+**AccountMatchConfig** | [**SelectorAccountMatchConfig**](SelectorAccountMatchConfig.md) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Schedule1 = Initialize-PSSailpoint.V2024Schedule1  -Type ACCOUNT_AGGREGATION `
- -CronExpression 0 0 5,13,21 * * ?
+$Schedule2Months = Initialize-PSSailpoint.V2024Schedule2Months  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
+ -AccountMatchConfig null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$Schedule1 | ConvertTo-JSON
+$Schedule2Months | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

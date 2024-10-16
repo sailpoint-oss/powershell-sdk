@@ -6,11 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024ProvisioningPolicy**](V2024SourcesApi.md#New-V2024ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 [**New-V2024Source**](V2024SourcesApi.md#New-V2024Source) | **POST** /sources | Creates a source in IdentityNow.
+[**New-V2024SourceSchedule**](V2024SourcesApi.md#New-V2024SourceSchedule) | **POST** /sources/{sourceId}/schedules | Create Schedule on Source
 [**New-V2024SourceSchema**](V2024SourcesApi.md#New-V2024SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
 [**Remove-V2024AccountsAsync**](V2024SourcesApi.md#Remove-V2024AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove All Accounts in a Source
 [**Remove-V2024NativeChangeDetectionConfig**](V2024SourcesApi.md#Remove-V2024NativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 [**Remove-V2024ProvisioningPolicy**](V2024SourcesApi.md#Remove-V2024ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 [**Remove-V2024Source**](V2024SourcesApi.md#Remove-V2024Source) | **DELETE** /sources/{id} | Delete Source by ID
+[**Remove-V2024SourceSchedule**](V2024SourcesApi.md#Remove-V2024SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete Source Schedule by type.
 [**Remove-V2024SourceSchema**](V2024SourcesApi.md#Remove-V2024SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 [**Get-V2024AccountsSchema**](V2024SourcesApi.md#Get-V2024AccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
 [**Get-V2024EntitlementsSchema**](V2024SourcesApi.md#Get-V2024EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
@@ -21,6 +23,8 @@ Method | HTTP request | Description
 [**Get-V2024SourceConfig**](V2024SourcesApi.md#Get-V2024SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
 [**Get-V2024SourceEntitlementRequestConfig**](V2024SourcesApi.md#Get-V2024SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 [**Get-V2024SourceHealth**](V2024SourcesApi.md#Get-V2024SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
+[**Get-V2024SourceSchedule**](V2024SourcesApi.md#Get-V2024SourceSchedule) | **GET** /sources/{sourceId}/schedules/{scheduleType} | Get Source Schedule by Type
+[**Get-V2024SourceSchedules**](V2024SourcesApi.md#Get-V2024SourceSchedules) | **GET** /sources/{sourceId}/schedules | List Schedules on Source
 [**Get-V2024SourceSchema**](V2024SourcesApi.md#Get-V2024SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 [**Get-V2024SourceSchemas**](V2024SourcesApi.md#Get-V2024SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
 [**Import-V2024Accounts**](V2024SourcesApi.md#Import-V2024Accounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
@@ -44,6 +48,7 @@ Method | HTTP request | Description
 [**Update-V2024ProvisioningPolicy**](V2024SourcesApi.md#Update-V2024ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 [**Update-V2024Source**](V2024SourcesApi.md#Update-V2024Source) | **PATCH** /sources/{id} | Update Source (Partial)
 [**Update-V2024SourceEntitlementRequestConfig**](V2024SourcesApi.md#Update-V2024SourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
+[**Update-V2024SourceSchedule**](V2024SourcesApi.md#Update-V2024SourceSchedule) | **PATCH** /sources/{sourceId}/schedules/{scheduleType} | Update Source Schedule (Partial)
 [**Update-V2024SourceSchema**](V2024SourcesApi.md#Update-V2024SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 
 
@@ -164,6 +169,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Source**](Source.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="New-V2024SourceSchedule"></a>
+# **New-V2024SourceSchedule**
+> Schedule1 New-V2024SourceSchedule<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schedule1] <PSCustomObject><br>
+
+Create Schedule on Source
+
+Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$Schedule1 = Initialize-Schedule1 -Type "ACCOUNT_AGGREGATION" -CronExpression "0 0 5,13,21 * * ?" # Schedule1 | 
+
+# Create Schedule on Source
+try {
+    $Result = New-V2024SourceSchedule -SourceId $SourceId -Schedule1 $Schedule1
+} catch {
+    Write-Host ("Exception occurred when calling New-V2024SourceSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| Source ID. | 
+ **Schedule1** | [**Schedule1**](Schedule1.md)|  | 
+
+### Return type
+
+[**Schedule1**](Schedule1.md) (PSCustomObject)
 
 ### Authorization
 
@@ -442,6 +501,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeleteSource202Response**](DeleteSource202Response.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Remove-V2024SourceSchedule"></a>
+# **Remove-V2024SourceSchedule**
+> void Remove-V2024SourceSchedule<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScheduleType] <String><br>
+
+Delete Source Schedule by type.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
+
+# Delete Source Schedule by type.
+try {
+    $Result = Remove-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType
+} catch {
+    Write-Host ("Exception occurred when calling Remove-V2024SourceSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **ScheduleType** | **String**| The Schedule type. | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -974,6 +1085,111 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SourceHealthDto**](SourceHealthDto.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-V2024SourceSchedule"></a>
+# **Get-V2024SourceSchedule**
+> Schedule1 Get-V2024SourceSchedule<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScheduleType] <String><br>
+
+Get Source Schedule by Type
+
+Get the source schedule by type in Identity Security Cloud (ISC). 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
+
+# Get Source Schedule by Type
+try {
+    $Result = Get-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024SourceSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **ScheduleType** | **String**| The Schedule type. | 
+
+### Return type
+
+[**Schedule1**](Schedule1.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-V2024SourceSchedules"></a>
+# **Get-V2024SourceSchedules**
+> Schedule1[] Get-V2024SourceSchedules<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+
+List Schedules on Source
+
+Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
+# List Schedules on Source
+try {
+    $Result = Get-V2024SourceSchedules -SourceId $SourceId
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024SourceSchedules: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| Source ID. | 
+
+### Return type
+
+[**Schedule1[]**](Schedule1.md) (PSCustomObject)
 
 ### Authorization
 
@@ -2315,6 +2531,64 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-V2024SourceSchedule"></a>
+# **Update-V2024SourceSchedule**
+> Schedule1 Update-V2024SourceSchedule<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScheduleType] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
+
+Update Source Schedule (Partial)
+
+Use this API to selectively update an existing Schedule using a JSONPatch payload.   The following schedule fields are immutable and cannot be updated:  - type 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
+$JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the schedule.
+
+# Update Source Schedule (Partial)
+try {
+    $Result = Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -JsonPatchOperation $JsonPatchOperation
+} catch {
+    Write-Host ("Exception occurred when calling Update-V2024SourceSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id. | 
+ **ScheduleType** | **String**| The Schedule type. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the schedule. | 
+
+### Return type
+
+[**Schedule1**](Schedule1.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

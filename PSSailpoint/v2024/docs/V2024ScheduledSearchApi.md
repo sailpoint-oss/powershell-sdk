@@ -37,16 +37,16 @@ $SelectorAccountMatchConfigMatchExpression = Initialize-SelectorAccountMatchConf
 
 $SelectorAccountMatchConfig = Initialize-SelectorAccountMatchConfig -MatchExpression $SelectorAccountMatchConfigMatchExpression
 
-$Schedule1Months = Initialize-Schedule1Months -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Months = Initialize-Schedule2Months -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1Days = Initialize-Schedule1Days -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Days = Initialize-Schedule2Days -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1Hours = Initialize-Schedule1Hours -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Hours = Initialize-Schedule2Hours -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Schedule1Months -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
+$Schedule2 = Initialize-Schedule2 -Type "DAILY" -Months $Schedule2Months -Days $Schedule2Days -Hours $Schedule2Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
-$CreateScheduledSearchRequest = Initialize-CreateScheduledSearchRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # CreateScheduledSearchRequest | The scheduled search to persist.
+$CreateScheduledSearchRequest = Initialize-CreateScheduledSearchRequest -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule2 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false # CreateScheduledSearchRequest | The scheduled search to persist.
 
 # Create a new scheduled search
 try {
@@ -321,17 +321,17 @@ $SelectorAccountMatchConfigMatchExpression = Initialize-SelectorAccountMatchConf
 
 $SelectorAccountMatchConfig = Initialize-SelectorAccountMatchConfig -MatchExpression $SelectorAccountMatchConfigMatchExpression
 
-$Schedule1Months = Initialize-Schedule1Months -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Months = Initialize-Schedule2Months -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1Days = Initialize-Schedule1Days -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Days = Initialize-Schedule2Days -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1Hours = Initialize-Schedule1Hours -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Hours = Initialize-Schedule2Hours -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Schedule1Months -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
+$Schedule2 = Initialize-Schedule2 -Type "DAILY" -Months $Schedule2Months -Days $Schedule2Days -Hours $Schedule2Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
 
 $SearchScheduleRecipientsInner = Initialize-SearchScheduleRecipientsInner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
 $ScheduledSearchAllOfOwner = Initialize-ScheduledSearchAllOfOwner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67"
-$ScheduledSearch = Initialize-ScheduledSearch -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule1 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $ScheduledSearchAllOfOwner -OwnerId "2c9180867624cbd7017642d8c8c81f67" # ScheduledSearch | The scheduled search to persist.
+$ScheduledSearch = Initialize-ScheduledSearch -Name "Daily disabled accounts" -Description "Daily disabled accounts" -SavedSearchId "554f1511-f0a1-4744-ab14-599514d3e57c" -Created (Get-Date) -Modified (Get-Date) -Schedule $Schedule2 -Recipients $SearchScheduleRecipientsInner -Enabled $false -EmailEmptyResults $false -DisplayQueryDetails $false -Id "0de46054-fe90-434a-b84e-c6b3359d0c64" -Owner $ScheduledSearchAllOfOwner -OwnerId "2c9180867624cbd7017642d8c8c81f67" # ScheduledSearch | The scheduled search to persist.
 
 # Update an existing Scheduled Search
 try {

@@ -554,11 +554,13 @@ Class | Method | HTTP request | Description
 *V2024SourceUsagesApi* | [**Get-V2024UsagesBySourceId**](docs/V2024SourceUsagesApi.md#Get-V2024UsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
 *V2024SourcesApi* | [**New-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#New-V2024ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
 *V2024SourcesApi* | [**New-V2024Source**](docs/V2024SourcesApi.md#New-V2024Source) | **POST** /sources | Creates a source in IdentityNow.
+*V2024SourcesApi* | [**New-V2024SourceSchedule**](docs/V2024SourcesApi.md#New-V2024SourceSchedule) | **POST** /sources/{sourceId}/schedules | Create Schedule on Source
 *V2024SourcesApi* | [**New-V2024SourceSchema**](docs/V2024SourcesApi.md#New-V2024SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
 *V2024SourcesApi* | [**Remove-V2024AccountsAsync**](docs/V2024SourcesApi.md#Remove-V2024AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove All Accounts in a Source
 *V2024SourcesApi* | [**Remove-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Remove-V2024NativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 *V2024SourcesApi* | [**Remove-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Remove-V2024ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 *V2024SourcesApi* | [**Remove-V2024Source**](docs/V2024SourcesApi.md#Remove-V2024Source) | **DELETE** /sources/{id} | Delete Source by ID
+*V2024SourcesApi* | [**Remove-V2024SourceSchedule**](docs/V2024SourcesApi.md#Remove-V2024SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete Source Schedule by type.
 *V2024SourcesApi* | [**Remove-V2024SourceSchema**](docs/V2024SourcesApi.md#Remove-V2024SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 *V2024SourcesApi* | [**Get-V2024AccountsSchema**](docs/V2024SourcesApi.md#Get-V2024AccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
 *V2024SourcesApi* | [**Get-V2024EntitlementsSchema**](docs/V2024SourcesApi.md#Get-V2024EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
@@ -569,6 +571,8 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Get-V2024SourceConfig**](docs/V2024SourcesApi.md#Get-V2024SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
 *V2024SourcesApi* | [**Get-V2024SourceEntitlementRequestConfig**](docs/V2024SourcesApi.md#Get-V2024SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 *V2024SourcesApi* | [**Get-V2024SourceHealth**](docs/V2024SourcesApi.md#Get-V2024SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
+*V2024SourcesApi* | [**Get-V2024SourceSchedule**](docs/V2024SourcesApi.md#Get-V2024SourceSchedule) | **GET** /sources/{sourceId}/schedules/{scheduleType} | Get Source Schedule by Type
+*V2024SourcesApi* | [**Get-V2024SourceSchedules**](docs/V2024SourcesApi.md#Get-V2024SourceSchedules) | **GET** /sources/{sourceId}/schedules | List Schedules on Source
 *V2024SourcesApi* | [**Get-V2024SourceSchema**](docs/V2024SourcesApi.md#Get-V2024SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *V2024SourcesApi* | [**Get-V2024SourceSchemas**](docs/V2024SourcesApi.md#Get-V2024SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
 *V2024SourcesApi* | [**Import-V2024Accounts**](docs/V2024SourcesApi.md#Import-V2024Accounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
@@ -592,6 +596,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Update-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 *V2024SourcesApi* | [**Update-V2024Source**](docs/V2024SourcesApi.md#Update-V2024Source) | **PATCH** /sources/{id} | Update Source (Partial)
 *V2024SourcesApi* | [**Update-V2024SourceEntitlementRequestConfig**](docs/V2024SourcesApi.md#Update-V2024SourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
+*V2024SourcesApi* | [**Update-V2024SourceSchedule**](docs/V2024SourcesApi.md#Update-V2024SourceSchedule) | **PATCH** /sources/{sourceId}/schedules/{scheduleType} | Update Source Schedule (Partial)
 *V2024SourcesApi* | [**Update-V2024SourceSchema**](docs/V2024SourcesApi.md#Update-V2024SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 *V2024SuggestedEntitlementDescriptionApi* | [**Get-V2024SedBatchStats**](docs/V2024SuggestedEntitlementDescriptionApi.md#Get-V2024SedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
 *V2024SuggestedEntitlementDescriptionApi* | [**Get-V2024SedBatches**](docs/V2024SuggestedEntitlementDescriptionApi.md#Get-V2024SedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request
@@ -1491,9 +1496,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SavedSearchName](docs/SavedSearchName.md)
  - [PSSailpoint.V2024\Model.Schedule](docs/Schedule.md)
  - [PSSailpoint.V2024\Model.Schedule1](docs/Schedule1.md)
- - [PSSailpoint.V2024\Model.Schedule1Days](docs/Schedule1Days.md)
- - [PSSailpoint.V2024\Model.Schedule1Hours](docs/Schedule1Hours.md)
- - [PSSailpoint.V2024\Model.Schedule1Months](docs/Schedule1Months.md)
+ - [PSSailpoint.V2024\Model.Schedule2](docs/Schedule2.md)
+ - [PSSailpoint.V2024\Model.Schedule2Days](docs/Schedule2Days.md)
+ - [PSSailpoint.V2024\Model.Schedule2Hours](docs/Schedule2Hours.md)
+ - [PSSailpoint.V2024\Model.Schedule2Months](docs/Schedule2Months.md)
  - [PSSailpoint.V2024\Model.ScheduleDays](docs/ScheduleDays.md)
  - [PSSailpoint.V2024\Model.ScheduleHours](docs/ScheduleHours.md)
  - [PSSailpoint.V2024\Model.ScheduleMonths](docs/ScheduleMonths.md)
@@ -1587,6 +1593,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SourceManagerCorrelationRule](docs/SourceManagerCorrelationRule.md)
  - [PSSailpoint.V2024\Model.SourceOwner](docs/SourceOwner.md)
  - [PSSailpoint.V2024\Model.SourcePasswordPoliciesInner](docs/SourcePasswordPoliciesInner.md)
+ - [PSSailpoint.V2024\Model.SourceSchedule](docs/SourceSchedule.md)
  - [PSSailpoint.V2024\Model.SourceSchemasInner](docs/SourceSchemasInner.md)
  - [PSSailpoint.V2024\Model.SourceSyncJob](docs/SourceSyncJob.md)
  - [PSSailpoint.V2024\Model.SourceSyncPayload](docs/SourceSyncPayload.md)

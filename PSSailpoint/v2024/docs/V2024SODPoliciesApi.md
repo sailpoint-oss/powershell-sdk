@@ -689,16 +689,16 @@ $SelectorAccountMatchConfigMatchExpression = Initialize-SelectorAccountMatchConf
 
 $SelectorAccountMatchConfig = Initialize-SelectorAccountMatchConfig -MatchExpression $SelectorAccountMatchConfigMatchExpression
 
-$Schedule1Months = Initialize-Schedule1Months -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Months = Initialize-Schedule2Months -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1Days = Initialize-Schedule1Days -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Days = Initialize-Schedule2Days -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1Hours = Initialize-Schedule1Hours -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
+$Schedule2Hours = Initialize-Schedule2Hours -ApplicationId "2c91808874ff91550175097daaec161c"" -AccountMatchConfig $SelectorAccountMatchConfig
 
-$Schedule1 = Initialize-Schedule1 -Type "DAILY" -Months $Schedule1Months -Days $Schedule1Days -Hours $Schedule1Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
+$Schedule2 = Initialize-Schedule2 -Type "DAILY" -Months $Schedule2Months -Days $Schedule2Days -Hours $Schedule2Hours -Expiration (Get-Date) -TimeZoneId "America/Chicago"
 
 $SodRecipient = Initialize-SodRecipient -Type "IDENTITY" -Id "2c7180a46faadee4016fb4e018c20642" -Name "Michael Michaels"
-$SodPolicySchedule = Initialize-SodPolicySchedule -Name "SCH-1584312283015" -Created (Get-Date) -Modified (Get-Date) -Description "Schedule for policy xyz" -Schedule $Schedule1 -Recipients $SodRecipient -EmailEmptyResults $false -CreatorId "0f11f2a47c944bf3a2bd742580fe3bde" -ModifierId "0f11f2a47c944bf3a2bd742580fe3bde" # SodPolicySchedule | 
+$SodPolicySchedule = Initialize-SodPolicySchedule -Name "SCH-1584312283015" -Created (Get-Date) -Modified (Get-Date) -Description "Schedule for policy xyz" -Schedule $Schedule2 -Recipients $SodRecipient -EmailEmptyResults $false -CreatorId "0f11f2a47c944bf3a2bd742580fe3bde" -ModifierId "0f11f2a47c944bf3a2bd742580fe3bde" # SodPolicySchedule | 
 
 # Update SOD Policy schedule
 try {

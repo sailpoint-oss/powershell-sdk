@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **SavedSearchId** | **String** | The ID of the saved search that will be executed. | 
 **Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] [readonly] 
 **Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] [readonly] 
-**Schedule** | [**Schedule1**](Schedule1.md) |  | 
+**Schedule** | [**Schedule2**](Schedule2.md) |  | 
 **Recipients** | [**SearchScheduleRecipientsInner[]**](SearchScheduleRecipientsInner.md) | A list of identities that should receive the scheduled search report via email. | 
 **Enabled** | **Boolean** | Indicates if the scheduled search is enabled.  | [optional] [default to $false]
 **EmailEmptyResults** | **Boolean** | Indicates if email generation should occur when search returns no results.  | [optional] [default to $false]

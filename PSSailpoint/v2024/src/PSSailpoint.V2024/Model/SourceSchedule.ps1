@@ -20,10 +20,10 @@ The type of the Schedule.
 The cron expression of the schedule.
 .OUTPUTS
 
-Schedule1<PSCustomObject>
+SourceSchedule<PSCustomObject>
 #>
 
-function Initialize-V2024Schedule1 {
+function Initialize-V2024SourceSchedule {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -36,7 +36,7 @@ function Initialize-V2024Schedule1 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024Schedule1' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024SourceSchedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -60,11 +60,11 @@ function Initialize-V2024Schedule1 {
 <#
 .SYNOPSIS
 
-Convert from JSON to Schedule1<PSCustomObject>
+Convert from JSON to SourceSchedule<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Schedule1<PSCustomObject>
+Convert from JSON to SourceSchedule<PSCustomObject>
 
 .PARAMETER Json
 
@@ -72,21 +72,21 @@ Json object
 
 .OUTPUTS
 
-Schedule1<PSCustomObject>
+SourceSchedule<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToSchedule1 {
+function ConvertFrom-V2024JsonToSourceSchedule {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024Schedule1' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024SourceSchedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024Schedule1
+        # check if Json contains properties not defined in V2024SourceSchedule
         $AllProperties = ("type", "cronExpression")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

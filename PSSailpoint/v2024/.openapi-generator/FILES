@@ -815,9 +815,10 @@ docs/SavedSearchDetailFilters.md
 docs/SavedSearchName.md
 docs/Schedule.md
 docs/Schedule1.md
-docs/Schedule1Days.md
-docs/Schedule1Hours.md
-docs/Schedule1Months.md
+docs/Schedule2.md
+docs/Schedule2Days.md
+docs/Schedule2Hours.md
+docs/Schedule2Months.md
 docs/ScheduleDays.md
 docs/ScheduleHours.md
 docs/ScheduleMonths.md
@@ -911,6 +912,7 @@ docs/SourceManagerCorrelationMapping.md
 docs/SourceManagerCorrelationRule.md
 docs/SourceOwner.md
 docs/SourcePasswordPoliciesInner.md
+docs/SourceSchedule.md
 docs/SourceSchemasInner.md
 docs/SourceSyncJob.md
 docs/SourceSyncPayload.md
@@ -2030,9 +2032,10 @@ src/PSSailpoint.V2024/Model/SavedSearchDetailFilters.ps1
 src/PSSailpoint.V2024/Model/SavedSearchName.ps1
 src/PSSailpoint.V2024/Model/Schedule.ps1
 src/PSSailpoint.V2024/Model/Schedule1.ps1
-src/PSSailpoint.V2024/Model/Schedule1Days.ps1
-src/PSSailpoint.V2024/Model/Schedule1Hours.ps1
-src/PSSailpoint.V2024/Model/Schedule1Months.ps1
+src/PSSailpoint.V2024/Model/Schedule2.ps1
+src/PSSailpoint.V2024/Model/Schedule2Days.ps1
+src/PSSailpoint.V2024/Model/Schedule2Hours.ps1
+src/PSSailpoint.V2024/Model/Schedule2Months.ps1
 src/PSSailpoint.V2024/Model/ScheduleDays.ps1
 src/PSSailpoint.V2024/Model/ScheduleHours.ps1
 src/PSSailpoint.V2024/Model/ScheduleMonths.ps1
@@ -2126,6 +2129,7 @@ src/PSSailpoint.V2024/Model/SourceManagerCorrelationMapping.ps1
 src/PSSailpoint.V2024/Model/SourceManagerCorrelationRule.ps1
 src/PSSailpoint.V2024/Model/SourceOwner.ps1
 src/PSSailpoint.V2024/Model/SourcePasswordPoliciesInner.ps1
+src/PSSailpoint.V2024/Model/SourceSchedule.ps1
 src/PSSailpoint.V2024/Model/SourceSchemasInner.ps1
 src/PSSailpoint.V2024/Model/SourceSyncJob.ps1
 src/PSSailpoint.V2024/Model/SourceSyncPayload.ps1
@@ -3168,9 +3172,10 @@ tests/Model/SavedSearchDetailFilters.Tests.ps1
 tests/Model/SavedSearchName.Tests.ps1
 tests/Model/Schedule.Tests.ps1
 tests/Model/Schedule1.Tests.ps1
-tests/Model/Schedule1Days.Tests.ps1
-tests/Model/Schedule1Hours.Tests.ps1
-tests/Model/Schedule1Months.Tests.ps1
+tests/Model/Schedule2.Tests.ps1
+tests/Model/Schedule2Days.Tests.ps1
+tests/Model/Schedule2Hours.Tests.ps1
+tests/Model/Schedule2Months.Tests.ps1
 tests/Model/ScheduleDays.Tests.ps1
 tests/Model/ScheduleHours.Tests.ps1
 tests/Model/ScheduleMonths.Tests.ps1
@@ -3264,6 +3269,7 @@ tests/Model/SourceManagerCorrelationMapping.Tests.ps1
 tests/Model/SourceManagerCorrelationRule.Tests.ps1
 tests/Model/SourceOwner.Tests.ps1
 tests/Model/SourcePasswordPoliciesInner.Tests.ps1
+tests/Model/SourceSchedule.Tests.ps1
 tests/Model/SourceSchemasInner.Tests.ps1
 tests/Model/SourceSyncJob.Tests.ps1
 tests/Model/SourceSyncPayload.Tests.ps1

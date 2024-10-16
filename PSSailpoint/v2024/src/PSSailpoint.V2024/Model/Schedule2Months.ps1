@@ -20,10 +20,10 @@ The application id
 No description available.
 .OUTPUTS
 
-Schedule1Days<PSCustomObject>
+Schedule2Months<PSCustomObject>
 #>
 
-function Initialize-V2024Schedule1Days {
+function Initialize-V2024Schedule2Months {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-V2024Schedule1Days {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024Schedule1Days' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024Schedule2Months' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -51,11 +51,11 @@ function Initialize-V2024Schedule1Days {
 <#
 .SYNOPSIS
 
-Convert from JSON to Schedule1Days<PSCustomObject>
+Convert from JSON to Schedule2Months<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to Schedule1Days<PSCustomObject>
+Convert from JSON to Schedule2Months<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,21 +63,21 @@ Json object
 
 .OUTPUTS
 
-Schedule1Days<PSCustomObject>
+Schedule2Months<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToSchedule1Days {
+function ConvertFrom-V2024JsonToSchedule2Months {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024Schedule1Days' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024Schedule2Months' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024Schedule1Days
+        # check if Json contains properties not defined in V2024Schedule2Months
         $AllProperties = ("applicationId", "accountMatchConfig")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

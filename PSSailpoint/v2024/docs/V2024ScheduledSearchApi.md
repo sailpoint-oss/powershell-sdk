@@ -31,8 +31,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$MatchTerm = Initialize-MatchTerm -Name "mail" -Value "1234 Albany Dr" -Op "eq" -Container $true -And $false -Children $MatchTerm
-
+$MatchTerm = Initialize-MatchTerm -Name "mail" -Value "1234 Albany Dr" -Op "eq" -Container $true -And $false -Children @{ key_example =  }
 $SelectorAccountMatchConfigMatchExpression = Initialize-SelectorAccountMatchConfigMatchExpression -MatchTerms $MatchTerm -And $true
 
 $SelectorAccountMatchConfig = Initialize-SelectorAccountMatchConfig -MatchExpression $SelectorAccountMatchConfigMatchExpression
@@ -315,8 +314,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
-$MatchTerm = Initialize-MatchTerm -Name "mail" -Value "1234 Albany Dr" -Op "eq" -Container $true -And $false -Children $MatchTerm
-
+$MatchTerm = Initialize-MatchTerm -Name "mail" -Value "1234 Albany Dr" -Op "eq" -Container $true -And $false -Children @{ key_example =  }
 $SelectorAccountMatchConfigMatchExpression = Initialize-SelectorAccountMatchConfigMatchExpression -MatchTerms $MatchTerm -And $true
 
 $SelectorAccountMatchConfig = Initialize-SelectorAccountMatchConfig -MatchExpression $SelectorAccountMatchConfigMatchExpression

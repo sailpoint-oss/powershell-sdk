@@ -100,7 +100,7 @@ function Initialize-V2024Role {
         [PSCustomObject[]]
         ${DimensionRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
+        [PSCustomObject]
         ${AccessModelMetadata}
     )
 

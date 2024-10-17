@@ -50,7 +50,7 @@ function Initialize-BetaMatchTerm {
         [System.Nullable[Boolean]]
         ${And} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
+        [System.Collections.Hashtable[]]
         ${Children}
     )
 

@@ -100,7 +100,7 @@ function Initialize-Role {
         [PSCustomObject[]]
         ${DimensionRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
+        [PSCustomObject]
         ${AccessModelMetadata}
     )
 

@@ -681,8 +681,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy to update its schedule.
-$MatchTerm = Initialize-MatchTerm -Name "mail" -Value "1234 Albany Dr" -Op "eq" -Container $true -And $false -Children $MatchTerm
-
+$MatchTerm = Initialize-MatchTerm -Name "mail" -Value "1234 Albany Dr" -Op "eq" -Container $true -And $false -Children @{ key_example =  }
 $SelectorAccountMatchConfigMatchExpression = Initialize-SelectorAccountMatchConfigMatchExpression -MatchTerms $MatchTerm -And $true
 
 $SelectorAccountMatchConfig = Initialize-SelectorAccountMatchConfig -MatchExpression $SelectorAccountMatchConfigMatchExpression

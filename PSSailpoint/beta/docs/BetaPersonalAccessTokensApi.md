@@ -29,7 +29,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$CreatePersonalAccessTokenRequest = Initialize-CreatePersonalAccessTokenRequest -Name "NodeJS Integration" -Scope "MyScope" # CreatePersonalAccessTokenRequest | Name and scope of personal access token.
+$CreatePersonalAccessTokenRequest = Initialize-CreatePersonalAccessTokenRequest -Name "NodeJS Integration" -Scope "MyScope" -AccessTokenValiditySeconds 36900 # CreatePersonalAccessTokenRequest | Name and scope of personal access token.
 
 # Create Personal Access Token
 try {

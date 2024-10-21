@@ -18,6 +18,8 @@ Object for specifying the name of a personal access token to create
 The name of the personal access token (PAT) to be created. Cannot be the same as another PAT owned by the user for whom this PAT is being created.
 .PARAMETER Scope
 Scopes of the personal  access token. If no scope is specified, the token will be created with the default scope ""sp:scopes:all"". This means the personal access token will have all the rights of the owner who created it.
+.PARAMETER AccessTokenValiditySeconds
+Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
 .OUTPUTS
 
 CreatePersonalAccessTokenRequest<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-CreatePersonalAccessTokenRequest {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Scope}
+        ${Scope},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${AccessTokenValiditySeconds}
     )
 
     Process {
@@ -42,10 +47,19 @@ function Initialize-CreatePersonalAccessTokenRequest {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
+        if ($AccessTokenValiditySeconds -and $AccessTokenValiditySeconds -gt 43200) {
+          throw "invalid value for 'AccessTokenValiditySeconds', must be smaller than or equal to 43200."
+        }
+
+        if ($AccessTokenValiditySeconds -and $AccessTokenValiditySeconds -lt 15) {
+          throw "invalid value for 'AccessTokenValiditySeconds', must be greater than or equal to 15."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "scope" = ${Scope}
+            "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
         }
 
         return $PSO
@@ -82,7 +96,7 @@ function ConvertFrom-JsonToCreatePersonalAccessTokenRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in CreatePersonalAccessTokenRequest
-        $AllProperties = ("name", "scope")
+        $AllProperties = ("name", "scope", "accessTokenValiditySeconds")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -105,9 +119,16 @@ function ConvertFrom-JsonToCreatePersonalAccessTokenRequest {
             $Scope = $JsonParameters.PSobject.Properties["scope"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessTokenValiditySeconds"))) { #optional property not found
+            $AccessTokenValiditySeconds = $null
+        } else {
+            $AccessTokenValiditySeconds = $JsonParameters.PSobject.Properties["accessTokenValiditySeconds"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "scope" = ${Scope}
+            "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
         }
 
         return $PSO

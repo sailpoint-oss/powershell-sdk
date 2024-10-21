@@ -26,6 +26,8 @@ The name of the personal access token. Cannot be the same as other personal acce
 No description available.
 .PARAMETER Created
 The date and time, down to the millisecond, when this personal access token was created.
+.PARAMETER AccessTokenValiditySeconds
+Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
 .OUTPUTS
 
 CreatePersonalAccessTokenResponse<PSCustomObject>
@@ -51,7 +53,10 @@ function Initialize-V2024CreatePersonalAccessTokenResponse {
         ${Owner},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
-        ${Created}
+        ${Created},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Int32]
+        ${AccessTokenValiditySeconds}
     )
 
     Process {
@@ -78,6 +83,10 @@ function Initialize-V2024CreatePersonalAccessTokenResponse {
             throw "invalid value for 'Created', 'Created' cannot be null."
         }
 
+        if (!$AccessTokenValiditySeconds) {
+            throw "invalid value for 'AccessTokenValiditySeconds', 'AccessTokenValiditySeconds' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -86,6 +95,7 @@ function Initialize-V2024CreatePersonalAccessTokenResponse {
             "name" = ${Name}
             "owner" = ${Owner}
             "created" = ${Created}
+            "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
         }
 
         return $PSO
@@ -122,7 +132,7 @@ function ConvertFrom-V2024JsonToCreatePersonalAccessTokenResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024CreatePersonalAccessTokenResponse
-        $AllProperties = ("id", "secret", "scope", "name", "owner", "created")
+        $AllProperties = ("id", "secret", "scope", "name", "owner", "created", "accessTokenValiditySeconds")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -169,6 +179,12 @@ function ConvertFrom-V2024JsonToCreatePersonalAccessTokenResponse {
             $Created = $JsonParameters.PSobject.Properties["created"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessTokenValiditySeconds"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'accessTokenValiditySeconds' missing."
+        } else {
+            $AccessTokenValiditySeconds = $JsonParameters.PSobject.Properties["accessTokenValiditySeconds"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "secret" = ${Secret}
@@ -176,6 +192,7 @@ function ConvertFrom-V2024JsonToCreatePersonalAccessTokenResponse {
             "name" = ${Name}
             "owner" = ${Owner}
             "created" = ${Created}
+            "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
         }
 
         return $PSO

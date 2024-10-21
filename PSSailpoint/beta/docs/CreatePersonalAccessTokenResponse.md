@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Name** | **String** | The name of the personal access token. Cannot be the same as other personal access tokens owned by a user. | 
 **Owner** | [**PatOwner**](PatOwner.md) |  | 
 **Created** | **System.DateTime** | The date and time, down to the millisecond, when this personal access token was created. | 
+**AccessTokenValiditySeconds** | **Int32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | 
 
 ## Examples
 
@@ -19,7 +20,8 @@ $CreatePersonalAccessTokenResponse = Initialize-PSSailpoint.BetaCreatePersonalAc
  -Scope [demo:personal-access-token-scope:first, demo:personal-access-token-scope:second] `
  -Name NodeJS Integration `
  -Owner null `
- -Created 2017-07-11T18:45:37.098Z
+ -Created 2017-07-11T18:45:37.098Z `
+ -AccessTokenValiditySeconds 36900
 ```
 
 - Convert the resource to JSON

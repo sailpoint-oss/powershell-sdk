@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'CreatePersonalAccessTokenRequest' {
     Context 'CreatePersonalAccessTokenRequest' {
         It 'Initialize-CreatePersonalAccessTokenRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-CreatePersonalAccessTokenRequest -Name "TEST_VALUE" -Scope "TEST_VALUE"
+            #$NewObject = Initialize-CreatePersonalAccessTokenRequest -Name "TEST_VALUE" -Scope "TEST_VALUE" -AccessTokenValiditySeconds "TEST_VALUE"
             #$NewObject | Should -BeOfType CreatePersonalAccessTokenRequest
             #$NewObject.property | Should -Be 0
         }

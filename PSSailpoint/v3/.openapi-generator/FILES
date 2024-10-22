@@ -121,6 +121,7 @@ docs/BulkTaggedObjectResponse.md
 docs/Campaign.md
 docs/CampaignAlert.md
 docs/CampaignAllOfFilter.md
+docs/CampaignAllOfMachineAccountCampaignInfo.md
 docs/CampaignAllOfRoleCompositionCampaignInfo.md
 docs/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md
 docs/CampaignAllOfSearchCampaignInfo.md
@@ -469,6 +470,7 @@ docs/ReviewRecommendation.md
 docs/ReviewableAccessProfile.md
 docs/ReviewableEntitlement.md
 docs/ReviewableEntitlementAccount.md
+docs/ReviewableEntitlementAccountOwner.md
 docs/ReviewableRole.md
 docs/Reviewer.md
 docs/Revocability.md
@@ -817,6 +819,7 @@ src/PSSailpoint.V3/Model/BulkTaggedObjectResponse.ps1
 src/PSSailpoint.V3/Model/Campaign.ps1
 src/PSSailpoint.V3/Model/CampaignAlert.ps1
 src/PSSailpoint.V3/Model/CampaignAllOfFilter.ps1
+src/PSSailpoint.V3/Model/CampaignAllOfMachineAccountCampaignInfo.ps1
 src/PSSailpoint.V3/Model/CampaignAllOfRoleCompositionCampaignInfo.ps1
 src/PSSailpoint.V3/Model/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.ps1
 src/PSSailpoint.V3/Model/CampaignAllOfSearchCampaignInfo.ps1
@@ -1140,6 +1143,7 @@ src/PSSailpoint.V3/Model/ReviewRecommendation.ps1
 src/PSSailpoint.V3/Model/ReviewableAccessProfile.ps1
 src/PSSailpoint.V3/Model/ReviewableEntitlement.ps1
 src/PSSailpoint.V3/Model/ReviewableEntitlementAccount.ps1
+src/PSSailpoint.V3/Model/ReviewableEntitlementAccountOwner.ps1
 src/PSSailpoint.V3/Model/ReviewableRole.ps1
 src/PSSailpoint.V3/Model/Reviewer.ps1
 src/PSSailpoint.V3/Model/Revocability.ps1
@@ -1477,6 +1481,7 @@ tests/Model/BulkTaggedObjectResponse.Tests.ps1
 tests/Model/Campaign.Tests.ps1
 tests/Model/CampaignAlert.Tests.ps1
 tests/Model/CampaignAllOfFilter.Tests.ps1
+tests/Model/CampaignAllOfMachineAccountCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfRoleCompositionCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.Tests.ps1
 tests/Model/CampaignAllOfSearchCampaignInfo.Tests.ps1
@@ -1800,6 +1805,7 @@ tests/Model/ReviewRecommendation.Tests.ps1
 tests/Model/ReviewableAccessProfile.Tests.ps1
 tests/Model/ReviewableEntitlement.Tests.ps1
 tests/Model/ReviewableEntitlementAccount.Tests.ps1
+tests/Model/ReviewableEntitlementAccountOwner.Tests.ps1
 tests/Model/ReviewableRole.Tests.ps1
 tests/Model/Reviewer.Tests.ps1
 tests/Model/Revocability.Tests.ps1

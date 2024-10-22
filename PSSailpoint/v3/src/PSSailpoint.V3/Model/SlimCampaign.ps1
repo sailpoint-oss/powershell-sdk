@@ -48,7 +48,7 @@ function Initialize-SlimCampaign {
         [System.Nullable[System.DateTime]]
         ${Deadline},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("MANAGER", "SOURCE_OWNER", "SEARCH", "ROLE_COMPOSITION")]
+        [ValidateSet("MANAGER", "SOURCE_OWNER", "SEARCH", "ROLE_COMPOSITION", "MACHINE_ACCOUNT")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

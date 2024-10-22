@@ -407,6 +407,7 @@ docs/ForwardApprovalDto.md
 docs/FullDiscoveredApplications.md
 docs/Fullcampaign.md
 docs/FullcampaignAllOfFilter.md
+docs/FullcampaignAllOfMachineAccountCampaignInfo.md
 docs/FullcampaignAllOfRoleCompositionCampaignInfo.md
 docs/FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md
 docs/FullcampaignAllOfSearchCampaignInfo.md
@@ -1403,6 +1404,7 @@ src/PSSailpoint.Beta/Model/ForwardApprovalDto.ps1
 src/PSSailpoint.Beta/Model/FullDiscoveredApplications.ps1
 src/PSSailpoint.Beta/Model/Fullcampaign.ps1
 src/PSSailpoint.Beta/Model/FullcampaignAllOfFilter.ps1
+src/PSSailpoint.Beta/Model/FullcampaignAllOfMachineAccountCampaignInfo.ps1
 src/PSSailpoint.Beta/Model/FullcampaignAllOfRoleCompositionCampaignInfo.ps1
 src/PSSailpoint.Beta/Model/FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.ps1
 src/PSSailpoint.Beta/Model/FullcampaignAllOfSearchCampaignInfo.ps1
@@ -2406,6 +2408,7 @@ tests/Model/ForwardApprovalDto.Tests.ps1
 tests/Model/FullDiscoveredApplications.Tests.ps1
 tests/Model/Fullcampaign.Tests.ps1
 tests/Model/FullcampaignAllOfFilter.Tests.ps1
+tests/Model/FullcampaignAllOfMachineAccountCampaignInfo.Tests.ps1
 tests/Model/FullcampaignAllOfRoleCompositionCampaignInfo.Tests.ps1
 tests/Model/FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.Tests.ps1
 tests/Model/FullcampaignAllOfSearchCampaignInfo.Tests.ps1

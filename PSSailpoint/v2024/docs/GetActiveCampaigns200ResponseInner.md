@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **SourceOwnerCampaignInfo** | [**CampaignAllOfSourceOwnerCampaignInfo**](CampaignAllOfSourceOwnerCampaignInfo.md) |  | [optional] 
 **SearchCampaignInfo** | [**CampaignAllOfSearchCampaignInfo**](CampaignAllOfSearchCampaignInfo.md) |  | [optional] 
 **RoleCompositionCampaignInfo** | [**CampaignAllOfRoleCompositionCampaignInfo**](CampaignAllOfRoleCompositionCampaignInfo.md) |  | [optional] 
+**MachineAccountCampaignInfo** | [**CampaignAllOfMachineAccountCampaignInfo**](CampaignAllOfMachineAccountCampaignInfo.md) |  | [optional] 
 **SourcesWithOrphanEntitlements** | [**CampaignAllOfSourcesWithOrphanEntitlements[]**](CampaignAllOfSourcesWithOrphanEntitlements.md) | A list of sources in the campaign that contain \&quot;&quot;orphan entitlements\&quot;&quot; (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented). | [optional] [readonly] 
 **MandatoryCommentRequirement** | **String** | Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions. | [optional] 
 
@@ -50,6 +51,7 @@ $GetActiveCampaigns200ResponseInner = Initialize-PSSailpoint.V2024GetActiveCampa
  -SourceOwnerCampaignInfo null `
  -SearchCampaignInfo null `
  -RoleCompositionCampaignInfo null `
+ -MachineAccountCampaignInfo null `
  -SourcesWithOrphanEntitlements null `
  -MandatoryCommentRequirement NO_DECISIONS
 ```

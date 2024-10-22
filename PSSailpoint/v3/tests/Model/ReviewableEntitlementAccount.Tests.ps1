@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'ReviewableEntitlementAccount' {
     Context 'ReviewableEntitlementAccount' {
         It 'Initialize-ReviewableEntitlementAccount' {
             # a simple test to create an object
-            #$NewObject = Initialize-ReviewableEntitlementAccount -NativeIdentity "TEST_VALUE" -Disabled "TEST_VALUE" -Locked "TEST_VALUE" -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -ActivityInsights "TEST_VALUE"
+            #$NewObject = Initialize-ReviewableEntitlementAccount -NativeIdentity "TEST_VALUE" -Disabled "TEST_VALUE" -Locked "TEST_VALUE" -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -ActivityInsights "TEST_VALUE" -Description "TEST_VALUE" -GovernanceGroupId "TEST_VALUE" -Owner "TEST_VALUE"
             #$NewObject | Should -BeOfType ReviewableEntitlementAccount
             #$NewObject.property | Should -Be 0
         }

@@ -938,6 +938,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.FullDiscoveredApplications](docs/FullDiscoveredApplications.md)
  - [PSSailpoint.Beta\Model.Fullcampaign](docs/Fullcampaign.md)
  - [PSSailpoint.Beta\Model.FullcampaignAllOfFilter](docs/FullcampaignAllOfFilter.md)
+ - [PSSailpoint.Beta\Model.FullcampaignAllOfMachineAccountCampaignInfo](docs/FullcampaignAllOfMachineAccountCampaignInfo.md)
  - [PSSailpoint.Beta\Model.FullcampaignAllOfRoleCompositionCampaignInfo](docs/FullcampaignAllOfRoleCompositionCampaignInfo.md)
  - [PSSailpoint.Beta\Model.FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef](docs/FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md)
  - [PSSailpoint.Beta\Model.FullcampaignAllOfSearchCampaignInfo](docs/FullcampaignAllOfSearchCampaignInfo.md)

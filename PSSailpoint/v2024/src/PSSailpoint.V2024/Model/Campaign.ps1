@@ -40,6 +40,8 @@ No description available.
 No description available.
 .PARAMETER RoleCompositionCampaignInfo
 No description available.
+.PARAMETER MachineAccountCampaignInfo
+No description available.
 .PARAMETER MandatoryCommentRequirement
 Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
 .OUTPUTS
@@ -60,7 +62,7 @@ function Initialize-V2024Campaign {
         [System.Nullable[System.DateTime]]
         ${Deadline},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("MANAGER", "SOURCE_OWNER", "SEARCH", "ROLE_COMPOSITION")]
+        [ValidateSet("MANAGER", "SOURCE_OWNER", "SEARCH", "ROLE_COMPOSITION", "MACHINE_ACCOUNT")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -91,6 +93,9 @@ function Initialize-V2024Campaign {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RoleCompositionCampaignInfo},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${MachineAccountCampaignInfo},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ALL_DECISIONS", "REVOKE_ONLY_DECISIONS", "NO_DECISIONS")]
         [String]
@@ -128,6 +133,7 @@ function Initialize-V2024Campaign {
             "sourceOwnerCampaignInfo" = ${SourceOwnerCampaignInfo}
             "searchCampaignInfo" = ${SearchCampaignInfo}
             "roleCompositionCampaignInfo" = ${RoleCompositionCampaignInfo}
+            "machineAccountCampaignInfo" = ${MachineAccountCampaignInfo}
             "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }
 
@@ -165,7 +171,7 @@ function ConvertFrom-V2024JsonToCampaign {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024Campaign
-        $AllProperties = ("id", "name", "description", "deadline", "type", "emailNotificationEnabled", "autoRevokeAllowed", "recommendationsEnabled", "status", "correlatedStatus", "created", "totalCertifications", "completedCertifications", "alerts", "modified", "filter", "sunsetCommentsRequired", "sourceOwnerCampaignInfo", "searchCampaignInfo", "roleCompositionCampaignInfo", "sourcesWithOrphanEntitlements", "mandatoryCommentRequirement")
+        $AllProperties = ("id", "name", "description", "deadline", "type", "emailNotificationEnabled", "autoRevokeAllowed", "recommendationsEnabled", "status", "correlatedStatus", "created", "totalCertifications", "completedCertifications", "alerts", "modified", "filter", "sunsetCommentsRequired", "sourceOwnerCampaignInfo", "searchCampaignInfo", "roleCompositionCampaignInfo", "machineAccountCampaignInfo", "sourcesWithOrphanEntitlements", "mandatoryCommentRequirement")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -296,6 +302,12 @@ function ConvertFrom-V2024JsonToCampaign {
             $RoleCompositionCampaignInfo = $JsonParameters.PSobject.Properties["roleCompositionCampaignInfo"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "machineAccountCampaignInfo"))) { #optional property not found
+            $MachineAccountCampaignInfo = $null
+        } else {
+            $MachineAccountCampaignInfo = $JsonParameters.PSobject.Properties["machineAccountCampaignInfo"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourcesWithOrphanEntitlements"))) { #optional property not found
             $SourcesWithOrphanEntitlements = $null
         } else {
@@ -329,6 +341,7 @@ function ConvertFrom-V2024JsonToCampaign {
             "sourceOwnerCampaignInfo" = ${SourceOwnerCampaignInfo}
             "searchCampaignInfo" = ${SearchCampaignInfo}
             "roleCompositionCampaignInfo" = ${RoleCompositionCampaignInfo}
+            "machineAccountCampaignInfo" = ${MachineAccountCampaignInfo}
             "sourcesWithOrphanEntitlements" = ${SourcesWithOrphanEntitlements}
             "mandatoryCommentRequirement" = ${MandatoryCommentRequirement}
         }

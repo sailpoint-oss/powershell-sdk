@@ -32,6 +32,12 @@ When the account was created
 When the account was last modified
 .PARAMETER ActivityInsights
 No description available.
+.PARAMETER Description
+Information about the account
+.PARAMETER GovernanceGroupId
+The id associated with the machine Account Governance Group
+.PARAMETER Owner
+No description available.
 .OUTPUTS
 
 ReviewableEntitlementAccount<PSCustomObject>
@@ -67,7 +73,16 @@ function Initialize-V2024ReviewableEntitlementAccount {
         ${Modified},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${ActivityInsights}
+        ${ActivityInsights},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${GovernanceGroupId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Owner}
     )
 
     Process {
@@ -85,6 +100,9 @@ function Initialize-V2024ReviewableEntitlementAccount {
             "created" = ${Created}
             "modified" = ${Modified}
             "activityInsights" = ${ActivityInsights}
+            "description" = ${Description}
+            "governanceGroupId" = ${GovernanceGroupId}
+            "owner" = ${Owner}
         }
 
         return $PSO
@@ -121,7 +139,7 @@ function ConvertFrom-V2024JsonToReviewableEntitlementAccount {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024ReviewableEntitlementAccount
-        $AllProperties = ("nativeIdentity", "disabled", "locked", "type", "id", "name", "created", "modified", "activityInsights")
+        $AllProperties = ("nativeIdentity", "disabled", "locked", "type", "id", "name", "created", "modified", "activityInsights", "description", "governanceGroupId", "owner")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -182,6 +200,24 @@ function ConvertFrom-V2024JsonToReviewableEntitlementAccount {
             $ActivityInsights = $JsonParameters.PSobject.Properties["activityInsights"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "governanceGroupId"))) { #optional property not found
+            $GovernanceGroupId = $null
+        } else {
+            $GovernanceGroupId = $JsonParameters.PSobject.Properties["governanceGroupId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
+            $Owner = $null
+        } else {
+            $Owner = $JsonParameters.PSobject.Properties["owner"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "nativeIdentity" = ${NativeIdentity}
             "disabled" = ${Disabled}
@@ -192,6 +228,9 @@ function ConvertFrom-V2024JsonToReviewableEntitlementAccount {
             "created" = ${Created}
             "modified" = ${Modified}
             "activityInsights" = ${ActivityInsights}
+            "description" = ${Description}
+            "governanceGroupId" = ${GovernanceGroupId}
+            "owner" = ${Owner}
         }
 
         return $PSO

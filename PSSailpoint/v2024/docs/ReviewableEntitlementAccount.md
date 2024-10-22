@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | When the account was created | [optional] 
 **Modified** | **System.DateTime** | When the account was last modified | [optional] 
 **ActivityInsights** | [**ActivityInsights**](ActivityInsights.md) |  | [optional] 
+**Description** | **String** | Information about the account | [optional] 
+**GovernanceGroupId** | **String** | The id associated with the machine Account Governance Group | [optional] 
+**Owner** | [**ReviewableEntitlementAccountOwner**](ReviewableEntitlementAccountOwner.md) |  | [optional] 
 
 ## Examples
 
@@ -25,7 +28,10 @@ $ReviewableEntitlementAccount = Initialize-PSSailpoint.V2024ReviewableEntitlemen
  -Name Alison Ferguso `
  -Created 2020-04-20T20:11:05.067Z `
  -Modified 2020-05-20T18:57:16.987Z `
- -ActivityInsights null
+ -ActivityInsights null `
+ -Description Account for Read/write to the company database `
+ -GovernanceGroupId 2c9180857182305e0171993737eb29e6 `
+ -Owner null
 ```
 
 - Convert the resource to JSON

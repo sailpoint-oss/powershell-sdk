@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 <a id="Remove-V2024MetadataFromRoleByKeyAndValue"></a>
 # **Remove-V2024MetadataFromRoleByKeyAndValue**
-> Role Remove-V2024MetadataFromRoleByKeyAndValue<br>
+> void Remove-V2024MetadataFromRoleByKeyAndValue<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeKey] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AttributeValue] <String><br>
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Role**](Role.md) (PSCustomObject)
+void (empty response body)
 
 ### Authorization
 

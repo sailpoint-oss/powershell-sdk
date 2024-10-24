@@ -210,7 +210,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Role
+None
 #>
 function Remove-V2024MetadataFromRoleByKeyAndValue {
     [CmdletBinding()]
@@ -269,7 +269,7 @@ function Remove-V2024MetadataFromRoleByKeyAndValue {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Role" `
+                                -ReturnType "" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

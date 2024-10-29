@@ -638,7 +638,7 @@ Class | Method | HTTP request | Description
 *V2024UIMetadataApi* | [**Set-V2024TenantUiMetadata**](docs/V2024UIMetadataApi.md#Set-V2024TenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant UI metadata
 *V2024VendorConnectorMappingsApi* | [**New-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#New-V2024VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create Vendor Connector Mapping
 *V2024VendorConnectorMappingsApi* | [**Remove-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#Remove-V2024VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete Vendor Connector Mapping
-*V2024VendorConnectorMapppingApi* | [**Get-V2024VendorConnectorMappings**](docs/V2024VendorConnectorMapppingApi.md#Get-V2024VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
+*V2024VendorConnectorMapppingsApi* | [**Get-V2024VendorConnectorMappings**](docs/V2024VendorConnectorMapppingsApi.md#Get-V2024VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
 *V2024WorkItemsApi* | [**Approve-V2024ApprovalItem**](docs/V2024WorkItemsApi.md#Approve-V2024ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *V2024WorkItemsApi* | [**Approve-V2024ApprovalItemsInBulk**](docs/V2024WorkItemsApi.md#Approve-V2024ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *V2024WorkItemsApi* | [**Complete-V2024WorkItem**](docs/V2024WorkItemsApi.md#Complete-V2024WorkItem) | **POST** /work-items/{id} | Complete a Work Item

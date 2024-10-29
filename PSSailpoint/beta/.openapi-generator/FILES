@@ -175,7 +175,6 @@ docs/BetaConnectorRuleManagementApi.md
 docs/BetaConnectorsApi.md
 docs/BetaCustomFormsApi.md
 docs/BetaCustomPasswordInstructionsApi.md
-docs/BetaDefaultApi.md
 docs/BetaEntitlementsApi.md
 docs/BetaGovernanceGroupsApi.md
 docs/BetaIAIAccessRequestRecommendationsApi.md
@@ -1018,7 +1017,6 @@ src/PSSailpoint.Beta/Api/BetaConnectorRuleManagementApi.ps1
 src/PSSailpoint.Beta/Api/BetaConnectorsApi.ps1
 src/PSSailpoint.Beta/Api/BetaCustomFormsApi.ps1
 src/PSSailpoint.Beta/Api/BetaCustomPasswordInstructionsApi.ps1
-src/PSSailpoint.Beta/Api/BetaDefaultApi.ps1
 src/PSSailpoint.Beta/Api/BetaEntitlementsApi.ps1
 src/PSSailpoint.Beta/Api/BetaGovernanceGroupsApi.ps1
 src/PSSailpoint.Beta/Api/BetaIAIAccessRequestRecommendationsApi.ps1
@@ -2023,7 +2021,6 @@ tests/Api/BetaConnectorRuleManagementApi.Tests.ps1
 tests/Api/BetaConnectorsApi.Tests.ps1
 tests/Api/BetaCustomFormsApi.Tests.ps1
 tests/Api/BetaCustomPasswordInstructionsApi.Tests.ps1
-tests/Api/BetaDefaultApi.Tests.ps1
 tests/Api/BetaEntitlementsApi.Tests.ps1
 tests/Api/BetaGovernanceGroupsApi.Tests.ps1
 tests/Api/BetaIAIAccessRequestRecommendationsApi.Tests.ps1

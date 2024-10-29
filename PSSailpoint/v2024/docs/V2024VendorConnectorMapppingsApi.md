@@ -1,15 +1,15 @@
-# PSSailpoint.V3.PSSailpoint.V3\Api.VendorConnectorMapppingApi
+# PSSailpoint.V2024.PSSailpoint.V2024\Api.V2024VendorConnectorMapppingsApi
 
-All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
+All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-VendorConnectorMappings**](VendorConnectorMapppingApi.md#Get-VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
+[**Get-V2024VendorConnectorMappings**](V2024VendorConnectorMapppingsApi.md#Get-V2024VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
 
 
-<a id="Get-VendorConnectorMappings"></a>
-# **Get-VendorConnectorMappings**
-> VendorConnectorMapping[] Get-VendorConnectorMappings<br>
+<a id="Get-V2024VendorConnectorMappings"></a>
+# **Get-V2024VendorConnectorMappings**
+> VendorConnectorMapping[] Get-V2024VendorConnectorMappings<br>
 
 List Vendor Connector Mappings
 
@@ -28,9 +28,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 # List Vendor Connector Mappings
 try {
-    $Result = Get-VendorConnectorMappings
+    $Result = Get-V2024VendorConnectorMappings
 } catch {
-    Write-Host ("Exception occurred when calling Get-VendorConnectorMappings: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Get-V2024VendorConnectorMappings: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```

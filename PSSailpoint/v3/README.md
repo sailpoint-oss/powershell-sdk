@@ -383,7 +383,7 @@ Class | Method | HTTP request | Description
 *TransformsApi* | [**Update-Transform**](docs/TransformsApi.md#Update-Transform) | **PUT** /transforms/{id} | Update a transform
 *VendorConnectorMappingsApi* | [**New-VendorConnectorMapping**](docs/VendorConnectorMappingsApi.md#New-VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create Vendor Connector Mapping
 *VendorConnectorMappingsApi* | [**Remove-VendorConnectorMapping**](docs/VendorConnectorMappingsApi.md#Remove-VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete Vendor Connector Mapping
-*VendorConnectorMapppingApi* | [**Get-VendorConnectorMappings**](docs/VendorConnectorMapppingApi.md#Get-VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
+*VendorConnectorMapppingsApi* | [**Get-VendorConnectorMappings**](docs/VendorConnectorMapppingsApi.md#Get-VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
 *WorkItemsApi* | [**Approve-ApprovalItem**](docs/WorkItemsApi.md#Approve-ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *WorkItemsApi* | [**Approve-ApprovalItemsInBulk**](docs/WorkItemsApi.md#Approve-ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *WorkItemsApi* | [**Complete-WorkItem**](docs/WorkItemsApi.md#Complete-WorkItem) | **POST** /work-items/{id} | Complete a Work Item

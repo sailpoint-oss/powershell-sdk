@@ -177,9 +177,6 @@ Class | Method | HTTP request | Description
 *BetaCustomPasswordInstructionsApi* | [**New-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#New-BetaCustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *BetaCustomPasswordInstructionsApi* | [**Remove-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Remove-BetaCustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *BetaCustomPasswordInstructionsApi* | [**Get-BetaCustomPasswordInstructions**](docs/BetaCustomPasswordInstructionsApi.md#Get-BetaCustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
-*BetaDefaultApi* | [**New-BetaLauncher**](docs/BetaDefaultApi.md#New-BetaLauncher) | **POST** /launchers | Create launcher
-*BetaDefaultApi* | [**Remove-BetaLauncher**](docs/BetaDefaultApi.md#Remove-BetaLauncher) | **DELETE** /launchers/{launcherID} | Delete Launcher
-*BetaDefaultApi* | [**Send-BetaLauncher**](docs/BetaDefaultApi.md#Send-BetaLauncher) | **PUT** /launchers/{launcherID} | Replace Launcher
 *BetaEntitlementsApi* | [**New-BetaAccessModelMetadataForEntitlement**](docs/BetaEntitlementsApi.md#New-BetaAccessModelMetadataForEntitlement) | **POST** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add metadata to an entitlement.
 *BetaEntitlementsApi* | [**Remove-BetaAccessModelMetadataFromEntitlement**](docs/BetaEntitlementsApi.md#Remove-BetaAccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 *BetaEntitlementsApi* | [**Get-BetaEntitlement**](docs/BetaEntitlementsApi.md#Get-BetaEntitlement) | **GET** /entitlements/{id} | Get an entitlement
@@ -292,8 +289,11 @@ Class | Method | HTTP request | Description
 *BetaIdentityProfilesApi* | [**Show-BetaGenerateIdentityPreview**](docs/BetaIdentityProfilesApi.md#Show-BetaGenerateIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 *BetaIdentityProfilesApi* | [**Sync-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Sync-BetaIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 *BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
+*BetaLaunchersApi* | [**New-BetaLauncher**](docs/BetaLaunchersApi.md#New-BetaLauncher) | **POST** /launchers | Create launcher
+*BetaLaunchersApi* | [**Remove-BetaLauncher**](docs/BetaLaunchersApi.md#Remove-BetaLauncher) | **DELETE** /launchers/{launcherID} | Delete Launcher
 *BetaLaunchersApi* | [**Get-BetaLauncher**](docs/BetaLaunchersApi.md#Get-BetaLauncher) | **GET** /launchers/{launcherID} | Get Launcher by ID
 *BetaLaunchersApi* | [**Get-BetaLaunchers**](docs/BetaLaunchersApi.md#Get-BetaLaunchers) | **GET** /launchers | List all Launchers for tenant
+*BetaLaunchersApi* | [**Send-BetaLauncher**](docs/BetaLaunchersApi.md#Send-BetaLauncher) | **PUT** /launchers/{launcherID} | Replace Launcher
 *BetaLaunchersApi* | [**Start-BetaLauncher**](docs/BetaLaunchersApi.md#Start-BetaLauncher) | **POST** /beta/launchers/{launcherID}/launch | Launch a Launcher
 *BetaLifecycleStatesApi* | [**Get-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Get-BetaLifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
 *BetaLifecycleStatesApi* | [**Update-BetaLifecycleStates**](docs/BetaLifecycleStatesApi.md#Update-BetaLifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State

@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaReassignmentConfiguration**](BetaWorkReassignmentApi.md#New-BetaReassignmentConfiguration) | **POST** /reassignment-configurations | Create a Reassignment Configuration
-[**Remove-BetaReassignmentConfiguration**](BetaWorkReassignmentApi.md#Remove-BetaReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId} | Delete Reassignment Configuration
+[**Remove-BetaReassignmentConfiguration**](BetaWorkReassignmentApi.md#Remove-BetaReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId}/{configType} | Delete Reassignment Configuration
 [**Get-BetaEvaluateReassignmentConfiguration**](BetaWorkReassignmentApi.md#Get-BetaEvaluateReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId}/evaluate/{configType} | Evaluate Reassignment Configuration
 [**Get-BetaReassignmentConfigTypes**](BetaWorkReassignmentApi.md#Get-BetaReassignmentConfigTypes) | **GET** /reassignment-configurations/types | List Reassignment Config Types
 [**Get-BetaReassignmentConfiguration**](BetaWorkReassignmentApi.md#Get-BetaReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId} | Get Reassignment Configuration
@@ -70,10 +70,11 @@ Name | Type | Description  | Notes
 # **Remove-BetaReassignmentConfiguration**
 > void Remove-BetaReassignmentConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConfigType] <PSCustomObject><br>
 
 Delete Reassignment Configuration
 
-Deletes all Reassignment Configuration for the specified identity
+Deletes a single reassignment configuration for the specified identity
 
 ### Example
 ```powershell
@@ -86,10 +87,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
+$ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | 
 
 # Delete Reassignment Configuration
 try {
-    $Result = Remove-BetaReassignmentConfiguration -IdentityId $IdentityId
+    $Result = Remove-BetaReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType
 } catch {
     Write-Host ("Exception occurred when calling Remove-BetaReassignmentConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -101,6 +103,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **IdentityId** | **String**| unique identity id | 
+ **ConfigType** | [**ConfigTypeEnum**](ConfigTypeEnum.md)|  | 
 
 ### Return type
 

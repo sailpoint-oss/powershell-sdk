@@ -113,10 +113,13 @@ Delete Reassignment Configuration
 
 .DESCRIPTION
 
-Deletes all Reassignment Configuration for the specified identity
+Deletes a single reassignment configuration for the specified identity
 
 .PARAMETER IdentityId
 unique identity id
+
+.PARAMETER ConfigType
+No description available.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -136,6 +139,9 @@ function Remove-V2024ReassignmentConfiguration {
         [String]
         ${IdentityId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ConfigType},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         $XSailPointExperimental = "true",
         [Switch]
@@ -158,11 +164,15 @@ function Remove-V2024ReassignmentConfiguration {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/reassignment-configurations/{identityId}'
+        $LocalVarUri = '/reassignment-configurations/{identityId}/{configType}'
         if (!$IdentityId) {
             throw "Error! The required parameter `IdentityId` missing when calling deleteReassignmentConfiguration."
         }
         $LocalVarUri = $LocalVarUri.replace('{identityId}', [System.Web.HTTPUtility]::UrlEncode($IdentityId))
+        if (!$ConfigType) {
+            throw "Error! The required parameter `ConfigType` missing when calling deleteReassignmentConfiguration."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{configType}', [System.Web.HTTPUtility]::UrlEncode($ConfigType))
 
         if (!$XSailPointExperimental) {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteReassignmentConfiguration."

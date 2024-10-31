@@ -102,10 +102,13 @@ Delete Reassignment Configuration
 
 .DESCRIPTION
 
-Deletes all Reassignment Configuration for the specified identity
+Deletes a single reassignment configuration for the specified identity
 
 .PARAMETER IdentityId
 unique identity id
+
+.PARAMETER ConfigType
+No description available.
 
 .PARAMETER WithHttpInfo
 
@@ -121,6 +124,9 @@ function Remove-BetaReassignmentConfiguration {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${IdentityId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ConfigType},
         [Switch]
         $WithHttpInfo
     )
@@ -141,11 +147,15 @@ function Remove-BetaReassignmentConfiguration {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/reassignment-configurations/{identityId}'
+        $LocalVarUri = '/reassignment-configurations/{identityId}/{configType}'
         if (!$IdentityId) {
             throw "Error! The required parameter `IdentityId` missing when calling deleteReassignmentConfiguration."
         }
         $LocalVarUri = $LocalVarUri.replace('{identityId}', [System.Web.HTTPUtility]::UrlEncode($IdentityId))
+        if (!$ConfigType) {
+            throw "Error! The required parameter `ConfigType` missing when calling deleteReassignmentConfiguration."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{configType}', [System.Web.HTTPUtility]::UrlEncode($ConfigType))
 
 
 

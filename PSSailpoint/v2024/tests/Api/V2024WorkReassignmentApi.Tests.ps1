@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024WorkReassignmentApi' {
 
     Context 'Remove-V2024ReassignmentConfiguration' {
         It 'Test Remove-V2024ReassignmentConfiguration' {
-            #$TestResult = Remove-V2024ReassignmentConfiguration -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2024ReassignmentConfiguration -IdentityId "TEST_VALUE" -ConfigType "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

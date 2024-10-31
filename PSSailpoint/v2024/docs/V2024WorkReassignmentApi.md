@@ -5,7 +5,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024ReassignmentConfiguration**](V2024WorkReassignmentApi.md#New-V2024ReassignmentConfiguration) | **POST** /reassignment-configurations | Create a Reassignment Configuration
-[**Remove-V2024ReassignmentConfiguration**](V2024WorkReassignmentApi.md#Remove-V2024ReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId} | Delete Reassignment Configuration
+[**Remove-V2024ReassignmentConfiguration**](V2024WorkReassignmentApi.md#Remove-V2024ReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId}/{configType} | Delete Reassignment Configuration
 [**Get-V2024EvaluateReassignmentConfiguration**](V2024WorkReassignmentApi.md#Get-V2024EvaluateReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId}/evaluate/{configType} | Evaluate Reassignment Configuration
 [**Get-V2024ReassignmentConfigTypes**](V2024WorkReassignmentApi.md#Get-V2024ReassignmentConfigTypes) | **GET** /reassignment-configurations/types | List Reassignment Config Types
 [**Get-V2024ReassignmentConfiguration**](V2024WorkReassignmentApi.md#Get-V2024ReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId} | Get Reassignment Configuration
@@ -73,11 +73,12 @@ Name | Type | Description  | Notes
 # **Remove-V2024ReassignmentConfiguration**
 > void Remove-V2024ReassignmentConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-IdentityId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ConfigType] <PSCustomObject><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
 
 Delete Reassignment Configuration
 
-Deletes all Reassignment Configuration for the specified identity
+Deletes a single reassignment configuration for the specified identity
 
 ### Example
 ```powershell
@@ -90,11 +91,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
+$ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete Reassignment Configuration
 try {
-    $Result = Remove-V2024ReassignmentConfiguration -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental
+    $Result = Remove-V2024ReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental
 } catch {
     Write-Host ("Exception occurred when calling Remove-V2024ReassignmentConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -106,6 +108,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **IdentityId** | **String**| unique identity id | 
+ **ConfigType** | [**ConfigTypeEnum**](ConfigTypeEnum.md)|  | 
  **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type

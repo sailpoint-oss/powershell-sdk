@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkReassignmentApi' {
 
     Context 'Remove-BetaReassignmentConfiguration' {
         It 'Test Remove-BetaReassignmentConfiguration' {
-            #$TestResult = Remove-BetaReassignmentConfiguration -IdentityId "TEST_VALUE"
+            #$TestResult = Remove-BetaReassignmentConfiguration -IdentityId "TEST_VALUE" -ConfigType "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

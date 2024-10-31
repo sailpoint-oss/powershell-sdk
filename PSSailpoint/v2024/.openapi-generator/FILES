@@ -1082,7 +1082,6 @@ docs/V2024TransformsApi.md
 docs/V2024TriggersApi.md
 docs/V2024UIMetadataApi.md
 docs/V2024VendorConnectorMappingsApi.md
-docs/V2024VendorConnectorMapppingsApi.md
 docs/V2024WorkItemsApi.md
 docs/V2024WorkReassignmentApi.md
 docs/V2024WorkflowsApi.md
@@ -1216,7 +1215,6 @@ src/PSSailpoint.V2024/Api/V2024TransformsApi.ps1
 src/PSSailpoint.V2024/Api/V2024TriggersApi.ps1
 src/PSSailpoint.V2024/Api/V2024UIMetadataApi.ps1
 src/PSSailpoint.V2024/Api/V2024VendorConnectorMappingsApi.ps1
-src/PSSailpoint.V2024/Api/V2024VendorConnectorMapppingsApi.ps1
 src/PSSailpoint.V2024/Api/V2024WorkItemsApi.ps1
 src/PSSailpoint.V2024/Api/V2024WorkReassignmentApi.ps1
 src/PSSailpoint.V2024/Api/V2024WorkflowsApi.ps1
@@ -2359,7 +2357,6 @@ tests/Api/V2024TransformsApi.Tests.ps1
 tests/Api/V2024TriggersApi.Tests.ps1
 tests/Api/V2024UIMetadataApi.Tests.ps1
 tests/Api/V2024VendorConnectorMappingsApi.Tests.ps1
-tests/Api/V2024VendorConnectorMapppingsApi.Tests.ps1
 tests/Api/V2024WorkItemsApi.Tests.ps1
 tests/Api/V2024WorkReassignmentApi.Tests.ps1
 tests/Api/V2024WorkflowsApi.Tests.ps1

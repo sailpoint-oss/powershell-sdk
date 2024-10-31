@@ -22,4 +22,12 @@ Describe -tag 'PSSailpoint.V3' -name 'VendorConnectorMappingsApi' {
         }
     }
 
+    Context 'Get-VendorConnectorMappings' {
+        It 'Test Get-VendorConnectorMappings' {
+            #$TestResult = Get-VendorConnectorMappings
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

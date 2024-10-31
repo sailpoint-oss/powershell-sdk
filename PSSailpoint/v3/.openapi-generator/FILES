@@ -622,7 +622,6 @@ docs/VendorConnectorMappingDeletedBy.md
 docs/VendorConnectorMappingUpdatedAt.md
 docs/VendorConnectorMappingUpdatedBy.md
 docs/VendorConnectorMappingsApi.md
-docs/VendorConnectorMapppingsApi.md
 docs/VerificationPollRequest.md
 docs/VerificationResponse.md
 docs/ViolationContext.md
@@ -705,7 +704,6 @@ src/PSSailpoint.V3/Api/SourcesApi.ps1
 src/PSSailpoint.V3/Api/TaggedObjectsApi.ps1
 src/PSSailpoint.V3/Api/TransformsApi.ps1
 src/PSSailpoint.V3/Api/VendorConnectorMappingsApi.ps1
-src/PSSailpoint.V3/Api/VendorConnectorMapppingsApi.ps1
 src/PSSailpoint.V3/Api/WorkItemsApi.ps1
 src/PSSailpoint.V3/Api/WorkflowsApi.ps1
 src/PSSailpoint.V3/Client/Configuration.ps1
@@ -1368,7 +1366,6 @@ tests/Api/SourcesApi.Tests.ps1
 tests/Api/TaggedObjectsApi.Tests.ps1
 tests/Api/TransformsApi.Tests.ps1
 tests/Api/VendorConnectorMappingsApi.Tests.ps1
-tests/Api/VendorConnectorMapppingsApi.Tests.ps1
 tests/Api/WorkItemsApi.Tests.ps1
 tests/Api/WorkflowsApi.Tests.ps1
 tests/Model/Access.Tests.ps1

@@ -22,4 +22,12 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024VendorConnectorMappingsApi' {
         }
     }
 
+    Context 'Get-V2024VendorConnectorMappings' {
+        It 'Test Get-V2024VendorConnectorMappings' {
+            #$TestResult = Get-V2024VendorConnectorMappings
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

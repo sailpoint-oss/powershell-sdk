@@ -115,8 +115,8 @@ jobs:
           Import-Module -Name '.\PSSailpoint\v3\src\PSSailpoint.V3' -Verbose
           Import-Module -Name '.\PSSailpoint\v2024\src\PSSailpoint.V2024' -Verbose
 
-          . .\Tm\Configuration.ps1
-          . .\Tm\Pagination.ps1
+          . .\PSSailpoint\Configuration.ps1
+          . .\PSSailpoint\Pagination.ps1
 
       - name: Commit changes and create new version tag
         if: steps.buildSDK.outcome == 'success'

@@ -110,10 +110,6 @@ function Initialize-V2024Campaign {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Description) {
-            throw "invalid value for 'Description', 'Description' cannot be null."
-        }
-
         if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }

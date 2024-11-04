@@ -34,48 +34,50 @@ function ConvertFrom-V2024JsonToGetActiveCampaigns200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match Campaign defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-V2024JsonToCampaign $Json
+        if ($match -ne 0) { # no match yet
+            # try to match Campaign defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-V2024JsonToCampaign $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "Campaign"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "Campaign"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'Campaign' defined in anyOf (V2024GetActiveCampaigns200ResponseInner). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'Campaign' defined in oneOf (V2024GetActiveCampaigns200ResponseInner). Proceeding to the next one if any."
         }
 
-        # try to match SlimCampaign defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-V2024JsonToSlimCampaign $Json
+        if ($match -ne 0) { # no match yet
+            # try to match SlimCampaign defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-V2024JsonToSlimCampaign $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "SlimCampaign"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "SlimCampaign"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'SlimCampaign' defined in anyOf (V2024GetActiveCampaigns200ResponseInner). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'SlimCampaign' defined in oneOf (V2024GetActiveCampaigns200ResponseInner). Proceeding to the next one if any."
         }
 
-        if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([Campaign, SlimCampaign]). JSON Payload: $($Json)"
-        } elseif ($match -eq 1) {
+        if ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("Campaign", "SlimCampaign")
+                "anyOfSchemas" = @("Campaign", "SlimCampaign")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([Campaign, SlimCampaign]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([Campaign, SlimCampaign]). JSON Payload: $($Json)"
         }
     }
 }

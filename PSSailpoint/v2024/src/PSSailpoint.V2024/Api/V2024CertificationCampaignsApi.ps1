@@ -721,7 +721,7 @@ function Get-V2024Campaign {
                                 -ReturnType "GetActiveCampaigns200ResponseInner" `
                                 -IsBodyNullable $false
 
-        # process oneOf response
+        # process anyOf response
         $LocalVarResult["Response"] = ConvertFrom-V2024JsonToGetActiveCampaigns200ResponseInner (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {

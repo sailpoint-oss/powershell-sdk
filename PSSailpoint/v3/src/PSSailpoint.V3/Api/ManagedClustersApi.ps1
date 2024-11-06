@@ -182,7 +182,7 @@ function Remove-ManagedCluster {
 <#
 .SYNOPSIS
 
-Get managed cluster's log configuration
+Get Managed Cluster's log configuration
 
 .DESCRIPTION
 
@@ -434,16 +434,16 @@ function Get-ManagedClusters {
 <#
 .SYNOPSIS
 
-Update managed cluster's log configuration
+Update Managed Cluster's log configuration
 
 .DESCRIPTION
 
-Update managed cluster's log configuration
+Update managed cluster's log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
 
 .PARAMETER Id
 ID of ManagedCluster to update log configuration for
 
-.PARAMETER ClientLogConfiguration
+.PARAMETER PutClientLogConfigurationRequest
 ClientLogConfiguration for given ManagedCluster
 
 .PARAMETER WithHttpInfo
@@ -462,7 +462,7 @@ function Send-ClientLogConfiguration {
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${ClientLogConfiguration},
+        ${PutClientLogConfigurationRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -492,10 +492,14 @@ function Send-ClientLogConfiguration {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ClientLogConfiguration -is [array])) {
-            $LocalVarBodyParameter = $ClientLogConfiguration | ConvertTo-Json -AsArray -Depth 100
+        if (!$PutClientLogConfigurationRequest) {
+            throw "Error! The required parameter `PutClientLogConfigurationRequest` missing when calling putClientLogConfiguration."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PutClientLogConfigurationRequest -is [array])) {
+            $LocalVarBodyParameter = $PutClientLogConfigurationRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $ClientLogConfiguration | ForEach-Object {
+            $LocalVarBodyParameter = $PutClientLogConfigurationRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -517,7 +521,7 @@ function Send-ClientLogConfiguration {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "ClientLogConfiguration" `
-                                -IsBodyNullable $true
+                                -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult

@@ -17,9 +17,9 @@ Client Runtime Logging Configuration
 .PARAMETER ClientId
 Log configuration's client ID
 .PARAMETER DurationMinutes
-Duration in minutes for log configuration to remain in effect before resetting to defaults
+Duration in minutes for log configuration to remain in effect before resetting to defaults.
 .PARAMETER Expiration
-Expiration date-time of the log configuration request
+Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time.
 .PARAMETER RootLevel
 No description available.
 .PARAMETER LogLevels
@@ -36,8 +36,8 @@ function Initialize-V2024ClientLogConfiguration {
         [String]
         ${ClientId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Int32]
-        ${DurationMinutes},
+        [System.Nullable[Int32]]
+        ${DurationMinutes} = 240,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Expiration},
@@ -54,15 +54,11 @@ function Initialize-V2024ClientLogConfiguration {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024ClientLogConfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$DurationMinutes) {
-            throw "invalid value for 'DurationMinutes', 'DurationMinutes' cannot be null."
-        }
-
-        if ($DurationMinutes -gt 1440) {
+        if ($DurationMinutes -and $DurationMinutes -gt 1440) {
           throw "invalid value for 'DurationMinutes', must be smaller than or equal to 1440."
         }
 
-        if ($DurationMinutes -lt 5) {
+        if ($DurationMinutes -and $DurationMinutes -lt 5) {
           throw "invalid value for 'DurationMinutes', must be greater than or equal to 5."
         }
 
@@ -121,13 +117,7 @@ function ConvertFrom-V2024JsonToClientLogConfiguration {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'durationMinutes' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "durationMinutes"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'durationMinutes' missing."
-        } else {
-            $DurationMinutes = $JsonParameters.PSobject.Properties["durationMinutes"].value
+            throw "Error! Empty JSON cannot be serialized due to the required property 'rootLevel' missing."
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "rootLevel"))) {
@@ -140,6 +130,12 @@ function ConvertFrom-V2024JsonToClientLogConfiguration {
             $ClientId = $null
         } else {
             $ClientId = $JsonParameters.PSobject.Properties["clientId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "durationMinutes"))) { #optional property not found
+            $DurationMinutes = $null
+        } else {
+            $DurationMinutes = $JsonParameters.PSobject.Properties["durationMinutes"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "expiration"))) { #optional property not found

@@ -365,10 +365,10 @@ Class | Method | HTTP request | Description
 *V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update a Managed Client
 *V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
 *V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
-*V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster's log configuration
+*V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster's log configuration
 *V2024ManagedClustersApi* | [**Get-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
 *V2024ManagedClustersApi* | [**Get-V2024ManagedClusters**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-*V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
+*V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster's log configuration
 *V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
 *V2024NonEmployeeLifecycleManagementApi* | [**Approve-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Approve-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
@@ -922,6 +922,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.CertificationTask](docs/CertificationTask.md)
  - [PSSailpoint.V2024\Model.CertifierResponse](docs/CertifierResponse.md)
  - [PSSailpoint.V2024\Model.ClientLogConfiguration](docs/ClientLogConfiguration.md)
+ - [PSSailpoint.V2024\Model.ClientLogConfigurationDurationMinutes](docs/ClientLogConfigurationDurationMinutes.md)
+ - [PSSailpoint.V2024\Model.ClientLogConfigurationExpiration](docs/ClientLogConfigurationExpiration.md)
  - [PSSailpoint.V2024\Model.ClientType](docs/ClientType.md)
  - [PSSailpoint.V2024\Model.CloseAccessRequest](docs/CloseAccessRequest.md)
  - [PSSailpoint.V2024\Model.Column](docs/Column.md)
@@ -1356,6 +1358,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.PublicIdentity](docs/PublicIdentity.md)
  - [PSSailpoint.V2024\Model.PublicIdentityAttributeConfig](docs/PublicIdentityAttributeConfig.md)
  - [PSSailpoint.V2024\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
+ - [PSSailpoint.V2024\Model.PutClientLogConfigurationRequest](docs/PutClientLogConfigurationRequest.md)
  - [PSSailpoint.V2024\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)
  - [PSSailpoint.V2024\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
  - [PSSailpoint.V2024\Model.PutSourceConfigRequest](docs/PutSourceConfigRequest.md)

@@ -241,6 +241,8 @@ docs/CertificationSignedOffCertification.md
 docs/CertificationTask.md
 docs/CertifierResponse.md
 docs/ClientLogConfiguration.md
+docs/ClientLogConfigurationDurationMinutes.md
+docs/ClientLogConfigurationExpiration.md
 docs/ClientType.md
 docs/CloseAccessRequest.md
 docs/Column.md
@@ -675,6 +677,7 @@ docs/ProvisioningState.md
 docs/PublicIdentity.md
 docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityConfig.md
+docs/PutClientLogConfigurationRequest.md
 docs/PutCorrelationConfigRequest.md
 docs/PutPasswordDictionaryRequest.md
 docs/PutSourceConfigRequest.md
@@ -1458,6 +1461,8 @@ src/PSSailpoint.V2024/Model/CertificationSignedOffCertification.ps1
 src/PSSailpoint.V2024/Model/CertificationTask.ps1
 src/PSSailpoint.V2024/Model/CertifierResponse.ps1
 src/PSSailpoint.V2024/Model/ClientLogConfiguration.ps1
+src/PSSailpoint.V2024/Model/ClientLogConfigurationDurationMinutes.ps1
+src/PSSailpoint.V2024/Model/ClientLogConfigurationExpiration.ps1
 src/PSSailpoint.V2024/Model/ClientType.ps1
 src/PSSailpoint.V2024/Model/CloseAccessRequest.ps1
 src/PSSailpoint.V2024/Model/Column.ps1
@@ -1892,6 +1897,7 @@ src/PSSailpoint.V2024/Model/ProvisioningState.ps1
 src/PSSailpoint.V2024/Model/PublicIdentity.ps1
 src/PSSailpoint.V2024/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpoint.V2024/Model/PublicIdentityConfig.ps1
+src/PSSailpoint.V2024/Model/PutClientLogConfigurationRequest.ps1
 src/PSSailpoint.V2024/Model/PutCorrelationConfigRequest.ps1
 src/PSSailpoint.V2024/Model/PutPasswordDictionaryRequest.ps1
 src/PSSailpoint.V2024/Model/PutSourceConfigRequest.ps1
@@ -2599,6 +2605,8 @@ tests/Model/CertificationSignedOffCertification.Tests.ps1
 tests/Model/CertificationTask.Tests.ps1
 tests/Model/CertifierResponse.Tests.ps1
 tests/Model/ClientLogConfiguration.Tests.ps1
+tests/Model/ClientLogConfigurationDurationMinutes.Tests.ps1
+tests/Model/ClientLogConfigurationExpiration.Tests.ps1
 tests/Model/ClientType.Tests.ps1
 tests/Model/CloseAccessRequest.Tests.ps1
 tests/Model/Column.Tests.ps1
@@ -3033,6 +3041,7 @@ tests/Model/ProvisioningState.Tests.ps1
 tests/Model/PublicIdentity.Tests.ps1
 tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
+tests/Model/PutClientLogConfigurationRequest.Tests.ps1
 tests/Model/PutCorrelationConfigRequest.Tests.ps1
 tests/Model/PutPasswordDictionaryRequest.Tests.ps1
 tests/Model/PutSourceConfigRequest.Tests.ps1

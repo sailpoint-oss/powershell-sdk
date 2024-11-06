@@ -206,10 +206,10 @@ Class | Method | HTTP request | Description
 *ManagedClientsApi* | [**Update-ManagedClient**](docs/ManagedClientsApi.md#Update-ManagedClient) | **PATCH** /managed-clients/{id} | Update a Managed Client
 *ManagedClustersApi* | [**New-ManagedCluster**](docs/ManagedClustersApi.md#New-ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
 *ManagedClustersApi* | [**Remove-ManagedCluster**](docs/ManagedClustersApi.md#Remove-ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
-*ManagedClustersApi* | [**Get-ClientLogConfiguration**](docs/ManagedClustersApi.md#Get-ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster's log configuration
+*ManagedClustersApi* | [**Get-ClientLogConfiguration**](docs/ManagedClustersApi.md#Get-ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster's log configuration
 *ManagedClustersApi* | [**Get-ManagedCluster**](docs/ManagedClustersApi.md#Get-ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
 *ManagedClustersApi* | [**Get-ManagedClusters**](docs/ManagedClustersApi.md#Get-ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-*ManagedClustersApi* | [**Send-ClientLogConfiguration**](docs/ManagedClustersApi.md#Send-ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
+*ManagedClustersApi* | [**Send-ClientLogConfiguration**](docs/ManagedClustersApi.md#Send-ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster's log configuration
 *ManagedClustersApi* | [**Update-ManagedCluster**](docs/ManagedClustersApi.md#Update-ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
 *NonEmployeeLifecycleManagementApi* | [**Approve-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Approve-NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
@@ -554,6 +554,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.CertificationReference](docs/CertificationReference.md)
  - [PSSailpoint.V3\Model.CertificationTask](docs/CertificationTask.md)
  - [PSSailpoint.V3\Model.ClientLogConfiguration](docs/ClientLogConfiguration.md)
+ - [PSSailpoint.V3\Model.ClientLogConfigurationDurationMinutes](docs/ClientLogConfigurationDurationMinutes.md)
+ - [PSSailpoint.V3\Model.ClientLogConfigurationExpiration](docs/ClientLogConfigurationExpiration.md)
  - [PSSailpoint.V3\Model.ClientType](docs/ClientType.md)
  - [PSSailpoint.V3\Model.Column](docs/Column.md)
  - [PSSailpoint.V3\Model.Comment](docs/Comment.md)
@@ -805,6 +807,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.PublicIdentity](docs/PublicIdentity.md)
  - [PSSailpoint.V3\Model.PublicIdentityAttributeConfig](docs/PublicIdentityAttributeConfig.md)
  - [PSSailpoint.V3\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
+ - [PSSailpoint.V3\Model.PutClientLogConfigurationRequest](docs/PutClientLogConfigurationRequest.md)
  - [PSSailpoint.V3\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)
  - [PSSailpoint.V3\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
  - [PSSailpoint.V3\Model.PutSourceConfigRequest](docs/PutSourceConfigRequest.md)

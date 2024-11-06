@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024ManagedCluster**](V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
 [**Remove-V2024ManagedCluster**](V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
-[**Get-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster&#39;s log configuration
+[**Get-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster&#39;s log configuration
 [**Get-V2024ManagedCluster**](V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
 [**Get-V2024ManagedClusters**](V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-[**Send-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster&#39;s log configuration
+[**Send-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster&#39;s log configuration
 [**Update-V2024ManagedCluster**](V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
 
 
@@ -123,7 +123,7 @@ void (empty response body)
 > ClientLogConfiguration Get-V2024ClientLogConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get managed cluster's log configuration
+Get Managed Cluster's log configuration
 
 Get managed cluster's log configuration.
 
@@ -139,7 +139,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of ManagedCluster to get log configuration for
 
-# Get managed cluster's log configuration
+# Get Managed Cluster's log configuration
 try {
     $Result = Get-V2024ClientLogConfiguration -Id $Id
 } catch {
@@ -284,11 +284,11 @@ Name | Type | Description  | Notes
 # **Send-V2024ClientLogConfiguration**
 > ClientLogConfiguration Send-V2024ClientLogConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ClientLogConfiguration] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PutClientLogConfigurationRequest] <PSCustomObject><br>
 
-Update managed cluster's log configuration
+Update Managed Cluster's log configuration
 
-Update managed cluster's log configuration
+Update managed cluster's log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
 
 ### Example
 ```powershell
@@ -301,11 +301,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of ManagedCluster to update log configuration for
-$ClientLogConfiguration = Initialize-ClientLogConfiguration -ClientId "aClientId" -DurationMinutes 120 -Expiration (Get-Date) -RootLevel "false" -LogLevels @{ key_example = "false" } # ClientLogConfiguration | ClientLogConfiguration for given ManagedCluster
+$PutClientLogConfigurationRequest = Initialize-PutClientLogConfigurationRequest -ClientId "3a38a51992e8445ab51a549c0a70ee66" -DurationMinutes 120 -RootLevel "false" -LogLevels @{ key_example = "false" } -Expiration (Get-Date) # PutClientLogConfigurationRequest | ClientLogConfiguration for given ManagedCluster
 
-# Update managed cluster's log configuration
+# Update Managed Cluster's log configuration
 try {
-    $Result = Send-V2024ClientLogConfiguration -Id $Id -ClientLogConfiguration $ClientLogConfiguration
+    $Result = Send-V2024ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $PutClientLogConfigurationRequest
 } catch {
     Write-Host ("Exception occurred when calling Send-V2024ClientLogConfiguration: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -317,7 +317,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| ID of ManagedCluster to update log configuration for | 
- **ClientLogConfiguration** | [**ClientLogConfiguration**](ClientLogConfiguration.md)| ClientLogConfiguration for given ManagedCluster | 
+ **PutClientLogConfigurationRequest** | [**PutClientLogConfigurationRequest**](PutClientLogConfigurationRequest.md)| ClientLogConfiguration for given ManagedCluster | 
 
 ### Return type
 

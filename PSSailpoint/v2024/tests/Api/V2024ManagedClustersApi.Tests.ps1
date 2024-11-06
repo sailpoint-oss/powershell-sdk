@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ManagedClustersApi' {
 
     Context 'Send-V2024ClientLogConfiguration' {
         It 'Test Send-V2024ClientLogConfiguration' {
-            #$TestResult = Send-V2024ClientLogConfiguration -Id "TEST_VALUE" -ClientLogConfiguration "TEST_VALUE"
+            #$TestResult = Send-V2024ClientLogConfiguration -Id "TEST_VALUE" -PutClientLogConfigurationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

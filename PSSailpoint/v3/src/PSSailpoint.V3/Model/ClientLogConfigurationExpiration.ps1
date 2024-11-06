@@ -16,8 +16,6 @@ Client Runtime Logging Configuration
 
 .PARAMETER ClientId
 Log configuration's client ID
-.PARAMETER DurationMinutes
-Duration in minutes for log configuration to remain in effect before resetting to defaults.
 .PARAMETER Expiration
 Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time.
 .PARAMETER RootLevel
@@ -26,18 +24,15 @@ No description available.
 Mapping of identifiers to Standard Log Level values
 .OUTPUTS
 
-ClientLogConfiguration<PSCustomObject>
+ClientLogConfigurationExpiration<PSCustomObject>
 #>
 
-function Initialize-ClientLogConfiguration {
+function Initialize-ClientLogConfigurationExpiration {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ClientId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${DurationMinutes} = 240,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Expiration},
@@ -51,16 +46,8 @@ function Initialize-ClientLogConfiguration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V3 => ClientLogConfiguration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V3 => ClientLogConfigurationExpiration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if ($DurationMinutes -and $DurationMinutes -gt 1440) {
-          throw "invalid value for 'DurationMinutes', must be smaller than or equal to 1440."
-        }
-
-        if ($DurationMinutes -and $DurationMinutes -lt 5) {
-          throw "invalid value for 'DurationMinutes', must be greater than or equal to 5."
-        }
 
         if (!$RootLevel) {
             throw "invalid value for 'RootLevel', 'RootLevel' cannot be null."
@@ -69,7 +56,6 @@ function Initialize-ClientLogConfiguration {
 
         $PSO = [PSCustomObject]@{
             "clientId" = ${ClientId}
-            "durationMinutes" = ${DurationMinutes}
             "expiration" = ${Expiration}
             "rootLevel" = ${RootLevel}
             "logLevels" = ${LogLevels}
@@ -82,11 +68,11 @@ function Initialize-ClientLogConfiguration {
 <#
 .SYNOPSIS
 
-Convert from JSON to ClientLogConfiguration<PSCustomObject>
+Convert from JSON to ClientLogConfigurationExpiration<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ClientLogConfiguration<PSCustomObject>
+Convert from JSON to ClientLogConfigurationExpiration<PSCustomObject>
 
 .PARAMETER Json
 
@@ -94,22 +80,22 @@ Json object
 
 .OUTPUTS
 
-ClientLogConfiguration<PSCustomObject>
+ClientLogConfigurationExpiration<PSCustomObject>
 #>
-function ConvertFrom-JsonToClientLogConfiguration {
+function ConvertFrom-JsonToClientLogConfigurationExpiration {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V3 => ClientLogConfiguration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V3 => ClientLogConfigurationExpiration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in ClientLogConfiguration
-        $AllProperties = ("clientId", "durationMinutes", "expiration", "rootLevel", "logLevels")
+        # check if Json contains properties not defined in ClientLogConfigurationExpiration
+        $AllProperties = ("clientId", "expiration", "rootLevel", "logLevels")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -132,12 +118,6 @@ function ConvertFrom-JsonToClientLogConfiguration {
             $ClientId = $JsonParameters.PSobject.Properties["clientId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "durationMinutes"))) { #optional property not found
-            $DurationMinutes = $null
-        } else {
-            $DurationMinutes = $JsonParameters.PSobject.Properties["durationMinutes"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "expiration"))) { #optional property not found
             $Expiration = $null
         } else {
@@ -152,7 +132,6 @@ function ConvertFrom-JsonToClientLogConfiguration {
 
         $PSO = [PSCustomObject]@{
             "clientId" = ${ClientId}
-            "durationMinutes" = ${DurationMinutes}
             "expiration" = ${Expiration}
             "rootLevel" = ${RootLevel}
             "logLevels" = ${LogLevels}

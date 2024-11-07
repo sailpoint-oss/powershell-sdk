@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Type** | **String** | The source type, will always be &quot;&quot;SOURCE&quot;&quot; | [optional] 
 **Name** | **String** | The source name | [optional] 
 **UseForPasswordManagement** | **Boolean** | If the source is used for password management | [optional] [default to $false]
-**PasswordPolicies** | [**BaseReferenceDto1[]**](BaseReferenceDto1.md) | The password policies for the source | [optional] 
+**PasswordPolicies** | [**BaseReferenceDto[]**](BaseReferenceDto.md) | The password policies for the source | [optional] 
 
 ## Examples
 

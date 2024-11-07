@@ -82,9 +82,6 @@ docs/AccountAggregationCompleted.md
 docs/AccountAggregationCompletedSource.md
 docs/AccountAggregationCompletedStats.md
 docs/AccountAggregationStatus.md
-docs/AccountAllOfOwnerGroup.md
-docs/AccountAllOfOwnerIdentity.md
-docs/AccountAllOfSourceOwner.md
 docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesChanged.md
@@ -696,6 +693,7 @@ docs/ReassignmentReference.md
 docs/ReassignmentTrailDTO.md
 docs/ReassignmentType.md
 docs/ReassignmentTypeEnum.md
+docs/Recommendation.md
 docs/RecommendationConfigDto.md
 docs/RecommendationRequest.md
 docs/RecommendationRequestDto.md
@@ -1302,9 +1300,6 @@ src/PSSailpoint.V2024/Model/AccountAggregationCompleted.ps1
 src/PSSailpoint.V2024/Model/AccountAggregationCompletedSource.ps1
 src/PSSailpoint.V2024/Model/AccountAggregationCompletedStats.ps1
 src/PSSailpoint.V2024/Model/AccountAggregationStatus.ps1
-src/PSSailpoint.V2024/Model/AccountAllOfOwnerGroup.ps1
-src/PSSailpoint.V2024/Model/AccountAllOfOwnerIdentity.ps1
-src/PSSailpoint.V2024/Model/AccountAllOfSourceOwner.ps1
 src/PSSailpoint.V2024/Model/AccountAttribute.ps1
 src/PSSailpoint.V2024/Model/AccountAttributes.ps1
 src/PSSailpoint.V2024/Model/AccountAttributesChanged.ps1
@@ -1916,6 +1911,7 @@ src/PSSailpoint.V2024/Model/ReassignmentReference.ps1
 src/PSSailpoint.V2024/Model/ReassignmentTrailDTO.ps1
 src/PSSailpoint.V2024/Model/ReassignmentType.ps1
 src/PSSailpoint.V2024/Model/ReassignmentTypeEnum.ps1
+src/PSSailpoint.V2024/Model/Recommendation.ps1
 src/PSSailpoint.V2024/Model/RecommendationConfigDto.ps1
 src/PSSailpoint.V2024/Model/RecommendationRequest.ps1
 src/PSSailpoint.V2024/Model/RecommendationRequestDto.ps1
@@ -2446,9 +2442,6 @@ tests/Model/AccountAggregationCompleted.Tests.ps1
 tests/Model/AccountAggregationCompletedSource.Tests.ps1
 tests/Model/AccountAggregationCompletedStats.Tests.ps1
 tests/Model/AccountAggregationStatus.Tests.ps1
-tests/Model/AccountAllOfOwnerGroup.Tests.ps1
-tests/Model/AccountAllOfOwnerIdentity.Tests.ps1
-tests/Model/AccountAllOfSourceOwner.Tests.ps1
 tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesChanged.Tests.ps1
@@ -3060,6 +3053,7 @@ tests/Model/ReassignmentReference.Tests.ps1
 tests/Model/ReassignmentTrailDTO.Tests.ps1
 tests/Model/ReassignmentType.Tests.ps1
 tests/Model/ReassignmentTypeEnum.Tests.ps1
+tests/Model/Recommendation.Tests.ps1
 tests/Model/RecommendationConfigDto.Tests.ps1
 tests/Model/RecommendationRequest.Tests.ps1
 tests/Model/RecommendationRequestDto.Tests.ps1

@@ -46,6 +46,8 @@ enum DtoType {
     IDENTITY_PROFILE
     # enum value: "IDENTITY_REQUEST"
     IDENTITY_REQUEST
+    # enum value: "MACHINE_IDENTITY"
+    MACHINE_IDENTITY
     # enum value: "LIFECYCLE_STATE"
     LIFECYCLE_STATE
     # enum value: "PASSWORD_POLICY"

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Source** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
 **AccountInfo** | [**AccountInfoDto**](AccountInfoDto.md) |  | [optional] 
 **RoleName** | **String** | Specific role name for this target if using multiple accounts | [optional] 
 

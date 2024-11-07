@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Assignment Id | [optional] 
-**Role** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**Role** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
 
 ## Examples
 

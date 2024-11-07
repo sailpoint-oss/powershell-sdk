@@ -44,9 +44,6 @@ docs/AccountActivityDocument.md
 docs/AccountActivityItem.md
 docs/AccountActivityItemOperation.md
 docs/AccountActivitySearchedItem.md
-docs/AccountAllOfOwnerGroup.md
-docs/AccountAllOfOwnerIdentity.md
-docs/AccountAllOfSourceOwner.md
 docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesCreate.md
@@ -439,6 +436,7 @@ docs/Reassignment.md
 docs/ReassignmentReference.md
 docs/ReassignmentTrailDTO.md
 docs/ReassignmentType.md
+docs/Recommendation.md
 docs/Reference.md
 docs/Reference1.md
 docs/RemediationItemDetails.md
@@ -748,9 +746,6 @@ src/PSSailpoint.V3/Model/AccountActivityDocument.ps1
 src/PSSailpoint.V3/Model/AccountActivityItem.ps1
 src/PSSailpoint.V3/Model/AccountActivityItemOperation.ps1
 src/PSSailpoint.V3/Model/AccountActivitySearchedItem.ps1
-src/PSSailpoint.V3/Model/AccountAllOfOwnerGroup.ps1
-src/PSSailpoint.V3/Model/AccountAllOfOwnerIdentity.ps1
-src/PSSailpoint.V3/Model/AccountAllOfSourceOwner.ps1
 src/PSSailpoint.V3/Model/AccountAttribute.ps1
 src/PSSailpoint.V3/Model/AccountAttributes.ps1
 src/PSSailpoint.V3/Model/AccountAttributesCreate.ps1
@@ -1115,6 +1110,7 @@ src/PSSailpoint.V3/Model/Reassignment.ps1
 src/PSSailpoint.V3/Model/ReassignmentReference.ps1
 src/PSSailpoint.V3/Model/ReassignmentTrailDTO.ps1
 src/PSSailpoint.V3/Model/ReassignmentType.ps1
+src/PSSailpoint.V3/Model/Recommendation.ps1
 src/PSSailpoint.V3/Model/Reference.ps1
 src/PSSailpoint.V3/Model/Reference1.ps1
 src/PSSailpoint.V3/Model/RemediationItemDetails.ps1
@@ -1412,9 +1408,6 @@ tests/Model/AccountActivityDocument.Tests.ps1
 tests/Model/AccountActivityItem.Tests.ps1
 tests/Model/AccountActivityItemOperation.Tests.ps1
 tests/Model/AccountActivitySearchedItem.Tests.ps1
-tests/Model/AccountAllOfOwnerGroup.Tests.ps1
-tests/Model/AccountAllOfOwnerIdentity.Tests.ps1
-tests/Model/AccountAllOfSourceOwner.Tests.ps1
 tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesCreate.Tests.ps1
@@ -1779,6 +1772,7 @@ tests/Model/Reassignment.Tests.ps1
 tests/Model/ReassignmentReference.Tests.ps1
 tests/Model/ReassignmentTrailDTO.Tests.ps1
 tests/Model/ReassignmentType.Tests.ps1
+tests/Model/Recommendation.Tests.ps1
 tests/Model/Reference.Tests.ps1
 tests/Model/Reference1.Tests.ps1
 tests/Model/RemediationItemDetails.Tests.ps1

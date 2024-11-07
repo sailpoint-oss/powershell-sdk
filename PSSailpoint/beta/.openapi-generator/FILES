@@ -70,10 +70,6 @@ docs/AccountAggregationCompleted.md
 docs/AccountAggregationCompletedSource.md
 docs/AccountAggregationCompletedStats.md
 docs/AccountAggregationStatus.md
-docs/AccountAllOfIdentity.md
-docs/AccountAllOfOwnerGroup.md
-docs/AccountAllOfOwnerIdentity.md
-docs/AccountAllOfSourceOwner.md
 docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesChanged.md
@@ -683,6 +679,7 @@ docs/ReassignReference.md
 docs/Reassignment.md
 docs/ReassignmentType.md
 docs/ReassignmentTypeEnum.md
+docs/Recommendation.md
 docs/RecommendationConfigDto.md
 docs/RecommendationRequest.md
 docs/RecommendationRequestDto.md
@@ -1141,10 +1138,6 @@ src/PSSailpoint.Beta/Model/AccountAggregationCompleted.ps1
 src/PSSailpoint.Beta/Model/AccountAggregationCompletedSource.ps1
 src/PSSailpoint.Beta/Model/AccountAggregationCompletedStats.ps1
 src/PSSailpoint.Beta/Model/AccountAggregationStatus.ps1
-src/PSSailpoint.Beta/Model/AccountAllOfIdentity.ps1
-src/PSSailpoint.Beta/Model/AccountAllOfOwnerGroup.ps1
-src/PSSailpoint.Beta/Model/AccountAllOfOwnerIdentity.ps1
-src/PSSailpoint.Beta/Model/AccountAllOfSourceOwner.ps1
 src/PSSailpoint.Beta/Model/AccountAttribute.ps1
 src/PSSailpoint.Beta/Model/AccountAttributes.ps1
 src/PSSailpoint.Beta/Model/AccountAttributesChanged.ps1
@@ -1680,6 +1673,7 @@ src/PSSailpoint.Beta/Model/ReassignReference.ps1
 src/PSSailpoint.Beta/Model/Reassignment.ps1
 src/PSSailpoint.Beta/Model/ReassignmentType.ps1
 src/PSSailpoint.Beta/Model/ReassignmentTypeEnum.ps1
+src/PSSailpoint.Beta/Model/Recommendation.ps1
 src/PSSailpoint.Beta/Model/RecommendationConfigDto.ps1
 src/PSSailpoint.Beta/Model/RecommendationRequest.ps1
 src/PSSailpoint.Beta/Model/RecommendationRequestDto.ps1
@@ -2144,10 +2138,6 @@ tests/Model/AccountAggregationCompleted.Tests.ps1
 tests/Model/AccountAggregationCompletedSource.Tests.ps1
 tests/Model/AccountAggregationCompletedStats.Tests.ps1
 tests/Model/AccountAggregationStatus.Tests.ps1
-tests/Model/AccountAllOfIdentity.Tests.ps1
-tests/Model/AccountAllOfOwnerGroup.Tests.ps1
-tests/Model/AccountAllOfOwnerIdentity.Tests.ps1
-tests/Model/AccountAllOfSourceOwner.Tests.ps1
 tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesChanged.Tests.ps1
@@ -2683,6 +2673,7 @@ tests/Model/ReassignReference.Tests.ps1
 tests/Model/Reassignment.Tests.ps1
 tests/Model/ReassignmentType.Tests.ps1
 tests/Model/ReassignmentTypeEnum.Tests.ps1
+tests/Model/Recommendation.Tests.ps1
 tests/Model/RecommendationConfigDto.Tests.ps1
 tests/Model/RecommendationRequest.Tests.ps1
 tests/Model/RecommendationRequestDto.Tests.ps1

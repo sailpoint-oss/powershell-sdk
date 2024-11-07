@@ -28,8 +28,10 @@ The lifecycle state of the identity this account is correlated to
 The identity state of the identity this account is correlated to
 .PARAMETER ConnectionType
 The connection type of the source this account is from
-.PARAMETER Type
-The type of the account
+.PARAMETER IsMachine
+Indicates if the account is of machine type
+.PARAMETER Recommendation
+No description available.
 .PARAMETER Attributes
 The account attributes that are aggregated
 .PARAMETER Authoritative
@@ -62,8 +64,6 @@ A string list containing the owning source's features
 The origin of the account either aggregated or provisioned
 .PARAMETER OwnerIdentity
 No description available.
-.PARAMETER OwnerGroup
-No description available.
 .OUTPUTS
 
 Account<PSCustomObject>
@@ -94,8 +94,11 @@ function Initialize-V2024Account {
         [String]
         ${ConnectionType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Type},
+        [System.Nullable[Boolean]]
+        ${IsMachine} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Recommendation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${Attributes},
@@ -144,10 +147,7 @@ function Initialize-V2024Account {
         ${Origin},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${OwnerIdentity},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${OwnerGroup}
+        ${OwnerIdentity}
     )
 
     Process {
@@ -203,7 +203,8 @@ function Initialize-V2024Account {
             "cloudLifecycleState" = ${CloudLifecycleState}
             "identityState" = ${IdentityState}
             "connectionType" = ${ConnectionType}
-            "type" = ${Type}
+            "isMachine" = ${IsMachine}
+            "recommendation" = ${Recommendation}
             "attributes" = ${Attributes}
             "authoritative" = ${Authoritative}
             "description" = ${Description}
@@ -220,7 +221,6 @@ function Initialize-V2024Account {
             "features" = ${Features}
             "origin" = ${Origin}
             "ownerIdentity" = ${OwnerIdentity}
-            "ownerGroup" = ${OwnerGroup}
         }
 
         return $PSO
@@ -257,7 +257,7 @@ function ConvertFrom-V2024JsonToAccount {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024Account
-        $AllProperties = ("id", "name", "created", "modified", "sourceId", "sourceName", "identityId", "cloudLifecycleState", "identityState", "connectionType", "type", "attributes", "authoritative", "description", "disabled", "locked", "nativeIdentity", "systemAccount", "uncorrelated", "uuid", "manuallyCorrelated", "hasEntitlements", "identity", "sourceOwner", "features", "origin", "ownerIdentity", "ownerGroup")
+        $AllProperties = ("id", "name", "created", "modified", "sourceId", "sourceName", "identityId", "cloudLifecycleState", "identityState", "connectionType", "isMachine", "recommendation", "attributes", "authoritative", "description", "disabled", "locked", "nativeIdentity", "systemAccount", "uncorrelated", "uuid", "manuallyCorrelated", "hasEntitlements", "identity", "sourceOwner", "features", "origin", "ownerIdentity")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -382,10 +382,16 @@ function ConvertFrom-V2024JsonToAccount {
             $ConnectionType = $JsonParameters.PSobject.Properties["connectionType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isMachine"))) { #optional property not found
+            $IsMachine = $null
         } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
+            $IsMachine = $JsonParameters.PSobject.Properties["isMachine"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "recommendation"))) { #optional property not found
+            $Recommendation = $null
+        } else {
+            $Recommendation = $JsonParameters.PSobject.Properties["recommendation"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -430,12 +436,6 @@ function ConvertFrom-V2024JsonToAccount {
             $OwnerIdentity = $JsonParameters.PSobject.Properties["ownerIdentity"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerGroup"))) { #optional property not found
-            $OwnerGroup = $null
-        } else {
-            $OwnerGroup = $JsonParameters.PSobject.Properties["ownerGroup"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -447,7 +447,8 @@ function ConvertFrom-V2024JsonToAccount {
             "cloudLifecycleState" = ${CloudLifecycleState}
             "identityState" = ${IdentityState}
             "connectionType" = ${ConnectionType}
-            "type" = ${Type}
+            "isMachine" = ${IsMachine}
+            "recommendation" = ${Recommendation}
             "attributes" = ${Attributes}
             "authoritative" = ${Authoritative}
             "description" = ${Description}
@@ -464,7 +465,6 @@ function ConvertFrom-V2024JsonToAccount {
             "features" = ${Features}
             "origin" = ${Origin}
             "ownerIdentity" = ${OwnerIdentity}
-            "ownerGroup" = ${OwnerGroup}
         }
 
         return $PSO

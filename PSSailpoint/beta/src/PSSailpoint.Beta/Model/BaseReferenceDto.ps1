@@ -14,10 +14,12 @@ No summary available.
 
 No description available.
 
+.PARAMETER Type
+No description available.
 .PARAMETER Id
-the application ID
+ID of the object to which this reference applies
 .PARAMETER Name
-the application name
+Human-readable display name of the object to which this reference applies
 .OUTPUTS
 
 BaseReferenceDto<PSCustomObject>
@@ -26,6 +28,10 @@ BaseReferenceDto<PSCustomObject>
 function Initialize-BetaBaseReferenceDto {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "MACHINE_IDENTITY", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
+        [PSCustomObject]
+        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
@@ -40,6 +46,7 @@ function Initialize-BetaBaseReferenceDto {
 
 
         $PSO = [PSCustomObject]@{
+            "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
         }
@@ -78,11 +85,17 @@ function ConvertFrom-BetaJsonToBaseReferenceDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaBaseReferenceDto
-        $AllProperties = ("id", "name")
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -98,6 +111,7 @@ function ConvertFrom-BetaJsonToBaseReferenceDto {
         }
 
         $PSO = [PSCustomObject]@{
+            "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
         }

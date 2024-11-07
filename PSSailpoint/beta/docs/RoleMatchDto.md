@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoleRef** | [**BaseReferenceDto**](BaseReferenceDto.md) |  | [optional] 
+**RoleRef** | [**BaseReferenceDto1**](BaseReferenceDto1.md) |  | [optional] 
 **MatchedAttributes** | [**ContextAttributeDto[]**](ContextAttributeDto.md) |  | [optional] 
 
 ## Examples

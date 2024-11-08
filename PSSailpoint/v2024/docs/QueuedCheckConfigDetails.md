@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProvisioningStatusCheckIntervalMinutes** | **String** | interval in minutes between status checks | 
-**ProvisioningMaxStatusCheckDays** | **String** | maximum number of days to check | 
+**ProvisioningStatusCheckIntervalMinutes** | **String** | Interval in minutes between status checks | 
+**ProvisioningMaxStatusCheckDays** | **String** | Maximum number of days to check | 
 
 ## Examples
 

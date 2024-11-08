@@ -12,7 +12,7 @@ Create new Service Desk integration
 
 .DESCRIPTION
 
-Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Create a new Service Desk integration.
 
 .PARAMETER ServiceDeskIntegrationDto
 The specifics of a new integration to create
@@ -102,7 +102,7 @@ Delete a Service Desk integration
 
 .DESCRIPTION
 
-Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Delete an existing Service Desk integration by ID.
 
 .PARAMETER Id
 ID of Service Desk integration to delete
@@ -176,7 +176,7 @@ Get a Service Desk integration
 
 .DESCRIPTION
 
-Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Get an existing Service Desk integration by ID.
 
 .PARAMETER Id
 ID of the Service Desk integration to get
@@ -246,11 +246,11 @@ function Get-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-List existing Service Desk Integrations
+List existing Service Desk integrations
 
 .DESCRIPTION
 
-Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Get a list of Service Desk integration objects.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -360,11 +360,11 @@ function Get-BetaServiceDeskIntegrationList {
 <#
 .SYNOPSIS
 
-Service Desk integration template by scriptName.
+Service Desk integration template by scriptName
 
 .DESCRIPTION
 
-This API endpoint returns an existing Service Desk integration template by scriptName.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+This API endpoint returns an existing Service Desk integration template by scriptName.
 
 .PARAMETER ScriptName
 The scriptName value of the Service Desk integration template to get
@@ -434,11 +434,11 @@ function Get-BetaServiceDeskIntegrationTemplate {
 <#
 .SYNOPSIS
 
-Service Desk Integration Types List.
+List Service Desk integration types
 
 .DESCRIPTION
 
-This API endpoint returns the current list of supported Service Desk integration types.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+This API endpoint returns the current list of supported Service Desk integration types.
 
 .PARAMETER WithHttpInfo
 
@@ -502,7 +502,7 @@ Get the time check configuration
 
 .DESCRIPTION
 
-Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Get the time check configuration of queued SDIM tickets.
 
 .PARAMETER WithHttpInfo
 
@@ -562,17 +562,17 @@ function Get-BetaStatusCheckDetails {
 <#
 .SYNOPSIS
 
-Service Desk Integration Update PATCH
+Patch a Service Desk Integration
 
 .DESCRIPTION
 
-Update an existing ServiceDeskIntegration by ID with a PATCH request.
+Update an existing Service Desk integration by ID with a PATCH request.
 
 .PARAMETER Id
 ID of the Service Desk integration to update
 
 .PARAMETER PatchServiceDeskIntegrationRequest
-A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 .PARAMETER WithHttpInfo
 
@@ -666,7 +666,7 @@ Update a Service Desk integration
 
 .DESCRIPTION
 
-Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Update an existing Service Desk integration by ID.
 
 .PARAMETER Id
 ID of the Service Desk integration to update
@@ -766,10 +766,10 @@ Update the time check configuration
 
 .DESCRIPTION
 
-Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+Update the time check configuration of queued SDIM tickets.
 
 .PARAMETER QueuedCheckConfigDetails
-the modified time check configuration
+The modified time check configuration
 
 .PARAMETER WithHttpInfo
 

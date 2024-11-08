@@ -7,11 +7,11 @@ Method | HTTP request | Description
 [**New-V2024ServiceDeskIntegration**](V2024ServiceDeskIntegrationApi.md#New-V2024ServiceDeskIntegration) | **POST** /service-desk-integrations | Create new Service Desk integration
 [**Remove-V2024ServiceDeskIntegration**](V2024ServiceDeskIntegrationApi.md#Remove-V2024ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration
 [**Get-V2024ServiceDeskIntegration**](V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration
-[**Get-V2024ServiceDeskIntegrationTemplate**](V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName.
-[**Get-V2024ServiceDeskIntegrationTypes**](V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | Service Desk Integration Types List.
-[**Get-V2024ServiceDeskIntegrations**](V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing Service Desk Integrations
+[**Get-V2024ServiceDeskIntegrationTemplate**](V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName
+[**Get-V2024ServiceDeskIntegrationTypes**](V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | List Service Desk integration types
+[**Get-V2024ServiceDeskIntegrations**](V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing Service Desk integrations
 [**Get-V2024StatusCheckDetails**](V2024ServiceDeskIntegrationApi.md#Get-V2024StatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration
-[**Update-V2024ServiceDeskIntegration**](V2024ServiceDeskIntegrationApi.md#Update-V2024ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Service Desk Integration Update PATCH
+[**Update-V2024ServiceDeskIntegration**](V2024ServiceDeskIntegrationApi.md#Update-V2024ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Patch a Service Desk Integration
 [**Send-V2024ServiceDeskIntegration**](V2024ServiceDeskIntegrationApi.md#Send-V2024ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
 [**Update-V2024StatusCheckDetails**](V2024ServiceDeskIntegrationApi.md#Update-V2024StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
 
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 Create new Service Desk integration
 
-Create a new Service Desk Integrations.
+Create a new Service Desk integration.
 
 ### Example
 ```powershell
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 > ServiceDeskIntegrationTemplateDto Get-V2024ServiceDeskIntegrationTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 
-Service Desk integration template by scriptName.
+Service Desk integration template by scriptName
 
 This API endpoint returns an existing Service Desk integration template by scriptName.
 
@@ -199,7 +199,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
 
-# Service Desk integration template by scriptName.
+# Service Desk integration template by scriptName
 try {
     $Result = Get-V2024ServiceDeskIntegrationTemplate -ScriptName $ScriptName
 } catch {
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 # **Get-V2024ServiceDeskIntegrationTypes**
 > ServiceDeskIntegrationTemplateType[] Get-V2024ServiceDeskIntegrationTypes<br>
 
-Service Desk Integration Types List.
+List Service Desk integration types
 
 This API endpoint returns the current list of supported Service Desk integration types.
 
@@ -248,7 +248,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 
-# Service Desk Integration Types List.
+# List Service Desk integration types
 try {
     $Result = Get-V2024ServiceDeskIntegrationTypes
 } catch {
@@ -284,9 +284,9 @@ This endpoint does not need any parameter.
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 
-List existing Service Desk Integrations
+List existing Service Desk integrations
 
-Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
+Get a list of Service Desk integration objects.
 
 ### Example
 ```powershell
@@ -304,7 +304,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 $Filters = "name eq "John Doe"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in* (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List existing Service Desk Integrations
+# List existing Service Desk integrations
 try {
     $Result = Get-V2024ServiceDeskIntegrations -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count
 } catch {
@@ -390,9 +390,9 @@ This endpoint does not need any parameter.
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PatchServiceDeskIntegrationRequest] <PSCustomObject><br>
 
-Service Desk Integration Update PATCH
+Patch a Service Desk Integration
 
-Update an existing ServiceDeskIntegration by ID with a PATCH request.
+Update an existing Service Desk integration by ID with a PATCH request.
 
 ### Example
 ```powershell
@@ -408,9 +408,9 @@ $Id = "anId" # String | ID of the Service Desk integration to update
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue
 
-$PatchServiceDeskIntegrationRequest = Initialize-PatchServiceDeskIntegrationRequest -Operations $JsonPatchOperation # PatchServiceDeskIntegrationRequest | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+$PatchServiceDeskIntegrationRequest = Initialize-PatchServiceDeskIntegrationRequest -Operations $JsonPatchOperation # PatchServiceDeskIntegrationRequest | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
-# Service Desk Integration Update PATCH
+# Patch a Service Desk Integration
 try {
     $Result = Update-V2024ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $PatchServiceDeskIntegrationRequest
 } catch {
@@ -424,7 +424,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **String**| ID of the Service Desk integration to update | 
- **PatchServiceDeskIntegrationRequest** | [**PatchServiceDeskIntegrationRequest**](PatchServiceDeskIntegrationRequest.md)| A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed.  | 
+ **PatchServiceDeskIntegrationRequest** | [**PatchServiceDeskIntegrationRequest**](PatchServiceDeskIntegrationRequest.md)| A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed.  | 
 
 ### Return type
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 Update a Service Desk integration
 
-Update an existing Service Desk integration by ID with updated value in JSON form as the request body.
+Update an existing Service Desk integration by ID.
 
 ### Example
 ```powershell
@@ -523,7 +523,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$QueuedCheckConfigDetails = Initialize-QueuedCheckConfigDetails -ProvisioningStatusCheckIntervalMinutes "30" -ProvisioningMaxStatusCheckDays "2" # QueuedCheckConfigDetails | the modified time check configuration
+$QueuedCheckConfigDetails = Initialize-QueuedCheckConfigDetails -ProvisioningStatusCheckIntervalMinutes "30" -ProvisioningMaxStatusCheckDays "2" # QueuedCheckConfigDetails | The modified time check configuration
 
 # Update the time check configuration
 try {
@@ -538,7 +538,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **QueuedCheckConfigDetails** | [**QueuedCheckConfigDetails**](QueuedCheckConfigDetails.md)| the modified time check configuration | 
+ **QueuedCheckConfigDetails** | [**QueuedCheckConfigDetails**](QueuedCheckConfigDetails.md)| The modified time check configuration | 
 
 ### Return type
 

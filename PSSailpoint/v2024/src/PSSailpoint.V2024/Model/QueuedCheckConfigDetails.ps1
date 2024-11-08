@@ -12,12 +12,12 @@ No summary available.
 
 .DESCRIPTION
 
-Configuration of maximum number days and interval for checking Service Desk integration queue status
+Configuration of maximum number of days and interval for checking Service Desk integration queue status.
 
 .PARAMETER ProvisioningStatusCheckIntervalMinutes
-interval in minutes between status checks
+Interval in minutes between status checks
 .PARAMETER ProvisioningMaxStatusCheckDays
-maximum number of days to check
+Maximum number of days to check
 .OUTPUTS
 
 QueuedCheckConfigDetails<PSCustomObject>

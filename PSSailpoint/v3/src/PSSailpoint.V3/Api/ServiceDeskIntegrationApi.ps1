@@ -12,7 +12,7 @@ Create new Service Desk integration
 
 .DESCRIPTION
 
-Create a new Service Desk Integrations.
+Create a new Service Desk integration.
 
 .PARAMETER ServiceDeskIntegrationDto
 The specifics of a new integration to create
@@ -246,7 +246,7 @@ function Get-ServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Service Desk integration template by scriptName.
+Service Desk integration template by scriptName
 
 .DESCRIPTION
 
@@ -320,7 +320,7 @@ function Get-ServiceDeskIntegrationTemplate {
 <#
 .SYNOPSIS
 
-Service Desk Integration Types List.
+List Service Desk integration types
 
 .DESCRIPTION
 
@@ -384,11 +384,11 @@ function Get-ServiceDeskIntegrationTypes {
 <#
 .SYNOPSIS
 
-List existing Service Desk Integrations
+List existing Service Desk integrations
 
 .DESCRIPTION
 
-Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
+Get a list of Service Desk integration objects.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -562,17 +562,17 @@ function Get-StatusCheckDetails {
 <#
 .SYNOPSIS
 
-Service Desk Integration Update PATCH
+Patch a Service Desk Integration
 
 .DESCRIPTION
 
-Update an existing ServiceDeskIntegration by ID with a PATCH request.
+Update an existing Service Desk integration by ID with a PATCH request.
 
 .PARAMETER Id
 ID of the Service Desk integration to update
 
 .PARAMETER PatchServiceDeskIntegrationRequest
-A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 .PARAMETER WithHttpInfo
 
@@ -666,7 +666,7 @@ Update a Service Desk integration
 
 .DESCRIPTION
 
-Update an existing Service Desk integration by ID with updated value in JSON form as the request body.
+Update an existing Service Desk integration by ID.
 
 .PARAMETER Id
 ID of the Service Desk integration to update
@@ -769,7 +769,7 @@ Update the time check configuration
 Update the time check configuration of queued SDIM tickets.
 
 .PARAMETER QueuedCheckConfigDetails
-the modified time check configuration
+The modified time check configuration
 
 .PARAMETER WithHttpInfo
 

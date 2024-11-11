@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSuggestedEntitlementDescriptionA
 
     Context 'Get-BetaSeds' {
         It 'Test Get-BetaSeds' {
-            #$TestResult = Get-BetaSeds -Limit "TEST_VALUE" -Filters "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -RequestedByAnyone "TEST_VALUE" -ShowPendingStatusOnly "TEST_VALUE"
+            #$TestResult = Get-BetaSeds -Limit "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -RequestedByAnyone "TEST_VALUE" -ShowPendingStatusOnly "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -363,7 +363,7 @@ Use this API to return a list of access request statuses based on the specified 
 Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
 
 .PARAMETER RequestedBy
-Filter the results by the identity twho made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
+Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
 
 .PARAMETER RegardingIdentity
 Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
@@ -385,6 +385,9 @@ Filter results using the standard syntax described in [V3 API Standard Collectio
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
+
+.PARAMETER RequestState
+Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
 .PARAMETER WithHttpInfo
 
@@ -424,6 +427,9 @@ function Get-V2024AccessRequestStatus {
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${RequestState},
         [Switch]
         $WithHttpInfo
     )
@@ -480,6 +486,10 @@ function Get-V2024AccessRequestStatus {
 
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($RequestState) {
+            $LocalVarQueryParameters['request-state'] = $RequestState
         }
 
 

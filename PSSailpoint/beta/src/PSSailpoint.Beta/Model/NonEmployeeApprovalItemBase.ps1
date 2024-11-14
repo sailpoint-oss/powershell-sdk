@@ -52,7 +52,7 @@ function Initialize-BetaNonEmployeeApprovalItemBase {
         [PSCustomObject]
         ${ApprovalStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
+        [System.Nullable[Double]]
         ${ApprovalOrder},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]

@@ -14,10 +14,10 @@ Name | Type | Description | Notes
 **Phone** | **String** | Non-Employee&#39;s phone. | [optional] 
 **Manager** | **String** | The account ID of a valid identity to serve as this non-employee&#39;s manager. | [optional] 
 **NonEmployeeSource** | [**NonEmployeeSourceLite**](NonEmployeeSourceLite.md) |  | [optional] 
-**VarData** | **System.Collections.Hashtable** | Attribute blob/bag for a non-employee. | [optional] 
+**VarData** | **System.Collections.Hashtable** | Additional attributes for a non-employee. Up to 10 custom attributes can be added. | [optional] 
 **ApprovalItems** | [**NonEmployeeApprovalItemBase[]**](NonEmployeeApprovalItemBase.md) | List of approval item for the request | [optional] 
 **ApprovalStatus** | [**ApprovalStatus**](ApprovalStatus.md) |  | [optional] 
-**Comment** | **String** | comment of requester | [optional] 
+**Comment** | **String** | Comment of requester | [optional] 
 **CompletionDate** | **System.DateTime** | When the request was completely approved. | [optional] 
 **StartDate** | **System.DateTime** | Non-Employee employment start date. | [optional] 
 **EndDate** | **System.DateTime** | Non-Employee employment end date. | [optional] 
@@ -36,7 +36,7 @@ $NonEmployeeRequest = Initialize-PSSailpoint.V3NonEmployeeRequest  -Id a0303682-
  -FirstName William `
  -LastName Smith `
  -Email william.smith@example.com `
- -Phone 5555555555 `
+ -Phone 5125555555 `
  -Manager jane.doe `
  -NonEmployeeSource null `
  -VarData {description&#x3D;Auditing} `

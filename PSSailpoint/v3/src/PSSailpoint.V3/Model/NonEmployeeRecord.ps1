@@ -31,7 +31,7 @@ The account ID of a valid identity to serve as this non-employee's manager.
 .PARAMETER SourceId
 Non-Employee's source id.
 .PARAMETER VarData
-Attribute blob/bag for a non-employee.
+Additional attributes for a non-employee. Up to 10 custom attributes can be added.
 .PARAMETER StartDate
 Non-Employee employment start date.
 .PARAMETER EndDate

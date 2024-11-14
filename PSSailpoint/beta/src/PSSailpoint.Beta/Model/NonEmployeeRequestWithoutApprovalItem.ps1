@@ -33,11 +33,11 @@ The account ID of a valid identity to serve as this non-employee's manager.
 .PARAMETER NonEmployeeSource
 No description available.
 .PARAMETER VarData
-Attribute blob/bag for a non-employee.
+Additional attributes for a non-employee. Up to 10 custom attributes can be added.
 .PARAMETER ApprovalStatus
 No description available.
 .PARAMETER Comment
-comment of requester
+Comment of requester
 .PARAMETER CompletionDate
 When the request was completely approved.
 .PARAMETER StartDate

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Schema Attribute Id | [optional] 
-**System** | **Boolean** | True if this schema attribute is mandatory on all non-employees sources. | [optional] 
+**System** | **Boolean** | True if this schema attribute is mandatory on all non-employees sources. | [optional] [default to $false]
 **Modified** | **System.DateTime** | When the schema attribute was last modified. | [optional] 
 **Created** | **System.DateTime** | When the schema attribute was created. | [optional] 
 **Type** | [**NonEmployeeSchemaAttributeType**](NonEmployeeSchemaAttributeType.md) |  | 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **TechnicalName** | **String** | The technical name of the attribute. Must be unique per source. | 
 **HelpText** | **String** | help text displayed by UI. | [optional] 
 **Placeholder** | **String** | Hint text that fills UI box. | [optional] 
-**Required** | **Boolean** | If true, the schema attribute is required for all non-employees in the source | [optional] 
+**Required** | **Boolean** | If true, the schema attribute is required for all non-employees in the source | [optional] [default to $false]
 
 ## Examples
 

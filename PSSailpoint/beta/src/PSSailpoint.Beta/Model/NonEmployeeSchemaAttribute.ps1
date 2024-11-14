@@ -47,7 +47,7 @@ function Initialize-BetaNonEmployeeSchemaAttribute {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${System},
+        ${System} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
@@ -72,7 +72,7 @@ function Initialize-BetaNonEmployeeSchemaAttribute {
         ${Placeholder},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Required}
+        ${Required} = $false
     )
 
     Process {

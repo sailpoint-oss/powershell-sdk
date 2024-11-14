@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Phone** | **String** | Non-Employee&#39;s phone. | [optional] 
 **Manager** | **String** | The account ID of a valid identity to serve as this non-employee&#39;s manager. | [optional] 
 **SourceId** | **String** | Non-Employee&#39;s source id. | [optional] 
-**VarData** | **System.Collections.Hashtable** | Attribute blob/bag for a non-employee. | [optional] 
+**VarData** | **System.Collections.Hashtable** | Additional attributes for a non-employee. Up to 10 custom attributes can be added. | [optional] 
 **StartDate** | **System.DateTime** | Non-Employee employment start date. | [optional] 
 **EndDate** | **System.DateTime** | Non-Employee employment end date. | [optional] 
 **Modified** | **System.DateTime** | When the request was last modified. | [optional] 
@@ -21,15 +21,15 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRecord = Initialize-PSSailpoint.BetaNonEmployeeRecord  -Id null `
- -AccountName null `
+$NonEmployeeRecord = Initialize-PSSailpoint.BetaNonEmployeeRecord  -Id ac10e21c-931c-1ef2-8193-1c51e7ff0003 `
+ -AccountName william.smith `
  -FirstName William `
  -LastName Smith `
  -Email william.smith@example.com `
- -Phone 5555555555 `
+ -Phone 5125555555 `
  -Manager jane.doe `
  -SourceId 2c91808568c529c60168cca6f90c1313 `
- -VarData null `
+ -VarData {description&#x3D;Auditing} `
  -StartDate 2019-08-23T18:52:59.162Z `
  -EndDate 2020-08-23T18:52:59.162Z `
  -Modified 2019-08-23T18:52:59.162Z `

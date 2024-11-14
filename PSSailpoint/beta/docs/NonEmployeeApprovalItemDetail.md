@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Approver** | [**IdentityReferenceWithId**](IdentityReferenceWithId.md) |  | [optional] 
 **AccountName** | **String** | Requested identity account name | [optional] 
 **ApprovalStatus** | [**ApprovalStatus**](ApprovalStatus.md) |  | [optional] 
-**ApprovalOrder** | **Decimal** | Approval order | [optional] 
+**ApprovalOrder** | **Double** | Approval order | [optional] 
 **Comment** | **String** | comment of approver | [optional] 
 **Modified** | **System.DateTime** | When the request was last modified. | [optional] 
 **Created** | **System.DateTime** | When the request was created. | [optional] 
@@ -22,7 +22,7 @@ $NonEmployeeApprovalItemDetail = Initialize-PSSailpoint.BetaNonEmployeeApprovalI
  -AccountName test.account `
  -ApprovalStatus null `
  -ApprovalOrder 1 `
- -Comment null `
+ -Comment true `
  -Modified 2019-08-23T18:52:59.162Z `
  -Created 2019-08-23T18:40:35.772Z `
  -NonEmployeeRequest null

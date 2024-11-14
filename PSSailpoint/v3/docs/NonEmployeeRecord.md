@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Phone** | **String** | Non-Employee&#39;s phone. | [optional] 
 **Manager** | **String** | The account ID of a valid identity to serve as this non-employee&#39;s manager. | [optional] 
 **SourceId** | **String** | Non-Employee&#39;s source id. | [optional] 
-**VarData** | **System.Collections.Hashtable** | Attribute blob/bag for a non-employee. | [optional] 
+**VarData** | **System.Collections.Hashtable** | Additional attributes for a non-employee. Up to 10 custom attributes can be added. | [optional] 
 **StartDate** | **System.DateTime** | Non-Employee employment start date. | [optional] 
 **EndDate** | **System.DateTime** | Non-Employee employment end date. | [optional] 
 **Modified** | **System.DateTime** | When the request was last modified. | [optional] 
@@ -26,7 +26,7 @@ $NonEmployeeRecord = Initialize-PSSailpoint.V3NonEmployeeRecord  -Id ef38f94347e
  -FirstName William `
  -LastName Smith `
  -Email william.smith@example.com `
- -Phone 5555555555 `
+ -Phone 5125555555 `
  -Manager jane.doe `
  -SourceId 2c91808568c529c60168cca6f90c1313 `
  -VarData {description&#x3D;Auditing} `

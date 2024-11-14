@@ -29,7 +29,7 @@ function Initialize-V2024WorkflowTrigger {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EVENT", "EXTERNAL", "SCHEDULED")]
+        [ValidateSet("EVENT", "EXTERNAL", "SCHEDULED", "")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -46,10 +46,6 @@ function Initialize-V2024WorkflowTrigger {
 
         if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
-        if (!$Attributes) {
-            throw "invalid value for 'Attributes', 'Attributes' cannot be null."
         }
 
 

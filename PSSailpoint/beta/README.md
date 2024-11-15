@@ -539,6 +539,10 @@ Class | Method | HTTP request | Description
 *BetaTaggedObjectsApi* | [**Send-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Send-BetaTaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 *BetaTaggedObjectsApi* | [**Set-BetaTagToObject**](docs/BetaTaggedObjectsApi.md#Set-BetaTagToObject) | **POST** /tagged-objects | Add Tag to Object
 *BetaTaggedObjectsApi* | [**Set-BetaTagsToManyObjects**](docs/BetaTaggedObjectsApi.md#Set-BetaTagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
+*BetaTagsApi* | [**New-BetaTag**](docs/BetaTagsApi.md#New-BetaTag) | **POST** /tags | Create Tag
+*BetaTagsApi* | [**Remove-BetaTagById**](docs/BetaTagsApi.md#Remove-BetaTagById) | **DELETE** /tags/{id} | Delete Tag
+*BetaTagsApi* | [**Get-BetaTagById**](docs/BetaTagsApi.md#Get-BetaTagById) | **GET** /tags/{id} | Get Tag By Id
+*BetaTagsApi* | [**Get-BetaTags**](docs/BetaTagsApi.md#Get-BetaTags) | **GET** /tags | List Tags
 *BetaTaskManagementApi* | [**Get-BetaPendingTaskHeaders**](docs/BetaTaskManagementApi.md#Get-BetaPendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve headers only for pending task list.
 *BetaTaskManagementApi* | [**Get-BetaPendingTasks**](docs/BetaTaskManagementApi.md#Get-BetaPendingTasks) | **GET** /task-status/pending-tasks | Retrieve a pending task list.
 *BetaTaskManagementApi* | [**Get-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatus) | **GET** /task-status/{id} | Get task status by ID.
@@ -1423,6 +1427,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SubscriptionPutRequest](docs/SubscriptionPutRequest.md)
  - [PSSailpoint.Beta\Model.SubscriptionType](docs/SubscriptionType.md)
  - [PSSailpoint.Beta\Model.Substring](docs/Substring.md)
+ - [PSSailpoint.Beta\Model.Tag](docs/Tag.md)
+ - [PSSailpoint.Beta\Model.TagTagCategoryRefsInner](docs/TagTagCategoryRefsInner.md)
  - [PSSailpoint.Beta\Model.TaggedObject](docs/TaggedObject.md)
  - [PSSailpoint.Beta\Model.TaggedObjectDto](docs/TaggedObjectDto.md)
  - [PSSailpoint.Beta\Model.TaggedObjectObjectRef](docs/TaggedObjectObjectRef.md)

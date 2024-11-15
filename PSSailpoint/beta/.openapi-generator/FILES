@@ -217,6 +217,7 @@ docs/BetaSourceUsagesApi.md
 docs/BetaSourcesApi.md
 docs/BetaSuggestedEntitlementDescriptionApi.md
 docs/BetaTaggedObjectsApi.md
+docs/BetaTagsApi.md
 docs/BetaTaskManagementApi.md
 docs/BetaTenantApi.md
 docs/BetaTransformsApi.md
@@ -890,6 +891,8 @@ docs/SubscriptionPostRequest.md
 docs/SubscriptionPutRequest.md
 docs/SubscriptionType.md
 docs/Substring.md
+docs/Tag.md
+docs/TagTagCategoryRefsInner.md
 docs/TaggedObject.md
 docs/TaggedObjectDto.md
 docs/TaggedObjectObjectRef.md
@@ -1060,6 +1063,7 @@ src/PSSailpoint.Beta/Api/BetaSourceUsagesApi.ps1
 src/PSSailpoint.Beta/Api/BetaSourcesApi.ps1
 src/PSSailpoint.Beta/Api/BetaSuggestedEntitlementDescriptionApi.ps1
 src/PSSailpoint.Beta/Api/BetaTaggedObjectsApi.ps1
+src/PSSailpoint.Beta/Api/BetaTagsApi.ps1
 src/PSSailpoint.Beta/Api/BetaTaskManagementApi.ps1
 src/PSSailpoint.Beta/Api/BetaTenantApi.ps1
 src/PSSailpoint.Beta/Api/BetaTransformsApi.ps1
@@ -1884,6 +1888,8 @@ src/PSSailpoint.Beta/Model/SubscriptionPostRequest.ps1
 src/PSSailpoint.Beta/Model/SubscriptionPutRequest.ps1
 src/PSSailpoint.Beta/Model/SubscriptionType.ps1
 src/PSSailpoint.Beta/Model/Substring.ps1
+src/PSSailpoint.Beta/Model/Tag.ps1
+src/PSSailpoint.Beta/Model/TagTagCategoryRefsInner.ps1
 src/PSSailpoint.Beta/Model/TaggedObject.ps1
 src/PSSailpoint.Beta/Model/TaggedObjectDto.ps1
 src/PSSailpoint.Beta/Model/TaggedObjectObjectRef.ps1
@@ -2061,6 +2067,7 @@ tests/Api/BetaSourceUsagesApi.Tests.ps1
 tests/Api/BetaSourcesApi.Tests.ps1
 tests/Api/BetaSuggestedEntitlementDescriptionApi.Tests.ps1
 tests/Api/BetaTaggedObjectsApi.Tests.ps1
+tests/Api/BetaTagsApi.Tests.ps1
 tests/Api/BetaTaskManagementApi.Tests.ps1
 tests/Api/BetaTenantApi.Tests.ps1
 tests/Api/BetaTransformsApi.Tests.ps1
@@ -2884,6 +2891,8 @@ tests/Model/SubscriptionPostRequest.Tests.ps1
 tests/Model/SubscriptionPutRequest.Tests.ps1
 tests/Model/SubscriptionType.Tests.ps1
 tests/Model/Substring.Tests.ps1
+tests/Model/Tag.Tests.ps1
+tests/Model/TagTagCategoryRefsInner.Tests.ps1
 tests/Model/TaggedObject.Tests.ps1
 tests/Model/TaggedObjectDto.Tests.ps1
 tests/Model/TaggedObjectObjectRef.Tests.ps1

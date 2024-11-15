@@ -32,7 +32,7 @@ function Initialize-BetaWorkgroupDeleteItem {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [Int32]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]

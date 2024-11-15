@@ -17,7 +17,7 @@ No description available.
 .PARAMETER Id
 Identifier of identity in bulk member add /remove request.
 .PARAMETER Status
- The HTTP response status code returned for an individual  member that is requested for deletion during a bulk delete operation.  > 204   - Identity is removed from Governance Group members list.  > 404   - Identity is not member of Governance Group. 
+The HTTP response status code returned for an individual  member that is requested for deletion during a bulk delete operation.  > 204   - Identity is removed from Governance Group members list.  > 404   - Identity is not member of Governance Group. 
 .PARAMETER Description
 Human readable status description and containing additional context information about success or failures etc. 
 .OUTPUTS
@@ -32,7 +32,7 @@ function Initialize-V2024WorkgroupMemberDeleteItem {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [Int32]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]

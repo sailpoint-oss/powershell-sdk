@@ -32,7 +32,7 @@ function Initialize-V2024WorkgroupDeleteItem {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [Int32]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]

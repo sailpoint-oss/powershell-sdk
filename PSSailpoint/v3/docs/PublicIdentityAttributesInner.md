@@ -1,4 +1,4 @@
-# IdentityAttribute1
+# PublicIdentityAttributesInner
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttribute1 = Initialize-PSSailpoint.V3IdentityAttribute1  -Key country `
+$PublicIdentityAttributesInner = Initialize-PSSailpoint.V3PublicIdentityAttributesInner  -Key country `
  -Name Country `
  -Value US
 ```
 
 - Convert the resource to JSON
 ```powershell
-$IdentityAttribute1 | ConvertTo-JSON
+$PublicIdentityAttributesInner | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

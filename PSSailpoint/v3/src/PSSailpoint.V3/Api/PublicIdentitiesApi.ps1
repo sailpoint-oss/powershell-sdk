@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Get a list of public identities
+Get list of public identities
 
 .DESCRIPTION
 
-No description or notes available.
+Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

@@ -22,10 +22,10 @@ Human-readable display name of the attribute
 The attribute value
 .OUTPUTS
 
-IdentityAttribute1<PSCustomObject>
+PublicIdentityAttributesInner<PSCustomObject>
 #>
 
-function Initialize-IdentityAttribute1 {
+function Initialize-PublicIdentityAttributesInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -40,7 +40,7 @@ function Initialize-IdentityAttribute1 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V3 => IdentityAttribute1' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V3 => PublicIdentityAttributesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -57,11 +57,11 @@ function Initialize-IdentityAttribute1 {
 <#
 .SYNOPSIS
 
-Convert from JSON to IdentityAttribute1<PSCustomObject>
+Convert from JSON to PublicIdentityAttributesInner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to IdentityAttribute1<PSCustomObject>
+Convert from JSON to PublicIdentityAttributesInner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -69,21 +69,21 @@ Json object
 
 .OUTPUTS
 
-IdentityAttribute1<PSCustomObject>
+PublicIdentityAttributesInner<PSCustomObject>
 #>
-function ConvertFrom-JsonToIdentityAttribute1 {
+function ConvertFrom-JsonToPublicIdentityAttributesInner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V3 => IdentityAttribute1' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V3 => PublicIdentityAttributesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in IdentityAttribute1
+        # check if Json contains properties not defined in PublicIdentityAttributesInner
         $AllProperties = ("key", "name", "value")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

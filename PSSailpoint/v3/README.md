@@ -270,7 +270,7 @@ Class | Method | HTTP request | Description
 *PersonalAccessTokensApi* | [**Remove-PersonalAccessToken**](docs/PersonalAccessTokensApi.md#Remove-PersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
 *PersonalAccessTokensApi* | [**Get-PersonalAccessTokens**](docs/PersonalAccessTokensApi.md#Get-PersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
 *PersonalAccessTokensApi* | [**Update-PersonalAccessToken**](docs/PersonalAccessTokensApi.md#Update-PersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
-*PublicIdentitiesApi* | [**Get-PublicIdentities**](docs/PublicIdentitiesApi.md#Get-PublicIdentities) | **GET** /public-identities | Get a list of public identities
+*PublicIdentitiesApi* | [**Get-PublicIdentities**](docs/PublicIdentitiesApi.md#Get-PublicIdentities) | **GET** /public-identities | Get list of public identities
 *PublicIdentitiesConfigApi* | [**Get-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Get-PublicIdentityConfig) | **GET** /public-identities-config | Get the Public Identities Configuration
 *PublicIdentitiesConfigApi* | [**Update-PublicIdentityConfig**](docs/PublicIdentitiesConfigApi.md#Update-PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
 *ReportsDataExtractionApi* | [**Suspend-Report**](docs/ReportsDataExtractionApi.md#Suspend-Report) | **POST** /reports/{id}/cancel | Cancel Report
@@ -649,7 +649,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.IdentitiesReportArguments](docs/IdentitiesReportArguments.md)
  - [PSSailpoint.V3\Model.IdentityAccess](docs/IdentityAccess.md)
  - [PSSailpoint.V3\Model.IdentityAttribute](docs/IdentityAttribute.md)
- - [PSSailpoint.V3\Model.IdentityAttribute1](docs/IdentityAttribute1.md)
  - [PSSailpoint.V3\Model.IdentityAttributeConfig](docs/IdentityAttributeConfig.md)
  - [PSSailpoint.V3\Model.IdentityAttributePreview](docs/IdentityAttributePreview.md)
  - [PSSailpoint.V3\Model.IdentityAttributeTransform](docs/IdentityAttributeTransform.md)
@@ -803,6 +802,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.ProvisioningState](docs/ProvisioningState.md)
  - [PSSailpoint.V3\Model.PublicIdentity](docs/PublicIdentity.md)
  - [PSSailpoint.V3\Model.PublicIdentityAttributeConfig](docs/PublicIdentityAttributeConfig.md)
+ - [PSSailpoint.V3\Model.PublicIdentityAttributesInner](docs/PublicIdentityAttributesInner.md)
  - [PSSailpoint.V3\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
  - [PSSailpoint.V3\Model.PutClientLogConfigurationRequest](docs/PutClientLogConfigurationRequest.md)
  - [PSSailpoint.V3\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)

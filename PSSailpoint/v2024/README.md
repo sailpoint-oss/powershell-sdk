@@ -448,7 +448,7 @@ Class | Method | HTTP request | Description
 *V2024PersonalAccessTokensApi* | [**Remove-V2024PersonalAccessToken**](docs/V2024PersonalAccessTokensApi.md#Remove-V2024PersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
 *V2024PersonalAccessTokensApi* | [**Get-V2024PersonalAccessTokens**](docs/V2024PersonalAccessTokensApi.md#Get-V2024PersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
 *V2024PersonalAccessTokensApi* | [**Update-V2024PersonalAccessToken**](docs/V2024PersonalAccessTokensApi.md#Update-V2024PersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
-*V2024PublicIdentitiesApi* | [**Get-V2024PublicIdentities**](docs/V2024PublicIdentitiesApi.md#Get-V2024PublicIdentities) | **GET** /public-identities | Get a list of public identities
+*V2024PublicIdentitiesApi* | [**Get-V2024PublicIdentities**](docs/V2024PublicIdentitiesApi.md#Get-V2024PublicIdentities) | **GET** /public-identities | Get list of public identities
 *V2024PublicIdentitiesConfigApi* | [**Get-V2024PublicIdentityConfig**](docs/V2024PublicIdentitiesConfigApi.md#Get-V2024PublicIdentityConfig) | **GET** /public-identities-config | Get the Public Identities Configuration
 *V2024PublicIdentitiesConfigApi* | [**Update-V2024PublicIdentityConfig**](docs/V2024PublicIdentitiesConfigApi.md#Update-V2024PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
 *V2024ReportsDataExtractionApi* | [**Suspend-V2024Report**](docs/V2024ReportsDataExtractionApi.md#Suspend-V2024Report) | **POST** /reports/{id}/cancel | Cancel Report
@@ -1113,7 +1113,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.IdentityAssociationDetailsAssociationDetailsInner](docs/IdentityAssociationDetailsAssociationDetailsInner.md)
  - [PSSailpoint.V2024\Model.IdentityAttribute](docs/IdentityAttribute.md)
  - [PSSailpoint.V2024\Model.IdentityAttribute1](docs/IdentityAttribute1.md)
- - [PSSailpoint.V2024\Model.IdentityAttribute2](docs/IdentityAttribute2.md)
  - [PSSailpoint.V2024\Model.IdentityAttributeConfig](docs/IdentityAttributeConfig.md)
  - [PSSailpoint.V2024\Model.IdentityAttributeNames](docs/IdentityAttributeNames.md)
  - [PSSailpoint.V2024\Model.IdentityAttributePreview](docs/IdentityAttributePreview.md)
@@ -1354,6 +1353,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ProvisioningState](docs/ProvisioningState.md)
  - [PSSailpoint.V2024\Model.PublicIdentity](docs/PublicIdentity.md)
  - [PSSailpoint.V2024\Model.PublicIdentityAttributeConfig](docs/PublicIdentityAttributeConfig.md)
+ - [PSSailpoint.V2024\Model.PublicIdentityAttributesInner](docs/PublicIdentityAttributesInner.md)
  - [PSSailpoint.V2024\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
  - [PSSailpoint.V2024\Model.PutClientLogConfigurationRequest](docs/PutClientLogConfigurationRequest.md)
  - [PSSailpoint.V2024\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)

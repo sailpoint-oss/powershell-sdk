@@ -250,7 +250,6 @@ docs/IdentitiesDetailsReportArguments.md
 docs/IdentitiesReportArguments.md
 docs/IdentityAccess.md
 docs/IdentityAttribute.md
-docs/IdentityAttribute1.md
 docs/IdentityAttributeConfig.md
 docs/IdentityAttributePreview.md
 docs/IdentityAttributeTransform.md
@@ -418,6 +417,7 @@ docs/PublicIdentitiesApi.md
 docs/PublicIdentitiesConfigApi.md
 docs/PublicIdentity.md
 docs/PublicIdentityAttributeConfig.md
+docs/PublicIdentityAttributesInner.md
 docs/PublicIdentityConfig.md
 docs/PutClientLogConfigurationRequest.md
 docs/PutCorrelationConfigRequest.md
@@ -938,7 +938,6 @@ src/PSSailpoint.V3/Model/IdentitiesDetailsReportArguments.ps1
 src/PSSailpoint.V3/Model/IdentitiesReportArguments.ps1
 src/PSSailpoint.V3/Model/IdentityAccess.ps1
 src/PSSailpoint.V3/Model/IdentityAttribute.ps1
-src/PSSailpoint.V3/Model/IdentityAttribute1.ps1
 src/PSSailpoint.V3/Model/IdentityAttributeConfig.ps1
 src/PSSailpoint.V3/Model/IdentityAttributePreview.ps1
 src/PSSailpoint.V3/Model/IdentityAttributeTransform.ps1
@@ -1092,6 +1091,7 @@ src/PSSailpoint.V3/Model/ProvisioningPolicyDto.ps1
 src/PSSailpoint.V3/Model/ProvisioningState.ps1
 src/PSSailpoint.V3/Model/PublicIdentity.ps1
 src/PSSailpoint.V3/Model/PublicIdentityAttributeConfig.ps1
+src/PSSailpoint.V3/Model/PublicIdentityAttributesInner.ps1
 src/PSSailpoint.V3/Model/PublicIdentityConfig.ps1
 src/PSSailpoint.V3/Model/PutClientLogConfigurationRequest.ps1
 src/PSSailpoint.V3/Model/PutCorrelationConfigRequest.ps1
@@ -1600,7 +1600,6 @@ tests/Model/IdentitiesDetailsReportArguments.Tests.ps1
 tests/Model/IdentitiesReportArguments.Tests.ps1
 tests/Model/IdentityAccess.Tests.ps1
 tests/Model/IdentityAttribute.Tests.ps1
-tests/Model/IdentityAttribute1.Tests.ps1
 tests/Model/IdentityAttributeConfig.Tests.ps1
 tests/Model/IdentityAttributePreview.Tests.ps1
 tests/Model/IdentityAttributeTransform.Tests.ps1
@@ -1754,6 +1753,7 @@ tests/Model/ProvisioningPolicyDto.Tests.ps1
 tests/Model/ProvisioningState.Tests.ps1
 tests/Model/PublicIdentity.Tests.ps1
 tests/Model/PublicIdentityAttributeConfig.Tests.ps1
+tests/Model/PublicIdentityAttributesInner.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
 tests/Model/PutClientLogConfigurationRequest.Tests.ps1
 tests/Model/PutCorrelationConfigRequest.Tests.ps1

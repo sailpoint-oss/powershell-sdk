@@ -4,7 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024PublicIdentities**](V2024PublicIdentitiesApi.md#Get-V2024PublicIdentities) | **GET** /public-identities | Get a list of public identities
+[**Get-V2024PublicIdentities**](V2024PublicIdentitiesApi.md#Get-V2024PublicIdentities) | **GET** /public-identities | Get list of public identities
 
 
 <a id="Get-V2024PublicIdentities"></a>
@@ -17,7 +17,9 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AddCoreFilters] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Sorters] <String><br>
 
-Get a list of public identities
+Get list of public identities
+
+Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
 
 ### Example
 ```powershell
@@ -36,7 +38,7 @@ $Filters = "firstname eq "John"" # String | Filter results using the standard sy
 $AddCoreFilters = $false # Boolean | If *true*, only get identities which satisfy ALL the following criteria in addition to any criteria specified by *filters*:   - Should be either correlated or protected.   - Should not be ""spadmin"" or ""cloudadmin"".   - uid should not be null.   - lastname should not be null.   - email should not be null. (optional) (default to $false)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
 
-# Get a list of public identities
+# Get list of public identities
 try {
     $Result = Get-V2024PublicIdentities -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -AddCoreFilters $AddCoreFilters -Sorters $Sorters
 } catch {

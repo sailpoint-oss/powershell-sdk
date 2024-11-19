@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**Get-V2024IdentitiesPotentialRole**](V2024IAIRoleMiningApi.md#Get-V2024IdentitiesPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities | Retrieves identities for a potential role in a role mining session
 [**Get-V2024PotentialRole**](V2024IAIRoleMiningApi.md#Get-V2024PotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Retrieves a specific potential role
 [**Get-V2024PotentialRoleApplications**](V2024IAIRoleMiningApi.md#Get-V2024PotentialRoleApplications) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications | Retrieves the applications of a potential role for a role mining session
+[**Get-V2024PotentialRoleEntitlements**](V2024IAIRoleMiningApi.md#Get-V2024PotentialRoleEntitlements) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements | Retrieves the entitlements of a potential role for a role mining session
 [**Get-V2024PotentialRoleSourceIdentityUsage**](V2024IAIRoleMiningApi.md#Get-V2024PotentialRoleSourceIdentityUsage) | **GET** /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage | Retrieves potential role source usage
 [**Get-V2024PotentialRoleSummaries**](V2024IAIRoleMiningApi.md#Get-V2024PotentialRoleSummaries) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries | Retrieves all potential role summaries
 [**Get-V2024RoleMiningPotentialRole**](V2024IAIRoleMiningApi.md#Get-V2024RoleMiningPotentialRole) | **GET** /role-mining-potential-roles/{potentialRoleId} | Retrieves a specific potential role
@@ -796,6 +797,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
@@ -815,15 +817,16 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
-$PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
+$PotentialRoleId = "62f28d91-7d9f-4d17-be15-666d5b41d77f" # String | A potential role id in a role mining session
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Filters = "applicationName sw "test"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **applicationName**: *sw* (optional)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # Retrieves the applications of a potential role for a role mining session
 try {
-    $Result = Get-V2024PotentialRoleApplications -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count
+    $Result = Get-V2024PotentialRoleApplications -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count
 } catch {
     Write-Host ("Exception occurred when calling Get-V2024PotentialRoleApplications: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -837,6 +840,7 @@ Name | Type | Description  | Notes
  **SessionId** | **String**| The role mining session id | 
  **PotentialRoleId** | **String**| A potential role id in a role mining session | 
  **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **applicationName**: *sw* | [optional] 
  **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
  **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
  **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
@@ -844,6 +848,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RoleMiningPotentialRoleApplication[]**](RoleMiningPotentialRoleApplication.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-V2024PotentialRoleEntitlements"></a>
+# **Get-V2024PotentialRoleEntitlements**
+> RoleMiningPotentialRoleEntitlements[] Get-V2024PotentialRoleEntitlements<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SessionId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PotentialRoleId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+
+Retrieves the entitlements of a potential role for a role mining session
+
+This method returns the entitlements of a potential role for a role mining session.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
+$PotentialRoleId = "62f28d91-7d9f-4d17-be15-666d5b41d77f" # String | A potential role id in a role mining session
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Filters = "entitlementRef.name sw "test"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementRef.name**: *sw* (optional)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+
+# Retrieves the entitlements of a potential role for a role mining session
+try {
+    $Result = Get-V2024PotentialRoleEntitlements -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Offset $Offset -Limit $Limit -Count $Count
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024PotentialRoleEntitlements: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SessionId** | **String**| The role mining session id | 
+ **PotentialRoleId** | **String**| A potential role id in a role mining session | 
+ **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **Filters** | **String**| Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementRef.name**: *sw* | [optional] 
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+ **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+ **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
+
+### Return type
+
+[**RoleMiningPotentialRoleEntitlements[]**](RoleMiningPotentialRoleEntitlements.md) (PSCustomObject)
 
 ### Authorization
 

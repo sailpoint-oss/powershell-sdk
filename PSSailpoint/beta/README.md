@@ -238,6 +238,7 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Get-BetaIdentitiesPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaIdentitiesPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities | Retrieves identities for a potential role in a role mining session
 *BetaIAIRoleMiningApi* | [**Get-BetaPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Retrieve potential role in session
 *BetaIAIRoleMiningApi* | [**Get-BetaPotentialRoleApplications**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleApplications) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications | Retrieves the applications of a potential role for a role mining session
+*BetaIAIRoleMiningApi* | [**Get-BetaPotentialRoleEntitlements**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleEntitlements) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements | Retrieves the entitlements of a potential role for a role mining session
 *BetaIAIRoleMiningApi* | [**Get-BetaPotentialRoleSourceIdentityUsage**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleSourceIdentityUsage) | **GET** /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage | Retrieves potential role source usage
 *BetaIAIRoleMiningApi* | [**Get-BetaPotentialRoleSummaries**](docs/BetaIAIRoleMiningApi.md#Get-BetaPotentialRoleSummaries) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries | Retrieve session's potential role summaries
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningPotentialRole**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningPotentialRole) | **GET** /role-mining-potential-roles/{potentialRoleId} | Retrieves a specific potential role
@@ -1287,6 +1288,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRole](docs/RoleMiningPotentialRole.md)
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRoleApplication](docs/RoleMiningPotentialRoleApplication.md)
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRoleEditEntitlements](docs/RoleMiningPotentialRoleEditEntitlements.md)
+ - [PSSailpoint.Beta\Model.RoleMiningPotentialRoleEntitlements](docs/RoleMiningPotentialRoleEntitlements.md)
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRoleExportRequest](docs/RoleMiningPotentialRoleExportRequest.md)
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRoleExportResponse](docs/RoleMiningPotentialRoleExportResponse.md)
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRoleExportState](docs/RoleMiningPotentialRoleExportState.md)

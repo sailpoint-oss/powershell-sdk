@@ -295,6 +295,7 @@ Class | Method | HTTP request | Description
 *V2024IAIRoleMiningApi* | [**Get-V2024IdentitiesPotentialRole**](docs/V2024IAIRoleMiningApi.md#Get-V2024IdentitiesPotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/identities | Retrieves identities for a potential role in a role mining session
 *V2024IAIRoleMiningApi* | [**Get-V2024PotentialRole**](docs/V2024IAIRoleMiningApi.md#Get-V2024PotentialRole) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Retrieves a specific potential role
 *V2024IAIRoleMiningApi* | [**Get-V2024PotentialRoleApplications**](docs/V2024IAIRoleMiningApi.md#Get-V2024PotentialRoleApplications) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/applications | Retrieves the applications of a potential role for a role mining session
+*V2024IAIRoleMiningApi* | [**Get-V2024PotentialRoleEntitlements**](docs/V2024IAIRoleMiningApi.md#Get-V2024PotentialRoleEntitlements) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements | Retrieves the entitlements of a potential role for a role mining session
 *V2024IAIRoleMiningApi* | [**Get-V2024PotentialRoleSourceIdentityUsage**](docs/V2024IAIRoleMiningApi.md#Get-V2024PotentialRoleSourceIdentityUsage) | **GET** /role-mining-potential-roles/{potentialRoleId}/sources/{sourceId}/identityUsage | Retrieves potential role source usage
 *V2024IAIRoleMiningApi* | [**Get-V2024PotentialRoleSummaries**](docs/V2024IAIRoleMiningApi.md#Get-V2024PotentialRoleSummaries) | **GET** /role-mining-sessions/{sessionId}/potential-role-summaries | Retrieves all potential role summaries
 *V2024IAIRoleMiningApi* | [**Get-V2024RoleMiningPotentialRole**](docs/V2024IAIRoleMiningApi.md#Get-V2024RoleMiningPotentialRole) | **GET** /role-mining-potential-roles/{potentialRoleId} | Retrieves a specific potential role
@@ -1467,6 +1468,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRole](docs/RoleMiningPotentialRole.md)
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRoleApplication](docs/RoleMiningPotentialRoleApplication.md)
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRoleEditEntitlements](docs/RoleMiningPotentialRoleEditEntitlements.md)
+ - [PSSailpoint.V2024\Model.RoleMiningPotentialRoleEntitlements](docs/RoleMiningPotentialRoleEntitlements.md)
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRoleExportRequest](docs/RoleMiningPotentialRoleExportRequest.md)
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRoleExportResponse](docs/RoleMiningPotentialRoleExportResponse.md)
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRoleExportState](docs/RoleMiningPotentialRoleExportState.md)

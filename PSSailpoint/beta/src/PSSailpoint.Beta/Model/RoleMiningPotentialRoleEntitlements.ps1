@@ -15,15 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-Id of the application
+Id of the entitlement
 .PARAMETER Name
-Name of the application
+Name of the entitlement
 .OUTPUTS
 
-RoleMiningPotentialRoleApplication<PSCustomObject>
+RoleMiningPotentialRoleEntitlements<PSCustomObject>
 #>
 
-function Initialize-BetaRoleMiningPotentialRoleApplication {
+function Initialize-BetaRoleMiningPotentialRoleEntitlements {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-BetaRoleMiningPotentialRoleApplication {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaRoleMiningPotentialRoleApplication' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaRoleMiningPotentialRoleEntitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -51,11 +51,11 @@ function Initialize-BetaRoleMiningPotentialRoleApplication {
 <#
 .SYNOPSIS
 
-Convert from JSON to RoleMiningPotentialRoleApplication<PSCustomObject>
+Convert from JSON to RoleMiningPotentialRoleEntitlements<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to RoleMiningPotentialRoleApplication<PSCustomObject>
+Convert from JSON to RoleMiningPotentialRoleEntitlements<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,21 +63,21 @@ Json object
 
 .OUTPUTS
 
-RoleMiningPotentialRoleApplication<PSCustomObject>
+RoleMiningPotentialRoleEntitlements<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToRoleMiningPotentialRoleApplication {
+function ConvertFrom-BetaJsonToRoleMiningPotentialRoleEntitlements {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaRoleMiningPotentialRoleApplication' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaRoleMiningPotentialRoleEntitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaRoleMiningPotentialRoleApplication
+        # check if Json contains properties not defined in BetaRoleMiningPotentialRoleEntitlements
         $AllProperties = ("id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

@@ -104,7 +104,15 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IAIRoleMiningApi' {
 
     Context 'Get-V2024PotentialRoleApplications' {
         It 'Test Get-V2024PotentialRoleApplications' {
-            #$TestResult = Get-V2024PotentialRoleApplications -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-V2024PotentialRoleApplications -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024PotentialRoleEntitlements' {
+        It 'Test Get-V2024PotentialRoleEntitlements' {
+            #$TestResult = Get-V2024PotentialRoleEntitlements -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

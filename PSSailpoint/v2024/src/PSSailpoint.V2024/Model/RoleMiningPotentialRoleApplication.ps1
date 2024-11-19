@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-Id of the potential role
+Id of the application
 .PARAMETER Name
-Name of the potential role
+Name of the application
 .OUTPUTS
 
 RoleMiningPotentialRoleApplication<PSCustomObject>

@@ -1477,6 +1477,9 @@ A potential role id in a role mining session
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **applicationName**: *sw*
+
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -1507,12 +1510,15 @@ function Get-V2024PotentialRoleApplications {
         [String]
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Offset},
+        [String]
+        ${Filters},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
-        ${Limit},
+        ${Offset},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
         [Switch]
@@ -1550,6 +1556,10 @@ function Get-V2024PotentialRoleApplications {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
         }
@@ -1574,6 +1584,141 @@ function Get-V2024PotentialRoleApplications {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "RoleMiningPotentialRoleApplication[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Retrieves the entitlements of a potential role for a role mining session
+
+.DESCRIPTION
+
+This method returns the entitlements of a potential role for a role mining session.
+
+.PARAMETER SessionId
+The role mining session id
+
+.PARAMETER PotentialRoleId
+A potential role id in a role mining session
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementRef.name**: *sw*
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+RoleMiningPotentialRoleEntitlements[]
+#>
+function Get-V2024PotentialRoleEntitlements {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SessionId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${PotentialRoleId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2024PotentialRoleEntitlements' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}/entitlements'
+        if (!$SessionId) {
+            throw "Error! The required parameter `SessionId` missing when calling getPotentialRoleEntitlements."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
+        if (!$PotentialRoleId) {
+            throw "Error! The required parameter `PotentialRoleId` missing when calling getPotentialRoleEntitlements."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getPotentialRoleEntitlements."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "RoleMiningPotentialRoleEntitlements[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

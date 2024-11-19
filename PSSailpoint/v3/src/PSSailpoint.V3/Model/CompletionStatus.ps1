@@ -24,7 +24,5 @@ enum CompletionStatus {
     INCOMPLETE
     # enum value: "PENDING"
     PENDING
-    # enum value: "null"
-    null
 }
 

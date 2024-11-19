@@ -17,7 +17,7 @@ No description available.
 .PARAMETER ScheduleId
 The ID of the scheduled search that triggered the saved search execution. 
 .PARAMETER Owner
-No description available.
+The owner of the scheduled search being tested. 
 .PARAMETER Recipients
 The email recipients of the scheduled search being tested. 
 .OUTPUTS

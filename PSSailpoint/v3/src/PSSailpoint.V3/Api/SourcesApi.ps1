@@ -1278,7 +1278,7 @@ function Import-AccountsSchema {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -1365,7 +1365,7 @@ function Import-ConnectorFile {
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -1462,7 +1462,7 @@ function Import-EntitlementsSchema {
         }
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 

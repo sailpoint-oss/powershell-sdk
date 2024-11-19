@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Owner** | [**AccessItemOwnerDto**](AccessItemOwnerDto.md) |  | [optional] 
 **RequestedObject** | [**RequestableObjectReference**](RequestableObjectReference.md) |  | [optional] 
 **RequesterComment** | [**CommentDto1**](CommentDto1.md) |  | [optional] 
-**ReviewerComment** | [**CompletedApprovalReviewerComment**](CompletedApprovalReviewerComment.md) |  | [optional] 
+**ReviewerComment** | [**CommentDto**](CommentDto.md) | The approval&#39;s reviewer&#39;s comment. | [optional] 
 **PreviousReviewersComments** | [**CommentDto1[]**](CommentDto1.md) | The history of the previous reviewers comments. | [optional] 
 **ForwardHistory** | [**ApprovalForwardHistory[]**](ApprovalForwardHistory.md) | The history of approval forward action. | [optional] 
 **CommentRequiredWhenRejected** | **Boolean** | When true the rejector has to provide comments when rejecting | [optional] [default to $false]

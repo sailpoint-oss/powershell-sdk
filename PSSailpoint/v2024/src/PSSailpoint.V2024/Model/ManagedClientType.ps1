@@ -24,7 +24,5 @@ enum ManagedClientType {
     INTERNAL
     # enum value: "IIQ_HARVESTER"
     IIQ_HARVESTER
-    # enum value: "null"
-    null
 }
 

@@ -163,7 +163,7 @@ function Set-BetaIcon {
         if (!$Image) {
             throw "Error! The required parameter `Image` missing when calling setIcon."
         }
-        $LocalVarFormParameters['image'] = $Image
+        $LocalVarFormParameters['image'] = $Image | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
 
 

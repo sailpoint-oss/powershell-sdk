@@ -458,7 +458,7 @@ function Import-V2024EntitlementsBySource {
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($CsvFile) {
-            $LocalVarFormParameters['csvFile'] = $CsvFile
+            $LocalVarFormParameters['csvFile'] = $CsvFile | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 

@@ -2077,7 +2077,7 @@ function Import-V2024Accounts {
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
         if ($DisableOptimization) {
@@ -2168,7 +2168,7 @@ function Import-V2024AccountsSchema {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -2255,7 +2255,7 @@ function Import-V2024ConnectorFile {
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -2352,7 +2352,7 @@ function Import-V2024EntitlementsSchema {
         }
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -2450,7 +2450,7 @@ function Import-V2024UncorrelatedAccounts {
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 

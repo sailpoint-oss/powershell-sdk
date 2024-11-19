@@ -42,9 +42,13 @@ function Invoke-BetaApiClient {
 
     $Configuration = Get-DefaultConfiguration
     $RequestUri = $Configuration["BaseUrl"] + "beta" + $Uri
-    $SkipCertificateCheck = $Configuration["SkipCertificateCheck"]
 
     Write-Debug "Calling Endpoint: $RequestUri"
+
+    $DefaultHeaders = $Configuration["DefaultHeaders"]
+    # should make sure that SkipCertificateCheck is not set for PowerShell 5
+    $SkipCertificateCheck = $Configuration["SkipCertificateCheck"]
+    $Proxy = $Configuration["Proxy"]
 
     # cookie parameters
     foreach ($Parameter in $CookieParameters.GetEnumerator()) {
@@ -78,7 +82,9 @@ function Invoke-BetaApiClient {
 
 
     $HasFormData = $False
-    $ContentType= SelectHeaders -Headers $ContentTypes
+
+    # Content-Type and multipart handling
+    $ContentType = SelectHeaders -Headers $ContentTypes
     if ($ContentType) {
         $HeaderParameters['Content-Type'] = $ContentType
         if ($ContentType -eq 'multipart/form-data') {
@@ -87,7 +93,7 @@ function Invoke-BetaApiClient {
     }
 
     # add default headers if any
-    foreach ($header in $Configuration["DefaultHeaders"].GetEnumerator()) {
+    foreach ($header in $DefaultHeaders.GetEnumerator()) {
         $HeaderParameters[$header.Name] = $header.Value
     }
 

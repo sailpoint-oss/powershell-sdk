@@ -28,7 +28,5 @@ enum AccountActivityApprovalStatus {
     PENDING
     # enum value: "CANCELED"
     CANCELED
-    # enum value: "null"
-    null
 }
 

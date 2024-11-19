@@ -788,7 +788,7 @@ function Send-V2024CorrelationConfig {
         if (!$File) {
             throw "Error! The required parameter `File` missing when calling putCorrelationConfig."
         }
-        $LocalVarFormParameters['file'] = $File
+        $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
 
 
@@ -876,7 +876,7 @@ function Send-V2024SourceConfig {
         if (!$File) {
             throw "Error! The required parameter `File` missing when calling putSourceConfig."
         }
-        $LocalVarFormParameters['file'] = $File
+        $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
 
 
@@ -964,7 +964,7 @@ function Send-V2024SourceTemplate {
         if (!$File) {
             throw "Error! The required parameter `File` missing when calling putSourceTemplate."
         }
-        $LocalVarFormParameters['file'] = $File
+        $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
 
 

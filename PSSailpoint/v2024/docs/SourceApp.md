@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **MatchAllAccounts** | **Boolean** | True if the source app match all accounts | [optional] [default to $false]
 **AppCenterEnabled** | **Boolean** | True if the source app is shown in the app center | [optional] [default to $true]
 **AccountSource** | [**SourceAppAccountSource**](SourceAppAccountSource.md) |  | [optional] 
-**Owner** | [**SourceAppOwner**](SourceAppOwner.md) |  | [optional] 
+**Owner** | [**BaseReferenceDto**](BaseReferenceDto.md) | The owner of source app | [optional] 
 
 ## Examples
 

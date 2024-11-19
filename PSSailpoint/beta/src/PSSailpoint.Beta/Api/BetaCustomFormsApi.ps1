@@ -327,7 +327,7 @@ function New-BetaFormDefinitionFileRequest {
         if (!$File) {
             throw "Error! The required parameter `File` missing when calling createFormDefinitionFileRequest."
         }
-        $LocalVarFormParameters['file'] = $File
+        $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
 
 

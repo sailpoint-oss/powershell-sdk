@@ -124,7 +124,7 @@ function New-V2024BrandingItem {
         }
 
         if ($FileStandard) {
-            $LocalVarFormParameters['fileStandard'] = $FileStandard
+            $LocalVarFormParameters['fileStandard'] = $FileStandard | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -494,7 +494,7 @@ function Set-V2024BrandingItem {
         }
 
         if ($FileStandard) {
-            $LocalVarFormParameters['fileStandard'] = $FileStandard
+            $LocalVarFormParameters['fileStandard'] = $FileStandard | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 

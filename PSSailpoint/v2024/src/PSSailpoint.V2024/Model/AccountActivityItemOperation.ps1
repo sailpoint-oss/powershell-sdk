@@ -36,7 +36,5 @@ enum AccountActivityItemOperation {
     REMOVE
     # enum value: "SET"
     SET
-    # enum value: "null"
-    null
 }
 

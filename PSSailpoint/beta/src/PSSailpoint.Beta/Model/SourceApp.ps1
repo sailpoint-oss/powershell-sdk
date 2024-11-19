@@ -37,7 +37,7 @@ True if the source app is shown in the app center
 .PARAMETER AccountSource
 No description available.
 .PARAMETER Owner
-No description available.
+The owner of source app
 .OUTPUTS
 
 SourceApp<PSCustomObject>

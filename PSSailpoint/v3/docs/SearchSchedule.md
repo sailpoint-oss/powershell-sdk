@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SavedSearchId** | **String** | The ID of the saved search that will be executed. | 
-**Created** | **System.DateTime** | A date-time in ISO-8601 format | [optional] [readonly] 
-**Modified** | **System.DateTime** | A date-time in ISO-8601 format | [optional] [readonly] 
+**Created** | **System.DateTime** | The date the scheduled search was initially created. | [optional] [readonly] 
+**Modified** | **System.DateTime** | The last date the scheduled search was modified. | [optional] [readonly] 
 **Schedule** | [**Schedule1**](Schedule1.md) |  | 
 **Recipients** | [**SearchScheduleRecipientsInner[]**](SearchScheduleRecipientsInner.md) | A list of identities that should receive the scheduled search report via email. | 
 **Enabled** | **Boolean** | Indicates if the scheduled search is enabled.  | [optional] [default to $false]

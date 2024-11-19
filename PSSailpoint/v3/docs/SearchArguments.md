@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ScheduleId** | **String** | The ID of the scheduled search that triggered the saved search execution.  | [optional] 
-**Owner** | [**TypedReference**](TypedReference.md) |  | [optional] 
+**Owner** | [**TypedReference**](TypedReference.md) | The owner of the scheduled search being tested.  | [optional] 
 **Recipients** | [**TypedReference[]**](TypedReference.md) | The email recipients of the scheduled search being tested.  | [optional] 
 
 ## Examples

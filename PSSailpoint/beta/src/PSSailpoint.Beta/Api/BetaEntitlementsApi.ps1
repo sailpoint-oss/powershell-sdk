@@ -403,7 +403,7 @@ function Import-BetaEntitlementsBySource {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($CsvFile) {
-            $LocalVarFormParameters['csvFile'] = $CsvFile
+            $LocalVarFormParameters['csvFile'] = $CsvFile | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 

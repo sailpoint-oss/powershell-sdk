@@ -39,7 +39,7 @@ No description available.
 .PARAMETER RequesterComment
 No description available.
 .PARAMETER ReviewerComment
-No description available.
+The approval's reviewer's comment.
 .PARAMETER PreviousReviewersComments
 The history of the previous reviewers comments.
 .PARAMETER ForwardHistory

@@ -250,7 +250,7 @@ function Send-V2024ManualDiscoverApplicationsCsvTemplate {
         if (!$File) {
             throw "Error! The required parameter `File` missing when calling sendManualDiscoverApplicationsCsvTemplate."
         }
-        $LocalVarFormParameters['file'] = $File
+        $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
 
 

@@ -1867,7 +1867,7 @@ function Import-BetaNonEmployeeRecordsInBulk {
         if (!$Data) {
             throw "Error! The required parameter `Data` missing when calling importNonEmployeeRecordsInBulk."
         }
-        $LocalVarFormParameters['data'] = $Data
+        $LocalVarFormParameters['data'] = $Data | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
 
 

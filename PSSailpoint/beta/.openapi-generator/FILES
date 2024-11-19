@@ -278,7 +278,6 @@ docs/CompleteInvocationInput.md
 docs/CompletedApproval.md
 docs/CompletedApprovalPreApprovalTriggerResult.md
 docs/CompletedApprovalReviewedBy.md
-docs/CompletedApprovalReviewerComment.md
 docs/CompletedApprovalState.md
 docs/CompletionStatus.md
 docs/Concatenation.md
@@ -851,7 +850,6 @@ docs/SourceAppAccountSource.md
 docs/SourceAppBulkUpdateRequest.md
 docs/SourceAppCreateDto.md
 docs/SourceAppCreateDtoAccountSource.md
-docs/SourceAppOwner.md
 docs/SourceAppPatchDto.md
 docs/SourceClusterDto.md
 docs/SourceCode.md
@@ -1275,7 +1273,6 @@ src/PSSailpoint.Beta/Model/CompleteInvocationInput.ps1
 src/PSSailpoint.Beta/Model/CompletedApproval.ps1
 src/PSSailpoint.Beta/Model/CompletedApprovalPreApprovalTriggerResult.ps1
 src/PSSailpoint.Beta/Model/CompletedApprovalReviewedBy.ps1
-src/PSSailpoint.Beta/Model/CompletedApprovalReviewerComment.ps1
 src/PSSailpoint.Beta/Model/CompletedApprovalState.ps1
 src/PSSailpoint.Beta/Model/CompletionStatus.ps1
 src/PSSailpoint.Beta/Model/Concatenation.ps1
@@ -1848,7 +1845,6 @@ src/PSSailpoint.Beta/Model/SourceAppAccountSource.ps1
 src/PSSailpoint.Beta/Model/SourceAppBulkUpdateRequest.ps1
 src/PSSailpoint.Beta/Model/SourceAppCreateDto.ps1
 src/PSSailpoint.Beta/Model/SourceAppCreateDtoAccountSource.ps1
-src/PSSailpoint.Beta/Model/SourceAppOwner.ps1
 src/PSSailpoint.Beta/Model/SourceAppPatchDto.ps1
 src/PSSailpoint.Beta/Model/SourceClusterDto.ps1
 src/PSSailpoint.Beta/Model/SourceCode.ps1
@@ -2278,7 +2274,6 @@ tests/Model/CompleteInvocationInput.Tests.ps1
 tests/Model/CompletedApproval.Tests.ps1
 tests/Model/CompletedApprovalPreApprovalTriggerResult.Tests.ps1
 tests/Model/CompletedApprovalReviewedBy.Tests.ps1
-tests/Model/CompletedApprovalReviewerComment.Tests.ps1
 tests/Model/CompletedApprovalState.Tests.ps1
 tests/Model/CompletionStatus.Tests.ps1
 tests/Model/Concatenation.Tests.ps1
@@ -2851,7 +2846,6 @@ tests/Model/SourceAppAccountSource.Tests.ps1
 tests/Model/SourceAppBulkUpdateRequest.Tests.ps1
 tests/Model/SourceAppCreateDto.Tests.ps1
 tests/Model/SourceAppCreateDtoAccountSource.Tests.ps1
-tests/Model/SourceAppOwner.Tests.ps1
 tests/Model/SourceAppPatchDto.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
 tests/Model/SourceCode.Tests.ps1

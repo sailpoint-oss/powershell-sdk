@@ -1656,7 +1656,7 @@ function Import-BetaAccounts {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
         if ($DisableOptimization) {
@@ -1747,7 +1747,7 @@ function Import-BetaEntitlements {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -1834,7 +1834,7 @@ function Import-BetaSourceAccountsSchema {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -1921,7 +1921,7 @@ function Import-BetaSourceConnectorFile {
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -2018,7 +2018,7 @@ function Import-BetaSourceEntitlementsSchema {
         }
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 
@@ -2105,7 +2105,7 @@ function Import-BetaUncorrelatedAccounts {
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 

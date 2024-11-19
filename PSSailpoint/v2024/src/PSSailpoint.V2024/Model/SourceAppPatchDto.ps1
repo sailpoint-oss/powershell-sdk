@@ -39,7 +39,7 @@ List of IDs of access profiles
 .PARAMETER AccountSource
 No description available.
 .PARAMETER Owner
-No description available.
+The owner of source app
 .OUTPUTS
 
 SourceAppPatchDto<PSCustomObject>

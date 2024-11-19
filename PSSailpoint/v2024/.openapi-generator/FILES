@@ -898,7 +898,6 @@ docs/SourceAppAccountSource.md
 docs/SourceAppBulkUpdateRequest.md
 docs/SourceAppCreateDto.md
 docs/SourceAppCreateDtoAccountSource.md
-docs/SourceAppOwner.md
 docs/SourceAppPatchDto.md
 docs/SourceBeforeProvisioningRule.md
 docs/SourceCluster.md
@@ -2116,7 +2115,6 @@ src/PSSailpoint.V2024/Model/SourceAppAccountSource.ps1
 src/PSSailpoint.V2024/Model/SourceAppBulkUpdateRequest.ps1
 src/PSSailpoint.V2024/Model/SourceAppCreateDto.ps1
 src/PSSailpoint.V2024/Model/SourceAppCreateDtoAccountSource.ps1
-src/PSSailpoint.V2024/Model/SourceAppOwner.ps1
 src/PSSailpoint.V2024/Model/SourceAppPatchDto.ps1
 src/PSSailpoint.V2024/Model/SourceBeforeProvisioningRule.ps1
 src/PSSailpoint.V2024/Model/SourceCluster.ps1
@@ -3258,7 +3256,6 @@ tests/Model/SourceAppAccountSource.Tests.ps1
 tests/Model/SourceAppBulkUpdateRequest.Tests.ps1
 tests/Model/SourceAppCreateDto.Tests.ps1
 tests/Model/SourceAppCreateDtoAccountSource.Tests.ps1
-tests/Model/SourceAppOwner.Tests.ps1
 tests/Model/SourceAppPatchDto.Tests.ps1
 tests/Model/SourceBeforeProvisioningRule.Tests.ps1
 tests/Model/SourceCluster.Tests.ps1

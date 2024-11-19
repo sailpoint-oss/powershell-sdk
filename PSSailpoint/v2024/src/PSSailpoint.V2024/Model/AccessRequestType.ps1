@@ -20,7 +20,5 @@ enum AccessRequestType {
     GRANT_ACCESS
     # enum value: "REVOKE_ACCESS"
     REVOKE_ACCESS
-    # enum value: "null"
-    null
 }
 

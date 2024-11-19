@@ -527,7 +527,7 @@ function Import-V2024SpConfig {
         if (!$Data) {
             throw "Error! The required parameter `Data` missing when calling importSpConfig."
         }
-        $LocalVarFormParameters['data'] = $Data
+        $LocalVarFormParameters['data'] = $Data | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
         if ($Options) {
             $LocalVarFormParameters['options'] = $Options

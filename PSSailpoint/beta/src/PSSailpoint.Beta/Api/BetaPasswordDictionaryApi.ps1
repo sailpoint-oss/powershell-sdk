@@ -133,7 +133,7 @@ function Send-BetaPasswordDictionary {
         $LocalVarUri = '/password-dictionary'
 
         if ($File) {
-            $LocalVarFormParameters['file'] = $File
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
         }
 
 

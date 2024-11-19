@@ -355,7 +355,7 @@ function New-V2024UploadedConfiguration {
         if (!$Data) {
             throw "Error! The required parameter `Data` missing when calling createUploadedConfiguration."
         }
-        $LocalVarFormParameters['data'] = $Data
+        $LocalVarFormParameters['data'] = $Data | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
         if (!$Name) {
             throw "Error! The required parameter `Name` missing when calling createUploadedConfiguration."

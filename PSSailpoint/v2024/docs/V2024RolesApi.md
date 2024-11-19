@@ -745,7 +745,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Role**](Role.md) (PSCustomObject)
+**Role**
 
 ### Authorization
 

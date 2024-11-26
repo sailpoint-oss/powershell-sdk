@@ -267,11 +267,11 @@ void (empty response body)
 
 <a id="Get-V2024BulkUpdateStatus"></a>
 # **Get-V2024BulkUpdateStatus**
-> RoleBulkUpdateResponse[] Get-V2024BulkUpdateStatus<br>
+> RoleGetAllBulkUpdateResponse[] Get-V2024BulkUpdateStatus<br>
 
 Get Bulk-Update Statuses
 
-This API returns a list of all  bulk update process status of the tenant. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN  authority is required to call this API. 
+This API returns a list of all unfinished bulk update process status of the tenant.
 
 ### Example
 ```powershell
@@ -298,7 +298,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RoleBulkUpdateResponse[]**](RoleBulkUpdateResponse.md) (PSCustomObject)
+[**RoleGetAllBulkUpdateResponse[]**](RoleGetAllBulkUpdateResponse.md) (PSCustomObject)
 
 ### Authorization
 
@@ -767,7 +767,7 @@ Name | Type | Description  | Notes
 
 Add a Metadata to Role.
 
-This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. Custom metadata update, including ADD and REPLACE need suit licensed.
+This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum number of attributes in one role is 25. Custom metadata update, including ADD and REPLACE need suit licensed.
 
 ### Example
 ```powershell
@@ -835,7 +835,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $RoleMetadataBulkUpdateByFilterRequestValuesInner = Initialize-RoleMetadataBulkUpdateByFilterRequestValuesInner -AttributeKey "iscFederalClassifications" -Values "secret"
-$RoleMetadataBulkUpdateByFilterRequest = Initialize-RoleMetadataBulkUpdateByFilterRequest -Filters " requestable eq false" -Operation "add" -ReplaceScope "ALL" -Values $RoleMetadataBulkUpdateByFilterRequestValuesInner # RoleMetadataBulkUpdateByFilterRequest | 
+$RoleMetadataBulkUpdateByFilterRequest = Initialize-RoleMetadataBulkUpdateByFilterRequest -Filters " requestable eq false" -Operation "ADD" -ReplaceScope "ALL" -Values $RoleMetadataBulkUpdateByFilterRequestValuesInner # RoleMetadataBulkUpdateByFilterRequest | 
 
 # Bulk-Update Roles' Metadata by Filters
 try {
@@ -887,7 +887,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $RoleMetadataBulkUpdateByIdRequestValuesInner = Initialize-RoleMetadataBulkUpdateByIdRequestValuesInner -Attribute "iscFederalClassifications" -Values "secret"
-$RoleMetadataBulkUpdateByIdRequest = Initialize-RoleMetadataBulkUpdateByIdRequest -Roles "MyRoles" -Operation "add" -ReplaceScope "ALL" -Values $RoleMetadataBulkUpdateByIdRequestValuesInner # RoleMetadataBulkUpdateByIdRequest | 
+$RoleMetadataBulkUpdateByIdRequest = Initialize-RoleMetadataBulkUpdateByIdRequest -Roles "MyRoles" -Operation "ADD" -ReplaceScope "ALL" -Values $RoleMetadataBulkUpdateByIdRequestValuesInner # RoleMetadataBulkUpdateByIdRequest | 
 
 # Bulk-Update Roles' Metadata by ID
 try {
@@ -939,7 +939,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $RoleMetadataBulkUpdateByQueryRequestValuesInner = Initialize-RoleMetadataBulkUpdateByQueryRequestValuesInner -AttributeKey "iscFederalClassifications" -AttributeValue "topSecret"
-$RoleMetadataBulkUpdateByQueryRequest = Initialize-RoleMetadataBulkUpdateByQueryRequest -Query  -Operation "add" -ReplaceScope "ALL" -Values $RoleMetadataBulkUpdateByQueryRequestValuesInner # RoleMetadataBulkUpdateByQueryRequest | 
+$RoleMetadataBulkUpdateByQueryRequest = Initialize-RoleMetadataBulkUpdateByQueryRequest -Query  -Operation "ADD" -ReplaceScope "ALL" -Values $RoleMetadataBulkUpdateByQueryRequestValuesInner # RoleMetadataBulkUpdateByQueryRequest | 
 
 # Bulk-Update Roles' Metadata by Query
 try {

@@ -757,6 +757,7 @@ docs/RoleCriteriaLevel2.md
 docs/RoleCriteriaLevel3.md
 docs/RoleCriteriaOperation.md
 docs/RoleDocument.md
+docs/RoleGetAllBulkUpdateResponse.md
 docs/RoleIdentity.md
 docs/RoleInsight.md
 docs/RoleInsightsEntitlement.md
@@ -1975,6 +1976,7 @@ src/PSSailpoint.V2024/Model/RoleCriteriaLevel2.ps1
 src/PSSailpoint.V2024/Model/RoleCriteriaLevel3.ps1
 src/PSSailpoint.V2024/Model/RoleCriteriaOperation.ps1
 src/PSSailpoint.V2024/Model/RoleDocument.ps1
+src/PSSailpoint.V2024/Model/RoleGetAllBulkUpdateResponse.ps1
 src/PSSailpoint.V2024/Model/RoleIdentity.ps1
 src/PSSailpoint.V2024/Model/RoleInsight.ps1
 src/PSSailpoint.V2024/Model/RoleInsightsEntitlement.ps1
@@ -3117,6 +3119,7 @@ tests/Model/RoleCriteriaLevel2.Tests.ps1
 tests/Model/RoleCriteriaLevel3.Tests.ps1
 tests/Model/RoleCriteriaOperation.Tests.ps1
 tests/Model/RoleDocument.Tests.ps1
+tests/Model/RoleGetAllBulkUpdateResponse.Tests.ps1
 tests/Model/RoleIdentity.Tests.ps1
 tests/Model/RoleInsight.Tests.ps1
 tests/Model/RoleInsightsEntitlement.Tests.ps1

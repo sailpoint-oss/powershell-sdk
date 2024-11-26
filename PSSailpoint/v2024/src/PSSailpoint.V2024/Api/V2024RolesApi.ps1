@@ -362,7 +362,7 @@ Get Bulk-Update Statuses
 
 .DESCRIPTION
 
-This API returns a list of all  bulk update process status of the tenant. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN  authority is required to call this API. 
+This API returns a list of all unfinished bulk update process status of the tenant.
 
 .PARAMETER WithHttpInfo
 
@@ -370,7 +370,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-RoleBulkUpdateResponse[]
+RoleGetAllBulkUpdateResponse[]
 #>
 function Get-V2024BulkUpdateStatus {
     [CmdletBinding()]
@@ -408,7 +408,7 @@ function Get-V2024BulkUpdateStatus {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "RoleBulkUpdateResponse[]" `
+                                -ReturnType "RoleGetAllBulkUpdateResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1237,7 +1237,7 @@ Add a Metadata to Role.
 
 .DESCRIPTION
 
-This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. Custom metadata update, including ADD and REPLACE need suit licensed.
+This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum number of attributes in one role is 25. Custom metadata update, including ADD and REPLACE need suit licensed.
 
 .PARAMETER Id
 The Id of a role

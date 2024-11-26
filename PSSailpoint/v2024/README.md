@@ -1440,6 +1440,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RoleCriteriaLevel3](docs/RoleCriteriaLevel3.md)
  - [PSSailpoint.V2024\Model.RoleCriteriaOperation](docs/RoleCriteriaOperation.md)
  - [PSSailpoint.V2024\Model.RoleDocument](docs/RoleDocument.md)
+ - [PSSailpoint.V2024\Model.RoleGetAllBulkUpdateResponse](docs/RoleGetAllBulkUpdateResponse.md)
  - [PSSailpoint.V2024\Model.RoleIdentity](docs/RoleIdentity.md)
  - [PSSailpoint.V2024\Model.RoleInsight](docs/RoleInsight.md)
  - [PSSailpoint.V2024\Model.RoleInsightsEntitlement](docs/RoleInsightsEntitlement.md)

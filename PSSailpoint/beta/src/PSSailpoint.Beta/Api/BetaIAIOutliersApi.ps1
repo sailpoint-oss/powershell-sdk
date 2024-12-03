@@ -12,7 +12,7 @@ IAI Identity Outliers Export
 
 .DESCRIPTION
 
-This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported Columns will include: identityID, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes) Requires authorization scope of 'iai:outliers-management:read'
+This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.  Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes). 
 
 .PARAMETER Type
 Type of the identity outliers snapshot to filter on
@@ -72,6 +72,7 @@ function Export-BetaOutliersZip {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -99,7 +100,7 @@ IAI Identity Outliers Summary
 
 .DESCRIPTION
 
-This API receives a summary containing: the number of identities that customer has, the number of outliers, and the type of outlier Requires authorization scope of 'iai:outliers-management:read'
+This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -187,6 +188,7 @@ function Get-BetaIdentityOutlierSnapshots {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -214,7 +216,7 @@ IAI Get Identity Outliers
 
 .DESCRIPTION
 
-This API receives a list of outliers, containing data such as: identityId, outlier type, detection dates, identity attributes, if identity is ignore, and certification information Requires authorization scope of 'iai:outliers-management:read'
+This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -312,6 +314,7 @@ function Get-BetaIdentityOutliers {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -339,7 +342,7 @@ IAI Identity Outliers Latest Summary
 
 .DESCRIPTION
 
-This API returns a most recent snapshot of each outlier type, each containing: the number of identities that customer has, the number of outliers, and the type of outlier Requires authorization scope of 'iai:outliers-management:read'
+This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 .PARAMETER Type
 Type of the identity outliers snapshot to filter on
@@ -387,6 +390,7 @@ function Get-BetaLatestIdentityOutlierSnapshots {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -414,7 +418,7 @@ Get identity outlier contibuting feature summary
 
 .DESCRIPTION
 
-This API returns a summary of a contributing feature for an identity outlier. The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object Requires authorization scope of 'iai:outliers-management:read'
+This API returns a summary of a contributing feature for an identity outlier.  The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object. 
 
 .PARAMETER OutlierFeatureId
 Contributing feature id
@@ -461,6 +465,7 @@ function Get-BetaOutlierContributingFeatureSummary {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -488,7 +493,7 @@ Get identity outlier's contibuting features
 
 .DESCRIPTION
 
-This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of 'iai:outliers-management:read'
+This API returns a list of contributing feature objects for a single outlier.  The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object. 
 
 .PARAMETER OutlierId
 The outlier id
@@ -585,6 +590,7 @@ function Get-BetaPeerGroupOutliersContributingFeatures {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -612,7 +618,7 @@ IAI Identity Outliers Ignore
 
 .DESCRIPTION
 
-This API receives a list of IdentityIDs in the request, changes the outliers to be ignored--returning a 204 if successful. Requires authorization scope of 'iai:outliers-management:update'
+This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
 .PARAMETER RequestBody
 No description available.
@@ -675,6 +681,7 @@ function Invoke-BetaIgnoreIdentityOutliers {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -702,7 +709,7 @@ Gets a list of access items associated with each identity outlier contributing f
 
 .DESCRIPTION
 
-This API returns a list of the enriched access items associated with each feature filtered by the access item type  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare Requires authorization scope of 'iai:outliers-management:read'
+This API returns a list of the enriched access items associated with each feature filtered by the access item type.  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare. 
 
 .PARAMETER OutlierId
 The outlier id
@@ -720,7 +727,7 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER AccessType
-The type of access item for the identity outlier contributing feature. If not provided, it returns all
+The type of access item for the identity outlier contributing feature. If not provided, it returns all.
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName**
@@ -810,6 +817,7 @@ function Get-BetaOutliersContributingFeatureAccessItems {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -837,7 +845,7 @@ IAI Identity Outliers Unignore
 
 .DESCRIPTION
 
-This API receives a list of IdentityIDs in the request, changes the outliers to be un-ignored--returning a 204 if successful. Requires authorization scope of 'iai:outliers-management:update'
+This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
 .PARAMETER RequestBody
 No description available.
@@ -897,6 +905,7 @@ function Invoke-BetaUnIgnoreIdentityOutliers {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

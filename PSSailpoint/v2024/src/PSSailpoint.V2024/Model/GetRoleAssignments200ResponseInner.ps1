@@ -34,7 +34,7 @@ function ConvertFrom-V2024JsonToGetRoleAssignments200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match RoleAssignmentDto defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToRoleAssignmentDto $Json
@@ -52,7 +52,7 @@ function ConvertFrom-V2024JsonToGetRoleAssignments200ResponseInner {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match RoleAssignmentRef defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToRoleAssignmentRef $Json

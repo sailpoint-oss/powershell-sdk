@@ -34,7 +34,7 @@ function ConvertFrom-JsonToArrayInner {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match Int32 defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-JsonToInt32 $Json
@@ -52,7 +52,7 @@ function ConvertFrom-JsonToArrayInner {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match String defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-JsonToString $Json
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToArrayInner {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match SystemCollectionsHashtable defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-JsonToSystemCollectionsHashtable $Json

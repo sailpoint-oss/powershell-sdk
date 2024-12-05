@@ -34,7 +34,7 @@ function ConvertFrom-BetaJsonToGetHistoricalIdentityEvents200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match AccessItemAssociated defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToAccessItemAssociated $Json
@@ -52,7 +52,7 @@ function ConvertFrom-BetaJsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match AccessItemRemoved defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToAccessItemRemoved $Json
@@ -70,7 +70,7 @@ function ConvertFrom-BetaJsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match AccessRequested defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToAccessRequested $Json
@@ -88,7 +88,7 @@ function ConvertFrom-BetaJsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match AccountStatusChanged defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToAccountStatusChanged $Json
@@ -106,7 +106,7 @@ function ConvertFrom-BetaJsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match AttributesChanged defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToAttributesChanged $Json
@@ -124,7 +124,7 @@ function ConvertFrom-BetaJsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match IdentityCertified defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToIdentityCertified $Json

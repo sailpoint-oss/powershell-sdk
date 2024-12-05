@@ -34,7 +34,7 @@ function ConvertFrom-BetaJsonToSubscriptionPatchRequestInnerValue {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match Int32 defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToInt32 $Json
@@ -52,7 +52,7 @@ function ConvertFrom-BetaJsonToSubscriptionPatchRequestInnerValue {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match String defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToString $Json
@@ -70,7 +70,7 @@ function ConvertFrom-BetaJsonToSubscriptionPatchRequestInnerValue {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match SubscriptionPatchRequestInnerValueAnyOfInner[] defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToSubscriptionPatchRequestInnerValueAnyOfInner[] $Json
@@ -88,7 +88,7 @@ function ConvertFrom-BetaJsonToSubscriptionPatchRequestInnerValue {
             }
         }
 
-        if ($match -ne 0) { # no match yet
+        if ($match -eq 0) { # no match yet
             # try to match SystemCollectionsHashtable defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToSystemCollectionsHashtable $Json

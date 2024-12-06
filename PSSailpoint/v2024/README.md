@@ -359,12 +359,12 @@ Class | Method | HTTP request | Description
 *V2024MFAConfigurationApi* | [**Set-V2024MFAKBAConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
 *V2024MFAConfigurationApi* | [**Set-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *V2024MFAConfigurationApi* | [**Test-V2024MFAConfig**](docs/V2024MFAConfigurationApi.md#Test-V2024MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
-*V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create a new Managed Client
-*V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete a Managed Client
+*V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create Managed Client
+*V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get a Managed Client
-*V2024ManagedClientsApi* | [**Get-V2024ManagedClientStatus**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status.
+*V2024ManagedClientsApi* | [**Get-V2024ManagedClientStatus**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClients**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClients) | **GET** /managed-clients | Get Managed Clients
-*V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update a Managed Client
+*V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
 *V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
 *V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
 *V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster's log configuration

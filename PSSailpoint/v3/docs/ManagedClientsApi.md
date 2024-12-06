@@ -4,12 +4,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-ManagedClient**](ManagedClientsApi.md#New-ManagedClient) | **POST** /managed-clients | Create a new Managed Client
-[**Remove-ManagedClient**](ManagedClientsApi.md#Remove-ManagedClient) | **DELETE** /managed-clients/{id} | Delete a Managed Client
+[**New-ManagedClient**](ManagedClientsApi.md#New-ManagedClient) | **POST** /managed-clients | Create Managed Client
+[**Remove-ManagedClient**](ManagedClientsApi.md#Remove-ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
 [**Get-ManagedClient**](ManagedClientsApi.md#Get-ManagedClient) | **GET** /managed-clients/{id} | Get a Managed Client
-[**Get-ManagedClientStatus**](ManagedClientsApi.md#Get-ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status.
+[**Get-ManagedClientStatus**](ManagedClientsApi.md#Get-ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
 [**Get-ManagedClients**](ManagedClientsApi.md#Get-ManagedClients) | **GET** /managed-clients | Get Managed Clients
-[**Update-ManagedClient**](ManagedClientsApi.md#Update-ManagedClient) | **PATCH** /managed-clients/{id} | Update a Managed Client
+[**Update-ManagedClient**](ManagedClientsApi.md#Update-ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
 
 
 <a id="New-ManagedClient"></a>
@@ -17,9 +17,9 @@ Method | HTTP request | Description
 > ManagedClient New-ManagedClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ManagedClientRequest] <PSCustomObject><br>
 
-Create a new Managed Client
+Create Managed Client
 
-Create a new Managed Client. The API returns a result that includes the Managed Client ID.
+Create a new managed client. The API returns a result that includes the managed client ID.
 
 ### Example
 ```powershell
@@ -33,7 +33,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ManagedClientRequest = Initialize-ManagedClientRequest -ClusterId "aClusterId" -Description "A short description of the ManagedClient" -Name "aName" -Type "VA" # ManagedClientRequest | 
 
-# Create a new Managed Client
+# Create Managed Client
 try {
     $Result = New-ManagedClient -ManagedClientRequest $ManagedClientRequest
 } catch {
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 > void Remove-ManagedClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Delete a Managed Client
+Delete Managed Client
 
-Delete an existing Managed Client.
+Delete an existing managed client.
 
 ### Example
 ```powershell
@@ -82,9 +82,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed Client ID.
+$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
-# Delete a Managed Client
+# Delete Managed Client
 try {
     $Result = Remove-ManagedClient -Id $Id
 } catch {
@@ -97,7 +97,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Managed Client ID. | 
+ **Id** | **String**| Managed client ID. | 
 
 ### Return type
 
@@ -171,9 +171,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <PSCustomObject><br>
 
-Get Managed Client Status.
+Get Managed Client Status
 
-Retrieve the Status of a Managed Client by ID.
+Get a managed client's status, using its ID.
 
 ### Example
 ```powershell
@@ -185,10 +185,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "aClientId" # String | ID of the Managed Client to get Status of
-$Type = "CCG" # ManagedClientType | Type of the Managed Client to get Status of
+$Id = "aClientId" # String | Managed client ID to get status for.
+$Type = "CCG" # ManagedClientType | Managed client type to get status for.
 
-# Get Managed Client Status.
+# Get Managed Client Status
 try {
     $Result = Get-ManagedClientStatus -Id $Id -Type $Type
 } catch {
@@ -201,8 +201,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of the Managed Client to get Status of | 
- **Type** | [**ManagedClientType**](ManagedClientType.md)| Type of the Managed Client to get Status of | 
+ **Id** | **String**| Managed client ID to get status for. | 
+ **Type** | [**ManagedClientType**](ManagedClientType.md)| Managed client type to get status for. | 
 
 ### Return type
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 Get Managed Clients
 
-Get a list of Managed Clients.
+List managed clients.
 
 ### Example
 ```powershell
@@ -285,9 +285,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Update a Managed Client
+Update Managed Client
 
-Update an existing Managed Client.
+Update an existing managed client.
 
 ### Example
 ```powershell
@@ -299,11 +299,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed Client ID.
+$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the object.
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | JSONPatch payload used to update the object.
 
-# Update a Managed Client
+# Update Managed Client
 try {
     $Result = Update-ManagedClient -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
@@ -316,8 +316,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Managed Client ID. | 
- **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the object. | 
+ **Id** | **String**| Managed client ID. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| JSONPatch payload used to update the object. | 
 
 ### Return type
 

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName       = 'SailPoint Technologies'
     Description       = 'PSSailpoint - the PowerShell module for IdentityNow'
 
-    ModuleVersion     = '1.4.5'
+    ModuleVersion     = '1.4.6'
 
     RootModule        = 'PSSailpoint.psm1'
     Guid              = '7A197170-97E8-4DCD-A171-271D4AEC2F36' # Has to be static, otherwise each new build will be considered different module
@@ -65,9 +65,9 @@ $Manifest = @{
     FunctionsToExport = $FunctionPath | Get-ChildItem -Filter *.ps1 | Get-FunctionsToExport
 
     RequiredModules = @(
-        @{ModuleName = 'PSSailpoint.Beta'; RequiredVersion = '1.4.5'; }, 
-        @{ModuleName = 'PSSailpoint.V3'; RequiredVersion = '1.4.5'; },
-        @{ModuleName = 'PSSailpoint.V2024'; RequiredVersion = '1.4.5'; }
+        @{ModuleName = 'PSSailpoint.Beta'; RequiredVersion = '1.4.6'; }, 
+        @{ModuleName = 'PSSailpoint.V3'; RequiredVersion = '1.4.6'; },
+        @{ModuleName = 'PSSailpoint.V2024'; RequiredVersion = '1.4.6'; }
     )
 
     VariablesToExport = @()

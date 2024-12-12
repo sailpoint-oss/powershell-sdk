@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'WorkflowTriggerAttributes' {
     Context 'WorkflowTriggerAttributes' {
         It 'Initialize-WorkflowTriggerAttributes' {
             # a simple test to create an object
-            #$NewObject = Initialize-WorkflowTriggerAttributes -Id "TEST_VALUE" -VarFilter "TEST_VALUE" -Description "TEST_VALUE" -Name "TEST_VALUE" -ClientId "TEST_VALUE" -Url "TEST_VALUE" -CronString "TEST_VALUE" -Frequency "TEST_VALUE" -TimeZone "TEST_VALUE" -WeeklyDays "TEST_VALUE" -WeeklyTimes "TEST_VALUE"
+            #$NewObject = Initialize-WorkflowTriggerAttributes -Id "TEST_VALUE" -VarFilter "TEST_VALUE" -Description "TEST_VALUE" -AttributeToFilter "TEST_VALUE" -Name "TEST_VALUE" -ClientId "TEST_VALUE" -Url "TEST_VALUE" -CronString "TEST_VALUE" -Frequency "TEST_VALUE" -TimeZone "TEST_VALUE" -WeeklyDays "TEST_VALUE" -WeeklyTimes "TEST_VALUE"
             #$NewObject | Should -BeOfType WorkflowTriggerAttributes
             #$NewObject.property | Should -Be 0
         }

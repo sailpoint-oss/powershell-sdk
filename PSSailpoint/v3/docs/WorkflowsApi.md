@@ -151,7 +151,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $WorkflowBodyOwner = Initialize-WorkflowBodyOwner -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $WorkflowDefinition = Initialize-WorkflowDefinition -Start "Send Email Test" -Steps @{ key_example =  }
 
-$WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes -Id "idn:identity-attributes-changed" -VarFilter "$.changes[?(@.attribute == 'manager')]" -Description "Run a search and notify the results" -Name "search-and-notify" -ClientId "87e239b2-b85b-4bde-b9a7-55bf304ddcdc" -Url "https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d" -CronString "0 9 * * 1" -Frequency "daily" -TimeZone "America/Chicago" -WeeklyDays "MyWeeklyDays" -WeeklyTimes "MyWeeklyTimes"
+$WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes -Id "idn:identity-attributes-changed" -VarFilter "$.changes[?(@.attribute == 'manager')]" -Description "Run a search and notify the results" -AttributeToFilter "LifecycleState" -Name "search-and-notify" -ClientId "87e239b2-b85b-4bde-b9a7-55bf304ddcdc" -Url "https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d" -CronString "0 9 * * 1" -Frequency "daily" -TimeZone "America/Chicago" -WeeklyDays "MyWeeklyDays" -WeeklyTimes "MyWeeklyTimes"
 $WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -DisplayName "MyDisplayName" -Attributes $WorkflowTriggerAttributes
 
 $CreateWorkflowRequest = Initialize-CreateWorkflowRequest -Name "Send Email" -Owner $WorkflowBodyOwner -Description "Send an email to the identity who's attributes changed." -Definition $WorkflowDefinition -Enabled $false -Trigger $WorkflowTrigger # CreateWorkflowRequest | 
@@ -843,7 +843,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 $WorkflowBodyOwner = Initialize-WorkflowBodyOwner -Type "IDENTITY" -Id "2c91808568c529c60168cca6f90c1313" -Name "William Wilson"
 $WorkflowDefinition = Initialize-WorkflowDefinition -Start "Send Email Test" -Steps @{ key_example =  }
 
-$WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes -Id "idn:identity-attributes-changed" -VarFilter "$.changes[?(@.attribute == 'manager')]" -Description "Run a search and notify the results" -Name "search-and-notify" -ClientId "87e239b2-b85b-4bde-b9a7-55bf304ddcdc" -Url "https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d" -CronString "0 9 * * 1" -Frequency "daily" -TimeZone "America/Chicago" -WeeklyDays "MyWeeklyDays" -WeeklyTimes "MyWeeklyTimes"
+$WorkflowTriggerAttributes = Initialize-WorkflowTriggerAttributes -Id "idn:identity-attributes-changed" -VarFilter "$.changes[?(@.attribute == 'manager')]" -Description "Run a search and notify the results" -AttributeToFilter "LifecycleState" -Name "search-and-notify" -ClientId "87e239b2-b85b-4bde-b9a7-55bf304ddcdc" -Url "https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d" -CronString "0 9 * * 1" -Frequency "daily" -TimeZone "America/Chicago" -WeeklyDays "MyWeeklyDays" -WeeklyTimes "MyWeeklyTimes"
 $WorkflowTrigger = Initialize-WorkflowTrigger -Type "EVENT" -DisplayName "MyDisplayName" -Attributes $WorkflowTriggerAttributes
 
 $WorkflowBody = Initialize-WorkflowBody -Name "Send Email" -Owner $WorkflowBodyOwner -Description "Send an email to the identity who's attributes changed." -Definition $WorkflowDefinition -Enabled $false -Trigger $WorkflowTrigger # WorkflowBody | 

@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Retrieve headers only for pending task list.
+Retrieve Pending Task List Headers
 
 .DESCRIPTION
 
-Retrieve headers for a list of TaskStatus for pending tasks.
+Responds with headers only for list of task statuses for pending tasks.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -79,6 +79,7 @@ function Get-BetaPendingTaskHeaders {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'HEAD' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -102,11 +103,11 @@ function Get-BetaPendingTaskHeaders {
 <#
 .SYNOPSIS
 
-Retrieve a pending task list.
+Retrieve Pending Task Status List
 
 .DESCRIPTION
 
-Retrieve a list of TaskStatus for pending tasks.
+Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -173,6 +174,7 @@ function Get-BetaPendingTasks {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -196,11 +198,11 @@ function Get-BetaPendingTasks {
 <#
 .SYNOPSIS
 
-Get task status by ID.
+Get Task Status by ID
 
 .DESCRIPTION
 
-Get a TaskStatus for a task by task ID.
+Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 .PARAMETER Id
 Task ID.
@@ -247,6 +249,7 @@ function Get-BetaTaskStatus {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -270,11 +273,11 @@ function Get-BetaTaskStatus {
 <#
 .SYNOPSIS
 
-Retrieve a task status list.
+Retrieve Task Status List
 
 .DESCRIPTION
 
-Use this endpoint to get a list of **completed** tasks. To get a list of tasks **in-progress**, please use the [get pending tasks](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint. 
+Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint. 
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -361,6 +364,7 @@ function Get-BetaTaskStatusList {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -384,7 +388,7 @@ function Get-BetaTaskStatusList {
 <#
 .SYNOPSIS
 
-Update task status by ID
+Update Task Status by ID
 
 .DESCRIPTION
 

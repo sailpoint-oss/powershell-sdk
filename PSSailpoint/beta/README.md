@@ -545,11 +545,11 @@ Class | Method | HTTP request | Description
 *BetaTagsApi* | [**Remove-BetaTagById**](docs/BetaTagsApi.md#Remove-BetaTagById) | **DELETE** /tags/{id} | Delete Tag
 *BetaTagsApi* | [**Get-BetaTagById**](docs/BetaTagsApi.md#Get-BetaTagById) | **GET** /tags/{id} | Get Tag By Id
 *BetaTagsApi* | [**Get-BetaTags**](docs/BetaTagsApi.md#Get-BetaTags) | **GET** /tags | List Tags
-*BetaTaskManagementApi* | [**Get-BetaPendingTaskHeaders**](docs/BetaTaskManagementApi.md#Get-BetaPendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve headers only for pending task list.
-*BetaTaskManagementApi* | [**Get-BetaPendingTasks**](docs/BetaTaskManagementApi.md#Get-BetaPendingTasks) | **GET** /task-status/pending-tasks | Retrieve a pending task list.
-*BetaTaskManagementApi* | [**Get-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatus) | **GET** /task-status/{id} | Get task status by ID.
-*BetaTaskManagementApi* | [**Get-BetaTaskStatusList**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatusList) | **GET** /task-status | Retrieve a task status list.
-*BetaTaskManagementApi* | [**Update-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Update-BetaTaskStatus) | **PATCH** /task-status/{id} | Update task status by ID
+*BetaTaskManagementApi* | [**Get-BetaPendingTaskHeaders**](docs/BetaTaskManagementApi.md#Get-BetaPendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve Pending Task List Headers
+*BetaTaskManagementApi* | [**Get-BetaPendingTasks**](docs/BetaTaskManagementApi.md#Get-BetaPendingTasks) | **GET** /task-status/pending-tasks | Retrieve Pending Task Status List
+*BetaTaskManagementApi* | [**Get-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatus) | **GET** /task-status/{id} | Get Task Status by ID
+*BetaTaskManagementApi* | [**Get-BetaTaskStatusList**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatusList) | **GET** /task-status | Retrieve Task Status List
+*BetaTaskManagementApi* | [**Update-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Update-BetaTaskStatus) | **PATCH** /task-status/{id} | Update Task Status by ID
 *BetaTenantApi* | [**Get-BetaTenant**](docs/BetaTenantApi.md#Get-BetaTenant) | **GET** /tenant | Get Tenant Information.
 *BetaTransformsApi* | [**New-BetaTransform**](docs/BetaTransformsApi.md#New-BetaTransform) | **POST** /transforms | Create transform
 *BetaTransformsApi* | [**Remove-BetaTransform**](docs/BetaTransformsApi.md#Remove-BetaTransform) | **DELETE** /transforms/{id} | Delete a transform
@@ -1441,6 +1441,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.TaskReturnDetails](docs/TaskReturnDetails.md)
  - [PSSailpoint.Beta\Model.TaskStatus](docs/TaskStatus.md)
  - [PSSailpoint.Beta\Model.TaskStatusMessage](docs/TaskStatusMessage.md)
+ - [PSSailpoint.Beta\Model.TaskStatusMessageParametersInner](docs/TaskStatusMessageParametersInner.md)
  - [PSSailpoint.Beta\Model.TemplateBulkDeleteDto](docs/TemplateBulkDeleteDto.md)
  - [PSSailpoint.Beta\Model.TemplateDto](docs/TemplateDto.md)
  - [PSSailpoint.Beta\Model.TemplateDtoDefault](docs/TemplateDtoDefault.md)

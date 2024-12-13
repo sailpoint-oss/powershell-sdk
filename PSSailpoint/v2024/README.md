@@ -615,11 +615,11 @@ Class | Method | HTTP request | Description
 *V2024TaggedObjectsApi* | [**Send-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Send-V2024TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 *V2024TaggedObjectsApi* | [**Set-V2024TagToObject**](docs/V2024TaggedObjectsApi.md#Set-V2024TagToObject) | **POST** /tagged-objects | Add Tag to Object
 *V2024TaggedObjectsApi* | [**Set-V2024TagsToManyObjects**](docs/V2024TaggedObjectsApi.md#Set-V2024TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
-*V2024TaskManagementApi* | [**Get-V2024PendingTaskHeaders**](docs/V2024TaskManagementApi.md#Get-V2024PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve headers only for pending task list.
-*V2024TaskManagementApi* | [**Get-V2024PendingTasks**](docs/V2024TaskManagementApi.md#Get-V2024PendingTasks) | **GET** /task-status/pending-tasks | Retrieve a pending task list.
-*V2024TaskManagementApi* | [**Get-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatus) | **GET** /task-status/{id} | Get task status by ID.
-*V2024TaskManagementApi* | [**Get-V2024TaskStatusList**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatusList) | **GET** /task-status | Retrieve a task status list.
-*V2024TaskManagementApi* | [**Update-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Update-V2024TaskStatus) | **PATCH** /task-status/{id} | Update task status by ID
+*V2024TaskManagementApi* | [**Get-V2024PendingTaskHeaders**](docs/V2024TaskManagementApi.md#Get-V2024PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve Pending Task List Headers
+*V2024TaskManagementApi* | [**Get-V2024PendingTasks**](docs/V2024TaskManagementApi.md#Get-V2024PendingTasks) | **GET** /task-status/pending-tasks | Retrieve Pending Task Status List
+*V2024TaskManagementApi* | [**Get-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatus) | **GET** /task-status/{id} | Get Task Status by ID
+*V2024TaskManagementApi* | [**Get-V2024TaskStatusList**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatusList) | **GET** /task-status | Retrieve Task Status List
+*V2024TaskManagementApi* | [**Update-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Update-V2024TaskStatus) | **PATCH** /task-status/{id} | Update Task Status by ID
 *V2024TenantApi* | [**Get-V2024Tenant**](docs/V2024TenantApi.md#Get-V2024Tenant) | **GET** /tenant | Get Tenant Information.
 *V2024TransformsApi* | [**New-V2024Transform**](docs/V2024TransformsApi.md#New-V2024Transform) | **POST** /transforms | Create transform
 *V2024TransformsApi* | [**Remove-V2024Transform**](docs/V2024TransformsApi.md#Remove-V2024Transform) | **DELETE** /transforms/{id} | Delete a transform
@@ -1645,6 +1645,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.TaskReturnDetails](docs/TaskReturnDetails.md)
  - [PSSailpoint.V2024\Model.TaskStatus](docs/TaskStatus.md)
  - [PSSailpoint.V2024\Model.TaskStatusMessage](docs/TaskStatusMessage.md)
+ - [PSSailpoint.V2024\Model.TaskStatusMessageParametersInner](docs/TaskStatusMessageParametersInner.md)
  - [PSSailpoint.V2024\Model.TemplateBulkDeleteDto](docs/TemplateBulkDeleteDto.md)
  - [PSSailpoint.V2024\Model.TemplateDto](docs/TemplateDto.md)
  - [PSSailpoint.V2024\Model.TemplateDtoDefault](docs/TemplateDtoDefault.md)

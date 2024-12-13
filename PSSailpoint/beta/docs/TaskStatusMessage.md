@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Type** | **String** | Type of the message | 
 **LocalizedText** | [**LocalizedMessage**](LocalizedMessage.md) |  | 
 **Key** | **String** | Key of the message | 
-**Parameters** | [**SystemCollectionsHashtable[]**](SystemCollectionsHashtable.md) | Message parameters for internationalization | 
+**Parameters** | [**TaskStatusMessageParametersInner[]**](TaskStatusMessageParametersInner.md) | Message parameters for internationalization | 
 
 ## Examples
 

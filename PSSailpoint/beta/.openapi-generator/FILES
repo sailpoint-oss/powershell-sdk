@@ -903,6 +903,7 @@ docs/TaskResultSimplified.md
 docs/TaskReturnDetails.md
 docs/TaskStatus.md
 docs/TaskStatusMessage.md
+docs/TaskStatusMessageParametersInner.md
 docs/TemplateBulkDeleteDto.md
 docs/TemplateDto.md
 docs/TemplateDtoDefault.md
@@ -1899,6 +1900,7 @@ src/PSSailpoint.Beta/Model/TaskResultSimplified.ps1
 src/PSSailpoint.Beta/Model/TaskReturnDetails.ps1
 src/PSSailpoint.Beta/Model/TaskStatus.ps1
 src/PSSailpoint.Beta/Model/TaskStatusMessage.ps1
+src/PSSailpoint.Beta/Model/TaskStatusMessageParametersInner.ps1
 src/PSSailpoint.Beta/Model/TemplateBulkDeleteDto.ps1
 src/PSSailpoint.Beta/Model/TemplateDto.ps1
 src/PSSailpoint.Beta/Model/TemplateDtoDefault.ps1
@@ -2901,6 +2903,7 @@ tests/Model/TaskResultSimplified.Tests.ps1
 tests/Model/TaskReturnDetails.Tests.ps1
 tests/Model/TaskStatus.Tests.ps1
 tests/Model/TaskStatusMessage.Tests.ps1
+tests/Model/TaskStatusMessageParametersInner.Tests.ps1
 tests/Model/TemplateBulkDeleteDto.Tests.ps1
 tests/Model/TemplateDto.Tests.ps1
 tests/Model/TemplateDtoDefault.Tests.ps1

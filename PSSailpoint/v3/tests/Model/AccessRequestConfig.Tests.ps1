@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'AccessRequestConfig' {
     Context 'AccessRequestConfig' {
         It 'Initialize-AccessRequestConfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccessRequestConfig -ApprovalsMustBeExternal "TEST_VALUE" -AutoApprovalEnabled "TEST_VALUE" -RequestOnBehalfOfConfig "TEST_VALUE" -ApprovalReminderAndEscalationConfig "TEST_VALUE" -EntitlementRequestConfig "TEST_VALUE"
+            #$NewObject = Initialize-AccessRequestConfig -ApprovalsMustBeExternal "TEST_VALUE" -AutoApprovalEnabled "TEST_VALUE" -ReauthorizationEnabled "TEST_VALUE" -RequestOnBehalfOfConfig "TEST_VALUE" -ApprovalReminderAndEscalationConfig "TEST_VALUE" -EntitlementRequestConfig "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessRequestConfig
             #$NewObject.property | Should -Be 0
         }

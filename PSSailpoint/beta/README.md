@@ -277,7 +277,7 @@ Class | Method | HTTP request | Description
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshotSummary**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentityStartDate**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 *BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentities**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentities) | **GET** /historical-identities | Lists all the identities
-*BetaIdentityHistoryApi* | [**Get-BetaIdentityAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
+*BetaIdentityHistoryApi* | [**Get-BetaIdentityAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List Access Items by Identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshotAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Get Identity Access Items Snapshot
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
 *BetaIdentityProfilesApi* | [**New-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#New-BetaIdentityProfile) | **POST** /identity-profiles | Create an Identity Profile

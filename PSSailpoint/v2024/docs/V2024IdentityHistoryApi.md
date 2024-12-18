@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**Get-V2024IdentitySnapshotSummary**](V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 [**Get-V2024IdentityStartDate**](V2024IdentityHistoryApi.md#Get-V2024IdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 [**Get-V2024HistoricalIdentities**](V2024IdentityHistoryApi.md#Get-V2024HistoricalIdentities) | **GET** /historical-identities | Lists all the identities
-[**Get-V2024IdentityAccessItems**](V2024IdentityHistoryApi.md#Get-V2024IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
+[**Get-V2024IdentityAccessItems**](V2024IdentityHistoryApi.md#Get-V2024IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List Access Items by Identity
 [**Get-V2024IdentitySnapshotAccessItems**](V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
 [**Get-V2024IdentitySnapshots**](V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
 
@@ -545,10 +545,13 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 
-Gets a list of access items for the identity filtered by item type
+List Access Items by Identity
 
-This method retrieves a list of access item for the identity filtered by the access item type Requires authorization scope of 'idn:identity-history:read' 
+This method retrieves a list of access item for the identity filtered by the access item type 
 
 ### Example
 ```powershell
@@ -563,10 +566,13 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Type = "account" # String | The type of access item for the identity. If not provided, it defaults to account (optional)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# Gets a list of access items for the identity filtered by item type
+# List Access Items by Identity
 try {
-    $Result = Get-V2024IdentityAccessItems -Id $Id -XSailPointExperimental $XSailPointExperimental -Type $Type
+    $Result = Get-V2024IdentityAccessItems -Id $Id -XSailPointExperimental $XSailPointExperimental -Type $Type -Limit $Limit -Count $Count -Offset $Offset
 } catch {
     Write-Host ("Exception occurred when calling Get-V2024IdentityAccessItems: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -580,6 +586,9 @@ Name | Type | Description  | Notes
  **Id** | **String**| The identity id | 
  **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **Type** | **String**| The type of access item for the identity. If not provided, it defaults to account | [optional] 
+ **Limit** | **Int32**| Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+ **Count** | **Boolean**| If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to $false]
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 
 ### Return type
 

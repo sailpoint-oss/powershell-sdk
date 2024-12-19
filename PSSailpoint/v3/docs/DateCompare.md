@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstDate** | [**DateCompareFirstDate**](DateCompareFirstDate.md) |  | 
 **SecondDate** | [**DateCompareSecondDate**](DateCompareSecondDate.md) |  | 
-**Operator** | **String** | This is the comparison to perform. | Operation | Description | | --------- | ------- | | LT        | Strictly less than: firstDate &lt; secondDate | | LTE       | Less than or equal to: firstDate &lt;&#x3D; secondDate | | GT        | Strictly greater than: firstDate &gt; secondDate | | GTE       | Greater than or equal to: firstDate &gt;&#x3D; secondDate |  | 
+**Operator** | **String** | This is the comparison to perform. | Operation | Description | | --------- | ------- | | LT        | Strictly less than: &#x60;firstDate &lt; secondDate&#x60; | | LTE       | Less than or equal to: &#x60;firstDate &lt;&#x3D; secondDate&#x60; | | GT        | Strictly greater than: &#x60;firstDate &gt; secondDate&#x60; | | GTE       | Greater than or equal to: &#x60;firstDate &gt;&#x3D; secondDate&#x60; |  | 
 **PositiveCondition** | **String** | The output of the transform if the expression evalutes to true | 
 **NegativeCondition** | **String** | The output of the transform if the expression evalutes to false | 
 **RequiresPeriodicRefresh** | **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]

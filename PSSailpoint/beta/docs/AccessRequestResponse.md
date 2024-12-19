@@ -3,17 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequesterId** | **String** | the requester Id | [optional] 
-**RequesterName** | **String** | the requesterName | [optional] 
-**Items** | [**AccessRequestItemResponse[]**](AccessRequestItemResponse.md) |  | [optional] 
+**NewRequests** | [**AccessRequestTracking[]**](AccessRequestTracking.md) | A list of new access request tracking data mapped to the values requested. | [optional] 
+**ExistingRequests** | [**AccessRequestTracking[]**](AccessRequestTracking.md) | A list of existing access request tracking data mapped to the values requested.  This indicates access has already been requested for this item. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccessRequestResponse = Initialize-PSSailpoint.BetaAccessRequestResponse  -RequesterId 2c91808a77ff216301782327a50f09bf `
- -RequesterName Bing C `
- -Items [{operation&#x3D;Add, accessItemType&#x3D;role, name&#x3D;Role-1, decision&#x3D;APPROVED, description&#x3D;The role descrition, sourceId&#x3D;8a80828f643d484f01643e14202e206f, sourceName&#x3D;Source1, approvalInfos&#x3D;[{name&#x3D;John Snow, id&#x3D;8a80828f643d484f01643e14202e2000, status&#x3D;Approved}]}]
+$AccessRequestResponse = Initialize-PSSailpoint.BetaAccessRequestResponse  -NewRequests [{requestedFor&#x3D;899fd612ecfc4cf3bf48f14d0afdef89, requestedItemsDetails&#x3D;[{type&#x3D;ENTITLEMENT, id&#x3D;779c6fd7171540bba1184e5946112c28}], attributesHash&#x3D;-1928438224, accessRequestIds&#x3D;[5d3118c518a44ec7805450d53479ccdb]}] `
+ -ExistingRequests [{requestedFor&#x3D;899fd612ecfc4cf3bf48f14d0afdef89, requestedItemsDetails&#x3D;[{type&#x3D;ROLE, id&#x3D;779c6fd7171540bbc1184e5946112c28}], attributesHash&#x3D;2843118224, accessRequestIds&#x3D;[5d3118c518a44ec7805450d53479ccdc]}]
 ```
 
 - Convert the resource to JSON

@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Submit Sed Batch Stats Request
 
-Submit Sed Batch Stats Request. Submits batchId in the path param (e.g. {batchId}/stats). API responses with stats of the batchId.
+'Submit Sed Batch Stats Request.   Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats  of the batchId.' 
 
 ### Example
 ```powershell

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Dt** | **String** | the date of event | [optional] 
 **GovernanceEvent** | [**CorrelatedGovernanceEvent**](CorrelatedGovernanceEvent.md) |  | [optional] 
 **Changes** | [**AttributeChange[]**](AttributeChange.md) |  | [optional] 
-**AccessRequest** | [**AccessRequestResponse**](AccessRequestResponse.md) |  | [optional] 
+**AccessRequest** | [**AccessRequestResponse1**](AccessRequestResponse1.md) |  | [optional] 
 **CertificationId** | **String** | the id of the certification item | [optional] 
 **CertificationName** | **String** | the certification item name | [optional] 
 **SignedDate** | **String** | the date ceritification was signed | [optional] 

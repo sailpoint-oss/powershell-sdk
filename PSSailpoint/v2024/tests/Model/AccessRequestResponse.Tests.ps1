@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024AccessRequestResponse' {
     Context 'V2024AccessRequestResponse' {
         It 'Initialize-V2024AccessRequestResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024AccessRequestResponse -RequesterId "TEST_VALUE" -RequesterName "TEST_VALUE" -Items "TEST_VALUE"
+            #$NewObject = Initialize-V2024AccessRequestResponse -NewRequests "TEST_VALUE" -ExistingRequests "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessRequestResponse
             #$NewObject.property | Should -Be 0
         }

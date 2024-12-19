@@ -14,12 +14,10 @@ No summary available.
 
 No description available.
 
-.PARAMETER RequesterId
-the requester Id
-.PARAMETER RequesterName
-the requesterName
-.PARAMETER Items
-No description available.
+.PARAMETER NewRequests
+A list of new access request tracking data mapped to the values requested.
+.PARAMETER ExistingRequests
+A list of existing access request tracking data mapped to the values requested.  This indicates access has already been requested for this item.
 .OUTPUTS
 
 AccessRequestResponse<PSCustomObject>
@@ -29,14 +27,11 @@ function Initialize-BetaAccessRequestResponse {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${RequesterId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${RequesterName},
+        [PSCustomObject[]]
+        ${NewRequests},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${Items}
+        ${ExistingRequests}
     )
 
     Process {
@@ -45,9 +40,8 @@ function Initialize-BetaAccessRequestResponse {
 
 
         $PSO = [PSCustomObject]@{
-            "requesterId" = ${RequesterId}
-            "requesterName" = ${RequesterName}
-            "items" = ${Items}
+            "newRequests" = ${NewRequests}
+            "existingRequests" = ${ExistingRequests}
         }
 
         return $PSO
@@ -84,35 +78,28 @@ function ConvertFrom-BetaJsonToAccessRequestResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessRequestResponse
-        $AllProperties = ("requesterId", "requesterName", "items")
+        $AllProperties = ("newRequests", "existingRequests")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requesterId"))) { #optional property not found
-            $RequesterId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "newRequests"))) { #optional property not found
+            $NewRequests = $null
         } else {
-            $RequesterId = $JsonParameters.PSobject.Properties["requesterId"].value
+            $NewRequests = $JsonParameters.PSobject.Properties["newRequests"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requesterName"))) { #optional property not found
-            $RequesterName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "existingRequests"))) { #optional property not found
+            $ExistingRequests = $null
         } else {
-            $RequesterName = $JsonParameters.PSobject.Properties["requesterName"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "items"))) { #optional property not found
-            $Items = $null
-        } else {
-            $Items = $JsonParameters.PSobject.Properties["items"].value
+            $ExistingRequests = $JsonParameters.PSobject.Properties["existingRequests"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "requesterId" = ${RequesterId}
-            "requesterName" = ${RequesterName}
-            "items" = ${Items}
+            "newRequests" = ${NewRequests}
+            "existingRequests" = ${ExistingRequests}
         }
 
         return $PSO

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequest** | [**AccessRequestResponse**](AccessRequestResponse.md) |  | [optional] 
+**AccessRequest** | [**AccessRequestResponse1**](AccessRequestResponse1.md) |  | [optional] 
 **IdentityId** | **String** | the identity id | [optional] 
 **EventType** | **String** | the event type | [optional] 
 **Dt** | **String** | the date of event | [optional] 

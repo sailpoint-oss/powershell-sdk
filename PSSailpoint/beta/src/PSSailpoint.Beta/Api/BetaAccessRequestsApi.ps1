@@ -203,7 +203,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SystemCollectionsHashtable
+AccessRequestResponse
 #>
 function New-BetaAccessRequest {
     [CmdletBinding()]
@@ -264,7 +264,7 @@ function New-BetaAccessRequest {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SystemCollectionsHashtable" `
+                                -ReturnType "AccessRequestResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

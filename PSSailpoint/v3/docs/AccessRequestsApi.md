@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 <a id="New-AccessRequest"></a>
 # **New-AccessRequest**
-> SystemCollectionsHashtable New-AccessRequest<br>
+> AccessRequestResponse New-AccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequest] <PSCustomObject><br>
 
 Submit Access Request
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+[**AccessRequestResponse**](AccessRequestResponse.md) (PSCustomObject)
 
 ### Authorization
 

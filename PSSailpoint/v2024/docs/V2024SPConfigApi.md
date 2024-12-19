@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 Get import job status
 
-This gets the status of the import job identified by the `id` parameter. For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+'This gets the status of the import job identified by the `id` parameter.   For more information about the object types that currently support import functionality,  refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).' 
 
 ### Example
 ```powershell
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 Initiates configuration objects import job
 
-This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting ""excludeBackup"" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the ""exportJobId"". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+""This post will import objects from a JSON configuration file into\  \ a tenant. By default, every import will first export all existing objects supported\  \ by sp-config as a backup before the import is attempted. The backup is provided\  \ so that the state of the configuration prior to the import is available for\  \ inspection or restore if needed. The backup can be skipped by setting \""excludeBackup\""\  \ to true in the import options. If a backup is performed, the id of the backup\  \ will be provided in the ImportResult as the \""exportJobId\"". This can be downloaded\  \  using the `/sp-config/export/{exportJobId}/download` endpoint.\nYou cannot currently\  \ import from the Non-Employee Lifecycle Management (NELM) source. You cannot\  \ use this endpoint to back up or store NELM data. \nFor more information about\  \ the object types that currently support import functionality, refer to [SaaS\  \ Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects)."" 
 
 ### Example
 ```powershell
@@ -309,7 +309,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
-$Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. (optional) (default to $false)
+$Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to $false)
 "IDENTITY_OBJECT_CONFIG""IDENTITY_OBJECT_CONFIG"
 $ObjectExportImportOptions = Initialize-ObjectExportImportOptions -IncludedIds "be9e116d-08e1-49fc-ab7f-fa585e96c9e4" -IncludedNames "Test Object"
 "IDENTITY_OBJECT_CONFIG"$ImportOptions = Initialize-ImportOptions -ExcludeTypes "IDENTITY_OBJECT_CONFIG" -IncludeTypes "IDENTITY_OBJECT_CONFIG""IDENTITY_OBJECT_CONFIG" -ObjectOptions @{ key_example = $ObjectExportImportOptions } -DefaultReferences "IDENTITY_OBJECT_CONFIG""IDENTITY_OBJECT_CONFIG"
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **Data** | **System.IO.FileInfo****System.IO.FileInfo**| JSON file containing the objects to be imported. | 
- **Preview** | **Boolean**| This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is &quot;&quot;true&quot;&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported. | [optional] [default to $false]
+ **Preview** | **Boolean**| This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is &quot;&quot;true&quot;&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  | [optional] [default to $false]
  **Options** | [**ImportOptions**](ImportOptions.md)|  | [optional] 
 
 ### Return type

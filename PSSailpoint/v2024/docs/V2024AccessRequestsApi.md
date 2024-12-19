@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 <a id="New-V2024AccessRequest"></a>
 # **New-V2024AccessRequest**
-> SystemCollectionsHashtable New-V2024AccessRequest<br>
+> AccessRequestResponse New-V2024AccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequest] <PSCustomObject><br>
 
 Submit Access Request
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+[**AccessRequestResponse**](AccessRequestResponse.md) (PSCustomObject)
 
 ### Authorization
 

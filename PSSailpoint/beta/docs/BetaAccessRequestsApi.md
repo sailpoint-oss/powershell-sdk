@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 <a id="New-BetaAccessRequest"></a>
 # **New-BetaAccessRequest**
-> SystemCollectionsHashtable New-BetaAccessRequest<br>
+> AccessRequestResponse New-BetaAccessRequest<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequest] <PSCustomObject><br>
 
 Submit Access Request
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+[**AccessRequestResponse**](AccessRequestResponse.md) (PSCustomObject)
 
 ### Authorization
 

@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 Get security network configuration.
 
-This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:read'
+This API returns the details of an org's network auth configuration.
 
 ### Example
 ```powershell

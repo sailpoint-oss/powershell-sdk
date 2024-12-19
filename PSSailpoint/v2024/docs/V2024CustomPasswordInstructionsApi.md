@@ -30,7 +30,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$CustomPasswordInstruction = Initialize-CustomPasswordInstruction -PageId "change-password:enter-password" -PageContent "MyPageContent" -Locale "en" # CustomPasswordInstruction | 
+$CustomPasswordInstruction = Initialize-CustomPasswordInstruction -PageId "change-password:enter-password" -PageContent "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter." -Locale "en" # CustomPasswordInstruction | 
 
 # Create Custom Password Instructions
 try {

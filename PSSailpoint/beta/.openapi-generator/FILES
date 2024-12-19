@@ -57,6 +57,8 @@ docs/AccessRequestRecommendationItemDetail.md
 docs/AccessRequestRecommendationItemDetailAccess.md
 docs/AccessRequestRecommendationItemType.md
 docs/AccessRequestResponse.md
+docs/AccessRequestResponse1.md
+docs/AccessRequestTracking.md
 docs/AccessRequestType.md
 docs/AccessRequested.md
 docs/AccessType.md
@@ -702,6 +704,7 @@ docs/RequestableObject.md
 docs/RequestableObjectReference.md
 docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
+docs/RequestedItemDetails.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
 docs/RequestedItemStatusPreApprovalTriggerDetails.md
@@ -1129,6 +1132,8 @@ src/PSSailpoint.Beta/Model/AccessRequestRecommendationItemDetail.ps1
 src/PSSailpoint.Beta/Model/AccessRequestRecommendationItemDetailAccess.ps1
 src/PSSailpoint.Beta/Model/AccessRequestRecommendationItemType.ps1
 src/PSSailpoint.Beta/Model/AccessRequestResponse.ps1
+src/PSSailpoint.Beta/Model/AccessRequestResponse1.ps1
+src/PSSailpoint.Beta/Model/AccessRequestTracking.ps1
 src/PSSailpoint.Beta/Model/AccessRequestType.ps1
 src/PSSailpoint.Beta/Model/AccessRequested.ps1
 src/PSSailpoint.Beta/Model/AccessType.ps1
@@ -1699,6 +1704,7 @@ src/PSSailpoint.Beta/Model/RequestableObject.ps1
 src/PSSailpoint.Beta/Model/RequestableObjectReference.ps1
 src/PSSailpoint.Beta/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.Beta/Model/RequestableObjectType.ps1
+src/PSSailpoint.Beta/Model/RequestedItemDetails.ps1
 src/PSSailpoint.Beta/Model/RequestedItemStatus.ps1
 src/PSSailpoint.Beta/Model/RequestedItemStatusCancelledRequestDetails.ps1
 src/PSSailpoint.Beta/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
@@ -2132,6 +2138,8 @@ tests/Model/AccessRequestRecommendationItemDetail.Tests.ps1
 tests/Model/AccessRequestRecommendationItemDetailAccess.Tests.ps1
 tests/Model/AccessRequestRecommendationItemType.Tests.ps1
 tests/Model/AccessRequestResponse.Tests.ps1
+tests/Model/AccessRequestResponse1.Tests.ps1
+tests/Model/AccessRequestTracking.Tests.ps1
 tests/Model/AccessRequestType.Tests.ps1
 tests/Model/AccessRequested.Tests.ps1
 tests/Model/AccessType.Tests.ps1
@@ -2702,6 +2710,7 @@ tests/Model/RequestableObject.Tests.ps1
 tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
+tests/Model/RequestedItemDetails.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
 tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1

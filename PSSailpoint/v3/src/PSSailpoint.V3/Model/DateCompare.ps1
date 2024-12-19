@@ -19,7 +19,7 @@ No description available.
 .PARAMETER SecondDate
 No description available.
 .PARAMETER Operator
-This is the comparison to perform. | Operation | Description | | --------- | ------- | | LT        | Strictly less than: firstDate < secondDate | | LTE       | Less than or equal to: firstDate <= secondDate | | GT        | Strictly greater than: firstDate > secondDate | | GTE       | Greater than or equal to: firstDate >= secondDate | 
+This is the comparison to perform. | Operation | Description | | --------- | ------- | | LT        | Strictly less than: `firstDate < secondDate` | | LTE       | Less than or equal to: `firstDate <= secondDate` | | GT        | Strictly greater than: `firstDate > secondDate` | | GTE       | Greater than or equal to: `firstDate >= secondDate` | 
 .PARAMETER PositiveCondition
 The output of the transform if the expression evalutes to true
 .PARAMETER NegativeCondition

@@ -28,6 +28,8 @@ docs/AccessRequestApprovalsApi.md
 docs/AccessRequestConfig.md
 docs/AccessRequestItem.md
 docs/AccessRequestPhases.md
+docs/AccessRequestResponse.md
+docs/AccessRequestTracking.md
 docs/AccessRequestType.md
 docs/AccessRequestsApi.md
 docs/AccessReviewItem.md
@@ -457,6 +459,7 @@ docs/RequestableObjectReference.md
 docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
 docs/RequestableObjectsApi.md
+docs/RequestedItemDetails.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
 docs/RequestedItemStatusPreApprovalTriggerDetails.md
@@ -732,6 +735,8 @@ src/PSSailpoint.V3/Model/AccessRequest.ps1
 src/PSSailpoint.V3/Model/AccessRequestConfig.ps1
 src/PSSailpoint.V3/Model/AccessRequestItem.ps1
 src/PSSailpoint.V3/Model/AccessRequestPhases.ps1
+src/PSSailpoint.V3/Model/AccessRequestResponse.ps1
+src/PSSailpoint.V3/Model/AccessRequestTracking.ps1
 src/PSSailpoint.V3/Model/AccessRequestType.ps1
 src/PSSailpoint.V3/Model/AccessReviewItem.ps1
 src/PSSailpoint.V3/Model/AccessReviewReassignment.ps1
@@ -1129,6 +1134,7 @@ src/PSSailpoint.V3/Model/RequestableObject.ps1
 src/PSSailpoint.V3/Model/RequestableObjectReference.ps1
 src/PSSailpoint.V3/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.V3/Model/RequestableObjectType.ps1
+src/PSSailpoint.V3/Model/RequestedItemDetails.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatus.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusCancelledRequestDetails.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
@@ -1394,6 +1400,8 @@ tests/Model/AccessRequest.Tests.ps1
 tests/Model/AccessRequestConfig.Tests.ps1
 tests/Model/AccessRequestItem.Tests.ps1
 tests/Model/AccessRequestPhases.Tests.ps1
+tests/Model/AccessRequestResponse.Tests.ps1
+tests/Model/AccessRequestTracking.Tests.ps1
 tests/Model/AccessRequestType.Tests.ps1
 tests/Model/AccessReviewItem.Tests.ps1
 tests/Model/AccessReviewReassignment.Tests.ps1
@@ -1791,6 +1799,7 @@ tests/Model/RequestableObject.Tests.ps1
 tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
+tests/Model/RequestedItemDetails.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
 tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1

@@ -51,9 +51,9 @@ The number of entitlements in the access profile
 .PARAMETER Segments
 List of IDs of segments, if any, to which this Access Profile is assigned.
 .PARAMETER ApprovalSchemes
-Comma-separated list of approval schemes. Each approval scheme is one of - manager - appOwner - sourceOwner - accessProfileOwner - workgroup:<workgroupId>
+Comma-separated list of approval schemes. Each approval scheme is one of - manager - appOwner - sourceOwner - accessProfileOwner - workgroup:&lt;workgroupId&gt; 
 .PARAMETER RevokeRequestApprovalSchemes
-Comma-separated list of revoke request approval schemes. Each approval scheme is one of - manager - sourceOwner - accessProfileOwner - workgroup:<workgroupId>
+Comma-separated list of revoke request approval schemes. Each approval scheme is one of - manager - sourceOwner - accessProfileOwner - workgroup:&lt;workgroupId&gt; 
 .PARAMETER RequestCommentsRequired
 Whether the access profile require request comment for access request.
 .PARAMETER DeniedCommentsRequired

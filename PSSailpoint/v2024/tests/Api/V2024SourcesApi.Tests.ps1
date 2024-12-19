@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'New-V2024SourceSchedule' {
         It 'Test New-V2024SourceSchedule' {
-            #$TestResult = New-V2024SourceSchedule -SourceId "TEST_VALUE" -Schedule1 "TEST_VALUE"
+            #$TestResult = New-V2024SourceSchedule -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Schedule1 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Remove-V2024SourceSchedule' {
         It 'Test Remove-V2024SourceSchedule' {
-            #$TestResult = Remove-V2024SourceSchedule -SourceId "TEST_VALUE" -ScheduleType "TEST_VALUE"
+            #$TestResult = Remove-V2024SourceSchedule -SourceId "TEST_VALUE" -ScheduleType "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -160,7 +160,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Get-V2024SourceSchedule' {
         It 'Test Get-V2024SourceSchedule' {
-            #$TestResult = Get-V2024SourceSchedule -SourceId "TEST_VALUE" -ScheduleType "TEST_VALUE"
+            #$TestResult = Get-V2024SourceSchedule -SourceId "TEST_VALUE" -ScheduleType "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -168,7 +168,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Get-V2024SourceSchedules' {
         It 'Test Get-V2024SourceSchedules' {
-            #$TestResult = Get-V2024SourceSchedules -SourceId "TEST_VALUE"
+            #$TestResult = Get-V2024SourceSchedules -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -360,7 +360,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Update-V2024SourceSchedule' {
         It 'Test Update-V2024SourceSchedule' {
-            #$TestResult = Update-V2024SourceSchedule -SourceId "TEST_VALUE" -ScheduleType "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2024SourceSchedule -SourceId "TEST_VALUE" -ScheduleType "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

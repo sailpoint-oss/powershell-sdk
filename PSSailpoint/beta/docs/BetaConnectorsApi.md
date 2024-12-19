@@ -4,7 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaConnectorList**](BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Gets connector list
+[**Get-BetaConnectorList**](BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Get Connector List
 
 
 <a id="Get-BetaConnectorList"></a>
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Locale] <String><br>
 
-Gets connector list
+Get Connector List
 
-Fetches list of connectors that have 'RELEASED' status using filtering and pagination. A token with ORG_ADMIN authority is required to call this API.
+Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 ### Example
 ```powershell
@@ -36,7 +36,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Gets connector list
+# Get Connector List
 try {
     $Result = Get-BetaConnectorList -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count -Locale $Locale
 } catch {

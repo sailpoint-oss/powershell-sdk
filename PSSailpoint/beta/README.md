@@ -155,7 +155,7 @@ Class | Method | HTTP request | Description
 *BetaConnectorRuleManagementApi* | [**Get-BetaConnectorRuleList**](docs/BetaConnectorRuleManagementApi.md#Get-BetaConnectorRuleList) | **GET** /connector-rules | List Connector Rules
 *BetaConnectorRuleManagementApi* | [**Update-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Update-BetaConnectorRule) | **PUT** /connector-rules/{id} | Update a Connector Rule
 *BetaConnectorRuleManagementApi* | [**Confirm-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Confirm-BetaConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
-*BetaConnectorsApi* | [**Get-BetaConnectorList**](docs/BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Gets connector list
+*BetaConnectorsApi* | [**Get-BetaConnectorList**](docs/BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Get Connector List
 *BetaCustomFormsApi* | [**New-BetaFormDefinition**](docs/BetaCustomFormsApi.md#New-BetaFormDefinition) | **POST** /form-definitions | Creates a form definition.
 *BetaCustomFormsApi* | [**New-BetaFormDefinitionByTemplate**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionByTemplate) | **POST** /form-definitions/template | Create a form definition by template.
 *BetaCustomFormsApi* | [**New-BetaFormDefinitionDynamicSchema**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.

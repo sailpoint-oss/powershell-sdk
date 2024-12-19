@@ -1,20 +1,20 @@
-# PutCorrelationConfigRequest
+# PutConnectorSourceTemplateRequest
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** | **System.IO.FileInfo** | connector correlation config xml file | 
+**File** | **System.IO.FileInfo** | connector source template xml file | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$PutCorrelationConfigRequest = Initialize-PSSailpoint.V2024PutCorrelationConfigRequest  -File null
+$PutConnectorSourceTemplateRequest = Initialize-PSSailpoint.V2024PutConnectorSourceTemplateRequest  -File null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$PutCorrelationConfigRequest | ConvertTo-JSON
+$PutConnectorSourceTemplateRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

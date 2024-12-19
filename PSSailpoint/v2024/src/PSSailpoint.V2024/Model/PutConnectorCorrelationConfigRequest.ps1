@@ -15,13 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER File
-connector source config xml file
+connector correlation config xml file
 .OUTPUTS
 
-PutSourceConfigRequest<PSCustomObject>
+PutConnectorCorrelationConfigRequest<PSCustomObject>
 #>
 
-function Initialize-V2024PutSourceConfigRequest {
+function Initialize-V2024PutConnectorCorrelationConfigRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-V2024PutSourceConfigRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024PutSourceConfigRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024PutConnectorCorrelationConfigRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$File) {
@@ -49,11 +49,11 @@ function Initialize-V2024PutSourceConfigRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to PutSourceConfigRequest<PSCustomObject>
+Convert from JSON to PutConnectorCorrelationConfigRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to PutSourceConfigRequest<PSCustomObject>
+Convert from JSON to PutConnectorCorrelationConfigRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -61,21 +61,21 @@ Json object
 
 .OUTPUTS
 
-PutSourceConfigRequest<PSCustomObject>
+PutConnectorCorrelationConfigRequest<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToPutSourceConfigRequest {
+function ConvertFrom-V2024JsonToPutConnectorCorrelationConfigRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024PutSourceConfigRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024PutConnectorCorrelationConfigRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024PutSourceConfigRequest
+        # check if Json contains properties not defined in V2024PutConnectorCorrelationConfigRequest
         $AllProperties = ("file")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

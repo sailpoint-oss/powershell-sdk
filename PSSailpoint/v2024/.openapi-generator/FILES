@@ -290,6 +290,8 @@ docs/ConnectorRuleValidationResponseDetailsInner.md
 docs/ContextAttributeDto.md
 docs/ContextAttributeDtoValue.md
 docs/CorrelatedGovernanceEvent.md
+docs/CorrelationConfig.md
+docs/CorrelationConfigAttributeAssignmentsInner.md
 docs/CreateDomainDkim405Response.md
 docs/CreateExternalExecuteWorkflow200Response.md
 docs/CreateExternalExecuteWorkflowRequest.md
@@ -497,6 +499,7 @@ docs/ImportSpConfigRequest.md
 docs/Index.md
 docs/IndexOf.md
 docs/InnerHit.md
+docs/InviteIdentitiesRequest.md
 docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
@@ -677,10 +680,10 @@ docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityAttributesInner.md
 docs/PublicIdentityConfig.md
 docs/PutClientLogConfigurationRequest.md
-docs/PutCorrelationConfigRequest.md
+docs/PutConnectorCorrelationConfigRequest.md
+docs/PutConnectorSourceConfigRequest.md
+docs/PutConnectorSourceTemplateRequest.md
 docs/PutPasswordDictionaryRequest.md
-docs/PutSourceConfigRequest.md
-docs/PutSourceTemplateRequest.md
 docs/Query.md
 docs/QueryResultFilter.md
 docs/QueryType.md
@@ -863,6 +866,7 @@ docs/Selector.md
 docs/SelectorAccountMatchConfig.md
 docs/SelectorAccountMatchConfigMatchExpression.md
 docs/SelfImportExportDto.md
+docs/SendAccountVerificationRequest.md
 docs/SendTestNotificationRequestDto.md
 docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationDto1.md
@@ -1513,6 +1517,8 @@ src/PSSailpoint.V2024/Model/ConnectorRuleValidationResponseDetailsInner.ps1
 src/PSSailpoint.V2024/Model/ContextAttributeDto.ps1
 src/PSSailpoint.V2024/Model/ContextAttributeDtoValue.ps1
 src/PSSailpoint.V2024/Model/CorrelatedGovernanceEvent.ps1
+src/PSSailpoint.V2024/Model/CorrelationConfig.ps1
+src/PSSailpoint.V2024/Model/CorrelationConfigAttributeAssignmentsInner.ps1
 src/PSSailpoint.V2024/Model/CreateDomainDkim405Response.ps1
 src/PSSailpoint.V2024/Model/CreateExternalExecuteWorkflow200Response.ps1
 src/PSSailpoint.V2024/Model/CreateExternalExecuteWorkflowRequest.ps1
@@ -1717,6 +1723,7 @@ src/PSSailpoint.V2024/Model/ImportSpConfigRequest.ps1
 src/PSSailpoint.V2024/Model/Index.ps1
 src/PSSailpoint.V2024/Model/IndexOf.ps1
 src/PSSailpoint.V2024/Model/InnerHit.ps1
+src/PSSailpoint.V2024/Model/InviteIdentitiesRequest.ps1
 src/PSSailpoint.V2024/Model/Invocation.ps1
 src/PSSailpoint.V2024/Model/InvocationStatus.ps1
 src/PSSailpoint.V2024/Model/InvocationStatusType.ps1
@@ -1900,10 +1907,10 @@ src/PSSailpoint.V2024/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpoint.V2024/Model/PublicIdentityAttributesInner.ps1
 src/PSSailpoint.V2024/Model/PublicIdentityConfig.ps1
 src/PSSailpoint.V2024/Model/PutClientLogConfigurationRequest.ps1
-src/PSSailpoint.V2024/Model/PutCorrelationConfigRequest.ps1
+src/PSSailpoint.V2024/Model/PutConnectorCorrelationConfigRequest.ps1
+src/PSSailpoint.V2024/Model/PutConnectorSourceConfigRequest.ps1
+src/PSSailpoint.V2024/Model/PutConnectorSourceTemplateRequest.ps1
 src/PSSailpoint.V2024/Model/PutPasswordDictionaryRequest.ps1
-src/PSSailpoint.V2024/Model/PutSourceConfigRequest.ps1
-src/PSSailpoint.V2024/Model/PutSourceTemplateRequest.ps1
 src/PSSailpoint.V2024/Model/Query.ps1
 src/PSSailpoint.V2024/Model/QueryResultFilter.ps1
 src/PSSailpoint.V2024/Model/QueryType.ps1
@@ -2086,6 +2093,7 @@ src/PSSailpoint.V2024/Model/Selector.ps1
 src/PSSailpoint.V2024/Model/SelectorAccountMatchConfig.ps1
 src/PSSailpoint.V2024/Model/SelectorAccountMatchConfigMatchExpression.ps1
 src/PSSailpoint.V2024/Model/SelfImportExportDto.ps1
+src/PSSailpoint.V2024/Model/SendAccountVerificationRequest.ps1
 src/PSSailpoint.V2024/Model/SendTestNotificationRequestDto.ps1
 src/PSSailpoint.V2024/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpoint.V2024/Model/ServiceDeskIntegrationDto1.ps1
@@ -2660,6 +2668,8 @@ tests/Model/ConnectorRuleValidationResponseDetailsInner.Tests.ps1
 tests/Model/ContextAttributeDto.Tests.ps1
 tests/Model/ContextAttributeDtoValue.Tests.ps1
 tests/Model/CorrelatedGovernanceEvent.Tests.ps1
+tests/Model/CorrelationConfig.Tests.ps1
+tests/Model/CorrelationConfigAttributeAssignmentsInner.Tests.ps1
 tests/Model/CreateDomainDkim405Response.Tests.ps1
 tests/Model/CreateExternalExecuteWorkflow200Response.Tests.ps1
 tests/Model/CreateExternalExecuteWorkflowRequest.Tests.ps1
@@ -2864,6 +2874,7 @@ tests/Model/ImportSpConfigRequest.Tests.ps1
 tests/Model/Index.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
 tests/Model/InnerHit.Tests.ps1
+tests/Model/InviteIdentitiesRequest.Tests.ps1
 tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
@@ -3047,10 +3058,10 @@ tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityAttributesInner.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
 tests/Model/PutClientLogConfigurationRequest.Tests.ps1
-tests/Model/PutCorrelationConfigRequest.Tests.ps1
+tests/Model/PutConnectorCorrelationConfigRequest.Tests.ps1
+tests/Model/PutConnectorSourceConfigRequest.Tests.ps1
+tests/Model/PutConnectorSourceTemplateRequest.Tests.ps1
 tests/Model/PutPasswordDictionaryRequest.Tests.ps1
-tests/Model/PutSourceConfigRequest.Tests.ps1
-tests/Model/PutSourceTemplateRequest.Tests.ps1
 tests/Model/Query.Tests.ps1
 tests/Model/QueryResultFilter.Tests.ps1
 tests/Model/QueryType.Tests.ps1
@@ -3233,6 +3244,7 @@ tests/Model/Selector.Tests.ps1
 tests/Model/SelectorAccountMatchConfig.Tests.ps1
 tests/Model/SelectorAccountMatchConfigMatchExpression.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
+tests/Model/SendAccountVerificationRequest.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto1.Tests.ps1

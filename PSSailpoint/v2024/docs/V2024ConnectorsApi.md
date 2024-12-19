@@ -4,19 +4,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024CustomConnector**](V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create custom connector
-[**Remove-V2024CustomConnector**](V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Deletes connector by script name
-[**Get-V2024Connector**](V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Gets connector by script name
-[**Get-V2024ConnectorCorrelationConfig**](V2024ConnectorsApi.md#Get-V2024ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | 
-[**Get-V2024ConnectorList**](V2024ConnectorsApi.md#Get-V2024ConnectorList) | **GET** /connectors | Gets connector list
-[**Get-V2024ConnectorSourceConfig**](V2024ConnectorsApi.md#Get-V2024ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | 
-[**Get-V2024ConnectorSourceTemplate**](V2024ConnectorsApi.md#Get-V2024ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | 
-[**Get-V2024ConnectorTranslations**](V2024ConnectorsApi.md#Get-V2024ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | 
-[**Send-V2024CorrelationConfig**](V2024ConnectorsApi.md#Send-V2024CorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | 
-[**Send-V2024SourceConfig**](V2024ConnectorsApi.md#Send-V2024SourceConfig) | **PUT** /connectors/{scriptName}/source-config | 
-[**Send-V2024SourceTemplate**](V2024ConnectorsApi.md#Send-V2024SourceTemplate) | **PUT** /connectors/{scriptName}/source-template | 
-[**Send-V2024Translations**](V2024ConnectorsApi.md#Send-V2024Translations) | **PUT** /connectors/{scriptName}/translations/{locale} | 
-[**Update-V2024Connector**](V2024ConnectorsApi.md#Update-V2024Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
+[**New-V2024CustomConnector**](V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create Custom Connector
+[**Remove-V2024CustomConnector**](V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Delete Connector by Script Name
+[**Get-V2024Connector**](V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Get Connector by Script Name
+[**Get-V2024ConnectorCorrelationConfig**](V2024ConnectorsApi.md#Get-V2024ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | Get Connector Correlation Configuration
+[**Get-V2024ConnectorList**](V2024ConnectorsApi.md#Get-V2024ConnectorList) | **GET** /connectors | Get Connector List
+[**Get-V2024ConnectorSourceConfig**](V2024ConnectorsApi.md#Get-V2024ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get Connector Source Configuration
+[**Get-V2024ConnectorSourceTemplate**](V2024ConnectorsApi.md#Get-V2024ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get Connector Source Template
+[**Get-V2024ConnectorTranslations**](V2024ConnectorsApi.md#Get-V2024ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get Connector Translations
+[**Send-V2024ConnectorCorrelationConfig**](V2024ConnectorsApi.md#Send-V2024ConnectorCorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | Update Connector Correlation Configuration
+[**Send-V2024ConnectorSourceConfig**](V2024ConnectorsApi.md#Send-V2024ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update Connector Source Configuration
+[**Send-V2024ConnectorSourceTemplate**](V2024ConnectorsApi.md#Send-V2024ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update Connector Source Template
+[**Send-V2024ConnectorTranslations**](V2024ConnectorsApi.md#Send-V2024ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update Connector Translations
+[**Update-V2024Connector**](V2024ConnectorsApi.md#Update-V2024Connector) | **PATCH** /connectors/{scriptName} | Update Connector by Script Name
 
 
 <a id="New-V2024CustomConnector"></a>
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 > V3ConnectorDto New-V2024CustomConnector<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-V3CreateConnectorDto] <PSCustomObject><br>
 
-Create custom connector
+Create Custom Connector
 
 Create custom connector.    
 
@@ -40,7 +40,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $V3CreateConnectorDto = Initialize-V3CreateConnectorDto -Name "custom connector" -Type "custom connector type" -ClassName "sailpoint.connector.OpenConnectorAdapter" -DirectConnect $true -Status "DEVELOPMENT" # V3CreateConnectorDto | 
 
-# Create custom connector
+# Create Custom Connector
 try {
     $Result = New-V2024CustomConnector -V3CreateConnectorDto $V3CreateConnectorDto
 } catch {
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 > void Remove-V2024CustomConnector<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 
-Deletes connector by script name
+Delete Connector by Script Name
 
 Delete a custom connector that using its script name.
 
@@ -89,9 +89,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+$ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-# Deletes connector by script name
+# Delete Connector by Script Name
 try {
     $Result = Remove-V2024CustomConnector -ScriptName $ScriptName
 } catch {
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ScriptName** | **String**| The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
+ **ScriptName** | **String**| The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
 
 ### Return type
 
@@ -127,7 +127,7 @@ void (empty response body)
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Locale] <String><br>
 
-Gets connector by script name
+Get Connector by Script Name
 
 Fetches a connector that using its script name.    
 
@@ -141,10 +141,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+$ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Gets connector by script name
+# Get Connector by Script Name
 try {
     $Result = Get-V2024Connector -ScriptName $ScriptName -Locale $Locale
 } catch {
@@ -157,7 +157,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ScriptName** | **String**| The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
+ **ScriptName** | **String**| The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
  **Locale** | **String**| The locale to apply to the config. If no viable locale is given, it will default to &quot;&quot;en&quot;&quot; | [optional] 
 
 ### Return type
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 > String Get-V2024ConnectorCorrelationConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 
-
+Get Connector Correlation Configuration
 
 Fetches a connector's correlation config using its script name.    
 
@@ -196,6 +196,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 
+# Get Connector Correlation Configuration
 try {
     $Result = Get-V2024ConnectorCorrelationConfig -ScriptName $ScriptName
 } catch {
@@ -234,7 +235,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Locale] <String><br>
 
-Gets connector list
+Get Connector List
 
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
@@ -254,7 +255,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Gets connector list
+# Get Connector List
 try {
     $Result = Get-V2024ConnectorList -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count -Locale $Locale
 } catch {
@@ -293,7 +294,7 @@ Name | Type | Description  | Notes
 > String Get-V2024ConnectorSourceConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 
-
+Get Connector Source Configuration
 
 Fetches a connector's source config using its script name.    
 
@@ -307,8 +308,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+$ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
+# Get Connector Source Configuration
 try {
     $Result = Get-V2024ConnectorSourceConfig -ScriptName $ScriptName
 } catch {
@@ -321,7 +323,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ScriptName** | **String**| The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
+ **ScriptName** | **String**| The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
 
 ### Return type
 
@@ -343,7 +345,7 @@ Name | Type | Description  | Notes
 > String Get-V2024ConnectorSourceTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 
-
+Get Connector Source Template
 
 Fetches a connector's source template using its script name.    
 
@@ -357,8 +359,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+$ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
+# Get Connector Source Template
 try {
     $Result = Get-V2024ConnectorSourceTemplate -ScriptName $ScriptName
 } catch {
@@ -371,7 +374,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ScriptName** | **String**| The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
+ **ScriptName** | **String**| The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
 
 ### Return type
 
@@ -394,7 +397,7 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Locale] <String><br>
 
-
+Get Connector Translations
 
 Fetches a connector's translations using its script name.    
 
@@ -411,6 +414,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
+# Get Connector Translations
 try {
     $Result = Get-V2024ConnectorTranslations -ScriptName $ScriptName -Locale $Locale
 } catch {
@@ -441,13 +445,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Send-V2024CorrelationConfig"></a>
-# **Send-V2024CorrelationConfig**
-> UpdateDetail Send-V2024CorrelationConfig<br>
+<a id="Send-V2024ConnectorCorrelationConfig"></a>
+# **Send-V2024ConnectorCorrelationConfig**
+> UpdateDetail Send-V2024ConnectorCorrelationConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
 
-
+Update Connector Correlation Configuration
 
 Update a connector's correlation config using its script name.    
 
@@ -464,10 +468,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector correlation config xml file
 
+# Update Connector Correlation Configuration
 try {
-    $Result = Send-V2024CorrelationConfig -ScriptName $ScriptName -File $File
+    $Result = Send-V2024ConnectorCorrelationConfig -ScriptName $ScriptName -File $File
 } catch {
-    Write-Host ("Exception occurred when calling Send-V2024CorrelationConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-V2024ConnectorCorrelationConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -494,13 +499,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Send-V2024SourceConfig"></a>
-# **Send-V2024SourceConfig**
-> UpdateDetail Send-V2024SourceConfig<br>
+<a id="Send-V2024ConnectorSourceConfig"></a>
+# **Send-V2024ConnectorSourceConfig**
+> UpdateDetail Send-V2024ConnectorSourceConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
 
-
+Update Connector Source Configuration
 
 Update a connector's source config using its script name.    
 
@@ -514,13 +519,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+$ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector source config xml file
 
+# Update Connector Source Configuration
 try {
-    $Result = Send-V2024SourceConfig -ScriptName $ScriptName -File $File
+    $Result = Send-V2024ConnectorSourceConfig -ScriptName $ScriptName -File $File
 } catch {
-    Write-Host ("Exception occurred when calling Send-V2024SourceConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-V2024ConnectorSourceConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -529,7 +535,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ScriptName** | **String**| The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
+ **ScriptName** | **String**| The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
  **File** | **System.IO.FileInfo****System.IO.FileInfo**| connector source config xml file | 
 
 ### Return type
@@ -547,13 +553,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Send-V2024SourceTemplate"></a>
-# **Send-V2024SourceTemplate**
-> UpdateDetail Send-V2024SourceTemplate<br>
+<a id="Send-V2024ConnectorSourceTemplate"></a>
+# **Send-V2024ConnectorSourceTemplate**
+> UpdateDetail Send-V2024ConnectorSourceTemplate<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-File] <System.IO.FileInfo><br>
 
-
+Update Connector Source Template
 
 Update a connector's source template using its script name.    
 
@@ -567,13 +573,14 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+$ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector source template xml file
 
+# Update Connector Source Template
 try {
-    $Result = Send-V2024SourceTemplate -ScriptName $ScriptName -File $File
+    $Result = Send-V2024ConnectorSourceTemplate -ScriptName $ScriptName -File $File
 } catch {
-    Write-Host ("Exception occurred when calling Send-V2024SourceTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-V2024ConnectorSourceTemplate: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -582,7 +589,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ScriptName** | **String**| The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
+ **ScriptName** | **String**| The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
  **File** | **System.IO.FileInfo****System.IO.FileInfo**| connector source template xml file | 
 
 ### Return type
@@ -600,13 +607,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="Send-V2024Translations"></a>
-# **Send-V2024Translations**
-> UpdateDetail Send-V2024Translations<br>
+<a id="Send-V2024ConnectorTranslations"></a>
+# **Send-V2024ConnectorTranslations**
+> UpdateDetail Send-V2024ConnectorTranslations<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Locale] <String><br>
 
-
+Update Connector Translations
 
 Update a connector's translations using its script name.    
 
@@ -623,10 +630,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
+# Update Connector Translations
 try {
-    $Result = Send-V2024Translations -ScriptName $ScriptName -Locale $Locale
+    $Result = Send-V2024ConnectorTranslations -ScriptName $ScriptName -Locale $Locale
 } catch {
-    Write-Host ("Exception occurred when calling Send-V2024Translations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Exception occurred when calling Send-V2024ConnectorTranslations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
 }
 ```
@@ -659,9 +667,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScriptName] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Update connector by script name
+Update Connector by Script Name
 
-Patch a custom connector that using its script name. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
 
 ### Example
 ```powershell
@@ -673,11 +681,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+$ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | A list of connector detail update operations 
 
-# Update connector by script name
+# Update Connector by Script Name
 try {
     $Result = Update-V2024Connector -ScriptName $ScriptName -JsonPatchOperation $JsonPatchOperation
 } catch {
@@ -690,8 +698,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ScriptName** | **String**| The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
- **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+ **ScriptName** | **String**| The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| A list of connector detail update operations  | 
 
 ### Return type
 

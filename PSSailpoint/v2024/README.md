@@ -191,19 +191,19 @@ Class | Method | HTTP request | Description
 *V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRuleList**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRuleList) | **GET** /connector-rules | List Connector Rules
 *V2024ConnectorRuleManagementApi* | [**Update-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Update-V2024ConnectorRule) | **PUT** /connector-rules/{id} | Update a Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Confirm-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Confirm-V2024ConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
-*V2024ConnectorsApi* | [**New-V2024CustomConnector**](docs/V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create custom connector
-*V2024ConnectorsApi* | [**Remove-V2024CustomConnector**](docs/V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Deletes connector by script name
-*V2024ConnectorsApi* | [**Get-V2024Connector**](docs/V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Gets connector by script name
-*V2024ConnectorsApi* | [**Get-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | 
-*V2024ConnectorsApi* | [**Get-V2024ConnectorList**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorList) | **GET** /connectors | Gets connector list
-*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | 
-*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | 
-*V2024ConnectorsApi* | [**Get-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | 
-*V2024ConnectorsApi* | [**Send-V2024CorrelationConfig**](docs/V2024ConnectorsApi.md#Send-V2024CorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | 
-*V2024ConnectorsApi* | [**Send-V2024SourceConfig**](docs/V2024ConnectorsApi.md#Send-V2024SourceConfig) | **PUT** /connectors/{scriptName}/source-config | 
-*V2024ConnectorsApi* | [**Send-V2024SourceTemplate**](docs/V2024ConnectorsApi.md#Send-V2024SourceTemplate) | **PUT** /connectors/{scriptName}/source-template | 
-*V2024ConnectorsApi* | [**Send-V2024Translations**](docs/V2024ConnectorsApi.md#Send-V2024Translations) | **PUT** /connectors/{scriptName}/translations/{locale} | 
-*V2024ConnectorsApi* | [**Update-V2024Connector**](docs/V2024ConnectorsApi.md#Update-V2024Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
+*V2024ConnectorsApi* | [**New-V2024CustomConnector**](docs/V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create Custom Connector
+*V2024ConnectorsApi* | [**Remove-V2024CustomConnector**](docs/V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Delete Connector by Script Name
+*V2024ConnectorsApi* | [**Get-V2024Connector**](docs/V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Get Connector by Script Name
+*V2024ConnectorsApi* | [**Get-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | Get Connector Correlation Configuration
+*V2024ConnectorsApi* | [**Get-V2024ConnectorList**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorList) | **GET** /connectors | Get Connector List
+*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get Connector Source Configuration
+*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get Connector Source Template
+*V2024ConnectorsApi* | [**Get-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get Connector Translations
+*V2024ConnectorsApi* | [**Send-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorCorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | Update Connector Correlation Configuration
+*V2024ConnectorsApi* | [**Send-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update Connector Source Configuration
+*V2024ConnectorsApi* | [**Send-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update Connector Source Template
+*V2024ConnectorsApi* | [**Send-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update Connector Translations
+*V2024ConnectorsApi* | [**Update-V2024Connector**](docs/V2024ConnectorsApi.md#Update-V2024Connector) | **PATCH** /connectors/{scriptName} | Update Connector by Script Name
 *V2024CustomFormsApi* | [**New-V2024FormDefinition**](docs/V2024CustomFormsApi.md#New-V2024FormDefinition) | **POST** /form-definitions | Creates a form definition.
 *V2024CustomFormsApi* | [**New-V2024FormDefinitionDynamicSchema**](docs/V2024CustomFormsApi.md#New-V2024FormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
 *V2024CustomFormsApi* | [**New-V2024FormDefinitionFileRequest**](docs/V2024CustomFormsApi.md#New-V2024FormDefinitionFileRequest) | **POST** /form-definitions/{formDefinitionID}/upload | Upload new form definition file.
@@ -316,6 +316,8 @@ Class | Method | HTTP request | Description
 *V2024IdentitiesApi* | [**Get-V2024RoleAssignments**](docs/V2024IdentitiesApi.md#Get-V2024RoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
 *V2024IdentitiesApi* | [**Get-V2024Identities**](docs/V2024IdentitiesApi.md#Get-V2024Identities) | **GET** /identities | List Identities
 *V2024IdentitiesApi* | [**Reset-V2024Identity**](docs/V2024IdentitiesApi.md#Reset-V2024Identity) | **POST** /identities/{id}/reset | Reset an identity
+*V2024IdentitiesApi* | [**Send-V2024IdentityVerificationAccountToken**](docs/V2024IdentitiesApi.md#Send-V2024IdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
+*V2024IdentitiesApi* | [**Start-V2024IdentitiesInvite**](docs/V2024IdentitiesApi.md#Start-V2024IdentitiesInvite) | **POST** /identities/invite | Invite identities to register
 *V2024IdentitiesApi* | [**Start-V2024IdentityProcessing**](docs/V2024IdentitiesApi.md#Start-V2024IdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *V2024IdentitiesApi* | [**Sync-V2024hronizeAttributesForIdentity**](docs/V2024IdentitiesApi.md#Sync-V2024hronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 *V2024IdentityAttributesApi* | [**New-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#New-V2024IdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
@@ -565,6 +567,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Remove-V2024SourceSchedule**](docs/V2024SourcesApi.md#Remove-V2024SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete Source Schedule by type.
 *V2024SourcesApi* | [**Remove-V2024SourceSchema**](docs/V2024SourcesApi.md#Remove-V2024SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 *V2024SourcesApi* | [**Get-V2024AccountsSchema**](docs/V2024SourcesApi.md#Get-V2024AccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
+*V2024SourcesApi* | [**Get-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Get-V2024CorrelationConfig) | **GET** /sources/{id}/correlation-config | Get Source Correlation Configuration
 *V2024SourcesApi* | [**Get-V2024EntitlementsSchema**](docs/V2024SourcesApi.md#Get-V2024EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 *V2024SourcesApi* | [**Get-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Get-V2024NativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
 *V2024SourcesApi* | [**Get-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
@@ -586,6 +589,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Get-V2024Sources**](docs/V2024SourcesApi.md#Get-V2024Sources) | **GET** /sources | Lists all sources in IdentityNow.
 *V2024SourcesApi* | [**Receive-V2024ResourceObjects**](docs/V2024SourcesApi.md#Receive-V2024ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *V2024SourcesApi* | [**Ping-V2024Cluster**](docs/V2024SourcesApi.md#Ping-V2024Cluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
+*V2024SourcesApi* | [**Send-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Send-V2024CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
 *V2024SourcesApi* | [**Send-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Send-V2024NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
 *V2024SourcesApi* | [**Send-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Send-V2024ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 *V2024SourcesApi* | [**Send-V2024Source**](docs/V2024SourcesApi.md#Send-V2024Source) | **PUT** /sources/{id} | Update Source (Full)
@@ -973,6 +977,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ContextAttributeDto](docs/ContextAttributeDto.md)
  - [PSSailpoint.V2024\Model.ContextAttributeDtoValue](docs/ContextAttributeDtoValue.md)
  - [PSSailpoint.V2024\Model.CorrelatedGovernanceEvent](docs/CorrelatedGovernanceEvent.md)
+ - [PSSailpoint.V2024\Model.CorrelationConfig](docs/CorrelationConfig.md)
+ - [PSSailpoint.V2024\Model.CorrelationConfigAttributeAssignmentsInner](docs/CorrelationConfigAttributeAssignmentsInner.md)
  - [PSSailpoint.V2024\Model.CreateDomainDkim405Response](docs/CreateDomainDkim405Response.md)
  - [PSSailpoint.V2024\Model.CreateExternalExecuteWorkflow200Response](docs/CreateExternalExecuteWorkflow200Response.md)
  - [PSSailpoint.V2024\Model.CreateExternalExecuteWorkflowRequest](docs/CreateExternalExecuteWorkflowRequest.md)
@@ -1177,6 +1183,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.Index](docs/Index.md)
  - [PSSailpoint.V2024\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint.V2024\Model.InnerHit](docs/InnerHit.md)
+ - [PSSailpoint.V2024\Model.InviteIdentitiesRequest](docs/InviteIdentitiesRequest.md)
  - [PSSailpoint.V2024\Model.Invocation](docs/Invocation.md)
  - [PSSailpoint.V2024\Model.InvocationStatus](docs/InvocationStatus.md)
  - [PSSailpoint.V2024\Model.InvocationStatusType](docs/InvocationStatusType.md)
@@ -1360,10 +1367,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.PublicIdentityAttributesInner](docs/PublicIdentityAttributesInner.md)
  - [PSSailpoint.V2024\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
  - [PSSailpoint.V2024\Model.PutClientLogConfigurationRequest](docs/PutClientLogConfigurationRequest.md)
- - [PSSailpoint.V2024\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)
+ - [PSSailpoint.V2024\Model.PutConnectorCorrelationConfigRequest](docs/PutConnectorCorrelationConfigRequest.md)
+ - [PSSailpoint.V2024\Model.PutConnectorSourceConfigRequest](docs/PutConnectorSourceConfigRequest.md)
+ - [PSSailpoint.V2024\Model.PutConnectorSourceTemplateRequest](docs/PutConnectorSourceTemplateRequest.md)
  - [PSSailpoint.V2024\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
- - [PSSailpoint.V2024\Model.PutSourceConfigRequest](docs/PutSourceConfigRequest.md)
- - [PSSailpoint.V2024\Model.PutSourceTemplateRequest](docs/PutSourceTemplateRequest.md)
  - [PSSailpoint.V2024\Model.Query](docs/Query.md)
  - [PSSailpoint.V2024\Model.QueryResultFilter](docs/QueryResultFilter.md)
  - [PSSailpoint.V2024\Model.QueryType](docs/QueryType.md)
@@ -1546,6 +1553,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SelectorAccountMatchConfig](docs/SelectorAccountMatchConfig.md)
  - [PSSailpoint.V2024\Model.SelectorAccountMatchConfigMatchExpression](docs/SelectorAccountMatchConfigMatchExpression.md)
  - [PSSailpoint.V2024\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
+ - [PSSailpoint.V2024\Model.SendAccountVerificationRequest](docs/SendAccountVerificationRequest.md)
  - [PSSailpoint.V2024\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpoint.V2024\Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
  - [PSSailpoint.V2024\Model.ServiceDeskIntegrationDto1](docs/ServiceDeskIntegrationDto1.md)

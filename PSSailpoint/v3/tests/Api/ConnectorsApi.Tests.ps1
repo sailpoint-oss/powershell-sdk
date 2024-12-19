@@ -30,14 +30,6 @@ Describe -tag 'PSSailpoint.V3' -name 'ConnectorsApi' {
         }
     }
 
-    Context 'Get-ConnectorCorrelationConfig' {
-        It 'Test Get-ConnectorCorrelationConfig' {
-            #$TestResult = Get-ConnectorCorrelationConfig -ScriptName "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-ConnectorList' {
         It 'Test Get-ConnectorList' {
             #$TestResult = Get-ConnectorList -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Locale "TEST_VALUE"
@@ -70,33 +62,25 @@ Describe -tag 'PSSailpoint.V3' -name 'ConnectorsApi' {
         }
     }
 
-    Context 'Send-CorrelationConfig' {
-        It 'Test Send-CorrelationConfig' {
-            #$TestResult = Send-CorrelationConfig -ScriptName "TEST_VALUE" -File "TEST_VALUE"
+    Context 'Send-ConnectorSourceConfig' {
+        It 'Test Send-ConnectorSourceConfig' {
+            #$TestResult = Send-ConnectorSourceConfig -ScriptName "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Send-SourceConfig' {
-        It 'Test Send-SourceConfig' {
-            #$TestResult = Send-SourceConfig -ScriptName "TEST_VALUE" -File "TEST_VALUE"
+    Context 'Send-ConnectorSourceTemplate' {
+        It 'Test Send-ConnectorSourceTemplate' {
+            #$TestResult = Send-ConnectorSourceTemplate -ScriptName "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Send-SourceTemplate' {
-        It 'Test Send-SourceTemplate' {
-            #$TestResult = Send-SourceTemplate -ScriptName "TEST_VALUE" -File "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Send-Translations' {
-        It 'Test Send-Translations' {
-            #$TestResult = Send-Translations -ScriptName "TEST_VALUE" -Locale "TEST_VALUE"
+    Context 'Send-ConnectorTranslations' {
+        It 'Test Send-ConnectorTranslations' {
+            #$TestResult = Send-ConnectorTranslations -ScriptName "TEST_VALUE" -Locale "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

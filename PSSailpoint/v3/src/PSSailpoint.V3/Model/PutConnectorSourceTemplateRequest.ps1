@@ -15,13 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER File
-connector source config xml file
+connector source template xml file
 .OUTPUTS
 
-PutSourceConfigRequest<PSCustomObject>
+PutConnectorSourceTemplateRequest<PSCustomObject>
 #>
 
-function Initialize-PutSourceConfigRequest {
+function Initialize-PutConnectorSourceTemplateRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-PutSourceConfigRequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V3 => PutSourceConfigRequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V3 => PutConnectorSourceTemplateRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$File) {
@@ -49,11 +49,11 @@ function Initialize-PutSourceConfigRequest {
 <#
 .SYNOPSIS
 
-Convert from JSON to PutSourceConfigRequest<PSCustomObject>
+Convert from JSON to PutConnectorSourceTemplateRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to PutSourceConfigRequest<PSCustomObject>
+Convert from JSON to PutConnectorSourceTemplateRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -61,21 +61,21 @@ Json object
 
 .OUTPUTS
 
-PutSourceConfigRequest<PSCustomObject>
+PutConnectorSourceTemplateRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToPutSourceConfigRequest {
+function ConvertFrom-JsonToPutConnectorSourceTemplateRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V3 => PutSourceConfigRequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V3 => PutConnectorSourceTemplateRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in PutSourceConfigRequest
+        # check if Json contains properties not defined in PutConnectorSourceTemplateRequest
         $AllProperties = ("file")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

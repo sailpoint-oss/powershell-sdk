@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**Remove-V2024SourceSchedule**](V2024SourcesApi.md#Remove-V2024SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete Source Schedule by type.
 [**Remove-V2024SourceSchema**](V2024SourcesApi.md#Remove-V2024SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 [**Get-V2024AccountsSchema**](V2024SourcesApi.md#Get-V2024AccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
+[**Get-V2024CorrelationConfig**](V2024SourcesApi.md#Get-V2024CorrelationConfig) | **GET** /sources/{id}/correlation-config | Get Source Correlation Configuration
 [**Get-V2024EntitlementsSchema**](V2024SourcesApi.md#Get-V2024EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 [**Get-V2024NativeChangeDetectionConfig**](V2024SourcesApi.md#Get-V2024NativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
 [**Get-V2024ProvisioningPolicy**](V2024SourcesApi.md#Get-V2024ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
@@ -36,6 +37,7 @@ Method | HTTP request | Description
 [**Get-V2024Sources**](V2024SourcesApi.md#Get-V2024Sources) | **GET** /sources | Lists all sources in IdentityNow.
 [**Receive-V2024ResourceObjects**](V2024SourcesApi.md#Receive-V2024ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector&#39;s resource objects
 [**Ping-V2024Cluster**](V2024SourcesApi.md#Ping-V2024Cluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
+[**Send-V2024CorrelationConfig**](V2024SourcesApi.md#Send-V2024CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
 [**Send-V2024NativeChangeDetectionConfig**](V2024SourcesApi.md#Send-V2024NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
 [**Send-V2024ProvisioningPolicy**](V2024SourcesApi.md#Send-V2024ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 [**Send-V2024Source**](V2024SourcesApi.md#Send-V2024Source) | **PUT** /sources/{id} | Update Source (Full)
@@ -671,6 +673,57 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: text/csv, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-V2024CorrelationConfig"></a>
+# **Get-V2024CorrelationConfig**
+> CorrelationConfig Get-V2024CorrelationConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get Source Correlation Configuration
+
+This API returns the existing correlation configuration for a source specified by the given ID.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+
+# Get Source Correlation Configuration
+try {
+    $Result = Get-V2024CorrelationConfig -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024CorrelationConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The source id | 
+
+### Return type
+
+[**CorrelationConfig**](CorrelationConfig.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1837,6 +1890,61 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Send-V2024CorrelationConfig"></a>
+# **Send-V2024CorrelationConfig**
+> CorrelationConfig Send-V2024CorrelationConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-CorrelationConfig] <PSCustomObject><br>
+
+Update Source Correlation Configuration
+
+Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+$CorrelationConfigAttributeAssignmentsInner = Initialize-CorrelationConfigAttributeAssignmentsInner -Property "first_name" -Value "firstName" -Operation "EQ" -Complex $false -IgnoreCase $false -MatchMode "ANYWHERE" -FilterString "first_name == "John""
+$CorrelationConfig = Initialize-CorrelationConfig -Id "2c9180835d191a86015d28455b4a2329" -Name "Source [source] Account Correlation" -AttributeAssignments $CorrelationConfigAttributeAssignmentsInner # CorrelationConfig | 
+
+# Update Source Correlation Configuration
+try {
+    $Result = Send-V2024CorrelationConfig -Id $Id -CorrelationConfig $CorrelationConfig
+} catch {
+    Write-Host ("Exception occurred when calling Send-V2024CorrelationConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| The source id | 
+ **CorrelationConfig** | [**CorrelationConfig**](CorrelationConfig.md)|  | 
+
+### Return type
+
+[**CorrelationConfig**](CorrelationConfig.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

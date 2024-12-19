@@ -1,4 +1,4 @@
-# PutSourceConfigRequest
+# PutConnectorSourceConfigRequest
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,12 +9,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutSourceConfigRequest = Initialize-PSSailpoint.V2024PutSourceConfigRequest  -File null
+$PutConnectorSourceConfigRequest = Initialize-PSSailpoint.V3PutConnectorSourceConfigRequest  -File null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$PutSourceConfigRequest | ConvertTo-JSON
+$PutConnectorSourceConfigRequest | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

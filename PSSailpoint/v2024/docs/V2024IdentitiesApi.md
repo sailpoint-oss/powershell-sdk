@@ -11,6 +11,8 @@ Method | HTTP request | Description
 [**Get-V2024RoleAssignments**](V2024IdentitiesApi.md#Get-V2024RoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
 [**Get-V2024Identities**](V2024IdentitiesApi.md#Get-V2024Identities) | **GET** /identities | List Identities
 [**Reset-V2024Identity**](V2024IdentitiesApi.md#Reset-V2024Identity) | **POST** /identities/{id}/reset | Reset an identity
+[**Send-V2024IdentityVerificationAccountToken**](V2024IdentitiesApi.md#Send-V2024IdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
+[**Start-V2024IdentitiesInvite**](V2024IdentitiesApi.md#Start-V2024IdentitiesInvite) | **POST** /identities/invite | Invite identities to register
 [**Start-V2024IdentityProcessing**](V2024IdentitiesApi.md#Start-V2024IdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 [**Sync-V2024hronizeAttributesForIdentity**](V2024IdentitiesApi.md#Sync-V2024hronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 
@@ -411,6 +413,117 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Send-V2024IdentityVerificationAccountToken"></a>
+# **Send-V2024IdentityVerificationAccountToken**
+> void Send-V2024IdentityVerificationAccountToken<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SendAccountVerificationRequest] <PSCustomObject><br>
+
+Send password reset email
+
+This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
+$SendAccountVerificationRequest = Initialize-SendAccountVerificationRequest -SourceName "Active Directory Source" -Via "EMAIL_WORK" # SendAccountVerificationRequest | 
+
+# Send password reset email
+try {
+    $Result = Send-V2024IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -SendAccountVerificationRequest $SendAccountVerificationRequest
+} catch {
+    Write-Host ("Exception occurred when calling Send-V2024IdentityVerificationAccountToken: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **Id** | **String**| Identity ID | 
+ **SendAccountVerificationRequest** | [**SendAccountVerificationRequest**](SendAccountVerificationRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Start-V2024IdentitiesInvite"></a>
+# **Start-V2024IdentitiesInvite**
+> TaskStatus Start-V2024IdentitiesInvite<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-InviteIdentitiesRequest] <PSCustomObject><br>
+
+Invite identities to register
+
+This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status). 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$InviteIdentitiesRequest = Initialize-InviteIdentitiesRequest -Ids "MyIds" -Uninvited $false # InviteIdentitiesRequest | 
+
+# Invite identities to register
+try {
+    $Result = Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $InviteIdentitiesRequest
+} catch {
+    Write-Host ("Exception occurred when calling Start-V2024IdentitiesInvite: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **InviteIdentitiesRequest** | [**InviteIdentitiesRequest**](InviteIdentitiesRequest.md)|  | 
+
+### Return type
+
+[**TaskStatus**](TaskStatus.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

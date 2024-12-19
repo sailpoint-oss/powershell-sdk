@@ -62,6 +62,22 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
         }
     }
 
+    Context 'Send-V2024IdentityVerificationAccountToken' {
+        It 'Test Send-V2024IdentityVerificationAccountToken' {
+            #$TestResult = Send-V2024IdentityVerificationAccountToken -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -SendAccountVerificationRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-V2024IdentitiesInvite' {
+        It 'Test Start-V2024IdentitiesInvite' {
+            #$TestResult = Start-V2024IdentitiesInvite -XSailPointExperimental "TEST_VALUE" -InviteIdentitiesRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Start-V2024IdentityProcessing' {
         It 'Test Start-V2024IdentityProcessing' {
             #$TestResult = Start-V2024IdentityProcessing -XSailPointExperimental "TEST_VALUE" -ProcessIdentitiesRequest "TEST_VALUE"

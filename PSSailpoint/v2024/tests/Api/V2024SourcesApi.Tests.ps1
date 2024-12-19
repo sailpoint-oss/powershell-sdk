@@ -94,6 +94,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
         }
     }
 
+    Context 'Get-V2024CorrelationConfig' {
+        It 'Test Get-V2024CorrelationConfig' {
+            #$TestResult = Get-V2024CorrelationConfig -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024EntitlementsSchema' {
         It 'Test Get-V2024EntitlementsSchema' {
             #$TestResult = Get-V2024EntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE"
@@ -257,6 +265,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
     Context 'Ping-V2024Cluster' {
         It 'Test Ping-V2024Cluster' {
             #$TestResult = Ping-V2024Cluster -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-V2024CorrelationConfig' {
+        It 'Test Send-V2024CorrelationConfig' {
+            #$TestResult = Send-V2024CorrelationConfig -Id "TEST_VALUE" -CorrelationConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

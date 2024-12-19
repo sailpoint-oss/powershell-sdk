@@ -146,19 +146,17 @@ Class | Method | HTTP request | Description
 *ConfigurationHubApi* | [**Get-UploadedConfiguration**](docs/ConfigurationHubApi.md#Get-UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
 *ConfigurationHubApi* | [**Get-UploadedConfigurations**](docs/ConfigurationHubApi.md#Get-UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *ConfigurationHubApi* | [**Update-ObjectMappings**](docs/ConfigurationHubApi.md#Update-ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
-*ConnectorsApi* | [**New-CustomConnector**](docs/ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create custom connector
-*ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | Deletes connector by script name
-*ConnectorsApi* | [**Get-Connector**](docs/ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | Gets connector by script name
-*ConnectorsApi* | [**Get-ConnectorCorrelationConfig**](docs/ConnectorsApi.md#Get-ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | 
-*ConnectorsApi* | [**Get-ConnectorList**](docs/ConnectorsApi.md#Get-ConnectorList) | **GET** /connectors | Gets connector list
-*ConnectorsApi* | [**Get-ConnectorSourceConfig**](docs/ConnectorsApi.md#Get-ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | 
-*ConnectorsApi* | [**Get-ConnectorSourceTemplate**](docs/ConnectorsApi.md#Get-ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | 
-*ConnectorsApi* | [**Get-ConnectorTranslations**](docs/ConnectorsApi.md#Get-ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | 
-*ConnectorsApi* | [**Send-CorrelationConfig**](docs/ConnectorsApi.md#Send-CorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | 
-*ConnectorsApi* | [**Send-SourceConfig**](docs/ConnectorsApi.md#Send-SourceConfig) | **PUT** /connectors/{scriptName}/source-config | 
-*ConnectorsApi* | [**Send-SourceTemplate**](docs/ConnectorsApi.md#Send-SourceTemplate) | **PUT** /connectors/{scriptName}/source-template | 
-*ConnectorsApi* | [**Send-Translations**](docs/ConnectorsApi.md#Send-Translations) | **PUT** /connectors/{scriptName}/translations/{locale} | 
-*ConnectorsApi* | [**Update-Connector**](docs/ConnectorsApi.md#Update-Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
+*ConnectorsApi* | [**New-CustomConnector**](docs/ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create Custom Connector
+*ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | Delete Connector by Script Name
+*ConnectorsApi* | [**Get-Connector**](docs/ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | Get Connector by Script Name
+*ConnectorsApi* | [**Get-ConnectorList**](docs/ConnectorsApi.md#Get-ConnectorList) | **GET** /connectors | Get Connector List
+*ConnectorsApi* | [**Get-ConnectorSourceConfig**](docs/ConnectorsApi.md#Get-ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get Connector Source Configuration
+*ConnectorsApi* | [**Get-ConnectorSourceTemplate**](docs/ConnectorsApi.md#Get-ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get Connector Source Template
+*ConnectorsApi* | [**Get-ConnectorTranslations**](docs/ConnectorsApi.md#Get-ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get Connector Translations
+*ConnectorsApi* | [**Send-ConnectorSourceConfig**](docs/ConnectorsApi.md#Send-ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update Connector Source Configuration
+*ConnectorsApi* | [**Send-ConnectorSourceTemplate**](docs/ConnectorsApi.md#Send-ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update Connector Source Template
+*ConnectorsApi* | [**Send-ConnectorTranslations**](docs/ConnectorsApi.md#Send-ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update Connector Translations
+*ConnectorsApi* | [**Update-Connector**](docs/ConnectorsApi.md#Update-Connector) | **PATCH** /connectors/{scriptName} | Update Connector by Script Name
 *GlobalTenantSecuritySettingsApi* | [**New-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#New-AuthOrgNetworkConfig) | **POST** /auth-org/network-config | Create security network configuration.
 *GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgLockoutConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgLockoutConfig) | **GET** /auth-org/lockout-config | Get Auth Org Lockout Configuration.
 *GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgNetworkConfig) | **GET** /auth-org/network-config | Get security network configuration.
@@ -808,10 +806,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.PublicIdentityAttributesInner](docs/PublicIdentityAttributesInner.md)
  - [PSSailpoint.V3\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
  - [PSSailpoint.V3\Model.PutClientLogConfigurationRequest](docs/PutClientLogConfigurationRequest.md)
- - [PSSailpoint.V3\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)
+ - [PSSailpoint.V3\Model.PutConnectorSourceConfigRequest](docs/PutConnectorSourceConfigRequest.md)
+ - [PSSailpoint.V3\Model.PutConnectorSourceTemplateRequest](docs/PutConnectorSourceTemplateRequest.md)
  - [PSSailpoint.V3\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
- - [PSSailpoint.V3\Model.PutSourceConfigRequest](docs/PutSourceConfigRequest.md)
- - [PSSailpoint.V3\Model.PutSourceTemplateRequest](docs/PutSourceTemplateRequest.md)
  - [PSSailpoint.V3\Model.Query](docs/Query.md)
  - [PSSailpoint.V3\Model.QueryResultFilter](docs/QueryResultFilter.md)
  - [PSSailpoint.V3\Model.QueryType](docs/QueryType.md)

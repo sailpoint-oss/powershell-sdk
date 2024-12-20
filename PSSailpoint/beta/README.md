@@ -533,7 +533,7 @@ Class | Method | HTTP request | Description
 *BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedApproval**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedApproval) | **POST** /suggested-entitlement-description-approvals | Submit Bulk Approval Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedAssignment**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit Sed Assignment Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedBatchRequest**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit Sed Batch Request
-*BetaTaggedObjectsApi* | [**Remove-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+*BetaTaggedObjectsApi* | [**Remove-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Object Tags
 *BetaTaggedObjectsApi* | [**Remove-BetaTagsToManyObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObjects**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects

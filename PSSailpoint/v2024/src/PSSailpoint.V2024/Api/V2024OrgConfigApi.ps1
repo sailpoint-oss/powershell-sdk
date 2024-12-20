@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Get Org configuration settings
+Get Org Config Settings
 
 .DESCRIPTION
 
-Get org configuration with only external (org admin) accessible properties for the current org.
+Get the current organization's configuration settings, only external accessible properties.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -83,14 +83,23 @@ function Get-V2024OrgConfig {
 <#
 .SYNOPSIS
 
-Get list of time zones
+Get Valid Time Zones
 
 .DESCRIPTION
 
-Get a list of valid time zones that can be set in org configurations.
+List the valid time zones that can be set in organization configurations.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
+
+.PARAMETER Limit
+Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER WithHttpInfo
 
@@ -106,6 +115,15 @@ function Get-V2024ValidTimeZones {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
         [Switch]
         $WithHttpInfo
     )
@@ -133,6 +151,18 @@ function Get-V2024ValidTimeZones {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
 
 
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
@@ -158,11 +188,11 @@ function Get-V2024ValidTimeZones {
 <#
 .SYNOPSIS
 
-Patch an Org configuration property
+Patch Org Config
 
 .DESCRIPTION
 
-Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
+Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.

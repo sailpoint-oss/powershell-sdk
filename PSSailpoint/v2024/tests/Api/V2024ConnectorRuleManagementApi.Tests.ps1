@@ -32,23 +32,23 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConnectorRuleManagementApi' {
 
     Context 'Get-V2024ConnectorRuleList' {
         It 'Test Get-V2024ConnectorRuleList' {
-            #$TestResult = Get-V2024ConnectorRuleList -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024ConnectorRuleList -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Update-V2024ConnectorRule' {
-        It 'Test Update-V2024ConnectorRule' {
-            #$TestResult = Update-V2024ConnectorRule -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -ConnectorRuleUpdateRequest "TEST_VALUE"
+    Context 'Send-V2024ConnectorRule' {
+        It 'Test Send-V2024ConnectorRule' {
+            #$TestResult = Send-V2024ConnectorRule -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -ConnectorRuleUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Confirm-V2024ConnectorRule' {
-        It 'Test Confirm-V2024ConnectorRule' {
-            #$TestResult = Confirm-V2024ConnectorRule -XSailPointExperimental "TEST_VALUE" -SourceCode "TEST_VALUE"
+    Context 'Test-V2024ConnectorRule' {
+        It 'Test Test-V2024ConnectorRule' {
+            #$TestResult = Test-V2024ConnectorRule -XSailPointExperimental "TEST_VALUE" -SourceCode "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

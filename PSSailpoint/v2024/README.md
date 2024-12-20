@@ -186,11 +186,11 @@ Class | Method | HTTP request | Description
 *V2024ConfigurationHubApi* | [**Get-V2024UploadedConfigurations**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *V2024ConfigurationHubApi* | [**Update-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *V2024ConnectorRuleManagementApi* | [**New-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#New-V2024ConnectorRule) | **POST** /connector-rules | Create Connector Rule
-*V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete a Connector-Rule
-*V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRule) | **GET** /connector-rules/{id} | Connector-Rule by ID
+*V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete Connector Rule
+*V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRule) | **GET** /connector-rules/{id} | Get Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRuleList**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRuleList) | **GET** /connector-rules | List Connector Rules
-*V2024ConnectorRuleManagementApi* | [**Update-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Update-V2024ConnectorRule) | **PUT** /connector-rules/{id} | Update a Connector Rule
-*V2024ConnectorRuleManagementApi* | [**Confirm-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Confirm-V2024ConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
+*V2024ConnectorRuleManagementApi* | [**Send-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Send-V2024ConnectorRule) | **PUT** /connector-rules/{id} | Update Connector Rule
+*V2024ConnectorRuleManagementApi* | [**Test-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Test-V2024ConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
 *V2024ConnectorsApi* | [**New-V2024CustomConnector**](docs/V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create Custom Connector
 *V2024ConnectorsApi* | [**Remove-V2024CustomConnector**](docs/V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Delete Connector by Script Name
 *V2024ConnectorsApi* | [**Get-V2024Connector**](docs/V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Get Connector by Script Name
@@ -426,9 +426,9 @@ Class | Method | HTTP request | Description
 *V2024OAuthClientsApi* | [**Get-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Get-V2024OauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
 *V2024OAuthClientsApi* | [**Get-V2024OauthClients**](docs/V2024OAuthClientsApi.md#Get-V2024OauthClients) | **GET** /oauth-clients | List OAuth Clients
 *V2024OAuthClientsApi* | [**Update-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Update-V2024OauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
-*V2024OrgConfigApi* | [**Get-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Get-V2024OrgConfig) | **GET** /org-config | Get Org configuration settings
-*V2024OrgConfigApi* | [**Get-V2024ValidTimeZones**](docs/V2024OrgConfigApi.md#Get-V2024ValidTimeZones) | **GET** /org-config/valid-time-zones | Get list of time zones
-*V2024OrgConfigApi* | [**Update-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Update-V2024OrgConfig) | **PATCH** /org-config | Patch an Org configuration property
+*V2024OrgConfigApi* | [**Get-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Get-V2024OrgConfig) | **GET** /org-config | Get Org Config Settings
+*V2024OrgConfigApi* | [**Get-V2024ValidTimeZones**](docs/V2024OrgConfigApi.md#Get-V2024ValidTimeZones) | **GET** /org-config/valid-time-zones | Get Valid Time Zones
+*V2024OrgConfigApi* | [**Update-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Update-V2024OrgConfig) | **PATCH** /org-config | Patch Org Config
 *V2024PasswordConfigurationApi* | [**New-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#New-V2024PasswordOrgConfig) | **POST** /password-org-config | Create Password Org Config
 *V2024PasswordConfigurationApi* | [**Get-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#Get-V2024PasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
 *V2024PasswordConfigurationApi* | [**Send-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#Send-V2024PasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config

@@ -363,17 +363,17 @@ Class | Method | HTTP request | Description
 *V2024MFAConfigurationApi* | [**Test-V2024MFAConfig**](docs/V2024MFAConfigurationApi.md#Test-V2024MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
 *V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create Managed Client
 *V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
-*V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get a Managed Client
+*V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get Managed Client
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClientStatus**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClients**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClients) | **GET** /managed-clients | Get Managed Clients
 *V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
-*V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
-*V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
-*V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster's log configuration
-*V2024ManagedClustersApi* | [**Get-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
-*V2024ManagedClustersApi* | [**Get-V2024ManagedClusters**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-*V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster's log configuration
-*V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
+*V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create Create Managed Cluster
+*V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete Managed Cluster
+*V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster Log Configuration
+*V2024ManagedClustersApi* | [**Get-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get Managed Cluster
+*V2024ManagedClustersApi* | [**Get-V2024ManagedClusters**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Get Managed Clusters
+*V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
+*V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
 *V2024NonEmployeeLifecycleManagementApi* | [**Approve-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Approve-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -611,7 +611,7 @@ Class | Method | HTTP request | Description
 *V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedApproval**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedApproval) | **POST** /suggested-entitlement-description-approvals | Submit Bulk Approval Request
 *V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedAssignment**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit Sed Assignment Request
 *V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedBatchRequest**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit Sed Batch Request
-*V2024TaggedObjectsApi* | [**Remove-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+*V2024TaggedObjectsApi* | [**Remove-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Object Tags
 *V2024TaggedObjectsApi* | [**Remove-V2024TagsToManyObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *V2024TaggedObjectsApi* | [**Get-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *V2024TaggedObjectsApi* | [**Get-V2024TaggedObjects**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObjects) | **GET** /tagged-objects | List Tagged Objects

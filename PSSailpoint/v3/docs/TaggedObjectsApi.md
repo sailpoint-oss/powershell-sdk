@@ -4,7 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Remove-TaggedObject**](TaggedObjectsApi.md#Remove-TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+[**Remove-TaggedObject**](TaggedObjectsApi.md#Remove-TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Object Tags
 [**Remove-TagsToManyObject**](TaggedObjectsApi.md#Remove-TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 [**Get-TaggedObject**](TaggedObjectsApi.md#Get-TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 [**Get-TaggedObjects**](TaggedObjectsApi.md#Get-TaggedObjects) | **GET** /tagged-objects | List Tagged Objects
@@ -20,9 +20,9 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Type] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Delete Tagged Object
+Delete Object Tags
 
-This deletes a tagged object for the specified type.
+Delete all tags from a tagged object.
 
 ### Example
 ```powershell
@@ -34,10 +34,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Type = "ACCESS_PROFILE" # String | The type of tagged object to delete.
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to delete.
+$Type = "ACCESS_PROFILE" # String | The type of object to delete tags from.
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to delete tags from.
 
-# Delete Tagged Object
+# Delete Object Tags
 try {
     $Result = Remove-TaggedObject -Type $Type -Id $Id
 } catch {
@@ -50,8 +50,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Type** | **String**| The type of tagged object to delete. | 
- **Id** | **String**| The ID of the object reference to delete. | 
+ **Type** | **String**| The type of object to delete tags from. | 
+ **Id** | **String**| The ID of the object to delete tags from. | 
 
 ### Return type
 

@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Create a new Managed Cluster
+Create Create Managed Cluster
 
 .DESCRIPTION
 
-Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
+Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
 
 .PARAMETER ManagedClusterRequest
 No description available.
@@ -98,17 +98,17 @@ function New-ManagedCluster {
 <#
 .SYNOPSIS
 
-Delete a Managed Cluster
+Delete Managed Cluster
 
 .DESCRIPTION
 
-Delete an existing Managed Cluster.
+Delete an existing managed cluster.
 
 .PARAMETER Id
-Managed Cluster ID.
+Managed cluster ID.
 
 .PARAMETER RemoveClients
-Flag to determine the need to delete a cluster with clients
+Flag to determine the need to delete a cluster with clients.
 
 .PARAMETER WithHttpInfo
 
@@ -182,14 +182,14 @@ function Remove-ManagedCluster {
 <#
 .SYNOPSIS
 
-Get Managed Cluster's log configuration
+Get Managed Cluster Log Configuration
 
 .DESCRIPTION
 
-Get managed cluster's log configuration.
+Get a managed cluster's log configuration.
 
 .PARAMETER Id
-ID of ManagedCluster to get log configuration for
+ID of managed cluster to get log configuration for.
 
 .PARAMETER WithHttpInfo
 
@@ -256,14 +256,14 @@ function Get-ClientLogConfiguration {
 <#
 .SYNOPSIS
 
-Get a specified Managed Cluster.
+Get Managed Cluster
 
 .DESCRIPTION
 
-Retrieve a ManagedCluster by ID.
+Get a managed cluster by ID.
 
 .PARAMETER Id
-ManagedCluster ID.
+Managed cluster ID.
 
 .PARAMETER WithHttpInfo
 
@@ -330,11 +330,11 @@ function Get-ManagedCluster {
 <#
 .SYNOPSIS
 
-Retrieve all Managed Clusters.
+Get Managed Clusters
 
 .DESCRIPTION
 
-Retrieve all Managed Clusters for the current Org, based on request context.
+List current organization's managed clusters, based on request context.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -434,17 +434,17 @@ function Get-ManagedClusters {
 <#
 .SYNOPSIS
 
-Update Managed Cluster's log configuration
+Update Managed Cluster Log Configuration
 
 .DESCRIPTION
 
-Update managed cluster's log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
+Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
 
 .PARAMETER Id
-ID of ManagedCluster to update log configuration for
+ID of the managed cluster to update the log configuration for.
 
 .PARAMETER PutClientLogConfigurationRequest
-ClientLogConfiguration for given ManagedCluster
+Client log configuration for the given managed cluster.
 
 .PARAMETER WithHttpInfo
 
@@ -534,17 +534,17 @@ function Send-ClientLogConfiguration {
 <#
 .SYNOPSIS
 
-Update a Managed Cluster
+Update Managed Cluster
 
 .DESCRIPTION
 
-Update an existing Managed Cluster.
+Update an existing managed cluster.
 
 .PARAMETER Id
-Managed Cluster ID.
+Managed cluster ID.
 
 .PARAMETER JsonPatchOperation
-The JSONPatch payload used to update the object.
+JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
 

@@ -172,14 +172,14 @@ function Remove-V2024ManagedClient {
 <#
 .SYNOPSIS
 
-Get a Managed Client
+Get Managed Client
 
 .DESCRIPTION
 
-Get a Managed Client.
+Get managed client by ID. 
 
 .PARAMETER Id
-Managed Client ID.
+Managed client ID.
 
 .PARAMETER WithHttpInfo
 

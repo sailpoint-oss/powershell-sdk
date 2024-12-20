@@ -4,13 +4,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024ManagedCluster**](V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
-[**Remove-V2024ManagedCluster**](V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
-[**Get-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster&#39;s log configuration
-[**Get-V2024ManagedCluster**](V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
-[**Get-V2024ManagedClusters**](V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-[**Send-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster&#39;s log configuration
-[**Update-V2024ManagedCluster**](V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
+[**New-V2024ManagedCluster**](V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create Create Managed Cluster
+[**Remove-V2024ManagedCluster**](V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete Managed Cluster
+[**Get-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster Log Configuration
+[**Get-V2024ManagedCluster**](V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get Managed Cluster
+[**Get-V2024ManagedClusters**](V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Get Managed Clusters
+[**Send-V2024ClientLogConfiguration**](V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
+[**Update-V2024ManagedCluster**](V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
 
 
 <a id="New-V2024ManagedCluster"></a>
@@ -18,9 +18,9 @@ Method | HTTP request | Description
 > ManagedCluster New-V2024ManagedCluster<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ManagedClusterRequest] <PSCustomObject><br>
 
-Create a new Managed Cluster
+Create Create Managed Cluster
 
-Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
+Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
 
 ### Example
 ```powershell
@@ -34,7 +34,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ManagedClusterRequest = Initialize-ManagedClusterRequest -Name "Managed Cluster Name" -Type "idn" -Configuration @{ key_example = "MyInner" } -Description "A short description of the managed cluster." # ManagedClusterRequest | 
 
-# Create a new Managed Cluster
+# Create Create Managed Cluster
 try {
     $Result = New-V2024ManagedCluster -ManagedClusterRequest $ManagedClusterRequest
 } catch {
@@ -70,9 +70,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-RemoveClients] <System.Nullable[Boolean]><br>
 
-Delete a Managed Cluster
+Delete Managed Cluster
 
-Delete an existing Managed Cluster.
+Delete an existing managed cluster.
 
 ### Example
 ```powershell
@@ -84,10 +84,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180897de347a2017de8859e8c5039" # String | Managed Cluster ID.
-$RemoveClients = $false # Boolean | Flag to determine the need to delete a cluster with clients (optional) (default to $false)
+$Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
+$RemoveClients = $false # Boolean | Flag to determine the need to delete a cluster with clients. (optional) (default to $false)
 
-# Delete a Managed Cluster
+# Delete Managed Cluster
 try {
     $Result = Remove-V2024ManagedCluster -Id $Id -RemoveClients $RemoveClients
 } catch {
@@ -100,8 +100,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Managed Cluster ID. | 
- **RemoveClients** | **Boolean**| Flag to determine the need to delete a cluster with clients | [optional] [default to $false]
+ **Id** | **String**| Managed cluster ID. | 
+ **RemoveClients** | **Boolean**| Flag to determine the need to delete a cluster with clients. | [optional] [default to $false]
 
 ### Return type
 
@@ -123,9 +123,9 @@ void (empty response body)
 > ClientLogConfiguration Get-V2024ClientLogConfiguration<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get Managed Cluster's log configuration
+Get Managed Cluster Log Configuration
 
-Get managed cluster's log configuration.
+Get a managed cluster's log configuration.
 
 ### Example
 ```powershell
@@ -137,9 +137,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of ManagedCluster to get log configuration for
+$Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of managed cluster to get log configuration for.
 
-# Get Managed Cluster's log configuration
+# Get Managed Cluster Log Configuration
 try {
     $Result = Get-V2024ClientLogConfiguration -Id $Id
 } catch {
@@ -152,7 +152,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of ManagedCluster to get log configuration for | 
+ **Id** | **String**| ID of managed cluster to get log configuration for. | 
 
 ### Return type
 
@@ -174,9 +174,9 @@ Name | Type | Description  | Notes
 > ManagedCluster Get-V2024ManagedCluster<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get a specified Managed Cluster.
+Get Managed Cluster
 
-Retrieve a ManagedCluster by ID.
+Get a managed cluster by ID.
 
 ### Example
 ```powershell
@@ -188,9 +188,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180897de347a2017de8859e8c5039" # String | ManagedCluster ID.
+$Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 
-# Get a specified Managed Cluster.
+# Get Managed Cluster
 try {
     $Result = Get-V2024ManagedCluster -Id $Id
 } catch {
@@ -203,7 +203,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ManagedCluster ID. | 
+ **Id** | **String**| Managed cluster ID. | 
 
 ### Return type
 
@@ -228,9 +228,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Filters] <String><br>
 
-Retrieve all Managed Clusters.
+Get Managed Clusters
 
-Retrieve all Managed Clusters for the current Org, based on request context.
+List current organization's managed clusters, based on request context.
 
 ### Example
 ```powershell
@@ -247,7 +247,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = "operational eq "operation"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
 
-# Retrieve all Managed Clusters.
+# Get Managed Clusters
 try {
     $Result = Get-V2024ManagedClusters -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters
 } catch {
@@ -286,9 +286,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PutClientLogConfigurationRequest] <PSCustomObject><br>
 
-Update Managed Cluster's log configuration
+Update Managed Cluster Log Configuration
 
-Update managed cluster's log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
+Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
 
 ### Example
 ```powershell
@@ -300,10 +300,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of ManagedCluster to update log configuration for
-$PutClientLogConfigurationRequest = Initialize-PutClientLogConfigurationRequest -ClientId "3a38a51992e8445ab51a549c0a70ee66" -DurationMinutes 120 -RootLevel "false" -LogLevels @{ key_example = "false" } -Expiration (Get-Date) # PutClientLogConfigurationRequest | ClientLogConfiguration for given ManagedCluster
+$Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of the managed cluster to update the log configuration for.
+$PutClientLogConfigurationRequest = Initialize-PutClientLogConfigurationRequest -ClientId "3a38a51992e8445ab51a549c0a70ee66" -DurationMinutes 120 -RootLevel "false" -LogLevels @{ key_example = "false" } -Expiration (Get-Date) # PutClientLogConfigurationRequest | Client log configuration for the given managed cluster.
 
-# Update Managed Cluster's log configuration
+# Update Managed Cluster Log Configuration
 try {
     $Result = Send-V2024ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $PutClientLogConfigurationRequest
 } catch {
@@ -316,8 +316,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| ID of ManagedCluster to update log configuration for | 
- **PutClientLogConfigurationRequest** | [**PutClientLogConfigurationRequest**](PutClientLogConfigurationRequest.md)| ClientLogConfiguration for given ManagedCluster | 
+ **Id** | **String**| ID of the managed cluster to update the log configuration for. | 
+ **PutClientLogConfigurationRequest** | [**PutClientLogConfigurationRequest**](PutClientLogConfigurationRequest.md)| Client log configuration for the given managed cluster. | 
 
 ### Return type
 
@@ -340,9 +340,9 @@ Name | Type | Description  | Notes
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
-Update a Managed Cluster
+Update Managed Cluster
 
-Update an existing Managed Cluster.
+Update an existing managed cluster.
 
 ### Example
 ```powershell
@@ -354,11 +354,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "2c9180897de347a2017de8859e8c5039" # String | Managed Cluster ID.
+$Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
-$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the object.
+$JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | JSONPatch payload used to update the object.
 
-# Update a Managed Cluster
+# Update Managed Cluster
 try {
     $Result = Update-V2024ManagedCluster -Id $Id -JsonPatchOperation $JsonPatchOperation
 } catch {
@@ -371,8 +371,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Managed Cluster ID. | 
- **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the object. | 
+ **Id** | **String**| Managed cluster ID. | 
+ **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| JSONPatch payload used to update the object. | 
 
 ### Return type
 

@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccountsApi' {
 
     Context 'Get-V2024Accounts' {
         It 'Test Get-V2024Accounts' {
-            #$TestResult = Get-V2024Accounts -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024Accounts -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -DetailLevel "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

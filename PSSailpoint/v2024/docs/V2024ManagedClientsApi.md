@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024ManagedClient**](V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create Managed Client
 [**Remove-V2024ManagedClient**](V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
-[**Get-V2024ManagedClient**](V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get a Managed Client
+[**Get-V2024ManagedClient**](V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get Managed Client
 [**Get-V2024ManagedClientStatus**](V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
 [**Get-V2024ManagedClients**](V2024ManagedClientsApi.md#Get-V2024ManagedClients) | **GET** /managed-clients | Get Managed Clients
 [**Update-V2024ManagedClient**](V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
@@ -119,9 +119,9 @@ void (empty response body)
 > ManagedClient Get-V2024ManagedClient<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-Get a Managed Client
+Get Managed Client
 
-Get a Managed Client.
+Get managed client by ID. 
 
 ### Example
 ```powershell
@@ -133,9 +133,9 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed Client ID.
+$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
-# Get a Managed Client
+# Get Managed Client
 try {
     $Result = Get-V2024ManagedClient -Id $Id
 } catch {
@@ -148,7 +148,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Id** | **String**| Managed Client ID. | 
+ **Id** | **String**| Managed client ID. | 
 
 ### Return type
 

@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestsApi' {
+    Context 'Approve-V2024BulkAccessRequest' {
+        It 'Test Approve-V2024BulkAccessRequest' {
+            #$TestResult = Approve-V2024BulkAccessRequest -BulkApproveAccessRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Suspend-V2024AccessRequest' {
         It 'Test Suspend-V2024AccessRequest' {
             #$TestResult = Suspend-V2024AccessRequest -CancelAccessRequest "TEST_VALUE"

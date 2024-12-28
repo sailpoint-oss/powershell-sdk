@@ -72,6 +72,7 @@ Class | Method | HTTP request | Description
 *V2024AccessRequestApprovalsApi* | [**Get-V2024PendingApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
 *V2024AccessRequestApprovalsApi* | [**Deny-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Deny-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject Access Request Approval
 *V2024AccessRequestIdentityMetricsApi* | [**Get-V2024AccessRequestIdentityMetrics**](docs/V2024AccessRequestIdentityMetricsApi.md#Get-V2024AccessRequestIdentityMetrics) | **GET** /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type} | Return access request identity metrics
+*V2024AccessRequestsApi* | [**Approve-V2024BulkAccessRequest**](docs/V2024AccessRequestsApi.md#Approve-V2024BulkAccessRequest) | **POST** /access-request-approvals/bulk-approve | Bulk Approve Access Request
 *V2024AccessRequestsApi* | [**Suspend-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Suspend-V2024AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 *V2024AccessRequestsApi* | [**Close-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Close-V2024AccessRequest) | **POST** /access-requests/close | Close Access Request
 *V2024AccessRequestsApi* | [**New-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#New-V2024AccessRequest) | **POST** /access-requests | Submit Access Request
@@ -882,6 +883,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.BucketAggregation](docs/BucketAggregation.md)
  - [PSSailpoint.V2024\Model.BucketType](docs/BucketType.md)
  - [PSSailpoint.V2024\Model.BulkAddTaggedObject](docs/BulkAddTaggedObject.md)
+ - [PSSailpoint.V2024\Model.BulkApproveAccessRequest](docs/BulkApproveAccessRequest.md)
  - [PSSailpoint.V2024\Model.BulkIdentitiesAccountsResponse](docs/BulkIdentitiesAccountsResponse.md)
  - [PSSailpoint.V2024\Model.BulkRemoveTaggedObject](docs/BulkRemoveTaggedObject.md)
  - [PSSailpoint.V2024\Model.BulkTaggedObjectResponse](docs/BulkTaggedObjectResponse.md)

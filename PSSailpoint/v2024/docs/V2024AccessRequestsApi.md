@@ -4,6 +4,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Approve-V2024BulkAccessRequest**](V2024AccessRequestsApi.md#Approve-V2024BulkAccessRequest) | **POST** /access-request-approvals/bulk-approve | Bulk Approve Access Request
 [**Suspend-V2024AccessRequest**](V2024AccessRequestsApi.md#Suspend-V2024AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
 [**Close-V2024AccessRequest**](V2024AccessRequestsApi.md#Close-V2024AccessRequest) | **POST** /access-requests/close | Close Access Request
 [**New-V2024AccessRequest**](V2024AccessRequestsApi.md#New-V2024AccessRequest) | **POST** /access-requests | Submit Access Request
@@ -11,6 +12,57 @@ Method | HTTP request | Description
 [**Get-V2024AccessRequestStatus**](V2024AccessRequestsApi.md#Get-V2024AccessRequestStatus) | **GET** /access-request-status | Access Request Status
 [**Set-V2024AccessRequestConfig**](V2024AccessRequestsApi.md#Set-V2024AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 
+
+<a id="Approve-V2024BulkAccessRequest"></a>
+# **Approve-V2024BulkAccessRequest**
+> SystemCollectionsHashtable Approve-V2024BulkAccessRequest<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkApproveAccessRequest] <PSCustomObject><br>
+
+Bulk Approve Access Request
+
+This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights ""idn:access-request-administration:write"" can approve the access requests in bulk.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$BulkApproveAccessRequest = Initialize-BulkApproveAccessRequest -ApprovalIds "MyApprovalIds" -Comment "I approve these request items" # BulkApproveAccessRequest | 
+
+# Bulk Approve Access Request
+try {
+    $Result = Approve-V2024BulkAccessRequest -BulkApproveAccessRequest $BulkApproveAccessRequest
+} catch {
+    Write-Host ("Exception occurred when calling Approve-V2024BulkAccessRequest: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **BulkApproveAccessRequest** | [**BulkApproveAccessRequest**](BulkApproveAccessRequest.md)|  | 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="Suspend-V2024AccessRequest"></a>
 # **Suspend-V2024AccessRequest**

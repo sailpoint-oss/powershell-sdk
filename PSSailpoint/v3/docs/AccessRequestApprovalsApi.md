@@ -34,7 +34,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
 $CommentDtoAuthor = Initialize-CommentDtoAuthor -Type "IDENTITY" -Id "2c9180847e25f377017e2ae8cae4650b" -Name "john.doe"
-$CommentDto = Initialize-CommentDto -Comment "This is a comment." -Created (Get-Date) -Author $CommentDtoAuthor # CommentDto | Reviewer's comment.
+$CommentDto = Initialize-CommentDto -Comment "This is a comment." -Created (Get-Date) -Author $CommentDtoAuthor # CommentDto | Reviewer's comment. (optional)
 
 # Approve Access Request Approval
 try {
@@ -50,7 +50,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ApprovalId** | **String**| Approval ID. | 
- **CommentDto** | [**CommentDto**](CommentDto.md)| Reviewer&#39;s comment. | 
+ **CommentDto** | [**CommentDto**](CommentDto.md)| Reviewer&#39;s comment. | [optional] 
 
 ### Return type
 

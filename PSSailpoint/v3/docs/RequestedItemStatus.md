@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ErrorMessages** | [**Array[]**](Array.md) | List of list of localized error messages, if any, encountered during the approval/provisioning process. | [optional] 
 **State** | [**RequestedItemStatusRequestState**](RequestedItemStatusRequestState.md) |  | [optional] 
 **ApprovalDetails** | [**ApprovalStatusDto[]**](ApprovalStatusDto.md) | Approval details for each item. | [optional] 
+**ApprovalIds** | **String[]** | List of approval IDs associated with the request. | [optional] 
 **ManualWorkItemDetails** | [**ManualWorkItemDetails[]**](ManualWorkItemDetails.md) | Manual work items created for provisioning the item. | [optional] 
 **AccountActivityItemId** | **String** | Id of associated account activity item. | [optional] 
 **RequestType** | [**AccessRequestType**](AccessRequestType.md) |  | [optional] 
@@ -37,6 +38,7 @@ $RequestedItemStatus = Initialize-PSSailpoint.V3RequestedItemStatus  -Name Acces
  -ErrorMessages null `
  -State null `
  -ApprovalDetails null `
+ -ApprovalIds [85f0cf482dd44327b593624c07906c21, fa57e1bfa36f41ee85e33ee59fcbeac5] `
  -ManualWorkItemDetails null `
  -AccountActivityItemId 2c9180926cbfbddd016cbfc7c3b10010 `
  -RequestType null `

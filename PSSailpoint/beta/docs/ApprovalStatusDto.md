@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ApprovalId** | **String** | Unique identifier for the approval. | [optional] 
 **Forwarded** | **Boolean** | True if the request for this item was forwarded from one owner to another. | [optional] [default to $false]
 **OriginalOwner** | [**ApprovalStatusDtoOriginalOwner**](ApprovalStatusDtoOriginalOwner.md) |  | [optional] 
 **CurrentOwner** | [**ApprovalStatusDtoCurrentOwner**](ApprovalStatusDtoCurrentOwner.md) |  | [optional] 
@@ -17,7 +18,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalStatusDto = Initialize-PSSailpoint.BetaApprovalStatusDto  -Forwarded false `
+$ApprovalStatusDto = Initialize-PSSailpoint.BetaApprovalStatusDto  -ApprovalId 2c9180877b2b6ea4017b2c545f971429 `
+ -Forwarded false `
  -OriginalOwner null `
  -CurrentOwner null `
  -Modified 2019-08-23T18:52:57.398Z `

@@ -196,6 +196,7 @@ docs/BucketAggregation.md
 docs/BucketType.md
 docs/BulkAddTaggedObject.md
 docs/BulkApproveAccessRequest.md
+docs/BulkCancelAccessRequest.md
 docs/BulkIdentitiesAccountsResponse.md
 docs/BulkRemoveTaggedObject.md
 docs/BulkTaggedObjectResponse.md
@@ -1424,6 +1425,7 @@ src/PSSailpoint.V2024/Model/BucketAggregation.ps1
 src/PSSailpoint.V2024/Model/BucketType.ps1
 src/PSSailpoint.V2024/Model/BulkAddTaggedObject.ps1
 src/PSSailpoint.V2024/Model/BulkApproveAccessRequest.ps1
+src/PSSailpoint.V2024/Model/BulkCancelAccessRequest.ps1
 src/PSSailpoint.V2024/Model/BulkIdentitiesAccountsResponse.ps1
 src/PSSailpoint.V2024/Model/BulkRemoveTaggedObject.ps1
 src/PSSailpoint.V2024/Model/BulkTaggedObjectResponse.ps1
@@ -2576,6 +2578,7 @@ tests/Model/BucketAggregation.Tests.ps1
 tests/Model/BucketType.Tests.ps1
 tests/Model/BulkAddTaggedObject.Tests.ps1
 tests/Model/BulkApproveAccessRequest.Tests.ps1
+tests/Model/BulkCancelAccessRequest.Tests.ps1
 tests/Model/BulkIdentitiesAccountsResponse.Tests.ps1
 tests/Model/BulkRemoveTaggedObject.Tests.ps1
 tests/Model/BulkTaggedObjectResponse.Tests.ps1

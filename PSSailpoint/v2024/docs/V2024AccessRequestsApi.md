@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Approve-V2024BulkAccessRequest**](V2024AccessRequestsApi.md#Approve-V2024BulkAccessRequest) | **POST** /access-request-approvals/bulk-approve | Bulk Approve Access Request
 [**Suspend-V2024AccessRequest**](V2024AccessRequestsApi.md#Suspend-V2024AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
+[**Suspend-V2024AccessRequestInBulk**](V2024AccessRequestsApi.md#Suspend-V2024AccessRequestInBulk) | **POST** /access-requests/bulk-cancel | Bulk Cancel Access Request
 [**Close-V2024AccessRequest**](V2024AccessRequestsApi.md#Close-V2024AccessRequest) | **POST** /access-requests/close | Close Access Request
 [**New-V2024AccessRequest**](V2024AccessRequestsApi.md#New-V2024AccessRequest) | **POST** /access-requests | Submit Access Request
 [**Get-V2024AccessRequestConfig**](V2024AccessRequestsApi.md#Get-V2024AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
@@ -99,6 +100,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **CancelAccessRequest** | [**CancelAccessRequest**](CancelAccessRequest.md)|  | 
+
+### Return type
+
+[**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Suspend-V2024AccessRequestInBulk"></a>
+# **Suspend-V2024AccessRequestInBulk**
+> SystemCollectionsHashtable Suspend-V2024AccessRequestInBulk<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-BulkCancelAccessRequest] <PSCustomObject><br>
+
+Bulk Cancel Access Request
+
+This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation.  Only ORG_ADMIN or users with rights ""idn:access-request-administration:write"" can cancel the access requests in  bulk.
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$BulkCancelAccessRequest = Initialize-BulkCancelAccessRequest -AccessRequestIds "MyAccessRequestIds" -Comment "I requested this role by mistake." # BulkCancelAccessRequest | 
+
+# Bulk Cancel Access Request
+try {
+    $Result = Suspend-V2024AccessRequestInBulk -BulkCancelAccessRequest $BulkCancelAccessRequest
+} catch {
+    Write-Host ("Exception occurred when calling Suspend-V2024AccessRequestInBulk: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **BulkCancelAccessRequest** | [**BulkCancelAccessRequest**](BulkCancelAccessRequest.md)|  | 
 
 ### Return type
 

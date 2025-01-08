@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**Approve-V2024AccessRequest**](V2024AccessRequestApprovalsApi.md#Approve-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve Access Request Approval
 [**Invoke-V2024ForwardAccessRequest**](V2024AccessRequestApprovalsApi.md#Invoke-V2024ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward Access Request Approval
 [**Get-V2024AccessRequestApprovalSummary**](V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get Access Requests Approvals Number
+[**Get-V2024AccessRequestApprovers**](V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovers) | **GET** /access-request-approvals/{accessRequestId}/approvers | Access Request Approvers
 [**Get-V2024CompletedApprovals**](V2024AccessRequestApprovalsApi.md#Get-V2024CompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 [**Get-V2024PendingApprovals**](V2024AccessRequestApprovalsApi.md#Get-V2024PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
 [**Deny-V2024AccessRequest**](V2024AccessRequestApprovalsApi.md#Deny-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject Access Request Approval
@@ -163,6 +164,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ApprovalSummary**](ApprovalSummary.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Get-V2024AccessRequestApprovers"></a>
+# **Get-V2024AccessRequestApprovers**
+> AccessRequestApproversListResponse[] Get-V2024AccessRequestApprovers<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-AccessRequestId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Count] <System.Nullable[Boolean]><br>
+
+Access Request Approvers
+
+This API endpoint returns the list of approvers for the given access request id. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$AccessRequestId = "2c91808568c529c60168cca6f90c1313" # String | Access Request ID.
+$Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
+$Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+$Count = $false # Boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to $false)
+
+# Access Request Approvers
+try {
+    $Result = Get-V2024AccessRequestApprovers -AccessRequestId $AccessRequestId -Limit $Limit -Offset $Offset -Count $Count
+} catch {
+    Write-Host ("Exception occurred when calling Get-V2024AccessRequestApprovers: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **AccessRequestId** | **String**| Access Request ID. | 
+ **Limit** | **Int32**| Max number of results to return. | [optional] [default to 250]
+ **Offset** | **Int32**| Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. | [optional] 
+ **Count** | **Boolean**| If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. | [optional] [default to $false]
+
+### Return type
+
+[**AccessRequestApproversListResponse[]**](AccessRequestApproversListResponse.md) (PSCustomObject)
 
 ### Authorization
 

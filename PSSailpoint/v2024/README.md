@@ -68,6 +68,7 @@ Class | Method | HTTP request | Description
 *V2024AccessRequestApprovalsApi* | [**Approve-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Approve-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve Access Request Approval
 *V2024AccessRequestApprovalsApi* | [**Invoke-V2024ForwardAccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Invoke-V2024ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward Access Request Approval
 *V2024AccessRequestApprovalsApi* | [**Get-V2024AccessRequestApprovalSummary**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get Access Requests Approvals Number
+*V2024AccessRequestApprovalsApi* | [**Get-V2024AccessRequestApprovers**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovers) | **GET** /access-request-approvals/{accessRequestId}/approvers | Access Request Approvers
 *V2024AccessRequestApprovalsApi* | [**Get-V2024CompletedApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024CompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 *V2024AccessRequestApprovalsApi* | [**Get-V2024PendingApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
 *V2024AccessRequestApprovalsApi* | [**Deny-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Deny-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject Access Request Approval
@@ -730,6 +731,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessProfileUsageUsedByInner](docs/AccessProfileUsageUsedByInner.md)
  - [PSSailpoint.V2024\Model.AccessRecommendationMessage](docs/AccessRecommendationMessage.md)
  - [PSSailpoint.V2024\Model.AccessRequest](docs/AccessRequest.md)
+ - [PSSailpoint.V2024\Model.AccessRequestApproversListResponse](docs/AccessRequestApproversListResponse.md)
  - [PSSailpoint.V2024\Model.AccessRequestConfig](docs/AccessRequestConfig.md)
  - [PSSailpoint.V2024\Model.AccessRequestContext](docs/AccessRequestContext.md)
  - [PSSailpoint.V2024\Model.AccessRequestDynamicApprover](docs/AccessRequestDynamicApprover.md)

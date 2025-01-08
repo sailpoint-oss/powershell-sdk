@@ -41,6 +41,7 @@ docs/AccessProfileUsage.md
 docs/AccessProfileUsageUsedByInner.md
 docs/AccessRecommendationMessage.md
 docs/AccessRequest.md
+docs/AccessRequestApproversListResponse.md
 docs/AccessRequestConfig.md
 docs/AccessRequestContext.md
 docs/AccessRequestDynamicApprover.md
@@ -1270,6 +1271,7 @@ src/PSSailpoint.V2024/Model/AccessProfileUsage.ps1
 src/PSSailpoint.V2024/Model/AccessProfileUsageUsedByInner.ps1
 src/PSSailpoint.V2024/Model/AccessRecommendationMessage.ps1
 src/PSSailpoint.V2024/Model/AccessRequest.ps1
+src/PSSailpoint.V2024/Model/AccessRequestApproversListResponse.ps1
 src/PSSailpoint.V2024/Model/AccessRequestConfig.ps1
 src/PSSailpoint.V2024/Model/AccessRequestContext.ps1
 src/PSSailpoint.V2024/Model/AccessRequestDynamicApprover.ps1
@@ -2423,6 +2425,7 @@ tests/Model/AccessProfileUsage.Tests.ps1
 tests/Model/AccessProfileUsageUsedByInner.Tests.ps1
 tests/Model/AccessRecommendationMessage.Tests.ps1
 tests/Model/AccessRequest.Tests.ps1
+tests/Model/AccessRequestApproversListResponse.Tests.ps1
 tests/Model/AccessRequestConfig.Tests.ps1
 tests/Model/AccessRequestContext.Tests.ps1
 tests/Model/AccessRequestDynamicApprover.Tests.ps1

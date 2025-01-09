@@ -1033,7 +1033,7 @@ Reset Source Entitlements
 
 .DESCRIPTION
 
-Removes all entitlements on a specific source.
+Remove all entitlements from a specific source. To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
 
 .PARAMETER Id
 ID of source for the entitlement reset

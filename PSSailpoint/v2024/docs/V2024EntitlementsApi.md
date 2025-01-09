@@ -645,7 +645,7 @@ Name | Type | Description  | Notes
 
 Reset Source Entitlements
 
-Removes all entitlements on a specific source.
+Remove all entitlements from a specific source. To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
 
 ### Example
 ```powershell

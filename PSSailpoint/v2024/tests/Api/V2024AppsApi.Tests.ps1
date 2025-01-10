@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AppsApi' {
 
     Context 'Get-V2024AccessProfilesForSourceApp' {
         It 'Test Get-V2024AccessProfilesForSourceApp' {
-            #$TestResult = Get-V2024AccessProfilesForSourceApp -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024AccessProfilesForSourceApp -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AppsApi' {
 
     Context 'Get-V2024AllSourceApp' {
         It 'Test Get-V2024AllSourceApp' {
-            #$TestResult = Get-V2024AllSourceApp -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024AllSourceApp -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AppsApi' {
 
     Context 'Get-V2024AllUserApps' {
         It 'Test Get-V2024AllUserApps' {
-            #$TestResult = Get-V2024AllUserApps -Filters "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-V2024AllUserApps -Filters "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AppsApi' {
 
     Context 'Get-V2024AssignedSourceApp' {
         It 'Test Get-V2024AssignedSourceApp' {
-            #$TestResult = Get-V2024AssignedSourceApp -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024AssignedSourceApp -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AppsApi' {
 
     Context 'Get-V2024AvailableSourceApps' {
         It 'Test Get-V2024AvailableSourceApps' {
-            #$TestResult = Get-V2024AvailableSourceApps -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024AvailableSourceApps -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AppsApi' {
 
     Context 'Get-V2024OwnedUserApps' {
         It 'Test Get-V2024OwnedUserApps' {
-            #$TestResult = Get-V2024OwnedUserApps -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024OwnedUserApps -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAppsApi' {
 
     Context 'Get-BetaAccessProfilesForSourceApp' {
         It 'Test Get-BetaAccessProfilesForSourceApp' {
-            #$TestResult = Get-BetaAccessProfilesForSourceApp -Id "TEST_VALUE" -Limit "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaAccessProfilesForSourceApp -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAppsApi' {
 
     Context 'Get-BetaAllSourceApp' {
         It 'Test Get-BetaAllSourceApp' {
-            #$TestResult = Get-BetaAllSourceApp -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaAllSourceApp -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAppsApi' {
 
     Context 'Get-BetaAllUserApps' {
         It 'Test Get-BetaAllUserApps' {
-            #$TestResult = Get-BetaAllUserApps -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-BetaAllUserApps -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAppsApi' {
 
     Context 'Get-BetaAssignedSourceApp' {
         It 'Test Get-BetaAssignedSourceApp' {
-            #$TestResult = Get-BetaAssignedSourceApp -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaAssignedSourceApp -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAppsApi' {
 
     Context 'Get-BetaAvailableAccountsForUserApp' {
         It 'Test Get-BetaAvailableAccountsForUserApp' {
-            #$TestResult = Get-BetaAvailableAccountsForUserApp -Id "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-BetaAvailableAccountsForUserApp -Id "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAppsApi' {
 
     Context 'Get-BetaAvailableSourceApps' {
         It 'Test Get-BetaAvailableSourceApps' {
-            #$TestResult = Get-BetaAvailableSourceApps -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaAvailableSourceApps -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAppsApi' {
 
     Context 'Get-BetaOwnedUserApps' {
         It 'Test Get-BetaOwnedUserApps' {
-            #$TestResult = Get-BetaOwnedUserApps -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaOwnedUserApps -Limit "TEST_VALUE" -Count "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

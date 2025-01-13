@@ -642,6 +642,9 @@ docs/PasswordInfo.md
 docs/PasswordInfoAccount.md
 docs/PasswordInfoQueryDTO.md
 docs/PasswordOrgConfig.md
+docs/PasswordPolicyHoldersDtoAttributes.md
+docs/PasswordPolicyHoldersDtoAttributesIdentityAttrInner.md
+docs/PasswordPolicyHoldersDtoInner.md
 docs/PasswordPolicyV3Dto.md
 docs/PasswordStatus.md
 docs/PasswordSyncGroup.md
@@ -1872,6 +1875,9 @@ src/PSSailpoint.V2024/Model/PasswordInfo.ps1
 src/PSSailpoint.V2024/Model/PasswordInfoAccount.ps1
 src/PSSailpoint.V2024/Model/PasswordInfoQueryDTO.ps1
 src/PSSailpoint.V2024/Model/PasswordOrgConfig.ps1
+src/PSSailpoint.V2024/Model/PasswordPolicyHoldersDtoAttributes.ps1
+src/PSSailpoint.V2024/Model/PasswordPolicyHoldersDtoAttributesIdentityAttrInner.ps1
+src/PSSailpoint.V2024/Model/PasswordPolicyHoldersDtoInner.ps1
 src/PSSailpoint.V2024/Model/PasswordPolicyV3Dto.ps1
 src/PSSailpoint.V2024/Model/PasswordStatus.ps1
 src/PSSailpoint.V2024/Model/PasswordSyncGroup.ps1
@@ -3026,6 +3032,9 @@ tests/Model/PasswordInfo.Tests.ps1
 tests/Model/PasswordInfoAccount.Tests.ps1
 tests/Model/PasswordInfoQueryDTO.Tests.ps1
 tests/Model/PasswordOrgConfig.Tests.ps1
+tests/Model/PasswordPolicyHoldersDtoAttributes.Tests.ps1
+tests/Model/PasswordPolicyHoldersDtoAttributesIdentityAttrInner.Tests.ps1
+tests/Model/PasswordPolicyHoldersDtoInner.Tests.ps1
 tests/Model/PasswordPolicyV3Dto.Tests.ps1
 tests/Model/PasswordStatus.Tests.ps1
 tests/Model/PasswordSyncGroup.Tests.ps1

@@ -342,6 +342,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
         }
     }
 
+    Context 'Update-V2024PasswordPolicyHolders' {
+        It 'Test Update-V2024PasswordPolicyHolders' {
+            #$TestResult = Update-V2024PasswordPolicyHolders -SourceId "TEST_VALUE" -PasswordPolicyHoldersDtoInner "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-V2024ProvisioningPoliciesInBulk' {
         It 'Test Update-V2024ProvisioningPoliciesInBulk' {
             #$TestResult = Update-V2024ProvisioningPoliciesInBulk -SourceId "TEST_VALUE" -ProvisioningPolicyDto "TEST_VALUE"

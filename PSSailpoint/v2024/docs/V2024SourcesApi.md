@@ -46,6 +46,7 @@ Method | HTTP request | Description
 [**Sync-V2024AttributesForSource**](V2024SourcesApi.md#Sync-V2024AttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
 [**Test-V2024SourceConfiguration**](V2024SourcesApi.md#Test-V2024SourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
 [**Test-V2024SourceConnection**](V2024SourcesApi.md#Test-V2024SourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
+[**Update-V2024PasswordPolicyHolders**](V2024SourcesApi.md#Update-V2024PasswordPolicyHolders) | **PATCH** /sources/{sourceId}/password-policies | Update Password Policy
 [**Update-V2024ProvisioningPoliciesInBulk**](V2024SourcesApi.md#Update-V2024ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 [**Update-V2024ProvisioningPolicy**](V2024SourcesApi.md#Update-V2024ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 [**Update-V2024Source**](V2024SourcesApi.md#Update-V2024Source) | **PATCH** /sources/{id} | Update Source (Partial)
@@ -2420,6 +2421,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Update-V2024PasswordPolicyHolders"></a>
+# **Update-V2024PasswordPolicyHolders**
+> PasswordPolicyHoldersDtoInner[] Update-V2024PasswordPolicyHolders<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-PasswordPolicyHoldersDtoInner] <PSCustomObject[]><br>
+
+Update Password Policy
+
+This API can be used to set up or update Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
+
+### Example
+```powershell
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+# Configure OAuth2 access token for authorization: userAuth
+$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
+
+$SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+$PasswordPolicyHoldersDtoInner = Initialize-PasswordPolicyHoldersDtoInner -PolicyId "2c91808e7d976f3b017d9f5ceae440c8" -PolicyName "PasswordPolicy Example" -Selectors # PasswordPolicyHoldersDtoInner[] | 
+
+# Update Password Policy
+try {
+    $Result = Update-V2024PasswordPolicyHolders -SourceId $SourceId -PasswordPolicyHoldersDtoInner $PasswordPolicyHoldersDtoInner
+} catch {
+    Write-Host ("Exception occurred when calling Update-V2024PasswordPolicyHolders: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SourceId** | **String**| The Source id | 
+ **PasswordPolicyHoldersDtoInner** | [**PasswordPolicyHoldersDtoInner[]**](PasswordPolicyHoldersDtoInner.md)|  | 
+
+### Return type
+
+[**PasswordPolicyHoldersDtoInner[]**](PasswordPolicyHoldersDtoInner.md) (PSCustomObject)
+
+### Authorization
+
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

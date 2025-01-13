@@ -601,6 +601,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Sync-V2024AttributesForSource**](docs/V2024SourcesApi.md#Sync-V2024AttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
 *V2024SourcesApi* | [**Test-V2024SourceConfiguration**](docs/V2024SourcesApi.md#Test-V2024SourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
 *V2024SourcesApi* | [**Test-V2024SourceConnection**](docs/V2024SourcesApi.md#Test-V2024SourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
+*V2024SourcesApi* | [**Update-V2024PasswordPolicyHolders**](docs/V2024SourcesApi.md#Update-V2024PasswordPolicyHolders) | **PATCH** /sources/{sourceId}/password-policies | Update Password Policy
 *V2024SourcesApi* | [**Update-V2024ProvisioningPoliciesInBulk**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 *V2024SourcesApi* | [**Update-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 *V2024SourcesApi* | [**Update-V2024Source**](docs/V2024SourcesApi.md#Update-V2024Source) | **PATCH** /sources/{id} | Update Source (Partial)
@@ -1332,6 +1333,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.PasswordInfoAccount](docs/PasswordInfoAccount.md)
  - [PSSailpoint.V2024\Model.PasswordInfoQueryDTO](docs/PasswordInfoQueryDTO.md)
  - [PSSailpoint.V2024\Model.PasswordOrgConfig](docs/PasswordOrgConfig.md)
+ - [PSSailpoint.V2024\Model.PasswordPolicyHoldersDtoAttributes](docs/PasswordPolicyHoldersDtoAttributes.md)
+ - [PSSailpoint.V2024\Model.PasswordPolicyHoldersDtoAttributesIdentityAttrInner](docs/PasswordPolicyHoldersDtoAttributesIdentityAttrInner.md)
+ - [PSSailpoint.V2024\Model.PasswordPolicyHoldersDtoInner](docs/PasswordPolicyHoldersDtoInner.md)
  - [PSSailpoint.V2024\Model.PasswordPolicyV3Dto](docs/PasswordPolicyV3Dto.md)
  - [PSSailpoint.V2024\Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpoint.V2024\Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)

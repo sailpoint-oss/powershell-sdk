@@ -268,9 +268,6 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-# Configure OAuth2 access token for authorization: applicationAuth
-$Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
-
 $IdentityId = "2c9180857893f1290178944561990364" # String | ID of the identity to update.
 $SetLifecycleStateRequest = Initialize-SetLifecycleStateRequest -LifecycleStateId "2c9180877a86e408017a8c19fefe046c" # SetLifecycleStateRequest | 
 
@@ -296,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth), [applicationAuth](../README.md#applicationAuth)
+[userAuth](../README.md#userAuth), [userAuth](../README.md#userAuth)
 
 ### HTTP request headers
 

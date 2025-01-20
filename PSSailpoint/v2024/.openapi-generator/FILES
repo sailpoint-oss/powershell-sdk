@@ -41,6 +41,9 @@ docs/AccessProfileUsage.md
 docs/AccessProfileUsageUsedByInner.md
 docs/AccessRecommendationMessage.md
 docs/AccessRequest.md
+docs/AccessRequestAdminItemStatus.md
+docs/AccessRequestAdminItemStatusCancelledRequestDetails.md
+docs/AccessRequestAdminItemStatusSodViolationContext.md
 docs/AccessRequestApproversListResponse.md
 docs/AccessRequestConfig.md
 docs/AccessRequestContext.md
@@ -139,6 +142,7 @@ docs/ApprovalComment1.md
 docs/ApprovalComment2.md
 docs/ApprovalDescription.md
 docs/ApprovalForwardHistory.md
+docs/ApprovalForwardHistory1.md
 docs/ApprovalIdentity.md
 docs/ApprovalInfoResponse.md
 docs/ApprovalItemDetails.md
@@ -150,6 +154,7 @@ docs/ApprovalScheme.md
 docs/ApprovalSchemeForRole.md
 docs/ApprovalStatus.md
 docs/ApprovalStatusDto.md
+docs/ApprovalStatusDto1.md
 docs/ApprovalStatusDtoCurrentOwner.md
 docs/ApprovalStatusDtoOriginalOwner.md
 docs/ApprovalSummary.md
@@ -230,6 +235,7 @@ docs/CampaignTemplateOwnerRef.md
 docs/CampaignsDeleteRequest.md
 docs/CancelAccessRequest.md
 docs/CancelledRequestDetails.md
+docs/CancelledRequestDetails1.md
 docs/Certification.md
 docs/CertificationDecision.md
 docs/CertificationDto.md
@@ -372,6 +378,7 @@ docs/EntityCreatedByDTO.md
 docs/Error.md
 docs/ErrorMessage.md
 docs/ErrorMessageDto.md
+docs/ErrorMessageDto1.md
 docs/ErrorResponseDto.md
 docs/EvaluateResponse.md
 docs/Event.md
@@ -562,6 +569,7 @@ docs/ManagerCorrelationMapping.md
 docs/ManualDiscoverApplications.md
 docs/ManualDiscoverApplicationsTemplate.md
 docs/ManualWorkItemDetails.md
+docs/ManualWorkItemDetails1.md
 docs/ManualWorkItemDetailsCurrentOwner.md
 docs/ManualWorkItemDetailsOriginalOwner.md
 docs/ManualWorkItemState.md
@@ -888,6 +896,7 @@ docs/SimIntegrationDetailsAllOfBeforeProvisioningRule.md
 docs/SlimCampaign.md
 docs/SlimDiscoveredApplications.md
 docs/SodExemptCriteria.md
+docs/SodExemptCriteria1.md
 docs/SodPolicy.md
 docs/SodPolicyConflictingAccessCriteria.md
 docs/SodPolicyDto.md
@@ -897,8 +906,13 @@ docs/SodRecipient.md
 docs/SodReportResultDto.md
 docs/SodViolationCheck.md
 docs/SodViolationCheckResult.md
+docs/SodViolationCheckResult1.md
 docs/SodViolationContext.md
+docs/SodViolationContext1.md
+docs/SodViolationContext1ConflictingAccessCriteria.md
+docs/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.md
 docs/SodViolationContextCheckCompleted.md
+docs/SodViolationContextCheckCompleted1.md
 docs/SodViolationContextConflictingAccessCriteria.md
 docs/SodViolationContextConflictingAccessCriteriaLeftCriteria.md
 docs/Source.md
@@ -1274,6 +1288,9 @@ src/PSSailpoint.V2024/Model/AccessProfileUsage.ps1
 src/PSSailpoint.V2024/Model/AccessProfileUsageUsedByInner.ps1
 src/PSSailpoint.V2024/Model/AccessRecommendationMessage.ps1
 src/PSSailpoint.V2024/Model/AccessRequest.ps1
+src/PSSailpoint.V2024/Model/AccessRequestAdminItemStatus.ps1
+src/PSSailpoint.V2024/Model/AccessRequestAdminItemStatusCancelledRequestDetails.ps1
+src/PSSailpoint.V2024/Model/AccessRequestAdminItemStatusSodViolationContext.ps1
 src/PSSailpoint.V2024/Model/AccessRequestApproversListResponse.ps1
 src/PSSailpoint.V2024/Model/AccessRequestConfig.ps1
 src/PSSailpoint.V2024/Model/AccessRequestContext.ps1
@@ -1372,6 +1389,7 @@ src/PSSailpoint.V2024/Model/ApprovalComment1.ps1
 src/PSSailpoint.V2024/Model/ApprovalComment2.ps1
 src/PSSailpoint.V2024/Model/ApprovalDescription.ps1
 src/PSSailpoint.V2024/Model/ApprovalForwardHistory.ps1
+src/PSSailpoint.V2024/Model/ApprovalForwardHistory1.ps1
 src/PSSailpoint.V2024/Model/ApprovalIdentity.ps1
 src/PSSailpoint.V2024/Model/ApprovalInfoResponse.ps1
 src/PSSailpoint.V2024/Model/ApprovalItemDetails.ps1
@@ -1383,6 +1401,7 @@ src/PSSailpoint.V2024/Model/ApprovalScheme.ps1
 src/PSSailpoint.V2024/Model/ApprovalSchemeForRole.ps1
 src/PSSailpoint.V2024/Model/ApprovalStatus.ps1
 src/PSSailpoint.V2024/Model/ApprovalStatusDto.ps1
+src/PSSailpoint.V2024/Model/ApprovalStatusDto1.ps1
 src/PSSailpoint.V2024/Model/ApprovalStatusDtoCurrentOwner.ps1
 src/PSSailpoint.V2024/Model/ApprovalStatusDtoOriginalOwner.ps1
 src/PSSailpoint.V2024/Model/ApprovalSummary.ps1
@@ -1463,6 +1482,7 @@ src/PSSailpoint.V2024/Model/CampaignTemplateOwnerRef.ps1
 src/PSSailpoint.V2024/Model/CampaignsDeleteRequest.ps1
 src/PSSailpoint.V2024/Model/CancelAccessRequest.ps1
 src/PSSailpoint.V2024/Model/CancelledRequestDetails.ps1
+src/PSSailpoint.V2024/Model/CancelledRequestDetails1.ps1
 src/PSSailpoint.V2024/Model/Certification.ps1
 src/PSSailpoint.V2024/Model/CertificationDecision.ps1
 src/PSSailpoint.V2024/Model/CertificationDto.ps1
@@ -1604,6 +1624,7 @@ src/PSSailpoint.V2024/Model/EntitlementSummary.ps1
 src/PSSailpoint.V2024/Model/EntityCreatedByDTO.ps1
 src/PSSailpoint.V2024/Model/ErrorMessage.ps1
 src/PSSailpoint.V2024/Model/ErrorMessageDto.ps1
+src/PSSailpoint.V2024/Model/ErrorMessageDto1.ps1
 src/PSSailpoint.V2024/Model/ErrorResponseDto.ps1
 src/PSSailpoint.V2024/Model/EvaluateResponse.ps1
 src/PSSailpoint.V2024/Model/EventAttributes.ps1
@@ -1792,6 +1813,7 @@ src/PSSailpoint.V2024/Model/ManagerCorrelationMapping.ps1
 src/PSSailpoint.V2024/Model/ManualDiscoverApplications.ps1
 src/PSSailpoint.V2024/Model/ManualDiscoverApplicationsTemplate.ps1
 src/PSSailpoint.V2024/Model/ManualWorkItemDetails.ps1
+src/PSSailpoint.V2024/Model/ManualWorkItemDetails1.ps1
 src/PSSailpoint.V2024/Model/ManualWorkItemDetailsCurrentOwner.ps1
 src/PSSailpoint.V2024/Model/ManualWorkItemDetailsOriginalOwner.ps1
 src/PSSailpoint.V2024/Model/ManualWorkItemState.ps1
@@ -2121,6 +2143,7 @@ src/PSSailpoint.V2024/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.ps1
 src/PSSailpoint.V2024/Model/SlimCampaign.ps1
 src/PSSailpoint.V2024/Model/SlimDiscoveredApplications.ps1
 src/PSSailpoint.V2024/Model/SodExemptCriteria.ps1
+src/PSSailpoint.V2024/Model/SodExemptCriteria1.ps1
 src/PSSailpoint.V2024/Model/SodPolicy.ps1
 src/PSSailpoint.V2024/Model/SodPolicyConflictingAccessCriteria.ps1
 src/PSSailpoint.V2024/Model/SodPolicyDto.ps1
@@ -2130,8 +2153,13 @@ src/PSSailpoint.V2024/Model/SodRecipient.ps1
 src/PSSailpoint.V2024/Model/SodReportResultDto.ps1
 src/PSSailpoint.V2024/Model/SodViolationCheck.ps1
 src/PSSailpoint.V2024/Model/SodViolationCheckResult.ps1
+src/PSSailpoint.V2024/Model/SodViolationCheckResult1.ps1
 src/PSSailpoint.V2024/Model/SodViolationContext.ps1
+src/PSSailpoint.V2024/Model/SodViolationContext1.ps1
+src/PSSailpoint.V2024/Model/SodViolationContext1ConflictingAccessCriteria.ps1
+src/PSSailpoint.V2024/Model/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.ps1
 src/PSSailpoint.V2024/Model/SodViolationContextCheckCompleted.ps1
+src/PSSailpoint.V2024/Model/SodViolationContextCheckCompleted1.ps1
 src/PSSailpoint.V2024/Model/SodViolationContextConflictingAccessCriteria.ps1
 src/PSSailpoint.V2024/Model/SodViolationContextConflictingAccessCriteriaLeftCriteria.ps1
 src/PSSailpoint.V2024/Model/Source.ps1
@@ -2431,6 +2459,9 @@ tests/Model/AccessProfileUsage.Tests.ps1
 tests/Model/AccessProfileUsageUsedByInner.Tests.ps1
 tests/Model/AccessRecommendationMessage.Tests.ps1
 tests/Model/AccessRequest.Tests.ps1
+tests/Model/AccessRequestAdminItemStatus.Tests.ps1
+tests/Model/AccessRequestAdminItemStatusCancelledRequestDetails.Tests.ps1
+tests/Model/AccessRequestAdminItemStatusSodViolationContext.Tests.ps1
 tests/Model/AccessRequestApproversListResponse.Tests.ps1
 tests/Model/AccessRequestConfig.Tests.ps1
 tests/Model/AccessRequestContext.Tests.ps1
@@ -2529,6 +2560,7 @@ tests/Model/ApprovalComment1.Tests.ps1
 tests/Model/ApprovalComment2.Tests.ps1
 tests/Model/ApprovalDescription.Tests.ps1
 tests/Model/ApprovalForwardHistory.Tests.ps1
+tests/Model/ApprovalForwardHistory1.Tests.ps1
 tests/Model/ApprovalIdentity.Tests.ps1
 tests/Model/ApprovalInfoResponse.Tests.ps1
 tests/Model/ApprovalItemDetails.Tests.ps1
@@ -2540,6 +2572,7 @@ tests/Model/ApprovalScheme.Tests.ps1
 tests/Model/ApprovalSchemeForRole.Tests.ps1
 tests/Model/ApprovalStatus.Tests.ps1
 tests/Model/ApprovalStatusDto.Tests.ps1
+tests/Model/ApprovalStatusDto1.Tests.ps1
 tests/Model/ApprovalStatusDtoCurrentOwner.Tests.ps1
 tests/Model/ApprovalStatusDtoOriginalOwner.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
@@ -2620,6 +2653,7 @@ tests/Model/CampaignTemplateOwnerRef.Tests.ps1
 tests/Model/CampaignsDeleteRequest.Tests.ps1
 tests/Model/CancelAccessRequest.Tests.ps1
 tests/Model/CancelledRequestDetails.Tests.ps1
+tests/Model/CancelledRequestDetails1.Tests.ps1
 tests/Model/Certification.Tests.ps1
 tests/Model/CertificationDecision.Tests.ps1
 tests/Model/CertificationDto.Tests.ps1
@@ -2761,6 +2795,7 @@ tests/Model/EntitlementSummary.Tests.ps1
 tests/Model/EntityCreatedByDTO.Tests.ps1
 tests/Model/ErrorMessage.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
+tests/Model/ErrorMessageDto1.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/EvaluateResponse.Tests.ps1
 tests/Model/EventAttributes.Tests.ps1
@@ -2949,6 +2984,7 @@ tests/Model/ManagerCorrelationMapping.Tests.ps1
 tests/Model/ManualDiscoverApplications.Tests.ps1
 tests/Model/ManualDiscoverApplicationsTemplate.Tests.ps1
 tests/Model/ManualWorkItemDetails.Tests.ps1
+tests/Model/ManualWorkItemDetails1.Tests.ps1
 tests/Model/ManualWorkItemDetailsCurrentOwner.Tests.ps1
 tests/Model/ManualWorkItemDetailsOriginalOwner.Tests.ps1
 tests/Model/ManualWorkItemState.Tests.ps1
@@ -3278,6 +3314,7 @@ tests/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.Tests.ps1
 tests/Model/SlimCampaign.Tests.ps1
 tests/Model/SlimDiscoveredApplications.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
+tests/Model/SodExemptCriteria1.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1
 tests/Model/SodPolicyDto.Tests.ps1
@@ -3287,8 +3324,13 @@ tests/Model/SodRecipient.Tests.ps1
 tests/Model/SodReportResultDto.Tests.ps1
 tests/Model/SodViolationCheck.Tests.ps1
 tests/Model/SodViolationCheckResult.Tests.ps1
+tests/Model/SodViolationCheckResult1.Tests.ps1
 tests/Model/SodViolationContext.Tests.ps1
+tests/Model/SodViolationContext1.Tests.ps1
+tests/Model/SodViolationContext1ConflictingAccessCriteria.Tests.ps1
+tests/Model/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.Tests.ps1
 tests/Model/SodViolationContextCheckCompleted.Tests.ps1
+tests/Model/SodViolationContextCheckCompleted1.Tests.ps1
 tests/Model/SodViolationContextConflictingAccessCriteria.Tests.ps1
 tests/Model/SodViolationContextConflictingAccessCriteriaLeftCriteria.Tests.ps1
 tests/Model/Source.Tests.ps1

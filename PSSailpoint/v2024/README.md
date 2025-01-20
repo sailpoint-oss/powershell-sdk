@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 *V2024AccessRequestsApi* | [**New-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#New-V2024AccessRequest) | **POST** /access-requests | Submit Access Request
 *V2024AccessRequestsApi* | [**Get-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 *V2024AccessRequestsApi* | [**Get-V2024AccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestStatus) | **GET** /access-request-status | Access Request Status
+*V2024AccessRequestsApi* | [**Get-V2024AdministratorsAccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access Request Status for Administrators
 *V2024AccessRequestsApi* | [**Set-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Set-V2024AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 *V2024AccountActivitiesApi* | [**Get-V2024AccountActivity**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivity) | **GET** /account-activities/{id} | Get an Account Activity
 *V2024AccountActivitiesApi* | [**Get-V2024AccountActivities**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivities) | **GET** /account-activities | List Account Activities
@@ -732,6 +733,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessProfileUsageUsedByInner](docs/AccessProfileUsageUsedByInner.md)
  - [PSSailpoint.V2024\Model.AccessRecommendationMessage](docs/AccessRecommendationMessage.md)
  - [PSSailpoint.V2024\Model.AccessRequest](docs/AccessRequest.md)
+ - [PSSailpoint.V2024\Model.AccessRequestAdminItemStatus](docs/AccessRequestAdminItemStatus.md)
+ - [PSSailpoint.V2024\Model.AccessRequestAdminItemStatusCancelledRequestDetails](docs/AccessRequestAdminItemStatusCancelledRequestDetails.md)
+ - [PSSailpoint.V2024\Model.AccessRequestAdminItemStatusSodViolationContext](docs/AccessRequestAdminItemStatusSodViolationContext.md)
  - [PSSailpoint.V2024\Model.AccessRequestApproversListResponse](docs/AccessRequestApproversListResponse.md)
  - [PSSailpoint.V2024\Model.AccessRequestConfig](docs/AccessRequestConfig.md)
  - [PSSailpoint.V2024\Model.AccessRequestContext](docs/AccessRequestContext.md)
@@ -830,6 +834,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ApprovalComment2](docs/ApprovalComment2.md)
  - [PSSailpoint.V2024\Model.ApprovalDescription](docs/ApprovalDescription.md)
  - [PSSailpoint.V2024\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
+ - [PSSailpoint.V2024\Model.ApprovalForwardHistory1](docs/ApprovalForwardHistory1.md)
  - [PSSailpoint.V2024\Model.ApprovalIdentity](docs/ApprovalIdentity.md)
  - [PSSailpoint.V2024\Model.ApprovalInfoResponse](docs/ApprovalInfoResponse.md)
  - [PSSailpoint.V2024\Model.ApprovalItemDetails](docs/ApprovalItemDetails.md)
@@ -841,6 +846,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ApprovalSchemeForRole](docs/ApprovalSchemeForRole.md)
  - [PSSailpoint.V2024\Model.ApprovalStatus](docs/ApprovalStatus.md)
  - [PSSailpoint.V2024\Model.ApprovalStatusDto](docs/ApprovalStatusDto.md)
+ - [PSSailpoint.V2024\Model.ApprovalStatusDto1](docs/ApprovalStatusDto1.md)
  - [PSSailpoint.V2024\Model.ApprovalStatusDtoCurrentOwner](docs/ApprovalStatusDtoCurrentOwner.md)
  - [PSSailpoint.V2024\Model.ApprovalStatusDtoOriginalOwner](docs/ApprovalStatusDtoOriginalOwner.md)
  - [PSSailpoint.V2024\Model.ApprovalSummary](docs/ApprovalSummary.md)
@@ -921,6 +927,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.CampaignsDeleteRequest](docs/CampaignsDeleteRequest.md)
  - [PSSailpoint.V2024\Model.CancelAccessRequest](docs/CancelAccessRequest.md)
  - [PSSailpoint.V2024\Model.CancelledRequestDetails](docs/CancelledRequestDetails.md)
+ - [PSSailpoint.V2024\Model.CancelledRequestDetails1](docs/CancelledRequestDetails1.md)
  - [PSSailpoint.V2024\Model.Certification](docs/Certification.md)
  - [PSSailpoint.V2024\Model.CertificationDecision](docs/CertificationDecision.md)
  - [PSSailpoint.V2024\Model.CertificationDto](docs/CertificationDto.md)
@@ -1062,6 +1069,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.EntityCreatedByDTO](docs/EntityCreatedByDTO.md)
  - [PSSailpoint.V2024\Model.ErrorMessage](docs/ErrorMessage.md)
  - [PSSailpoint.V2024\Model.ErrorMessageDto](docs/ErrorMessageDto.md)
+ - [PSSailpoint.V2024\Model.ErrorMessageDto1](docs/ErrorMessageDto1.md)
  - [PSSailpoint.V2024\Model.ErrorResponseDto](docs/ErrorResponseDto.md)
  - [PSSailpoint.V2024\Model.EvaluateResponse](docs/EvaluateResponse.md)
  - [PSSailpoint.V2024\Model.EventAttributes](docs/EventAttributes.md)
@@ -1250,6 +1258,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
  - [PSSailpoint.V2024\Model.ManualDiscoverApplicationsTemplate](docs/ManualDiscoverApplicationsTemplate.md)
  - [PSSailpoint.V2024\Model.ManualWorkItemDetails](docs/ManualWorkItemDetails.md)
+ - [PSSailpoint.V2024\Model.ManualWorkItemDetails1](docs/ManualWorkItemDetails1.md)
  - [PSSailpoint.V2024\Model.ManualWorkItemDetailsCurrentOwner](docs/ManualWorkItemDetailsCurrentOwner.md)
  - [PSSailpoint.V2024\Model.ManualWorkItemDetailsOriginalOwner](docs/ManualWorkItemDetailsOriginalOwner.md)
  - [PSSailpoint.V2024\Model.ManualWorkItemState](docs/ManualWorkItemState.md)
@@ -1579,6 +1588,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SlimCampaign](docs/SlimCampaign.md)
  - [PSSailpoint.V2024\Model.SlimDiscoveredApplications](docs/SlimDiscoveredApplications.md)
  - [PSSailpoint.V2024\Model.SodExemptCriteria](docs/SodExemptCriteria.md)
+ - [PSSailpoint.V2024\Model.SodExemptCriteria1](docs/SodExemptCriteria1.md)
  - [PSSailpoint.V2024\Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint.V2024\Model.SodPolicyConflictingAccessCriteria](docs/SodPolicyConflictingAccessCriteria.md)
  - [PSSailpoint.V2024\Model.SodPolicyDto](docs/SodPolicyDto.md)
@@ -1588,8 +1598,13 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SodReportResultDto](docs/SodReportResultDto.md)
  - [PSSailpoint.V2024\Model.SodViolationCheck](docs/SodViolationCheck.md)
  - [PSSailpoint.V2024\Model.SodViolationCheckResult](docs/SodViolationCheckResult.md)
+ - [PSSailpoint.V2024\Model.SodViolationCheckResult1](docs/SodViolationCheckResult1.md)
  - [PSSailpoint.V2024\Model.SodViolationContext](docs/SodViolationContext.md)
+ - [PSSailpoint.V2024\Model.SodViolationContext1](docs/SodViolationContext1.md)
+ - [PSSailpoint.V2024\Model.SodViolationContext1ConflictingAccessCriteria](docs/SodViolationContext1ConflictingAccessCriteria.md)
+ - [PSSailpoint.V2024\Model.SodViolationContext1ConflictingAccessCriteriaLeftCriteria](docs/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.md)
  - [PSSailpoint.V2024\Model.SodViolationContextCheckCompleted](docs/SodViolationContextCheckCompleted.md)
+ - [PSSailpoint.V2024\Model.SodViolationContextCheckCompleted1](docs/SodViolationContextCheckCompleted1.md)
  - [PSSailpoint.V2024\Model.SodViolationContextConflictingAccessCriteria](docs/SodViolationContextConflictingAccessCriteria.md)
  - [PSSailpoint.V2024\Model.SodViolationContextConflictingAccessCriteriaLeftCriteria](docs/SodViolationContextConflictingAccessCriteriaLeftCriteria.md)
  - [PSSailpoint.V2024\Model.Source](docs/Source.md)

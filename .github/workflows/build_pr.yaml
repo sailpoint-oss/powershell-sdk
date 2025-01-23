@@ -33,6 +33,10 @@ jobs:
         with:
           node-version: "16"
 
+      - name: Download OpenAPI Generator
+        run: |
+          wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.11.0/openapi-generator-cli-7.11.0.jar -O openapi-generator-cli.jar
+
       - name: Run Prescript
         id: prescript
         run: |

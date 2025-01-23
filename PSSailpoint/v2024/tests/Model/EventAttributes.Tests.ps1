@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024EventAttributes' {
     Context 'V2024EventAttributes' {
         It 'Initialize-V2024EventAttributes' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024EventAttributes -Id "TEST_VALUE" -VarFilter "TEST_VALUE" -Description "TEST_VALUE"
+            #$NewObject = Initialize-V2024EventAttributes -Id "TEST_VALUE" -VarFilter "TEST_VALUE" -Description "TEST_VALUE" -AttributeToFilter "TEST_VALUE"
             #$NewObject | Should -BeOfType EventAttributes
             #$NewObject.property | Should -Be 0
         }

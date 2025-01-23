@@ -70,33 +70,33 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConnectorsApi' {
         }
     }
 
-    Context 'Send-V2024CorrelationConfig' {
-        It 'Test Send-V2024CorrelationConfig' {
-            #$TestResult = Send-V2024CorrelationConfig -ScriptName "TEST_VALUE" -File "TEST_VALUE"
+    Context 'Send-V2024ConnectorCorrelationConfig' {
+        It 'Test Send-V2024ConnectorCorrelationConfig' {
+            #$TestResult = Send-V2024ConnectorCorrelationConfig -ScriptName "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Send-V2024SourceConfig' {
-        It 'Test Send-V2024SourceConfig' {
-            #$TestResult = Send-V2024SourceConfig -ScriptName "TEST_VALUE" -File "TEST_VALUE"
+    Context 'Send-V2024ConnectorSourceConfig' {
+        It 'Test Send-V2024ConnectorSourceConfig' {
+            #$TestResult = Send-V2024ConnectorSourceConfig -ScriptName "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Send-V2024SourceTemplate' {
-        It 'Test Send-V2024SourceTemplate' {
-            #$TestResult = Send-V2024SourceTemplate -ScriptName "TEST_VALUE" -File "TEST_VALUE"
+    Context 'Send-V2024ConnectorSourceTemplate' {
+        It 'Test Send-V2024ConnectorSourceTemplate' {
+            #$TestResult = Send-V2024ConnectorSourceTemplate -ScriptName "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Send-V2024Translations' {
-        It 'Test Send-V2024Translations' {
-            #$TestResult = Send-V2024Translations -ScriptName "TEST_VALUE" -Locale "TEST_VALUE"
+    Context 'Send-V2024ConnectorTranslations' {
+        It 'Test Send-V2024ConnectorTranslations' {
+            #$TestResult = Send-V2024ConnectorTranslations -ScriptName "TEST_VALUE" -Locale "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

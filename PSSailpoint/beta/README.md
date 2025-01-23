@@ -155,7 +155,7 @@ Class | Method | HTTP request | Description
 *BetaConnectorRuleManagementApi* | [**Get-BetaConnectorRuleList**](docs/BetaConnectorRuleManagementApi.md#Get-BetaConnectorRuleList) | **GET** /connector-rules | List Connector Rules
 *BetaConnectorRuleManagementApi* | [**Update-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Update-BetaConnectorRule) | **PUT** /connector-rules/{id} | Update a Connector Rule
 *BetaConnectorRuleManagementApi* | [**Confirm-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Confirm-BetaConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
-*BetaConnectorsApi* | [**Get-BetaConnectorList**](docs/BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Gets connector list
+*BetaConnectorsApi* | [**Get-BetaConnectorList**](docs/BetaConnectorsApi.md#Get-BetaConnectorList) | **GET** /connectors | Get Connector List
 *BetaCustomFormsApi* | [**New-BetaFormDefinition**](docs/BetaCustomFormsApi.md#New-BetaFormDefinition) | **POST** /form-definitions | Creates a form definition.
 *BetaCustomFormsApi* | [**New-BetaFormDefinitionByTemplate**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionByTemplate) | **POST** /form-definitions/template | Create a form definition by template.
 *BetaCustomFormsApi* | [**New-BetaFormDefinitionDynamicSchema**](docs/BetaCustomFormsApi.md#New-BetaFormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
@@ -277,7 +277,7 @@ Class | Method | HTTP request | Description
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshotSummary**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentityStartDate**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 *BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentities**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentities) | **GET** /historical-identities | Lists all the identities
-*BetaIdentityHistoryApi* | [**Get-BetaIdentityAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
+*BetaIdentityHistoryApi* | [**Get-BetaIdentityAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List Access Items by Identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshotAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Get Identity Access Items Snapshot
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
 *BetaIdentityProfilesApi* | [**New-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#New-BetaIdentityProfile) | **POST** /identity-profiles | Create an Identity Profile
@@ -533,7 +533,7 @@ Class | Method | HTTP request | Description
 *BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedApproval**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedApproval) | **POST** /suggested-entitlement-description-approvals | Submit Bulk Approval Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedAssignment**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit Sed Assignment Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedBatchRequest**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit Sed Batch Request
-*BetaTaggedObjectsApi* | [**Remove-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+*BetaTaggedObjectsApi* | [**Remove-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Object Tags
 *BetaTaggedObjectsApi* | [**Remove-BetaTagsToManyObject**](docs/BetaTaggedObjectsApi.md#Remove-BetaTagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObject**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *BetaTaggedObjectsApi* | [**Get-BetaTaggedObjects**](docs/BetaTaggedObjectsApi.md#Get-BetaTaggedObjects) | **GET** /tagged-objects | List Tagged Objects
@@ -545,11 +545,11 @@ Class | Method | HTTP request | Description
 *BetaTagsApi* | [**Remove-BetaTagById**](docs/BetaTagsApi.md#Remove-BetaTagById) | **DELETE** /tags/{id} | Delete Tag
 *BetaTagsApi* | [**Get-BetaTagById**](docs/BetaTagsApi.md#Get-BetaTagById) | **GET** /tags/{id} | Get Tag By Id
 *BetaTagsApi* | [**Get-BetaTags**](docs/BetaTagsApi.md#Get-BetaTags) | **GET** /tags | List Tags
-*BetaTaskManagementApi* | [**Get-BetaPendingTaskHeaders**](docs/BetaTaskManagementApi.md#Get-BetaPendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve headers only for pending task list.
-*BetaTaskManagementApi* | [**Get-BetaPendingTasks**](docs/BetaTaskManagementApi.md#Get-BetaPendingTasks) | **GET** /task-status/pending-tasks | Retrieve a pending task list.
-*BetaTaskManagementApi* | [**Get-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatus) | **GET** /task-status/{id} | Get task status by ID.
-*BetaTaskManagementApi* | [**Get-BetaTaskStatusList**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatusList) | **GET** /task-status | Retrieve a task status list.
-*BetaTaskManagementApi* | [**Update-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Update-BetaTaskStatus) | **PATCH** /task-status/{id} | Update task status by ID
+*BetaTaskManagementApi* | [**Get-BetaPendingTaskHeaders**](docs/BetaTaskManagementApi.md#Get-BetaPendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve Pending Task List Headers
+*BetaTaskManagementApi* | [**Get-BetaPendingTasks**](docs/BetaTaskManagementApi.md#Get-BetaPendingTasks) | **GET** /task-status/pending-tasks | Retrieve Pending Task Status List
+*BetaTaskManagementApi* | [**Get-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatus) | **GET** /task-status/{id} | Get Task Status by ID
+*BetaTaskManagementApi* | [**Get-BetaTaskStatusList**](docs/BetaTaskManagementApi.md#Get-BetaTaskStatusList) | **GET** /task-status | Retrieve Task Status List
+*BetaTaskManagementApi* | [**Update-BetaTaskStatus**](docs/BetaTaskManagementApi.md#Update-BetaTaskStatus) | **PATCH** /task-status/{id} | Update Task Status by ID
 *BetaTenantApi* | [**Get-BetaTenant**](docs/BetaTenantApi.md#Get-BetaTenant) | **GET** /tenant | Get Tenant Information.
 *BetaTransformsApi* | [**New-BetaTransform**](docs/BetaTransformsApi.md#New-BetaTransform) | **POST** /transforms | Create transform
 *BetaTransformsApi* | [**Remove-BetaTransform**](docs/BetaTransformsApi.md#Remove-BetaTransform) | **DELETE** /transforms/{id} | Delete a transform
@@ -670,6 +670,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.AccessRequestRecommendationItemDetailAccess](docs/AccessRequestRecommendationItemDetailAccess.md)
  - [PSSailpoint.Beta\Model.AccessRequestRecommendationItemType](docs/AccessRequestRecommendationItemType.md)
  - [PSSailpoint.Beta\Model.AccessRequestResponse](docs/AccessRequestResponse.md)
+ - [PSSailpoint.Beta\Model.AccessRequestResponse1](docs/AccessRequestResponse1.md)
+ - [PSSailpoint.Beta\Model.AccessRequestTracking](docs/AccessRequestTracking.md)
  - [PSSailpoint.Beta\Model.AccessRequestType](docs/AccessRequestType.md)
  - [PSSailpoint.Beta\Model.AccessRequested](docs/AccessRequested.md)
  - [PSSailpoint.Beta\Model.AccessType](docs/AccessType.md)
@@ -1240,6 +1242,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.RequestableObjectReference](docs/RequestableObjectReference.md)
  - [PSSailpoint.Beta\Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
  - [PSSailpoint.Beta\Model.RequestableObjectType](docs/RequestableObjectType.md)
+ - [PSSailpoint.Beta\Model.RequestedItemDetails](docs/RequestedItemDetails.md)
  - [PSSailpoint.Beta\Model.RequestedItemStatus](docs/RequestedItemStatus.md)
  - [PSSailpoint.Beta\Model.RequestedItemStatusCancelledRequestDetails](docs/RequestedItemStatusCancelledRequestDetails.md)
  - [PSSailpoint.Beta\Model.RequestedItemStatusPreApprovalTriggerDetails](docs/RequestedItemStatusPreApprovalTriggerDetails.md)
@@ -1441,6 +1444,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.TaskReturnDetails](docs/TaskReturnDetails.md)
  - [PSSailpoint.Beta\Model.TaskStatus](docs/TaskStatus.md)
  - [PSSailpoint.Beta\Model.TaskStatusMessage](docs/TaskStatusMessage.md)
+ - [PSSailpoint.Beta\Model.TaskStatusMessageParametersInner](docs/TaskStatusMessageParametersInner.md)
  - [PSSailpoint.Beta\Model.TemplateBulkDeleteDto](docs/TemplateBulkDeleteDto.md)
  - [PSSailpoint.Beta\Model.TemplateDto](docs/TemplateDto.md)
  - [PSSailpoint.Beta\Model.TemplateDtoDefault](docs/TemplateDtoDefault.md)

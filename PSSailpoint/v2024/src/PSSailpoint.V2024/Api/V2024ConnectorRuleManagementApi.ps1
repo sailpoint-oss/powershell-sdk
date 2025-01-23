@@ -12,13 +12,13 @@ Create Connector Rule
 
 .DESCRIPTION
 
-Creates a new connector rule.
+Create a connector rule from the available types.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
 .PARAMETER ConnectorRuleCreateRequest
-The connector rule to create
+Connector rule to create.
 
 .PARAMETER WithHttpInfo
 
@@ -109,14 +109,14 @@ function New-V2024ConnectorRule {
 <#
 .SYNOPSIS
 
-Delete a Connector-Rule
+Delete Connector Rule
 
 .DESCRIPTION
 
-Deletes the connector rule specified by the given ID.
+Delete the connector rule for the given ID.
 
 .PARAMETER Id
-ID of the connector rule to delete
+ID of the connector rule to delete.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -194,14 +194,14 @@ function Remove-V2024ConnectorRule {
 <#
 .SYNOPSIS
 
-Connector-Rule by ID
+Get Connector Rule
 
 .DESCRIPTION
 
-Returns the connector rule specified by ID.
+Get a connector rule by ID.
 
 .PARAMETER Id
-ID of the connector rule to retrieve
+ID of the connector rule to get.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -283,10 +283,19 @@ List Connector Rules
 
 .DESCRIPTION
 
-Returns the list of connector rules.
+List existing connector rules.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
+
+.PARAMETER Limit
+Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER WithHttpInfo
 
@@ -302,6 +311,15 @@ function Get-V2024ConnectorRuleList {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
         [Switch]
         $WithHttpInfo
     )
@@ -329,6 +347,18 @@ function Get-V2024ConnectorRuleList {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
 
 
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
@@ -354,20 +384,20 @@ function Get-V2024ConnectorRuleList {
 <#
 .SYNOPSIS
 
-Update a Connector Rule
+Update Connector Rule
 
 .DESCRIPTION
 
-Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
+Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
 .PARAMETER Id
-ID of the connector rule to update
+ID of the connector rule to update.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
 .PARAMETER ConnectorRuleUpdateRequest
-The connector rule with updated data
+Connector rule with updated data.
 
 .PARAMETER WithHttpInfo
 
@@ -377,7 +407,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ConnectorRuleResponse
 #>
-function Update-V2024ConnectorRule {
+function Send-V2024ConnectorRule {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -394,7 +424,7 @@ function Update-V2024ConnectorRule {
     )
 
     Process {
-        'Calling method: Update-V2024ConnectorRule' | Write-Debug
+        'Calling method: Send-V2024ConnectorRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -414,12 +444,12 @@ function Update-V2024ConnectorRule {
 
         $LocalVarUri = '/connector-rules/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling updateConnectorRule."
+            throw "Error! The required parameter `Id` missing when calling putConnectorRule."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateConnectorRule."
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling putConnectorRule."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
@@ -465,13 +495,13 @@ Validate Connector Rule
 
 .DESCRIPTION
 
-Returns a list of issues within the code to fix, if any.
+Detect issues within the connector rule's code to fix and list them.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
 .PARAMETER SourceCode
-The code to validate
+Code to validate.
 
 .PARAMETER WithHttpInfo
 
@@ -481,7 +511,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ConnectorRuleValidationResponse
 #>
-function Confirm-V2024ConnectorRule {
+function Test-V2024ConnectorRule {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -495,7 +525,7 @@ function Confirm-V2024ConnectorRule {
     )
 
     Process {
-        'Calling method: Confirm-V2024ConnectorRule' | Write-Debug
+        'Calling method: Test-V2024ConnectorRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -516,12 +546,12 @@ function Confirm-V2024ConnectorRule {
         $LocalVarUri = '/connector-rules/validate'
 
         if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling validateConnectorRule."
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling testConnectorRule."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$SourceCode) {
-            throw "Error! The required parameter `SourceCode` missing when calling validateConnectorRule."
+            throw "Error! The required parameter `SourceCode` missing when calling testConnectorRule."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceCode -is [array])) {

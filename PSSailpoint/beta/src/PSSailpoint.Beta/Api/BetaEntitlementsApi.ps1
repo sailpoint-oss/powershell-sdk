@@ -1033,7 +1033,7 @@ Reset Source Entitlements
 
 .DESCRIPTION
 
-Removes all entitlements on a specific source.
+Remove all entitlements from a specific source. To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
 
 .PARAMETER Id
 ID of source for the entitlement reset
@@ -1107,7 +1107,7 @@ Bulk update an entitlement list
 
 .DESCRIPTION
 
-This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ ""op"": ""replace"", ""path"": ""/privileged"", ""value"": boolean }**  **{ ""op"": ""replace"", ""path"": ""/requestable"",""value"": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
+This API applies an update to every entitlement of the list.   The number of entitlements to update is limited to 50 items maximum.   The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : `**{ ""op"": ""replace"", ""path"": ""/privileged"", ""value"": boolean }**  **{ ""op"": ""replace"", ""path"": ""/requestable"",""value"": boolean }**`   A token with ORG_ADMIN or API authority is required to call this API. 
 
 .PARAMETER EntitlementBulkUpdateRequest
 No description available.

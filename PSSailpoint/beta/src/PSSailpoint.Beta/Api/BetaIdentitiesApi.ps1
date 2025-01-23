@@ -611,7 +611,10 @@ Send password reset email
 
 .DESCRIPTION
 
-This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
+This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours. 
+
+.PARAMETER Id
+Identity ID
 
 .PARAMETER SendAccountVerificationRequest
 No description available.
@@ -628,6 +631,9 @@ function Send-BetaIdentityVerificationAccountToken {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SendAccountVerificationRequest},
         [Switch]
@@ -654,6 +660,10 @@ function Send-BetaIdentityVerificationAccountToken {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/identities/{id}/verification/account/send'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling sendIdentityVerificationAccountToken."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$SendAccountVerificationRequest) {
             throw "Error! The required parameter `SendAccountVerificationRequest` missing when calling sendIdentityVerificationAccountToken."
@@ -701,7 +711,7 @@ Invite identities to register
 
 .DESCRIPTION
 
-This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status)  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
+This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status). 
 
 .PARAMETER InviteIdentitiesRequest
 No description available.

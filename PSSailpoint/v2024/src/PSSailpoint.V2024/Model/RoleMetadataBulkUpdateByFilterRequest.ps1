@@ -34,7 +34,7 @@ function Initialize-V2024RoleMetadataBulkUpdateByFilterRequest {
         [String]
         ${Filters},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("add", "remove", "replace")]
+        [ValidateSet("ADD", "REMOVE", "REPLACE")]
         [String]
         ${Operation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

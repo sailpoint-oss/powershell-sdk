@@ -217,6 +217,9 @@ Use this API to create a new schedule for a type on the specified source in Iden
 .PARAMETER SourceId
 Source ID.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER Schedule1
 No description available.
 
@@ -235,6 +238,9 @@ function New-V2024SourceSchedule {
         [String]
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${Schedule1},
         [Switch]
@@ -265,6 +271,11 @@ function New-V2024SourceSchedule {
             throw "Error! The required parameter `SourceId` missing when calling createSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling createSourceSchedule."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$Schedule1) {
             throw "Error! The required parameter `Schedule1` missing when calling createSourceSchedule."
@@ -750,6 +761,9 @@ The Source id.
 .PARAMETER ScheduleType
 The Schedule type.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -768,6 +782,9 @@ function Remove-V2024SourceSchedule {
         [ValidateSet("ACCOUNT_AGGREGATION", "GROUP_AGGREGATION")]
         [String]
         ${ScheduleType},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -797,6 +814,11 @@ function Remove-V2024SourceSchedule {
             throw "Error! The required parameter `ScheduleType` missing when calling deleteSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{scheduleType}', [System.Web.HTTPUtility]::UrlEncode($ScheduleType))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteSourceSchedule."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -980,6 +1002,80 @@ function Get-V2024AccountsSchema {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get Source Correlation Configuration
+
+.DESCRIPTION
+
+This API returns the existing correlation configuration for a source specified by the given ID.
+
+.PARAMETER Id
+The source id
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+CorrelationConfig
+#>
+function Get-V2024CorrelationConfig {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2024CorrelationConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/sources/{id}/correlation-config'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getCorrelationConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "CorrelationConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -1675,6 +1771,9 @@ The Source id.
 .PARAMETER ScheduleType
 The Schedule type.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1693,6 +1792,9 @@ function Get-V2024SourceSchedule {
         [ValidateSet("ACCOUNT_AGGREGATION", "GROUP_AGGREGATION")]
         [String]
         ${ScheduleType},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -1722,6 +1824,11 @@ function Get-V2024SourceSchedule {
             throw "Error! The required parameter `ScheduleType` missing when calling getSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{scheduleType}', [System.Web.HTTPUtility]::UrlEncode($ScheduleType))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceSchedule."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -1757,6 +1864,9 @@ Use this API to list the schedules that exist on the specified source in Identit
 .PARAMETER SourceId
 Source ID.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1771,6 +1881,9 @@ function Get-V2024SourceSchedules {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -1796,6 +1909,11 @@ function Get-V2024SourceSchedules {
             throw "Error! The required parameter `SourceId` missing when calling getSourceSchedules."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceSchedules."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -2883,6 +3001,106 @@ function Ping-V2024Cluster {
 <#
 .SYNOPSIS
 
+Update Source Correlation Configuration
+
+.DESCRIPTION
+
+Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
+
+.PARAMETER Id
+The source id
+
+.PARAMETER CorrelationConfig
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+CorrelationConfig
+#>
+function Send-V2024CorrelationConfig {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${CorrelationConfig},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Send-V2024CorrelationConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/sources/{id}/correlation-config'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling putCorrelationConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$CorrelationConfig) {
+            throw "Error! The required parameter `CorrelationConfig` missing when calling putCorrelationConfig."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CorrelationConfig -is [array])) {
+            $LocalVarBodyParameter = $CorrelationConfig | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $CorrelationConfig | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'PUT' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "CorrelationConfig" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Update Native Change Detection Configuration
 
 .DESCRIPTION
@@ -3681,6 +3899,106 @@ function Test-V2024SourceConnection {
 <#
 .SYNOPSIS
 
+Update Password Policy
+
+.DESCRIPTION
+
+This API can be used to set up or update Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
+
+.PARAMETER SourceId
+The Source id
+
+.PARAMETER PasswordPolicyHoldersDtoInner
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+PasswordPolicyHoldersDtoInner[]
+#>
+function Update-V2024PasswordPolicyHolders {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${PasswordPolicyHoldersDtoInner},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-V2024PasswordPolicyHolders' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/sources/{sourceId}/password-policies'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling updatePasswordPolicyHolders."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$PasswordPolicyHoldersDtoInner) {
+            throw "Error! The required parameter `PasswordPolicyHoldersDtoInner` missing when calling updatePasswordPolicyHolders."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PasswordPolicyHoldersDtoInner -is [array])) {
+            $LocalVarBodyParameter = $PasswordPolicyHoldersDtoInner | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $PasswordPolicyHoldersDtoInner | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "PasswordPolicyHoldersDtoInner[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Bulk Update Provisioning Policies
 
 .DESCRIPTION
@@ -4106,6 +4424,9 @@ The Source id.
 .PARAMETER ScheduleType
 The Schedule type.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the schedule.
 
@@ -4128,6 +4449,9 @@ function Update-V2024SourceSchedule {
         [String]
         ${ScheduleType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${JsonPatchOperation},
         [Switch]
@@ -4162,6 +4486,11 @@ function Update-V2024SourceSchedule {
             throw "Error! The required parameter `ScheduleType` missing when calling updateSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{scheduleType}', [System.Web.HTTPUtility]::UrlEncode($ScheduleType))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateSourceSchedule."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JsonPatchOperation) {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSourceSchedule."

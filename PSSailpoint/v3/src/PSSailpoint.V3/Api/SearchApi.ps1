@@ -248,7 +248,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SystemCollectionsHashtable
+SearchDocument
 #>
 function Search-Get {
     [CmdletBinding()]
@@ -300,8 +300,11 @@ function Search-Get {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SystemCollectionsHashtable" `
+                                -ReturnType "SearchDocument" `
                                 -IsBodyNullable $false
+
+        # process oneOf response
+        $LocalVarResult["Response"] = ConvertFrom-JsonToSearchDocument (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult
@@ -318,7 +321,7 @@ Perform Search
 
 .DESCRIPTION
 
-Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
+Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. 
 
 .PARAMETER Search
 No description available.
@@ -338,7 +341,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SystemCollectionsHashtable[]
+SearchDocument[]
 #>
 function Search-Post {
     [CmdletBinding()]
@@ -420,7 +423,7 @@ function Search-Post {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SystemCollectionsHashtable[]" `
+                                -ReturnType "SearchDocument[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

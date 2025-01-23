@@ -68,15 +68,19 @@ Class | Method | HTTP request | Description
 *V2024AccessRequestApprovalsApi* | [**Approve-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Approve-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve Access Request Approval
 *V2024AccessRequestApprovalsApi* | [**Invoke-V2024ForwardAccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Invoke-V2024ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward Access Request Approval
 *V2024AccessRequestApprovalsApi* | [**Get-V2024AccessRequestApprovalSummary**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get Access Requests Approvals Number
+*V2024AccessRequestApprovalsApi* | [**Get-V2024AccessRequestApprovers**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovers) | **GET** /access-request-approvals/{accessRequestId}/approvers | Access Request Approvers
 *V2024AccessRequestApprovalsApi* | [**Get-V2024CompletedApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024CompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
 *V2024AccessRequestApprovalsApi* | [**Get-V2024PendingApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
 *V2024AccessRequestApprovalsApi* | [**Deny-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Deny-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject Access Request Approval
 *V2024AccessRequestIdentityMetricsApi* | [**Get-V2024AccessRequestIdentityMetrics**](docs/V2024AccessRequestIdentityMetricsApi.md#Get-V2024AccessRequestIdentityMetrics) | **GET** /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type} | Return access request identity metrics
+*V2024AccessRequestsApi* | [**Approve-V2024BulkAccessRequest**](docs/V2024AccessRequestsApi.md#Approve-V2024BulkAccessRequest) | **POST** /access-request-approvals/bulk-approve | Bulk Approve Access Request
 *V2024AccessRequestsApi* | [**Suspend-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Suspend-V2024AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
+*V2024AccessRequestsApi* | [**Suspend-V2024AccessRequestInBulk**](docs/V2024AccessRequestsApi.md#Suspend-V2024AccessRequestInBulk) | **POST** /access-requests/bulk-cancel | Bulk Cancel Access Request
 *V2024AccessRequestsApi* | [**Close-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Close-V2024AccessRequest) | **POST** /access-requests/close | Close Access Request
 *V2024AccessRequestsApi* | [**New-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#New-V2024AccessRequest) | **POST** /access-requests | Submit Access Request
 *V2024AccessRequestsApi* | [**Get-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 *V2024AccessRequestsApi* | [**Get-V2024AccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestStatus) | **GET** /access-request-status | Access Request Status
+*V2024AccessRequestsApi* | [**Get-V2024AdministratorsAccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access Request Status for Administrators
 *V2024AccessRequestsApi* | [**Set-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Set-V2024AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 *V2024AccountActivitiesApi* | [**Get-V2024AccountActivity**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivity) | **GET** /account-activities/{id} | Get an Account Activity
 *V2024AccountActivitiesApi* | [**Get-V2024AccountActivities**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivities) | **GET** /account-activities | List Account Activities
@@ -186,24 +190,24 @@ Class | Method | HTTP request | Description
 *V2024ConfigurationHubApi* | [**Get-V2024UploadedConfigurations**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *V2024ConfigurationHubApi* | [**Update-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *V2024ConnectorRuleManagementApi* | [**New-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#New-V2024ConnectorRule) | **POST** /connector-rules | Create Connector Rule
-*V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete a Connector-Rule
-*V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRule) | **GET** /connector-rules/{id} | Connector-Rule by ID
+*V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete Connector Rule
+*V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRule) | **GET** /connector-rules/{id} | Get Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRuleList**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRuleList) | **GET** /connector-rules | List Connector Rules
-*V2024ConnectorRuleManagementApi* | [**Update-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Update-V2024ConnectorRule) | **PUT** /connector-rules/{id} | Update a Connector Rule
-*V2024ConnectorRuleManagementApi* | [**Confirm-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Confirm-V2024ConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
-*V2024ConnectorsApi* | [**New-V2024CustomConnector**](docs/V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create custom connector
-*V2024ConnectorsApi* | [**Remove-V2024CustomConnector**](docs/V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Deletes connector by script name
-*V2024ConnectorsApi* | [**Get-V2024Connector**](docs/V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Gets connector by script name
-*V2024ConnectorsApi* | [**Get-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | 
-*V2024ConnectorsApi* | [**Get-V2024ConnectorList**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorList) | **GET** /connectors | Gets connector list
-*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | 
-*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | 
-*V2024ConnectorsApi* | [**Get-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | 
-*V2024ConnectorsApi* | [**Send-V2024CorrelationConfig**](docs/V2024ConnectorsApi.md#Send-V2024CorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | 
-*V2024ConnectorsApi* | [**Send-V2024SourceConfig**](docs/V2024ConnectorsApi.md#Send-V2024SourceConfig) | **PUT** /connectors/{scriptName}/source-config | 
-*V2024ConnectorsApi* | [**Send-V2024SourceTemplate**](docs/V2024ConnectorsApi.md#Send-V2024SourceTemplate) | **PUT** /connectors/{scriptName}/source-template | 
-*V2024ConnectorsApi* | [**Send-V2024Translations**](docs/V2024ConnectorsApi.md#Send-V2024Translations) | **PUT** /connectors/{scriptName}/translations/{locale} | 
-*V2024ConnectorsApi* | [**Update-V2024Connector**](docs/V2024ConnectorsApi.md#Update-V2024Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
+*V2024ConnectorRuleManagementApi* | [**Send-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Send-V2024ConnectorRule) | **PUT** /connector-rules/{id} | Update Connector Rule
+*V2024ConnectorRuleManagementApi* | [**Test-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Test-V2024ConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
+*V2024ConnectorsApi* | [**New-V2024CustomConnector**](docs/V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create Custom Connector
+*V2024ConnectorsApi* | [**Remove-V2024CustomConnector**](docs/V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Delete Connector by Script Name
+*V2024ConnectorsApi* | [**Get-V2024Connector**](docs/V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Get Connector by Script Name
+*V2024ConnectorsApi* | [**Get-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | Get Connector Correlation Configuration
+*V2024ConnectorsApi* | [**Get-V2024ConnectorList**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorList) | **GET** /connectors | Get Connector List
+*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get Connector Source Configuration
+*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get Connector Source Template
+*V2024ConnectorsApi* | [**Get-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get Connector Translations
+*V2024ConnectorsApi* | [**Send-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorCorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | Update Connector Correlation Configuration
+*V2024ConnectorsApi* | [**Send-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update Connector Source Configuration
+*V2024ConnectorsApi* | [**Send-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update Connector Source Template
+*V2024ConnectorsApi* | [**Send-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update Connector Translations
+*V2024ConnectorsApi* | [**Update-V2024Connector**](docs/V2024ConnectorsApi.md#Update-V2024Connector) | **PATCH** /connectors/{scriptName} | Update Connector by Script Name
 *V2024CustomFormsApi* | [**New-V2024FormDefinition**](docs/V2024CustomFormsApi.md#New-V2024FormDefinition) | **POST** /form-definitions | Creates a form definition.
 *V2024CustomFormsApi* | [**New-V2024FormDefinitionDynamicSchema**](docs/V2024CustomFormsApi.md#New-V2024FormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
 *V2024CustomFormsApi* | [**New-V2024FormDefinitionFileRequest**](docs/V2024CustomFormsApi.md#New-V2024FormDefinitionFileRequest) | **POST** /form-definitions/{formDefinitionID}/upload | Upload new form definition file.
@@ -316,6 +320,8 @@ Class | Method | HTTP request | Description
 *V2024IdentitiesApi* | [**Get-V2024RoleAssignments**](docs/V2024IdentitiesApi.md#Get-V2024RoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
 *V2024IdentitiesApi* | [**Get-V2024Identities**](docs/V2024IdentitiesApi.md#Get-V2024Identities) | **GET** /identities | List Identities
 *V2024IdentitiesApi* | [**Reset-V2024Identity**](docs/V2024IdentitiesApi.md#Reset-V2024Identity) | **POST** /identities/{id}/reset | Reset an identity
+*V2024IdentitiesApi* | [**Send-V2024IdentityVerificationAccountToken**](docs/V2024IdentitiesApi.md#Send-V2024IdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
+*V2024IdentitiesApi* | [**Start-V2024IdentitiesInvite**](docs/V2024IdentitiesApi.md#Start-V2024IdentitiesInvite) | **POST** /identities/invite | Invite identities to register
 *V2024IdentitiesApi* | [**Start-V2024IdentityProcessing**](docs/V2024IdentitiesApi.md#Start-V2024IdentityProcessing) | **POST** /identities/process | Process a list of identityIds
 *V2024IdentitiesApi* | [**Sync-V2024hronizeAttributesForIdentity**](docs/V2024IdentitiesApi.md#Sync-V2024hronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
 *V2024IdentityAttributesApi* | [**New-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#New-V2024IdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
@@ -332,7 +338,7 @@ Class | Method | HTTP request | Description
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshotSummary**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 *V2024IdentityHistoryApi* | [**Get-V2024IdentityStartDate**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 *V2024IdentityHistoryApi* | [**Get-V2024HistoricalIdentities**](docs/V2024IdentityHistoryApi.md#Get-V2024HistoricalIdentities) | **GET** /historical-identities | Lists all the identities
-*V2024IdentityHistoryApi* | [**Get-V2024IdentityAccessItems**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | Gets a list of access items for the identity filtered by item type
+*V2024IdentityHistoryApi* | [**Get-V2024IdentityAccessItems**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List Access Items by Identity
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshotAccessItems**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshots**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
 *V2024IdentityProfilesApi* | [**New-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#New-V2024IdentityProfile) | **POST** /identity-profiles | Create an Identity Profile
@@ -359,19 +365,19 @@ Class | Method | HTTP request | Description
 *V2024MFAConfigurationApi* | [**Set-V2024MFAKBAConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
 *V2024MFAConfigurationApi* | [**Set-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *V2024MFAConfigurationApi* | [**Test-V2024MFAConfig**](docs/V2024MFAConfigurationApi.md#Test-V2024MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
-*V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create a new Managed Client
-*V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete a Managed Client
-*V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get a Managed Client
-*V2024ManagedClientsApi* | [**Get-V2024ManagedClientStatus**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status.
+*V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create Managed Client
+*V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
+*V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get Managed Client
+*V2024ManagedClientsApi* | [**Get-V2024ManagedClientStatus**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClients**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClients) | **GET** /managed-clients | Get Managed Clients
-*V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update a Managed Client
-*V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
-*V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
-*V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster's log configuration
-*V2024ManagedClustersApi* | [**Get-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
-*V2024ManagedClustersApi* | [**Get-V2024ManagedClusters**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-*V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster's log configuration
-*V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
+*V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
+*V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create Create Managed Cluster
+*V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete Managed Cluster
+*V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster Log Configuration
+*V2024ManagedClustersApi* | [**Get-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get Managed Cluster
+*V2024ManagedClustersApi* | [**Get-V2024ManagedClusters**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Get Managed Clusters
+*V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
+*V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
 *V2024NonEmployeeLifecycleManagementApi* | [**Approve-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Approve-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -424,9 +430,9 @@ Class | Method | HTTP request | Description
 *V2024OAuthClientsApi* | [**Get-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Get-V2024OauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
 *V2024OAuthClientsApi* | [**Get-V2024OauthClients**](docs/V2024OAuthClientsApi.md#Get-V2024OauthClients) | **GET** /oauth-clients | List OAuth Clients
 *V2024OAuthClientsApi* | [**Update-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Update-V2024OauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
-*V2024OrgConfigApi* | [**Get-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Get-V2024OrgConfig) | **GET** /org-config | Get Org configuration settings
-*V2024OrgConfigApi* | [**Get-V2024ValidTimeZones**](docs/V2024OrgConfigApi.md#Get-V2024ValidTimeZones) | **GET** /org-config/valid-time-zones | Get list of time zones
-*V2024OrgConfigApi* | [**Update-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Update-V2024OrgConfig) | **PATCH** /org-config | Patch an Org configuration property
+*V2024OrgConfigApi* | [**Get-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Get-V2024OrgConfig) | **GET** /org-config | Get Org Config Settings
+*V2024OrgConfigApi* | [**Get-V2024ValidTimeZones**](docs/V2024OrgConfigApi.md#Get-V2024ValidTimeZones) | **GET** /org-config/valid-time-zones | Get Valid Time Zones
+*V2024OrgConfigApi* | [**Update-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Update-V2024OrgConfig) | **PATCH** /org-config | Patch Org Config
 *V2024PasswordConfigurationApi* | [**New-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#New-V2024PasswordOrgConfig) | **POST** /password-org-config | Create Password Org Config
 *V2024PasswordConfigurationApi* | [**Get-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#Get-V2024PasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
 *V2024PasswordConfigurationApi* | [**Send-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#Send-V2024PasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
@@ -565,6 +571,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Remove-V2024SourceSchedule**](docs/V2024SourcesApi.md#Remove-V2024SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete Source Schedule by type.
 *V2024SourcesApi* | [**Remove-V2024SourceSchema**](docs/V2024SourcesApi.md#Remove-V2024SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
 *V2024SourcesApi* | [**Get-V2024AccountsSchema**](docs/V2024SourcesApi.md#Get-V2024AccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
+*V2024SourcesApi* | [**Get-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Get-V2024CorrelationConfig) | **GET** /sources/{id}/correlation-config | Get Source Correlation Configuration
 *V2024SourcesApi* | [**Get-V2024EntitlementsSchema**](docs/V2024SourcesApi.md#Get-V2024EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
 *V2024SourcesApi* | [**Get-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Get-V2024NativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
 *V2024SourcesApi* | [**Get-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
@@ -586,6 +593,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Get-V2024Sources**](docs/V2024SourcesApi.md#Get-V2024Sources) | **GET** /sources | Lists all sources in IdentityNow.
 *V2024SourcesApi* | [**Receive-V2024ResourceObjects**](docs/V2024SourcesApi.md#Receive-V2024ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *V2024SourcesApi* | [**Ping-V2024Cluster**](docs/V2024SourcesApi.md#Ping-V2024Cluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
+*V2024SourcesApi* | [**Send-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Send-V2024CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
 *V2024SourcesApi* | [**Send-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Send-V2024NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
 *V2024SourcesApi* | [**Send-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Send-V2024ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 *V2024SourcesApi* | [**Send-V2024Source**](docs/V2024SourcesApi.md#Send-V2024Source) | **PUT** /sources/{id} | Update Source (Full)
@@ -594,6 +602,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Sync-V2024AttributesForSource**](docs/V2024SourcesApi.md#Sync-V2024AttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
 *V2024SourcesApi* | [**Test-V2024SourceConfiguration**](docs/V2024SourcesApi.md#Test-V2024SourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
 *V2024SourcesApi* | [**Test-V2024SourceConnection**](docs/V2024SourcesApi.md#Test-V2024SourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
+*V2024SourcesApi* | [**Update-V2024PasswordPolicyHolders**](docs/V2024SourcesApi.md#Update-V2024PasswordPolicyHolders) | **PATCH** /sources/{sourceId}/password-policies | Update Password Policy
 *V2024SourcesApi* | [**Update-V2024ProvisioningPoliciesInBulk**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 *V2024SourcesApi* | [**Update-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 *V2024SourcesApi* | [**Update-V2024Source**](docs/V2024SourcesApi.md#Update-V2024Source) | **PATCH** /sources/{id} | Update Source (Partial)
@@ -607,7 +616,7 @@ Class | Method | HTTP request | Description
 *V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedApproval**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedApproval) | **POST** /suggested-entitlement-description-approvals | Submit Bulk Approval Request
 *V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedAssignment**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit Sed Assignment Request
 *V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedBatchRequest**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit Sed Batch Request
-*V2024TaggedObjectsApi* | [**Remove-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+*V2024TaggedObjectsApi* | [**Remove-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Object Tags
 *V2024TaggedObjectsApi* | [**Remove-V2024TagsToManyObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *V2024TaggedObjectsApi* | [**Get-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *V2024TaggedObjectsApi* | [**Get-V2024TaggedObjects**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObjects) | **GET** /tagged-objects | List Tagged Objects
@@ -615,11 +624,11 @@ Class | Method | HTTP request | Description
 *V2024TaggedObjectsApi* | [**Send-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Send-V2024TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
 *V2024TaggedObjectsApi* | [**Set-V2024TagToObject**](docs/V2024TaggedObjectsApi.md#Set-V2024TagToObject) | **POST** /tagged-objects | Add Tag to Object
 *V2024TaggedObjectsApi* | [**Set-V2024TagsToManyObjects**](docs/V2024TaggedObjectsApi.md#Set-V2024TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
-*V2024TaskManagementApi* | [**Get-V2024PendingTaskHeaders**](docs/V2024TaskManagementApi.md#Get-V2024PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve headers only for pending task list.
-*V2024TaskManagementApi* | [**Get-V2024PendingTasks**](docs/V2024TaskManagementApi.md#Get-V2024PendingTasks) | **GET** /task-status/pending-tasks | Retrieve a pending task list.
-*V2024TaskManagementApi* | [**Get-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatus) | **GET** /task-status/{id} | Get task status by ID.
-*V2024TaskManagementApi* | [**Get-V2024TaskStatusList**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatusList) | **GET** /task-status | Retrieve a task status list.
-*V2024TaskManagementApi* | [**Update-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Update-V2024TaskStatus) | **PATCH** /task-status/{id} | Update task status by ID
+*V2024TaskManagementApi* | [**Get-V2024PendingTaskHeaders**](docs/V2024TaskManagementApi.md#Get-V2024PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve Pending Task List Headers
+*V2024TaskManagementApi* | [**Get-V2024PendingTasks**](docs/V2024TaskManagementApi.md#Get-V2024PendingTasks) | **GET** /task-status/pending-tasks | Retrieve Pending Task Status List
+*V2024TaskManagementApi* | [**Get-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatus) | **GET** /task-status/{id} | Get Task Status by ID
+*V2024TaskManagementApi* | [**Get-V2024TaskStatusList**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatusList) | **GET** /task-status | Retrieve Task Status List
+*V2024TaskManagementApi* | [**Update-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Update-V2024TaskStatus) | **PATCH** /task-status/{id} | Update Task Status by ID
 *V2024TenantApi* | [**Get-V2024Tenant**](docs/V2024TenantApi.md#Get-V2024Tenant) | **GET** /tenant | Get Tenant Information.
 *V2024TransformsApi* | [**New-V2024Transform**](docs/V2024TransformsApi.md#New-V2024Transform) | **POST** /transforms | Create transform
 *V2024TransformsApi* | [**Remove-V2024Transform**](docs/V2024TransformsApi.md#Remove-V2024Transform) | **DELETE** /transforms/{id} | Delete a transform
@@ -724,6 +733,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessProfileUsageUsedByInner](docs/AccessProfileUsageUsedByInner.md)
  - [PSSailpoint.V2024\Model.AccessRecommendationMessage](docs/AccessRecommendationMessage.md)
  - [PSSailpoint.V2024\Model.AccessRequest](docs/AccessRequest.md)
+ - [PSSailpoint.V2024\Model.AccessRequestAdminItemStatus](docs/AccessRequestAdminItemStatus.md)
+ - [PSSailpoint.V2024\Model.AccessRequestAdminItemStatusCancelledRequestDetails](docs/AccessRequestAdminItemStatusCancelledRequestDetails.md)
+ - [PSSailpoint.V2024\Model.AccessRequestAdminItemStatusSodViolationContext](docs/AccessRequestAdminItemStatusSodViolationContext.md)
+ - [PSSailpoint.V2024\Model.AccessRequestApproversListResponse](docs/AccessRequestApproversListResponse.md)
  - [PSSailpoint.V2024\Model.AccessRequestConfig](docs/AccessRequestConfig.md)
  - [PSSailpoint.V2024\Model.AccessRequestContext](docs/AccessRequestContext.md)
  - [PSSailpoint.V2024\Model.AccessRequestDynamicApprover](docs/AccessRequestDynamicApprover.md)
@@ -746,6 +759,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItemDetailAccess](docs/AccessRequestRecommendationItemDetailAccess.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItemType](docs/AccessRequestRecommendationItemType.md)
  - [PSSailpoint.V2024\Model.AccessRequestResponse](docs/AccessRequestResponse.md)
+ - [PSSailpoint.V2024\Model.AccessRequestResponse1](docs/AccessRequestResponse1.md)
+ - [PSSailpoint.V2024\Model.AccessRequestTracking](docs/AccessRequestTracking.md)
  - [PSSailpoint.V2024\Model.AccessRequestType](docs/AccessRequestType.md)
  - [PSSailpoint.V2024\Model.AccessRequested](docs/AccessRequested.md)
  - [PSSailpoint.V2024\Model.AccessReviewItem](docs/AccessReviewItem.md)
@@ -819,6 +834,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ApprovalComment2](docs/ApprovalComment2.md)
  - [PSSailpoint.V2024\Model.ApprovalDescription](docs/ApprovalDescription.md)
  - [PSSailpoint.V2024\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
+ - [PSSailpoint.V2024\Model.ApprovalForwardHistory1](docs/ApprovalForwardHistory1.md)
  - [PSSailpoint.V2024\Model.ApprovalIdentity](docs/ApprovalIdentity.md)
  - [PSSailpoint.V2024\Model.ApprovalInfoResponse](docs/ApprovalInfoResponse.md)
  - [PSSailpoint.V2024\Model.ApprovalItemDetails](docs/ApprovalItemDetails.md)
@@ -830,6 +846,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ApprovalSchemeForRole](docs/ApprovalSchemeForRole.md)
  - [PSSailpoint.V2024\Model.ApprovalStatus](docs/ApprovalStatus.md)
  - [PSSailpoint.V2024\Model.ApprovalStatusDto](docs/ApprovalStatusDto.md)
+ - [PSSailpoint.V2024\Model.ApprovalStatusDto1](docs/ApprovalStatusDto1.md)
  - [PSSailpoint.V2024\Model.ApprovalStatusDtoCurrentOwner](docs/ApprovalStatusDtoCurrentOwner.md)
  - [PSSailpoint.V2024\Model.ApprovalStatusDtoOriginalOwner](docs/ApprovalStatusDtoOriginalOwner.md)
  - [PSSailpoint.V2024\Model.ApprovalSummary](docs/ApprovalSummary.md)
@@ -876,6 +893,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.BucketAggregation](docs/BucketAggregation.md)
  - [PSSailpoint.V2024\Model.BucketType](docs/BucketType.md)
  - [PSSailpoint.V2024\Model.BulkAddTaggedObject](docs/BulkAddTaggedObject.md)
+ - [PSSailpoint.V2024\Model.BulkApproveAccessRequest](docs/BulkApproveAccessRequest.md)
+ - [PSSailpoint.V2024\Model.BulkCancelAccessRequest](docs/BulkCancelAccessRequest.md)
  - [PSSailpoint.V2024\Model.BulkIdentitiesAccountsResponse](docs/BulkIdentitiesAccountsResponse.md)
  - [PSSailpoint.V2024\Model.BulkRemoveTaggedObject](docs/BulkRemoveTaggedObject.md)
  - [PSSailpoint.V2024\Model.BulkTaggedObjectResponse](docs/BulkTaggedObjectResponse.md)
@@ -908,6 +927,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.CampaignsDeleteRequest](docs/CampaignsDeleteRequest.md)
  - [PSSailpoint.V2024\Model.CancelAccessRequest](docs/CancelAccessRequest.md)
  - [PSSailpoint.V2024\Model.CancelledRequestDetails](docs/CancelledRequestDetails.md)
+ - [PSSailpoint.V2024\Model.CancelledRequestDetails1](docs/CancelledRequestDetails1.md)
  - [PSSailpoint.V2024\Model.Certification](docs/Certification.md)
  - [PSSailpoint.V2024\Model.CertificationDecision](docs/CertificationDecision.md)
  - [PSSailpoint.V2024\Model.CertificationDto](docs/CertificationDto.md)
@@ -971,6 +991,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ContextAttributeDto](docs/ContextAttributeDto.md)
  - [PSSailpoint.V2024\Model.ContextAttributeDtoValue](docs/ContextAttributeDtoValue.md)
  - [PSSailpoint.V2024\Model.CorrelatedGovernanceEvent](docs/CorrelatedGovernanceEvent.md)
+ - [PSSailpoint.V2024\Model.CorrelationConfig](docs/CorrelationConfig.md)
+ - [PSSailpoint.V2024\Model.CorrelationConfigAttributeAssignmentsInner](docs/CorrelationConfigAttributeAssignmentsInner.md)
  - [PSSailpoint.V2024\Model.CreateDomainDkim405Response](docs/CreateDomainDkim405Response.md)
  - [PSSailpoint.V2024\Model.CreateExternalExecuteWorkflow200Response](docs/CreateExternalExecuteWorkflow200Response.md)
  - [PSSailpoint.V2024\Model.CreateExternalExecuteWorkflowRequest](docs/CreateExternalExecuteWorkflowRequest.md)
@@ -1047,6 +1069,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.EntityCreatedByDTO](docs/EntityCreatedByDTO.md)
  - [PSSailpoint.V2024\Model.ErrorMessage](docs/ErrorMessage.md)
  - [PSSailpoint.V2024\Model.ErrorMessageDto](docs/ErrorMessageDto.md)
+ - [PSSailpoint.V2024\Model.ErrorMessageDto1](docs/ErrorMessageDto1.md)
  - [PSSailpoint.V2024\Model.ErrorResponseDto](docs/ErrorResponseDto.md)
  - [PSSailpoint.V2024\Model.EvaluateResponse](docs/EvaluateResponse.md)
  - [PSSailpoint.V2024\Model.EventAttributes](docs/EventAttributes.md)
@@ -1175,6 +1198,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.Index](docs/Index.md)
  - [PSSailpoint.V2024\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint.V2024\Model.InnerHit](docs/InnerHit.md)
+ - [PSSailpoint.V2024\Model.InviteIdentitiesRequest](docs/InviteIdentitiesRequest.md)
  - [PSSailpoint.V2024\Model.Invocation](docs/Invocation.md)
  - [PSSailpoint.V2024\Model.InvocationStatus](docs/InvocationStatus.md)
  - [PSSailpoint.V2024\Model.InvocationStatusType](docs/InvocationStatusType.md)
@@ -1234,6 +1258,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
  - [PSSailpoint.V2024\Model.ManualDiscoverApplicationsTemplate](docs/ManualDiscoverApplicationsTemplate.md)
  - [PSSailpoint.V2024\Model.ManualWorkItemDetails](docs/ManualWorkItemDetails.md)
+ - [PSSailpoint.V2024\Model.ManualWorkItemDetails1](docs/ManualWorkItemDetails1.md)
  - [PSSailpoint.V2024\Model.ManualWorkItemDetailsCurrentOwner](docs/ManualWorkItemDetailsCurrentOwner.md)
  - [PSSailpoint.V2024\Model.ManualWorkItemDetailsOriginalOwner](docs/ManualWorkItemDetailsOriginalOwner.md)
  - [PSSailpoint.V2024\Model.ManualWorkItemState](docs/ManualWorkItemState.md)
@@ -1317,6 +1342,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.PasswordInfoAccount](docs/PasswordInfoAccount.md)
  - [PSSailpoint.V2024\Model.PasswordInfoQueryDTO](docs/PasswordInfoQueryDTO.md)
  - [PSSailpoint.V2024\Model.PasswordOrgConfig](docs/PasswordOrgConfig.md)
+ - [PSSailpoint.V2024\Model.PasswordPolicyHoldersDtoAttributes](docs/PasswordPolicyHoldersDtoAttributes.md)
+ - [PSSailpoint.V2024\Model.PasswordPolicyHoldersDtoAttributesIdentityAttrInner](docs/PasswordPolicyHoldersDtoAttributesIdentityAttrInner.md)
+ - [PSSailpoint.V2024\Model.PasswordPolicyHoldersDtoInner](docs/PasswordPolicyHoldersDtoInner.md)
  - [PSSailpoint.V2024\Model.PasswordPolicyV3Dto](docs/PasswordPolicyV3Dto.md)
  - [PSSailpoint.V2024\Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpoint.V2024\Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
@@ -1358,10 +1386,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.PublicIdentityAttributesInner](docs/PublicIdentityAttributesInner.md)
  - [PSSailpoint.V2024\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
  - [PSSailpoint.V2024\Model.PutClientLogConfigurationRequest](docs/PutClientLogConfigurationRequest.md)
- - [PSSailpoint.V2024\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)
+ - [PSSailpoint.V2024\Model.PutConnectorCorrelationConfigRequest](docs/PutConnectorCorrelationConfigRequest.md)
+ - [PSSailpoint.V2024\Model.PutConnectorSourceConfigRequest](docs/PutConnectorSourceConfigRequest.md)
+ - [PSSailpoint.V2024\Model.PutConnectorSourceTemplateRequest](docs/PutConnectorSourceTemplateRequest.md)
  - [PSSailpoint.V2024\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
- - [PSSailpoint.V2024\Model.PutSourceConfigRequest](docs/PutSourceConfigRequest.md)
- - [PSSailpoint.V2024\Model.PutSourceTemplateRequest](docs/PutSourceTemplateRequest.md)
  - [PSSailpoint.V2024\Model.Query](docs/Query.md)
  - [PSSailpoint.V2024\Model.QueryResultFilter](docs/QueryResultFilter.md)
  - [PSSailpoint.V2024\Model.QueryType](docs/QueryType.md)
@@ -1403,6 +1431,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RequestableObjectReference](docs/RequestableObjectReference.md)
  - [PSSailpoint.V2024\Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
  - [PSSailpoint.V2024\Model.RequestableObjectType](docs/RequestableObjectType.md)
+ - [PSSailpoint.V2024\Model.RequestedItemDetails](docs/RequestedItemDetails.md)
  - [PSSailpoint.V2024\Model.RequestedItemStatus](docs/RequestedItemStatus.md)
  - [PSSailpoint.V2024\Model.RequestedItemStatusCancelledRequestDetails](docs/RequestedItemStatusCancelledRequestDetails.md)
  - [PSSailpoint.V2024\Model.RequestedItemStatusPreApprovalTriggerDetails](docs/RequestedItemStatusPreApprovalTriggerDetails.md)
@@ -1440,6 +1469,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RoleCriteriaLevel3](docs/RoleCriteriaLevel3.md)
  - [PSSailpoint.V2024\Model.RoleCriteriaOperation](docs/RoleCriteriaOperation.md)
  - [PSSailpoint.V2024\Model.RoleDocument](docs/RoleDocument.md)
+ - [PSSailpoint.V2024\Model.RoleGetAllBulkUpdateResponse](docs/RoleGetAllBulkUpdateResponse.md)
  - [PSSailpoint.V2024\Model.RoleIdentity](docs/RoleIdentity.md)
  - [PSSailpoint.V2024\Model.RoleInsight](docs/RoleInsight.md)
  - [PSSailpoint.V2024\Model.RoleInsightsEntitlement](docs/RoleInsightsEntitlement.md)
@@ -1519,6 +1549,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SearchAggregationSpecification](docs/SearchAggregationSpecification.md)
  - [PSSailpoint.V2024\Model.SearchArguments](docs/SearchArguments.md)
  - [PSSailpoint.V2024\Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
+ - [PSSailpoint.V2024\Model.SearchDocument](docs/SearchDocument.md)
  - [PSSailpoint.V2024\Model.SearchExportReportArguments](docs/SearchExportReportArguments.md)
  - [PSSailpoint.V2024\Model.SearchFilterType](docs/SearchFilterType.md)
  - [PSSailpoint.V2024\Model.SearchFormDefinitionsByTenant400Response](docs/SearchFormDefinitionsByTenant400Response.md)
@@ -1542,6 +1573,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SelectorAccountMatchConfig](docs/SelectorAccountMatchConfig.md)
  - [PSSailpoint.V2024\Model.SelectorAccountMatchConfigMatchExpression](docs/SelectorAccountMatchConfigMatchExpression.md)
  - [PSSailpoint.V2024\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
+ - [PSSailpoint.V2024\Model.SendAccountVerificationRequest](docs/SendAccountVerificationRequest.md)
  - [PSSailpoint.V2024\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpoint.V2024\Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
  - [PSSailpoint.V2024\Model.ServiceDeskIntegrationDto1](docs/ServiceDeskIntegrationDto1.md)
@@ -1557,6 +1589,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SlimCampaign](docs/SlimCampaign.md)
  - [PSSailpoint.V2024\Model.SlimDiscoveredApplications](docs/SlimDiscoveredApplications.md)
  - [PSSailpoint.V2024\Model.SodExemptCriteria](docs/SodExemptCriteria.md)
+ - [PSSailpoint.V2024\Model.SodExemptCriteria1](docs/SodExemptCriteria1.md)
  - [PSSailpoint.V2024\Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint.V2024\Model.SodPolicyConflictingAccessCriteria](docs/SodPolicyConflictingAccessCriteria.md)
  - [PSSailpoint.V2024\Model.SodPolicyDto](docs/SodPolicyDto.md)
@@ -1566,8 +1599,13 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SodReportResultDto](docs/SodReportResultDto.md)
  - [PSSailpoint.V2024\Model.SodViolationCheck](docs/SodViolationCheck.md)
  - [PSSailpoint.V2024\Model.SodViolationCheckResult](docs/SodViolationCheckResult.md)
+ - [PSSailpoint.V2024\Model.SodViolationCheckResult1](docs/SodViolationCheckResult1.md)
  - [PSSailpoint.V2024\Model.SodViolationContext](docs/SodViolationContext.md)
+ - [PSSailpoint.V2024\Model.SodViolationContext1](docs/SodViolationContext1.md)
+ - [PSSailpoint.V2024\Model.SodViolationContext1ConflictingAccessCriteria](docs/SodViolationContext1ConflictingAccessCriteria.md)
+ - [PSSailpoint.V2024\Model.SodViolationContext1ConflictingAccessCriteriaLeftCriteria](docs/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.md)
  - [PSSailpoint.V2024\Model.SodViolationContextCheckCompleted](docs/SodViolationContextCheckCompleted.md)
+ - [PSSailpoint.V2024\Model.SodViolationContextCheckCompleted1](docs/SodViolationContextCheckCompleted1.md)
  - [PSSailpoint.V2024\Model.SodViolationContextConflictingAccessCriteria](docs/SodViolationContextConflictingAccessCriteria.md)
  - [PSSailpoint.V2024\Model.SodViolationContextConflictingAccessCriteriaLeftCriteria](docs/SodViolationContextConflictingAccessCriteriaLeftCriteria.md)
  - [PSSailpoint.V2024\Model.Source](docs/Source.md)
@@ -1644,6 +1682,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.TaskReturnDetails](docs/TaskReturnDetails.md)
  - [PSSailpoint.V2024\Model.TaskStatus](docs/TaskStatus.md)
  - [PSSailpoint.V2024\Model.TaskStatusMessage](docs/TaskStatusMessage.md)
+ - [PSSailpoint.V2024\Model.TaskStatusMessageParametersInner](docs/TaskStatusMessageParametersInner.md)
  - [PSSailpoint.V2024\Model.TemplateBulkDeleteDto](docs/TemplateBulkDeleteDto.md)
  - [PSSailpoint.V2024\Model.TemplateDto](docs/TemplateDto.md)
  - [PSSailpoint.V2024\Model.TemplateDtoDefault](docs/TemplateDtoDefault.md)

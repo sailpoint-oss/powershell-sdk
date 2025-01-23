@@ -41,6 +41,10 @@ docs/AccessProfileUsage.md
 docs/AccessProfileUsageUsedByInner.md
 docs/AccessRecommendationMessage.md
 docs/AccessRequest.md
+docs/AccessRequestAdminItemStatus.md
+docs/AccessRequestAdminItemStatusCancelledRequestDetails.md
+docs/AccessRequestAdminItemStatusSodViolationContext.md
+docs/AccessRequestApproversListResponse.md
 docs/AccessRequestConfig.md
 docs/AccessRequestContext.md
 docs/AccessRequestDynamicApprover.md
@@ -63,6 +67,8 @@ docs/AccessRequestRecommendationItemDetail.md
 docs/AccessRequestRecommendationItemDetailAccess.md
 docs/AccessRequestRecommendationItemType.md
 docs/AccessRequestResponse.md
+docs/AccessRequestResponse1.md
+docs/AccessRequestTracking.md
 docs/AccessRequestType.md
 docs/AccessRequested.md
 docs/AccessReviewItem.md
@@ -136,6 +142,7 @@ docs/ApprovalComment1.md
 docs/ApprovalComment2.md
 docs/ApprovalDescription.md
 docs/ApprovalForwardHistory.md
+docs/ApprovalForwardHistory1.md
 docs/ApprovalIdentity.md
 docs/ApprovalInfoResponse.md
 docs/ApprovalItemDetails.md
@@ -147,6 +154,7 @@ docs/ApprovalScheme.md
 docs/ApprovalSchemeForRole.md
 docs/ApprovalStatus.md
 docs/ApprovalStatusDto.md
+docs/ApprovalStatusDto1.md
 docs/ApprovalStatusDtoCurrentOwner.md
 docs/ApprovalStatusDtoOriginalOwner.md
 docs/ApprovalSummary.md
@@ -193,6 +201,8 @@ docs/BrandingItemCreate.md
 docs/BucketAggregation.md
 docs/BucketType.md
 docs/BulkAddTaggedObject.md
+docs/BulkApproveAccessRequest.md
+docs/BulkCancelAccessRequest.md
 docs/BulkIdentitiesAccountsResponse.md
 docs/BulkRemoveTaggedObject.md
 docs/BulkTaggedObjectResponse.md
@@ -225,6 +235,7 @@ docs/CampaignTemplateOwnerRef.md
 docs/CampaignsDeleteRequest.md
 docs/CancelAccessRequest.md
 docs/CancelledRequestDetails.md
+docs/CancelledRequestDetails1.md
 docs/Certification.md
 docs/CertificationDecision.md
 docs/CertificationDto.md
@@ -288,6 +299,8 @@ docs/ConnectorRuleValidationResponseDetailsInner.md
 docs/ContextAttributeDto.md
 docs/ContextAttributeDtoValue.md
 docs/CorrelatedGovernanceEvent.md
+docs/CorrelationConfig.md
+docs/CorrelationConfigAttributeAssignmentsInner.md
 docs/CreateDomainDkim405Response.md
 docs/CreateExternalExecuteWorkflow200Response.md
 docs/CreateExternalExecuteWorkflowRequest.md
@@ -365,6 +378,7 @@ docs/EntityCreatedByDTO.md
 docs/Error.md
 docs/ErrorMessage.md
 docs/ErrorMessageDto.md
+docs/ErrorMessageDto1.md
 docs/ErrorResponseDto.md
 docs/EvaluateResponse.md
 docs/Event.md
@@ -495,6 +509,7 @@ docs/ImportSpConfigRequest.md
 docs/Index.md
 docs/IndexOf.md
 docs/InnerHit.md
+docs/InviteIdentitiesRequest.md
 docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
@@ -554,6 +569,7 @@ docs/ManagerCorrelationMapping.md
 docs/ManualDiscoverApplications.md
 docs/ManualDiscoverApplicationsTemplate.md
 docs/ManualWorkItemDetails.md
+docs/ManualWorkItemDetails1.md
 docs/ManualWorkItemDetailsCurrentOwner.md
 docs/ManualWorkItemDetailsOriginalOwner.md
 docs/ManualWorkItemState.md
@@ -634,6 +650,9 @@ docs/PasswordInfo.md
 docs/PasswordInfoAccount.md
 docs/PasswordInfoQueryDTO.md
 docs/PasswordOrgConfig.md
+docs/PasswordPolicyHoldersDtoAttributes.md
+docs/PasswordPolicyHoldersDtoAttributesIdentityAttrInner.md
+docs/PasswordPolicyHoldersDtoInner.md
 docs/PasswordPolicyV3Dto.md
 docs/PasswordStatus.md
 docs/PasswordSyncGroup.md
@@ -675,10 +694,10 @@ docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityAttributesInner.md
 docs/PublicIdentityConfig.md
 docs/PutClientLogConfigurationRequest.md
-docs/PutCorrelationConfigRequest.md
+docs/PutConnectorCorrelationConfigRequest.md
+docs/PutConnectorSourceConfigRequest.md
+docs/PutConnectorSourceTemplateRequest.md
 docs/PutPasswordDictionaryRequest.md
-docs/PutSourceConfigRequest.md
-docs/PutSourceTemplateRequest.md
 docs/Query.md
 docs/QueryResultFilter.md
 docs/QueryType.md
@@ -720,6 +739,7 @@ docs/RequestableObject.md
 docs/RequestableObjectReference.md
 docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
+docs/RequestedItemDetails.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
 docs/RequestedItemStatusPreApprovalTriggerDetails.md
@@ -757,6 +777,7 @@ docs/RoleCriteriaLevel2.md
 docs/RoleCriteriaLevel3.md
 docs/RoleCriteriaOperation.md
 docs/RoleDocument.md
+docs/RoleGetAllBulkUpdateResponse.md
 docs/RoleIdentity.md
 docs/RoleInsight.md
 docs/RoleInsightsEntitlement.md
@@ -836,6 +857,7 @@ docs/Search.md
 docs/SearchAggregationSpecification.md
 docs/SearchArguments.md
 docs/SearchAttributeConfig.md
+docs/SearchDocument.md
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchFormDefinitionsByTenant400Response.md
@@ -859,6 +881,7 @@ docs/Selector.md
 docs/SelectorAccountMatchConfig.md
 docs/SelectorAccountMatchConfigMatchExpression.md
 docs/SelfImportExportDto.md
+docs/SendAccountVerificationRequest.md
 docs/SendTestNotificationRequestDto.md
 docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationDto1.md
@@ -874,6 +897,7 @@ docs/SimIntegrationDetailsAllOfBeforeProvisioningRule.md
 docs/SlimCampaign.md
 docs/SlimDiscoveredApplications.md
 docs/SodExemptCriteria.md
+docs/SodExemptCriteria1.md
 docs/SodPolicy.md
 docs/SodPolicyConflictingAccessCriteria.md
 docs/SodPolicyDto.md
@@ -883,8 +907,13 @@ docs/SodRecipient.md
 docs/SodReportResultDto.md
 docs/SodViolationCheck.md
 docs/SodViolationCheckResult.md
+docs/SodViolationCheckResult1.md
 docs/SodViolationContext.md
+docs/SodViolationContext1.md
+docs/SodViolationContext1ConflictingAccessCriteria.md
+docs/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.md
 docs/SodViolationContextCheckCompleted.md
+docs/SodViolationContextCheckCompleted1.md
 docs/SodViolationContextConflictingAccessCriteria.md
 docs/SodViolationContextConflictingAccessCriteriaLeftCriteria.md
 docs/Source.md
@@ -961,6 +990,7 @@ docs/TaskResultSimplified.md
 docs/TaskReturnDetails.md
 docs/TaskStatus.md
 docs/TaskStatusMessage.md
+docs/TaskStatusMessageParametersInner.md
 docs/TemplateBulkDeleteDto.md
 docs/TemplateDto.md
 docs/TemplateDtoDefault.md
@@ -1259,6 +1289,10 @@ src/PSSailpoint.V2024/Model/AccessProfileUsage.ps1
 src/PSSailpoint.V2024/Model/AccessProfileUsageUsedByInner.ps1
 src/PSSailpoint.V2024/Model/AccessRecommendationMessage.ps1
 src/PSSailpoint.V2024/Model/AccessRequest.ps1
+src/PSSailpoint.V2024/Model/AccessRequestAdminItemStatus.ps1
+src/PSSailpoint.V2024/Model/AccessRequestAdminItemStatusCancelledRequestDetails.ps1
+src/PSSailpoint.V2024/Model/AccessRequestAdminItemStatusSodViolationContext.ps1
+src/PSSailpoint.V2024/Model/AccessRequestApproversListResponse.ps1
 src/PSSailpoint.V2024/Model/AccessRequestConfig.ps1
 src/PSSailpoint.V2024/Model/AccessRequestContext.ps1
 src/PSSailpoint.V2024/Model/AccessRequestDynamicApprover.ps1
@@ -1281,6 +1315,8 @@ src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemDetail.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemDetailAccess.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemType.ps1
 src/PSSailpoint.V2024/Model/AccessRequestResponse.ps1
+src/PSSailpoint.V2024/Model/AccessRequestResponse1.ps1
+src/PSSailpoint.V2024/Model/AccessRequestTracking.ps1
 src/PSSailpoint.V2024/Model/AccessRequestType.ps1
 src/PSSailpoint.V2024/Model/AccessRequested.ps1
 src/PSSailpoint.V2024/Model/AccessReviewItem.ps1
@@ -1354,6 +1390,7 @@ src/PSSailpoint.V2024/Model/ApprovalComment1.ps1
 src/PSSailpoint.V2024/Model/ApprovalComment2.ps1
 src/PSSailpoint.V2024/Model/ApprovalDescription.ps1
 src/PSSailpoint.V2024/Model/ApprovalForwardHistory.ps1
+src/PSSailpoint.V2024/Model/ApprovalForwardHistory1.ps1
 src/PSSailpoint.V2024/Model/ApprovalIdentity.ps1
 src/PSSailpoint.V2024/Model/ApprovalInfoResponse.ps1
 src/PSSailpoint.V2024/Model/ApprovalItemDetails.ps1
@@ -1365,6 +1402,7 @@ src/PSSailpoint.V2024/Model/ApprovalScheme.ps1
 src/PSSailpoint.V2024/Model/ApprovalSchemeForRole.ps1
 src/PSSailpoint.V2024/Model/ApprovalStatus.ps1
 src/PSSailpoint.V2024/Model/ApprovalStatusDto.ps1
+src/PSSailpoint.V2024/Model/ApprovalStatusDto1.ps1
 src/PSSailpoint.V2024/Model/ApprovalStatusDtoCurrentOwner.ps1
 src/PSSailpoint.V2024/Model/ApprovalStatusDtoOriginalOwner.ps1
 src/PSSailpoint.V2024/Model/ApprovalSummary.ps1
@@ -1411,6 +1449,8 @@ src/PSSailpoint.V2024/Model/BrandingItemCreate.ps1
 src/PSSailpoint.V2024/Model/BucketAggregation.ps1
 src/PSSailpoint.V2024/Model/BucketType.ps1
 src/PSSailpoint.V2024/Model/BulkAddTaggedObject.ps1
+src/PSSailpoint.V2024/Model/BulkApproveAccessRequest.ps1
+src/PSSailpoint.V2024/Model/BulkCancelAccessRequest.ps1
 src/PSSailpoint.V2024/Model/BulkIdentitiesAccountsResponse.ps1
 src/PSSailpoint.V2024/Model/BulkRemoveTaggedObject.ps1
 src/PSSailpoint.V2024/Model/BulkTaggedObjectResponse.ps1
@@ -1443,6 +1483,7 @@ src/PSSailpoint.V2024/Model/CampaignTemplateOwnerRef.ps1
 src/PSSailpoint.V2024/Model/CampaignsDeleteRequest.ps1
 src/PSSailpoint.V2024/Model/CancelAccessRequest.ps1
 src/PSSailpoint.V2024/Model/CancelledRequestDetails.ps1
+src/PSSailpoint.V2024/Model/CancelledRequestDetails1.ps1
 src/PSSailpoint.V2024/Model/Certification.ps1
 src/PSSailpoint.V2024/Model/CertificationDecision.ps1
 src/PSSailpoint.V2024/Model/CertificationDto.ps1
@@ -1506,6 +1547,8 @@ src/PSSailpoint.V2024/Model/ConnectorRuleValidationResponseDetailsInner.ps1
 src/PSSailpoint.V2024/Model/ContextAttributeDto.ps1
 src/PSSailpoint.V2024/Model/ContextAttributeDtoValue.ps1
 src/PSSailpoint.V2024/Model/CorrelatedGovernanceEvent.ps1
+src/PSSailpoint.V2024/Model/CorrelationConfig.ps1
+src/PSSailpoint.V2024/Model/CorrelationConfigAttributeAssignmentsInner.ps1
 src/PSSailpoint.V2024/Model/CreateDomainDkim405Response.ps1
 src/PSSailpoint.V2024/Model/CreateExternalExecuteWorkflow200Response.ps1
 src/PSSailpoint.V2024/Model/CreateExternalExecuteWorkflowRequest.ps1
@@ -1582,6 +1625,7 @@ src/PSSailpoint.V2024/Model/EntitlementSummary.ps1
 src/PSSailpoint.V2024/Model/EntityCreatedByDTO.ps1
 src/PSSailpoint.V2024/Model/ErrorMessage.ps1
 src/PSSailpoint.V2024/Model/ErrorMessageDto.ps1
+src/PSSailpoint.V2024/Model/ErrorMessageDto1.ps1
 src/PSSailpoint.V2024/Model/ErrorResponseDto.ps1
 src/PSSailpoint.V2024/Model/EvaluateResponse.ps1
 src/PSSailpoint.V2024/Model/EventAttributes.ps1
@@ -1710,6 +1754,7 @@ src/PSSailpoint.V2024/Model/ImportSpConfigRequest.ps1
 src/PSSailpoint.V2024/Model/Index.ps1
 src/PSSailpoint.V2024/Model/IndexOf.ps1
 src/PSSailpoint.V2024/Model/InnerHit.ps1
+src/PSSailpoint.V2024/Model/InviteIdentitiesRequest.ps1
 src/PSSailpoint.V2024/Model/Invocation.ps1
 src/PSSailpoint.V2024/Model/InvocationStatus.ps1
 src/PSSailpoint.V2024/Model/InvocationStatusType.ps1
@@ -1769,6 +1814,7 @@ src/PSSailpoint.V2024/Model/ManagerCorrelationMapping.ps1
 src/PSSailpoint.V2024/Model/ManualDiscoverApplications.ps1
 src/PSSailpoint.V2024/Model/ManualDiscoverApplicationsTemplate.ps1
 src/PSSailpoint.V2024/Model/ManualWorkItemDetails.ps1
+src/PSSailpoint.V2024/Model/ManualWorkItemDetails1.ps1
 src/PSSailpoint.V2024/Model/ManualWorkItemDetailsCurrentOwner.ps1
 src/PSSailpoint.V2024/Model/ManualWorkItemDetailsOriginalOwner.ps1
 src/PSSailpoint.V2024/Model/ManualWorkItemState.ps1
@@ -1852,6 +1898,9 @@ src/PSSailpoint.V2024/Model/PasswordInfo.ps1
 src/PSSailpoint.V2024/Model/PasswordInfoAccount.ps1
 src/PSSailpoint.V2024/Model/PasswordInfoQueryDTO.ps1
 src/PSSailpoint.V2024/Model/PasswordOrgConfig.ps1
+src/PSSailpoint.V2024/Model/PasswordPolicyHoldersDtoAttributes.ps1
+src/PSSailpoint.V2024/Model/PasswordPolicyHoldersDtoAttributesIdentityAttrInner.ps1
+src/PSSailpoint.V2024/Model/PasswordPolicyHoldersDtoInner.ps1
 src/PSSailpoint.V2024/Model/PasswordPolicyV3Dto.ps1
 src/PSSailpoint.V2024/Model/PasswordStatus.ps1
 src/PSSailpoint.V2024/Model/PasswordSyncGroup.ps1
@@ -1893,10 +1942,10 @@ src/PSSailpoint.V2024/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpoint.V2024/Model/PublicIdentityAttributesInner.ps1
 src/PSSailpoint.V2024/Model/PublicIdentityConfig.ps1
 src/PSSailpoint.V2024/Model/PutClientLogConfigurationRequest.ps1
-src/PSSailpoint.V2024/Model/PutCorrelationConfigRequest.ps1
+src/PSSailpoint.V2024/Model/PutConnectorCorrelationConfigRequest.ps1
+src/PSSailpoint.V2024/Model/PutConnectorSourceConfigRequest.ps1
+src/PSSailpoint.V2024/Model/PutConnectorSourceTemplateRequest.ps1
 src/PSSailpoint.V2024/Model/PutPasswordDictionaryRequest.ps1
-src/PSSailpoint.V2024/Model/PutSourceConfigRequest.ps1
-src/PSSailpoint.V2024/Model/PutSourceTemplateRequest.ps1
 src/PSSailpoint.V2024/Model/Query.ps1
 src/PSSailpoint.V2024/Model/QueryResultFilter.ps1
 src/PSSailpoint.V2024/Model/QueryType.ps1
@@ -1938,6 +1987,7 @@ src/PSSailpoint.V2024/Model/RequestableObject.ps1
 src/PSSailpoint.V2024/Model/RequestableObjectReference.ps1
 src/PSSailpoint.V2024/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.V2024/Model/RequestableObjectType.ps1
+src/PSSailpoint.V2024/Model/RequestedItemDetails.ps1
 src/PSSailpoint.V2024/Model/RequestedItemStatus.ps1
 src/PSSailpoint.V2024/Model/RequestedItemStatusCancelledRequestDetails.ps1
 src/PSSailpoint.V2024/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
@@ -1975,6 +2025,7 @@ src/PSSailpoint.V2024/Model/RoleCriteriaLevel2.ps1
 src/PSSailpoint.V2024/Model/RoleCriteriaLevel3.ps1
 src/PSSailpoint.V2024/Model/RoleCriteriaOperation.ps1
 src/PSSailpoint.V2024/Model/RoleDocument.ps1
+src/PSSailpoint.V2024/Model/RoleGetAllBulkUpdateResponse.ps1
 src/PSSailpoint.V2024/Model/RoleIdentity.ps1
 src/PSSailpoint.V2024/Model/RoleInsight.ps1
 src/PSSailpoint.V2024/Model/RoleInsightsEntitlement.ps1
@@ -2054,6 +2105,7 @@ src/PSSailpoint.V2024/Model/Search.ps1
 src/PSSailpoint.V2024/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint.V2024/Model/SearchArguments.ps1
 src/PSSailpoint.V2024/Model/SearchAttributeConfig.ps1
+src/PSSailpoint.V2024/Model/SearchDocument.ps1
 src/PSSailpoint.V2024/Model/SearchExportReportArguments.ps1
 src/PSSailpoint.V2024/Model/SearchFilterType.ps1
 src/PSSailpoint.V2024/Model/SearchFormDefinitionsByTenant400Response.ps1
@@ -2077,6 +2129,7 @@ src/PSSailpoint.V2024/Model/Selector.ps1
 src/PSSailpoint.V2024/Model/SelectorAccountMatchConfig.ps1
 src/PSSailpoint.V2024/Model/SelectorAccountMatchConfigMatchExpression.ps1
 src/PSSailpoint.V2024/Model/SelfImportExportDto.ps1
+src/PSSailpoint.V2024/Model/SendAccountVerificationRequest.ps1
 src/PSSailpoint.V2024/Model/SendTestNotificationRequestDto.ps1
 src/PSSailpoint.V2024/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpoint.V2024/Model/ServiceDeskIntegrationDto1.ps1
@@ -2092,6 +2145,7 @@ src/PSSailpoint.V2024/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.ps1
 src/PSSailpoint.V2024/Model/SlimCampaign.ps1
 src/PSSailpoint.V2024/Model/SlimDiscoveredApplications.ps1
 src/PSSailpoint.V2024/Model/SodExemptCriteria.ps1
+src/PSSailpoint.V2024/Model/SodExemptCriteria1.ps1
 src/PSSailpoint.V2024/Model/SodPolicy.ps1
 src/PSSailpoint.V2024/Model/SodPolicyConflictingAccessCriteria.ps1
 src/PSSailpoint.V2024/Model/SodPolicyDto.ps1
@@ -2101,8 +2155,13 @@ src/PSSailpoint.V2024/Model/SodRecipient.ps1
 src/PSSailpoint.V2024/Model/SodReportResultDto.ps1
 src/PSSailpoint.V2024/Model/SodViolationCheck.ps1
 src/PSSailpoint.V2024/Model/SodViolationCheckResult.ps1
+src/PSSailpoint.V2024/Model/SodViolationCheckResult1.ps1
 src/PSSailpoint.V2024/Model/SodViolationContext.ps1
+src/PSSailpoint.V2024/Model/SodViolationContext1.ps1
+src/PSSailpoint.V2024/Model/SodViolationContext1ConflictingAccessCriteria.ps1
+src/PSSailpoint.V2024/Model/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.ps1
 src/PSSailpoint.V2024/Model/SodViolationContextCheckCompleted.ps1
+src/PSSailpoint.V2024/Model/SodViolationContextCheckCompleted1.ps1
 src/PSSailpoint.V2024/Model/SodViolationContextConflictingAccessCriteria.ps1
 src/PSSailpoint.V2024/Model/SodViolationContextConflictingAccessCriteriaLeftCriteria.ps1
 src/PSSailpoint.V2024/Model/Source.ps1
@@ -2179,6 +2238,7 @@ src/PSSailpoint.V2024/Model/TaskResultSimplified.ps1
 src/PSSailpoint.V2024/Model/TaskReturnDetails.ps1
 src/PSSailpoint.V2024/Model/TaskStatus.ps1
 src/PSSailpoint.V2024/Model/TaskStatusMessage.ps1
+src/PSSailpoint.V2024/Model/TaskStatusMessageParametersInner.ps1
 src/PSSailpoint.V2024/Model/TemplateBulkDeleteDto.ps1
 src/PSSailpoint.V2024/Model/TemplateDto.ps1
 src/PSSailpoint.V2024/Model/TemplateDtoDefault.ps1
@@ -2401,6 +2461,10 @@ tests/Model/AccessProfileUsage.Tests.ps1
 tests/Model/AccessProfileUsageUsedByInner.Tests.ps1
 tests/Model/AccessRecommendationMessage.Tests.ps1
 tests/Model/AccessRequest.Tests.ps1
+tests/Model/AccessRequestAdminItemStatus.Tests.ps1
+tests/Model/AccessRequestAdminItemStatusCancelledRequestDetails.Tests.ps1
+tests/Model/AccessRequestAdminItemStatusSodViolationContext.Tests.ps1
+tests/Model/AccessRequestApproversListResponse.Tests.ps1
 tests/Model/AccessRequestConfig.Tests.ps1
 tests/Model/AccessRequestContext.Tests.ps1
 tests/Model/AccessRequestDynamicApprover.Tests.ps1
@@ -2423,6 +2487,8 @@ tests/Model/AccessRequestRecommendationItemDetail.Tests.ps1
 tests/Model/AccessRequestRecommendationItemDetailAccess.Tests.ps1
 tests/Model/AccessRequestRecommendationItemType.Tests.ps1
 tests/Model/AccessRequestResponse.Tests.ps1
+tests/Model/AccessRequestResponse1.Tests.ps1
+tests/Model/AccessRequestTracking.Tests.ps1
 tests/Model/AccessRequestType.Tests.ps1
 tests/Model/AccessRequested.Tests.ps1
 tests/Model/AccessReviewItem.Tests.ps1
@@ -2496,6 +2562,7 @@ tests/Model/ApprovalComment1.Tests.ps1
 tests/Model/ApprovalComment2.Tests.ps1
 tests/Model/ApprovalDescription.Tests.ps1
 tests/Model/ApprovalForwardHistory.Tests.ps1
+tests/Model/ApprovalForwardHistory1.Tests.ps1
 tests/Model/ApprovalIdentity.Tests.ps1
 tests/Model/ApprovalInfoResponse.Tests.ps1
 tests/Model/ApprovalItemDetails.Tests.ps1
@@ -2507,6 +2574,7 @@ tests/Model/ApprovalScheme.Tests.ps1
 tests/Model/ApprovalSchemeForRole.Tests.ps1
 tests/Model/ApprovalStatus.Tests.ps1
 tests/Model/ApprovalStatusDto.Tests.ps1
+tests/Model/ApprovalStatusDto1.Tests.ps1
 tests/Model/ApprovalStatusDtoCurrentOwner.Tests.ps1
 tests/Model/ApprovalStatusDtoOriginalOwner.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
@@ -2553,6 +2621,8 @@ tests/Model/BrandingItemCreate.Tests.ps1
 tests/Model/BucketAggregation.Tests.ps1
 tests/Model/BucketType.Tests.ps1
 tests/Model/BulkAddTaggedObject.Tests.ps1
+tests/Model/BulkApproveAccessRequest.Tests.ps1
+tests/Model/BulkCancelAccessRequest.Tests.ps1
 tests/Model/BulkIdentitiesAccountsResponse.Tests.ps1
 tests/Model/BulkRemoveTaggedObject.Tests.ps1
 tests/Model/BulkTaggedObjectResponse.Tests.ps1
@@ -2585,6 +2655,7 @@ tests/Model/CampaignTemplateOwnerRef.Tests.ps1
 tests/Model/CampaignsDeleteRequest.Tests.ps1
 tests/Model/CancelAccessRequest.Tests.ps1
 tests/Model/CancelledRequestDetails.Tests.ps1
+tests/Model/CancelledRequestDetails1.Tests.ps1
 tests/Model/Certification.Tests.ps1
 tests/Model/CertificationDecision.Tests.ps1
 tests/Model/CertificationDto.Tests.ps1
@@ -2648,6 +2719,8 @@ tests/Model/ConnectorRuleValidationResponseDetailsInner.Tests.ps1
 tests/Model/ContextAttributeDto.Tests.ps1
 tests/Model/ContextAttributeDtoValue.Tests.ps1
 tests/Model/CorrelatedGovernanceEvent.Tests.ps1
+tests/Model/CorrelationConfig.Tests.ps1
+tests/Model/CorrelationConfigAttributeAssignmentsInner.Tests.ps1
 tests/Model/CreateDomainDkim405Response.Tests.ps1
 tests/Model/CreateExternalExecuteWorkflow200Response.Tests.ps1
 tests/Model/CreateExternalExecuteWorkflowRequest.Tests.ps1
@@ -2724,6 +2797,7 @@ tests/Model/EntitlementSummary.Tests.ps1
 tests/Model/EntityCreatedByDTO.Tests.ps1
 tests/Model/ErrorMessage.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
+tests/Model/ErrorMessageDto1.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/EvaluateResponse.Tests.ps1
 tests/Model/EventAttributes.Tests.ps1
@@ -2852,6 +2926,7 @@ tests/Model/ImportSpConfigRequest.Tests.ps1
 tests/Model/Index.Tests.ps1
 tests/Model/IndexOf.Tests.ps1
 tests/Model/InnerHit.Tests.ps1
+tests/Model/InviteIdentitiesRequest.Tests.ps1
 tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
@@ -2911,6 +2986,7 @@ tests/Model/ManagerCorrelationMapping.Tests.ps1
 tests/Model/ManualDiscoverApplications.Tests.ps1
 tests/Model/ManualDiscoverApplicationsTemplate.Tests.ps1
 tests/Model/ManualWorkItemDetails.Tests.ps1
+tests/Model/ManualWorkItemDetails1.Tests.ps1
 tests/Model/ManualWorkItemDetailsCurrentOwner.Tests.ps1
 tests/Model/ManualWorkItemDetailsOriginalOwner.Tests.ps1
 tests/Model/ManualWorkItemState.Tests.ps1
@@ -2994,6 +3070,9 @@ tests/Model/PasswordInfo.Tests.ps1
 tests/Model/PasswordInfoAccount.Tests.ps1
 tests/Model/PasswordInfoQueryDTO.Tests.ps1
 tests/Model/PasswordOrgConfig.Tests.ps1
+tests/Model/PasswordPolicyHoldersDtoAttributes.Tests.ps1
+tests/Model/PasswordPolicyHoldersDtoAttributesIdentityAttrInner.Tests.ps1
+tests/Model/PasswordPolicyHoldersDtoInner.Tests.ps1
 tests/Model/PasswordPolicyV3Dto.Tests.ps1
 tests/Model/PasswordStatus.Tests.ps1
 tests/Model/PasswordSyncGroup.Tests.ps1
@@ -3035,10 +3114,10 @@ tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityAttributesInner.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
 tests/Model/PutClientLogConfigurationRequest.Tests.ps1
-tests/Model/PutCorrelationConfigRequest.Tests.ps1
+tests/Model/PutConnectorCorrelationConfigRequest.Tests.ps1
+tests/Model/PutConnectorSourceConfigRequest.Tests.ps1
+tests/Model/PutConnectorSourceTemplateRequest.Tests.ps1
 tests/Model/PutPasswordDictionaryRequest.Tests.ps1
-tests/Model/PutSourceConfigRequest.Tests.ps1
-tests/Model/PutSourceTemplateRequest.Tests.ps1
 tests/Model/Query.Tests.ps1
 tests/Model/QueryResultFilter.Tests.ps1
 tests/Model/QueryType.Tests.ps1
@@ -3080,6 +3159,7 @@ tests/Model/RequestableObject.Tests.ps1
 tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
+tests/Model/RequestedItemDetails.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
 tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1
@@ -3117,6 +3197,7 @@ tests/Model/RoleCriteriaLevel2.Tests.ps1
 tests/Model/RoleCriteriaLevel3.Tests.ps1
 tests/Model/RoleCriteriaOperation.Tests.ps1
 tests/Model/RoleDocument.Tests.ps1
+tests/Model/RoleGetAllBulkUpdateResponse.Tests.ps1
 tests/Model/RoleIdentity.Tests.ps1
 tests/Model/RoleInsight.Tests.ps1
 tests/Model/RoleInsightsEntitlement.Tests.ps1
@@ -3196,6 +3277,7 @@ tests/Model/Search.Tests.ps1
 tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
 tests/Model/SearchAttributeConfig.Tests.ps1
+tests/Model/SearchDocument.Tests.ps1
 tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchFormDefinitionsByTenant400Response.Tests.ps1
@@ -3219,6 +3301,7 @@ tests/Model/Selector.Tests.ps1
 tests/Model/SelectorAccountMatchConfig.Tests.ps1
 tests/Model/SelectorAccountMatchConfigMatchExpression.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
+tests/Model/SendAccountVerificationRequest.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto1.Tests.ps1
@@ -3234,6 +3317,7 @@ tests/Model/SimIntegrationDetailsAllOfBeforeProvisioningRule.Tests.ps1
 tests/Model/SlimCampaign.Tests.ps1
 tests/Model/SlimDiscoveredApplications.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
+tests/Model/SodExemptCriteria1.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1
 tests/Model/SodPolicyDto.Tests.ps1
@@ -3243,8 +3327,13 @@ tests/Model/SodRecipient.Tests.ps1
 tests/Model/SodReportResultDto.Tests.ps1
 tests/Model/SodViolationCheck.Tests.ps1
 tests/Model/SodViolationCheckResult.Tests.ps1
+tests/Model/SodViolationCheckResult1.Tests.ps1
 tests/Model/SodViolationContext.Tests.ps1
+tests/Model/SodViolationContext1.Tests.ps1
+tests/Model/SodViolationContext1ConflictingAccessCriteria.Tests.ps1
+tests/Model/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.Tests.ps1
 tests/Model/SodViolationContextCheckCompleted.Tests.ps1
+tests/Model/SodViolationContextCheckCompleted1.Tests.ps1
 tests/Model/SodViolationContextConflictingAccessCriteria.Tests.ps1
 tests/Model/SodViolationContextConflictingAccessCriteriaLeftCriteria.Tests.ps1
 tests/Model/Source.Tests.ps1
@@ -3321,6 +3410,7 @@ tests/Model/TaskResultSimplified.Tests.ps1
 tests/Model/TaskReturnDetails.Tests.ps1
 tests/Model/TaskStatus.Tests.ps1
 tests/Model/TaskStatusMessage.Tests.ps1
+tests/Model/TaskStatusMessageParametersInner.Tests.ps1
 tests/Model/TemplateBulkDeleteDto.Tests.ps1
 tests/Model/TemplateDto.Tests.ps1
 tests/Model/TemplateDtoDefault.Tests.ps1

@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Retrieve headers only for pending task list.
+Retrieve Pending Task List Headers
 
 .DESCRIPTION
 
-Retrieve headers for a list of TaskStatus for pending tasks.
+Responds with headers only for list of task statuses for pending tasks.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -90,6 +90,7 @@ function Get-V2024PendingTaskHeaders {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'HEAD' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -113,11 +114,11 @@ function Get-V2024PendingTaskHeaders {
 <#
 .SYNOPSIS
 
-Retrieve a pending task list.
+Retrieve Pending Task Status List
 
 .DESCRIPTION
 
-Retrieve a list of TaskStatus for pending tasks.
+Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -195,6 +196,7 @@ function Get-V2024PendingTasks {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -218,11 +220,11 @@ function Get-V2024PendingTasks {
 <#
 .SYNOPSIS
 
-Get task status by ID.
+Get Task Status by ID
 
 .DESCRIPTION
 
-Get a TaskStatus for a task by task ID.
+Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 .PARAMETER Id
 Task ID.
@@ -280,6 +282,7 @@ function Get-V2024TaskStatus {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -303,11 +306,11 @@ function Get-V2024TaskStatus {
 <#
 .SYNOPSIS
 
-Retrieve a task status list.
+Retrieve Task Status List
 
 .DESCRIPTION
 
-Use this endpoint to get a list of **completed** tasks. To get a list of tasks **in-progress**, please use the [get pending tasks](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint. 
+Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint. 
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -405,6 +408,7 @@ function Get-V2024TaskStatusList {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -428,7 +432,7 @@ function Get-V2024TaskStatusList {
 <#
 .SYNOPSIS
 
-Update task status by ID
+Update Task Status by ID
 
 .DESCRIPTION
 

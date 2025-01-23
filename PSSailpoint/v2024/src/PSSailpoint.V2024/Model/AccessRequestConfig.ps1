@@ -18,6 +18,8 @@ No description available.
 If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin.
 .PARAMETER AutoApprovalEnabled
 If this is true and the requester and reviewer are the same, the request is automatically approved.
+.PARAMETER ReauthorizationEnabled
+If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
 .PARAMETER RequestOnBehalfOfConfig
 No description available.
 .PARAMETER ApprovalReminderAndEscalationConfig
@@ -39,6 +41,9 @@ function Initialize-V2024AccessRequestConfig {
         [System.Nullable[Boolean]]
         ${AutoApprovalEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ReauthorizationEnabled} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequestOnBehalfOfConfig},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -57,6 +62,7 @@ function Initialize-V2024AccessRequestConfig {
         $PSO = [PSCustomObject]@{
             "approvalsMustBeExternal" = ${ApprovalsMustBeExternal}
             "autoApprovalEnabled" = ${AutoApprovalEnabled}
+            "reauthorizationEnabled" = ${ReauthorizationEnabled}
             "requestOnBehalfOfConfig" = ${RequestOnBehalfOfConfig}
             "approvalReminderAndEscalationConfig" = ${ApprovalReminderAndEscalationConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}
@@ -96,7 +102,7 @@ function ConvertFrom-V2024JsonToAccessRequestConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccessRequestConfig
-        $AllProperties = ("approvalsMustBeExternal", "autoApprovalEnabled", "requestOnBehalfOfConfig", "approvalReminderAndEscalationConfig", "entitlementRequestConfig")
+        $AllProperties = ("approvalsMustBeExternal", "autoApprovalEnabled", "reauthorizationEnabled", "requestOnBehalfOfConfig", "approvalReminderAndEscalationConfig", "entitlementRequestConfig")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -113,6 +119,12 @@ function ConvertFrom-V2024JsonToAccessRequestConfig {
             $AutoApprovalEnabled = $null
         } else {
             $AutoApprovalEnabled = $JsonParameters.PSobject.Properties["autoApprovalEnabled"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reauthorizationEnabled"))) { #optional property not found
+            $ReauthorizationEnabled = $null
+        } else {
+            $ReauthorizationEnabled = $JsonParameters.PSobject.Properties["reauthorizationEnabled"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestOnBehalfOfConfig"))) { #optional property not found
@@ -136,6 +148,7 @@ function ConvertFrom-V2024JsonToAccessRequestConfig {
         $PSO = [PSCustomObject]@{
             "approvalsMustBeExternal" = ${ApprovalsMustBeExternal}
             "autoApprovalEnabled" = ${AutoApprovalEnabled}
+            "reauthorizationEnabled" = ${ReauthorizationEnabled}
             "requestOnBehalfOfConfig" = ${RequestOnBehalfOfConfig}
             "approvalReminderAndEscalationConfig" = ${ApprovalReminderAndEscalationConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}

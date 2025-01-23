@@ -14,6 +14,8 @@ No summary available.
 
 No description available.
 
+.PARAMETER ApprovalId
+Unique identifier for the approval.
 .PARAMETER Forwarded
 True if the request for this item was forwarded from one owner to another.
 .PARAMETER OriginalOwner
@@ -40,6 +42,9 @@ ApprovalStatusDto<PSCustomObject>
 function Initialize-ApprovalStatusDto {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ApprovalId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Forwarded} = $false,
@@ -77,6 +82,7 @@ function Initialize-ApprovalStatusDto {
 
 
         $PSO = [PSCustomObject]@{
+            "approvalId" = ${ApprovalId}
             "forwarded" = ${Forwarded}
             "originalOwner" = ${OriginalOwner}
             "currentOwner" = ${CurrentOwner}
@@ -122,11 +128,17 @@ function ConvertFrom-JsonToApprovalStatusDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ApprovalStatusDto
-        $AllProperties = ("forwarded", "originalOwner", "currentOwner", "modified", "status", "scheme", "errorMessages", "comment", "removeDate")
+        $AllProperties = ("approvalId", "forwarded", "originalOwner", "currentOwner", "modified", "status", "scheme", "errorMessages", "comment", "removeDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalId"))) { #optional property not found
+            $ApprovalId = $null
+        } else {
+            $ApprovalId = $JsonParameters.PSobject.Properties["approvalId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "forwarded"))) { #optional property not found
@@ -184,6 +196,7 @@ function ConvertFrom-JsonToApprovalStatusDto {
         }
 
         $PSO = [PSCustomObject]@{
+            "approvalId" = ${ApprovalId}
             "forwarded" = ${Forwarded}
             "originalOwner" = ${OriginalOwner}
             "currentOwner" = ${CurrentOwner}

@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Create a new Managed Client
+Create Managed Client
 
 .DESCRIPTION
 
-Create a new Managed Client. The API returns a result that includes the Managed Client ID.
+Create a new managed client. The API returns a result that includes the managed client ID.
 
 .PARAMETER ManagedClientRequest
 No description available.
@@ -98,14 +98,14 @@ function New-V2024ManagedClient {
 <#
 .SYNOPSIS
 
-Delete a Managed Client
+Delete Managed Client
 
 .DESCRIPTION
 
-Delete an existing Managed Client.
+Delete an existing managed client.
 
 .PARAMETER Id
-Managed Client ID.
+Managed client ID.
 
 .PARAMETER WithHttpInfo
 
@@ -172,14 +172,14 @@ function Remove-V2024ManagedClient {
 <#
 .SYNOPSIS
 
-Get a Managed Client
+Get Managed Client
 
 .DESCRIPTION
 
-Get a Managed Client.
+Get managed client by ID. 
 
 .PARAMETER Id
-Managed Client ID.
+Managed client ID.
 
 .PARAMETER WithHttpInfo
 
@@ -246,17 +246,17 @@ function Get-V2024ManagedClient {
 <#
 .SYNOPSIS
 
-Get Managed Client Status.
+Get Managed Client Status
 
 .DESCRIPTION
 
-Retrieve the Status of a Managed Client by ID.
+Get a managed client's status, using its ID.
 
 .PARAMETER Id
-ID of the Managed Client to get Status of
+Managed client ID to get status for.
 
 .PARAMETER Type
-Type of the Managed Client to get Status of
+Managed client type to get status for.
 
 .PARAMETER WithHttpInfo
 
@@ -335,7 +335,7 @@ Get Managed Clients
 
 .DESCRIPTION
 
-Get a list of Managed Clients.
+List managed clients.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -435,17 +435,17 @@ function Get-V2024ManagedClients {
 <#
 .SYNOPSIS
 
-Update a Managed Client
+Update Managed Client
 
 .DESCRIPTION
 
-Update an existing Managed Client.
+Update an existing managed client.
 
 .PARAMETER Id
-Managed Client ID.
+Managed client ID.
 
 .PARAMETER JsonPatchOperation
-The JSONPatch payload used to update the object.
+JSONPatch payload used to update the object.
 
 .PARAMETER WithHttpInfo
 

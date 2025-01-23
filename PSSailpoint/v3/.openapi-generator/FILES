@@ -28,6 +28,8 @@ docs/AccessRequestApprovalsApi.md
 docs/AccessRequestConfig.md
 docs/AccessRequestItem.md
 docs/AccessRequestPhases.md
+docs/AccessRequestResponse.md
+docs/AccessRequestTracking.md
 docs/AccessRequestType.md
 docs/AccessRequestsApi.md
 docs/AccessReviewItem.md
@@ -420,10 +422,9 @@ docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityAttributesInner.md
 docs/PublicIdentityConfig.md
 docs/PutClientLogConfigurationRequest.md
-docs/PutCorrelationConfigRequest.md
+docs/PutConnectorSourceConfigRequest.md
+docs/PutConnectorSourceTemplateRequest.md
 docs/PutPasswordDictionaryRequest.md
-docs/PutSourceConfigRequest.md
-docs/PutSourceTemplateRequest.md
 docs/Query.md
 docs/QueryResultFilter.md
 docs/QueryType.md
@@ -457,6 +458,7 @@ docs/RequestableObjectReference.md
 docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
 docs/RequestableObjectsApi.md
+docs/RequestedItemDetails.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
 docs/RequestedItemStatusPreApprovalTriggerDetails.md
@@ -522,6 +524,7 @@ docs/SearchApi.md
 docs/SearchArguments.md
 docs/SearchAttributeConfig.md
 docs/SearchAttributeConfigurationApi.md
+docs/SearchDocument.md
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchSchedule.md
@@ -732,6 +735,8 @@ src/PSSailpoint.V3/Model/AccessRequest.ps1
 src/PSSailpoint.V3/Model/AccessRequestConfig.ps1
 src/PSSailpoint.V3/Model/AccessRequestItem.ps1
 src/PSSailpoint.V3/Model/AccessRequestPhases.ps1
+src/PSSailpoint.V3/Model/AccessRequestResponse.ps1
+src/PSSailpoint.V3/Model/AccessRequestTracking.ps1
 src/PSSailpoint.V3/Model/AccessRequestType.ps1
 src/PSSailpoint.V3/Model/AccessReviewItem.ps1
 src/PSSailpoint.V3/Model/AccessReviewReassignment.ps1
@@ -1094,10 +1099,9 @@ src/PSSailpoint.V3/Model/PublicIdentityAttributeConfig.ps1
 src/PSSailpoint.V3/Model/PublicIdentityAttributesInner.ps1
 src/PSSailpoint.V3/Model/PublicIdentityConfig.ps1
 src/PSSailpoint.V3/Model/PutClientLogConfigurationRequest.ps1
-src/PSSailpoint.V3/Model/PutCorrelationConfigRequest.ps1
+src/PSSailpoint.V3/Model/PutConnectorSourceConfigRequest.ps1
+src/PSSailpoint.V3/Model/PutConnectorSourceTemplateRequest.ps1
 src/PSSailpoint.V3/Model/PutPasswordDictionaryRequest.ps1
-src/PSSailpoint.V3/Model/PutSourceConfigRequest.ps1
-src/PSSailpoint.V3/Model/PutSourceTemplateRequest.ps1
 src/PSSailpoint.V3/Model/Query.ps1
 src/PSSailpoint.V3/Model/QueryResultFilter.ps1
 src/PSSailpoint.V3/Model/QueryType.ps1
@@ -1129,6 +1133,7 @@ src/PSSailpoint.V3/Model/RequestableObject.ps1
 src/PSSailpoint.V3/Model/RequestableObjectReference.ps1
 src/PSSailpoint.V3/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.V3/Model/RequestableObjectType.ps1
+src/PSSailpoint.V3/Model/RequestedItemDetails.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatus.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusCancelledRequestDetails.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
@@ -1187,6 +1192,7 @@ src/PSSailpoint.V3/Model/Search.ps1
 src/PSSailpoint.V3/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint.V3/Model/SearchArguments.ps1
 src/PSSailpoint.V3/Model/SearchAttributeConfig.ps1
+src/PSSailpoint.V3/Model/SearchDocument.ps1
 src/PSSailpoint.V3/Model/SearchExportReportArguments.ps1
 src/PSSailpoint.V3/Model/SearchFilterType.ps1
 src/PSSailpoint.V3/Model/SearchSchedule.ps1
@@ -1394,6 +1400,8 @@ tests/Model/AccessRequest.Tests.ps1
 tests/Model/AccessRequestConfig.Tests.ps1
 tests/Model/AccessRequestItem.Tests.ps1
 tests/Model/AccessRequestPhases.Tests.ps1
+tests/Model/AccessRequestResponse.Tests.ps1
+tests/Model/AccessRequestTracking.Tests.ps1
 tests/Model/AccessRequestType.Tests.ps1
 tests/Model/AccessReviewItem.Tests.ps1
 tests/Model/AccessReviewReassignment.Tests.ps1
@@ -1756,10 +1764,9 @@ tests/Model/PublicIdentityAttributeConfig.Tests.ps1
 tests/Model/PublicIdentityAttributesInner.Tests.ps1
 tests/Model/PublicIdentityConfig.Tests.ps1
 tests/Model/PutClientLogConfigurationRequest.Tests.ps1
-tests/Model/PutCorrelationConfigRequest.Tests.ps1
+tests/Model/PutConnectorSourceConfigRequest.Tests.ps1
+tests/Model/PutConnectorSourceTemplateRequest.Tests.ps1
 tests/Model/PutPasswordDictionaryRequest.Tests.ps1
-tests/Model/PutSourceConfigRequest.Tests.ps1
-tests/Model/PutSourceTemplateRequest.Tests.ps1
 tests/Model/Query.Tests.ps1
 tests/Model/QueryResultFilter.Tests.ps1
 tests/Model/QueryType.Tests.ps1
@@ -1791,6 +1798,7 @@ tests/Model/RequestableObject.Tests.ps1
 tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
+tests/Model/RequestedItemDetails.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
 tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1
@@ -1849,6 +1857,7 @@ tests/Model/Search.Tests.ps1
 tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
 tests/Model/SearchAttributeConfig.Tests.ps1
+tests/Model/SearchDocument.Tests.ps1
 tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchSchedule.Tests.ps1

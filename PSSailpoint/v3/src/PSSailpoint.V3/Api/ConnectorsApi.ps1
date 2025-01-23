@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create custom connector
+Create Custom Connector
 
 .DESCRIPTION
 
@@ -98,14 +98,14 @@ function New-CustomConnector {
 <#
 .SYNOPSIS
 
-Deletes connector by script name
+Delete Connector by Script Name
 
 .DESCRIPTION
 
 Delete a custom connector that using its script name.
 
 .PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 .PARAMETER WithHttpInfo
 
@@ -172,14 +172,14 @@ function Remove-CustomConnector {
 <#
 .SYNOPSIS
 
-Gets connector by script name
+Get Connector by Script Name
 
 .DESCRIPTION
 
 Fetches a connector that using its script name.    
 
 .PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 .PARAMETER Locale
 The locale to apply to the config. If no viable locale is given, it will default to ""en""
@@ -257,93 +257,7 @@ function Get-Connector {
 <#
 .SYNOPSIS
 
-No summary available.
-
-.DESCRIPTION
-
-Fetches a connector's correlation config using its script name.    
-
-.PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-
-.PARAMETER ReturnType
-
-Select the return type (optional): application/xml, application/json
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-String
-#>
-function Get-ConnectorCorrelationConfig {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ScriptName},
-        [String]
-        [ValidateSet("application/xml", "application/json")]
-        $ReturnType,
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-ConnectorCorrelationConfig' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/xml', 'application/json')
-
-        if ($ReturnType) {
-            # use the return type (MIME) provided by the user
-            $LocalVarAccepts = @($ReturnType)
-        }
-
-        $LocalVarUri = '/connectors/{scriptName}/correlation-config'
-        if (!$ScriptName) {
-            throw "Error! The required parameter `ScriptName` missing when calling getConnectorCorrelationConfig."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{scriptName}', [System.Web.HTTPUtility]::UrlEncode($ScriptName))
-
-
-
-        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "String" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Gets connector list
+Get Connector List
 
 .DESCRIPTION
 
@@ -458,14 +372,14 @@ function Get-ConnectorList {
 <#
 .SYNOPSIS
 
-No summary available.
+Get Connector Source Configuration
 
 .DESCRIPTION
 
 Fetches a connector's source config using its script name.    
 
 .PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 .PARAMETER ReturnType
 
@@ -544,14 +458,14 @@ function Get-ConnectorSourceConfig {
 <#
 .SYNOPSIS
 
-No summary available.
+Get Connector Source Template
 
 .DESCRIPTION
 
 Fetches a connector's source template using its script name.    
 
 .PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 .PARAMETER ReturnType
 
@@ -630,7 +544,7 @@ function Get-ConnectorSourceTemplate {
 <#
 .SYNOPSIS
 
-No summary available.
+Get Connector Translations
 
 .DESCRIPTION
 
@@ -727,102 +641,14 @@ function Get-ConnectorTranslations {
 <#
 .SYNOPSIS
 
-No summary available.
-
-.DESCRIPTION
-
-Update a connector's correlation config using its script name.    
-
-.PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-
-.PARAMETER File
-connector correlation config xml file
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-UpdateDetail
-#>
-function Send-CorrelationConfig {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${ScriptName},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.IO.FileInfo]
-        ${File},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Send-CorrelationConfig' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('multipart/form-data')
-
-        $LocalVarUri = '/connectors/{scriptName}/correlation-config'
-        if (!$ScriptName) {
-            throw "Error! The required parameter `ScriptName` missing when calling putCorrelationConfig."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{scriptName}', [System.Web.HTTPUtility]::UrlEncode($ScriptName))
-
-        if (!$File) {
-            throw "Error! The required parameter `File` missing when calling putCorrelationConfig."
-        }
-        $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
-
-
-
-        $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "UpdateDetail" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-No summary available.
+Update Connector Source Configuration
 
 .DESCRIPTION
 
 Update a connector's source config using its script name.    
 
 .PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 .PARAMETER File
 connector source config xml file
@@ -835,7 +661,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 UpdateDetail
 #>
-function Send-SourceConfig {
+function Send-ConnectorSourceConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -849,7 +675,7 @@ function Send-SourceConfig {
     )
 
     Process {
-        'Calling method: Send-SourceConfig' | Write-Debug
+        'Calling method: Send-ConnectorSourceConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -869,12 +695,12 @@ function Send-SourceConfig {
 
         $LocalVarUri = '/connectors/{scriptName}/source-config'
         if (!$ScriptName) {
-            throw "Error! The required parameter `ScriptName` missing when calling putSourceConfig."
+            throw "Error! The required parameter `ScriptName` missing when calling putConnectorSourceConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{scriptName}', [System.Web.HTTPUtility]::UrlEncode($ScriptName))
 
         if (!$File) {
-            throw "Error! The required parameter `File` missing when calling putSourceConfig."
+            throw "Error! The required parameter `File` missing when calling putConnectorSourceConfig."
         }
         $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
@@ -903,14 +729,14 @@ function Send-SourceConfig {
 <#
 .SYNOPSIS
 
-No summary available.
+Update Connector Source Template
 
 .DESCRIPTION
 
 Update a connector's source template using its script name.    
 
 .PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 .PARAMETER File
 connector source template xml file
@@ -923,7 +749,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 UpdateDetail
 #>
-function Send-SourceTemplate {
+function Send-ConnectorSourceTemplate {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -937,7 +763,7 @@ function Send-SourceTemplate {
     )
 
     Process {
-        'Calling method: Send-SourceTemplate' | Write-Debug
+        'Calling method: Send-ConnectorSourceTemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -957,12 +783,12 @@ function Send-SourceTemplate {
 
         $LocalVarUri = '/connectors/{scriptName}/source-template'
         if (!$ScriptName) {
-            throw "Error! The required parameter `ScriptName` missing when calling putSourceTemplate."
+            throw "Error! The required parameter `ScriptName` missing when calling putConnectorSourceTemplate."
         }
         $LocalVarUri = $LocalVarUri.replace('{scriptName}', [System.Web.HTTPUtility]::UrlEncode($ScriptName))
 
         if (!$File) {
-            throw "Error! The required parameter `File` missing when calling putSourceTemplate."
+            throw "Error! The required parameter `File` missing when calling putConnectorSourceTemplate."
         }
         $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
 
@@ -991,7 +817,7 @@ function Send-SourceTemplate {
 <#
 .SYNOPSIS
 
-No summary available.
+Update Connector Translations
 
 .DESCRIPTION
 
@@ -1011,7 +837,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 UpdateDetail
 #>
-function Send-Translations {
+function Send-ConnectorTranslations {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1026,7 +852,7 @@ function Send-Translations {
     )
 
     Process {
-        'Calling method: Send-Translations' | Write-Debug
+        'Calling method: Send-ConnectorTranslations' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1046,11 +872,11 @@ function Send-Translations {
 
         $LocalVarUri = '/connectors/{scriptName}/translations/{locale}'
         if (!$ScriptName) {
-            throw "Error! The required parameter `ScriptName` missing when calling putTranslations."
+            throw "Error! The required parameter `ScriptName` missing when calling putConnectorTranslations."
         }
         $LocalVarUri = $LocalVarUri.replace('{scriptName}', [System.Web.HTTPUtility]::UrlEncode($ScriptName))
         if (!$Locale) {
-            throw "Error! The required parameter `Locale` missing when calling putTranslations."
+            throw "Error! The required parameter `Locale` missing when calling putConnectorTranslations."
         }
         $LocalVarUri = $LocalVarUri.replace('{locale}', [System.Web.HTTPUtility]::UrlEncode($Locale))
 
@@ -1079,17 +905,17 @@ function Send-Translations {
 <#
 .SYNOPSIS
 
-Update connector by script name
+Update Connector by Script Name
 
 .DESCRIPTION
 
-Patch a custom connector that using its script name. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
 
 .PARAMETER ScriptName
-The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 .PARAMETER JsonPatchOperation
-A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+A list of connector detail update operations 
 
 .PARAMETER WithHttpInfo
 

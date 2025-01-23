@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+
 const getAllFiles = function (dirPath, arrayOfFiles) {
   files = fs.readdirSync(dirPath);
   arrayOfFiles = arrayOfFiles || [];
@@ -7,7 +8,7 @@ const getAllFiles = function (dirPath, arrayOfFiles) {
     if (fs.statSync(dirPath + "/" + file).isDirectory()) {
       arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
     } else {
-      arrayOfFiles.push(path.join(__dirname.replaceAll('sdk-resources',''), dirPath, "/", file));
+      arrayOfFiles.push(path.join(__dirname.replaceAll('sdk-resources', ''), dirPath, "/", file));
     }
   });
   return arrayOfFiles;
@@ -16,17 +17,22 @@ const getAllFiles = function (dirPath, arrayOfFiles) {
 
 const fixFiles = function (myArray) {
   for (const file of myArray) {
-  
+
+    // Check if the file exists before attempting to read it
+    if (!fs.existsSync(file)) {
+      console.log(`File not found: ${file}`);
+      continue; // Skip this file if it doesn't exist
+    }
+
 
     let fileOut = [];
     let madeChange = false;
     let rawdata = fs.readFileSync(file).toString();
     let rawDataArra = rawdata.split("\n");
-  
 
     if (file.includes("ModelEvent.ps1")) {
-        console.log("Found it");
-      }
+      console.log("Found it");
+    }
     // adjust the document type naming to fix the duplicate type errors
     let changedType = false
     if (file.includes("ModelEvent.ps1")) {
@@ -43,11 +49,11 @@ const fixFiles = function (myArray) {
         else if (line.includes('"_type" = ${Type}')) {
           fileOut.push(line.replace('"_type" = ${Type}', '"_type" = ${DocumentType}'));
           madeChange = true;
-        } 
+        }
         else if (line.includes('$Type = $JsonParameters.PSobject.Properties["_type"].value')) {
           fileOut.push(line.replace('$Type = $JsonParameters.PSobject.Properties["_type"].value', '$DocumentType = $JsonParameters.PSobject.Properties["_type"].value'));
           madeChange = true;
-        } 
+        }
         else {
           fileOut.push(line);
         }
@@ -56,7 +62,7 @@ const fixFiles = function (myArray) {
       fileOut = [];
     }
 
-    
+
     let changedDocumentType = false
     if (file.includes("EventDocument.ps1")) {
       for (const line of rawDataArra) {
@@ -72,11 +78,11 @@ const fixFiles = function (myArray) {
         else if (line.includes('"_type" = ${Type}')) {
           fileOut.push(line.replace('"_type" = ${Type}', '"_type" = ${DocumentType}'));
           madeChange = true;
-        } 
+        }
         else if (line.includes('$Type = $JsonParameters.PSobject.Properties["_type"].value')) {
           fileOut.push(line.replace('$Type = $JsonParameters.PSobject.Properties["_type"].value', '$DocumentType = $JsonParameters.PSobject.Properties["_type"].value'));
           madeChange = true;
-        } 
+        }
         else {
           fileOut.push(line);
         }
@@ -104,13 +110,13 @@ const fixFiles = function (myArray) {
         if (line.includes("$LocalVarAccepts = @('text/plain', 'application/json')")) {
           fileOut.push(line.replace("$LocalVarAccepts = @('text/plain', 'application/json')", "$LocalVarAccepts = @('text/plain')"));
           madeChange = true;
-        }else if(line.includes("[String]")){
+        } else if (line.includes("[String]")) {
           fileOut.push(line.replace("[String]", ""));
           madeChange = true;
-        }else if(line.includes('[ValidateSet("text/plain", "application/json")]')){
+        } else if (line.includes('[ValidateSet("text/plain", "application/json")]')) {
           fileOut.push(line.replace('[ValidateSet("text/plain", "application/json")]', ""));
           madeChange = true;
-        }else if (line.includes("$ReturnType,")) {
+        } else if (line.includes("$ReturnType,")) {
           fileOut.push(line.replace("$ReturnType,", ""));
           madeChange = true;
         } else {
@@ -128,10 +134,7 @@ const fixFiles = function (myArray) {
 }
 
 
-
-
 let myArray = [];
 getAllFiles(process.argv[2], myArray);
-
 fixFiles(myArray)
 

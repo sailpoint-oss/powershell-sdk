@@ -7,3 +7,6 @@ companyName: SailPoint Technologies
 packageGuid: 51EC9F24-1977-40CE-A990-D0186150E0A1
 commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select
 discardReadOnly: true
+subModuleName: V2024
+moduleImportPath: github.com/sailpoint-oss/golang-sdk/v2/api_v2024
+funtionPrefix: V2024

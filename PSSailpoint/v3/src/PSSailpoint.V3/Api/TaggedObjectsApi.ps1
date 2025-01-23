@@ -8,17 +8,17 @@
 <#
 .SYNOPSIS
 
-Delete Tagged Object
+Delete Object Tags
 
 .DESCRIPTION
 
-This deletes a tagged object for the specified type.
+Delete all tags from a tagged object.
 
 .PARAMETER Type
-The type of tagged object to delete.
+The type of object to delete tags from.
 
 .PARAMETER Id
-The ID of the object reference to delete.
+The ID of the object to delete tags from.
 
 .PARAMETER WithHttpInfo
 

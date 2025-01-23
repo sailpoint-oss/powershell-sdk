@@ -703,7 +703,7 @@ Get Source Correlation Configuration
 
 .DESCRIPTION
 
-This API returns the existing correlation configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+This API returns the existing correlation configuration for a source specified by the given ID.
 
 .PARAMETER Id
 The source id
@@ -2520,7 +2520,7 @@ Update Source Correlation Configuration
 
 .DESCRIPTION
 
-Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
+Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
 
 .PARAMETER Id
 The source id

@@ -146,19 +146,17 @@ Class | Method | HTTP request | Description
 *ConfigurationHubApi* | [**Get-UploadedConfiguration**](docs/ConfigurationHubApi.md#Get-UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
 *ConfigurationHubApi* | [**Get-UploadedConfigurations**](docs/ConfigurationHubApi.md#Get-UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *ConfigurationHubApi* | [**Update-ObjectMappings**](docs/ConfigurationHubApi.md#Update-ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
-*ConnectorsApi* | [**New-CustomConnector**](docs/ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create custom connector
-*ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | Deletes connector by script name
-*ConnectorsApi* | [**Get-Connector**](docs/ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | Gets connector by script name
-*ConnectorsApi* | [**Get-ConnectorCorrelationConfig**](docs/ConnectorsApi.md#Get-ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | 
-*ConnectorsApi* | [**Get-ConnectorList**](docs/ConnectorsApi.md#Get-ConnectorList) | **GET** /connectors | Gets connector list
-*ConnectorsApi* | [**Get-ConnectorSourceConfig**](docs/ConnectorsApi.md#Get-ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | 
-*ConnectorsApi* | [**Get-ConnectorSourceTemplate**](docs/ConnectorsApi.md#Get-ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | 
-*ConnectorsApi* | [**Get-ConnectorTranslations**](docs/ConnectorsApi.md#Get-ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | 
-*ConnectorsApi* | [**Send-CorrelationConfig**](docs/ConnectorsApi.md#Send-CorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | 
-*ConnectorsApi* | [**Send-SourceConfig**](docs/ConnectorsApi.md#Send-SourceConfig) | **PUT** /connectors/{scriptName}/source-config | 
-*ConnectorsApi* | [**Send-SourceTemplate**](docs/ConnectorsApi.md#Send-SourceTemplate) | **PUT** /connectors/{scriptName}/source-template | 
-*ConnectorsApi* | [**Send-Translations**](docs/ConnectorsApi.md#Send-Translations) | **PUT** /connectors/{scriptName}/translations/{locale} | 
-*ConnectorsApi* | [**Update-Connector**](docs/ConnectorsApi.md#Update-Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
+*ConnectorsApi* | [**New-CustomConnector**](docs/ConnectorsApi.md#New-CustomConnector) | **POST** /connectors | Create Custom Connector
+*ConnectorsApi* | [**Remove-CustomConnector**](docs/ConnectorsApi.md#Remove-CustomConnector) | **DELETE** /connectors/{scriptName} | Delete Connector by Script Name
+*ConnectorsApi* | [**Get-Connector**](docs/ConnectorsApi.md#Get-Connector) | **GET** /connectors/{scriptName} | Get Connector by Script Name
+*ConnectorsApi* | [**Get-ConnectorList**](docs/ConnectorsApi.md#Get-ConnectorList) | **GET** /connectors | Get Connector List
+*ConnectorsApi* | [**Get-ConnectorSourceConfig**](docs/ConnectorsApi.md#Get-ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get Connector Source Configuration
+*ConnectorsApi* | [**Get-ConnectorSourceTemplate**](docs/ConnectorsApi.md#Get-ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get Connector Source Template
+*ConnectorsApi* | [**Get-ConnectorTranslations**](docs/ConnectorsApi.md#Get-ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get Connector Translations
+*ConnectorsApi* | [**Send-ConnectorSourceConfig**](docs/ConnectorsApi.md#Send-ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update Connector Source Configuration
+*ConnectorsApi* | [**Send-ConnectorSourceTemplate**](docs/ConnectorsApi.md#Send-ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update Connector Source Template
+*ConnectorsApi* | [**Send-ConnectorTranslations**](docs/ConnectorsApi.md#Send-ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update Connector Translations
+*ConnectorsApi* | [**Update-Connector**](docs/ConnectorsApi.md#Update-Connector) | **PATCH** /connectors/{scriptName} | Update Connector by Script Name
 *GlobalTenantSecuritySettingsApi* | [**New-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#New-AuthOrgNetworkConfig) | **POST** /auth-org/network-config | Create security network configuration.
 *GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgLockoutConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgLockoutConfig) | **GET** /auth-org/lockout-config | Get Auth Org Lockout Configuration.
 *GlobalTenantSecuritySettingsApi* | [**Get-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Get-AuthOrgNetworkConfig) | **GET** /auth-org/network-config | Get security network configuration.
@@ -199,19 +197,19 @@ Class | Method | HTTP request | Description
 *MFAControllerApi* | [**Send-KbaAnswers**](docs/MFAControllerApi.md#Send-KbaAnswers) | **POST** /mfa/kba/authenticate | Authenticate KBA provided MFA method
 *MFAControllerApi* | [**Send-OktaVerifyRequest**](docs/MFAControllerApi.md#Send-OktaVerifyRequest) | **POST** /mfa/okta-verify/verify | Verifying authentication via Okta method
 *MFAControllerApi* | [**Send-TokenAuthRequest**](docs/MFAControllerApi.md#Send-TokenAuthRequest) | **POST** /mfa/token/authenticate | Authenticate Token provided MFA method
-*ManagedClientsApi* | [**New-ManagedClient**](docs/ManagedClientsApi.md#New-ManagedClient) | **POST** /managed-clients | Create a new Managed Client
-*ManagedClientsApi* | [**Remove-ManagedClient**](docs/ManagedClientsApi.md#Remove-ManagedClient) | **DELETE** /managed-clients/{id} | Delete a Managed Client
-*ManagedClientsApi* | [**Get-ManagedClient**](docs/ManagedClientsApi.md#Get-ManagedClient) | **GET** /managed-clients/{id} | Get a Managed Client
-*ManagedClientsApi* | [**Get-ManagedClientStatus**](docs/ManagedClientsApi.md#Get-ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status.
+*ManagedClientsApi* | [**New-ManagedClient**](docs/ManagedClientsApi.md#New-ManagedClient) | **POST** /managed-clients | Create Managed Client
+*ManagedClientsApi* | [**Remove-ManagedClient**](docs/ManagedClientsApi.md#Remove-ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
+*ManagedClientsApi* | [**Get-ManagedClient**](docs/ManagedClientsApi.md#Get-ManagedClient) | **GET** /managed-clients/{id} | Get Managed Client
+*ManagedClientsApi* | [**Get-ManagedClientStatus**](docs/ManagedClientsApi.md#Get-ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
 *ManagedClientsApi* | [**Get-ManagedClients**](docs/ManagedClientsApi.md#Get-ManagedClients) | **GET** /managed-clients | Get Managed Clients
-*ManagedClientsApi* | [**Update-ManagedClient**](docs/ManagedClientsApi.md#Update-ManagedClient) | **PATCH** /managed-clients/{id} | Update a Managed Client
-*ManagedClustersApi* | [**New-ManagedCluster**](docs/ManagedClustersApi.md#New-ManagedCluster) | **POST** /managed-clusters | Create a new Managed Cluster
-*ManagedClustersApi* | [**Remove-ManagedCluster**](docs/ManagedClustersApi.md#Remove-ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete a Managed Cluster
-*ManagedClustersApi* | [**Get-ClientLogConfiguration**](docs/ManagedClustersApi.md#Get-ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster's log configuration
-*ManagedClustersApi* | [**Get-ManagedCluster**](docs/ManagedClustersApi.md#Get-ManagedCluster) | **GET** /managed-clusters/{id} | Get a specified Managed Cluster.
-*ManagedClustersApi* | [**Get-ManagedClusters**](docs/ManagedClustersApi.md#Get-ManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
-*ManagedClustersApi* | [**Send-ClientLogConfiguration**](docs/ManagedClustersApi.md#Send-ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster's log configuration
-*ManagedClustersApi* | [**Update-ManagedCluster**](docs/ManagedClustersApi.md#Update-ManagedCluster) | **PATCH** /managed-clusters/{id} | Update a Managed Cluster
+*ManagedClientsApi* | [**Update-ManagedClient**](docs/ManagedClientsApi.md#Update-ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
+*ManagedClustersApi* | [**New-ManagedCluster**](docs/ManagedClustersApi.md#New-ManagedCluster) | **POST** /managed-clusters | Create Create Managed Cluster
+*ManagedClustersApi* | [**Remove-ManagedCluster**](docs/ManagedClustersApi.md#Remove-ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete Managed Cluster
+*ManagedClustersApi* | [**Get-ClientLogConfiguration**](docs/ManagedClustersApi.md#Get-ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster Log Configuration
+*ManagedClustersApi* | [**Get-ManagedCluster**](docs/ManagedClustersApi.md#Get-ManagedCluster) | **GET** /managed-clusters/{id} | Get Managed Cluster
+*ManagedClustersApi* | [**Get-ManagedClusters**](docs/ManagedClustersApi.md#Get-ManagedClusters) | **GET** /managed-clusters | Get Managed Clusters
+*ManagedClustersApi* | [**Send-ClientLogConfiguration**](docs/ManagedClustersApi.md#Send-ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
+*ManagedClustersApi* | [**Update-ManagedCluster**](docs/ManagedClustersApi.md#Update-ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
 *NonEmployeeLifecycleManagementApi* | [**Approve-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#Approve-NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeRecord**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *NonEmployeeLifecycleManagementApi* | [**New-NonEmployeeRequest**](docs/NonEmployeeLifecycleManagementApi.md#New-NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -369,7 +367,7 @@ Class | Method | HTTP request | Description
 *SourcesApi* | [**Update-ProvisioningPolicy**](docs/SourcesApi.md#Update-ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 *SourcesApi* | [**Update-Source**](docs/SourcesApi.md#Update-Source) | **PATCH** /sources/{id} | Update Source (Partial)
 *SourcesApi* | [**Update-SourceSchema**](docs/SourcesApi.md#Update-SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
-*TaggedObjectsApi* | [**Remove-TaggedObject**](docs/TaggedObjectsApi.md#Remove-TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Tagged Object
+*TaggedObjectsApi* | [**Remove-TaggedObject**](docs/TaggedObjectsApi.md#Remove-TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Object Tags
 *TaggedObjectsApi* | [**Remove-TagsToManyObject**](docs/TaggedObjectsApi.md#Remove-TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
 *TaggedObjectsApi* | [**Get-TaggedObject**](docs/TaggedObjectsApi.md#Get-TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
 *TaggedObjectsApi* | [**Get-TaggedObjects**](docs/TaggedObjectsApi.md#Get-TaggedObjects) | **GET** /tagged-objects | List Tagged Objects
@@ -444,6 +442,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.AccessRequestConfig](docs/AccessRequestConfig.md)
  - [PSSailpoint.V3\Model.AccessRequestItem](docs/AccessRequestItem.md)
  - [PSSailpoint.V3\Model.AccessRequestPhases](docs/AccessRequestPhases.md)
+ - [PSSailpoint.V3\Model.AccessRequestResponse](docs/AccessRequestResponse.md)
+ - [PSSailpoint.V3\Model.AccessRequestTracking](docs/AccessRequestTracking.md)
  - [PSSailpoint.V3\Model.AccessRequestType](docs/AccessRequestType.md)
  - [PSSailpoint.V3\Model.AccessReviewItem](docs/AccessReviewItem.md)
  - [PSSailpoint.V3\Model.AccessReviewReassignment](docs/AccessReviewReassignment.md)
@@ -806,10 +806,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.PublicIdentityAttributesInner](docs/PublicIdentityAttributesInner.md)
  - [PSSailpoint.V3\Model.PublicIdentityConfig](docs/PublicIdentityConfig.md)
  - [PSSailpoint.V3\Model.PutClientLogConfigurationRequest](docs/PutClientLogConfigurationRequest.md)
- - [PSSailpoint.V3\Model.PutCorrelationConfigRequest](docs/PutCorrelationConfigRequest.md)
+ - [PSSailpoint.V3\Model.PutConnectorSourceConfigRequest](docs/PutConnectorSourceConfigRequest.md)
+ - [PSSailpoint.V3\Model.PutConnectorSourceTemplateRequest](docs/PutConnectorSourceTemplateRequest.md)
  - [PSSailpoint.V3\Model.PutPasswordDictionaryRequest](docs/PutPasswordDictionaryRequest.md)
- - [PSSailpoint.V3\Model.PutSourceConfigRequest](docs/PutSourceConfigRequest.md)
- - [PSSailpoint.V3\Model.PutSourceTemplateRequest](docs/PutSourceTemplateRequest.md)
  - [PSSailpoint.V3\Model.Query](docs/Query.md)
  - [PSSailpoint.V3\Model.QueryResultFilter](docs/QueryResultFilter.md)
  - [PSSailpoint.V3\Model.QueryType](docs/QueryType.md)
@@ -841,6 +840,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.RequestableObjectReference](docs/RequestableObjectReference.md)
  - [PSSailpoint.V3\Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
  - [PSSailpoint.V3\Model.RequestableObjectType](docs/RequestableObjectType.md)
+ - [PSSailpoint.V3\Model.RequestedItemDetails](docs/RequestedItemDetails.md)
  - [PSSailpoint.V3\Model.RequestedItemStatus](docs/RequestedItemStatus.md)
  - [PSSailpoint.V3\Model.RequestedItemStatusCancelledRequestDetails](docs/RequestedItemStatusCancelledRequestDetails.md)
  - [PSSailpoint.V3\Model.RequestedItemStatusPreApprovalTriggerDetails](docs/RequestedItemStatusPreApprovalTriggerDetails.md)
@@ -899,6 +899,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.SearchAggregationSpecification](docs/SearchAggregationSpecification.md)
  - [PSSailpoint.V3\Model.SearchArguments](docs/SearchArguments.md)
  - [PSSailpoint.V3\Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
+ - [PSSailpoint.V3\Model.SearchDocument](docs/SearchDocument.md)
  - [PSSailpoint.V3\Model.SearchExportReportArguments](docs/SearchExportReportArguments.md)
  - [PSSailpoint.V3\Model.SearchFilterType](docs/SearchFilterType.md)
  - [PSSailpoint.V3\Model.SearchSchedule](docs/SearchSchedule.md)

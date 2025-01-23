@@ -66,10 +66,6 @@ function Approve-AccessRequest {
         }
         $LocalVarUri = $LocalVarUri.replace('{approvalId}', [System.Web.HTTPUtility]::UrlEncode($ApprovalId))
 
-        if (!$CommentDto) {
-            throw "Error! The required parameter `CommentDto` missing when calling approveAccessRequest."
-        }
-
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CommentDto -is [array])) {
             $LocalVarBodyParameter = $CommentDto | ConvertTo-Json -AsArray -Depth 100
         } else {

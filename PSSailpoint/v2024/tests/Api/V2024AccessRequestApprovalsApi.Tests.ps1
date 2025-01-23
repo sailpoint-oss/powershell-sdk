@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestApprovalsApi' {
         }
     }
 
+    Context 'Get-V2024AccessRequestApprovers' {
+        It 'Test Get-V2024AccessRequestApprovers' {
+            #$TestResult = Get-V2024AccessRequestApprovers -AccessRequestId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024CompletedApprovals' {
         It 'Test Get-V2024CompletedApprovals' {
             #$TestResult = Get-V2024CompletedApprovals -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"

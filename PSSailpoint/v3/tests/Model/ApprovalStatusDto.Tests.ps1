@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'ApprovalStatusDto' {
     Context 'ApprovalStatusDto' {
         It 'Initialize-ApprovalStatusDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-ApprovalStatusDto -Forwarded "TEST_VALUE" -OriginalOwner "TEST_VALUE" -CurrentOwner "TEST_VALUE" -Modified "TEST_VALUE" -Status "TEST_VALUE" -Scheme "TEST_VALUE" -ErrorMessages "TEST_VALUE" -Comment "TEST_VALUE" -RemoveDate "TEST_VALUE"
+            #$NewObject = Initialize-ApprovalStatusDto -ApprovalId "TEST_VALUE" -Forwarded "TEST_VALUE" -OriginalOwner "TEST_VALUE" -CurrentOwner "TEST_VALUE" -Modified "TEST_VALUE" -Status "TEST_VALUE" -Scheme "TEST_VALUE" -ErrorMessages "TEST_VALUE" -Comment "TEST_VALUE" -RemoveDate "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalStatusDto
             #$NewObject.property | Should -Be 0
         }

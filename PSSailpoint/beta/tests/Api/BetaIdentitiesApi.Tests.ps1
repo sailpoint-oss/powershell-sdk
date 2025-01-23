@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaIdentitiesApi' {
 
     Context 'Send-BetaIdentityVerificationAccountToken' {
         It 'Test Send-BetaIdentityVerificationAccountToken' {
-            #$TestResult = Send-BetaIdentityVerificationAccountToken -SendAccountVerificationRequest "TEST_VALUE"
+            #$TestResult = Send-BetaIdentityVerificationAccountToken -Id "TEST_VALUE" -SendAccountVerificationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

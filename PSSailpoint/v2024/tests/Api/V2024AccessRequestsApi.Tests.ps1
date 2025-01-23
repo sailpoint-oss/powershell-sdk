@@ -6,9 +6,25 @@
 #
 
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestsApi' {
+    Context 'Approve-V2024BulkAccessRequest' {
+        It 'Test Approve-V2024BulkAccessRequest' {
+            #$TestResult = Approve-V2024BulkAccessRequest -BulkApproveAccessRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Suspend-V2024AccessRequest' {
         It 'Test Suspend-V2024AccessRequest' {
             #$TestResult = Suspend-V2024AccessRequest -CancelAccessRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Suspend-V2024AccessRequestInBulk' {
+        It 'Test Suspend-V2024AccessRequestInBulk' {
+            #$TestResult = Suspend-V2024AccessRequestInBulk -BulkCancelAccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -41,6 +57,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestsApi' {
     Context 'Get-V2024AccessRequestStatus' {
         It 'Test Get-V2024AccessRequestStatus' {
             #$TestResult = Get-V2024AccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024AdministratorsAccessRequestStatus' {
+        It 'Test Get-V2024AdministratorsAccessRequestStatus' {
+            #$TestResult = Get-V2024AdministratorsAccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

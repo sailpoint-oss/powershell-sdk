@@ -254,6 +254,7 @@ function Search-V2024Get {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("accessprofiles", "accountactivities", "entitlements", "events", "identities", "roles")]
         [String]
         ${Index},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]

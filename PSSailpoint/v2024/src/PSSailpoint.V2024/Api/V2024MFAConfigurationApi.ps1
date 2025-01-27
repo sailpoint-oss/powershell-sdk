@@ -501,6 +501,7 @@ function Test-V2024MFAConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("okta-verify", "duo-web")]
         [String]
         ${Method},
         [Switch]

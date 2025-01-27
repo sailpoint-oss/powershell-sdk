@@ -14,6 +14,17 @@ const getAllFiles = function (dirPath, arrayOfFiles) {
     return arrayOfFiles;
 };
 
+const renameFileToIndices = function (filePath) {
+    // Determine the new file path by changing the file's name to 'indices'
+    let dirPath = path.dirname(filePath); // Gets the directory path of the current file
+
+    const newFilePath = path.join(dirPath, "indices.md"); // Constructs the full target path
+
+    // Rename the file
+    fs.renameSync(filePath, newFilePath);
+    console.log(`Renamed: ${filePath} to ${newFilePath}`);
+};
+
 const fixFiles = function (myArray) {
     for (const file of myArray) {
 
@@ -28,10 +39,29 @@ const fixFiles = function (myArray) {
         let rawdata = fs.readFileSync(file).toString();
         let rawDataArra = rawdata.split("\n");
 
+        if (file.includes("Index.md")) {
+            if (fs.existsSync(file)) {
+                renameFileToIndices(file);
+
+                continue; // Skip further processing for this file
+            } else {
+                console.error(`File not found: ${file}`);
+                continue;
+            }
+        }
+
 
         if (file.includes(".md")) {
             for (const line of rawDataArra) {
-                if (line.includes("../models/system-collections-hashtable")) {
+                if (line.includes("**Indices** | Pointer to [**[]Index**](Index)")) {
+                    fileOut.push(
+                        line.replaceAll(
+                            "**Indices** | Pointer to [**[]Index**](Index)",
+                            "**Indices** | Pointer to [**[]Index**](Indices)"
+                        )
+                    );
+                    madeChange = true;
+                } else if (line.includes("../models/system-collections-hashtable")) {
                     fileOut.push(line.replace("../models/system-collections-hashtable", "https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0"));
                     madeChange = true;
                 } else if (line.includes("(system-collections-hashtable)")) {

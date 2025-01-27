@@ -29,6 +29,7 @@ function Remove-BetaMFAConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("okta-verify", "duo-web")]
         [String]
         ${Method},
         [Switch]
@@ -575,6 +576,7 @@ function Test-BetaMFAConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("okta-verify", "duo-web")]
         [String]
         ${Method},
         [Switch]

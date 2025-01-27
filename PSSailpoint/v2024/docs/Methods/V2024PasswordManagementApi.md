@@ -1,5 +1,5 @@
 ---
-id: password-management
+id: v2024-password-management
 title: PasswordManagement
 pagination_label: PasswordManagement
 sidebar_label: PasswordManagement

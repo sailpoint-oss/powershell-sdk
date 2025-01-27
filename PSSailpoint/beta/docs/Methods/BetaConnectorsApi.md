@@ -1,5 +1,5 @@
 ---
-id: connectors
+id: beta-connectors
 title: Connectors
 pagination_label: Connectors
 sidebar_label: Connectors

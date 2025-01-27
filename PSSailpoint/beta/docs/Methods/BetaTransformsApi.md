@@ -1,5 +1,5 @@
 ---
-id: transforms
+id: beta-transforms
 title: Transforms
 pagination_label: Transforms
 sidebar_label: Transforms

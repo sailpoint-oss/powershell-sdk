@@ -1,5 +1,5 @@
 ---
-id: reports-data-extraction
+id: v2024-reports-data-extraction
 title: ReportsDataExtraction
 pagination_label: ReportsDataExtraction
 sidebar_label: ReportsDataExtraction

@@ -1,5 +1,5 @@
 ---
-id: password-management
+id: beta-password-management
 title: PasswordManagement
 pagination_label: PasswordManagement
 sidebar_label: PasswordManagement

@@ -1,5 +1,5 @@
 ---
-id: custom-password-instructions
+id: v2024-custom-password-instructions
 title: CustomPasswordInstructions
 pagination_label: CustomPasswordInstructions
 sidebar_label: CustomPasswordInstructions

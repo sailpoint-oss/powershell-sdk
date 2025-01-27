@@ -1,5 +1,5 @@
 ---
-id: approvals
+id: beta-approvals
 title: Approvals
 pagination_label: Approvals
 sidebar_label: Approvals

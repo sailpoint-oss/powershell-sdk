@@ -1,5 +1,5 @@
 ---
-id: o-auth-clients
+id: beta-o-auth-clients
 title: OAuthClients
 pagination_label: OAuthClients
 sidebar_label: OAuthClients

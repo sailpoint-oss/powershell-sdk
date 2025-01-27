@@ -1,5 +1,5 @@
 ---
-id: entitlements
+id: beta-entitlements
 title: Entitlements
 pagination_label: Entitlements
 sidebar_label: Entitlements

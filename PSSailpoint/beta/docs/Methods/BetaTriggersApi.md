@@ -1,5 +1,5 @@
 ---
-id: triggers
+id: beta-triggers
 title: Triggers
 pagination_label: Triggers
 sidebar_label: Triggers

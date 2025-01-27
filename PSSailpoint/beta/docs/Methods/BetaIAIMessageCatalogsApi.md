@@ -1,5 +1,5 @@
 ---
-id: iai-message-catalogs
+id: beta-iai-message-catalogs
 title: IAIMessageCatalogs
 pagination_label: IAIMessageCatalogs
 sidebar_label: IAIMessageCatalogs

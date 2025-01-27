@@ -1,5 +1,5 @@
 ---
-id: public-identities-config
+id: beta-public-identities-config
 title: PublicIdentitiesConfig
 pagination_label: PublicIdentitiesConfig
 sidebar_label: PublicIdentitiesConfig

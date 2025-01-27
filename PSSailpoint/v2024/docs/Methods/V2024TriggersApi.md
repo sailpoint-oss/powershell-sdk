@@ -1,5 +1,5 @@
 ---
-id: triggers
+id: v2024-triggers
 title: Triggers
 pagination_label: Triggers
 sidebar_label: Triggers

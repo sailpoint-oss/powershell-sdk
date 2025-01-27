@@ -1,5 +1,5 @@
 ---
-id: connectors
+id: v2024-connectors
 title: Connectors
 pagination_label: Connectors
 sidebar_label: Connectors

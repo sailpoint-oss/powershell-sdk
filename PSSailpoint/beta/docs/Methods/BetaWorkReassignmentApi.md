@@ -1,5 +1,5 @@
 ---
-id: work-reassignment
+id: beta-work-reassignment
 title: WorkReassignment
 pagination_label: WorkReassignment
 sidebar_label: WorkReassignment

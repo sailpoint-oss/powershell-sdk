@@ -1,5 +1,5 @@
 ---
-id: iai-recommendations
+id: beta-iai-recommendations
 title: IAIRecommendations
 pagination_label: IAIRecommendations
 sidebar_label: IAIRecommendations

@@ -1,5 +1,5 @@
 ---
-id: iai-outliers
+id: v2024-iai-outliers
 title: IAIOutliers
 pagination_label: IAIOutliers
 sidebar_label: IAIOutliers

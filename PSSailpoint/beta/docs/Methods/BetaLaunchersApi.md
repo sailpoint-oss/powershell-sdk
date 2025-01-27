@@ -1,5 +1,5 @@
 ---
-id: launchers
+id: beta-launchers
 title: Launchers
 pagination_label: Launchers
 sidebar_label: Launchers

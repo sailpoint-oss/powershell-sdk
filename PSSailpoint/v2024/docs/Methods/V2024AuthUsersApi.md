@@ -1,5 +1,5 @@
 ---
-id: auth-users
+id: v2024-auth-users
 title: AuthUsers
 pagination_label: AuthUsers
 sidebar_label: AuthUsers

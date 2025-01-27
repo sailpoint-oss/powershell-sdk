@@ -1,5 +1,5 @@
 ---
-id: personal-access-tokens
+id: v2024-personal-access-tokens
 title: PersonalAccessTokens
 pagination_label: PersonalAccessTokens
 sidebar_label: PersonalAccessTokens

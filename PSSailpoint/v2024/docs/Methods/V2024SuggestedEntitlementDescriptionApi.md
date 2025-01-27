@@ -1,5 +1,5 @@
 ---
-id: suggested-entitlement-description
+id: v2024-suggested-entitlement-description
 title: SuggestedEntitlementDescription
 pagination_label: SuggestedEntitlementDescription
 sidebar_label: SuggestedEntitlementDescription

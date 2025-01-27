@@ -1,5 +1,5 @@
 ---
-id: iai-recommendations
+id: v2024-iai-recommendations
 title: IAIRecommendations
 pagination_label: IAIRecommendations
 sidebar_label: IAIRecommendations

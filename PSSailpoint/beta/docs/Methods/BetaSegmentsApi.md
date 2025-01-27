@@ -1,5 +1,5 @@
 ---
-id: segments
+id: beta-segments
 title: Segments
 pagination_label: Segments
 sidebar_label: Segments

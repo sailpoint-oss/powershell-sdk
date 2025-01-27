@@ -1,5 +1,5 @@
 ---
-id: ui-metadata
+id: beta-ui-metadata
 title: UIMetadata
 pagination_label: UIMetadata
 sidebar_label: UIMetadata

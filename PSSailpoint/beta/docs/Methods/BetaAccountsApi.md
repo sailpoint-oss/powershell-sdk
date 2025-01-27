@@ -1,5 +1,5 @@
 ---
-id: accounts
+id: beta-accounts
 title: Accounts
 pagination_label: Accounts
 sidebar_label: Accounts

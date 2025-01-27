@@ -1,5 +1,5 @@
 ---
-id: tags
+id: beta-tags
 title: Tags
 pagination_label: Tags
 sidebar_label: Tags

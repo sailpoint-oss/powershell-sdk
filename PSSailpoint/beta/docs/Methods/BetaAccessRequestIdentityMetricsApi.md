@@ -1,5 +1,5 @@
 ---
-id: access-request-identity-metrics
+id: beta-access-request-identity-metrics
 title: AccessRequestIdentityMetrics
 pagination_label: AccessRequestIdentityMetrics
 sidebar_label: AccessRequestIdentityMetrics

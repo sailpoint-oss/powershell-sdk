@@ -1,5 +1,5 @@
 ---
-id: connector-rule-management
+id: beta-connector-rule-management
 title: ConnectorRuleManagement
 pagination_label: ConnectorRuleManagement
 sidebar_label: ConnectorRuleManagement

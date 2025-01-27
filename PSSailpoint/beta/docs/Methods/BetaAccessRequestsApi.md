@@ -1,5 +1,5 @@
 ---
-id: access-requests
+id: beta-access-requests
 title: AccessRequests
 pagination_label: AccessRequests
 sidebar_label: AccessRequests

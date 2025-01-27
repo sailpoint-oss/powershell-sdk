@@ -1,5 +1,5 @@
 ---
-id: configuration-hub
+id: v2024-configuration-hub
 title: ConfigurationHub
 pagination_label: ConfigurationHub
 sidebar_label: ConfigurationHub

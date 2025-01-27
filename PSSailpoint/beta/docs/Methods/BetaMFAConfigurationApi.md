@@ -1,5 +1,5 @@
 ---
-id: mfa-configuration
+id: beta-mfa-configuration
 title: MFAConfiguration
 pagination_label: MFAConfiguration
 sidebar_label: MFAConfiguration

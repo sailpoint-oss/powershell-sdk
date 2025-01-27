@@ -1,5 +1,5 @@
 ---
-id: tagged-objects
+id: v2024-tagged-objects
 title: TaggedObjects
 pagination_label: TaggedObjects
 sidebar_label: TaggedObjects

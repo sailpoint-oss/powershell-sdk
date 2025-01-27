@@ -1,5 +1,5 @@
 ---
-id: task-management
+id: beta-task-management
 title: TaskManagement
 pagination_label: TaskManagement
 sidebar_label: TaskManagement

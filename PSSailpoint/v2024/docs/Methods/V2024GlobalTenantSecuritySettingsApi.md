@@ -1,5 +1,5 @@
 ---
-id: global-tenant-security-settings
+id: v2024-global-tenant-security-settings
 title: GlobalTenantSecuritySettings
 pagination_label: GlobalTenantSecuritySettings
 sidebar_label: GlobalTenantSecuritySettings

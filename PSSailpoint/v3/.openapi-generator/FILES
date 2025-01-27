@@ -1780,7 +1780,6 @@ tests/Model/ReassignmentReference.Tests.ps1
 tests/Model/ReassignmentTrailDTO.Tests.ps1
 tests/Model/ReassignmentType.Tests.ps1
 tests/Model/Recommendation.Tests.ps1
-tests/Model/Reference.Tests.ps1
 tests/Model/Reference1.Tests.ps1
 tests/Model/RemediationItemDetails.Tests.ps1
 tests/Model/RemediationItems.Tests.ps1

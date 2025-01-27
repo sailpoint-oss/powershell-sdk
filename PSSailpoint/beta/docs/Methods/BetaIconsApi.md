@@ -1,5 +1,5 @@
 ---
-id: icons
+id: beta-icons
 title: Icons
 pagination_label: Icons
 sidebar_label: Icons

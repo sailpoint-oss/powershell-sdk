@@ -1,5 +1,5 @@
 ---
-id: dimensions
+id: v2024-dimensions
 title: Dimensions
 pagination_label: Dimensions
 sidebar_label: Dimensions

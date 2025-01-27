@@ -1,5 +1,5 @@
 ---
-id: notifications
+id: beta-notifications
 title: Notifications
 pagination_label: Notifications
 sidebar_label: Notifications

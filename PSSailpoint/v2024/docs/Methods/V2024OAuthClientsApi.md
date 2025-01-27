@@ -1,5 +1,5 @@
 ---
-id: o-auth-clients
+id: v2024-o-auth-clients
 title: OAuthClients
 pagination_label: OAuthClients
 sidebar_label: OAuthClients

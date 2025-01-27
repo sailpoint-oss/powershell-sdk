@@ -1,5 +1,5 @@
 ---
-id: certification-campaigns
+id: beta-certification-campaigns
 title: CertificationCampaigns
 pagination_label: CertificationCampaigns
 sidebar_label: CertificationCampaigns

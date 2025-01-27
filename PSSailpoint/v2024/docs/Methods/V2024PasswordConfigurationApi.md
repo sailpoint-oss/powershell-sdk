@@ -1,5 +1,5 @@
 ---
-id: password-configuration
+id: v2024-password-configuration
 title: PasswordConfiguration
 pagination_label: PasswordConfiguration
 sidebar_label: PasswordConfiguration

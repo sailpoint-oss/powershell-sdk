@@ -1,5 +1,5 @@
 ---
-id: account-usages
+id: v2024-account-usages
 title: AccountUsages
 pagination_label: AccountUsages
 sidebar_label: AccountUsages

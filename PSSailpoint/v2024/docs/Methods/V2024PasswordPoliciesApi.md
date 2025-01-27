@@ -1,5 +1,5 @@
 ---
-id: password-policies
+id: v2024-password-policies
 title: PasswordPolicies
 pagination_label: PasswordPolicies
 sidebar_label: PasswordPolicies

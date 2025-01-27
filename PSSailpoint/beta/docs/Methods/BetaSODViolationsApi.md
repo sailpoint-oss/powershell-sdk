@@ -1,5 +1,5 @@
 ---
-id: sod-violations
+id: beta-sod-violations
 title: SODViolations
 pagination_label: SODViolations
 sidebar_label: SODViolations

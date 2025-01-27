@@ -1,5 +1,5 @@
 ---
-id: access-model-metadata
+id: beta-access-model-metadata
 title: AccessModelMetadata
 pagination_label: AccessModelMetadata
 sidebar_label: AccessModelMetadata

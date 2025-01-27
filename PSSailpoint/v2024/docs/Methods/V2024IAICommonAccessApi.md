@@ -1,5 +1,5 @@
 ---
-id: iai-common-access
+id: v2024-iai-common-access
 title: IAICommonAccess
 pagination_label: IAICommonAccess
 sidebar_label: IAICommonAccess

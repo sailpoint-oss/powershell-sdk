@@ -1,5 +1,5 @@
 ---
-id: service-desk-integration
+id: beta-service-desk-integration
 title: ServiceDeskIntegration
 pagination_label: ServiceDeskIntegration
 sidebar_label: ServiceDeskIntegration

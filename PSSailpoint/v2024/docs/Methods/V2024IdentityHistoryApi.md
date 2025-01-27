@@ -1,5 +1,5 @@
 ---
-id: identity-history
+id: v2024-identity-history
 title: IdentityHistory
 pagination_label: IdentityHistory
 sidebar_label: IdentityHistory

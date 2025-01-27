@@ -1,5 +1,5 @@
 ---
-id: password-sync-groups
+id: v2024-password-sync-groups
 title: PasswordSyncGroups
 pagination_label: PasswordSyncGroups
 sidebar_label: PasswordSyncGroups

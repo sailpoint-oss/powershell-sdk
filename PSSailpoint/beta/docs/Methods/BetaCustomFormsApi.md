@@ -1,5 +1,5 @@
 ---
-id: custom-forms
+id: beta-custom-forms
 title: CustomForms
 pagination_label: CustomForms
 sidebar_label: CustomForms

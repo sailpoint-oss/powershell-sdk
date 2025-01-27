@@ -1,5 +1,5 @@
 ---
-id: service-desk-integration
+id: v2024-service-desk-integration
 title: ServiceDeskIntegration
 pagination_label: ServiceDeskIntegration
 sidebar_label: ServiceDeskIntegration

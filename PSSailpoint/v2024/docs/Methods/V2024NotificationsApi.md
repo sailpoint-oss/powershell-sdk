@@ -1,5 +1,5 @@
 ---
-id: notifications
+id: v2024-notifications
 title: Notifications
 pagination_label: Notifications
 sidebar_label: Notifications

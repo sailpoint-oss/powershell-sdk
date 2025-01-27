@@ -1,5 +1,5 @@
 ---
-id: sod-policies
+id: beta-sod-policies
 title: SODPolicies
 pagination_label: SODPolicies
 sidebar_label: SODPolicies

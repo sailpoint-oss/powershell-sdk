@@ -1,5 +1,5 @@
 ---
-id: mfa-controller
+id: beta-mfa-controller
 title: MFAController
 pagination_label: MFAController
 sidebar_label: MFAController

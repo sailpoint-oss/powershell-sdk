@@ -1,5 +1,5 @@
 ---
-id: icons
+id: v2024-icons
 title: Icons
 pagination_label: Icons
 sidebar_label: Icons

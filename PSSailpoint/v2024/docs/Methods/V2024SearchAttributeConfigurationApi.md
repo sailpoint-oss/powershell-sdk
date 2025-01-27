@@ -1,5 +1,5 @@
 ---
-id: search-attribute-configuration
+id: v2024-search-attribute-configuration
 title: SearchAttributeConfiguration
 pagination_label: SearchAttributeConfiguration
 sidebar_label: SearchAttributeConfiguration

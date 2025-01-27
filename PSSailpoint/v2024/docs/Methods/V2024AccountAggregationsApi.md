@@ -1,5 +1,5 @@
 ---
-id: account-aggregations
+id: v2024-account-aggregations
 title: AccountAggregations
 pagination_label: AccountAggregations
 sidebar_label: AccountAggregations

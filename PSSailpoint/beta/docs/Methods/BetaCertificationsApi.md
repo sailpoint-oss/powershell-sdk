@@ -1,5 +1,5 @@
 ---
-id: certifications
+id: beta-certifications
 title: Certifications
 pagination_label: Certifications
 sidebar_label: Certifications

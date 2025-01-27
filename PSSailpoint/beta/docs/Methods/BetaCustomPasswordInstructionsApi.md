@@ -1,5 +1,5 @@
 ---
-id: custom-password-instructions
+id: beta-custom-password-instructions
 title: CustomPasswordInstructions
 pagination_label: CustomPasswordInstructions
 sidebar_label: CustomPasswordInstructions

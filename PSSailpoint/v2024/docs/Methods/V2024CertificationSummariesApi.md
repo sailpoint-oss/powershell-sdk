@@ -1,5 +1,5 @@
 ---
-id: certification-summaries
+id: v2024-certification-summaries
 title: CertificationSummaries
 pagination_label: CertificationSummaries
 sidebar_label: CertificationSummaries

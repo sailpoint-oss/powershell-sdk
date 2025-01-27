@@ -1,5 +1,5 @@
 ---
-id: governance-groups
+id: beta-governance-groups
 title: GovernanceGroups
 pagination_label: GovernanceGroups
 sidebar_label: GovernanceGroups

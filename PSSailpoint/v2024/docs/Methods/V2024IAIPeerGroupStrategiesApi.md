@@ -1,5 +1,5 @@
 ---
-id: iai-peer-group-strategies
+id: v2024-iai-peer-group-strategies
 title: IAIPeerGroupStrategies
 pagination_label: IAIPeerGroupStrategies
 sidebar_label: IAIPeerGroupStrategies

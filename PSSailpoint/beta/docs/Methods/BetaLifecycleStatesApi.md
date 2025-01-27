@@ -1,5 +1,5 @@
 ---
-id: lifecycle-states
+id: beta-lifecycle-states
 title: LifecycleStates
 pagination_label: LifecycleStates
 sidebar_label: LifecycleStates

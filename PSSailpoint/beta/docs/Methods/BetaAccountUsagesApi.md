@@ -1,5 +1,5 @@
 ---
-id: account-usages
+id: beta-account-usages
 title: AccountUsages
 pagination_label: AccountUsages
 sidebar_label: AccountUsages

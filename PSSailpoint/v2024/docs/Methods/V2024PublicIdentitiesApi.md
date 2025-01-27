@@ -1,5 +1,5 @@
 ---
-id: public-identities
+id: v2024-public-identities
 title: PublicIdentities
 pagination_label: PublicIdentities
 sidebar_label: PublicIdentities

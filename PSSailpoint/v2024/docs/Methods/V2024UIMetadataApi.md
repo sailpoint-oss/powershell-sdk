@@ -1,5 +1,5 @@
 ---
-id: ui-metadata
+id: v2024-ui-metadata
 title: UIMetadata
 pagination_label: UIMetadata
 sidebar_label: UIMetadata

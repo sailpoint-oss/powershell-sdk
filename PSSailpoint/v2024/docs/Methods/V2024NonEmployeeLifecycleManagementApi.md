@@ -1,5 +1,5 @@
 ---
-id: non-employee-lifecycle-management
+id: v2024-non-employee-lifecycle-management
 title: NonEmployeeLifecycleManagement
 pagination_label: NonEmployeeLifecycleManagement
 sidebar_label: NonEmployeeLifecycleManagement

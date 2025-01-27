@@ -1,5 +1,5 @@
 ---
-id: apps
+id: beta-apps
 title: Apps
 pagination_label: Apps
 sidebar_label: Apps

@@ -1,5 +1,5 @@
 ---
-id: sim-integrations
+id: beta-sim-integrations
 title: SIMIntegrations
 pagination_label: SIMIntegrations
 sidebar_label: SIMIntegrations

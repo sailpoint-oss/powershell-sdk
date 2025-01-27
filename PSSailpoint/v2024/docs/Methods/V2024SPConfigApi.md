@@ -1,5 +1,5 @@
 ---
-id: sp-config
+id: v2024-sp-config
 title: SPConfig
 pagination_label: SPConfig
 sidebar_label: SPConfig

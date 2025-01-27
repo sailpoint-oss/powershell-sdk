@@ -1,5 +1,5 @@
 ---
-id: account-activities
+id: v2024-account-activities
 title: AccountActivities
 pagination_label: AccountActivities
 sidebar_label: AccountActivities

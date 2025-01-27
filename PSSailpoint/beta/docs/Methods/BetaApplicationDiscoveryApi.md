@@ -1,5 +1,5 @@
 ---
-id: application-discovery
+id: beta-application-discovery
 title: ApplicationDiscovery
 pagination_label: ApplicationDiscovery
 sidebar_label: ApplicationDiscovery

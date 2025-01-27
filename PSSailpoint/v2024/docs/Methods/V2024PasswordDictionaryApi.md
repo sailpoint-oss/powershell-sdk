@@ -1,5 +1,5 @@
 ---
-id: password-dictionary
+id: v2024-password-dictionary
 title: PasswordDictionary
 pagination_label: PasswordDictionary
 sidebar_label: PasswordDictionary

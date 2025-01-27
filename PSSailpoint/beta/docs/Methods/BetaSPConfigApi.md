@@ -1,5 +1,5 @@
 ---
-id: sp-config
+id: beta-sp-config
 title: SPConfig
 pagination_label: SPConfig
 sidebar_label: SPConfig

@@ -1,5 +1,5 @@
 ---
-id: password-dictionary
+id: beta-password-dictionary
 title: PasswordDictionary
 pagination_label: PasswordDictionary
 sidebar_label: PasswordDictionary

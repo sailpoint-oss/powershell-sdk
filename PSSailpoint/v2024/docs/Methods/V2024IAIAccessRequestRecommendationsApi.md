@@ -1,5 +1,5 @@
 ---
-id: iai-access-request-recommendations
+id: v2024-iai-access-request-recommendations
 title: IAIAccessRequestRecommendations
 pagination_label: IAIAccessRequestRecommendations
 sidebar_label: IAIAccessRequestRecommendations

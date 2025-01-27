@@ -1,5 +1,5 @@
 ---
-id: certification-campaigns
+id: v2024-certification-campaigns
 title: CertificationCampaigns
 pagination_label: CertificationCampaigns
 sidebar_label: CertificationCampaigns

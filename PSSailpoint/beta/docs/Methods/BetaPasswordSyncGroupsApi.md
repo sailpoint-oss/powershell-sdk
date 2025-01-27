@@ -1,5 +1,5 @@
 ---
-id: password-sync-groups
+id: beta-password-sync-groups
 title: PasswordSyncGroups
 pagination_label: PasswordSyncGroups
 sidebar_label: PasswordSyncGroups

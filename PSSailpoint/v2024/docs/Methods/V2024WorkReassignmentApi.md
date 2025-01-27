@@ -1,5 +1,5 @@
 ---
-id: work-reassignment
+id: v2024-work-reassignment
 title: WorkReassignment
 pagination_label: WorkReassignment
 sidebar_label: WorkReassignment

@@ -1,5 +1,5 @@
 ---
-id: managed-clusters
+id: beta-managed-clusters
 title: ManagedClusters
 pagination_label: ManagedClusters
 sidebar_label: ManagedClusters

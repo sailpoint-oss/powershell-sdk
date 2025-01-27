@@ -1,5 +1,5 @@
 ---
-id: iai-role-mining
+id: beta-iai-role-mining
 title: IAIRoleMining
 pagination_label: IAIRoleMining
 sidebar_label: IAIRoleMining

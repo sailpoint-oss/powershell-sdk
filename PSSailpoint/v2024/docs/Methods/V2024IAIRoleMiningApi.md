@@ -1,5 +1,5 @@
 ---
-id: iai-role-mining
+id: v2024-iai-role-mining
 title: IAIRoleMining
 pagination_label: IAIRoleMining
 sidebar_label: IAIRoleMining

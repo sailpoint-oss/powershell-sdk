@@ -1,5 +1,5 @@
 ---
-id: identity-profiles
+id: beta-identity-profiles
 title: IdentityProfiles
 pagination_label: IdentityProfiles
 sidebar_label: IdentityProfiles

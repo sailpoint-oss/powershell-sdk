@@ -1,5 +1,5 @@
 ---
-id: iai-access-request-recommendations
+id: beta-iai-access-request-recommendations
 title: IAIAccessRequestRecommendations
 pagination_label: IAIAccessRequestRecommendations
 sidebar_label: IAIAccessRequestRecommendations

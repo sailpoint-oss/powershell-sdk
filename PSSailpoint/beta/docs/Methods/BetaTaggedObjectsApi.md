@@ -1,5 +1,5 @@
 ---
-id: tagged-objects
+id: beta-tagged-objects
 title: TaggedObjects
 pagination_label: TaggedObjects
 sidebar_label: TaggedObjects

@@ -1,5 +1,5 @@
 ---
-id: workflows
+id: beta-workflows
 title: Workflows
 pagination_label: Workflows
 sidebar_label: Workflows

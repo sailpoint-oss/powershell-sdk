@@ -1,5 +1,5 @@
 ---
-id: password-configuration
+id: beta-password-configuration
 title: PasswordConfiguration
 pagination_label: PasswordConfiguration
 sidebar_label: PasswordConfiguration

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AuthProfileApi' {
     Context 'Get-V2024ProfileConfig' {
         It 'Test Get-V2024ProfileConfig' {
-            #$TestResult = Get-V2024ProfileConfig -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024ProfileConfig -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

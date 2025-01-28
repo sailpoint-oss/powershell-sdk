@@ -201,6 +201,7 @@ function Compare-V2024IdentitySnapshotsAccessType {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("accessProfile", "account", "app", "entitlement", "role")]
         [String]
         ${AccessType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]

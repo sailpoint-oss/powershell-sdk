@@ -13,6 +13,7 @@ Method | HTTP request | Description
 # **Get-V2024ProfileConfig**
 > AuthProfile Get-V2024ProfileConfig<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Auth Profile.
 
@@ -29,10 +30,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
 
 # Get Auth Profile.
 try {
-    $Result = Get-V2024ProfileConfig -XSailPointExperimental $XSailPointExperimental
+    $Result = Get-V2024ProfileConfig -XSailPointExperimental $XSailPointExperimental -Id $Id
 } catch {
     Write-Host ("Exception occurred when calling Get-V2024ProfileConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -44,6 +46,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **Id** | **String**| ID of the Auth Profile to patch. | 
 
 ### Return type
 

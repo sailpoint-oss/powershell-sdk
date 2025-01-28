@@ -44,6 +44,7 @@ function Get-V2024AccessRequestIdentityMetrics {
         [String]
         ${RequestedObjectId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("ENTITLEMENT", "ROLE", "ACCESS_PROFILE")]
         [String]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]

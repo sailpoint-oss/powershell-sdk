@@ -29,6 +29,7 @@ This API returns auth profile information.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+Path   | Id | **String** | True  | ID of the Auth Profile to patch.
 
 ### Return type
 
@@ -53,12 +54,13 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
 # Get Auth Profile.
 try {
-    Get-V2024ProfileConfig-V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ProfileConfig-V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ProfileConfig -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024ProfileConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ProfileConfig"
     Write-Host $_.ErrorDetails

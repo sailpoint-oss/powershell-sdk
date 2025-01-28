@@ -296,7 +296,6 @@ Use this API to create a new schedule for a type on the specified source in Iden
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | Schedule1 | [**Schedule1**](../models/schedule1) | True  | 
 
 ### Return type
@@ -321,15 +320,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Schedule1 = @""@
 # Create Schedule on Source
 try {
     $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
-    New-V2024SourceSchedule-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024Schedule1 $Result
+    New-V2024SourceSchedule-V2024SourceId $SourceId -V2024Schedule1 $Result
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceSchedule -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024Schedule1 $Schedule1  
+    # New-V2024SourceSchedule -V2024SourceId $SourceId -V2024Schedule1 $Schedule1  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -625,7 +623,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id.
 Path   | ScheduleType | **String** | True  | The Schedule type.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 
@@ -651,13 +648,12 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 # Delete Source Schedule by type.
 try {
-    Remove-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -1201,7 +1197,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id.
 Path   | ScheduleType | **String** | True  | The Schedule type.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 
@@ -1227,13 +1222,12 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 # Get Source Schedule by Type
 try {
-    Get-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -1250,7 +1244,6 @@ Use this API to list the schedules that exist on the specified source in Identit
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 
@@ -1275,13 +1268,12 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 # List Schedules on Source
 try {
-    Get-V2024SourceSchedules-V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceSchedules-V2024SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceSchedules -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SourceSchedules -V2024SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceSchedules"
     Write-Host $_.ErrorDetails
@@ -2871,7 +2863,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id.
 Path   | ScheduleType | **String** | True  | The Schedule type.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the schedule.
 
 ### Return type
@@ -2898,7 +2889,6 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  # JsonPatchOperation[] | The JSONPatch payload used to update the schedule.
  $JsonPatchOperation = @"{
   "op" : "replace",
@@ -2909,10 +2899,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Update Source Schedule (Partial)
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result
+    Update-V2024SourceSchedule-V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $Result
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $JsonPatchOperation  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchedule"
     Write-Host $_.ErrorDetails

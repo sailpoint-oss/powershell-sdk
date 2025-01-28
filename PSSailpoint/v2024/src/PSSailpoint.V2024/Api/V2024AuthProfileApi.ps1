@@ -17,6 +17,9 @@ This API returns auth profile information.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
+.PARAMETER Id
+ID of the Auth Profile to patch.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -31,6 +34,9 @@ function Get-V2024ProfileConfig {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -52,6 +58,10 @@ function Get-V2024ProfileConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/auth-profiles/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getProfileConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$XSailPointExperimental) {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getProfileConfig."

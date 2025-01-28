@@ -188,7 +188,6 @@ Name | Type | Description  | Notes
 # **New-V2024SourceSchedule**
 > Schedule1 New-V2024SourceSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Schedule1] <PSCustomObject><br>
 
 Create Schedule on Source
@@ -206,12 +205,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Schedule1 = Initialize-Schedule1 -Type "ACCOUNT_AGGREGATION" -CronExpression "0 0 5,13,21 * * ?" # Schedule1 | 
 
 # Create Schedule on Source
 try {
-    $Result = New-V2024SourceSchedule -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Schedule1 $Schedule1
+    $Result = New-V2024SourceSchedule -SourceId $SourceId -Schedule1 $Schedule1
 } catch {
     Write-Host ("Exception occurred when calling New-V2024SourceSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -223,7 +221,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| Source ID. | 
- **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **Schedule1** | [**Schedule1**](Schedule1.md)|  | 
 
 ### Return type
@@ -524,7 +521,6 @@ Name | Type | Description  | Notes
 > void Remove-V2024SourceSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScheduleType] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
 
 Delete Source Schedule by type.
 
@@ -540,11 +536,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete Source Schedule by type.
 try {
-    $Result = Remove-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -XSailPointExperimental $XSailPointExperimental
+    $Result = Remove-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType
 } catch {
     Write-Host ("Exception occurred when calling Remove-V2024SourceSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -557,7 +552,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| The Source id. | 
  **ScheduleType** | **String**| The Schedule type. | 
- **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -1162,7 +1156,6 @@ Name | Type | Description  | Notes
 > Schedule1 Get-V2024SourceSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScheduleType] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
 
 Get Source Schedule by Type
 
@@ -1180,11 +1173,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get Source Schedule by Type
 try {
-    $Result = Get-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -XSailPointExperimental $XSailPointExperimental
+    $Result = Get-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType
 } catch {
     Write-Host ("Exception occurred when calling Get-V2024SourceSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1197,7 +1189,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| The Source id. | 
  **ScheduleType** | **String**| The Schedule type. | 
- **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -1218,7 +1209,6 @@ Name | Type | Description  | Notes
 # **Get-V2024SourceSchedules**
 > Schedule1[] Get-V2024SourceSchedules<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
 
 List Schedules on Source
 
@@ -1235,11 +1225,10 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # List Schedules on Source
 try {
-    $Result = Get-V2024SourceSchedules -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental
+    $Result = Get-V2024SourceSchedules -SourceId $SourceId
 } catch {
     Write-Host ("Exception occurred when calling Get-V2024SourceSchedules: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -1251,7 +1240,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| Source ID. | 
- **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -2715,7 +2703,6 @@ Name | Type | Description  | Notes
 > Schedule1 Update-V2024SourceSchedule<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-SourceId] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-ScheduleType] <String><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-XSailPointExperimental] <String><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-JsonPatchOperation] <PSCustomObject[]><br>
 
 Update Source Schedule (Partial)
@@ -2734,13 +2721,12 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $JsonPatchOperationValue = Initialize-JsonPatchOperationValue 
 $JsonPatchOperation = Initialize-JsonPatchOperation -Op "add" -Path "/description" -Value $JsonPatchOperationValue # JsonPatchOperation[] | The JSONPatch payload used to update the schedule.
 
 # Update Source Schedule (Partial)
 try {
-    $Result = Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $JsonPatchOperation
+    $Result = Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -JsonPatchOperation $JsonPatchOperation
 } catch {
     Write-Host ("Exception occurred when calling Update-V2024SourceSchedule: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -2753,7 +2739,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **SourceId** | **String**| The Source id. | 
  **ScheduleType** | **String**| The Schedule type. | 
- **XSailPointExperimental** | **String**| Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **JsonPatchOperation** | [**JsonPatchOperation[]**](JsonPatchOperation.md)| The JSONPatch payload used to update the schedule. | 
 
 ### Return type

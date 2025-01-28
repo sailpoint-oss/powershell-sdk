@@ -217,9 +217,6 @@ Use this API to create a new schedule for a type on the specified source in Iden
 .PARAMETER SourceId
 Source ID.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Schedule1
 No description available.
 
@@ -238,9 +235,6 @@ function New-V2024SourceSchedule {
         [String]
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${Schedule1},
         [Switch]
@@ -271,11 +265,6 @@ function New-V2024SourceSchedule {
             throw "Error! The required parameter `SourceId` missing when calling createSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createSourceSchedule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$Schedule1) {
             throw "Error! The required parameter `Schedule1` missing when calling createSourceSchedule."
@@ -761,9 +750,6 @@ The Source id.
 .PARAMETER ScheduleType
 The Schedule type.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -782,9 +768,6 @@ function Remove-V2024SourceSchedule {
         [ValidateSet("ACCOUNT_AGGREGATION", "GROUP_AGGREGATION")]
         [String]
         ${ScheduleType},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -814,11 +797,6 @@ function Remove-V2024SourceSchedule {
             throw "Error! The required parameter `ScheduleType` missing when calling deleteSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{scheduleType}', [System.Web.HTTPUtility]::UrlEncode($ScheduleType))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteSourceSchedule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -1771,9 +1749,6 @@ The Source id.
 .PARAMETER ScheduleType
 The Schedule type.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1792,9 +1767,6 @@ function Get-V2024SourceSchedule {
         [ValidateSet("ACCOUNT_AGGREGATION", "GROUP_AGGREGATION")]
         [String]
         ${ScheduleType},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -1824,11 +1796,6 @@ function Get-V2024SourceSchedule {
             throw "Error! The required parameter `ScheduleType` missing when calling getSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{scheduleType}', [System.Web.HTTPUtility]::UrlEncode($ScheduleType))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceSchedule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -1864,9 +1831,6 @@ Use this API to list the schedules that exist on the specified source in Identit
 .PARAMETER SourceId
 Source ID.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1881,9 +1845,6 @@ function Get-V2024SourceSchedules {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SourceId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -1909,11 +1870,6 @@ function Get-V2024SourceSchedules {
             throw "Error! The required parameter `SourceId` missing when calling getSourceSchedules."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceSchedules."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -4424,9 +4380,6 @@ The Source id.
 .PARAMETER ScheduleType
 The Schedule type.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the schedule.
 
@@ -4449,9 +4402,6 @@ function Update-V2024SourceSchedule {
         [String]
         ${ScheduleType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${JsonPatchOperation},
         [Switch]
@@ -4486,11 +4436,6 @@ function Update-V2024SourceSchedule {
             throw "Error! The required parameter `ScheduleType` missing when calling updateSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{scheduleType}', [System.Web.HTTPUtility]::UrlEncode($ScheduleType))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateSourceSchedule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JsonPatchOperation) {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateSourceSchedule."

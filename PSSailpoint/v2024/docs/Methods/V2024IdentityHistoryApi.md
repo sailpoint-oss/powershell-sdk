@@ -11,6 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'IdentityHistory', 'V2024IdentityHisto
 
 
 # IdentityHistory
+   
+  
 
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

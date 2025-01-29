@@ -10,8 +10,9 @@ tags: ['SDK', 'Software Development Kit', '{{baseName}}', '{{funtionPrefix}}{{ba
 ---
 
 
-# {{invokerPackage}}{{baseName}}{{#description}}
-{{.}}{{/description}}
+# {{invokerPackage}}{{baseName}}
+  {{#operations}}{{#operation}}{{#-first}}{{#tags}}{{description}} {{/tags}}{{/-first}}{{/operation}}{{/operations}}
+  {{#notes}}{{{unescapedNotes}}}{{/notes}}
 
 All URIs are relative to *{{basePath}}*
 

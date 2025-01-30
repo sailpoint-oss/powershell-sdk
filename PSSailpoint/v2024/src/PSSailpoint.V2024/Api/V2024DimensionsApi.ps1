@@ -520,7 +520,7 @@ This API lists the Access Profiles associated with a given Dimension  A token wi
 Parent Role Id of the dimension.
 
 .PARAMETER DimensionId
-Id of the Dimension
+ID of the Dimension
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

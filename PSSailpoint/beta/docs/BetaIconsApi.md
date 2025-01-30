@@ -28,7 +28,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ObjectType = "application" # String | Object type. Available options ['application']
+$ObjectType = "application" # String | Object type
 $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 
 # Delete an icon
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ObjectType** | **String**| Object type. Available options [&#39;application&#39;] | 
+ **ObjectType** | **String**| Object type | 
  **ObjectId** | **String**| Object id. | 
 
 ### Return type
@@ -83,7 +83,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
-$ObjectType = "application" # String | Object type. Available options ['application']
+$ObjectType = "application" # String | Object type
 $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
 
@@ -100,7 +100,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ObjectType** | **String**| Object type. Available options [&#39;application&#39;] | 
+ **ObjectType** | **String**| Object type | 
  **ObjectId** | **String**| Object id. | 
  **Image** | **System.IO.FileInfo****System.IO.FileInfo**| file with icon. Allowed mime-types [&#39;image/png&#39;, &#39;image/jpeg&#39;] | 
 

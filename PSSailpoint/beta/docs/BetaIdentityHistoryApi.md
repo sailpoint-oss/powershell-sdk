@@ -113,7 +113,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
-$AccessType = "role" # String | The specific type which needs to be compared
+$AccessType = "accessProfile" # String | The specific type which needs to be compared
 $AccessAssociated = $false # Boolean | Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added & removed (optional)
 $Snapshot1 = "2008-03-01T13:00:00Z" # String | The snapshot 1 of identity (optional)
 $Snapshot2 = "2009-03-01T13:00:00Z" # String | The snapshot 2 of identity (optional)
@@ -610,7 +610,7 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Identity ID.
 $Date = "2007-03-01T13:00:00Z" # String | Specified date.
-$Type = "account" # String | Access item type. (optional)
+$Type = "role" # String | Access item type. (optional)
 
 # Get Identity Access Items Snapshot
 try {

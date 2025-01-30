@@ -14,6 +14,9 @@ Get Auth Profile.
 
 This API returns auth profile information.
 
+.PARAMETER Id
+ID of the Auth Profile to get.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -25,6 +28,9 @@ AuthProfile
 function Get-BetaProfileConfig {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -46,6 +52,10 @@ function Get-BetaProfileConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/auth-profiles/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getProfileConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
 
 

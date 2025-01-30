@@ -12,6 +12,7 @@ Method | HTTP request | Description
 <a id="Get-BetaProfileConfig"></a>
 # **Get-BetaProfileConfig**
 > AuthProfile Get-BetaProfileConfig<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
 Get Auth Profile.
 
@@ -27,10 +28,11 @@ $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 # Configure OAuth2 access token for authorization: userAuth
 $Configuration.AccessToken = "YOUR_ACCESS_TOKEN"
 
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to get.
 
 # Get Auth Profile.
 try {
-    $Result = Get-BetaProfileConfig
+    $Result = Get-BetaProfileConfig -Id $Id
 } catch {
     Write-Host ("Exception occurred when calling Get-BetaProfileConfig: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -38,7 +40,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| ID of the Auth Profile to get. | 
 
 ### Return type
 

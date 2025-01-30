@@ -10,3 +10,7 @@ discardReadOnly: true
 subModuleName: Beta
 moduleImportPath: github.com/sailpoint-oss/golang-sdk/v2/api_beta
 funtionPrefix: Beta
+files:
+  developerSite_code_examples.mustache:
+    templateType: APIDocs
+    destinationFilename: developerSite_code_examples.yaml

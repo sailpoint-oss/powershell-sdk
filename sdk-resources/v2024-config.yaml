@@ -10,3 +10,7 @@ discardReadOnly: true
 subModuleName: V2024
 moduleImportPath: github.com/sailpoint-oss/golang-sdk/v2/api_v2024
 funtionPrefix: V2024
+files:
+  developerSite_code_examples.mustache:
+    templateType: APIDocs
+    destinationFilename: developerSite_code_examples.yaml

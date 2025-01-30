@@ -15,7 +15,7 @@ Delete an icon
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER ObjectType
-Object type. Available options ['application']
+Object type
 
 .PARAMETER ObjectId
 Object id.
@@ -32,6 +32,7 @@ function Remove-BetaIcon {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("application")]
         [String]
         ${ObjectType},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -99,7 +100,7 @@ Update an icon
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
 .PARAMETER ObjectType
-Object type. Available options ['application']
+Object type
 
 .PARAMETER ObjectId
 Object id.
@@ -119,6 +120,7 @@ function Set-BetaIcon {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("application")]
         [String]
         ${ObjectType},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]

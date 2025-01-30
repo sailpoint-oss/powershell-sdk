@@ -187,6 +187,7 @@ function Compare-BetaIdentitySnapshotsAccessType {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("accessProfile", "account", "app", "entitlement", "role")]
         [String]
         ${AccessType},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1078,6 +1079,7 @@ function Get-BetaIdentitySnapshotAccessItems {
         [String]
         ${Date},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("role", "access_profile", "entitlement", "app", "account")]
         [String]
         ${Type},
         [Switch]

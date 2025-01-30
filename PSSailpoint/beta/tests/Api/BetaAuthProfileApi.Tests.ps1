@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAuthProfileApi' {
     Context 'Get-BetaProfileConfig' {
         It 'Test Get-BetaProfileConfig' {
-            #$TestResult = Get-BetaProfileConfig
+            #$TestResult = Get-BetaProfileConfig -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

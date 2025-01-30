@@ -8,4 +8,8 @@ commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run
 discardReadOnly: true
 subModuleName: V3
 moduleImportPath: github.com/sailpoint-oss/golang-sdk/v2/api_v3
-funtionPrefix: 
+funtionPrefix:
+files:
+  developerSite_code_examples.mustache:
+    templateType: APIDocs
+    destinationFilename: developerSite_code_examples.yaml 

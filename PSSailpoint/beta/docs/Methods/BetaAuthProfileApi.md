@@ -36,6 +36,7 @@ This API returns auth profile information.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | ID of the Auth Profile to get.
 
 ### Return type
 
@@ -59,12 +60,13 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to get.
 # Get Auth Profile.
 try {
-    Get-BetaProfileConfig
+    Get-BetaProfileConfig-BetaId $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaProfileConfig  
+    # Get-BetaProfileConfig -BetaId $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaProfileConfig"
     Write-Host $_.ErrorDetails

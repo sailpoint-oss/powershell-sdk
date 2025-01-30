@@ -1468,7 +1468,7 @@ A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | ID of the campaign template being modified.
+Path   | Id | **String** | True  | ID of the campaign being modified.
  Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
 ### Return type
@@ -1493,7 +1493,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template being modified.
+$Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign being modified.
 $RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
  $RequestBody = @"[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]"@ 
 

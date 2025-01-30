@@ -41,6 +41,7 @@ function Get-BetaAccessRequestIdentityMetrics {
         [String]
         ${RequestedObjectId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("ENTITLEMENT", "ACCESS_PROFILE", "ROLE")]
         [String]
         ${Type},
         [Switch]

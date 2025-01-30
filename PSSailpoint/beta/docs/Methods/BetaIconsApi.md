@@ -31,7 +31,7 @@ This API endpoint delete an icon by object type and object id. A token with ORG_
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | ObjectType | **String** | True  | Object type. Available options ['application']
+Path   | ObjectType | **String** | True  | Object type
 Path   | ObjectId | **String** | True  | Object id.
 
 ### Return type
@@ -56,7 +56,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$ObjectType = "application" # String | Object type. Available options ['application']
+$ObjectType = "application" # String | Object type
 $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 # Delete an icon
 try {
@@ -79,7 +79,7 @@ This API endpoint updates an icon by object type and object id. A token with ORG
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | ObjectType | **String** | True  | Object type. Available options ['application']
+Path   | ObjectType | **String** | True  | Object type
 Path   | ObjectId | **String** | True  | Object id.
    | Image | **System.IO.FileInfo** | True  | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
 
@@ -105,7 +105,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$ObjectType = "application" # String | Object type. Available options ['application']
+$ObjectType = "application" # String | Object type
 $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
 $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
 # Update an icon

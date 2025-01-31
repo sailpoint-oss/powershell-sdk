@@ -34,7 +34,7 @@ function ConvertFrom-V2024JsonToTaskStatusMessageParametersInner {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match String defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToString $Json
@@ -52,7 +52,7 @@ function ConvertFrom-V2024JsonToTaskStatusMessageParametersInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match SystemCollectionsHashtable defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToSystemCollectionsHashtable $Json

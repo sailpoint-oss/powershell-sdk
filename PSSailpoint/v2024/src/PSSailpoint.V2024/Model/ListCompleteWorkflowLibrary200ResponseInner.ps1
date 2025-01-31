@@ -34,7 +34,7 @@ function ConvertFrom-V2024JsonToListCompleteWorkflowLibrary200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match WorkflowLibraryAction defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToWorkflowLibraryAction $Json
@@ -52,7 +52,7 @@ function ConvertFrom-V2024JsonToListCompleteWorkflowLibrary200ResponseInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match WorkflowLibraryOperator defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToWorkflowLibraryOperator $Json
@@ -70,7 +70,7 @@ function ConvertFrom-V2024JsonToListCompleteWorkflowLibrary200ResponseInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match WorkflowLibraryTrigger defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToWorkflowLibraryTrigger $Json

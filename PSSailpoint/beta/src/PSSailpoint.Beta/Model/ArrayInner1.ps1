@@ -34,7 +34,7 @@ function ConvertFrom-BetaJsonToArrayInner1 {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match String defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToString $Json

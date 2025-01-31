@@ -4,3 +4,4 @@ test.ps1
 config.json
 loadModule.ps1
 build.sh
+openapi-generator-cli.jar

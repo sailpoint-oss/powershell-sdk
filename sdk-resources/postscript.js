@@ -18,7 +18,7 @@ const getAllFiles = function (dirPath, arrayOfFiles) {
 const mergeCodeExampleFiles = (srcDir) => {
   // Check if the source directory exists
   if (!fs.existsSync(srcDir)) {
-    console.log(`Source directory not found: ${srcDir}`);
+    console.error(`Source directory not found: ${srcDir}`);
     return;
   }
 
@@ -41,14 +41,11 @@ const mergeCodeExampleFiles = (srcDir) => {
       
       // Append the content to the destination file
       destStream.write(fileContent);
-      console.log(`Merged file: ${file}`);
-
+    
       // Delete the original file after merging
       fs.unlinkSync(filePath);
-      console.log(`Deleted original file: ${file}`);
     }
   });
-
   // Close the stream
   destStream.end(() => {
     console.log(`All files have been merged into ${destFile}`);
@@ -64,18 +61,17 @@ const renameFileToIndices = function (filePath) {
 
   // Rename the file
   fs.renameSync(filePath, newFilePath);
-  console.log(`Renamed: ${filePath} to ${newFilePath}`);
 };
 
 // Function to move files from 'docs' to the destination folder (including Examples)
 const moveFiles = function (srcDir, destDir) {
   // Check if source and destination directories exist
   if (!fs.existsSync(srcDir)) {
-    console.log(`Source directory not found: ${srcDir}`);
+    console.error(`Source directory not found: ${srcDir}`);
     return;
   }
   if (!fs.existsSync(destDir)) {
-    console.log(`Destination directory not found: ${destDir}`);
+    console.error(`Destination directory not found: ${destDir}`);
     return;
   }
 
@@ -87,9 +83,6 @@ const moveFiles = function (srcDir, destDir) {
     // Create the "Examples" folder if it doesn't exist
     if (!fs.existsSync(examplesDir)) {
       fs.mkdirSync(examplesDir, { recursive: true });
-      console.log(`Created Examples folder at: ${examplesDir}`);
-    } else {
-      console.log(`Examples folder already exists at: ${examplesDir}`);
     }
 
     return examplesDir; // Return the path for use in moving files
@@ -118,11 +111,9 @@ const moveFiles = function (srcDir, destDir) {
       if (file.includes('developerSite_code_examples')) {
         // Move the file to the Examples folder
         fs.renameSync(currentPath, destExamplePath);
-        console.log(`Moved file to Examples folder: ${file}`);
       } else {
         // Otherwise, move it to the destination directory directly
         fs.renameSync(currentPath, destPath);
-        console.log(`Moved file: ${file}`);
       }
     }
   });
@@ -132,7 +123,7 @@ const moveFiles = function (srcDir, destDir) {
 const removeFolder = function (dirPath) {
   // Check if the directory exists before proceeding
   if (!fs.existsSync(dirPath)) {
-    console.log(`Directory not found: ${dirPath}`);
+    console.error(`Directory not found: ${dirPath}`);
     return; // Exit the function if the directory doesn't exist
   }
 
@@ -160,7 +151,7 @@ const removeFolder = function (dirPath) {
 const removeFilesFromFolder = (dirPath) => {
   // Check if the directory exists
   if (!fs.existsSync(dirPath)) {
-    console.log(`Directory not found: ${dirPath}`);
+    console.error(`Directory not found: ${dirPath}`);
     return;
   }
 
@@ -174,11 +165,8 @@ const removeFilesFromFolder = (dirPath) => {
     if (fs.statSync(itemPath).isFile()) {
       // If it's a file, delete it
       fs.unlinkSync(itemPath);
-      console.log(`Deleted file: ${item}`);
     }
   });
-
-  console.log(`All files in ${dirPath} have been removed.`);
 };
 
 const fixFiles = function (myArray) {
@@ -186,7 +174,7 @@ const fixFiles = function (myArray) {
 
     // Check if the file exists before attempting to read it
     if (!fs.existsSync(file)) {
-      console.log(`File not found: ${file}`);
+      console.error(`File not found: ${file}`);
       continue; // Skip this file if it doesn't exist
     }
 
@@ -264,9 +252,6 @@ const fixFiles = function (myArray) {
       fileOut = [];
     }
 
-    if (file.includes("ModelEvent.ps1")) {
-      console.log("Found it");
-    }
     // adjust the document type naming to fix the duplicate type errors
     let changedType = false
     if (file.includes("ModelEvent.ps1")) {

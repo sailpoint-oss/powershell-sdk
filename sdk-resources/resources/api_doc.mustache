@@ -1,3 +1,4 @@
+
 ---
 id: {{#lambda.kebabcase}}{{#lambda.titlecase}}{{funtionPrefix}}{{baseName}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
 title: {{#lambda.titlecase}}{{baseName}}{{/lambda.titlecase}}
@@ -9,7 +10,6 @@ slug: /tools/sdk/powershell/{{#lambda.lowercase}}{{subModuleName}}{{/lambda.lowe
 tags: ['SDK', 'Software Development Kit', '{{baseName}}', '{{funtionPrefix}}{{baseName}}']
 ---
 
-
 # {{invokerPackage}}{{baseName}}
   {{#operations}}{{#operation}}{{#-first}}{{#tags}}{{description}} {{/tags}}{{/-first}}{{/operation}}{{/operations}}
   {{#notes}}{{{unescapedNotes}}}{{/notes}}
@@ -20,11 +20,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 {{#operations}}{{#operation}}[**{{{vendorExtensions.x-powershell-method-name}}}**](#{{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}}) | **{{httpMethod}}** `{{{path}}}` | {{summary}}
 {{/operation}}{{/operations}}
-
 {{#operations}}
 {{#operation}}
 ## {{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
-
 {{#notes}}{{{unescapedNotes}}}{{/notes}}
 
 ### Parameters 
@@ -35,7 +33,6 @@ Param Type | Name | Data Type | Required  | Description
 {{/allParams}}
 
 ### Return type
-
 {{#returnType}}{{#returnTypeIsPrimitive}}**{{{returnType}}}**{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}[**{{{returnType}}}**](../models/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{returnBaseType}}{{/lambda.titlecase}}{{/lambda.kebabcase}}){{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}} (empty response body){{/returnType}}
 
 ### Responses
@@ -46,7 +43,6 @@ Code | Description  | Data Type
 {{/responses}}
 
 ### HTTP request headers
-
 - **Content-Type**: {{#consumes}}{{{mediaType}}}{{^-last}}, {{/-last}}{{/consumes}}{{^consumes}}Not defined{{/consumes}}
 - **Accept**: {{#produces}}{{{mediaType}}}{{^-last}}, {{/-last}}{{/produces}}{{^produces}}Not defined{{/produces}}
 
@@ -68,13 +64,15 @@ ${{paramName}} = {{{vendorExtensions.x-powershell-example}}} # {{{dataType}}} | 
 {{^items.isModel}}
 ${{paramName}} = {{{vendorExtensions.x-powershell-example}}} # {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
 {{/items.isModel}}
-{{#requestBodyExamples}} ${{paramName}} = @"{{{example}}}"@ {{/requestBodyExamples}}
-{{^requestBodyExamples}}{{#example}}${{paramName}} = @"{{{example}}}"@{{/example}}{{/requestBodyExamples}}
+{{#requestBodyExamples}} ${{paramName}} = @"{{{example}}}"@ # {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}{{/requestBodyExamples}}
+{{^requestBodyExamples}}{{#example}}${{paramName}} = @"{{{example}}}"@ # {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}{{/example}}{{/requestBodyExamples}} 
 {{/isArray}}
 {{/allParams}}
+
 {{#summary}}
 # {{{.}}}
 {{/summary}}
+
 try {
     {{#requiredAndNotNullableParams}}{{#isBodyParam}}$Result = ConvertFrom-JsonTo{{paramName}} -Json ${{paramName}}
     {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}}{{#allParams}}{{#required}}-{{funtionPrefix}}{{paramName}}{{^isBodyParam}} ${{paramName}}{{/isBodyParam}} {{#isBodyParam}}$Result{{/isBodyParam}}{{/required}}{{/allParams}}
@@ -86,9 +84,6 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 {{/operation}}
 {{/operations}}
-

@@ -1,3 +1,4 @@
+
 ---
 id: beta-auth-profile
 title: AuthProfile
@@ -8,7 +9,6 @@ keywords: ['powershell', 'PowerShell', 'sdk', 'AuthProfile', 'BetaAuthProfile']
 slug: /tools/sdk/powershell/beta/methods/auth-profile
 tags: ['SDK', 'Software Development Kit', 'AuthProfile', 'BetaAuthProfile']
 ---
-
 
 # AuthProfile
   Use this API to implement Auth Profile functionality. 
@@ -28,9 +28,7 @@ Method | HTTP request | Description
 [**Get-BetaProfileConfigList**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
 [**Update-BetaProfileConfig**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
 
-
 ## get-profile-config
-
 This API returns auth profile information.
 
 ### Parameters 
@@ -39,7 +37,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | ID of the Auth Profile to get.
 
 ### Return type
-
 [**AuthProfile**](../models/auth-profile)
 
 ### Responses
@@ -54,14 +51,15 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to get.
+
 # Get Auth Profile.
+
 try {
     Get-BetaProfileConfig-BetaId $Id 
     
@@ -72,11 +70,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## get-profile-config-list
-
 This API returns a list of auth profiles.
 
 ### Parameters 
@@ -84,7 +79,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 
 ### Return type
-
 [**AuthProfileSummary[]**](../models/auth-profile-summary)
 
 ### Responses
@@ -98,13 +92,14 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
+
 # Get list of Auth Profiles.
+
 try {
     Get-BetaProfileConfigList
     
@@ -115,11 +110,8 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
 ## patch-profile-config
-
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 
@@ -130,7 +122,6 @@ Path   | Id | **String** | True  | ID of the Auth Profile to patch.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-
 [**AuthProfile**](../models/auth-profile)
 
 ### Responses
@@ -144,21 +135,21 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-
 - **Content-Type**: application/json-patch+json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
- # JsonPatchOperation[] | 
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ 
+}"@ # JsonPatchOperation[] | 
+ 
 
 # Patch a specified Auth Profile
+
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaProfileConfig-BetaId $Id -BetaJsonPatchOperation $Result
@@ -170,7 +161,4 @@ try {
     Write-Host $_.ErrorDetails
 }
 ```
-
 [[Back to top]](#) 
-
-

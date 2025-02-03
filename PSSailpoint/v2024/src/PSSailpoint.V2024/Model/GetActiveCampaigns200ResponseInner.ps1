@@ -34,7 +34,7 @@ function ConvertFrom-V2024JsonToGetActiveCampaigns200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match Campaign defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToCampaign $Json
@@ -52,7 +52,7 @@ function ConvertFrom-V2024JsonToGetActiveCampaigns200ResponseInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match SlimCampaign defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToSlimCampaign $Json

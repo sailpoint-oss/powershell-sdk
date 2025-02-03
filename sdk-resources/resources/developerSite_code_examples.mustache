@@ -1,0 +1,54 @@
+{{#operations}}
+{{#operation}}
+- path: {{path}}
+  method: {{httpMethod}}
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK
+      source: |
+        {{#allParams}}
+        {{^isArray}}
+        {{#isModel}}
+        ${{paramName}} = @"
+        {{#requestBodyExamples}}
+        {{#lambda.indented_8}}{{{example}}}{{/lambda.indented_8}}
+        {{/requestBodyExamples}}
+        {{^requestBodyExamples}}
+        {{#example}}
+        {{{example}}}
+        {{/example}}
+        {{/requestBodyExamples}}
+        "@
+        {{/isModel}}
+        {{^isModel}}
+        ${{paramName}} = {{{vendorExtensions.x-powershell-example}}} # {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+        {{/isModel}}
+        {{/isArray}}
+        {{#isArray}}
+        {{#items.isModel}}
+        {{{vendorExtensions.x-powershell-example}}}# {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+        {{/items.isModel}}
+        {{^items.isModel}}
+        ${{paramName}} = {{{vendorExtensions.x-powershell-example}}} # {{{dataType}}} | {{{description}}}{{^required}} (optional){{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+        {{/items.isModel}}
+        {{#requestBodyExamples}}${{paramName}} = @"{{#lambda.indented_8}}{{{example}}}{{/lambda.indented_8}}"@ {{/requestBodyExamples}}
+        {{^requestBodyExamples}}{{#example}}${{paramName}} = @"{{{example}}}"@{{/example}}{{/requestBodyExamples}}
+        {{/isArray}}
+        {{/allParams}}
+        
+        {{#summary}}
+        # {{{.}}}
+        {{/summary}}
+        
+        try {
+            {{#requiredAndNotNullableParams}}{{#isBodyParam}}$Result = ConvertFrom-JsonTo{{paramName}} -Json ${{paramName}}
+            {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}}{{#allParams}}{{#required}}-{{funtionPrefix}}{{paramName}}{{^isBodyParam}} ${{paramName}}{{/isBodyParam}} {{#isBodyParam}}$Result{{/isBodyParam}}{{/required}}{{/allParams}}
+            
+            # Below is a request that includes all optional parameters
+            # {{{vendorExtensions.x-powershell-method-name}}}{{#allParams}} -{{funtionPrefix}}{{paramName}} ${{paramName}}{{/allParams}}  
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling {{{vendorExtensions.x-powershell-method-name}}}"
+            Write-Host $_.ErrorDetails
+        }
+{{/operation}}
+{{/operations}}

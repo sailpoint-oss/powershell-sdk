@@ -43,7 +43,7 @@ function ConvertFrom-BetaJsonToWorkflowTriggerAttributes {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match EventAttributes defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToEventAttributes $Json
@@ -61,7 +61,7 @@ function ConvertFrom-BetaJsonToWorkflowTriggerAttributes {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match ExternalAttributes defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToExternalAttributes $Json
@@ -79,7 +79,7 @@ function ConvertFrom-BetaJsonToWorkflowTriggerAttributes {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match ScheduledAttributes defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-BetaJsonToScheduledAttributes $Json

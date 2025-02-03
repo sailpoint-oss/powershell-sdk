@@ -34,7 +34,7 @@ function ConvertFrom-V2024JsonToGetHistoricalIdentityEvents200ResponseInner {
         $matchType = $null
         $matchInstance = $null
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match AccessItemAssociated defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToAccessItemAssociated $Json
@@ -52,7 +52,7 @@ function ConvertFrom-V2024JsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match AccessItemRemoved defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToAccessItemRemoved $Json
@@ -70,7 +70,7 @@ function ConvertFrom-V2024JsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match AccessRequested defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToAccessRequested $Json
@@ -88,7 +88,7 @@ function ConvertFrom-V2024JsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match AccountStatusChanged defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToAccountStatusChanged $Json
@@ -106,7 +106,7 @@ function ConvertFrom-V2024JsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match AttributesChanged defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToAttributesChanged $Json
@@ -124,7 +124,7 @@ function ConvertFrom-V2024JsonToGetHistoricalIdentityEvents200ResponseInner {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match IdentityCertified defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2024JsonToIdentityCertified $Json

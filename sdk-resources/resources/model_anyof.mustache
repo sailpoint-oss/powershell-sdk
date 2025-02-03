@@ -68,7 +68,7 @@ function ConvertFrom-{{{apiNamePrefix}}}JsonTo{{{classname}}} {
         {{/mappedModels}}
         {{/discriminator}}
         {{#anyOf}}
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match {{{.}}} defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-{{{apiNamePrefix}}}JsonTo{{{.}}} $Json

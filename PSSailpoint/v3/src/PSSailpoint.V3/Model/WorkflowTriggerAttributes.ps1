@@ -43,7 +43,7 @@ function ConvertFrom-JsonToWorkflowTriggerAttributes {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match EventAttributes defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-JsonToEventAttributes $Json
@@ -61,7 +61,7 @@ function ConvertFrom-JsonToWorkflowTriggerAttributes {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match ExternalAttributes defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-JsonToExternalAttributes $Json
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToWorkflowTriggerAttributes {
             }
         }
 
-        if ($match -eq 0) { # no match yet
+        if ($match -ne 0) { # no match yet
             # try to match ScheduledAttributes defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-JsonToScheduledAttributes $Json

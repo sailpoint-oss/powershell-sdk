@@ -4,7 +4,7 @@
   method: {{httpMethod}}
   xCodeSample:
     - lang: PowerShell
-      label: SDK
+      label: SDK_tools/sdk/powershell/{{#lambda.lowercase}}{{subModuleName}}{{/lambda.lowercase}}/methods/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{baseName}}{{/lambda.titlecase}}{{/lambda.kebabcase}}#{{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
       source: |
         {{#allParams}}
         {{^isArray}}

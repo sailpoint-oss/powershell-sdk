@@ -1,4 +1,3 @@
-
 ---
 id: {{#lambda.kebabcase}}{{#lambda.titlecase}}{{funtionPrefix}}{{baseName}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
 title: {{#lambda.titlecase}}{{baseName}}{{/lambda.titlecase}}
@@ -75,7 +74,7 @@ ${{paramName}} = {{{vendorExtensions.x-powershell-example}}} # {{{dataType}}} | 
 
 try {
     {{#requiredAndNotNullableParams}}{{#isBodyParam}}$Result = ConvertFrom-JsonTo{{paramName}} -Json ${{paramName}}
-    {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}}{{#allParams}}{{#required}}-{{funtionPrefix}}{{paramName}}{{^isBodyParam}} ${{paramName}}{{/isBodyParam}} {{#isBodyParam}}$Result{{/isBodyParam}}{{/required}}{{/allParams}}
+    {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}}{{#allParams}}{{#required}} -{{funtionPrefix}}{{paramName}}{{^isBodyParam}} ${{paramName}}{{/isBodyParam}} {{#isBodyParam}}$Result{{/isBodyParam}}{{/required}}{{/allParams}}
     
     # Below is a request that includes all optional parameters
     # {{{vendorExtensions.x-powershell-method-name}}}{{#allParams}} -{{funtionPrefix}}{{paramName}} ${{paramName}}{{/allParams}}  

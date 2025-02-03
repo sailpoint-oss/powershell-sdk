@@ -34,15 +34,15 @@ jobs:
           CURRENT_V3_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v3/docs/Examples"
           NEW_V3_CODE_EXAMPLES_PATH="developer-community/static/code-examples/v3"
           CURRENT_V3_SPEC_PATH="powershell-sdk/PSSailpoint/v3/docs"
-          NEW_V3_API_SPEC_PATH="developer-community/docs/tools/sdk/powershell/Refrence/V3"
+          NEW_V3_API_SPEC_PATH="developer-community/docs/tools/sdk/powershell/Reference/V3"
           CURRENT_BETA_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/beta/docs/Examples"
           NEW_BETA_CODE_EXAMPLES_PATH="developer-community/static/code-examples/beta"
           CURRENT_BETA_SPEC_PATH="powershell-sdk/PSSailpoint/beta/docs"
-          NEW_BETA_API_SPEC_PATH="developer-community/docs/tools/sdk/powershell/Refrence/Beta"
+          NEW_BETA_API_SPEC_PATH="developer-community/docs/tools/sdk/powershell/Reference/Beta"
           CURRENT_V2024_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v2024/docs/Examples"
           NEW_V2024_CODE_EXAMPLES_PATH="developer-community/static/code-examples/v2024"
           CURRENT_V2024_SPEC_PATH="powershell-sdk/PSSailpoint/v2024/docs"
-          NEW_V2024_API_SPEC_PATH="developer-community/docs/tools/sdk/powershell/Refrence/V2024"
+          NEW_V2024_API_SPEC_PATH="developer-community/docs/tools/sdk/powershell/Reference/V2024"
           rsync -cav --delete $CURRENT_V3_SPEC_PATH $NEW_V3_API_SPEC_PATH 
           rsync -cav --delete $CURRENT_BETA_SPEC_PATH $NEW_BETA_API_SPEC_PATH
           rsync -cav --delete $CURRENT_V2024_SPEC_PATH $NEW_V2024_API_SPEC_PATH

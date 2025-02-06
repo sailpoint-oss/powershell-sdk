@@ -248,7 +248,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SearchDocument
+SystemCollectionsHashtable
 #>
 function Search-V2024Get {
     [CmdletBinding()]
@@ -301,11 +301,8 @@ function Search-V2024Get {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SearchDocument" `
+                                -ReturnType "SystemCollectionsHashtable" `
                                 -IsBodyNullable $false
-
-        # process oneOf response
-        $LocalVarResult["Response"] = ConvertFrom-V2024JsonToSearchDocument (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult
@@ -342,7 +339,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SearchDocument[]
+SystemCollectionsHashtable[]
 #>
 function Search-V2024Post {
     [CmdletBinding()]
@@ -424,7 +421,7 @@ function Search-V2024Post {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SearchDocument[]" `
+                                -ReturnType "SystemCollectionsHashtable[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

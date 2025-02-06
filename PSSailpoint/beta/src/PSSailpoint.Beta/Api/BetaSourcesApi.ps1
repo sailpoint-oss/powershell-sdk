@@ -388,7 +388,7 @@ Remove All Accounts in a Source
 
 Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won't be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
 
-.PARAMETER Id
+.PARAMETER SourceId
 The source id
 
 .PARAMETER WithHttpInfo
@@ -404,7 +404,7 @@ function Remove-BetaAccountsAsync {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -425,11 +425,11 @@ function Remove-BetaAccountsAsync {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/sources/{id}/remove-accounts'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling deleteAccountsAsync."
+        $LocalVarUri = '/sources/{sourceId}/remove-accounts'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling deleteAccountsAsync."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 
@@ -462,7 +462,7 @@ Delete Native Change Detection Configuration
 
 Deletes the native change detection configuration for the source specified by the given ID. A token with API, or ORG_ADMIN authority is required to call this API.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The source id
 
 .PARAMETER WithHttpInfo
@@ -478,7 +478,7 @@ function Remove-BetaNativeChangeDetectionConfig {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -500,10 +500,10 @@ function Remove-BetaNativeChangeDetectionConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sources/{sourceId}/native-change-detection-config'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling deleteNativeChangeDetectionConfig."
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling deleteNativeChangeDetectionConfig."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 
@@ -705,7 +705,7 @@ Get Source Correlation Configuration
 
 This API returns the existing correlation configuration for a source specified by the given ID.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The source id
 
 .PARAMETER WithHttpInfo
@@ -721,7 +721,7 @@ function Get-BetaCorrelationConfig {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -742,11 +742,11 @@ function Get-BetaCorrelationConfig {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/sources/{id}/correlation-config'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getCorrelationConfig."
+        $LocalVarUri = '/sources/{sourceId}/correlation-config'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling getCorrelationConfig."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 
@@ -779,7 +779,7 @@ Native Change Detection Configuration
 
 This API returns the existing native change detection configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The source id
 
 .PARAMETER WithHttpInfo
@@ -795,7 +795,7 @@ function Get-BetaNativeChangeDetectionConfig {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -817,10 +817,10 @@ function Get-BetaNativeChangeDetectionConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sources/{sourceId}/native-change-detection-config'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getNativeChangeDetectionConfig."
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling getNativeChangeDetectionConfig."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 
@@ -1012,7 +1012,7 @@ Downloads source accounts schema template
 
 No description or notes available.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The Source id
 
 .PARAMETER ReturnType
@@ -1032,7 +1032,7 @@ function Get-BetaSourceAccountsSchema {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [String]
         [ValidateSet("text/csv", "application/json")]
         $ReturnType,
@@ -1061,11 +1061,11 @@ function Get-BetaSourceAccountsSchema {
             $LocalVarAccepts = @($ReturnType)
         }
 
-        $LocalVarUri = '/sources/{id}/schemas/accounts'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getSourceAccountsSchema."
+        $LocalVarUri = '/sources/{sourceId}/schemas/accounts'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling getSourceAccountsSchema."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 
@@ -1257,6 +1257,9 @@ Get Source Entitlement Request Configuration
 
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
+.PARAMETER SourceId
+The Source id
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1268,6 +1271,9 @@ SourceEntitlementRequestConfig
 function Get-BetaSourceEntitlementRequestConfig {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -1288,7 +1294,11 @@ function Get-BetaSourceEntitlementRequestConfig {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/sources/{id}/entitlement-request-config'
+        $LocalVarUri = '/sources/{sourceId}/entitlement-request-config'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling getSourceEntitlementRequestConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 
@@ -1321,7 +1331,7 @@ Downloads source entitlements schema template
 
 No description or notes available.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The Source id
 
 .PARAMETER SchemaName
@@ -1344,7 +1354,7 @@ function Get-BetaSourceEntitlementsSchema {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SchemaName},
@@ -1376,11 +1386,11 @@ function Get-BetaSourceEntitlementsSchema {
             $LocalVarAccepts = @($ReturnType)
         }
 
-        $LocalVarUri = '/sources/{id}/schemas/entitlements'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getSourceEntitlementsSchema."
+        $LocalVarUri = '/sources/{sourceId}/schemas/entitlements'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling getSourceEntitlementsSchema."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($SchemaName) {
             $LocalVarQueryParameters['schemaName'] = $SchemaName
@@ -1596,7 +1606,7 @@ Account Aggregation
 
 Starts an account aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-.PARAMETER Id
+.PARAMETER SourceId
 Source Id
 
 .PARAMETER File
@@ -1618,7 +1628,7 @@ function Import-BetaAccounts {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${File},
@@ -1649,11 +1659,11 @@ function Import-BetaAccounts {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('multipart/form-data', 'application/x-www-form-urlencoded')
 
-        $LocalVarUri = '/sources/{id}/load-accounts'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling importAccounts."
+        $LocalVarUri = '/sources/{sourceId}/load-accounts'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling importAccounts."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($File) {
             $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
@@ -1694,7 +1704,7 @@ Entitlement Aggregation
 
 Starts an entitlement aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body.  You will also need to set the Content-Type header to `multipart/form-data`. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-.PARAMETER Id
+.PARAMETER SourceId
 Source Id
 
 .PARAMETER File
@@ -1713,7 +1723,7 @@ function Import-BetaEntitlements {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${File},
@@ -1740,11 +1750,11 @@ function Import-BetaEntitlements {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('multipart/form-data')
 
-        $LocalVarUri = '/sources/{id}/load-entitlements'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling importEntitlements."
+        $LocalVarUri = '/sources/{sourceId}/load-entitlements'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling importEntitlements."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($File) {
             $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
@@ -1781,7 +1791,7 @@ Uploads source accounts schema template
 
 This API uploads a source schema template file to configure a source's account attributes.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The Source id
 
 .PARAMETER File
@@ -1800,7 +1810,7 @@ function Import-BetaSourceAccountsSchema {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${File},
@@ -1827,11 +1837,11 @@ function Import-BetaSourceAccountsSchema {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('multipart/form-data')
 
-        $LocalVarUri = '/sources/{id}/schemas/accounts'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling importSourceAccountsSchema."
+        $LocalVarUri = '/sources/{sourceId}/schemas/accounts'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling importSourceAccountsSchema."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($File) {
             $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
@@ -1955,7 +1965,7 @@ Uploads source entitlements schema template
 
 This API uploads a source schema template file to configure a source's entitlement attributes.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The Source id
 
 .PARAMETER SchemaName
@@ -1977,7 +1987,7 @@ function Import-BetaSourceEntitlementsSchema {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SchemaName},
@@ -2007,11 +2017,11 @@ function Import-BetaSourceEntitlementsSchema {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('multipart/form-data')
 
-        $LocalVarUri = '/sources/{id}/schemas/entitlements'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling importSourceEntitlementsSchema."
+        $LocalVarUri = '/sources/{sourceId}/schemas/entitlements'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling importSourceEntitlementsSchema."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($SchemaName) {
             $LocalVarQueryParameters['schemaName'] = $SchemaName
@@ -2052,7 +2062,7 @@ Process Uncorrelated Accounts
 
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
-.PARAMETER Id
+.PARAMETER SourceId
 Source Id
 
 .PARAMETER File
@@ -2071,7 +2081,7 @@ function Import-BetaUncorrelatedAccounts {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${File},
@@ -2098,11 +2108,11 @@ function Import-BetaUncorrelatedAccounts {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('multipart/form-data')
 
-        $LocalVarUri = '/sources/{id}/load-uncorrelated-accounts'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling importUncorrelatedAccounts."
+        $LocalVarUri = '/sources/{sourceId}/load-uncorrelated-accounts'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling importUncorrelatedAccounts."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if ($File) {
             $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
@@ -2522,7 +2532,7 @@ Update Source Correlation Configuration
 
 Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The source id
 
 .PARAMETER CorrelationConfig
@@ -2541,7 +2551,7 @@ function Send-BetaCorrelationConfig {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${CorrelationConfig},
@@ -2568,11 +2578,11 @@ function Send-BetaCorrelationConfig {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/sources/{id}/correlation-config'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling putCorrelationConfig."
+        $LocalVarUri = '/sources/{sourceId}/correlation-config'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling putCorrelationConfig."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if (!$CorrelationConfig) {
             throw "Error! The required parameter `CorrelationConfig` missing when calling putCorrelationConfig."
@@ -2622,7 +2632,7 @@ Update Native Change Detection Configuration
 
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The source id
 
 .PARAMETER NativeChangeDetectionConfig
@@ -2641,7 +2651,7 @@ function Send-BetaNativeChangeDetectionConfig {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${NativeChangeDetectionConfig},
@@ -2669,10 +2679,10 @@ function Send-BetaNativeChangeDetectionConfig {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/sources/{sourceId}/native-change-detection-config'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling putNativeChangeDetectionConfig."
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling putNativeChangeDetectionConfig."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if (!$NativeChangeDetectionConfig) {
             throw "Error! The required parameter `NativeChangeDetectionConfig` missing when calling putNativeChangeDetectionConfig."
@@ -3143,7 +3153,7 @@ Synchronize single source attributes.
 
 This end-point performs attribute synchronization for a selected source. A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
 
-.PARAMETER Id
+.PARAMETER SourceId
 The Source id
 
 .PARAMETER WithHttpInfo
@@ -3159,7 +3169,7 @@ function Sync-BetaAttributesForSource {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -3180,11 +3190,11 @@ function Sync-BetaAttributesForSource {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/sources/{id}/synchronize-attributes'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling syncAttributesForSource."
+        $LocalVarUri = '/sources/{sourceId}/synchronize-attributes'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling syncAttributesForSource."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 
@@ -3677,6 +3687,9 @@ Update Source Entitlement Request Configuration
 
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
+.PARAMETER SourceId
+The Source id
+
 .PARAMETER SourceEntitlementRequestConfig
 No description available.
 
@@ -3692,6 +3705,9 @@ function Update-BetaSourceEntitlementRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SourceEntitlementRequestConfig},
         [Switch]
@@ -3717,7 +3733,11 @@ function Update-BetaSourceEntitlementRequestConfig {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/sources/{id}/entitlement-request-config'
+        $LocalVarUri = '/sources/{sourceId}/entitlement-request-config'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling updateSourceEntitlementRequestConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if (!$SourceEntitlementRequestConfig) {
             throw "Error! The required parameter `SourceEntitlementRequestConfig` missing when calling updateSourceEntitlementRequestConfig."

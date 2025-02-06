@@ -512,7 +512,7 @@ Get MAIL FROM Attributes
 
 Retrieve MAIL FROM attributes for a given AWS SES identity.
 
-.PARAMETER Id
+.PARAMETER IdentityId
 Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
 .PARAMETER WithHttpInfo
@@ -528,7 +528,7 @@ function Get-BetaMailFromAttributes {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${IdentityId},
         [Switch]
         $WithHttpInfo
     )
@@ -549,12 +549,11 @@ function Get-BetaMailFromAttributes {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/mail-from-attributes/{identity}'
-
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getMailFromAttributes."
+        $LocalVarUri = '/mail-from-attributes/{identityId}'
+        if (!$IdentityId) {
+            throw "Error! The required parameter `IdentityId` missing when calling getMailFromAttributes."
         }
-        $LocalVarQueryParameters['id'] = $Id
+        $LocalVarUri = $LocalVarUri.replace('{identityId}', [System.Web.HTTPUtility]::UrlEncode($IdentityId))
 
 
 
@@ -839,6 +838,9 @@ List Notification Preferences for tenant.
 
 Returns a list of notification preferences for tenant.
 
+.PARAMETER Key
+The notification key.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -850,6 +852,9 @@ PreferencesDto[]
 function Get-BetaNotificationPreferences {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Key},
         [Switch]
         $WithHttpInfo
     )
@@ -871,6 +876,10 @@ function Get-BetaNotificationPreferences {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/notification-preferences/{key}'
+        if (!$Key) {
+            throw "Error! The required parameter `Key` missing when calling listNotificationPreferences."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{key}', [System.Web.HTTPUtility]::UrlEncode($Key))
 
 
 

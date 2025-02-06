@@ -96,17 +96,17 @@ function ConvertFrom-BetaJsonToSourceCreationErrors {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaSourceCreationErrors
-        $AllProperties = ("multihost_id", "source_name", "source_error", "created", "modified", "operation")
+        $AllProperties = ("multihostId", "source_name", "source_error", "created", "modified", "operation")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "multihost_id"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "multihostId"))) { #optional property not found
             $MultihostId = $null
         } else {
-            $MultihostId = $JsonParameters.PSobject.Properties["multihost_id"].value
+            $MultihostId = $JsonParameters.PSobject.Properties["multihostId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "source_name"))) { #optional property not found
@@ -140,7 +140,7 @@ function ConvertFrom-BetaJsonToSourceCreationErrors {
         }
 
         $PSO = [PSCustomObject]@{
-            "multihost_id" = ${MultihostId}
+            "multihostId" = ${MultihostId}
             "source_name" = ${SourceName}
             "source_error" = ${SourceError}
             "created" = ${Created}

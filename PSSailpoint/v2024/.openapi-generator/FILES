@@ -321,6 +321,7 @@ docs/DataAccess.md
 docs/DataAccessCategoriesInner.md
 docs/DataAccessImpactScore.md
 docs/DataAccessPoliciesInner.md
+docs/DataSegment.md
 docs/DateCompare.md
 docs/DateCompareFirstDate.md
 docs/DateCompareSecondDate.md
@@ -576,6 +577,7 @@ docs/ManualWorkItemState.md
 docs/ManuallyUpdatedFieldsDTO.md
 docs/MatchTerm.md
 docs/Medium.md
+docs/MembershipType.md
 docs/MetricAggregation.md
 docs/MetricResponse.md
 docs/MetricType.md
@@ -720,6 +722,7 @@ docs/RecommendationResponse.md
 docs/RecommendationResponseDto.md
 docs/RecommenderCalculations.md
 docs/RecommenderCalculationsIdentityAttributesValue.md
+docs/Ref.md
 docs/Reference.md
 docs/Reference1.md
 docs/RemediationItemDetails.md
@@ -853,6 +856,9 @@ docs/ScheduledSearch.md
 docs/ScheduledSearchAllOfOwner.md
 docs/ScheduledSearchName.md
 docs/Schema.md
+docs/Scope.md
+docs/ScopeType.md
+docs/ScopeVisibilityType.md
 docs/Search.md
 docs/SearchAggregationSpecification.md
 docs/SearchArguments.md
@@ -1081,6 +1087,8 @@ docs/V2024CustomFormsApi.md
 docs/V2024CustomFormsApideveloperSite_code_examples.yaml
 docs/V2024CustomPasswordInstructionsApi.md
 docs/V2024CustomPasswordInstructionsApideveloperSite_code_examples.yaml
+docs/V2024DataSegmentationApi.md
+docs/V2024DataSegmentationApideveloperSite_code_examples.yaml
 docs/V2024DimensionsApi.md
 docs/V2024DimensionsApideveloperSite_code_examples.yaml
 docs/V2024EntitlementsApi.md
@@ -1272,6 +1280,7 @@ src/PSSailpoint.V2024/Api/V2024ConnectorRuleManagementApi.ps1
 src/PSSailpoint.V2024/Api/V2024ConnectorsApi.ps1
 src/PSSailpoint.V2024/Api/V2024CustomFormsApi.ps1
 src/PSSailpoint.V2024/Api/V2024CustomPasswordInstructionsApi.ps1
+src/PSSailpoint.V2024/Api/V2024DataSegmentationApi.ps1
 src/PSSailpoint.V2024/Api/V2024DimensionsApi.ps1
 src/PSSailpoint.V2024/Api/V2024EntitlementsApi.ps1
 src/PSSailpoint.V2024/Api/V2024GlobalTenantSecuritySettingsApi.ps1
@@ -1650,6 +1659,7 @@ src/PSSailpoint.V2024/Model/DataAccess.ps1
 src/PSSailpoint.V2024/Model/DataAccessCategoriesInner.ps1
 src/PSSailpoint.V2024/Model/DataAccessImpactScore.ps1
 src/PSSailpoint.V2024/Model/DataAccessPoliciesInner.ps1
+src/PSSailpoint.V2024/Model/DataSegment.ps1
 src/PSSailpoint.V2024/Model/DateCompare.ps1
 src/PSSailpoint.V2024/Model/DateCompareFirstDate.ps1
 src/PSSailpoint.V2024/Model/DateCompareSecondDate.ps1
@@ -1902,6 +1912,7 @@ src/PSSailpoint.V2024/Model/ManualWorkItemState.ps1
 src/PSSailpoint.V2024/Model/ManuallyUpdatedFieldsDTO.ps1
 src/PSSailpoint.V2024/Model/MatchTerm.ps1
 src/PSSailpoint.V2024/Model/Medium.ps1
+src/PSSailpoint.V2024/Model/MembershipType.ps1
 src/PSSailpoint.V2024/Model/MetricAggregation.ps1
 src/PSSailpoint.V2024/Model/MetricResponse.ps1
 src/PSSailpoint.V2024/Model/MetricType.ps1
@@ -2049,6 +2060,7 @@ src/PSSailpoint.V2024/Model/RecommendationResponse.ps1
 src/PSSailpoint.V2024/Model/RecommendationResponseDto.ps1
 src/PSSailpoint.V2024/Model/RecommenderCalculations.ps1
 src/PSSailpoint.V2024/Model/RecommenderCalculationsIdentityAttributesValue.ps1
+src/PSSailpoint.V2024/Model/Ref.ps1
 src/PSSailpoint.V2024/Model/Reference.ps1
 src/PSSailpoint.V2024/Model/Reference1.ps1
 src/PSSailpoint.V2024/Model/RemediationItemDetails.ps1
@@ -2182,6 +2194,9 @@ src/PSSailpoint.V2024/Model/ScheduledSearch.ps1
 src/PSSailpoint.V2024/Model/ScheduledSearchAllOfOwner.ps1
 src/PSSailpoint.V2024/Model/ScheduledSearchName.ps1
 src/PSSailpoint.V2024/Model/Schema.ps1
+src/PSSailpoint.V2024/Model/Scope.ps1
+src/PSSailpoint.V2024/Model/ScopeType.ps1
+src/PSSailpoint.V2024/Model/ScopeVisibilityType.ps1
 src/PSSailpoint.V2024/Model/Search.ps1
 src/PSSailpoint.V2024/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint.V2024/Model/SearchArguments.ps1
@@ -2444,6 +2459,7 @@ tests/Api/V2024ConnectorRuleManagementApi.Tests.ps1
 tests/Api/V2024ConnectorsApi.Tests.ps1
 tests/Api/V2024CustomFormsApi.Tests.ps1
 tests/Api/V2024CustomPasswordInstructionsApi.Tests.ps1
+tests/Api/V2024DataSegmentationApi.Tests.ps1
 tests/Api/V2024DimensionsApi.Tests.ps1
 tests/Api/V2024EntitlementsApi.Tests.ps1
 tests/Api/V2024GlobalTenantSecuritySettingsApi.Tests.ps1
@@ -2821,6 +2837,7 @@ tests/Model/DataAccess.Tests.ps1
 tests/Model/DataAccessCategoriesInner.Tests.ps1
 tests/Model/DataAccessImpactScore.Tests.ps1
 tests/Model/DataAccessPoliciesInner.Tests.ps1
+tests/Model/DataSegment.Tests.ps1
 tests/Model/DateCompare.Tests.ps1
 tests/Model/DateCompareFirstDate.Tests.ps1
 tests/Model/DateCompareSecondDate.Tests.ps1
@@ -3073,6 +3090,7 @@ tests/Model/ManualWorkItemState.Tests.ps1
 tests/Model/ManuallyUpdatedFieldsDTO.Tests.ps1
 tests/Model/MatchTerm.Tests.ps1
 tests/Model/Medium.Tests.ps1
+tests/Model/MembershipType.Tests.ps1
 tests/Model/MetricAggregation.Tests.ps1
 tests/Model/MetricResponse.Tests.ps1
 tests/Model/MetricType.Tests.ps1
@@ -3220,6 +3238,7 @@ tests/Model/RecommendationResponse.Tests.ps1
 tests/Model/RecommendationResponseDto.Tests.ps1
 tests/Model/RecommenderCalculations.Tests.ps1
 tests/Model/RecommenderCalculationsIdentityAttributesValue.Tests.ps1
+tests/Model/Ref.Tests.ps1
 tests/Model/Reference.Tests.ps1
 tests/Model/Reference1.Tests.ps1
 tests/Model/RemediationItemDetails.Tests.ps1
@@ -3353,6 +3372,9 @@ tests/Model/ScheduledSearch.Tests.ps1
 tests/Model/ScheduledSearchAllOfOwner.Tests.ps1
 tests/Model/ScheduledSearchName.Tests.ps1
 tests/Model/Schema.Tests.ps1
+tests/Model/Scope.Tests.ps1
+tests/Model/ScopeType.Tests.ps1
+tests/Model/ScopeVisibilityType.Tests.ps1
 tests/Model/Search.Tests.ps1
 tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1

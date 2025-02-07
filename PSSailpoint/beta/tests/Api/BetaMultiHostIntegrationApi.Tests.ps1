@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaMultiHostIntegrationApi' {
 
     Context 'New-BetaSourcesWithinMultiHost' {
         It 'Test New-BetaSourcesWithinMultiHost' {
-            #$TestResult = New-BetaSourcesWithinMultiHost -Id "TEST_VALUE" -MultiHostIntegrationsCreateSources "TEST_VALUE"
+            #$TestResult = New-BetaSourcesWithinMultiHost -MultihostId "TEST_VALUE" -MultiHostIntegrationsCreateSources "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaMultiHostIntegrationApi' {
 
     Context 'Remove-BetaMultiHost' {
         It 'Test Remove-BetaMultiHost' {
-            #$TestResult = Remove-BetaMultiHost -Id "TEST_VALUE"
+            #$TestResult = Remove-BetaMultiHost -MultihostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaMultiHostIntegrationApi' {
 
     Context 'Get-BetaAcctAggregationGroups' {
         It 'Test Get-BetaAcctAggregationGroups' {
-            #$TestResult = Get-BetaAcctAggregationGroups -MultiHostId "TEST_VALUE"
+            #$TestResult = Get-BetaAcctAggregationGroups -MultihostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaMultiHostIntegrationApi' {
 
     Context 'Get-BetaMultiHostIntegrations' {
         It 'Test Get-BetaMultiHostIntegrations' {
-            #$TestResult = Get-BetaMultiHostIntegrations -Id "TEST_VALUE"
+            #$TestResult = Get-BetaMultiHostIntegrations -MultihostId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaMultiHostIntegrationApi' {
 
     Context 'Get-BetaSourcesWithinMultiHost' {
         It 'Test Get-BetaSourcesWithinMultiHost' {
-            #$TestResult = Get-BetaSourcesWithinMultiHost -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-BetaSourcesWithinMultiHost -MultihostId "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

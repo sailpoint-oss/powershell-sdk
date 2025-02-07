@@ -34,10 +34,9 @@ Method | HTTP request | Description
 [**Get-V2024SavedSearches**](#list-saved-searches) | **GET** `/saved-searches` | A list of Saved Searches
 [**Send-V2024SavedSearch**](#put-saved-search) | **PUT** `/saved-searches/{id}` | Updates an existing saved search 
 
+
 ## create-saved-search
 Creates a new saved search.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-saved-search)
@@ -82,10 +81,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-saved-search
 Deletes the specified saved search.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-saved-search)
@@ -130,10 +128,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## execute-saved-search
 Executes the specified saved search.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/execute-saved-search)
@@ -191,10 +188,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-saved-search
 Returns the specified saved search.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-saved-search)
@@ -239,10 +235,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-saved-searches
 Returns a list of saved searches.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-saved-searches)
@@ -292,12 +287,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-saved-search
 Updates an existing saved search. 
 
 >**NOTE: You cannot update the `owner` of the saved search.**
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-saved-search)

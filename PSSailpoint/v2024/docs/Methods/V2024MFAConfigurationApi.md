@@ -25,10 +25,9 @@ Method | HTTP request | Description
 [**Set-V2024MFAOktaConfig**](#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set Okta MFA configuration
 [**Test-V2024MFAConfig**](#test-mfa-config) | **GET** `/mfa/{method}/test` | MFA method&#39;s test configuration
 
+
 ## get-mfa-duo-config
 This API returns the configuration of an Duo MFA method.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-duo-config)
 
@@ -69,10 +68,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-mfa-kba-config
 This API returns the KBA configuration for MFA.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-kba-config)
 
@@ -115,10 +113,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-mfa-okta-config
 This API returns the configuration of an Okta MFA method.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-okta-config)
 
@@ -159,10 +156,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-mfa-duo-config
 This API sets the configuration of an Duo MFA method.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfa-duo-config)
 
@@ -216,10 +212,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-mfakba-config
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfakba-config)
 
@@ -267,10 +262,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-mfa-okta-config
 This API sets the configuration of an Okta MFA method.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfa-okta-config)
 
@@ -320,10 +314,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## test-mfa-config
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-mfa-config)
 

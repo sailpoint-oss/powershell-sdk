@@ -46,10 +46,9 @@ Method | HTTP request | Description
 [**Search-BetaPasswordInfo**](#query-password-info) | **POST** `/query-password-info` | Query Password Info
 [**Set-BetaIdentityPassword**](#set-identity-password) | **POST** `/set-password` | Set Identity&#39;s Password
 
+
 ## create-digit-token
 This API is used to generate a digit token for password management. Requires authorization scope of "idn:password-digit-token:create".
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-digit-token)
 
@@ -97,10 +96,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-password-change-status
 This API returns the status of a password change request. A token with identity owner or trusted API client application authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-password-change-status)
 
@@ -143,6 +141,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## query-password-info
 This API is used to query password related information. 
 
@@ -152,8 +151,6 @@ grant type, and therefore no user context. A [personal access token](https://dev
 or a token generated with the [authorization_code](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow) 
 grant type will **NOT** work on this endpoint, and a `403 Forbidden` response 
 will be returned.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/query-password-info)
@@ -201,6 +198,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-identity-password
 This API is used to set a password for an identity. 
 
@@ -245,8 +243,6 @@ private byte[] encryptRsa(byte[] publicKeyBytes, byte[] toEncryptBytes) throws E
 In this example, `toEncrypt` refers to the plain text password you are setting and then encrypting, and the `publicKey` refers to the publicKey you got from the first request you sent. 
 
 You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/set-identity-password)

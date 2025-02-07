@@ -188,7 +188,7 @@ Class | Method | HTTP request | Description
 *BetaEntitlementsApi* | [**Get-BetaEntitlements**](docs/BetaEntitlementsApi.md#Get-BetaEntitlements) | **GET** /entitlements | Gets a list of entitlements.
 *BetaEntitlementsApi* | [**Update-BetaEntitlement**](docs/BetaEntitlementsApi.md#Update-BetaEntitlement) | **PATCH** /entitlements/{id} | Patch an entitlement
 *BetaEntitlementsApi* | [**Send-BetaEntitlementRequestConfig**](docs/BetaEntitlementsApi.md#Send-BetaEntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
-*BetaEntitlementsApi* | [**Reset-BetaSourceEntitlements**](docs/BetaEntitlementsApi.md#Reset-BetaSourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset Source Entitlements
+*BetaEntitlementsApi* | [**Reset-BetaSourceEntitlements**](docs/BetaEntitlementsApi.md#Reset-BetaSourceEntitlements) | **POST** /entitlements/reset/sources/{sourceId} | Reset Source Entitlements
 *BetaEntitlementsApi* | [**Update-BetaEntitlementsInBulk**](docs/BetaEntitlementsApi.md#Update-BetaEntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *BetaGovernanceGroupsApi* | [**New-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#New-BetaWorkgroup) | **POST** /workgroups | Create a new Governance Group.
 *BetaGovernanceGroupsApi* | [**Remove-BetaWorkgroup**](docs/BetaGovernanceGroupsApi.md#Remove-BetaWorkgroup) | **DELETE** /workgroups/{id} | Delete a Governance Group
@@ -258,7 +258,7 @@ Class | Method | HTTP request | Description
 *BetaIdentitiesApi* | [**Get-BetaRoleAssignment**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Role assignment details
 *BetaIdentitiesApi* | [**Get-BetaRoleAssignments**](docs/BetaIdentitiesApi.md#Get-BetaRoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
 *BetaIdentitiesApi* | [**Get-BetaIdentities**](docs/BetaIdentitiesApi.md#Get-BetaIdentities) | **GET** /identities | List Identities
-*BetaIdentitiesApi* | [**Reset-BetaIdentity**](docs/BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{id}/reset | Reset an identity
+*BetaIdentitiesApi* | [**Reset-BetaIdentity**](docs/BetaIdentitiesApi.md#Reset-BetaIdentity) | **POST** /identities/{identityId}/reset | Reset an identity
 *BetaIdentitiesApi* | [**Send-BetaIdentityVerificationAccountToken**](docs/BetaIdentitiesApi.md#Send-BetaIdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
 *BetaIdentitiesApi* | [**Start-BetaIdentitiesInvite**](docs/BetaIdentitiesApi.md#Start-BetaIdentitiesInvite) | **POST** /identities/invite | Invite identities to register
 *BetaIdentitiesApi* | [**Start-BetaIdentityProcessing**](docs/BetaIdentitiesApi.md#Start-BetaIdentityProcessing) | **POST** /identities/process | Process a list of identityIds
@@ -270,7 +270,7 @@ Class | Method | HTTP request | Description
 *BetaIdentityAttributesApi* | [**Get-BetaIdentityAttributes**](docs/BetaIdentityAttributesApi.md#Get-BetaIdentityAttributes) | **GET** /identity-attributes | List Identity Attributes
 *BetaIdentityAttributesApi* | [**Send-BetaIdentityAttribute**](docs/BetaIdentityAttributesApi.md#Send-BetaIdentityAttribute) | **PUT** /identity-attributes/{name} | Update Identity Attribute
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
-*BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshotsAccessType**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
+*BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshotsAccessType**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{accessType} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
 *BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentity**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentity) | **GET** /historical-identities/{id} | Get latest snapshot of identity
 *BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentityEvents**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshot**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
@@ -320,18 +320,18 @@ Class | Method | HTTP request | Description
 *BetaManagedClustersApi* | [**Get-BetaManagedClusters**](docs/BetaManagedClustersApi.md#Get-BetaManagedClusters) | **GET** /managed-clusters | Retrieve all Managed Clusters.
 *BetaManagedClustersApi* | [**Send-BetaClientLogConfiguration**](docs/BetaManagedClustersApi.md#Send-BetaClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster's log configuration
 *BetaMultiHostIntegrationApi* | [**New-BetaMultiHostIntegration**](docs/BetaMultiHostIntegrationApi.md#New-BetaMultiHostIntegration) | **POST** /multihosts | Create Multi-Host Integration
-*BetaMultiHostIntegrationApi* | [**New-BetaSourcesWithinMultiHost**](docs/BetaMultiHostIntegrationApi.md#New-BetaSourcesWithinMultiHost) | **POST** /multihosts/{id} | Create Sources Within Multi-Host Integration
-*BetaMultiHostIntegrationApi* | [**Remove-BetaMultiHost**](docs/BetaMultiHostIntegrationApi.md#Remove-BetaMultiHost) | **DELETE** /multihosts/{id} | Delete Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**New-BetaSourcesWithinMultiHost**](docs/BetaMultiHostIntegrationApi.md#New-BetaSourcesWithinMultiHost) | **POST** /multihosts/{multihostId} | Create Sources Within Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**Remove-BetaMultiHost**](docs/BetaMultiHostIntegrationApi.md#Remove-BetaMultiHost) | **DELETE** /multihosts/{multihostId} | Delete Multi-Host Integration
 *BetaMultiHostIntegrationApi* | [**Get-BetaAcctAggregationGroups**](docs/BetaMultiHostIntegrationApi.md#Get-BetaAcctAggregationGroups) | **GET** /multihosts/{multihostId}/acctAggregationGroups | Get Account Aggregation Groups Within Multi-Host Integration ID
 *BetaMultiHostIntegrationApi* | [**Get-BetaEntitlementAggregationGroups**](docs/BetaMultiHostIntegrationApi.md#Get-BetaEntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | Get Entitlement Aggregation Groups Within Multi-Host Integration ID
-*BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostIntegrations**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrations) | **GET** /multihosts/{id} | Get Multi-Host Integration By ID
+*BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostIntegrations**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrations) | **GET** /multihosts/{multihostId} | Get Multi-Host Integration By ID
 *BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostIntegrationsList**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostIntegrationsList) | **GET** /multihosts | List All Existing Multi-Host Integrations
 *BetaMultiHostIntegrationApi* | [**Get-BetaMultiHostSourceCreationErrors**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Source Creation Errors
 *BetaMultiHostIntegrationApi* | [**Get-BetaMultihostIntegrationTypes**](docs/BetaMultiHostIntegrationApi.md#Get-BetaMultihostIntegrationTypes) | **GET** /multihosts/types | List Multi-Host Integration Types
-*BetaMultiHostIntegrationApi* | [**Get-BetaSourcesWithinMultiHost**](docs/BetaMultiHostIntegrationApi.md#Get-BetaSourcesWithinMultiHost) | **GET** /multihosts/{id}/sources | List Sources Within Multi-Host Integration
-*BetaMultiHostIntegrationApi* | [**Test-BetaConnectionMultiHostSources**](docs/BetaMultiHostIntegrationApi.md#Test-BetaConnectionMultiHostSources) | **POST** /multihosts/{multihost_id}/sources/testConnection | Test Configuration For Multi-Host Integration
-*BetaMultiHostIntegrationApi* | [**Test-BetaSourceConnectionMultihost**](docs/BetaMultiHostIntegrationApi.md#Test-BetaSourceConnectionMultihost) | **GET** /multihosts/{multihost_id}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration's Single Source
-*BetaMultiHostIntegrationApi* | [**Update-BetaMultiHostSources**](docs/BetaMultiHostIntegrationApi.md#Update-BetaMultiHostSources) | **PATCH** /multihosts/{id} | Update Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**Get-BetaSourcesWithinMultiHost**](docs/BetaMultiHostIntegrationApi.md#Get-BetaSourcesWithinMultiHost) | **GET** /multihosts/{multihostId}/sources | List Sources Within Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**Test-BetaConnectionMultiHostSources**](docs/BetaMultiHostIntegrationApi.md#Test-BetaConnectionMultiHostSources) | **POST** /multihosts/{multihostId}/sources/testConnection | Test Configuration For Multi-Host Integration
+*BetaMultiHostIntegrationApi* | [**Test-BetaSourceConnectionMultihost**](docs/BetaMultiHostIntegrationApi.md#Test-BetaSourceConnectionMultihost) | **GET** /multihosts/{multihostId}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration's Single Source
+*BetaMultiHostIntegrationApi* | [**Update-BetaMultiHostSources**](docs/BetaMultiHostIntegrationApi.md#Update-BetaMultiHostSources) | **PATCH** /multihosts/{multihostId} | Update Multi-Host Integration
 *BetaNonEmployeeLifecycleManagementApi* | [**Approve-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#Approve-BetaNonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRecord**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *BetaNonEmployeeLifecycleManagementApi* | [**New-BetaNonEmployeeRequest**](docs/BetaNonEmployeeLifecycleManagementApi.md#New-BetaNonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -370,7 +370,7 @@ Class | Method | HTTP request | Description
 *BetaNotificationsApi* | [**Remove-BetaNotificationTemplatesInBulk**](docs/BetaNotificationsApi.md#Remove-BetaNotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
 *BetaNotificationsApi* | [**Remove-BetaVerifiedFromAddress**](docs/BetaNotificationsApi.md#Remove-BetaVerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
 *BetaNotificationsApi* | [**Get-BetaDkimAttributes**](docs/BetaNotificationsApi.md#Get-BetaDkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
-*BetaNotificationsApi* | [**Get-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get MAIL FROM Attributes
+*BetaNotificationsApi* | [**Get-BetaMailFromAttributes**](docs/BetaNotificationsApi.md#Get-BetaMailFromAttributes) | **GET** /mail-from-attributes/{identityId} | Get MAIL FROM Attributes
 *BetaNotificationsApi* | [**Get-BetaNotificationTemplate**](docs/BetaNotificationsApi.md#Get-BetaNotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
 *BetaNotificationsApi* | [**Get-BetaNotificationsTemplateContext**](docs/BetaNotificationsApi.md#Get-BetaNotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context
 *BetaNotificationsApi* | [**Get-BetaFromAddresses**](docs/BetaNotificationsApi.md#Get-BetaFromAddresses) | **GET** /verified-from-addresses | List From Addresses
@@ -487,44 +487,44 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**New-BetaSource**](docs/BetaSourcesApi.md#New-BetaSource) | **POST** /sources | Creates a source in IdentityNow.
 *BetaSourcesApi* | [**New-BetaSourceSchema**](docs/BetaSourcesApi.md#New-BetaSourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
 *BetaSourcesApi* | [**Remove-Beta**](docs/BetaSourcesApi.md#Remove-Beta) | **DELETE** /sources/{id} | Delete Source by ID
-*BetaSourcesApi* | [**Remove-BetaAccountsAsync**](docs/BetaSourcesApi.md#Remove-BetaAccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove All Accounts in a Source
+*BetaSourcesApi* | [**Remove-BetaAccountsAsync**](docs/BetaSourcesApi.md#Remove-BetaAccountsAsync) | **POST** /sources/{sourceId}/remove-accounts | Remove All Accounts in a Source
 *BetaSourcesApi* | [**Remove-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Remove-BetaNativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
 *BetaSourcesApi* | [**Remove-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Remove-BetaProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Remove-BetaSourceSchema**](docs/BetaSourcesApi.md#Remove-BetaSourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
-*BetaSourcesApi* | [**Get-BetaCorrelationConfig**](docs/BetaSourcesApi.md#Get-BetaCorrelationConfig) | **GET** /sources/{id}/correlation-config | Get Source Correlation Configuration
+*BetaSourcesApi* | [**Get-BetaCorrelationConfig**](docs/BetaSourcesApi.md#Get-BetaCorrelationConfig) | **GET** /sources/{sourceId}/correlation-config | Get Source Correlation Configuration
 *BetaSourcesApi* | [**Get-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Get-BetaNativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Get-BetaSource**](docs/BetaSourcesApi.md#Get-BetaSource) | **GET** /sources/{id} | Get Source by ID
-*BetaSourcesApi* | [**Get-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Get-BetaSourceAccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
+*BetaSourcesApi* | [**Get-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Get-BetaSourceAccountsSchema) | **GET** /sources/{sourceId}/schemas/accounts | Downloads source accounts schema template
 *BetaSourcesApi* | [**Get-BetaSourceAttrSyncConfig**](docs/BetaSourcesApi.md#Get-BetaSourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
 *BetaSourcesApi* | [**Get-BetaSourceConfig**](docs/BetaSourcesApi.md#Get-BetaSourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
-*BetaSourcesApi* | [**Get-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
-*BetaSourcesApi* | [**Get-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
+*BetaSourcesApi* | [**Get-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementRequestConfig) | **GET** /sources/{sourceId}/entitlement-request-config | Get Source Entitlement Request Configuration
+*BetaSourcesApi* | [**Get-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Get-BetaSourceEntitlementsSchema) | **GET** /sources/{sourceId}/schemas/entitlements | Downloads source entitlements schema template
 *BetaSourcesApi* | [**Get-BetaSourceSchema**](docs/BetaSourcesApi.md#Get-BetaSourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
 *BetaSourcesApi* | [**Get-BetaSourceSchemas**](docs/BetaSourcesApi.md#Get-BetaSourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
-*BetaSourcesApi* | [**Import-BetaAccounts**](docs/BetaSourcesApi.md#Import-BetaAccounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
-*BetaSourcesApi* | [**Import-BetaEntitlements**](docs/BetaSourcesApi.md#Import-BetaEntitlements) | **POST** /sources/{id}/load-entitlements | Entitlement Aggregation
-*BetaSourcesApi* | [**Import-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceAccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
+*BetaSourcesApi* | [**Import-BetaAccounts**](docs/BetaSourcesApi.md#Import-BetaAccounts) | **POST** /sources/{sourceId}/load-accounts | Account Aggregation
+*BetaSourcesApi* | [**Import-BetaEntitlements**](docs/BetaSourcesApi.md#Import-BetaEntitlements) | **POST** /sources/{sourceId}/load-entitlements | Entitlement Aggregation
+*BetaSourcesApi* | [**Import-BetaSourceAccountsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceAccountsSchema) | **POST** /sources/{sourceId}/schemas/accounts | Uploads source accounts schema template
 *BetaSourcesApi* | [**Import-BetaSourceConnectorFile**](docs/BetaSourcesApi.md#Import-BetaSourceConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
-*BetaSourcesApi* | [**Import-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceEntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
-*BetaSourcesApi* | [**Import-BetaUncorrelatedAccounts**](docs/BetaSourcesApi.md#Import-BetaUncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
+*BetaSourcesApi* | [**Import-BetaSourceEntitlementsSchema**](docs/BetaSourcesApi.md#Import-BetaSourceEntitlementsSchema) | **POST** /sources/{sourceId}/schemas/entitlements | Uploads source entitlements schema template
+*BetaSourcesApi* | [**Import-BetaUncorrelatedAccounts**](docs/BetaSourcesApi.md#Import-BetaUncorrelatedAccounts) | **POST** /sources/{sourceId}/load-uncorrelated-accounts | Process Uncorrelated Accounts
 *BetaSourcesApi* | [**Get-BetaProvisioningPolicies**](docs/BetaSourcesApi.md#Get-BetaProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
 *BetaSourcesApi* | [**Get-BetaSources**](docs/BetaSourcesApi.md#Get-BetaSources) | **GET** /sources | Lists all sources in IdentityNow.
 *BetaSourcesApi* | [**Receive-BetaResourceObjects**](docs/BetaSourcesApi.md#Receive-BetaResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *BetaSourcesApi* | [**Ping-BetaCluster**](docs/BetaSourcesApi.md#Ping-BetaCluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
-*BetaSourcesApi* | [**Send-BetaCorrelationConfig**](docs/BetaSourcesApi.md#Send-BetaCorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
+*BetaSourcesApi* | [**Send-BetaCorrelationConfig**](docs/BetaSourcesApi.md#Send-BetaCorrelationConfig) | **PUT** /sources/{sourceId}/correlation-config | Update Source Correlation Configuration
 *BetaSourcesApi* | [**Send-BetaNativeChangeDetectionConfig**](docs/BetaSourcesApi.md#Send-BetaNativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
 *BetaSourcesApi* | [**Send-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Send-BetaProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
 *BetaSourcesApi* | [**Send-BetaSource**](docs/BetaSourcesApi.md#Send-BetaSource) | **PUT** /sources/{id} | Update Source (Full)
 *BetaSourcesApi* | [**Send-BetaSourceAttrSyncConfig**](docs/BetaSourcesApi.md#Send-BetaSourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
 *BetaSourcesApi* | [**Send-BetaSourceSchema**](docs/BetaSourcesApi.md#Send-BetaSourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
-*BetaSourcesApi* | [**Sync-BetaAttributesForSource**](docs/BetaSourcesApi.md#Sync-BetaAttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
+*BetaSourcesApi* | [**Sync-BetaAttributesForSource**](docs/BetaSourcesApi.md#Sync-BetaAttributesForSource) | **POST** /sources/{sourceId}/synchronize-attributes | Synchronize single source attributes.
 *BetaSourcesApi* | [**Test-BetaSourceConfiguration**](docs/BetaSourcesApi.md#Test-BetaSourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
 *BetaSourcesApi* | [**Test-BetaSourceConnection**](docs/BetaSourcesApi.md#Test-BetaSourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
 *BetaSourcesApi* | [**Update-BetaProvisioningPoliciesInBulk**](docs/BetaSourcesApi.md#Update-BetaProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
 *BetaSourcesApi* | [**Update-BetaProvisioningPolicy**](docs/BetaSourcesApi.md#Update-BetaProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
 *BetaSourcesApi* | [**Update-BetaSource**](docs/BetaSourcesApi.md#Update-BetaSource) | **PATCH** /sources/{id} | Update Source (Partial)
-*BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
+*BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{sourceId}/entitlement-request-config | Update Source Entitlement Request Configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatchStats**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatches**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request

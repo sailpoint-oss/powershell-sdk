@@ -21,10 +21,12 @@ Method | HTTP request | Description
 [**Get-V2024TenantUiMetadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
 [**Set-V2024TenantUiMetadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
 
-## get-tenant-ui-metadata
-This API endpoint retrieves UI metadata configured for your tenant.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-tenant-ui-metadata
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API endpoint retrieves UI metadata configured for your tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-ui-metadata)
 
@@ -68,10 +70,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## set-tenant-ui-metadata
-This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## set-tenant-ui-metadata
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-tenant-ui-metadata)
 

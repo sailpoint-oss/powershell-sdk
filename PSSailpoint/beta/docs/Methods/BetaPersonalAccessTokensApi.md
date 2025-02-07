@@ -33,10 +33,9 @@ Method | HTTP request | Description
 [**Get-BetaPersonalAccessTokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List Personal Access Tokens
 [**Update-BetaPersonalAccessToken**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch Personal Access Token
 
+
 ## create-personal-access-token
 This creates a personal access token.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-personal-access-token)
 
@@ -84,10 +83,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-personal-access-token
 This deletes a personal access token.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-personal-access-token)
 
@@ -131,10 +129,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-personal-access-tokens
 This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-personal-access-tokens)
 
@@ -179,10 +176,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-personal-access-token
 This performs a targeted update to the field(s) of a Personal Access Token.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-personal-access-token)
 

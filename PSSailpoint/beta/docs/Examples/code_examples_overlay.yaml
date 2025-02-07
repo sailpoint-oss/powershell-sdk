@@ -3742,21 +3742,21 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaEntitlementRequestConfig"
             Write-Host $_.ErrorDetails
         }
-- path: /entitlements/reset/sources/{id}
+- path: /entitlements/reset/sources/{sourceId}
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/entitlements#reset-source-entitlements
       source: |
-        $Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
+        $SourceId = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
         
         # Reset Source Entitlements
         
         try {
-            Reset-BetaSourceEntitlements-BetaId $Id 
+            Reset-BetaSourceEntitlements-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Reset-BetaSourceEntitlements -BetaId $Id  
+            # Reset-BetaSourceEntitlements -BetaSourceId $SourceId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-BetaSourceEntitlements"
             Write-Host $_.ErrorDetails
@@ -5409,7 +5409,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentities"
             Write-Host $_.ErrorDetails
         }
-- path: /identities/{id}/reset
+- path: /identities/{identityId}/reset
   method: POST
   xCodeSample:
     - lang: PowerShell
@@ -5720,7 +5720,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Compare-BetaIdentitySnapshots"
             Write-Host $_.ErrorDetails
         }
-- path: /historical-identities/{id}/compare/{access-type}
+- path: /historical-identities/{id}/compare/{accessType}
   method: GET
   xCodeSample:
     - lang: PowerShell
@@ -7041,13 +7041,13 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaMultiHostIntegration"
             Write-Host $_.ErrorDetails
         }
-- path: /multihosts/{id}
+- path: /multihosts/{multihostId}
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/multi-host-integration#create-sources-within-multi-host
       source: |
-        $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
         $MultiHostIntegrationsCreateSources = @"{
           "connectorAttributes" : {
             "authType" : "SQLAuthentication",
@@ -7066,29 +7066,29 @@
         
         try {
             $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
-            New-BetaSourcesWithinMultiHost-BetaId $Id -BetaMultiHostIntegrationsCreateSources $Result
+            New-BetaSourcesWithinMultiHost-BetaMultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $Result
             
             # Below is a request that includes all optional parameters
-            # New-BetaSourcesWithinMultiHost -BetaId $Id -BetaMultiHostIntegrationsCreateSources $MultiHostIntegrationsCreateSources  
+            # New-BetaSourcesWithinMultiHost -BetaMultihostId $MultihostId -BetaMultiHostIntegrationsCreateSources $MultiHostIntegrationsCreateSources  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourcesWithinMultiHost"
             Write-Host $_.ErrorDetails
         }
-- path: /multihosts/{id}
+- path: /multihosts/{multihostId}
   method: DELETE
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/multi-host-integration#delete-multi-host
       source: |
-        $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration to delete.
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration to delete.
         
         # Delete Multi-Host Integration
         
         try {
-            Remove-BetaMultiHost-BetaId $Id 
+            Remove-BetaMultiHost-BetaMultihostId $MultihostId 
             
             # Below is a request that includes all optional parameters
-            # Remove-BetaMultiHost -BetaId $Id  
+            # Remove-BetaMultiHost -BetaMultihostId $MultihostId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaMultiHost"
             Write-Host $_.ErrorDetails
@@ -7099,15 +7099,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/multi-host-integration#get-acct-aggregation-groups
       source: |
-        $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+        $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
         
         # Get Account Aggregation Groups Within Multi-Host Integration ID
         
         try {
-            Get-BetaAcctAggregationGroups-BetaMultiHostId $MultiHostId 
+            Get-BetaAcctAggregationGroups-BetaMultihostId $MultihostId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaAcctAggregationGroups -BetaMultiHostId $MultiHostId  
+            # Get-BetaAcctAggregationGroups -BetaMultihostId $MultihostId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAcctAggregationGroups"
             Write-Host $_.ErrorDetails
@@ -7131,21 +7131,21 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEntitlementAggregationGroups"
             Write-Host $_.ErrorDetails
         }
-- path: /multihosts/{id}
+- path: /multihosts/{multihostId}
   method: GET
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/multi-host-integration#get-multi-host-integrations
       source: |
-        $Id = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
         
         # Get Multi-Host Integration By ID
         
         try {
-            Get-BetaMultiHostIntegrations-BetaId $Id 
+            Get-BetaMultiHostIntegrations-BetaMultihostId $MultihostId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaMultiHostIntegrations -BetaId $Id  
+            # Get-BetaMultiHostIntegrations -BetaMultihostId $MultihostId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMultiHostIntegrations"
             Write-Host $_.ErrorDetails
@@ -7211,12 +7211,13 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMultihostIntegrationTypes"
             Write-Host $_.ErrorDetails
         }
-- path: /multihosts/{id}/sources
+- path: /multihosts/{multihostId}/sources
   method: GET
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/multi-host-integration#get-sources-within-multi-host
       source: |
+        $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
@@ -7226,15 +7227,15 @@
         # List Sources Within Multi-Host Integration
         
         try {
-            Get-BetaSourcesWithinMultiHost
+            Get-BetaSourcesWithinMultiHost-BetaMultihostId $MultihostId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaSourcesWithinMultiHost -BetaOffset $Offset -BetaLimit $Limit -BetaSorters $Sorters -BetaFilters $Filters -BetaCount $Count  
+            # Get-BetaSourcesWithinMultiHost -BetaMultihostId $MultihostId -BetaOffset $Offset -BetaLimit $Limit -BetaSorters $Sorters -BetaFilters $Filters -BetaCount $Count  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourcesWithinMultiHost"
             Write-Host $_.ErrorDetails
         }
-- path: /multihosts/{multihost_id}/sources/testConnection
+- path: /multihosts/{multihostId}/sources/testConnection
   method: POST
   xCodeSample:
     - lang: PowerShell
@@ -7253,7 +7254,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaConnectionMultiHostSources"
             Write-Host $_.ErrorDetails
         }
-- path: /multihosts/{multihost_id}/sources/{sourceId}/testConnection
+- path: /multihosts/{multihostId}/sources/{sourceId}/testConnection
   method: GET
   xCodeSample:
     - lang: PowerShell
@@ -7273,7 +7274,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaSourceConnectionMultihost"
             Write-Host $_.ErrorDetails
         }
-- path: /multihosts/{id}
+- path: /multihosts/{multihostId}
   method: PATCH
   xCodeSample:
     - lang: PowerShell
@@ -8203,21 +8204,21 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaDkimAttributes"
             Write-Host $_.ErrorDetails
         }
-- path: /mail-from-attributes/{identity}
+- path: /mail-from-attributes/{identityId}
   method: GET
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/notifications#get-mail-from-attributes
       source: |
-        $Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+        $IdentityId = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
         
         # Get MAIL FROM Attributes
         
         try {
-            Get-BetaMailFromAttributes-BetaId $Id 
+            Get-BetaMailFromAttributes-BetaIdentityId $IdentityId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaMailFromAttributes -BetaId $Id  
+            # Get-BetaMailFromAttributes -BetaIdentityId $IdentityId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMailFromAttributes"
             Write-Host $_.ErrorDetails
@@ -8288,14 +8289,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/notifications#list-notification-preferences
       source: |
+        $Key = "cloud_manual_work_item_summary" # String | The notification key.
         
         # List Notification Preferences for tenant.
         
         try {
-            Get-BetaNotificationPreferences
+            Get-BetaNotificationPreferences-BetaKey $Key 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaNotificationPreferences  
+            # Get-BetaNotificationPreferences -BetaKey $Key  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNotificationPreferences"
             Write-Host $_.ErrorDetails
@@ -11256,21 +11258,21 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-Beta"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/remove-accounts
+- path: /sources/{sourceId}/remove-accounts
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#delete-accounts-async
       source: |
-        $Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
+        $SourceId = "ebbf35756e1140699ce52b233121384a" # String | The source id
         
         # Remove All Accounts in a Source
         
         try {
-            Remove-BetaAccountsAsync-BetaId $Id 
+            Remove-BetaAccountsAsync-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Remove-BetaAccountsAsync -BetaId $Id  
+            # Remove-BetaAccountsAsync -BetaSourceId $SourceId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccountsAsync"
             Write-Host $_.ErrorDetails
@@ -11281,15 +11283,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#delete-native-change-detection-config
       source: |
-        $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
         
         # Delete Native Change Detection Configuration
         
         try {
-            Remove-BetaNativeChangeDetectionConfig-BetaId $Id 
+            Remove-BetaNativeChangeDetectionConfig-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Remove-BetaNativeChangeDetectionConfig -BetaId $Id  
+            # Remove-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails
@@ -11334,21 +11336,21 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSourceSchema"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/correlation-config
+- path: /sources/{sourceId}/correlation-config
   method: GET
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#get-correlation-config
       source: |
-        $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
         
         # Get Source Correlation Configuration
         
         try {
-            Get-BetaCorrelationConfig-BetaId $Id 
+            Get-BetaCorrelationConfig-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaCorrelationConfig -BetaId $Id  
+            # Get-BetaCorrelationConfig -BetaSourceId $SourceId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCorrelationConfig"
             Write-Host $_.ErrorDetails
@@ -11359,15 +11361,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#get-native-change-detection-config
       source: |
-        $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
         
         # Native Change Detection Configuration
         
         try {
-            Get-BetaNativeChangeDetectionConfig-BetaId $Id 
+            Get-BetaNativeChangeDetectionConfig-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaNativeChangeDetectionConfig -BetaId $Id  
+            # Get-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails
@@ -11411,21 +11413,21 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSource"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/schemas/accounts
+- path: /sources/{sourceId}/schemas/accounts
   method: GET
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#get-source-accounts-schema
       source: |
-        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+        $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         
         # Downloads source accounts schema template
         
         try {
-            Get-BetaSourceAccountsSchema-BetaId $Id 
+            Get-BetaSourceAccountsSchema-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaSourceAccountsSchema -BetaId $Id  
+            # Get-BetaSourceAccountsSchema -BetaSourceId $SourceId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceAccountsSchema"
             Write-Host $_.ErrorDetails
@@ -11469,40 +11471,41 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceConfig"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/entitlement-request-config
+- path: /sources/{sourceId}/entitlement-request-config
   method: GET
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#get-source-entitlement-request-config
       source: |
+        $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         
         # Get Source Entitlement Request Configuration
         
         try {
-            Get-BetaSourceEntitlementRequestConfig
+            Get-BetaSourceEntitlementRequestConfig-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaSourceEntitlementRequestConfig  
+            # Get-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceEntitlementRequestConfig"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/schemas/entitlements
+- path: /sources/{sourceId}/schemas/entitlements
   method: GET
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#get-source-entitlements-schema
       source: |
-        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+        $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
         
         # Downloads source entitlements schema template
         
         try {
-            Get-BetaSourceEntitlementsSchema-BetaId $Id 
+            Get-BetaSourceEntitlementsSchema-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Get-BetaSourceEntitlementsSchema -BetaId $Id -BetaSchemaName $SchemaName  
+            # Get-BetaSourceEntitlementsSchema -BetaSourceId $SourceId -BetaSchemaName $SchemaName  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceEntitlementsSchema"
             Write-Host $_.ErrorDetails
@@ -11548,63 +11551,63 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSourceSchemas"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/load-accounts
+- path: /sources/{sourceId}/load-accounts
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#import-accounts
       source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
         $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
         $DisableOptimization = "true" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
         
         # Account Aggregation
         
         try {
-            Import-BetaAccounts-BetaId $Id 
+            Import-BetaAccounts-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Import-BetaAccounts -BetaId $Id -BetaFile $File -BetaDisableOptimization $DisableOptimization  
+            # Import-BetaAccounts -BetaSourceId $SourceId -BetaFile $File -BetaDisableOptimization $DisableOptimization  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaAccounts"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/load-entitlements
+- path: /sources/{sourceId}/load-entitlements
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#import-entitlements
       source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
         $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
         
         # Entitlement Aggregation
         
         try {
-            Import-BetaEntitlements-BetaId $Id 
+            Import-BetaEntitlements-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Import-BetaEntitlements -BetaId $Id -BetaFile $File  
+            # Import-BetaEntitlements -BetaSourceId $SourceId -BetaFile $File  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaEntitlements"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/schemas/accounts
+- path: /sources/{sourceId}/schemas/accounts
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#import-source-accounts-schema
       source: |
-        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+        $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $File =  # System.IO.FileInfo |  (optional)
         
         # Uploads source accounts schema template
         
         try {
-            Import-BetaSourceAccountsSchema-BetaId $Id 
+            Import-BetaSourceAccountsSchema-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Import-BetaSourceAccountsSchema -BetaId $Id -BetaFile $File  
+            # Import-BetaSourceAccountsSchema -BetaSourceId $SourceId -BetaFile $File  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSourceAccountsSchema"
             Write-Host $_.ErrorDetails
@@ -11629,43 +11632,43 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSourceConnectorFile"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/schemas/entitlements
+- path: /sources/{sourceId}/schemas/entitlements
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#import-source-entitlements-schema
       source: |
-        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+        $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
         $File =  # System.IO.FileInfo |  (optional)
         
         # Uploads source entitlements schema template
         
         try {
-            Import-BetaSourceEntitlementsSchema-BetaId $Id 
+            Import-BetaSourceEntitlementsSchema-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Import-BetaSourceEntitlementsSchema -BetaId $Id -BetaSchemaName $SchemaName -BetaFile $File  
+            # Import-BetaSourceEntitlementsSchema -BetaSourceId $SourceId -BetaSchemaName $SchemaName -BetaFile $File  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSourceEntitlementsSchema"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/load-uncorrelated-accounts
+- path: /sources/{sourceId}/load-uncorrelated-accounts
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#import-uncorrelated-accounts
       source: |
-        $Id = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
+        $SourceId = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
         $File =  # System.IO.FileInfo |  (optional)
         
         # Process Uncorrelated Accounts
         
         try {
-            Import-BetaUncorrelatedAccounts-BetaId $Id 
+            Import-BetaUncorrelatedAccounts-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Import-BetaUncorrelatedAccounts -BetaId $Id -BetaFile $File  
+            # Import-BetaUncorrelatedAccounts -BetaSourceId $SourceId -BetaFile $File  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaUncorrelatedAccounts"
             Write-Host $_.ErrorDetails
@@ -11759,13 +11762,13 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-BetaCluster"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/correlation-config
+- path: /sources/{sourceId}/correlation-config
   method: PUT
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#put-correlation-config
       source: |
-        $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $CorrelationConfig = @"
         {
           "attributeAssignments" : [ {
@@ -11794,10 +11797,10 @@
         
         try {
             $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-            Send-BetaCorrelationConfig-BetaId $Id -BetaCorrelationConfig $Result
+            Send-BetaCorrelationConfig-BetaSourceId $SourceId -BetaCorrelationConfig $Result
             
             # Below is a request that includes all optional parameters
-            # Send-BetaCorrelationConfig -BetaId $Id -BetaCorrelationConfig $CorrelationConfig  
+            # Send-BetaCorrelationConfig -BetaSourceId $SourceId -BetaCorrelationConfig $CorrelationConfig  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaCorrelationConfig"
             Write-Host $_.ErrorDetails
@@ -11808,7 +11811,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#put-native-change-detection-config
       source: |
-        $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $NativeChangeDetectionConfig = @"
         {
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
@@ -11824,10 +11827,10 @@
         
         try {
             $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-            Send-BetaNativeChangeDetectionConfig-BetaId $Id -BetaNativeChangeDetectionConfig $Result
+            Send-BetaNativeChangeDetectionConfig-BetaSourceId $SourceId -BetaNativeChangeDetectionConfig $Result
             
             # Below is a request that includes all optional parameters
-            # Send-BetaNativeChangeDetectionConfig -BetaId $Id -BetaNativeChangeDetectionConfig $NativeChangeDetectionConfig  
+            # Send-BetaNativeChangeDetectionConfig -BetaSourceId $SourceId -BetaNativeChangeDetectionConfig $NativeChangeDetectionConfig  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaNativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails
@@ -12097,21 +12100,21 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSourceSchema"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/synchronize-attributes
+- path: /sources/{sourceId}/synchronize-attributes
   method: POST
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#sync-attributes-for-source
       source: |
-        $Id = "MyId" # String | The Source id
+        $SourceId = "MySourceId" # String | The Source id
         
         # Synchronize single source attributes.
         
         try {
-            Sync-BetaAttributesForSource-BetaId $Id 
+            Sync-BetaAttributesForSource-BetaSourceId $SourceId 
             
             # Below is a request that includes all optional parameters
-            # Sync-BetaAttributesForSource -BetaId $Id  
+            # Sync-BetaAttributesForSource -BetaSourceId $SourceId  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-BetaAttributesForSource"
             Write-Host $_.ErrorDetails
@@ -12268,12 +12271,13 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSource"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{id}/entitlement-request-config
+- path: /sources/{sourceId}/entitlement-request-config
   method: PUT
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/sources#update-source-entitlement-request-config
       source: |
+        $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $SourceEntitlementRequestConfig = @"
         {
           "accessRequestConfig" : {
@@ -12294,10 +12298,10 @@
         
         try {
             $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-            Update-BetaSourceEntitlementRequestConfig-BetaSourceEntitlementRequestConfig $Result
+            Update-BetaSourceEntitlementRequestConfig-BetaSourceId $SourceId -BetaSourceEntitlementRequestConfig $Result
             
             # Below is a request that includes all optional parameters
-            # Update-BetaSourceEntitlementRequestConfig -BetaSourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
+            # Update-BetaSourceEntitlementRequestConfig -BetaSourceId $SourceId -BetaSourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceEntitlementRequestConfig"
             Write-Host $_.ErrorDetails

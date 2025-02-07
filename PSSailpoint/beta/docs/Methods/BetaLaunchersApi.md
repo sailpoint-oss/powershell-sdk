@@ -27,10 +27,9 @@ Method | HTTP request | Description
 [**Send-BetaLauncher**](#put-launcher) | **PUT** `/launchers/{launcherID}` | Replace Launcher
 [**Start-BetaLauncher**](#start-launcher) | **POST** `/beta/launchers/{launcherID}/launch` | Launch a Launcher
 
+
 ## create-launcher
 Create a Launcher with given information
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-launcher)
 
@@ -85,10 +84,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-launcher
 Delete the given Launcher ID
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-launcher)
 
@@ -132,10 +130,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-launcher
 Get details for the given Launcher ID
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-launcher)
 
@@ -179,10 +176,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-launchers
 Return a list of Launchers for the authenticated tenant
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-launchers)
 
@@ -230,10 +226,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-launcher
 Replace the given Launcher ID with given payload
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-launcher)
 
@@ -290,10 +285,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-launcher
 Launch the given Launcher ID
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/start-launcher)
 

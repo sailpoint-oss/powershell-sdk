@@ -32,10 +32,12 @@ Method | HTTP request | Description
 [**Update-V2024SIMAttributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a SIM attribute.
 [**Send-V2024SIMIntegration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing SIM integration
 
-## create-sim-integration
-Create a new SIM Integrations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-sim-integration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Create a new SIM Integrations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-sim-integration)
 
@@ -99,10 +101,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-sim-integration
-Get the details of a SIM integration.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-sim-integration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get the details of a SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-sim-integration)
 
@@ -148,10 +152,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-sim-integration
-Get the details of a SIM integration.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-sim-integration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get the details of a SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sim-integration)
 
@@ -197,10 +203,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-sim-integrations
-List the existing SIM integrations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-sim-integrations
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+List the existing SIM integrations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sim-integrations)
 
@@ -244,10 +252,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## patch-before-provisioning-rule
-Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## patch-before-provisioning-rule
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-before-provisioning-rule)
 
@@ -296,10 +306,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## patch-sim-attributes
-Patch a SIM attribute given a JsonPatch object.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## patch-sim-attributes
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Patch a SIM attribute given a JsonPatch object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-sim-attributes)
 
@@ -348,10 +360,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## put-sim-integration
-Update an existing SIM integration.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## put-sim-integration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Update an existing SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-sim-integration)
 

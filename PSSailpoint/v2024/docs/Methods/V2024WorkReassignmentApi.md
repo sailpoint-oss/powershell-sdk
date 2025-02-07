@@ -37,10 +37,12 @@ Method | HTTP request | Description
 [**Send-V2024ReassignmentConfig**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
 [**Send-V2024TenantConfiguration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
 
-## create-reassignment-configuration
-Creates a new Reassignment Configuration for the specified identity.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-reassignment-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Creates a new Reassignment Configuration for the specified identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-reassignment-configuration)
 
@@ -92,10 +94,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-reassignment-configuration
-Deletes a single reassignment configuration for the specified identity
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-reassignment-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Deletes a single reassignment configuration for the specified identity
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-reassignment-configuration)
 
@@ -142,10 +146,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-evaluate-reassignment-configuration
-Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-evaluate-reassignment-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-evaluate-reassignment-configuration)
 
@@ -196,10 +202,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-reassignment-config-types
-Gets a collection of types which are available in the Reassignment Configuration UI.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-reassignment-config-types
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Gets a collection of types which are available in the Reassignment Configuration UI.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-config-types)
 
@@ -242,10 +250,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-reassignment-configuration
-Gets the Reassignment Configuration for an identity.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-reassignment-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Gets the Reassignment Configuration for an identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-configuration)
 
@@ -291,10 +301,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-tenant-config-configuration
-Gets the global Reassignment Configuration settings for the requestor's tenant.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-tenant-config-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Gets the global Reassignment Configuration settings for the requestor's tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-config-configuration)
 
@@ -338,10 +350,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-reassignment-configurations
-Gets all Reassignment configuration for the current org.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-reassignment-configurations
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Gets all Reassignment configuration for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-reassignment-configurations)
 
@@ -385,10 +399,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## put-reassignment-config
-Replaces existing Reassignment configuration for an identity with the newly provided configuration.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## put-reassignment-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Replaces existing Reassignment configuration for an identity with the newly provided configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-reassignment-config)
 
@@ -442,10 +458,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## put-tenant-configuration
-Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## put-tenant-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-tenant-configuration)
 

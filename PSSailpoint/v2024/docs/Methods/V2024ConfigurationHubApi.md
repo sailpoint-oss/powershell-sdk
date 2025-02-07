@@ -45,10 +45,9 @@ Method | HTTP request | Description
 [**Get-V2024UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
 [**Update-V2024ObjectMappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
 
+
 ## create-deploy
 This API performs a deploy based on an existing daft.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-deploy)
 
@@ -94,13 +93,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-object-mapping
 This creates an object mapping between current org and source org.
 Source org should be "default" when creating an object mapping that is not to be associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-object-mapping)
 
@@ -153,13 +151,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-object-mappings
 This creates a set of object mappings (Max 25) between current org and source org.
 Source org should be "default" when creating object mappings that are not to be associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-object-mappings)
 
@@ -220,14 +217,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-uploaded-configuration
 This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
 
 Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-uploaded-configuration)
 
@@ -272,14 +268,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-backup
 This API deletes an existing backup for the current tenant.
 
 On success, this endpoint will return an empty response.
 
 The backup id can be obtained from the response after a backup was successfully created, or from the list backups endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-backup)
 
@@ -323,14 +318,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-draft
 This API deletes an existing draft for the current tenant.
 
 On success, this endpoint will return an empty response.
 
 The draft id can be obtained from the response after a draft was successfully created, or from the list drafts endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-draft)
 
@@ -374,13 +368,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-object-mapping
 This deletes an existing object mapping.
 Source org should be "default" when deleting an object mapping that is not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-object-mapping)
 
@@ -426,14 +419,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-uploaded-configuration
 This API deletes an uploaded configuration based on Id.
 
 On success, this endpoint will return an empty response.
 
 The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-uploaded-configuration)
 
@@ -477,10 +469,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-deploy
 This API gets an existing deploy for the current tenant.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-deploy)
 
@@ -524,13 +515,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-object-mappings
 This gets a list of existing object mappings between current org and source org.
 Source org should be "default" when getting object mappings that are not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:read
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-object-mappings)
 
@@ -574,10 +564,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-uploaded-configuration
 This API gets an existing uploaded configuration for the current tenant.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-uploaded-configuration)
 
@@ -621,10 +610,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-backups
 This API gets a list of existing backups for the current tenant.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-backups)
 
@@ -667,10 +655,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-deploys
 This API gets a list of deploys for the current tenant.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-deploys)
 
@@ -711,10 +698,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-drafts
 This API gets a list of existing drafts for the current tenant.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-drafts)
 
@@ -757,10 +743,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-uploaded-configurations
 This API gets a list of existing uploaded configurations for the current tenant.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-uploaded-configurations)
 
@@ -804,13 +789,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-object-mappings
 This updates a set of object mappings, only enabled and targetValue fields can be updated.
 Source org should be "default" when updating object mappings that are not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-object-mappings)
 

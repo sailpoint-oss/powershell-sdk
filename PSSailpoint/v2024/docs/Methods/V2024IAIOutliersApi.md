@@ -27,13 +27,15 @@ Method | HTTP request | Description
 [**Get-V2024OutliersContributingFeatureAccessItems**](#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
 [**Invoke-V2024UnIgnoreIdentityOutliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
 
+
 ## export-outliers-zip
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/export-outliers-zip)
 
@@ -78,10 +80,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-identity-outlier-snapshots
-This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-identity-outlier-snapshots
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-outlier-snapshots)
 
@@ -135,10 +139,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-identity-outliers
-This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-identity-outliers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-outliers)
 
@@ -193,10 +199,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-latest-identity-outlier-snapshots
-This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-latest-identity-outlier-snapshots
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-latest-identity-outlier-snapshots)
 
@@ -242,13 +250,15 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-outlier-contributing-feature-summary
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a summary of a contributing feature for an identity outlier.
 
 The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object.
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-outlier-contributing-feature-summary)
 
@@ -294,13 +304,15 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-peer-group-outliers-contributing-features
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of contributing feature objects for a single outlier.
 
 The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-peer-group-outliers-contributing-features)
 
@@ -356,10 +368,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## ignore-identity-outliers
-This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## ignore-identity-outliers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/ignore-identity-outliers)
 
@@ -407,13 +421,15 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-outliers-contributing-feature-access-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of the enriched access items associated with each feature filtered by the access item type.
 
 The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-outliers-contributing-feature-access-items)
 
@@ -471,10 +487,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## un-ignore-identity-outliers
-This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## un-ignore-identity-outliers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/un-ignore-identity-outliers)
 

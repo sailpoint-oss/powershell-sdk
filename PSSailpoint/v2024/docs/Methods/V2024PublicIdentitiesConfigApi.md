@@ -30,10 +30,9 @@ Method | HTTP request | Description
 [**Get-V2024PublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get the Public Identities Configuration
 [**Update-V2024PublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update the Public Identities Configuration
 
+
 ## get-public-identity-config
 Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-public-identity-config)
 
@@ -74,10 +73,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-public-identity-config
 Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-public-identity-config)
 

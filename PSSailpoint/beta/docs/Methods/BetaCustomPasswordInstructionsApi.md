@@ -32,10 +32,9 @@ Method | HTTP request | Description
 [**Remove-BetaCustomPasswordInstructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
 [**Get-BetaCustomPasswordInstructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
 
+
 ## create-custom-password-instructions
 This API creates the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-custom-password-instructions)
 
@@ -81,10 +80,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-custom-password-instructions
 This API delete the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-custom-password-instructions)
 
@@ -128,10 +126,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-custom-password-instructions
 This API returns the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-custom-password-instructions)
 

@@ -33,10 +33,12 @@ Method | HTTP request | Description
 [**Update-V2024Workgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a Governance Group
 [**Update-V2024WorkgroupMembers**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
 
-## create-workgroup
-This API creates a new Governance Group.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-workgroup
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API creates a new Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workgroup)
 
@@ -97,10 +99,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-workgroup
-This API deletes a Governance Group by its ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-workgroup
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API deletes a Governance Group by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workgroup)
 
@@ -145,13 +149,15 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workgroup-members
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API removes one or more  members from a Governance Group.  A
 >  **Following field of Identity is an optional field in the request.**
 
 >  **name**
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workgroup-members)
 
@@ -200,7 +206,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workgroups-in-bulk
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 
 This API initiates a bulk deletion of one or more Governance Groups.
 
@@ -213,8 +223,6 @@ This API initiates a bulk deletion of one or more Governance Groups.
 >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it. 
 
 >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workgroups-in-bulk)
 
@@ -262,10 +270,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-workgroup
-This API returns a Governance Groups by its ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-workgroup
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a Governance Groups by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workgroup)
 
@@ -310,10 +320,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-connections
-This API returns list of connections associated with a Governance Group.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-connections
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns list of connections associated with a Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-connections)
 
@@ -366,10 +378,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-workgroup-members
-This API returns list of members associated with a Governance Group.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-workgroup-members
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns list of members associated with a Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workgroup-members)
 
@@ -422,10 +436,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-workgroups
-This API returns list of Governance Groups
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-workgroups
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns list of Governance Groups
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workgroups)
 
@@ -478,13 +494,15 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-workgroup
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API updates an existing governance group by ID. The following fields and objects are patchable:
 * name
 * description
 * owner
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-workgroup)
 
@@ -536,14 +554,16 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-workgroup-members
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
 
 >  **name**
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-workgroup-members)
 

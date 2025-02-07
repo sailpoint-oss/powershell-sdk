@@ -41,10 +41,9 @@ Method | HTTP request | Description
 [**Get-BetaPendingApprovals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending Access Request Approvals List
 [**Deny-BetaAccessRequest**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
 
+
 ## approve-access-request
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-access-request)
 
@@ -99,10 +98,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## forward-access-request
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/forward-access-request)
 
@@ -152,10 +150,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-approval-summary
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-approval-summary)
 
@@ -200,10 +197,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-completed-approvals
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-completed-approvals)
 
@@ -255,10 +251,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-pending-approvals
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-pending-approvals)
 
@@ -310,10 +305,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## reject-access-request
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-access-request)
 

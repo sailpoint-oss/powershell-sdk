@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'BetaManagedCluster
 
 # ManagedClusters
   Use this API to implement managed cluster functionality. 
-With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones. 
+With this functionality in place, administrators can modify and delete existing managed clients, get their statuses, and create new ones.
  
   
 
@@ -24,10 +24,12 @@ Method | HTTP request | Description
 [**Get-BetaManagedClusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Retrieve all Managed Clusters.
 [**Send-BetaClientLogConfiguration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update managed cluster&#39;s log configuration
 
-## get-client-log-configuration
-Get managed cluster's log configuration.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## get-client-log-configuration
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Get managed cluster's log configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-client-log-configuration)
 
@@ -71,10 +73,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-managed-cluster
-Retrieve a ManagedCluster by ID.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## get-managed-cluster
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Retrieve a ManagedCluster by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-cluster)
 
@@ -118,10 +122,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-managed-clusters
-Retrieve all Managed Clusters for the current Org, based on request context.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## get-managed-clusters
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Retrieve all Managed Clusters for the current Org, based on request context.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-clusters)
 
@@ -170,10 +176,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## put-client-log-configuration
-Update managed cluster's log configuration
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## put-client-log-configuration
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Update managed cluster's log configuration
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-client-log-configuration)
 

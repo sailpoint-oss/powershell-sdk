@@ -29,7 +29,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024AccountAggregationStatus**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress Account Aggregation status
 
+
 ## get-account-aggregation-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**, **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that have been processed so far.
 
 Accounts that have not changed since the previous aggregation are not included in **totalAccounts** and **processedAccounts** counts returned by this API. This is distinct from **Accounts Scanned** shown in the Aggregation UI, which indicates total accounts scanned regardless of whether they changed or not.
@@ -38,8 +42,6 @@ Since this endpoint reports on the status of an *in-progress* account aggregatio
 
 *Only available up to an hour after the aggregation completes. May respond with *404 Not Found* after that.*
 required to call this API.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-account-aggregation-status)
 

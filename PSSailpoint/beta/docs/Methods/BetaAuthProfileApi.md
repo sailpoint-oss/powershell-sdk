@@ -15,7 +15,7 @@ With this functionality in place, users can read authentication profiles and mak
 
 An authentication profile represents an identity profile&#39;s authentication configuration. 
 When the identity profile is created, its authentication profile is also created. 
-An authentication profile includes information like its authentication profile type (&#x60;BLOCK&#x60;, &#x60;MFA&#x60;, &#x60;NON_PTA&#x60;, PTA&#x60;) and settings controlling whether or not it blocks access from off network or untrusted geographies. 
+An authentication profile includes information like its authentication profile type (&#x60;BLOCK&#x60;, &#x60;MFA&#x60;, &#x60;NON_PTA&#x60;, PTA&#x60;) and settings controlling whether or not it blocks access from off network or untrusted geographies.
  
   
 
@@ -27,10 +27,9 @@ Method | HTTP request | Description
 [**Get-BetaProfileConfigList**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
 [**Update-BetaProfileConfig**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
 
+
 ## get-profile-config
 This API returns auth profile information.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config)
 
@@ -74,10 +73,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-profile-config-list
 This API returns a list of auth profiles.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config-list)
 
@@ -118,11 +116,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-profile-config
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-profile-config)
 

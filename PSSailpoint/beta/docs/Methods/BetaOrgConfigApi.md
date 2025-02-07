@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'BetaOrgConfig']
 
 # OrgConfig
   Use this API to implement organization configuration functionality. 
-Administrators can use this functionality to manage organization settings, such as time zones. 
+Administrators can use this functionality to manage organization settings, such as time zones.
  
   
 
@@ -23,10 +23,9 @@ Method | HTTP request | Description
 [**Get-BetaValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get list of time zones
 [**Update-BetaOrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch an Org configuration property
 
+
 ## get-org-config
 Get org configuration with only external (org admin) accessible properties for the current org.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-org-config)
 
@@ -68,10 +67,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-valid-time-zones
 Get a list of valid time zones that can be set in org configurations.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-valid-time-zones)
 
@@ -112,10 +110,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-org-config
 Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-org-config)
 

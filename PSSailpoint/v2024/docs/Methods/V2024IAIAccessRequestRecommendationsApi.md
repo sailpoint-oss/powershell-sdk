@@ -26,10 +26,12 @@ Method | HTTP request | Description
 [**Get-V2024AccessRequestRecommendationsRequestedItems**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List of Requested Access Request Recommendations
 [**Get-V2024AccessRequestRecommendationsViewedItems**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List of Viewed Access Request Recommendations
 
-## add-access-request-recommendations-ignored-item
-This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## add-access-request-recommendations-ignored-item
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/add-access-request-recommendations-ignored-item)
 
@@ -81,10 +83,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## add-access-request-recommendations-requested-item
-This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## add-access-request-recommendations-requested-item
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/add-access-request-recommendations-requested-item)
 
@@ -136,10 +140,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## add-access-request-recommendations-viewed-item
-This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## add-access-request-recommendations-viewed-item
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/add-access-request-recommendations-viewed-item)
 
@@ -191,10 +197,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## add-access-request-recommendations-viewed-items
-This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## add-access-request-recommendations-viewed-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/add-access-request-recommendations-viewed-items)
 
@@ -247,10 +255,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-access-request-recommendations
-This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-access-request-recommendations
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations)
 
@@ -307,10 +317,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-access-request-recommendations-ignored-items
-This API returns the list of ignored access request recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-access-request-recommendations-ignored-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns the list of ignored access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations-ignored-items)
 
@@ -363,10 +375,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-access-request-recommendations-requested-items
-This API returns a list of requested access request recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-access-request-recommendations-requested-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a list of requested access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations-requested-items)
 
@@ -419,10 +433,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-access-request-recommendations-viewed-items
-This API returns the list of viewed access request recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-access-request-recommendations-viewed-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns the list of viewed access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations-viewed-items)
 

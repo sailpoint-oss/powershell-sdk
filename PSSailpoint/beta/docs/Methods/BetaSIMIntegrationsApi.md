@@ -32,10 +32,9 @@ Method | HTTP request | Description
 [**Update-BetaSIMAttributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a SIM attribute.
 [**Send-BetaSIMIntegration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing SIM integration
 
+
 ## create-sim-integration
 Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-sim-integration)
 
@@ -97,10 +96,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-sim-integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sim-integration)
 
@@ -144,10 +142,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sim-integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integration)
 
@@ -191,10 +188,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sim-integrations
 List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integrations)
 
@@ -236,10 +232,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-before-provisioning-rule
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-before-provisioning-rule)
 
@@ -286,10 +281,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-sim-attributes
 Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sim-attributes)
 
@@ -336,10 +330,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-sim-integration
 Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-sim-integration)
 

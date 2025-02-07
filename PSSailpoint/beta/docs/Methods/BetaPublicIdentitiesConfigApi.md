@@ -30,10 +30,9 @@ Method | HTTP request | Description
 [**Get-BetaPublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get Public Identity Config
 [**Update-BetaPublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update Public Identity Config
 
+
 ## get-public-identity-config
 This gets details of public identity config.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-public-identity-config)
 
@@ -74,10 +73,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-public-identity-config
 This updates the details of public identity config.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-public-identity-config)
 

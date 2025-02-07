@@ -21,10 +21,12 @@ Method | HTTP request | Description
 [**Get-V2024CommonAccess**](#get-common-access) | **GET** `/common-access` | Get a paginated list of common access
 [**Update-V2024CommonAccessStatusInBulk**](#update-common-access-status-in-bulk) | **POST** `/common-access/update-status` | Bulk update common access status
 
-## create-common-access
-This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-common-access
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-common-access)
 
@@ -80,10 +82,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-common-access
-This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-common-access
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-common-access)
 
@@ -135,10 +139,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## update-common-access-status-in-bulk
-This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## update-common-access-status-in-bulk
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-common-access-status-in-bulk)
 

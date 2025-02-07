@@ -124,12 +124,11 @@ Method | HTTP request | Description
 [**Update-V2024SourceSchedule**](#update-source-schedule) | **PATCH** `/sources/{sourceId}/schedules/{scheduleType}` | Update Source Schedule (Partial)
 [**Update-V2024SourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
 
+
 ## create-provisioning-policy
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-provisioning-policy)
 
@@ -215,10 +214,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-source
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source)
 
@@ -346,10 +344,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-source-schedule
 Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source-schedule)
@@ -396,10 +393,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-source-schema
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source-schema)
@@ -479,7 +475,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-accounts-async
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
 This endpoint is good for:
@@ -487,8 +487,6 @@ This endpoint is good for:
 * Removing accounts that won't be aggregated following updates to the source configuration.
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-accounts-async)
 
@@ -533,10 +531,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-native-change-detection-config
-Deletes the native change detection configuration for the source specified by the given ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-native-change-detection-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Deletes the native change detection configuration for the source specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-native-change-detection-config)
 
@@ -582,10 +582,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-provisioning-policy
 Deletes the provisioning policy with the specified usage on an application.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-provisioning-policy)
 
@@ -631,11 +630,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-source
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source)
 
@@ -679,9 +677,8 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-source-schedule
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source-schedule)
@@ -728,9 +725,8 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-source-schema
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source-schema)
@@ -777,11 +773,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-accounts-schema
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-accounts-schema)
 
@@ -825,10 +820,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-correlation-config
 This API returns the existing correlation configuration for a source specified by the given ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-correlation-config)
 
@@ -872,12 +866,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlements-schema
 This API downloads the CSV schema that defines the entitlement attributes on a source.
 
 >**NOTE: This API is designated only for Delimited File sources.**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlements-schema)
 
@@ -923,10 +916,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-native-change-detection-config
-This API returns the existing native change detection configuration for a source specified by the given ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-native-change-detection-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns the existing native change detection configuration for a source specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-native-change-detection-config)
 
@@ -972,10 +967,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-provisioning-policy
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-provisioning-policy)
 
@@ -1021,10 +1015,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source)
 
@@ -1068,10 +1061,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-source-attr-sync-config
-This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-source-attr-sync-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-attr-sync-config)
 
@@ -1117,10 +1112,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-source-config
-Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-source-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-config)
 
@@ -1167,14 +1164,16 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-entitlement-request-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
 Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined.
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-entitlement-request-config)
 
@@ -1217,10 +1216,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-health
 This endpoint fetches source health by source's id
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-health)
 
@@ -1264,10 +1262,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-schedule
 Get the source schedule by type in Identity Security Cloud (ISC).
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schedule)
@@ -1314,10 +1311,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-schedules
 Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schedules)
 
@@ -1361,10 +1357,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-schema
 Get the Source Schema by ID in IdentityNow.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schema)
@@ -1411,10 +1406,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-schemas
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schemas)
 
@@ -1462,12 +1456,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-accounts
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Starts an account aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-accounts)
 
@@ -1516,6 +1512,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-accounts-schema
 This API uploads a source schema template file to configure a source's account attributes.
 
@@ -1524,8 +1521,6 @@ To retrieve the file to modify and upload, log into Identity Now.
 Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**
 
 >**NOTE: This API is designated only for Delimited File sources.**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-accounts-schema)
 
@@ -1570,10 +1565,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-connector-file
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-connector-file)
 
@@ -1618,6 +1612,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-entitlements-schema
 This API uploads a source schema template file to configure a source's entitlement attributes.
 
@@ -1626,8 +1621,6 @@ To retrieve the file to modify and upload, log into Identity Now.
 Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**
 
 >**NOTE: This API is designated only for Delimited File sources.**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-entitlements-schema)
 
@@ -1674,10 +1667,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## import-uncorrelated-accounts
-File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## import-uncorrelated-accounts
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-uncorrelated-accounts)
 
@@ -1724,10 +1719,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-provisioning-policies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-provisioning-policies)
 
@@ -1771,10 +1765,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-sources
 This end-point lists all the sources in IdentityNow.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-sources)
 
@@ -1830,10 +1823,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## peek-resource-objects
-Retrieves a sample of data returned from account and group aggregation requests.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## peek-resource-objects
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Retrieves a sample of data returned from account and group aggregation requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/peek-resource-objects)
 
@@ -1885,10 +1880,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## ping-cluster
-This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## ping-cluster
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/ping-cluster)
 
@@ -1934,10 +1931,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-correlation-config
 Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-correlation-config)
 
@@ -2004,10 +2000,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## put-native-change-detection-config
-Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## put-native-change-detection-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-native-change-detection-config)
 
@@ -2063,12 +2061,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-provisioning-policy
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-provisioning-policy)
 
@@ -2156,6 +2153,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-source
 Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
@@ -2169,8 +2167,6 @@ These fields are immutable, so they cannot be changed:
 * passwordPolicies
 
 Attempts to modify these fields will result in a 400 error.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source)
@@ -2300,11 +2296,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-source-attr-sync-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the "enabled" field of the values in the "attributes" array is mutable. Attempting to change other attributes or add new values to the "attributes" array will result in an error.
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source-attr-sync-config)
 
@@ -2370,6 +2368,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-source-schema
 This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
@@ -2381,8 +2380,6 @@ This API will completely replace an existing Schema with the submitted payload. 
 Any attempt to modify these fields will result in an error response with a status code of 400.
 
 > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source-schema)
@@ -2465,10 +2462,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## sync-attributes-for-source
-This end-point performs attribute synchronization for a selected source.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## sync-attributes-for-source
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This end-point performs attribute synchronization for a selected source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/sync-attributes-for-source)
 
@@ -2514,10 +2513,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## test-source-configuration
-This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## test-source-configuration
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-source-configuration)
 
@@ -2563,10 +2564,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## test-source-connection
-This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## test-source-connection
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-source-connection)
 
@@ -2612,11 +2615,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-password-policy-holders
 This API can be used to set up or update Password Policy in IdentityNow for the specified Source.
 Source must support PASSWORD feature.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-password-policy-holders)
@@ -2665,10 +2667,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-provisioning-policies-in-bulk
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-provisioning-policies-in-bulk)
 
@@ -2755,12 +2756,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-provisioning-policy
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-provisioning-policy)
 
@@ -2814,6 +2814,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-source
 Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
 [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -2830,8 +2831,6 @@ These fields are immutable, so they cannot be changed:
 * passwordPolicies
 
 Attempts to modify these fields will result in a 400 error.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source)
@@ -2884,14 +2883,16 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-source-entitlement-request-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
 Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined.
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-entitlement-request-config)
 
@@ -2949,14 +2950,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-source-schedule
 Use this API to selectively update an existing Schedule using a JSONPatch payload. 
 
 The following schedule fields are immutable and cannot be updated:
 
 - type
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-schedule)
@@ -3011,6 +3011,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-source-schema
 Use this API to selectively update an existing Schema using a JSONPatch payload. 
 
@@ -3041,8 +3042,6 @@ To switch an account attribute to a group entitlement, you need to have the foll
     "isGroup": true
 }
 ```
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-schema)

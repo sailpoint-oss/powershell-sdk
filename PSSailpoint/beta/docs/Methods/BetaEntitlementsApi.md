@@ -76,13 +76,12 @@ Method | HTTP request | Description
 [**Get-BetaEntitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
 [**Update-BetaEntitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
 [**Send-BetaEntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
+[**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset Source Entitlements
 [**Update-BetaEntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
+
 
 ## create-access-model-metadata-for-entitlement
 Add single Access Model Metadata to an entitlement.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-model-metadata-for-entitlement)
 
@@ -129,10 +128,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-model-metadata-from-entitlement
 Remove single Access Model Metadata from an entitlement.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-model-metadata-from-entitlement)
 
@@ -179,10 +177,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement
 This API returns an entitlement by its ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement)
 
@@ -226,10 +223,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-entitlement-request-config
 This API returns the entitlement request config for a specified entitlement.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-request-config)
 
@@ -273,14 +269,16 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-entitlements-by-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/import-entitlements-by-source)
 
@@ -325,10 +323,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlement-children
 This API returns a list of all child entitlements of a given entitlement.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlement-children)
 
@@ -382,10 +379,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlement-parents
 This API returns a list of all parent entitlements of a given entitlement.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlement-parents)
 
@@ -439,14 +435,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlements
 This API returns a list of entitlements.
 
 This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).
 
 Any authenticated token can call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-entitlements)
 
@@ -505,6 +500,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-entitlement
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -513,8 +509,6 @@ The following fields are patchable: **requestable**, **privileged**, **segments*
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
 A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-entitlement)
 
@@ -565,10 +559,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-entitlement-request-config
 This API replaces the entitlement request config for a specified entitlement.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-entitlement-request-config)
 
@@ -627,18 +620,17 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## reset-source-entitlements
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reset-source-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | ID of source for the entitlement reset
+Path   | SourceId | **String** | True  | ID of source for the entitlement reset
 
 ### Return type
 [**EntitlementSourceResetBaseReferenceDto**](../models/entitlement-source-reset-base-reference-dto)
@@ -659,21 +651,22 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
+$SourceId = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
 
 # Reset Source Entitlements
 
 try {
-    Reset-BetaSourceEntitlements -Id $Id 
+    Reset-BetaSourceEntitlements -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Reset-BetaSourceEntitlements -Id $Id  
+    # Reset-BetaSourceEntitlements -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-BetaSourceEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## update-entitlements-in-bulk
 This API applies an update to every entitlement of the list.
 
@@ -688,8 +681,6 @@ Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations :
 
 
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-entitlements-in-bulk)

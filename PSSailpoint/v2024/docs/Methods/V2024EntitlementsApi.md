@@ -79,10 +79,12 @@ Method | HTTP request | Description
 [**Reset-V2024SourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
 [**Update-V2024EntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
-## create-access-model-metadata-for-entitlement
-Add single Access Model Metadata to an entitlement.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-access-model-metadata-for-entitlement
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Add single Access Model Metadata to an entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-model-metadata-for-entitlement)
 
@@ -131,10 +133,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-access-model-metadata-from-entitlement
-Remove single Access Model Metadata from an entitlement.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-access-model-metadata-from-entitlement
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Remove single Access Model Metadata from an entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-access-model-metadata-from-entitlement)
 
@@ -183,10 +187,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-entitlement
-This API returns an entitlement by its ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-entitlement
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns an entitlement by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement)
 
@@ -232,10 +238,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-entitlement-request-config
-This API returns the entitlement request config for a specified entitlement.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-entitlement-request-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns the entitlement request config for a specified entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement-request-config)
 
@@ -281,14 +289,19 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-entitlements-by-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-entitlements-by-source)
 
@@ -335,10 +348,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-entitlement-children
-This API returns a list of all child entitlements of a given entitlement.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-entitlement-children
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a list of all child entitlements of a given entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlement-children)
 
@@ -394,10 +409,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-entitlement-parents
-This API returns a list of all parent entitlements of a given entitlement.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-entitlement-parents
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a list of all parent entitlements of a given entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlement-parents)
 
@@ -453,14 +470,16 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns a list of entitlements.
 
 This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).
 
 Any authenticated token can call this API.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlements)
 
@@ -521,14 +540,16 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-entitlement
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
 
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-entitlement)
 
@@ -581,10 +602,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## put-entitlement-request-config
-This API replaces the entitlement request config for a specified entitlement.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## put-entitlement-request-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API replaces the entitlement request config for a specified entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-entitlement-request-config)
 
@@ -645,11 +668,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## reset-source-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/reset-source-entitlements)
 
@@ -694,7 +719,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-entitlements-in-bulk
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 "This API applies an update to every entitlement of the list.\n\nThe\
  \ number of entitlements to update is limited to 50 items maximum.\n\nThe JsonPatch\
  \ update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.\
@@ -702,8 +731,6 @@ try {
  value\": boolean }**  **{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\"\
  : boolean }**`"
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-entitlements-in-bulk)
 

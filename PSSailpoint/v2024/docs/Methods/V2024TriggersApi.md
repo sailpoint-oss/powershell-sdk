@@ -69,10 +69,12 @@ Method | HTTP request | Description
 [**Test-V2024SubscriptionFilter**](#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a Subscription Filter
 [**Update-V2024Subscription**](#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a Subscription
 
-## complete-trigger-invocation
-Completes an invocation to a REQUEST_RESPONSE type trigger.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## complete-trigger-invocation
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Completes an invocation to a REQUEST_RESPONSE type trigger.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/complete-trigger-invocation)
 
@@ -126,12 +128,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-subscription
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-subscription)
 
@@ -201,10 +205,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-subscription
-Deletes an existing subscription to a trigger.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-subscription
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Deletes an existing subscription to a trigger.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-subscription)
 
@@ -250,10 +256,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-subscriptions
-Gets a list of all trigger subscriptions.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-subscriptions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Gets a list of all trigger subscriptions.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-subscriptions)
 
@@ -306,12 +314,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-trigger-invocation-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-trigger-invocation-status)
 
@@ -364,10 +374,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-triggers
-Gets a list of triggers that are available in the tenant.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-triggers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Gets a list of triggers that are available in the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-triggers)
 
@@ -420,12 +432,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-subscription
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-subscription)
 
@@ -475,10 +489,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## start-test-trigger-invocation
-Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## start-test-trigger-invocation
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-test-trigger-invocation)
 
@@ -534,11 +550,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## test-subscription-filter
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-subscription-filter)
 
@@ -589,7 +607,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-subscription
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
   Subscription is completely replaced. The following fields are immutable:
 
@@ -600,8 +622,6 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 
 
   Attempts to modify these fields result in 400.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-subscription)
 

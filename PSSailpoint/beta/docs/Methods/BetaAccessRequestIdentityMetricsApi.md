@@ -23,10 +23,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaAccessRequestIdentityMetrics**](#get-access-request-identity-metrics) | **GET** `/access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}` | Return access request identity metrics
 
+
 ## get-access-request-identity-metrics
 Use this API to return information access metrics.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-identity-metrics)
 

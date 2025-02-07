@@ -23,10 +23,12 @@ Method | HTTP request | Description
 [**Get-V2024TaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
 [**Update-V2024TaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
 
-## get-pending-task-headers
-Responds with headers only for list of task statuses for pending tasks.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-pending-task-headers
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Responds with headers only for list of task statuses for pending tasks.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-task-headers)
 
@@ -76,10 +78,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-pending-tasks
-Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-pending-tasks
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks)
 
@@ -129,10 +133,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-task-status
-Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-task-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-task-status)
 
@@ -178,11 +184,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-task-status-list
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-task-status-list)
 
@@ -236,10 +244,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## update-task-status
-Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## update-task-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-task-status)
 

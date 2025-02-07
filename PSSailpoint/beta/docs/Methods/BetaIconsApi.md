@@ -22,10 +22,9 @@ Method | HTTP request | Description
 [**Remove-BetaIcon**](#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
 [**Set-BetaIcon**](#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
 
+
 ## delete-icon
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-icon)
 
@@ -71,10 +70,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-icon
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/set-icon)
 

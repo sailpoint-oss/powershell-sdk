@@ -45,10 +45,9 @@ Method | HTTP request | Description
 [**Search-PasswordInfo**](#query-password-info) | **POST** `/query-password-info` | Query Password Info
 [**Set-Password**](#set-password) | **POST** `/set-password` | Set Identity&#39;s Password
 
+
 ## get-password-change-status
 This API returns the status of a password change request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-change-status)
 
@@ -92,10 +91,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## query-password-info
 This API is used to query password related information. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/query-password-info)
@@ -143,6 +141,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-password
 This API is used to set a password for an identity. 
 
@@ -163,8 +162,6 @@ To successfully run this command, you must have OpenSSL installed on your machin
 If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.
 
 You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-password)

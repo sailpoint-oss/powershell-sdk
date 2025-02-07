@@ -44,10 +44,12 @@ Method | HTTP request | Description
 [**Start-V2024IdentityProcessing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
 [**Sync-V2024hronizeAttributesForIdentity**](#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
 
-## delete-identity
-The API returns successful response if the requested identity was deleted.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-identity
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+The API returns successful response if the requested identity was deleted.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity)
 
@@ -93,10 +95,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-identity
-This API returns a single identity using the Identity ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-identity
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a single identity using the Identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity)
 
@@ -142,12 +146,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-ownership-details
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
 For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-ownership-details)
 
@@ -193,10 +199,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-assignment
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-assignment)
 
@@ -244,10 +252,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-assignments
-This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-assignments
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-assignments)
 
@@ -297,10 +307,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-identities
-This API returns a list of identities.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-identities
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns a list of identities.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identities)
 
@@ -355,10 +367,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## reset-identity
-Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## reset-identity
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/reset-identity)
 
@@ -404,11 +418,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-identity-verification-account-token
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/send-identity-verification-account-token)
 
@@ -460,15 +476,17 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-identities-invite
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
 This task will send an invitation email only for unregistered identities.
 
 The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status).
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-identities-invite)
 
@@ -518,7 +536,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-identity-processing
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
 
 This endpoint will perform the following tasks:
@@ -527,8 +549,6 @@ This endpoint will perform the following tasks:
 3. Enforce provisioning for any assigned accesses that haven't been fulfilled (e.g. failure due to source health).
 4. Recalculate manager relationships.
 5. Potentially clean-up identity processing errors, assuming the error has been resolved.
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-identity-processing)
 
@@ -577,10 +597,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## synchronize-attributes-for-identity
-This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## synchronize-attributes-for-identity
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/synchronize-attributes-for-identity)
 

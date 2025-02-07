@@ -21,10 +21,12 @@ Method | HTTP request | Description
 [**Get-V2024RecommendationsConfig**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**Update-V2024RecommendationsConfig**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
-## get-recommendations
-The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-recommendations
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-recommendations)
 
@@ -88,10 +90,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-recommendations-config
-Retrieves configuration attributes used by certification recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-recommendations-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Retrieves configuration attributes used by certification recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-recommendations-config)
 
@@ -133,10 +137,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## update-recommendations-config
-Updates configuration attributes used by certification recommendations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## update-recommendations-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Updates configuration attributes used by certification recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-recommendations-config)
 

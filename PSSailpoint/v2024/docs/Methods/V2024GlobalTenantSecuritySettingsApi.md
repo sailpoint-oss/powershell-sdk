@@ -24,10 +24,9 @@ Method | HTTP request | Description
 [**Get-V2024AuthOrgNetworkConfig**](#get-auth-org-network-config) | **GET** `/auth-org/network-config` | Get security network configuration.
 [**Update-V2024AuthOrgNetworkConfig**](#patch-auth-org-network-config) | **PATCH** `/auth-org/network-config` | Update security network configuration.
 
+
 ## create-auth-org-network-config
 This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:manage'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-auth-org-network-config)
 
@@ -76,10 +75,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-auth-org-network-config
 This API returns the details of an org's network auth configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-auth-org-network-config)
 
@@ -121,11 +119,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-auth-org-network-config
 This API updates an existing network configuration for an org using PATCH
  Requires security scope of:  'sp:auth-org:manage'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-auth-org-network-config)
 

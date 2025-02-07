@@ -21,11 +21,10 @@ Method | HTTP request | Description
 [**Get-BetaTenantUiMetadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
 [**Set-BetaTenantUiMetadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
 
+
 ## get-tenant-ui-metadata
 This API endpoint retrieves UI metadata configured for your tenant.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant-ui-metadata)
 
@@ -67,11 +66,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-tenant-ui-metadata
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/set-tenant-ui-metadata)
 

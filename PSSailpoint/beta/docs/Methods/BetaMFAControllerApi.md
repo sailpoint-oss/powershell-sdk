@@ -24,10 +24,9 @@ Method | HTTP request | Description
 [**Send-BetaOktaVerifyRequest**](#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via Okta method
 [**Send-BetaTokenAuthRequest**](#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate Token provided MFA method
 
+
 ## create-send-token
 This API send token request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-send-token)
 
@@ -74,10 +73,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## ping-verification-status
 This API poll the VerificationPollRequest for the specified MFA method.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/ping-verification-status)
 
@@ -125,10 +123,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-duo-verify-request
 This API Authenticates the user via Duo-Web MFA method.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/send-duo-verify-request)
 
@@ -175,10 +172,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-kba-answers
 This API Authenticate user in KBA MFA method.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/send-kba-answers)
 
@@ -226,10 +222,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-okta-verify-request
 This API Authenticates the user via Okta-Verify MFA method. Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/send-okta-verify-request)
 
@@ -275,10 +270,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-token-auth-request
 This API Authenticate user in Token MFA method.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/send-token-auth-request)
 

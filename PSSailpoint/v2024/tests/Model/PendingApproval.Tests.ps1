@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024PendingApproval' {
     Context 'V2024PendingApproval' {
         It 'Initialize-V2024PendingApproval' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024PendingApproval -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -RequestCreated "TEST_VALUE" -RequestType "TEST_VALUE" -Requester "TEST_VALUE" -RequestedFor "TEST_VALUE" -Owner "TEST_VALUE" -RequestedObject "TEST_VALUE" -RequesterComment "TEST_VALUE" -PreviousReviewersComments "TEST_VALUE" -ForwardHistory "TEST_VALUE" -CommentRequiredWhenRejected "TEST_VALUE" -ActionInProcess "TEST_VALUE" -RemoveDate "TEST_VALUE" -RemoveDateUpdateRequested "TEST_VALUE" -CurrentRemoveDate "TEST_VALUE" -SodViolationContext "TEST_VALUE"
+            #$NewObject = Initialize-V2024PendingApproval -Id "TEST_VALUE" -AccessRequestId "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -RequestCreated "TEST_VALUE" -RequestType "TEST_VALUE" -Requester "TEST_VALUE" -RequestedFor "TEST_VALUE" -Owner "TEST_VALUE" -RequestedObject "TEST_VALUE" -RequesterComment "TEST_VALUE" -PreviousReviewersComments "TEST_VALUE" -ForwardHistory "TEST_VALUE" -CommentRequiredWhenRejected "TEST_VALUE" -ActionInProcess "TEST_VALUE" -RemoveDate "TEST_VALUE" -RemoveDateUpdateRequested "TEST_VALUE" -CurrentRemoveDate "TEST_VALUE" -SodViolationContext "TEST_VALUE"
             #$NewObject | Should -BeOfType PendingApproval
             #$NewObject.property | Should -Be 0
         }

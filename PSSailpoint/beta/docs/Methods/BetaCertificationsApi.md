@@ -38,10 +38,12 @@ Method | HTTP request | Description
 [**Get-BetaCertificationReviewers**](#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of Reviewers for certification
 [**Submit-BetaReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
 
-## get-identity-certification-item-permissions
-This API returns the permissions associated with an entitlement certification item based on the certification item's ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## get-identity-certification-item-permissions
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This API returns the permissions associated with an entitlement certification item based on the certification item's ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-item-permissions)
 
@@ -95,10 +97,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-certification-pending-tasks
 This API returns the status of all pending (`QUEUED` or `IN_PROGRESS`) tasks for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-pending-tasks)
 
@@ -142,10 +143,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-certification-task-status
 This API returns the status of a certification task. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-task-status)
 
@@ -191,10 +191,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-certification-reviewers
-This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## list-certification-reviewers
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-certification-reviewers)
 
@@ -248,10 +250,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## submit-reassign-certs-async
-This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## submit-reassign-certs-async
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/submit-reassign-certs-async)
 

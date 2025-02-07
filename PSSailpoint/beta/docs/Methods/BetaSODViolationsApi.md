@@ -37,12 +37,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Start-BetaPredictSodViolations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
 
+
 ## start-predict-sod-violations
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 A token with ORG_ADMIN or API authority is required to call this API.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/start-predict-sod-violations)
 

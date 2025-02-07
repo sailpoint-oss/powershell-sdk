@@ -39,11 +39,10 @@ Method | HTTP request | Description
 [**Get-BetaAccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
 [**Set-BetaAccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
+
 ## cancel-access-request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/cancel-access-request)
 
@@ -91,6 +90,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## close-access-request
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
@@ -103,8 +103,6 @@ Input the IDs from either source.
 To track the status of endpoint requests, navigate to Search and use this query: name:"Close Identity Requests". Search will include "Close Identity Requests Started" audits when requests are initiated and "Close Identity Requests Completed" audits when requests are completed. The completion audit will list the identity request IDs that finished in error.
 
 This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/close-access-request)
@@ -154,6 +152,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-access-request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
@@ -185,8 +184,6 @@ __REVOKE_ACCESS__
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-request)
@@ -284,10 +281,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-config
 This endpoint returns the current access-request configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-config)
 
@@ -328,12 +324,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-request-status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-request-status)
 
@@ -394,10 +389,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-access-request-config
 This endpoint replaces the current access-request configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/set-access-request-config)
 

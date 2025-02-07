@@ -32,10 +32,9 @@ Method | HTTP request | Description
 [**Get-BetaAccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
 [**Get-BetaAccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
 
+
 ## get-access-model-metadata-attribute
 Get single Access Model Metadata Attribute
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute)
 
@@ -78,10 +77,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-model-metadata-attribute-value
 Get single Access Model Metadata Attribute Value
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute-value)
 
@@ -126,10 +124,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-model-metadata-attribute
 Get a list of Access Model Metadata Attributes
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute)
 
@@ -172,10 +169,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-model-metadata-attribute-value
 Get a list of Access Model Metadata Attribute Values
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute-value)
 

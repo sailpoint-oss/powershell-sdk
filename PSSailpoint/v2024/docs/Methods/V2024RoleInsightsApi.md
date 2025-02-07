@@ -27,10 +27,15 @@ Method | HTTP request | Description
 [**Get-V2024RoleInsightsRequests**](#get-role-insights-requests) | **GET** `/role-insights/requests/{id}` | Returns metadata from prior request.
 [**Get-V2024RoleInsightsSummary**](#get-role-insights-summary) | **GET** `/role-insights/summary` | Get role insights summary information
 
+
 ## create-role-insight-requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-role-insight-requests)
 
@@ -73,10 +78,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## download-role-insights-entitlements-changes
-This endpoint returns the entitlement insights for a role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## download-role-insights-entitlements-changes
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint returns the entitlement insights for a role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/download-role-insights-entitlements-changes)
 
@@ -124,10 +131,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-entitlement-changes-identities
-Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-entitlement-changes-identities
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement-changes-identities)
 
@@ -185,10 +194,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-insight
-This endpoint gets role insights information for a role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-insight
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint gets role insights information for a role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-insight)
 
@@ -232,10 +243,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-insights
-This method returns detailed role insights for each role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-insights
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns detailed role insights for each role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-insights)
 
@@ -287,10 +300,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-insights-current-entitlements
-This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-insights-current-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-insights-current-entitlements)
 
@@ -336,10 +351,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-insights-entitlements-changes
-This endpoint returns entitlement insights for a role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-insights-entitlements-changes
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint returns entitlement insights for a role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-insights-entitlements-changes)
 
@@ -387,10 +404,15 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-role-insights-requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint returns details of a prior role insights request. 
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-insights-requests)
 
@@ -435,10 +457,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-insights-summary
-This method returns high level summary information for role insights for a customer.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-insights-summary
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns high level summary information for role insights for a customer.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-insights-summary)
 

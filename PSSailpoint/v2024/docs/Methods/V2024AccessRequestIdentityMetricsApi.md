@@ -23,10 +23,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024AccessRequestIdentityMetrics**](#get-access-request-identity-metrics) | **GET** `/access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}` | Return access request identity metrics
 
-## get-access-request-identity-metrics
-Use this API to return information access metrics.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-access-request-identity-metrics
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to return information access metrics.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-identity-metrics)
 

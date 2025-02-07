@@ -61,6 +61,7 @@ Method | HTTP request | Description
 [**Unlock-BetaAccount**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
 [**Update-BetaAccount**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
 
+
 ## create-account
 Submits an account creation task - the API then returns the task ID.  
 
@@ -73,8 +74,6 @@ However, if you use this endpoint to create an account for a Direct Connection t
 The endpoint doesn't actually provision the account on the target source, which means that if the account doesn't also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant. 
 
 By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-account)
@@ -128,14 +127,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-account
 Use this API to delete an account. 
 This endpoint submits an account delete task and returns the task ID. 
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 >**NOTE:** You can only delete accounts from sources of the "DelimitedFile" type.**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-account)
 
@@ -179,6 +177,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-account-async
 Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
@@ -186,8 +185,6 @@ This endpoint is good for:
 * Removing accounts that no longer exist on the source.
 * Removing accounts that won't be aggregated following updates to the source configuration.
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-account-async)
@@ -231,11 +228,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## disable-account
 This API submits a task to disable the account and returns the task ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/disable-account)
 
@@ -285,10 +281,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## disable-account-for-identity
 This API submits a task to disable IDN account for a single identity.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/disable-account-for-identity)
 
@@ -332,10 +327,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## disable-accounts-for-identities
 This API submits tasks to disable IDN account for each identity provided in the request body.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/disable-accounts-for-identities)
 
@@ -381,11 +375,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## enable-account
 This API submits a task to enable account and returns the task ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/enable-account)
 
@@ -435,10 +428,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## enable-account-for-identity
 This API submits a task to enable IDN account for a single identity.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/enable-account-for-identity)
 
@@ -482,10 +474,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## enable-accounts-for-identities
 This API submits tasks to enable IDN account for each identity provided in the request body.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/enable-accounts-for-identities)
 
@@ -531,11 +522,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-account
 Use this API to return the details for a single account by its ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-account)
 
@@ -579,11 +569,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-account-entitlements
 This API returns entitlements of the account.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-account-entitlements)
 
@@ -633,10 +622,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-accounts
 List accounts.  
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-accounts)
 
@@ -689,6 +677,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-account
 Use this API to update an account with a PUT request. 
 
@@ -697,8 +686,6 @@ This endpoint submits an account update task and returns the task ID.
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 >**Note: You can only use this PUT endpoint to update accounts from flat file sources.**
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-account)
@@ -754,11 +741,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## submit-reload-account
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/submit-reload-account)
 
@@ -802,12 +788,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## unlock-account
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/unlock-account)
 
@@ -858,6 +843,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-account
 Use this API to update account details. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -870,8 +856,6 @@ this causes the previous identity to become uncorrelated and can even result in 
 All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise.
 
 >**Note:** The `attributes` field can only be modified for flat file accounts. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-account)

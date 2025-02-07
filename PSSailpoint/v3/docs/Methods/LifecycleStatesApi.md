@@ -62,10 +62,9 @@ Method | HTTP request | Description
 [**Set-LifecycleState**](#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set Lifecycle State
 [**Update-LifecycleStates**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
 
+
 ## create-lifecycle-state
 Use this endpoint to create a lifecycle state.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-lifecycle-state)
 
@@ -135,10 +134,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-lifecycle-state
 Use this endpoint to delete the lifecycle state by its ID. 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-lifecycle-state)
 
@@ -184,10 +182,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-lifecycle-state
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-lifecycle-state)
 
@@ -233,10 +230,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-lifecycle-states
 Use this endpoint to list all lifecycle states by their associated identity profiles. 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-lifecycle-states)
 
@@ -287,10 +283,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-lifecycle-state
 Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-lifecycle-state)
 
@@ -337,10 +332,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-lifecycle-states
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-lifecycle-states)
 

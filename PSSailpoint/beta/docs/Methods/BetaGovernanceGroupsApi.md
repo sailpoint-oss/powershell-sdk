@@ -33,10 +33,9 @@ Method | HTTP request | Description
 [**Update-BetaWorkgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a Governance Group
 [**Update-BetaWorkgroupMembers**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
 
+
 ## create-workgroup
 This API creates a new Governance Group.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-workgroup)
 
@@ -95,10 +94,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workgroup
 This API deletes a Governance Group by its ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-workgroup)
 
@@ -141,14 +139,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workgroup-members
 This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
 
 >  **name**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-workgroup-members)
 
@@ -195,6 +192,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-workgroups-in-bulk
 
 This API initiates a bulk deletion of one or more Governance Groups.
@@ -208,8 +206,6 @@ This API initiates a bulk deletion of one or more Governance Groups.
 >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it. 
 
 >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-workgroups-in-bulk)
 
@@ -255,10 +251,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-workgroup
 This API returns a Governance Groups by its ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-workgroup)
 
@@ -301,10 +296,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-connections
 This API returns list of connections associated with a Governance Group.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-connections)
 
@@ -355,10 +349,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-workgroup-members
 This API returns list of members associated with a Governance Group.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-workgroup-members)
 
@@ -409,10 +402,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-workgroups
 This API returns list of Governance Groups
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-workgroups)
 
@@ -463,6 +455,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-workgroup
 This API updates an existing governance group by ID. 
 The following fields and objects are patchable:
@@ -471,8 +464,6 @@ The following fields and objects are patchable:
   * owner
 
 A token with API or ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-workgroup)
 
@@ -522,14 +513,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-workgroup-members
 This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
 
 >  **name**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-workgroup-members)
 

@@ -81,10 +81,9 @@ Method | HTTP request | Description
 [**Deny-BetaNonEmployeeRequest**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
 [**Update-BetaNonEmployeeRecord**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update Non-Employee Record
 
+
 ## approve-non-employee-request
 Approves a non-employee approval request and notifies the next approver.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-non-employee-request)
 
@@ -132,12 +131,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-non-employee-record
 This request will create a non-employee record.
 Request will require the following security scope:
 'idn:nesr:create'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-record)
 
@@ -194,10 +192,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-non-employee-request
 This request will create a non-employee request and notify the approver
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-request)
 
@@ -254,12 +251,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-non-employee-source
 This request will create a non-employee source.
 Request will require the following security scope:
 'idn:nesr:create'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source)
 
@@ -328,10 +324,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-non-employee-source-schema-attributes
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source-schema-attributes)
 
@@ -384,10 +379,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-record
 This request will delete a non-employee record.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record)
 
@@ -430,12 +424,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-record-in-bulk
 This request will delete multiple non-employee records based on the non-employee ids provided.
 Request will require the following scope:
 'idn:nesr:delete'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record-in-bulk)
 
@@ -479,10 +472,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-request
 This request will delete a non-employee request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-request)
 
@@ -526,10 +518,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-schema-attribute
 This end-point deletes a specific schema attribute for a non-employee source.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-schema-attribute)
@@ -575,10 +566,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-source
 This request will delete a non-employee source.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source)
 
@@ -621,10 +611,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-non-employee-source-schema-attributes
 This end-point deletes all custom schema attributes for a non-employee source.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source-schema-attributes)
 
@@ -667,10 +656,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## export-non-employee-records
 This requests a CSV download for all non-employees from a provided source.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-records)
 
@@ -714,12 +702,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## export-non-employee-source-schema-template
 This requests a download for the Source Schema Template for a provided source.
 Request will require the following security scope:
 idn:nesr:read'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-source-schema-template)
 
@@ -763,10 +750,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-approval
 Approves a non-employee approval request and notifies the next approver.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval)
 
@@ -811,10 +797,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-approval-summary
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id. 2. The current user is an approver, in which case "me" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval-summary)
 
@@ -857,10 +842,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-bulk-upload-status
 The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-bulk-upload-status)
@@ -904,10 +888,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-record
 This gets a non-employee record.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-record)
 
@@ -950,10 +933,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-request
 This gets a non-employee request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request)
 
@@ -997,10 +979,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-request-summary
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id. 2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request-summary)
 
@@ -1043,10 +1024,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-schema-attribute
 This API gets a schema attribute by Id for the specified Non-Employee SourceId.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-schema-attribute)
 
@@ -1091,10 +1071,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-source
 This gets a non-employee source.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source)
 
@@ -1137,10 +1116,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-non-employee-source-schema-attributes
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source-schema-attributes)
 
@@ -1184,12 +1162,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-non-employee-records-in-bulk
 This post will import, or update, Non-Employee records found in the CSV.
 Request will need the following security scope:
 'idn:nesr:create'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/import-non-employee-records-in-bulk)
 
@@ -1235,10 +1212,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-non-employee-approval
 This gets a list of non-employee approval requests.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-approval)
 
@@ -1291,10 +1267,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-non-employee-records
 This gets a list of non-employee records.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-records)
 
@@ -1345,10 +1320,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-non-employee-requests
 This gets a list of non-employee requests.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-requests)
 
@@ -1401,10 +1375,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-non-employee-sources
 This gets a list of non-employee sources.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-sources)
 
@@ -1457,10 +1430,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-non-employee-record
 This request will patch a non-employee record.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-record)
 
@@ -1512,10 +1484,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-non-employee-schema-attribute
 This end-point patches a specific schema attribute for a non-employee SourceId.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-schema-attribute)
@@ -1570,10 +1541,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-non-employee-source
 patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-source)
 
@@ -1624,10 +1594,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## reject-non-employee-request
 This endpoint will reject an approval item request and notify user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
 
@@ -1675,10 +1644,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-non-employee-record
 This request will update a non-employee record.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-non-employee-record)
 

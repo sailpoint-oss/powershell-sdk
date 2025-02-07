@@ -27,12 +27,11 @@ Method | HTTP request | Description
 [**Get-BetaOutliersContributingFeatureAccessItems**](#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
 [**Invoke-BetaUnIgnoreIdentityOutliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
 
+
 ## export-outliers-zip
 This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-outliers-zip)
@@ -76,10 +75,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-outlier-snapshots
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-outlier-snapshots)
 
@@ -131,10 +129,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-outliers
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-outliers)
 
@@ -187,10 +184,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-latest-identity-outlier-snapshots
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-latest-identity-outlier-snapshots)
 
@@ -234,12 +230,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-outlier-contributing-feature-summary
 This API returns a summary of a contributing feature for an identity outlier.
 
 The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-outlier-contributing-feature-summary)
@@ -284,12 +279,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-peer-group-outliers-contributing-features
 This API returns a list of contributing feature objects for a single outlier.
 
 The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-peer-group-outliers-contributing-features)
@@ -344,10 +338,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## ignore-identity-outliers
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/ignore-identity-outliers)
 
@@ -393,12 +386,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-outliers-contributing-feature-access-items
 This API returns a list of the enriched access items associated with each feature filtered by the access item type.
 
 The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-outliers-contributing-feature-access-items)
@@ -455,10 +447,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## un-ignore-identity-outliers
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/un-ignore-identity-outliers)
 

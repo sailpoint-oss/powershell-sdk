@@ -25,11 +25,10 @@ Method | HTTP request | Description
 [**Import-BetaSpConfig**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
 [**Get-BetaSpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | Get config object details
 
+
 ## export-sp-config
 This post will export objects from the tenant to a JSON configuration file.
 For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-sp-config)
 
@@ -76,12 +75,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sp-config-export
 This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sp-config-export)
 
@@ -125,12 +123,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sp-config-export-status
 This gets the status of the export job identified by the `id` parameter.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sp-config-export-status)
 
@@ -174,12 +171,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sp-config-import
 This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import.
 The request will need the following security scope:
 - sp:config:manage
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sp-config-import)
 
@@ -223,11 +219,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sp-config-import-status
 This gets the status of the import job identified by the `id` parameter.
 For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sp-config-import-status)
 
@@ -271,6 +266,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-sp-config
 This post will import objects from a JSON configuration file into a tenant.
 By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted.
@@ -282,8 +278,6 @@ using the `/sp-config/export/{exportJobId}/download` endpoint.
 You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data. 
 
 For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/import-sp-config)
@@ -332,10 +326,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-sp-config-objects
 This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects)
 

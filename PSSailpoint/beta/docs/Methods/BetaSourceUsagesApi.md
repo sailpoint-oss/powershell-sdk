@@ -23,10 +23,9 @@ Method | HTTP request | Description
 [**Get-BetaStatusBySourceId**](#get-status-by-source-id) | **GET** `/source-usages/{sourceId}/status` | Finds status of source usage
 [**Get-BetaUsagesBySourceId**](#get-usages-by-source-id) | **GET** `/source-usages/{sourceId}/summaries` | Returns source usage insights
 
+
 ## get-status-by-source-id
 This API returns the status of the source usage insights setup by IDN source ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-status-by-source-id)
 
@@ -69,10 +68,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-usages-by-source-id
 This API returns a summary of source usage insights for past 12 months.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-usages-by-source-id)
 

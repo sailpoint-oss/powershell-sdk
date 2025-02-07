@@ -32,10 +32,12 @@ Method | HTTP request | Description
 [**Get-V2024AccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
 [**Get-V2024AccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
 
-## get-access-model-metadata-attribute
-Get single Access Model Metadata Attribute
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-access-model-metadata-attribute
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get single Access Model Metadata Attribute
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute)
 
@@ -80,10 +82,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-access-model-metadata-attribute-value
-Get single Access Model Metadata Attribute Value
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-access-model-metadata-attribute-value
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get single Access Model Metadata Attribute Value
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute-value)
 
@@ -130,10 +134,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-access-model-metadata-attribute
-Get a list of Access Model Metadata Attributes
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-access-model-metadata-attribute
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get a list of Access Model Metadata Attributes
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute)
 
@@ -178,10 +184,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-access-model-metadata-attribute-value
-Get a list of Access Model Metadata Attribute Values
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-access-model-metadata-attribute-value
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get a list of Access Model Metadata Attribute Values
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute-value)
 

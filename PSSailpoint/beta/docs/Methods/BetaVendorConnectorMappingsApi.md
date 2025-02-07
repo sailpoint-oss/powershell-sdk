@@ -25,10 +25,9 @@ Method | HTTP request | Description
 [**Remove-BetaVendorConnectorMapping**](#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete Vendor Connector Mapping
 [**Get-BetaVendorConnectorMappings**](#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List Vendor Connector Mappings
 
+
 ## create-vendor-connector-mapping
 Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-vendor-connector-mapping)
@@ -96,10 +95,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-vendor-connector-mapping
 Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-vendor-connector-mapping)
@@ -167,10 +165,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-vendor-connector-mappings
 Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-vendor-connector-mappings)

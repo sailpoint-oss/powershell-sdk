@@ -21,10 +21,9 @@ Method | HTTP request | Description
 [**Get-BetaCommonAccess**](#get-common-access) | **GET** `/common-access` | Get a paginated list of common access
 [**Update-BetaCommonAccessStatusInBulk**](#update-common-access-status-in-bulk) | **POST** `/common-access/update-status` | Bulk update common access status
 
+
 ## create-common-access
 This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-common-access)
 
@@ -78,10 +77,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-common-access
 This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-common-access)
 
@@ -131,10 +129,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-common-access-status-in-bulk
 This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-common-access-status-in-bulk)
 

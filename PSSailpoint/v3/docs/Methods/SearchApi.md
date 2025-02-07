@@ -45,10 +45,9 @@ Method | HTTP request | Description
 [**Search-Get**](#search-get) | **GET** `/search/{index}/{id}` | Get a Document by ID
 [**Search-Post**](#search-post) | **POST** `/search` | Perform Search
 
+
 ## search-aggregate
 Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/search-aggregate)
 
@@ -214,10 +213,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## search-count
 Performs a search with a provided query and returns the count of results in the X-Total-Count header.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/search-count)
 
@@ -377,10 +375,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## search-get
 Fetches a single document from the specified index, using the specified document ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/search-get)
 
@@ -426,10 +423,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## search-post
 Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/search-post)
 

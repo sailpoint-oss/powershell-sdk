@@ -19,10 +19,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024Tenant**](#get-tenant) | **GET** `/tenant` | Get Tenant Information.
 
-## get-tenant
-This rest endpoint can be used to retrieve tenant details.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-tenant
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This rest endpoint can be used to retrieve tenant details.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant)
 

@@ -46,10 +46,12 @@ Method | HTTP request | Description
 [**Search-V2024PasswordInfo**](#query-password-info) | **POST** `/query-password-info` | Query Password Info
 [**Set-V2024Password**](#set-password) | **POST** `/set-password` | Set Identity&#39;s Password
 
-## create-digit-token
-This API is used to generate a digit token for password management. Requires authorization scope of "idn:password-digit-token:create".
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-digit-token
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API is used to generate a digit token for password management. Requires authorization scope of "idn:password-digit-token:create".
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-digit-token)
 
@@ -99,10 +101,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-password-change-status
 This API returns the status of a password change request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-change-status)
 
@@ -146,10 +147,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## query-password-info
 This API is used to query password related information. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/query-password-info)
@@ -197,6 +197,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-password
 This API is used to set a password for an identity. 
 
@@ -217,8 +218,6 @@ To successfully run this command, you must have OpenSSL installed on your machin
 If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.
 
 You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-password)

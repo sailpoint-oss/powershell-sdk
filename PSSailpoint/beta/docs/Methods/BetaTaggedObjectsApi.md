@@ -79,10 +79,9 @@ Method | HTTP request | Description
 [**Set-BetaTagToObject**](#set-tag-to-object) | **POST** `/tagged-objects` | Add Tag to Object
 [**Set-BetaTagsToManyObjects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag Multiple Objects
 
+
 ## delete-tagged-object
 Delete all tags from a tagged object.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-tagged-object)
 
@@ -127,12 +126,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-tags-to-many-object
 This API removes tags from multiple objects.
 
 A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-tags-to-many-object)
 
@@ -188,10 +186,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-tagged-object
 This gets a tagged object for the specified type.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-tagged-object)
 
@@ -236,12 +233,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-tagged-objects
 This API returns a list of all tagged objects.
 
 Any authenticated token may be used to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-tagged-objects)
 
@@ -290,12 +286,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-tagged-objects-by-type
 This API returns a list of all tagged objects by type.
 
 Any authenticated token may be used to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-tagged-objects-by-type)
 
@@ -346,10 +341,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-tagged-object
 This updates a tagged object for the specified type.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-tagged-object)
 
@@ -404,12 +398,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-tag-to-object
 This adds a tag to an object.
 
 Any authenticated token may be used to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/set-tag-to-object)
 
@@ -460,12 +453,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-tags-to-many-objects
 This API adds tags to multiple objects.
 
 A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/set-tags-to-many-objects)
 

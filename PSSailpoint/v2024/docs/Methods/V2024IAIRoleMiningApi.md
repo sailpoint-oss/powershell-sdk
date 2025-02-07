@@ -43,10 +43,12 @@ Method | HTTP request | Description
 [**Update-V2024RoleMiningSession**](#patch-role-mining-session) | **PATCH** `/role-mining-sessions/{sessionId}` | Patch a role mining session
 [**Update-V2024EntitlementsPotentialRole**](#update-entitlements-potential-role) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements` | Edit entitlements for a potential role to exclude some entitlements
 
-## create-potential-role-provision-request
-This method starts a job to provision a potential role
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-potential-role-provision-request
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method starts a job to provision a potential role
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-potential-role-provision-request)
 
@@ -105,10 +107,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## create-role-mining-sessions
-This submits a create role mining session request to the role mining application.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-role-mining-sessions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This submits a create role mining session request to the role mining application.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-role-mining-sessions)
 
@@ -185,10 +189,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## download-role-mining-potential-role-zip
-This endpoint downloads a completed export of information for a potential role in a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## download-role-mining-potential-role-zip
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint downloads a completed export of information for a potential role in a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/download-role-mining-potential-role-zip)
 
@@ -236,10 +242,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## export-role-mining-potential-role
-This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## export-role-mining-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/export-role-mining-potential-role)
 
@@ -285,10 +293,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## export-role-mining-potential-role-async
-This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## export-role-mining-potential-role-async
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/export-role-mining-potential-role-async)
 
@@ -339,10 +349,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## export-role-mining-potential-role-status
-This endpoint retrieves information about the current status of a potential role export.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## export-role-mining-potential-role-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint retrieves information about the current status of a potential role export.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/export-role-mining-potential-role-status)
 
@@ -390,10 +402,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-all-potential-role-summaries
-Returns all potential role summaries that match the query parameters
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-all-potential-role-summaries
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Returns all potential role summaries that match the query parameters
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-all-potential-role-summaries)
 
@@ -446,10 +460,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-entitlement-distribution-potential-role
-This method returns entitlement popularity distribution for a potential role in a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-entitlement-distribution-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns entitlement popularity distribution for a potential role in a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement-distribution-potential-role)
 
@@ -497,10 +513,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-entitlements-potential-role
-This method returns entitlements for a potential role in a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-entitlements-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns entitlements for a potential role in a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlements-potential-role)
 
@@ -559,10 +577,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-excluded-entitlements-potential-role
-This method returns excluded entitlements for a potential role in a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-excluded-entitlements-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns excluded entitlements for a potential role in a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-excluded-entitlements-potential-role)
 
@@ -618,10 +638,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-identities-potential-role
-This method returns identities for a potential role in a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-identities-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns identities for a potential role in a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identities-potential-role)
 
@@ -677,10 +699,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-potential-role
-This method returns a specific potential role for a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns a specific potential role for a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role)
 
@@ -727,10 +751,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-potential-role-applications
-This method returns the applications of a potential role for a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-potential-role-applications
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns the applications of a potential role for a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role-applications)
 
@@ -785,10 +811,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-potential-role-entitlements
-This method returns the entitlements of a potential role for a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-potential-role-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns the entitlements of a potential role for a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role-entitlements)
 
@@ -843,10 +871,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-potential-role-source-identity-usage
-This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-potential-role-source-identity-usage
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role-source-identity-usage)
 
@@ -901,10 +931,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-potential-role-summaries
-This method returns the potential role summaries for a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-potential-role-summaries
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns the potential role summaries for a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-potential-role-summaries)
 
@@ -959,10 +991,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-mining-potential-role
-This method returns a specific potential role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-mining-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns a specific potential role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-mining-potential-role)
 
@@ -1007,10 +1041,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-mining-session
-The method retrieves a role mining session.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-mining-session
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+The method retrieves a role mining session.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-mining-session)
 
@@ -1056,10 +1092,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-mining-session-status
-This method returns a role mining session status for a customer.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-mining-session-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns a role mining session status for a customer.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-mining-session-status)
 
@@ -1103,10 +1141,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-role-mining-sessions
-Returns all role mining sessions that match the query parameters
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-role-mining-sessions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Returns all role mining sessions that match the query parameters
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-mining-sessions)
 
@@ -1159,10 +1199,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-saved-potential-roles
-This method returns all saved potential roles (draft roles).
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-saved-potential-roles
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method returns all saved potential roles (draft roles).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-saved-potential-roles)
 
@@ -1213,7 +1255,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 The method updates an existing potential role using.
 
 The following fields can be modified:
@@ -1227,8 +1273,6 @@ The following fields can be modified:
 
 >**NOTE: All other fields cannot be modified.**
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-potential-role)
 
@@ -1280,7 +1324,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-potential-role-0
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 The method updates an existing potential role using.
 
 The following fields can be modified:
@@ -1294,8 +1342,6 @@ The following fields can be modified:
 
 >**NOTE: All other fields cannot be modified.**
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-potential-role-0)
 
@@ -1347,10 +1393,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## patch-role-mining-session
-The  method updates an existing role mining session using PATCH. Supports op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## patch-role-mining-session
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+The  method updates an existing role mining session using PATCH. Supports op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-role-mining-session)
 
@@ -1404,10 +1452,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## update-entitlements-potential-role
-This endpoint adds or removes entitlements from an exclusion list for a potential role.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## update-entitlements-potential-role
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint adds or removes entitlements from an exclusion list for a potential role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-entitlements-potential-role)
 

@@ -23,10 +23,9 @@ Method | HTTP request | Description
 [**Get-V2024ManualDiscoverApplicationsCsvTemplate**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
 [**Send-V2024ManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
 
+
 ## get-discovered-applications
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-discovered-applications)
@@ -78,12 +77,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-manual-discover-applications-csv-template
 Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-manual-discover-applications-csv-template)
@@ -125,11 +123,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-manual-discover-applications-csv-template
 Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/send-manual-discover-applications-csv-template)
 

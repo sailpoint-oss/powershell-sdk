@@ -50,10 +50,9 @@ Method | HTTP request | Description
 [**Get-V2024CampaignFilters**](#list-campaign-filters) | **GET** `/campaign-filters` | List Campaign Filters
 [**Update-V2024CampaignFilter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a Campaign Filter
 
+
 ## create-campaign-filter
 Use this API to create a campaign filter based on filter details and criteria.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-campaign-filter)
 
@@ -114,10 +113,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaign-filters
 Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-campaign-filters)
 
@@ -164,10 +162,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-filter-by-id
 Retrieves information for an existing campaign filter using the filter's ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-campaign-filter-by-id)
 
@@ -211,10 +208,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-campaign-filters
 Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-campaign-filters)
 
@@ -261,10 +257,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-campaign-filter
 Updates an existing campaign filter using the filter's ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-campaign-filter)
 

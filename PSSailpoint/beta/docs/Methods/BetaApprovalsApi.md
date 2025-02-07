@@ -23,10 +23,9 @@ Method | HTTP request | Description
 [**Get-BetaApproval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get Approval
 [**Get-BetaApprovals**](#get-approvals) | **GET** `/generic-approvals` | Get Approvals
 
+
 ## get-approval
 Get a single approval for a given approval ID. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and doesn't include access-request-approvals.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-approval)
 
@@ -69,11 +68,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-approvals
 Get a list of approvals, which can be filtered by requester ID, status, or reference type. You can use the "Mine" query parameter to return all approvals for the current approver. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
 Absence of all query parameters will will default to mine=true.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-approvals)
 

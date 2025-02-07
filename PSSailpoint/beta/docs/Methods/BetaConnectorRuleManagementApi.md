@@ -30,11 +30,10 @@ Method | HTTP request | Description
 [**Update-BetaConnectorRule**](#update-connector-rule) | **PUT** `/connector-rules/{id}` | Update a Connector Rule
 [**Confirm-BetaConnectorRule**](#validate-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
 
+
 ## create-connector-rule
 Creates a new connector rule.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-connector-rule)
 
@@ -103,11 +102,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-connector-rule
 Deletes the connector rule specified by the given ID.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-connector-rule)
 
@@ -151,11 +149,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-rule
 Returns the connector rule specified by ID.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-rule)
 
@@ -199,11 +196,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-rule-list
 Returns the list of connector rules.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-rule-list)
 
@@ -244,11 +240,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-connector-rule
 Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-connector-rule)
 
@@ -320,11 +315,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## validate-connector-rule
 Returns a list of issues within the code to fix, if any.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/validate-connector-rule)
 

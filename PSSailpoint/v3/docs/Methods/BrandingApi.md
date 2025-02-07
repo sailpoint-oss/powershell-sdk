@@ -28,10 +28,9 @@ Method | HTTP request | Description
 [**Get-BrandingList**](#get-branding-list) | **GET** `/brandings` | List of branding items
 [**Set-BrandingItem**](#set-branding-item) | **PUT** `/brandings/{name}` | Update a branding item
 
+
 ## create-branding-item
 This API endpoint creates a branding item.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-branding-item)
 
@@ -88,10 +87,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-branding
 This API endpoint delete information for an existing branding item by name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-branding)
 
@@ -135,10 +133,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-branding
 This API endpoint retrieves information for an existing branding item by name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-branding)
 
@@ -182,10 +179,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-branding-list
 This API endpoint returns a list of branding items.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-branding-list)
 
@@ -226,10 +222,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-branding-item
 This API endpoint updates information for an existing branding item.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-branding-item)
 

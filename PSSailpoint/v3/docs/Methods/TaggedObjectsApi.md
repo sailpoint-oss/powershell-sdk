@@ -79,10 +79,9 @@ Method | HTTP request | Description
 [**Set-TagToObject**](#set-tag-to-object) | **POST** `/tagged-objects` | Add Tag to Object
 [**Set-TagsToManyObjects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag Multiple Objects
 
+
 ## delete-tagged-object
 Delete all tags from a tagged object.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-tagged-object)
 
@@ -127,10 +126,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-tags-to-many-object
 This API removes tags from multiple objects.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-tags-to-many-object)
 
@@ -185,10 +183,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-tagged-object
 This gets a tagged object for the specified type.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-tagged-object)
 
@@ -233,12 +230,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-tagged-objects
 This API returns a list of all tagged objects.
 
 Any authenticated token may be used to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-tagged-objects)
 
@@ -287,12 +283,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-tagged-objects-by-type
 This API returns a list of all tagged objects by type.
 
 Any authenticated token may be used to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-tagged-objects-by-type)
 
@@ -343,10 +338,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-tagged-object
 This updates a tagged object for the specified type.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-tagged-object)
 
@@ -401,12 +395,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-tag-to-object
 This adds a tag to an object.
 
 Any authenticated token may be used to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-tag-to-object)
 
@@ -457,10 +450,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-tags-to-many-objects
 This API adds tags to multiple objects.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-tags-to-many-objects)
 

@@ -31,10 +31,9 @@ Method | HTTP request | Description
 [**Get-PasswordPolicies**](#list-password-policies) | **GET** `/password-policies` | List Password Policies
 [**Set-PasswordPolicy**](#set-password-policy) | **PUT** `/password-policies/{id}` | Update Password Policy by ID
 
+
 ## create-password-policy
 This API creates the specified password policy.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-password-policy)
 
@@ -111,10 +110,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-password-policy
 This API deletes the specified password policy.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-password-policy)
 
@@ -158,10 +156,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-password-policy-by-id
 This API returns the password policy for the specified ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-policy-by-id)
 
@@ -205,11 +202,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-password-policies
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-password-policies)
 
@@ -256,10 +252,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-password-policy
 This API updates the specified password policy.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-password-policy)
 

@@ -31,10 +31,12 @@ Method | HTTP request | Description
 [**Send-V2024ConnectorRule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update Connector Rule
 [**Test-V2024ConnectorRule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
 
-## create-connector-rule
-Create a connector rule from the available types.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-connector-rule
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Create a connector rule from the available types.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-connector-rule)
 
@@ -105,10 +107,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-connector-rule
-Delete the connector rule for the given ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-connector-rule
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Delete the connector rule for the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-connector-rule)
 
@@ -154,10 +158,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-connector-rule
-Get a connector rule by ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-connector-rule
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get a connector rule by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-rule)
 
@@ -203,10 +209,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-connector-rule-list
-List existing connector rules.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-connector-rule-list
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+List existing connector rules.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-rule-list)
 
@@ -255,10 +263,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## put-connector-rule
-Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## put-connector-rule
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-connector-rule)
 
@@ -332,10 +342,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## test-connector-rule
-Detect issues within the connector rule's code to fix and list them.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## test-connector-rule
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Detect issues within the connector rule's code to fix and list them.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-connector-rule)
 

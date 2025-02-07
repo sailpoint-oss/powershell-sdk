@@ -52,10 +52,9 @@ Method | HTTP request | Description
 [**Invoke-V2024SignOffIdentityCertification**](#sign-off-identity-certification) | **POST** `/certifications/{id}/sign-off` | Finalize Identity Certification Decisions
 [**Submit-V2024ReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
 
+
 ## get-certification-task
 This API returns the certification task for the specified ID. Reviewers for the specified certification can also call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-certification-task)
 
@@ -99,10 +98,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-certification
 This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-certification)
 
@@ -146,10 +144,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-certification-item-permissions
 This API returns the permissions associated with an entitlement certification item based on the certification item's ID. Reviewers for this certification can also call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-certification-item-permissions)
 
@@ -203,10 +200,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-pending-certification-tasks
 This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call this API, but only certification tasks you are authorized to review will be returned.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-certification-tasks)
 
@@ -258,10 +254,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-certification-reviewers
 This API returns a list of reviewers for the certification. Reviewers for this certification can also call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-certification-reviewers)
 
@@ -315,10 +310,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-access-review-items
 This API returns a list of access review items for an identity campaign certification. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-access-review-items)
 
@@ -378,10 +372,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-certifications
 Use this API to get a list of identity campaign certifications for the specified query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to governance groups.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-certifications)
 
@@ -434,10 +427,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## make-identity-decision
 The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/make-identity-decision)
 
@@ -496,10 +488,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## reassign-identity-certifications
 This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/reassign-identity-certifications)
 
@@ -556,10 +547,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## sign-off-identity-certification
 This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/sign-off-identity-certification)
 
@@ -603,14 +593,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## submit-reassign-certs-async
 This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another
 reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the
 reassignment is complete. 
 
 Reviewers for this certification can also call this API.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-reassign-certs-async)

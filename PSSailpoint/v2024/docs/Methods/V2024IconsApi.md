@@ -22,10 +22,12 @@ Method | HTTP request | Description
 [**Remove-V2024Icon**](#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
 [**Set-V2024Icon**](#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
 
-## delete-icon
-This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-icon
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-icon)
 
@@ -73,10 +75,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## set-icon
-This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## set-icon
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-icon)
 

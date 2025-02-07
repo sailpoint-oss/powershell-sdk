@@ -18,7 +18,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Compare-BetaIdentitySnapshots**](#compare-identity-snapshots) | **GET** `/historical-identities/{id}/compare` | Gets a difference of count for each access item types for the given identity between 2 snapshots
-[**Compare-BetaIdentitySnapshotsAccessType**](#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{access-type}` | Gets a list of differences of specific accessType for the given identity between 2 snapshots
+[**Compare-BetaIdentitySnapshotsAccessType**](#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{accessType}` | Gets a list of differences of specific accessType for the given identity between 2 snapshots
 [**Get-BetaHistoricalIdentity**](#get-historical-identity) | **GET** `/historical-identities/{id}` | Get latest snapshot of identity
 [**Get-BetaHistoricalIdentityEvents**](#get-historical-identity-events) | **GET** `/historical-identities/{id}/events` | Lists all events for the given identity
 [**Get-BetaIdentitySnapshot**](#get-identity-snapshot) | **GET** `/historical-identities/{id}/snapshots/{date}` | Gets an identity snapshot at a given date
@@ -29,10 +29,9 @@ Method | HTTP request | Description
 [**Get-BetaIdentitySnapshotAccessItems**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Get Identity Access Items Snapshot
 [**Get-BetaIdentitySnapshots**](#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
 
+
 ## compare-identity-snapshots
 This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/compare-identity-snapshots)
 
@@ -89,10 +88,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## compare-identity-snapshots-access-type
 This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/compare-identity-snapshots-access-type)
 
@@ -149,10 +147,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-historical-identity
 This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-historical-identity)
 
@@ -195,10 +192,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-historical-identity-events
 This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-historical-identity-events)
 
@@ -258,10 +254,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-snapshot
 This method retrieves a specified identity snapshot at a given date Requires authorization scope of 'idn:identity-history:read' 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-snapshot)
 
@@ -306,10 +301,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-snapshot-summary
 This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of 'idn:identity-history:read' 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-snapshot-summary)
 
@@ -364,10 +358,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-start-date
 This method retrieves start date of the identity Requires authorization scope of 'idn:identity-history:read' 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-start-date)
 
@@ -410,10 +403,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-historical-identities
 This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-historical-identities)
 
@@ -464,10 +456,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-access-items
 This method retrieves a list of access item for the identity filtered by the access item type
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-access-items)
 
@@ -525,10 +516,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-snapshot-access-items
 Use this API to get a list of identity access items at a specified date, filtered by item type.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-snapshot-access-items)
 
@@ -576,10 +566,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-snapshots
 This method retrieves all the snapshots for the identity Requires authorization scope of 'idn:identity-history:read' 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-snapshots)
 

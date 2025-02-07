@@ -29,10 +29,12 @@ Method | HTTP request | Description
 [**Get-V2024IdentitySnapshotAccessItems**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Gets the list of identity access items at a given date filterd by item type
 [**Get-V2024IdentitySnapshots**](#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
 
-## compare-identity-snapshots
-This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## compare-identity-snapshots
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method gets a difference of count for each access item types for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/compare-identity-snapshots)
 
@@ -91,10 +93,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## compare-identity-snapshots-access-type
-This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## compare-identity-snapshots-access-type
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/compare-identity-snapshots-access-type)
 
@@ -153,10 +157,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-historical-identity
-This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-historical-identity
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method retrieves a specified identity Requires authorization scope of 'idn:identity-history:read'
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-historical-identity)
 
@@ -201,10 +207,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-historical-identity-events
-This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-historical-identity-events
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-historical-identity-events)
 
@@ -266,10 +274,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-identity-snapshot
-This method retrieves a specified identity snapshot at a given date Requires authorization scope of 'idn:identity-history:read' 
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-identity-snapshot
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method retrieves a specified identity snapshot at a given date Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-snapshot)
 
@@ -316,10 +326,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-identity-snapshot-summary
-This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of 'idn:identity-history:read' 
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-identity-snapshot-summary
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method gets the summary for the event count for a specific identity by month/day Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-snapshot-summary)
 
@@ -376,10 +388,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-identity-start-date
-This method retrieves start date of the identity Requires authorization scope of 'idn:identity-history:read' 
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-identity-start-date
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method retrieves start date of the identity Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-start-date)
 
@@ -424,10 +438,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-historical-identities
-This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-historical-identities
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of 'idn:identity-history:read'
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-historical-identities)
 
@@ -480,11 +496,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-access-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This method retrieves a list of access item for the identity filtered by the access item type
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-access-items)
 
@@ -538,10 +556,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-identity-snapshot-access-items
-This method retrieves the list of identity access items at a given date filterd by item type Requires authorization scope of 'idn:identity-history:read' 
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-identity-snapshot-access-items
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method retrieves the list of identity access items at a given date filterd by item type Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-snapshot-access-items)
 
@@ -590,10 +610,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-identity-snapshots
-This method retrieves all the snapshots for the identity Requires authorization scope of 'idn:identity-history:read' 
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-identity-snapshots
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This method retrieves all the snapshots for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-snapshots)
 

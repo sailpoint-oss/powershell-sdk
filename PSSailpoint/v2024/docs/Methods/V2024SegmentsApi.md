@@ -40,11 +40,10 @@ Method | HTTP request | Description
 [**Get-V2024Segments**](#list-segments) | **GET** `/segments` | List Segments
 [**Update-V2024Segment**](#patch-segment) | **PATCH** `/segments/{id}` | Update Segment
 
+
 ## create-segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-segment)
 
@@ -111,11 +110,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-segment
 This API deletes the segment specified by the given ID.
 >**Note:** that segment deletion may take some time to become effective.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-segment)
 
@@ -159,10 +157,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-segment
 This API returns the segment specified by the given ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-segment)
 
@@ -206,10 +203,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-segments
 This API returns a list of all segments. 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-segments)
 
@@ -256,11 +252,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-segment)
 

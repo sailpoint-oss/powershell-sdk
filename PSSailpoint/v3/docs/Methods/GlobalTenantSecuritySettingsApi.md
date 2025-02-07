@@ -30,10 +30,9 @@ Method | HTTP request | Description
 [**Update-AuthOrgServiceProviderConfig**](#patch-auth-org-service-provider-config) | **PATCH** `/auth-org/service-provider-config` | Update Service Provider Configuration
 [**Update-AuthOrgSessionConfig**](#patch-auth-org-session-config) | **PATCH** `/auth-org/session-config` | Update Auth Org Session Configuration
 
+
 ## create-auth-org-network-config
 This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:manage'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-auth-org-network-config)
 
@@ -82,10 +81,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-auth-org-lockout-config
 This API returns the details of an org's lockout auth configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-org-lockout-config)
 
@@ -127,10 +125,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-auth-org-network-config
 This API returns the details of an org's network auth configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-org-network-config)
 
@@ -172,10 +169,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-auth-org-service-provider-config
 This API returns the details of an org's service provider auth configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-org-service-provider-config)
 
@@ -217,10 +213,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-auth-org-session-config
 This API returns the details of an org's session auth configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-org-session-config)
 
@@ -262,10 +257,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-auth-org-lockout-config
 This API updates an existing lockout configuration for an org using PATCH
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-org-lockout-config)
@@ -316,11 +310,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-auth-org-network-config
 This API updates an existing network configuration for an org using PATCH
  Requires security scope of:  'sp:auth-org:manage'
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-org-network-config)
 
@@ -370,10 +363,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-auth-org-service-provider-config
 This API updates an existing service provider configuration for an org using PATCH.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-org-service-provider-config)
 
@@ -423,10 +415,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-auth-org-session-config
 This API updates an existing session configuration for an org using PATCH.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-org-session-config)
 

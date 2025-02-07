@@ -42,10 +42,9 @@ Method | HTTP request | Description
 [**Get-V2024AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
 [**Set-V2024AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
+
 ## approve-bulk-access-request
 This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights "idn:access-request-administration:write" can approve the access requests in bulk.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-bulk-access-request)
 
@@ -93,11 +92,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## cancel-access-request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-access-request)
 
@@ -145,11 +143,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## cancel-access-request-in-bulk
 This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation. 
 Only ORG_ADMIN or users with rights "idn:access-request-administration:write" can cancel the access requests in  bulk.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-access-request-in-bulk)
 
@@ -197,7 +194,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## close-access-request
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
 To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.
@@ -210,8 +211,6 @@ To track the status of endpoint requests, navigate to Search and use this query:
 
 This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/idn/docs/event-triggers/triggers/provisioning-completed/) for each access request that is closed.
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/close-access-request)
 
@@ -262,6 +261,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-access-request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
@@ -293,8 +293,6 @@ __REVOKE_ACCESS__
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-request)
@@ -392,10 +390,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-config
 This endpoint returns the current access-request configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-config)
 
@@ -436,12 +433,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-request-status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-request-status)
 
@@ -502,11 +498,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-administrators-access-request-status
 Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters.
 Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-administrators-access-request-status)
 
@@ -567,10 +562,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-access-request-config
 This endpoint replaces the current access-request configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-access-request-config)
 

@@ -25,10 +25,9 @@ Method | HTTP request | Description
 [**Get-V2024AuthUser**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth User Details
 [**Update-V2024AuthUser**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth User Update
 
+
 ## get-auth-user
 Return the specified user's authentication system details.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-auth-user)
 
@@ -72,14 +71,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-auth-user
 Use a PATCH request to update an existing user in the authentication system.
 Use this endpoint to modify these fields: 
   * `capabilities`
 
 A '400.1.1 Illegal update attempt' detail code indicates that you attempted to PATCH a field that is not allowed.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-auth-user)
 

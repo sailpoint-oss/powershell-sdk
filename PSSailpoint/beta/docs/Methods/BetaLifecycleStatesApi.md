@@ -56,12 +56,11 @@ Method | HTTP request | Description
 [**Get-BetaLifecycleStates**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
 [**Update-BetaLifecycleStates**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
 
+
 ## get-lifecycle-states
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-lifecycle-states)
@@ -107,12 +106,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-lifecycle-states
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-lifecycle-states)

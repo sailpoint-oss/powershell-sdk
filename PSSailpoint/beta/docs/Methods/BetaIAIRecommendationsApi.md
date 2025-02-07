@@ -21,10 +21,9 @@ Method | HTTP request | Description
 [**Get-BetaRecommendationsConfig**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**Update-BetaRecommendationsConfig**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
+
 ## get-recommendations
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-recommendations)
 
@@ -86,10 +85,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-recommendations-config
 Retrieves configuration attributes used by certification recommendations.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-recommendations-config)
 
@@ -129,10 +127,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-recommendations-config
 Updates configuration attributes used by certification recommendations.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-recommendations-config)
 

@@ -60,12 +60,11 @@ Method | HTTP request | Description
 [**Update-BetaAccessProfile**](#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified Access Profile
 [**Update-BetaAccessProfilesInBulk**](#update-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-update-requestable` | Update Access Profile(s) requestable field.
 
+
 ## create-access-profile
 Use this API to create an access profile.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile's Source.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-profile)
 
@@ -193,14 +192,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-profile
 This API deletes an existing Access Profile.
 
 The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
 
 A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-profile)
 
@@ -243,13 +241,12 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-profiles-in-bulk
 This endpoint initiates a bulk deletion of one or more access profiles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
 By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-profiles-in-bulk)
 
@@ -297,10 +294,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-profile
 This API returns an Access Profile by its ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-profile)
 
@@ -343,11 +339,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-profile-entitlements
 Use this API to get a list of an access profile's entitlements. 
 A user with SOURCE_SUBADMIN authority must have access to the source associated with the specified access profile.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-profile-entitlements)
 
@@ -400,11 +395,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-profiles
 Use this API to get a list of access profiles.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-profiles)
 
@@ -461,6 +455,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-access-profile
 This API updates an existing Access Profile. The following fields are patchable:
 **name**, **description**, **enabled**, **owner**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments**, **entitlements**, **provisioningCriteria**
@@ -468,8 +463,6 @@ A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is requi
 >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
 
 > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile's source.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-access-profile)
 
@@ -520,6 +513,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-access-profiles-in-bulk
 This API initiates a bulk update of field requestable for one or more Access Profiles.
 
@@ -528,8 +522,6 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 
 >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.
 A SOURCE_SUBADMIN user may only use this API to update Access Profiles which are associated with Sources they are able to administer.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-access-profiles-in-bulk)
 

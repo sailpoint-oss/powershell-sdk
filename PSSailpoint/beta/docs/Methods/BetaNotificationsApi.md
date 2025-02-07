@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**Remove-BetaNotificationTemplatesInBulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
 [**Remove-BetaVerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
 [**Get-BetaDkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
-[**Get-BetaMailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
+[**Get-BetaMailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identityId}` | Get MAIL FROM Attributes
 [**Get-BetaNotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
 [**Get-BetaNotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
 [**Get-BetaFromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
@@ -33,10 +33,9 @@ Method | HTTP request | Description
 [**Send-BetaMailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
 [**Send-BetaTestNotification**](#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
 
+
 ## create-domain-dkim
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-domain-dkim)
 
@@ -83,12 +82,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-notification-template
 This creates a template for your site. 
 
 You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-notification-template)
 
@@ -149,10 +147,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-verified-from-address
 Create a new sender email address and initiate verification process.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-verified-from-address)
 
@@ -201,10 +198,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-notification-templates-in-bulk
 This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-notification-templates-in-bulk)
 
@@ -253,10 +249,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-verified-from-address
 Delete a verified sender email address
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-verified-from-address)
 
@@ -300,10 +295,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-dkim-attributes
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-dkim-attributes)
 
@@ -344,17 +338,16 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-mail-from-attributes
 Retrieve MAIL FROM attributes for a given AWS SES identity.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-mail-from-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Id | **String** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+Path   | IdentityId | **String** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
 ### Return type
 [**MailFromAttributes**](../models/mail-from-attributes)
@@ -375,25 +368,24 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+$IdentityId = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
 # Get MAIL FROM Attributes
 
 try {
-    Get-BetaMailFromAttributes -Id $Id 
+    Get-BetaMailFromAttributes -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaMailFromAttributes -Id $Id  
+    # Get-BetaMailFromAttributes -IdentityId $IdentityId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaMailFromAttributes"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## get-notification-template
 This gets a template that you have modified for your site by Id.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-notification-template)
 
@@ -436,11 +428,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-notifications-template-context
 The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
  that will be available per tenant (organization).
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-notifications-template-context)
 
@@ -481,10 +472,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-from-addresses
 Retrieve a list of sender email addresses and their verification statuses
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-from-addresses)
 
@@ -534,16 +524,16 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-notification-preferences
 Returns a list of notification preferences for tenant.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-notification-preferences)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Key | **String** | True  | The notification key.
 
 ### Return type
 [**PreferencesDto[]**](../models/preferences-dto)
@@ -565,24 +555,24 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Key = "cloud_manual_work_item_summary" # String | The notification key.
 
 # List Notification Preferences for tenant.
 
 try {
-    Get-BetaNotificationPreferences 
+    Get-BetaNotificationPreferences -Key $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNotificationPreferences  
+    # Get-BetaNotificationPreferences -Key $Key  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNotificationPreferences"
     Write-Host $_.ErrorDetails
 }
 ```
 [[Back to top]](#) 
+
 ## list-notification-template-defaults
 This lists the default templates used for notifications, such as emails from IdentityNow.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-notification-template-defaults)
 
@@ -629,10 +619,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-notification-templates
 This lists the templates that you have modified for your site.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-notification-templates)
 
@@ -679,10 +668,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-mail-from-attributes
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-mail-from-attributes)
 
@@ -729,10 +717,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-test-notification
 Send a Test Notification
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/send-test-notification)
 

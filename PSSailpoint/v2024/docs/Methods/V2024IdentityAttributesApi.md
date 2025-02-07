@@ -24,10 +24,12 @@ Method | HTTP request | Description
 [**Get-V2024IdentityAttributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
 [**Send-V2024IdentityAttribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
 
-## create-identity-attribute
-Use this API to create a new identity attribute.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-identity-attribute
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to create a new identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-identity-attribute)
 
@@ -95,10 +97,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-identity-attribute
-This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-identity-attribute
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-attribute)
 
@@ -144,10 +148,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-identity-attributes-in-bulk
-Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-identity-attributes-in-bulk
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-attributes-in-bulk)
 
@@ -196,10 +202,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-identity-attribute
-This gets an identity attribute for a given technical name.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-identity-attribute
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This gets an identity attribute for a given technical name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-attribute)
 
@@ -245,10 +253,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## list-identity-attributes
-Use this API to get a collection of identity attributes.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## list-identity-attributes
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to get a collection of identity attributes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-attributes)
 
@@ -299,10 +309,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## put-identity-attribute
-This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## put-identity-attribute
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-identity-attribute)
 

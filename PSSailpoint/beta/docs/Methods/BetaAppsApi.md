@@ -34,10 +34,9 @@ Method | HTTP request | Description
 [**Update-BetaUserApp**](#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by ID
 [**Update-BetaSourceAppsInBulk**](#update-source-apps-in-bulk) | **POST** `/source-apps/bulk-update` | Bulk update source apps
 
+
 ## create-source-app
 This endpoint creates a source app using the given source app payload
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-source-app)
 
@@ -90,10 +89,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-access-profiles-from-source-app-by-bulk
 This API returns the final list of access profiles for the specified source app after removing
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-access-profiles-from-source-app-by-bulk)
 
@@ -143,10 +141,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-source-app
 Use this API to delete a specific source app
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-source-app)
 
@@ -189,10 +186,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-source-app
 This API returns a source app by its ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-source-app)
 
@@ -236,10 +232,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-access-profiles-for-source-app
 This API returns the list of access profiles for the specified source app
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-profiles-for-source-app)
 
@@ -288,12 +283,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-all-source-app
 This API returns the list of all source apps for the org.
 
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-all-source-app)
 
@@ -344,11 +338,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-all-user-apps
 This API returns the list of all user apps with specified filters.
 This API must be used with **filters** query parameter.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-all-user-apps)
 
@@ -397,10 +390,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-assigned-source-app
 This API returns the list of source apps assigned for logged in user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-assigned-source-app)
 
@@ -451,10 +443,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-available-accounts-for-user-app
 This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-available-accounts-for-user-app)
 
@@ -503,10 +494,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-available-source-apps
 This API returns the list of source apps available for access request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-available-source-apps)
 
@@ -557,10 +547,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-owned-user-apps
 This API returns the list of user apps assigned to logged in user
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-owned-user-apps)
 
@@ -609,12 +598,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-source-app
 This API updates an existing source app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts** and **accessProfiles**.
 Name, description and owner can't be empty or null.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-source-app)
 
@@ -665,11 +653,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-user-app
 This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **account**
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-user-app)
 
@@ -720,12 +707,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-source-apps-in-bulk
 This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch.
 The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**.
 Name, description and owner can't be empty or null.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-source-apps-in-bulk)
 

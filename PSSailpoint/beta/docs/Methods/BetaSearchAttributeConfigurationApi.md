@@ -41,11 +41,10 @@ Method | HTTP request | Description
 [**Get-BetaSingleSearchAttributeConfig**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get Extended Search Attribute
 [**Update-BetaSearchAttributeConfig**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update Extended Search Attribute
 
+
 ## create-search-attribute-config
 Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-search-attribute-config)
 
@@ -97,10 +96,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-search-attribute-config
 Delete an extended attribute configuration by name.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-search-attribute-config)
 
@@ -143,11 +141,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-search-attribute-config
 Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-search-attribute-config)
 
@@ -187,10 +184,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-single-search-attribute-config
 Get an extended attribute configuration by name.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-single-search-attribute-config)
 
@@ -234,12 +230,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-search-attribute-config
 Update an existing search attribute configuration. 
 You can patch these fields:
 * name  * displayName * applicationAttributes
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-search-attribute-config)
 

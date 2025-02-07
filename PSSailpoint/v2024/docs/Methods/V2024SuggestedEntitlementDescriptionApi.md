@@ -28,14 +28,16 @@ Method | HTTP request | Description
 [**Submit-V2024SedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
 [**Submit-V2024SedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
 
+
 ## get-sed-batch-stats
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 'Submit Sed Batch Stats Request.
 
  Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats
  of the batchId.'
 
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sed-batch-stats)
 
@@ -81,11 +83,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sed-batches
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 List Sed Batches.
 API responses with Sed Batch Status
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sed-batches)
 
@@ -129,7 +133,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-seds
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 List of Suggested Entitlement Descriptions (SED)
 
 SED field descriptions:
@@ -145,8 +153,6 @@ SED field descriptions:
 **status**: the status of the suggested entitlement description, valid status options: "requested", "suggested", "not_suggested", "failed", "assigned", "approved", "denied"
 
 **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-seds)
 
@@ -204,10 +210,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## patch-sed
-Patch Suggested Entitlement Description
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## patch-sed
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Patch Suggested Entitlement Description
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-sed)
 
@@ -261,11 +269,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## submit-sed-approval
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-approval)
 
@@ -315,11 +325,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## submit-sed-assignment
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-assignment)
 
@@ -372,11 +384,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## submit-sed-batch-request
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Submit Sed Batch Request.
 Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
-
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-batch-request)
 

@@ -41,10 +41,9 @@ Method | HTTP request | Description
 [**Get-PendingApprovals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending Access Request Approvals List
 [**Deny-AccessRequest**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
 
+
 ## approve-access-request
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/approve-access-request)
 
@@ -98,10 +97,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## forward-access-request
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/forward-access-request)
 
@@ -151,10 +149,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-access-request-approval-summary
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information. info.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-request-approval-summary)
 
@@ -199,10 +196,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-completed-approvals
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-completed-approvals)
 
@@ -255,10 +251,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-pending-approvals
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-pending-approvals)
 
@@ -269,7 +264,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*  **accessRequestId**: *eq, in*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
 
 ### Return type
@@ -295,7 +290,7 @@ $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | If present, the value r
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = 'id eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in* (optional)
+$Filters = 'id eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*  **accessRequestId**: *eq, in* (optional)
 $Sorters = "modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
 # Pending Access Request Approvals List
@@ -311,10 +306,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## reject-access-request
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/reject-access-request)
 

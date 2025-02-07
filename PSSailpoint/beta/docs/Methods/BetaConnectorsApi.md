@@ -33,10 +33,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaConnectorList**](#get-connector-list) | **GET** `/connectors` | Get Connector List
 
+
 ## get-connector-list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-list)
 

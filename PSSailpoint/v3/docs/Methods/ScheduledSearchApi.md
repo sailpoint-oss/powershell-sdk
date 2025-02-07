@@ -50,10 +50,9 @@ Method | HTTP request | Description
 [**Invoke-UnsubscribeScheduledSearch**](#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from Scheduled Search
 [**Update-ScheduledSearch**](#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing Scheduled Search
 
+
 ## create-scheduled-search
 Creates a new scheduled search.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-scheduled-search)
@@ -99,10 +98,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-scheduled-search
 Deletes the specified scheduled search.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-scheduled-search)
@@ -147,10 +145,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-scheduled-search
 Returns the specified scheduled search.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-scheduled-search)
 
@@ -194,10 +191,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-scheduled-search
 Returns a list of scheduled searches.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-scheduled-search)
@@ -248,10 +244,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## unsubscribe-scheduled-search
 Unsubscribes a recipient from the specified scheduled search.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/unsubscribe-scheduled-search)
@@ -299,10 +294,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-scheduled-search
 Updates an existing scheduled search.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-scheduled-search)

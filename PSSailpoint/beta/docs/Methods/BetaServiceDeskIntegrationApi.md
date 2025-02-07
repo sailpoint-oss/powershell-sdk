@@ -52,10 +52,9 @@ Method | HTTP request | Description
 [**Send-BetaServiceDeskIntegration**](#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a Service Desk integration
 [**Update-BetaStatusCheckDetails**](#update-status-check-details) | **PUT** `/service-desk-integrations/status-check-configuration` | Update the time check configuration
 
+
 ## create-service-desk-integration
 Create a new Service Desk integration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-service-desk-integration)
 
@@ -130,10 +129,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-service-desk-integration
 Delete an existing Service Desk integration by ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-service-desk-integration)
 
@@ -177,10 +175,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-service-desk-integration
 Get an existing Service Desk integration by ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration)
 
@@ -224,10 +221,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-service-desk-integration-list
 Get a list of Service Desk integration objects.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-list)
 
@@ -279,10 +275,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-service-desk-integration-template
 This API endpoint returns an existing Service Desk integration template by scriptName.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-template)
 
@@ -326,10 +321,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-service-desk-integration-types
 This API endpoint returns the current list of supported Service Desk integration types.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-types)
 
@@ -371,10 +365,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-status-check-details
 Get the time check configuration of queued SDIM tickets.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-status-check-details)
 
@@ -416,10 +409,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-service-desk-integration
 Update an existing Service Desk integration by ID with a PATCH request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-service-desk-integration)
 
@@ -466,10 +458,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-service-desk-integration
 Update an existing Service Desk integration by ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-service-desk-integration)
 
@@ -546,10 +537,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-status-check-details
 Update the time check configuration of queued SDIM tickets.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-status-check-details)
 

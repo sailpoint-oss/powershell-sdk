@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'ManagedClients', 'BetaManagedClients'
 
 # ManagedClients
   Use this API to implement managed client functionality. 
-With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
+With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations.
  
   
 
@@ -22,10 +22,12 @@ Method | HTTP request | Description
 [**Get-BetaManagedClientStatus**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified Managed Client Status.
 [**Update-BetaManagedClientStatus**](#update-managed-client-status) | **POST** `/managed-clients/{id}/status` | Handle status request from client
 
-## get-managed-client-status
-Retrieve Managed Client Status by ID.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## get-managed-client-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Retrieve Managed Client Status by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-client-status)
 
@@ -71,10 +73,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## update-managed-client-status
-Update a status detail passed in from the client
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
 
+## update-managed-client-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Update a status detail passed in from the client
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-managed-client-status)
 

@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaNotificationsApi' {
 
     Context 'Get-BetaMailFromAttributes' {
         It 'Test Get-BetaMailFromAttributes' {
-            #$TestResult = Get-BetaMailFromAttributes -Id "TEST_VALUE"
+            #$TestResult = Get-BetaMailFromAttributes -IdentityId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaNotificationsApi' {
 
     Context 'Get-BetaNotificationPreferences' {
         It 'Test Get-BetaNotificationPreferences' {
-            #$TestResult = Get-BetaNotificationPreferences
+            #$TestResult = Get-BetaNotificationPreferences -Key "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

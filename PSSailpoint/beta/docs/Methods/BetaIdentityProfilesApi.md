@@ -40,12 +40,11 @@ Method | HTTP request | Description
 [**Sync-BetaIdentityProfile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
 [**Update-BetaIdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update the Identity Profile
 
+
 ## create-identity-profile
 This creates an Identity Profile.
 
 A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-identity-profile)
 
@@ -137,6 +136,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-identity-profile
 This deletes an Identity Profile based on ID.
 
@@ -145,8 +145,6 @@ On success, this endpoint will return a reference to the bulk delete task result
 A token with ORG_ADMIN authority is required to call this API.
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-profile)
 
@@ -190,6 +188,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-identity-profiles
 This deletes multiple Identity Profiles via a list of supplied IDs.
 
@@ -198,8 +197,6 @@ On success, this endpoint will return a reference to the bulk delete task result
 A token with ORG_ADMIN authority is required to call this API.
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-profiles)
 
@@ -245,10 +242,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## export-identity-profiles
 This exports existing identity profiles in the format specified by the sp-config service.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-identity-profiles)
 
@@ -300,11 +296,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-default-identity-attribute-config
 This returns the default identity attribute config
 A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-default-identity-attribute-config)
 
@@ -348,12 +343,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-profile
 This returns a single Identity Profile based on ID.
 
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-profile)
 
@@ -397,10 +391,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## import-identity-profiles
 This imports previously exported identity profiles.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/import-identity-profiles)
 
@@ -506,11 +499,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-profiles
 This returns a list of Identity Profiles based on the specified query parameters.
 A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-profiles)
 
@@ -561,12 +553,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## show-generate-identity-preview
 Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
 A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/show-generate-identity-preview)
 
@@ -636,6 +627,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## sync-identity-profile
 Process identities under the profile
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
@@ -643,8 +635,6 @@ This should only be run on identity profiles that have the `identityRefreshRequi
 This operation will perform the following activities on all identities under the identity profile.
 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity's correct manager through manager correlation. 3. Updates the identity's access according to their assigned lifecycle state. 4. Updates the identity's access based on role assignment criteria.
 A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/sync-identity-profile)
 
@@ -688,6 +678,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-identity-profile
 This updates the specified Identity Profile.
 
@@ -701,8 +692,6 @@ Some fields of the Schema cannot be updated. These fields are listed below:
 * identityCount
 * identityRefreshRequired
 * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-identity-profile)
 

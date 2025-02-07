@@ -26,10 +26,9 @@ Method | HTTP request | Description
 [**Get-BetaOauthClients**](#list-oauth-clients) | **GET** `/oauth-clients` | List OAuth Clients
 [**Update-BetaOauthClient**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch OAuth Client
 
+
 ## create-oauth-client
 This creates an OAuth client.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-oauth-client)
 
@@ -89,10 +88,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-oauth-client
 This deletes an OAuth client.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-oauth-client)
 
@@ -136,10 +134,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-oauth-client
 This gets details of an OAuth client.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-oauth-client)
 
@@ -183,10 +180,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-oauth-clients
 This gets a list of OAuth clients.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-oauth-clients)
 
@@ -229,12 +225,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-oauth-client
 This performs a targeted update to the field(s) of an OAuth client.
 Request will require a security scope of 
 - sp:oauth-client:manage
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-oauth-client)
 

@@ -26,11 +26,10 @@ Method | HTTP request | Description
 [**Get-ManagedClients**](#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
 [**Update-ManagedClient**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
 
+
 ## create-managed-client
 Create a new managed client.
 The API returns a result that includes the managed client ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-managed-client)
 
@@ -79,10 +78,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-managed-client
 Delete an existing managed client.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-managed-client)
 
@@ -125,10 +123,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-client
 Get managed client by ID. 
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-client)
 
@@ -172,10 +169,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-client-status
 Get a managed client's status, using its ID.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-client-status)
 
@@ -221,10 +217,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-managed-clients
 List managed clients.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-clients)
 
@@ -273,10 +268,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-managed-client
 Update an existing managed client.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-managed-client)
 

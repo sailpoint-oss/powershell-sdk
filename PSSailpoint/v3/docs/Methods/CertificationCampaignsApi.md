@@ -105,6 +105,7 @@ Method | HTTP request | Description
 [**Start-GenerateCampaignTemplate**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
 [**Update-Campaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
 
+
 ## complete-campaign
 :::caution
 
@@ -116,8 +117,6 @@ This endpoint will return a content error if the campaign is **not past due**.
 
 Use this API to complete a certification campaign. This functionality is provided to admins so that they
 can complete a certification even if all items have not been completed.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/complete-campaign)
@@ -166,10 +165,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-campaign
 Use this API to create a certification campaign with the information provided in the request body.    
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-campaign)
@@ -322,10 +320,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## create-campaign-template
 Use this API to create a certification campaign template based on campaign.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-campaign-template)
@@ -493,10 +490,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaign-template
 Use this API to delete a certification campaign template by ID.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template)
@@ -541,10 +537,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaign-template-schedule
 Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template-schedule)
@@ -589,10 +584,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-campaigns
 Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-campaigns)
@@ -640,10 +634,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-active-campaigns
 Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns)
@@ -697,10 +690,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign
 Use this API to get information for an existing certification campaign by the campaign's ID.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign)
@@ -747,10 +739,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-reports
 Use this API to fetch all reports for a certification campaign by campaign ID.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports)
@@ -795,10 +786,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-reports-config
 Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports-config)
@@ -840,10 +830,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-template
 Use this API to fetch a certification campaign template by ID.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-template)
@@ -888,10 +877,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-template-schedule
 Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-template-schedule)
@@ -936,12 +924,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-campaign-templates
 Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
 
 The API returns all campaign templates matching the query parameters. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-templates)
@@ -993,10 +980,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## move
 This API reassigns the specified certifications from one identity to another.    
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/move)
@@ -1051,10 +1037,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-campaign-template
 Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/patch-campaign-template)
@@ -1107,10 +1092,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-campaign-reports-config
 Use this API to overwrite the configuration for campaign reports. 
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-campaign-reports-config)
@@ -1157,10 +1141,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## set-campaign-template-schedule
 Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule)
@@ -1226,10 +1209,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign
 Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-campaign)
@@ -1278,10 +1260,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign-remediation-scan
 Use this API to run a remediation scan task for a certification campaign.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-campaign-remediation-scan)
@@ -1326,10 +1307,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-campaign-report
 Use this API to run a report for a certification campaign.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-campaign-report)
@@ -1376,6 +1356,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-generate-campaign-template
 Use this API to generate a new certification campaign from a campaign template.
 
@@ -1388,8 +1369,6 @@ example, "%Y" inserts the current year, and a campaign template named "Campaign 
 campaign called "Campaign for 2020" (assuming the year at generation time is 2020).
 
 Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-generate-campaign-template)
@@ -1433,10 +1412,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-campaign
 Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-campaign)

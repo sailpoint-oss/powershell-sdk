@@ -23,10 +23,9 @@ Method | HTTP request | Description
 [**Get-BetaTaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
 [**Update-BetaTaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
 
+
 ## get-pending-task-headers
 Responds with headers only for list of task statuses for pending tasks.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-pending-task-headers)
 
@@ -74,10 +73,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-pending-tasks
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks)
 
@@ -125,10 +123,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-task-status
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-task-status)
 
@@ -172,10 +169,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-task-status-list
 Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint.
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-task-status-list)
@@ -228,10 +224,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-task-status
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-task-status)
 

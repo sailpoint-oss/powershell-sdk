@@ -43,10 +43,9 @@ Method | HTTP request | Description
 [**Send-ConnectorTranslations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
 [**Update-Connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
 
+
 ## create-custom-connector
 Create custom connector.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-custom-connector)
 
@@ -97,10 +96,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-custom-connector
 Delete a custom connector that using its script name.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-custom-connector)
 
@@ -144,10 +142,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector
 Fetches a connector that using its script name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector)
 
@@ -193,10 +190,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-list)
 
@@ -248,10 +244,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-source-config
 Fetches a connector's source config using its script name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-config)
 
@@ -295,10 +290,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-source-template
 Fetches a connector's source template using its script name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-template)
 
@@ -342,10 +336,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-connector-translations
 Fetches a connector's translations using its script name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-translations)
 
@@ -391,10 +384,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-source-config
 Update a connector's source config using its script name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-config)
 
@@ -440,10 +432,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-source-template
 Update a connector's source template using its script name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-template)
 
@@ -489,10 +480,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-connector-translations
 Update a connector's translations using its script name.    
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-translations)
 
@@ -538,6 +528,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## update-connector
 This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -551,8 +542,6 @@ The following fields are patchable:
 * correlationConfigXml
 
 * sourceConfigXml
-
-
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-connector)

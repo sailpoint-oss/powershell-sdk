@@ -40,12 +40,11 @@ Method | HTTP request | Description
 [**Get-BetaSegments**](#list-segments) | **GET** `/segments` | List Segments
 [**Update-BetaSegment**](#patch-segment) | **PATCH** `/segments/{id}` | Update Segment
 
+
 ## create-segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-segment)
 
@@ -112,12 +111,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-segment
 This API deletes the segment specified by the given ID.
 >**Note:** Segment deletion may take some time to go into effect. 
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-segment)
 
@@ -161,11 +159,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-segment
 This API returns the segment specified by the given ID.
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-segment)
 
@@ -209,11 +206,10 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-segments
 This API returns a list of all segments.
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-segments)
 
@@ -260,12 +256,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
 A token with ORG_ADMIN or API authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-segment)
 

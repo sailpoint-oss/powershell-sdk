@@ -37,10 +37,9 @@ Method | HTTP request | Description
 [**Send-BetaReassignmentConfig**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
 [**Send-BetaTenantConfiguration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
 
+
 ## create-reassignment-configuration
 Creates a new Reassignment Configuration for the specified identity.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-reassignment-configuration)
 
@@ -90,10 +89,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-reassignment-configuration
 Deletes a single reassignment configuration for the specified identity
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-reassignment-configuration)
 
@@ -138,10 +136,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-evaluate-reassignment-configuration
 Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-evaluate-reassignment-configuration)
 
@@ -190,10 +187,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-reassignment-config-types
 Gets a collection of types which are available in the Reassignment Configuration UI.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-reassignment-config-types)
 
@@ -234,10 +230,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-reassignment-configuration
 Gets the Reassignment Configuration for an identity.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-reassignment-configuration)
 
@@ -281,10 +276,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-tenant-config-configuration
 Gets the global Reassignment Configuration settings for the requestor's tenant.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant-config-configuration)
 
@@ -326,10 +320,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-reassignment-configurations
 Gets all Reassignment configuration for the current org.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-reassignment-configurations)
 
@@ -371,10 +364,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-reassignment-config
 Replaces existing Reassignment configuration for an identity with the newly provided configuration.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-reassignment-config)
 
@@ -426,10 +418,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-tenant-configuration
 Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-tenant-configuration)
 

@@ -23,10 +23,12 @@ Method | HTTP request | Description
 [**Get-V2024ValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get Valid Time Zones
 [**Update-V2024OrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch Org Config
 
-## get-org-config
-Get the current organization's configuration settings, only external accessible properties.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-org-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get the current organization's configuration settings, only external accessible properties.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-org-config)
 
@@ -70,10 +72,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-valid-time-zones
-List the valid time zones that can be set in organization configurations.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-valid-time-zones
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+List the valid time zones that can be set in organization configurations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-valid-time-zones)
 
@@ -122,10 +126,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## patch-org-config
-Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## patch-org-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-org-config)
 

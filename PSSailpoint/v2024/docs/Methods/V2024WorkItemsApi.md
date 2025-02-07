@@ -45,10 +45,9 @@ Method | HTTP request | Description
 [**Send-V2024WorkItemForward**](#send-work-item-forward) | **POST** `/work-items/{id}/forward` | Forward a Work Item
 [**Submit-V2024AccountSelection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
 
+
 ## approve-approval-item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-approval-item)
 
@@ -94,10 +93,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## approve-approval-items-in-bulk
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-approval-items-in-bulk)
 
@@ -141,10 +139,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## complete-work-item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/complete-work-item)
 
@@ -188,10 +185,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-completed-work-items
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-completed-work-items)
 
@@ -240,10 +236,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-count-completed-work-items
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-count-completed-work-items)
 
@@ -286,10 +281,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-count-work-items
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-count-work-items)
 
@@ -332,10 +326,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-work-item
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-work-item)
 
@@ -378,10 +371,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-work-items-summary
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-work-items-summary)
 
@@ -424,10 +416,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-work-items
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-work-items)
 
@@ -476,10 +467,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## reject-approval-item
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/reject-approval-item)
 
@@ -525,10 +515,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## reject-approval-items-in-bulk
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/reject-approval-items-in-bulk)
 
@@ -572,10 +561,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## send-work-item-forward
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/send-work-item-forward)
 
@@ -625,10 +613,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## submit-account-selection
 This API submits account selections. Either an admin, or the owning/current user must make this request.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-account-selection)
 

@@ -22,12 +22,11 @@ Method | HTTP request | Description
 [**Get-BetaTagById**](#get-tag-by-id) | **GET** `/tags/{id}` | Get Tag By Id
 [**Get-BetaTags**](#list-tags) | **GET** `/tags` | List Tags
 
+
 ## create-tag
 This API creates new tag.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-tag)
 
@@ -85,12 +84,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-tag-by-id
 This API deletes a tag by specified id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-tag-by-id)
 
@@ -134,12 +132,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-tag-by-id
 Returns a tag by its id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-tag-by-id)
 
@@ -183,12 +180,11 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-tags
 This API returns a list of tags.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-tags)
 

@@ -32,10 +32,12 @@ Method | HTTP request | Description
 [**Remove-V2024CustomPasswordInstructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
 [**Get-V2024CustomPasswordInstructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
 
-## create-custom-password-instructions
-This API creates the custom password instructions for the specified page ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## create-custom-password-instructions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API creates the custom password instructions for the specified page ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-custom-password-instructions)
 
@@ -83,10 +85,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## delete-custom-password-instructions
-This API delete the custom password instructions for the specified page ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## delete-custom-password-instructions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API delete the custom password instructions for the specified page ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-custom-password-instructions)
 
@@ -132,10 +136,12 @@ try {
 }
 ```
 [[Back to top]](#) 
-## get-custom-password-instructions
-This API returns the custom password instructions for the specified page ID.
 
-:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+## get-custom-password-instructions
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API returns the custom password instructions for the specified page ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-custom-password-instructions)
 

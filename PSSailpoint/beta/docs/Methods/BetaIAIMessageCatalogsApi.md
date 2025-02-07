@@ -19,10 +19,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaMessageCatalogs**](#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get Message catalogs
 
+
 ## get-message-catalogs
 The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-message-catalogs)
 

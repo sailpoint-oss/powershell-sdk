@@ -25,10 +25,9 @@ Method | HTTP request | Description
 [**Get-V2024ReportResult**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
 [**Start-V2024Report**](#start-report) | **POST** `/reports/run` | Run Report
 
+
 ## cancel-report
 Cancels a running report.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-report)
 
@@ -71,10 +70,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-report
 Gets a report in file format.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-report)
 
@@ -124,10 +122,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-report-result
 Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-report-result)
 
@@ -172,10 +169,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-report
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-report)
 

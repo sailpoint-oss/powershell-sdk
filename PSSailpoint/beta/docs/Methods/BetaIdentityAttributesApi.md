@@ -24,10 +24,9 @@ Method | HTTP request | Description
 [**Get-BetaIdentityAttributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
 [**Send-BetaIdentityAttribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
 
+
 ## create-identity-attribute
 Use this API to create a new identity attribute.   A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-identity-attribute)
 
@@ -93,10 +92,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-identity-attribute
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-attribute)
 
@@ -140,10 +138,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-identity-attributes-in-bulk
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-attributes-in-bulk)
 
@@ -190,10 +187,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-identity-attribute
 This gets an identity attribute for a given technical name.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-attribute)
 
@@ -237,10 +233,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-identity-attributes
 Use this API to get a collection of identity attributes.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-attributes)
 
@@ -289,10 +284,9 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-identity-attribute
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.   A token with ORG_ADMIN authority is required to call this API.
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-identity-attribute)
 

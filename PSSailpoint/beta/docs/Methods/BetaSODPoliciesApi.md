@@ -60,11 +60,13 @@ Method | HTTP request | Description
 [**Start-BetaSodAllPoliciesForOrg**](#start-sod-all-policies-for-org) | **POST** `/sod-violation-report/run` | Runs all policies for org
 [**Start-BetaSodPolicy**](#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
 
+
 ## create-sod-policy
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-sod-policy)
 
@@ -163,11 +165,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-sod-policy
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sod-policy)
 
@@ -213,11 +217,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## delete-sod-policy-schedule
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This deletes schedule for a specified SOD policy.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sod-policy-schedule)
 
@@ -261,11 +267,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-custom-violation-report
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This allows to download a specified named violation report for a given report reference.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-custom-violation-report)
 
@@ -311,11 +319,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-default-violation-report
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This allows to download a violation report for a given report reference.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-default-violation-report)
 
@@ -359,11 +369,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sod-all-report-run-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This endpoint gets the status for a violation report for all policy run.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-all-report-run-status)
 
@@ -404,11 +416,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sod-policy
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-policy)
 
@@ -452,11 +466,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sod-policy-schedule
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This endpoint gets a specified SOD policy's schedule.
 Requires the role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-policy-schedule)
 
@@ -499,11 +515,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sod-violation-report-run-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets the status for a violation report run task that has already been invoked.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-violation-report-run-status)
 
@@ -547,11 +565,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## get-sod-violation-report-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets the status for a violation report run task that has already been invoked.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-violation-report-status)
 
@@ -595,11 +615,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## list-sod-policies
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-sod-policies)
 
@@ -650,12 +672,14 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## patch-sod-policy
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sod-policy)
 
@@ -704,11 +728,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-policy-schedule
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This updates schedule for a specified SOD policy.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-policy-schedule)
 
@@ -839,11 +865,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-sod-policy
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-sod-policy)
 
@@ -945,11 +973,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-sod-all-policies-for-org
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/start-sod-all-policies-for-org)
 
@@ -994,11 +1024,13 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## start-sod-policy
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
 Requires role of ORG_ADMIN.
-:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/start-sod-policy)
 

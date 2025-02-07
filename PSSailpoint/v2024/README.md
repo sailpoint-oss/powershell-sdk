@@ -229,6 +229,14 @@ Class | Method | HTTP request | Description
 *V2024CustomPasswordInstructionsApi* | [**New-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#New-V2024CustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
 *V2024CustomPasswordInstructionsApi* | [**Remove-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#Remove-V2024CustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
 *V2024CustomPasswordInstructionsApi* | [**Get-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#Get-V2024CustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
+*V2024DataSegmentationApi* | [**New-V2024DataSegment**](docs/V2024DataSegmentationApi.md#New-V2024DataSegment) | **POST** /data-segments | Create Segment
+*V2024DataSegmentationApi* | [**Remove-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Remove-V2024DataSegment) | **DELETE** /data-segments/{segmentId} | Delete Segment by ID
+*V2024DataSegmentationApi* | [**Get-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegment) | **GET** /data-segments/{segmentId} | Get Segment by ID
+*V2024DataSegmentationApi* | [**Get-V2024DataSegmentIdentityMembership**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegmentIdentityMembership) | **GET** /data-segments/membership/{identityId} | Get SegmentMembership by Identity ID
+*V2024DataSegmentationApi* | [**Get-V2024DataSegmentationEnabledForUser**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegmentationEnabledForUser) | **GET** /data-segments/user-enabled/{identityId} | Is Segmentation enabled by Identity
+*V2024DataSegmentationApi* | [**Get-V2024DataSegments**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegments) | **GET** /data-segments | Get Segments
+*V2024DataSegmentationApi* | [**Update-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Update-V2024DataSegment) | **PATCH** /data-segments/{segmentId} | Update Segment
+*V2024DataSegmentationApi* | [**Publish-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Publish-V2024DataSegment) | **POST** /data-segments/{segmentId} | Publish segment by ID
 *V2024DimensionsApi* | [**New-V2024Dimension**](docs/V2024DimensionsApi.md#New-V2024Dimension) | **POST** /roles/{roleId}/dimensions | Create a Dimension
 *V2024DimensionsApi* | [**Remove-V2024BulkDimensions**](docs/V2024DimensionsApi.md#Remove-V2024BulkDimensions) | **POST** /roles/{roleId}/dimensions/bulk-delete | Delete Dimension(s)
 *V2024DimensionsApi* | [**Remove-V2024Dimension**](docs/V2024DimensionsApi.md#Remove-V2024Dimension) | **DELETE** /roles/{roleId}/dimensions/{dimensionId} | Delete a Dimension
@@ -1013,6 +1021,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.DataAccessCategoriesInner](docs/DataAccessCategoriesInner.md)
  - [PSSailpoint.V2024\Model.DataAccessImpactScore](docs/DataAccessImpactScore.md)
  - [PSSailpoint.V2024\Model.DataAccessPoliciesInner](docs/DataAccessPoliciesInner.md)
+ - [PSSailpoint.V2024\Model.DataSegment](docs/DataSegment.md)
  - [PSSailpoint.V2024\Model.DateCompare](docs/DateCompare.md)
  - [PSSailpoint.V2024\Model.DateCompareFirstDate](docs/DateCompareFirstDate.md)
  - [PSSailpoint.V2024\Model.DateCompareSecondDate](docs/DateCompareSecondDate.md)
@@ -1265,6 +1274,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ManuallyUpdatedFieldsDTO](docs/ManuallyUpdatedFieldsDTO.md)
  - [PSSailpoint.V2024\Model.MatchTerm](docs/MatchTerm.md)
  - [PSSailpoint.V2024\Model.Medium](docs/Medium.md)
+ - [PSSailpoint.V2024\Model.MembershipType](docs/MembershipType.md)
  - [PSSailpoint.V2024\Model.MetricAggregation](docs/MetricAggregation.md)
  - [PSSailpoint.V2024\Model.MetricResponse](docs/MetricResponse.md)
  - [PSSailpoint.V2024\Model.MetricType](docs/MetricType.md)
@@ -1412,6 +1422,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RecommendationResponseDto](docs/RecommendationResponseDto.md)
  - [PSSailpoint.V2024\Model.RecommenderCalculations](docs/RecommenderCalculations.md)
  - [PSSailpoint.V2024\Model.RecommenderCalculationsIdentityAttributesValue](docs/RecommenderCalculationsIdentityAttributesValue.md)
+ - [PSSailpoint.V2024\Model.Ref](docs/Ref.md)
  - [PSSailpoint.V2024\Model.Reference](docs/Reference.md)
  - [PSSailpoint.V2024\Model.Reference1](docs/Reference1.md)
  - [PSSailpoint.V2024\Model.RemediationItemDetails](docs/RemediationItemDetails.md)
@@ -1545,6 +1556,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ScheduledSearchAllOfOwner](docs/ScheduledSearchAllOfOwner.md)
  - [PSSailpoint.V2024\Model.ScheduledSearchName](docs/ScheduledSearchName.md)
  - [PSSailpoint.V2024\Model.Schema](docs/Schema.md)
+ - [PSSailpoint.V2024\Model.Scope](docs/Scope.md)
+ - [PSSailpoint.V2024\Model.ScopeType](docs/ScopeType.md)
+ - [PSSailpoint.V2024\Model.ScopeVisibilityType](docs/ScopeVisibilityType.md)
  - [PSSailpoint.V2024\Model.Search](docs/Search.md)
  - [PSSailpoint.V2024\Model.SearchAggregationSpecification](docs/SearchAggregationSpecification.md)
  - [PSSailpoint.V2024\Model.SearchArguments](docs/SearchArguments.md)

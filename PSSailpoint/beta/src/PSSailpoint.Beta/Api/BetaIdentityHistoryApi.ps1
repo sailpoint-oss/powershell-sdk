@@ -228,7 +228,7 @@ function Compare-BetaIdentitySnapshotsAccessType {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/historical-identities/{id}/compare/{access-type}'
+        $LocalVarUri = '/historical-identities/{id}/compare/{accessType}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling compareIdentitySnapshotsAccessType."
         }

@@ -67,6 +67,7 @@ Method | HTTP request | Description
 [**Get-BetaPasswordDictionary**](#get-password-dictionary) | **GET** `/password-dictionary` | Get Password Dictionary
 [**Send-BetaPasswordDictionary**](#put-password-dictionary) | **PUT** `/password-dictionary` | Update Password Dictionary
 
+
 ## get-password-dictionary
 This gets password dictionary for the organization.
 The password dictionary file can contain lines that are:
@@ -97,8 +98,6 @@ password
 qazxsws
 
 ```
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-dictionary)
 
@@ -140,6 +139,7 @@ try {
 }
 ```
 [[Back to top]](#) 
+
 ## put-password-dictionary
 This updates password dictionary for the organization.
 The password dictionary file can contain lines that are:
@@ -170,8 +170,6 @@ password
 qazxsws
 
 ```
-
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-password-dictionary)
 

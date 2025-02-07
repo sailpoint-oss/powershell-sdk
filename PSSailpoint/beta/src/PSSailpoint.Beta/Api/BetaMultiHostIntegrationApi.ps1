@@ -104,7 +104,7 @@ Create Sources Within Multi-Host Integration
 
 This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.  A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-.PARAMETER MultihostId
+.PARAMETER Id
 ID of the Multi-Host Integration.
 
 .PARAMETER MultiHostIntegrationsCreateSources
@@ -123,7 +123,7 @@ function New-BetaSourcesWithinMultiHost {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${MultihostId},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${MultiHostIntegrationsCreateSources},
@@ -150,11 +150,11 @@ function New-BetaSourcesWithinMultiHost {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/multihosts/{multihostId}'
-        if (!$MultihostId) {
-            throw "Error! The required parameter `MultihostId` missing when calling createSourcesWithinMultiHost."
+        $LocalVarUri = '/multihosts/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling createSourcesWithinMultiHost."
         }
-        $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$MultiHostIntegrationsCreateSources) {
             throw "Error! The required parameter `MultiHostIntegrationsCreateSources` missing when calling createSourcesWithinMultiHost."
@@ -204,7 +204,7 @@ Delete Multi-Host Integration
 
 Delete an existing Multi-Host Integration by ID.    A token with Org Admin or Multi Host Admin authority is required to access this endpoint.
 
-.PARAMETER MultihostId
+.PARAMETER Id
 ID of Multi-Host Integration to delete.
 
 .PARAMETER WithHttpInfo
@@ -220,7 +220,7 @@ function Remove-BetaMultiHost {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${MultihostId},
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -241,11 +241,11 @@ function Remove-BetaMultiHost {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/multihosts/{multihostId}'
-        if (!$MultihostId) {
-            throw "Error! The required parameter `MultihostId` missing when calling deleteMultiHost."
+        $LocalVarUri = '/multihosts/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling deleteMultiHost."
         }
-        $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
 
 
@@ -278,7 +278,7 @@ Get Account Aggregation Groups Within Multi-Host Integration ID
 
 This API will return array of account aggregation groups within provided Multi-Host Integration ID.  A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-.PARAMETER MultihostId
+.PARAMETER MultiHostId
 ID of the Multi-Host Integration to update
 
 .PARAMETER WithHttpInfo
@@ -294,7 +294,7 @@ function Get-BetaAcctAggregationGroups {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${MultihostId},
+        ${MultiHostId},
         [Switch]
         $WithHttpInfo
     )
@@ -316,10 +316,10 @@ function Get-BetaAcctAggregationGroups {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/multihosts/{multihostId}/acctAggregationGroups'
-        if (!$MultihostId) {
-            throw "Error! The required parameter `MultihostId` missing when calling getAcctAggregationGroups."
+        if (!$MultiHostId) {
+            throw "Error! The required parameter `MultiHostId` missing when calling getAcctAggregationGroups."
         }
-        $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+        $LocalVarUri = $LocalVarUri.replace('{multiHostId}', [System.Web.HTTPUtility]::UrlEncode($MultiHostId))
 
 
 
@@ -426,7 +426,7 @@ Get Multi-Host Integration By ID
 
 Get an existing Multi-Host Integration.   A token with Org Admin or Multi-Host Integration Admin authority is required to access this endpoint.
 
-.PARAMETER MultihostId
+.PARAMETER Id
 ID of the Multi-Host Integration.
 
 .PARAMETER WithHttpInfo
@@ -442,7 +442,7 @@ function Get-BetaMultiHostIntegrations {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${MultihostId},
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -463,11 +463,11 @@ function Get-BetaMultiHostIntegrations {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/multihosts/{multihostId}'
-        if (!$MultihostId) {
-            throw "Error! The required parameter `MultihostId` missing when calling getMultiHostIntegrations."
+        $LocalVarUri = '/multihosts/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getMultiHostIntegrations."
         }
-        $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
 
 
@@ -762,9 +762,6 @@ List Sources Within Multi-Host Integration
 
 Get a list of sources within Multi-Host Integration ID.    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-.PARAMETER MultihostId
-ID of the Multi-Host Integration to update
-
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -792,21 +789,18 @@ function Get-BetaSourcesWithinMultiHost {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${MultihostId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
         [Switch]
@@ -829,11 +823,7 @@ function Get-BetaSourcesWithinMultiHost {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/multihosts/{multihostId}/sources'
-        if (!$MultihostId) {
-            throw "Error! The required parameter `MultihostId` missing when calling getSourcesWithinMultiHost."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+        $LocalVarUri = '/multihosts/{id}/sources'
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
@@ -923,11 +913,11 @@ function Test-BetaConnectionMultiHostSources {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/multihosts/{multihostId}/sources/testConnection'
+        $LocalVarUri = '/multihosts/{multihost_id}/sources/testConnection'
         if (!$MultihostId) {
             throw "Error! The required parameter `MultihostId` missing when calling testConnectionMultiHostSources."
         }
-        $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+        $LocalVarUri = $LocalVarUri.replace('{multihost_id}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
 
 
 
@@ -1003,11 +993,11 @@ function Test-BetaSourceConnectionMultihost {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/multihosts/{multihostId}/sources/{sourceId}/testConnection'
+        $LocalVarUri = '/multihosts/{multihost_id}/sources/{sourceId}/testConnection'
         if (!$MultihostId) {
             throw "Error! The required parameter `MultihostId` missing when calling testSourceConnectionMultihost."
         }
-        $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+        $LocalVarUri = $LocalVarUri.replace('{multihost_id}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
         if (!$SourceId) {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConnectionMultihost."
         }
@@ -1090,11 +1080,11 @@ function Update-BetaMultiHostSources {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json-patch+json')
 
-        $LocalVarUri = '/multihosts/{multihostId}'
+        $LocalVarUri = '/multihosts/{id}'
         if (!$MultihostId) {
             throw "Error! The required parameter `MultihostId` missing when calling updateMultiHostSources."
         }
-        $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+        $LocalVarUri = $LocalVarUri.replace('{multihost_id}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
 
         if (!$UpdateMultiHostSourcesRequestInner) {
             throw "Error! The required parameter `UpdateMultiHostSourcesRequestInner` missing when calling updateMultiHostSources."

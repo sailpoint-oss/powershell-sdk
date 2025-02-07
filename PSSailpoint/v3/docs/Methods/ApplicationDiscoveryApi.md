@@ -27,6 +27,10 @@ Method | HTTP request | Description
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-discovered-applications)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -64,7 +68,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Get Discovered Applications for Tenant
 
 try {
-    Get-DiscoveredApplications
+    Get-DiscoveredApplications 
     
     # Below is a request that includes all optional parameters
     # Get-DiscoveredApplications -Limit $Limit -Offset $Offset -Detail $Detail -Filter $Filter -Sorters $Sorters  
@@ -79,6 +83,10 @@ Download an example CSV file with two columns `application_name` and `descriptio
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-manual-discover-applications-csv-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,7 +115,7 @@ Code | Description  | Data Type
 # Download CSV Template for Discovery
 
 try {
-    Get-ManualDiscoverApplicationsCsvTemplate
+    Get-ManualDiscoverApplicationsCsvTemplate 
     
     # Below is a request that includes all optional parameters
     # Get-ManualDiscoverApplicationsCsvTemplate  
@@ -120,6 +128,10 @@ try {
 ## send-manual-discover-applications-csv-template
 Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/send-manual-discover-applications-csv-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

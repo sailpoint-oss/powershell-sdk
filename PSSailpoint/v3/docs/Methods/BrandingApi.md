@@ -31,6 +31,10 @@ Method | HTTP request | Description
 ## create-branding-item
 This API endpoint creates a branding item.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-branding-item)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -74,7 +78,7 @@ $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
 # Create a branding item
 
 try {
-    New-BrandingItem -Name $Name  -ProductName $ProductName 
+    New-BrandingItem -Name $Name -ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
     # New-BrandingItem -Name $Name -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard  
@@ -86,6 +90,10 @@ try {
 [[Back to top]](#) 
 ## delete-branding
 This API endpoint delete information for an existing branding item by name.    
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-branding)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -130,6 +138,10 @@ try {
 ## get-branding
 This API endpoint retrieves information for an existing branding item by name.    
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-branding)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -173,6 +185,10 @@ try {
 ## get-branding-list
 This API endpoint returns a list of branding items.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-branding-list)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -200,7 +216,7 @@ Code | Description  | Data Type
 # List of branding items
 
 try {
-    Get-BrandingList
+    Get-BrandingList 
     
     # Below is a request that includes all optional parameters
     # Get-BrandingList  
@@ -212,6 +228,10 @@ try {
 [[Back to top]](#) 
 ## set-branding-item
 This API endpoint updates information for an existing branding item.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-branding-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -259,7 +279,7 @@ $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
 # Update a branding item
 
 try {
-    Set-BrandingItem -Name $Name  -Name2 $Name2  -ProductName $ProductName 
+    Set-BrandingItem -Name $Name -Name2 $Name2 -ProductName $ProductName 
     
     # Below is a request that includes all optional parameters
     # Set-BrandingItem -Name $Name -Name2 $Name2 -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard  

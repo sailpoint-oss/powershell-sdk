@@ -1035,7 +1035,7 @@ Reset Source Entitlements
 
 Remove all entitlements from a specific source. To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
 
-.PARAMETER SourceId
+.PARAMETER Id
 ID of source for the entitlement reset
 
 .PARAMETER WithHttpInfo
@@ -1051,7 +1051,7 @@ function Reset-BetaSourceEntitlements {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${SourceId},
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -1072,11 +1072,11 @@ function Reset-BetaSourceEntitlements {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/entitlements/reset/sources/{sourceId}'
-        if (!$SourceId) {
-            throw "Error! The required parameter `SourceId` missing when calling resetSourceEntitlements."
+        $LocalVarUri = '/entitlements/reset/sources/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling resetSourceEntitlements."
         }
-        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
 
 

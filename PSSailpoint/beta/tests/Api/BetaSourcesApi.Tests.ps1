@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Remove-BetaAccountsAsync' {
         It 'Test Remove-BetaAccountsAsync' {
-            #$TestResult = Remove-BetaAccountsAsync -SourceId "TEST_VALUE"
+            #$TestResult = Remove-BetaAccountsAsync -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Remove-BetaNativeChangeDetectionConfig' {
         It 'Test Remove-BetaNativeChangeDetectionConfig' {
-            #$TestResult = Remove-BetaNativeChangeDetectionConfig -SourceId "TEST_VALUE"
+            #$TestResult = Remove-BetaNativeChangeDetectionConfig -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Get-BetaCorrelationConfig' {
         It 'Test Get-BetaCorrelationConfig' {
-            #$TestResult = Get-BetaCorrelationConfig -SourceId "TEST_VALUE"
+            #$TestResult = Get-BetaCorrelationConfig -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Get-BetaNativeChangeDetectionConfig' {
         It 'Test Get-BetaNativeChangeDetectionConfig' {
-            #$TestResult = Get-BetaNativeChangeDetectionConfig -SourceId "TEST_VALUE"
+            #$TestResult = Get-BetaNativeChangeDetectionConfig -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Get-BetaSourceAccountsSchema' {
         It 'Test Get-BetaSourceAccountsSchema' {
-            #$TestResult = Get-BetaSourceAccountsSchema -SourceId "TEST_VALUE"
+            #$TestResult = Get-BetaSourceAccountsSchema -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -128,7 +128,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Get-BetaSourceEntitlementRequestConfig' {
         It 'Test Get-BetaSourceEntitlementRequestConfig' {
-            #$TestResult = Get-BetaSourceEntitlementRequestConfig -SourceId "TEST_VALUE"
+            #$TestResult = Get-BetaSourceEntitlementRequestConfig
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -136,7 +136,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Get-BetaSourceEntitlementsSchema' {
         It 'Test Get-BetaSourceEntitlementsSchema' {
-            #$TestResult = Get-BetaSourceEntitlementsSchema -SourceId "TEST_VALUE" -SchemaName "TEST_VALUE"
+            #$TestResult = Get-BetaSourceEntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -160,7 +160,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Import-BetaAccounts' {
         It 'Test Import-BetaAccounts' {
-            #$TestResult = Import-BetaAccounts -SourceId "TEST_VALUE" -File "TEST_VALUE" -DisableOptimization "TEST_VALUE"
+            #$TestResult = Import-BetaAccounts -Id "TEST_VALUE" -File "TEST_VALUE" -DisableOptimization "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -168,7 +168,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Import-BetaEntitlements' {
         It 'Test Import-BetaEntitlements' {
-            #$TestResult = Import-BetaEntitlements -SourceId "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult = Import-BetaEntitlements -Id "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -176,7 +176,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Import-BetaSourceAccountsSchema' {
         It 'Test Import-BetaSourceAccountsSchema' {
-            #$TestResult = Import-BetaSourceAccountsSchema -SourceId "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult = Import-BetaSourceAccountsSchema -Id "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -192,7 +192,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Import-BetaSourceEntitlementsSchema' {
         It 'Test Import-BetaSourceEntitlementsSchema' {
-            #$TestResult = Import-BetaSourceEntitlementsSchema -SourceId "TEST_VALUE" -SchemaName "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult = Import-BetaSourceEntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -200,7 +200,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Import-BetaUncorrelatedAccounts' {
         It 'Test Import-BetaUncorrelatedAccounts' {
-            #$TestResult = Import-BetaUncorrelatedAccounts -SourceId "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult = Import-BetaUncorrelatedAccounts -Id "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -240,7 +240,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Send-BetaCorrelationConfig' {
         It 'Test Send-BetaCorrelationConfig' {
-            #$TestResult = Send-BetaCorrelationConfig -SourceId "TEST_VALUE" -CorrelationConfig "TEST_VALUE"
+            #$TestResult = Send-BetaCorrelationConfig -Id "TEST_VALUE" -CorrelationConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -248,7 +248,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Send-BetaNativeChangeDetectionConfig' {
         It 'Test Send-BetaNativeChangeDetectionConfig' {
-            #$TestResult = Send-BetaNativeChangeDetectionConfig -SourceId "TEST_VALUE" -NativeChangeDetectionConfig "TEST_VALUE"
+            #$TestResult = Send-BetaNativeChangeDetectionConfig -Id "TEST_VALUE" -NativeChangeDetectionConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -288,7 +288,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Sync-BetaAttributesForSource' {
         It 'Test Sync-BetaAttributesForSource' {
-            #$TestResult = Sync-BetaAttributesForSource -SourceId "TEST_VALUE"
+            #$TestResult = Sync-BetaAttributesForSource -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -336,7 +336,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaSourcesApi' {
 
     Context 'Update-BetaSourceEntitlementRequestConfig' {
         It 'Test Update-BetaSourceEntitlementRequestConfig' {
-            #$TestResult = Update-BetaSourceEntitlementRequestConfig -SourceId "TEST_VALUE" -SourceEntitlementRequestConfig "TEST_VALUE"
+            #$TestResult = Update-BetaSourceEntitlementRequestConfig -SourceEntitlementRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

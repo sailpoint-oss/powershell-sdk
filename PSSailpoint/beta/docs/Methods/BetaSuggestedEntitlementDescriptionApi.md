@@ -35,6 +35,10 @@ Submits batchId in the path param `(e.g. {batchId}/stats)`.
 API responses with stats of the batchId.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sed-batch-stats)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -65,10 +69,10 @@ $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
 # Submit Sed Batch Stats Request
 
 try {
-    Get-BetaSedBatchStats -BetaBatchId $BatchId 
+    Get-BetaSedBatchStats -BatchId $BatchId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSedBatchStats -BetaBatchId $BatchId  
+    # Get-BetaSedBatchStats -BatchId $BatchId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSedBatchStats"
     Write-Host $_.ErrorDetails
@@ -78,6 +82,10 @@ try {
 ## get-sed-batches
 List Sed Batches.
 API responses with Sed Batch Status
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sed-batches)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,7 +115,7 @@ Code | Description  | Data Type
 # List Sed Batch Request
 
 try {
-    Get-BetaSedBatches
+    Get-BetaSedBatches 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSedBatches  
@@ -133,6 +141,10 @@ SED field descriptions:
 **status**: the status of the suggested entitlement description, valid status options: "requested", "suggested", "not_suggested", "failed", "assigned", "approved", "denied"
 
 **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-seds)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -176,10 +188,10 @@ $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are
 # List Suggested Entitlement Descriptions
 
 try {
-    Get-BetaSeds
+    Get-BetaSeds 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSeds -BetaLimit $Limit -BetaFilters $Filters -BetaSorters $Sorters -BetaCount $Count -BetaCountOnly $CountOnly -BetaRequestedByAnyone $RequestedByAnyone -BetaShowPendingStatusOnly $ShowPendingStatusOnly  
+    # Get-BetaSeds -Limit $Limit -Filters $Filters -Sorters $Sorters -Count $Count -CountOnly $CountOnly -RequestedByAnyone $RequestedByAnyone -ShowPendingStatusOnly $ShowPendingStatusOnly  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSeds"
     Write-Host $_.ErrorDetails
@@ -188,6 +200,10 @@ try {
 [[Back to top]](#) 
 ## patch-sed
 Patch Suggested Entitlement Description
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sed)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -227,10 +243,10 @@ $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
 
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-    Update-BetaSed -BetaId $Id  -BetaSedPatch $Result
+    Update-BetaSed -Id $Id -BetaSedPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSed -BetaId $Id -BetaSedPatch $SedPatch  
+    # Update-BetaSed -Id $Id -BetaSedPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSed"
     Write-Host $_.ErrorDetails
@@ -240,6 +256,10 @@ try {
 ## submit-sed-approval
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-sed-approval)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -275,10 +295,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-    Submit-BetaSedApproval -BetaSedApproval $Result
+    Submit-BetaSedApproval -BetaSedApproval $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaSedApproval -BetaSedApproval $SedApproval  
+    # Submit-BetaSedApproval -BetaSedApproval $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedApproval"
     Write-Host $_.ErrorDetails
@@ -288,6 +308,10 @@ try {
 ## submit-sed-assignment
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-sed-assignment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -326,10 +350,10 @@ $SedAssignment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-    Submit-BetaSedAssignment -BetaSedAssignment $Result
+    Submit-BetaSedAssignment -BetaSedAssignment $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaSedAssignment -BetaSedAssignment $SedAssignment  
+    # Submit-BetaSedAssignment -BetaSedAssignment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedAssignment"
     Write-Host $_.ErrorDetails
@@ -342,6 +366,10 @@ Request body has one of the following:
   - a list of entitlement Ids
   - a list of SED Ids
 that user wants to have description generated by LLM.  API responses with batchId that groups Ids together
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-sed-batch-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -376,10 +404,10 @@ $SedBatchRequest = @"{
 # Submit Sed Batch Request
 
 try {
-    Submit-BetaSedBatchRequest
+    Submit-BetaSedBatchRequest 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaSedBatchRequest -BetaSedBatchRequest $SedBatchRequest  
+    # Submit-BetaSedBatchRequest -BetaSedBatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaSedBatchRequest"
     Write-Host $_.ErrorDetails

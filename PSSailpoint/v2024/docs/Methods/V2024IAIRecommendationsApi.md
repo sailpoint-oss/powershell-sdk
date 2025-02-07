@@ -24,6 +24,10 @@ Method | HTTP request | Description
 ## get-recommendations
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-recommendations)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -74,10 +78,10 @@ $RecommendationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
-    Get-V2024Recommendations -V2024XSailPointExperimental $XSailPointExperimental  -V2024RecommendationRequestDto $Result
+    Get-V2024Recommendations -XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Recommendations -V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $RecommendationRequestDto  
+    # Get-V2024Recommendations -XSailPointExperimental $XSailPointExperimental -V2024RecommendationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Recommendations"
     Write-Host $_.ErrorDetails
@@ -86,6 +90,10 @@ try {
 [[Back to top]](#) 
 ## get-recommendations-config
 Retrieves configuration attributes used by certification recommendations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-recommendations-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,10 +123,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get certification recommendation config values
 
 try {
-    Get-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RecommendationsConfig -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024RecommendationsConfig -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RecommendationsConfig"
     Write-Host $_.ErrorDetails
@@ -127,6 +135,10 @@ try {
 [[Back to top]](#) 
 ## update-recommendations-config
 Updates configuration attributes used by certification recommendations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-recommendations-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -164,10 +176,10 @@ $RecommendationConfigDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
-    Update-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024RecommendationConfigDto $Result
+    Update-V2024RecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RecommendationsConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $RecommendationConfigDto  
+    # Update-V2024RecommendationsConfig -XSailPointExperimental $XSailPointExperimental -V2024RecommendationConfigDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RecommendationsConfig"
     Write-Host $_.ErrorDetails

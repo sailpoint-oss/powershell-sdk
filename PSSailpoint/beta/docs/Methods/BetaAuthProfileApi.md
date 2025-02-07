@@ -30,6 +30,10 @@ Method | HTTP request | Description
 ## get-profile-config
 This API returns auth profile information.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -60,10 +64,10 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to ge
 # Get Auth Profile.
 
 try {
-    Get-BetaProfileConfig -BetaId $Id 
+    Get-BetaProfileConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaProfileConfig -BetaId $Id  
+    # Get-BetaProfileConfig -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaProfileConfig"
     Write-Host $_.ErrorDetails
@@ -72,6 +76,10 @@ try {
 [[Back to top]](#) 
 ## get-profile-config-list
 This API returns a list of auth profiles.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -100,7 +108,7 @@ Code | Description  | Data Type
 # Get list of Auth Profiles.
 
 try {
-    Get-BetaProfileConfigList
+    Get-BetaProfileConfigList 
     
     # Below is a request that includes all optional parameters
     # Get-BetaProfileConfigList  
@@ -113,6 +121,10 @@ try {
 ## patch-profile-config
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-profile-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -151,10 +163,10 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to pa
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaProfileConfig -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaProfileConfig -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaProfileConfig -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaProfileConfig -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProfileConfig"
     Write-Host $_.ErrorDetails

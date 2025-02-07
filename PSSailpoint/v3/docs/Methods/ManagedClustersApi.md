@@ -31,6 +31,10 @@ Method | HTTP request | Description
 Create a new Managed Cluster.
 The API returns a result that includes the managed cluster ID.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-managed-cluster)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -69,10 +73,10 @@ $ManagedClusterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
-    New-ManagedCluster -ManagedClusterRequest $Result
+    New-ManagedCluster -ManagedClusterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ManagedCluster -ManagedClusterRequest $ManagedClusterRequest  
+    # New-ManagedCluster -ManagedClusterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedCluster"
     Write-Host $_.ErrorDetails
@@ -81,6 +85,10 @@ try {
 [[Back to top]](#) 
 ## delete-managed-cluster
 Delete an existing managed cluster.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-managed-cluster)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -126,6 +134,10 @@ try {
 ## get-client-log-configuration
 Get a managed cluster's log configuration.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-client-log-configuration)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -170,6 +182,10 @@ try {
 ## get-managed-cluster
 Get a managed cluster by ID.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-cluster)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -213,6 +229,10 @@ try {
 ## get-managed-clusters
 List current organization's managed clusters, based on request context.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-clusters)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -248,7 +268,7 @@ $Filters = 'operational eq "operation"' # String | Filter results using the stan
 # Get Managed Clusters
 
 try {
-    Get-ManagedClusters
+    Get-ManagedClusters 
     
     # Below is a request that includes all optional parameters
     # Get-ManagedClusters -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters  
@@ -260,6 +280,10 @@ try {
 [[Back to top]](#) 
 ## put-client-log-configuration
 Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-client-log-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -294,10 +318,10 @@ $PutClientLogConfigurationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
-    Send-ClientLogConfiguration -Id $Id  -PutClientLogConfigurationRequest $Result
+    Send-ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $PutClientLogConfigurationRequest  
+    # Send-ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ClientLogConfiguration"
     Write-Host $_.ErrorDetails
@@ -306,6 +330,10 @@ try {
 [[Back to top]](#) 
 ## update-managed-cluster
 Update an existing managed cluster.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-managed-cluster)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -345,10 +373,10 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-ManagedCluster -Id $Id  -JsonPatchOperation $Result
+    Update-ManagedCluster -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ManagedCluster -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-ManagedCluster -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedCluster"
     Write-Host $_.ErrorDetails

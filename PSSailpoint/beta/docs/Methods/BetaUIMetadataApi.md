@@ -25,6 +25,10 @@ Method | HTTP request | Description
 This API endpoint retrieves UI metadata configured for your tenant.
 A token with ORG_ADMIN authority is required to call this API.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant-ui-metadata)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -53,7 +57,7 @@ Code | Description  | Data Type
 # Get a tenant UI metadata
 
 try {
-    Get-BetaTenantUiMetadata
+    Get-BetaTenantUiMetadata 
     
     # Below is a request that includes all optional parameters
     # Get-BetaTenantUiMetadata  
@@ -66,6 +70,10 @@ try {
 ## set-tenant-ui-metadata
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-tenant-ui-metadata)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -102,10 +110,10 @@ $TenantUiMetadataItemUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
-    Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $Result
+    Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $TenantUiMetadataItemUpdateRequest  
+    # Set-BetaTenantUiMetadata -BetaTenantUiMetadataItemUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaTenantUiMetadata"
     Write-Host $_.ErrorDetails

@@ -35,6 +35,10 @@ Method | HTTP request | Description
 ## create-sim-integration
 Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-sim-integration)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -83,10 +87,10 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    New-BetaSIMIntegration -BetaSimIntegrationDetails $Result
+    New-BetaSIMIntegration -BetaSimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSIMIntegration -BetaSimIntegrationDetails $SimIntegrationDetails  
+    # New-BetaSIMIntegration -BetaSimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSIMIntegration"
     Write-Host $_.ErrorDetails
@@ -95,6 +99,10 @@ try {
 [[Back to top]](#) 
 ## delete-sim-integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sim-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -126,10 +134,10 @@ $Id = "12345" # String | The id of the integration to delete.
 # Delete a SIM integration
 
 try {
-    Remove-BetaSIMIntegration -BetaId $Id 
+    Remove-BetaSIMIntegration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaSIMIntegration -BetaId $Id  
+    # Remove-BetaSIMIntegration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSIMIntegration"
     Write-Host $_.ErrorDetails
@@ -138,6 +146,10 @@ try {
 [[Back to top]](#) 
 ## get-sim-integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -169,10 +181,10 @@ $Id = "12345" # String | The id of the integration.
 # Get a SIM integration details.
 
 try {
-    Get-BetaSIMIntegration -BetaId $Id 
+    Get-BetaSIMIntegration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSIMIntegration -BetaId $Id  
+    # Get-BetaSIMIntegration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSIMIntegration"
     Write-Host $_.ErrorDetails
@@ -181,6 +193,10 @@ try {
 [[Back to top]](#) 
 ## get-sim-integrations
 List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integrations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -210,7 +226,7 @@ Code | Description  | Data Type
 # List the existing SIM integrations.
 
 try {
-    Get-BetaSIMIntegrations
+    Get-BetaSIMIntegrations 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSIMIntegrations  
@@ -222,6 +238,10 @@ try {
 [[Back to top]](#) 
 ## patch-before-provisioning-rule
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-before-provisioning-rule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -256,10 +276,10 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-BetaBeforeProvisioningRule -BetaId $Id  -BetaJsonPatch $Result
+    Update-BetaBeforeProvisioningRule -Id $Id -BetaJsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaBeforeProvisioningRule -BetaId $Id -BetaJsonPatch $JsonPatch  
+    # Update-BetaBeforeProvisioningRule -Id $Id -BetaJsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaBeforeProvisioningRule"
     Write-Host $_.ErrorDetails
@@ -268,6 +288,10 @@ try {
 [[Back to top]](#) 
 ## patch-sim-attributes
 Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sim-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -302,10 +326,10 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-BetaSIMAttributes -BetaId $Id  -BetaJsonPatch $Result
+    Update-BetaSIMAttributes -Id $Id -BetaJsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSIMAttributes -BetaId $Id -BetaJsonPatch $JsonPatch  
+    # Update-BetaSIMAttributes -Id $Id -BetaJsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSIMAttributes"
     Write-Host $_.ErrorDetails
@@ -314,6 +338,10 @@ try {
 [[Back to top]](#) 
 ## put-sim-integration
 Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-sim-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -365,10 +393,10 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    Send-BetaSIMIntegration -BetaId $Id  -BetaSimIntegrationDetails $Result
+    Send-BetaSIMIntegration -Id $Id -BetaSimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSIMIntegration -BetaId $Id -BetaSimIntegrationDetails $SimIntegrationDetails  
+    # Send-BetaSIMIntegration -Id $Id -BetaSimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSIMIntegration"
     Write-Host $_.ErrorDetails

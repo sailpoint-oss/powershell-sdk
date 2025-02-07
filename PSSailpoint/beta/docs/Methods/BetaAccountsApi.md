@@ -75,6 +75,10 @@ The endpoint doesn't actually provision the account on the target source, which 
 By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-account)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -114,10 +118,10 @@ $AccountAttributesCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
-    New-BetaAccount -BetaAccountAttributesCreate $Result
+    New-BetaAccount -BetaAccountAttributesCreate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaAccount -BetaAccountAttributesCreate $AccountAttributesCreate  
+    # New-BetaAccount -BetaAccountAttributesCreate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccount"
     Write-Host $_.ErrorDetails
@@ -130,6 +134,10 @@ This endpoint submits an account delete task and returns the task ID.
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 >**NOTE:** You can only delete accounts from sources of the "DelimitedFile" type.**
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -161,10 +169,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 # Delete Account
 
 try {
-    Remove-BetaAccount -BetaId $Id 
+    Remove-BetaAccount -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccount -BetaId $Id  
+    # Remove-BetaAccount -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccount"
     Write-Host $_.ErrorDetails
@@ -179,6 +187,10 @@ This endpoint is good for:
 * Removing accounts that won't be aggregated following updates to the source configuration.
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-account-async)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -209,10 +221,10 @@ $Id = "c350d6aa4f104c61b062cb632421ad10" # String | The account id
 # Remove Account
 
 try {
-    Remove-BetaAccountAsync -BetaId $Id 
+    Remove-BetaAccountAsync -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaAccountAsync -BetaId $Id  
+    # Remove-BetaAccountAsync -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaAccountAsync"
     Write-Host $_.ErrorDetails
@@ -222,6 +234,10 @@ try {
 ## disable-account
 This API submits a task to disable the account and returns the task ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/disable-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -259,10 +275,10 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Disable-BetaAccount -BetaId $Id  -BetaAccountToggleRequest $Result
+    Disable-BetaAccount -Id $Id -BetaAccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Disable-BetaAccount -BetaId $Id -BetaAccountToggleRequest $AccountToggleRequest  
+    # Disable-BetaAccount -Id $Id -BetaAccountToggleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-BetaAccount"
     Write-Host $_.ErrorDetails
@@ -271,6 +287,10 @@ try {
 [[Back to top]](#) 
 ## disable-account-for-identity
 This API submits a task to disable IDN account for a single identity.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/disable-account-for-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -302,10 +322,10 @@ $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
 # Disable IDN Account for Identity
 
 try {
-    Disable-BetaAccountForIdentity -BetaId $Id 
+    Disable-BetaAccountForIdentity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Disable-BetaAccountForIdentity -BetaId $Id  
+    # Disable-BetaAccountForIdentity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-BetaAccountForIdentity"
     Write-Host $_.ErrorDetails
@@ -314,6 +334,10 @@ try {
 [[Back to top]](#) 
 ## disable-accounts-for-identities
 This API submits tasks to disable IDN account for each identity provided in the request body.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/disable-accounts-for-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -347,10 +371,10 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Disable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result
+    Disable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Disable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $IdentitiesAccountsBulkRequest  
+    # Disable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-BetaAccountsForIdentities"
     Write-Host $_.ErrorDetails
@@ -360,6 +384,10 @@ try {
 ## enable-account
 This API submits a task to enable account and returns the task ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/enable-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -397,10 +425,10 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Enable-BetaAccount -BetaId $Id  -BetaAccountToggleRequest $Result
+    Enable-BetaAccount -Id $Id -BetaAccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Enable-BetaAccount -BetaId $Id -BetaAccountToggleRequest $AccountToggleRequest  
+    # Enable-BetaAccount -Id $Id -BetaAccountToggleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-BetaAccount"
     Write-Host $_.ErrorDetails
@@ -409,6 +437,10 @@ try {
 [[Back to top]](#) 
 ## enable-account-for-identity
 This API submits a task to enable IDN account for a single identity.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/enable-account-for-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -440,10 +472,10 @@ $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
 # Enable IDN Account for Identity
 
 try {
-    Enable-BetaAccountForIdentity -BetaId $Id 
+    Enable-BetaAccountForIdentity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Enable-BetaAccountForIdentity -BetaId $Id  
+    # Enable-BetaAccountForIdentity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-BetaAccountForIdentity"
     Write-Host $_.ErrorDetails
@@ -452,6 +484,10 @@ try {
 [[Back to top]](#) 
 ## enable-accounts-for-identities
 This API submits tasks to enable IDN account for each identity provided in the request body.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/enable-accounts-for-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -485,10 +521,10 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Enable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result
+    Enable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Enable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $IdentitiesAccountsBulkRequest  
+    # Enable-BetaAccountsForIdentities -BetaIdentitiesAccountsBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-BetaAccountsForIdentities"
     Write-Host $_.ErrorDetails
@@ -498,6 +534,10 @@ try {
 ## get-account
 Use this API to return the details for a single account by its ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -529,10 +569,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 # Account Details
 
 try {
-    Get-BetaAccount -BetaId $Id 
+    Get-BetaAccount -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccount -BetaId $Id  
+    # Get-BetaAccount -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccount"
     Write-Host $_.ErrorDetails
@@ -542,6 +582,10 @@ try {
 ## get-account-entitlements
 This API returns entitlements of the account.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-account-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -579,10 +623,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Account Entitlements
 
 try {
-    Get-BetaAccountEntitlements -BetaId $Id 
+    Get-BetaAccountEntitlements -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccountEntitlements -BetaId $Id -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count  
+    # Get-BetaAccountEntitlements -Id $Id -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccountEntitlements"
     Write-Host $_.ErrorDetails
@@ -591,6 +635,10 @@ try {
 [[Back to top]](#) 
 ## list-accounts
 List accounts.  
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-accounts)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -631,10 +679,10 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # Accounts List
 
 try {
-    Get-BetaAccounts
+    Get-BetaAccounts 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccounts -BetaDetailLevel $DetailLevel -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaAccounts -DetailLevel $DetailLevel -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccounts"
     Write-Host $_.ErrorDetails
@@ -650,6 +698,10 @@ A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required t
 
 >**Note: You can only use this PUT endpoint to update accounts from flat file sources.**
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -692,10 +744,10 @@ $AccountAttributes = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
-    Send-BetaAccount -BetaId $Id  -BetaAccountAttributes $Result
+    Send-BetaAccount -Id $Id -BetaAccountAttributes $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaAccount -BetaId $Id -BetaAccountAttributes $AccountAttributes  
+    # Send-BetaAccount -Id $Id -BetaAccountAttributes $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaAccount"
     Write-Host $_.ErrorDetails
@@ -705,6 +757,10 @@ try {
 ## submit-reload-account
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-reload-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -736,10 +792,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 # Reload Account
 
 try {
-    Submit-BetaReloadAccount -BetaId $Id 
+    Submit-BetaReloadAccount -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaReloadAccount -BetaId $Id  
+    # Submit-BetaReloadAccount -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaReloadAccount"
     Write-Host $_.ErrorDetails
@@ -750,6 +806,10 @@ try {
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/unlock-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -788,10 +848,10 @@ $AccountUnlockRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
-    Unlock-BetaAccount -BetaId $Id  -BetaAccountUnlockRequest $Result
+    Unlock-BetaAccount -Id $Id -BetaAccountUnlockRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Unlock-BetaAccount -BetaId $Id -BetaAccountUnlockRequest $AccountUnlockRequest  
+    # Unlock-BetaAccount -Id $Id -BetaAccountUnlockRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-BetaAccount"
     Write-Host $_.ErrorDetails
@@ -811,6 +871,10 @@ All accounts that are reassigned will be set to `manuallyCorrelated: true` unles
 
 >**Note:** The `attributes` field can only be modified for flat file accounts. 
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -847,10 +911,10 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaAccount -BetaId $Id  -BetaRequestBody $Result
+    Update-BetaAccount -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaAccount -BetaId $Id -BetaRequestBody $RequestBody  
+    # Update-BetaAccount -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccount"
     Write-Host $_.ErrorDetails

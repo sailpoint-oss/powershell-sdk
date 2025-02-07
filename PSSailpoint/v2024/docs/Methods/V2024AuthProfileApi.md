@@ -30,6 +30,10 @@ Method | HTTP request | Description
 ## get-profile-config
 This API returns auth profile information.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-profile-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -62,10 +66,10 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to pa
 # Get Auth Profile.
 
 try {
-    Get-V2024ProfileConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024Id $Id 
+    Get-V2024ProfileConfig -XSailPointExperimental $XSailPointExperimental -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ProfileConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id  
+    # Get-V2024ProfileConfig -XSailPointExperimental $XSailPointExperimental -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ProfileConfig"
     Write-Host $_.ErrorDetails
@@ -74,6 +78,10 @@ try {
 [[Back to top]](#) 
 ## get-profile-config-list
 This API returns a list of auth profiles.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-profile-config-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -104,10 +112,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get list of Auth Profiles.
 
 try {
-    Get-V2024ProfileConfigList -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ProfileConfigList -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ProfileConfigList -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024ProfileConfigList -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ProfileConfigList"
     Write-Host $_.ErrorDetails
@@ -117,6 +125,10 @@ try {
 ## patch-profile-config
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-profile-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,10 +169,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ProfileConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatchOperation $Result
+    Update-V2024ProfileConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ProfileConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024ProfileConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ProfileConfig"
     Write-Host $_.ErrorDetails

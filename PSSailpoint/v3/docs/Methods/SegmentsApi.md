@@ -44,6 +44,10 @@ Method | HTTP request | Description
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-segment)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -97,10 +101,10 @@ $Segment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
-    New-Segment -Segment $Result
+    New-Segment -Segment $Result 
     
     # Below is a request that includes all optional parameters
-    # New-Segment -Segment $Segment  
+    # New-Segment -Segment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-Segment"
     Write-Host $_.ErrorDetails
@@ -110,6 +114,10 @@ try {
 ## delete-segment
 This API deletes the segment specified by the given ID.
 >**Note:** that segment deletion may take some time to become effective.    
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -154,6 +162,10 @@ try {
 ## get-segment
 This API returns the segment specified by the given ID.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-segment)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -197,6 +209,10 @@ try {
 ## list-segments
 This API returns a list of all segments. 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-segments)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -230,7 +246,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Segments
 
 try {
-    Get-Segments
+    Get-Segments 
     
     # Below is a request that includes all optional parameters
     # Get-Segments -Limit $Limit -Offset $Offset -Count $Count  
@@ -243,6 +259,10 @@ try {
 ## patch-segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-segment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -279,10 +299,10 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-Segment -Id $Id  -RequestBody $Result
+    Update-Segment -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-Segment -Id $Id -RequestBody $RequestBody  
+    # Update-Segment -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-Segment"
     Write-Host $_.ErrorDetails

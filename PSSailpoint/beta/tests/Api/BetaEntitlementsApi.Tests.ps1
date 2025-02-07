@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaEntitlementsApi' {
 
     Context 'Reset-BetaSourceEntitlements' {
         It 'Test Reset-BetaSourceEntitlements' {
-            #$TestResult = Reset-BetaSourceEntitlements -SourceId "TEST_VALUE"
+            #$TestResult = Reset-BetaSourceEntitlements -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

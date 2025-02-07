@@ -576,7 +576,7 @@ function Reset-BetaIdentity {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/identities/{identityId}/reset'
+        $LocalVarUri = '/identities/{id}/reset'
         if (!$IdentityId) {
             throw "Error! The required parameter `IdentityId` missing when calling resetIdentity."
         }

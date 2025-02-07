@@ -26,6 +26,10 @@ Method | HTTP request | Description
 ## get-access-request-identity-metrics
 Use this API to return information access metrics.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-identity-metrics)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -61,10 +65,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Return access request identity metrics
 
 try {
-    Get-V2024AccessRequestIdentityMetrics -V2024IdentityId $IdentityId  -V2024RequestedObjectId $RequestedObjectId  -V2024Type $Type  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestIdentityMetrics -V2024IdentityId $IdentityId -V2024RequestedObjectId $RequestedObjectId -V2024Type $Type -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccessRequestIdentityMetrics -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestIdentityMetrics"
     Write-Host $_.ErrorDetails

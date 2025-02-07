@@ -45,6 +45,10 @@ Method | HTTP request | Description
 Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 A token with ORG_ADMIN authority is required to call this API.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-search-attribute-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -83,10 +87,10 @@ $SearchAttributeConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result
+    New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $SearchAttributeConfig  
+    # New-BetaSearchAttributeConfig -BetaSearchAttributeConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSearchAttributeConfig"
     Write-Host $_.ErrorDetails
@@ -95,6 +99,10 @@ try {
 [[Back to top]](#) 
 ## delete-search-attribute-config
 Delete an extended attribute configuration by name.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -125,10 +133,10 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Delete Extended Search Attribute
 
 try {
-    Remove-BetaSearchAttributeConfig -BetaName $Name 
+    Remove-BetaSearchAttributeConfig -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaSearchAttributeConfig -BetaName $Name  
+    # Remove-BetaSearchAttributeConfig -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSearchAttributeConfig"
     Write-Host $_.ErrorDetails
@@ -138,6 +146,10 @@ try {
 ## get-search-attribute-config
 Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
 A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -165,7 +177,7 @@ Code | Description  | Data Type
 # List Extended Search Attributes
 
 try {
-    Get-BetaSearchAttributeConfig
+    Get-BetaSearchAttributeConfig 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSearchAttributeConfig  
@@ -177,6 +189,10 @@ try {
 [[Back to top]](#) 
 ## get-single-search-attribute-config
 Get an extended attribute configuration by name.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-single-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -208,10 +224,10 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Get Extended Search Attribute
 
 try {
-    Get-BetaSingleSearchAttributeConfig -BetaName $Name 
+    Get-BetaSingleSearchAttributeConfig -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSingleSearchAttributeConfig -BetaName $Name  
+    # Get-BetaSingleSearchAttributeConfig -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSingleSearchAttributeConfig"
     Write-Host $_.ErrorDetails
@@ -222,6 +238,10 @@ try {
 Update an existing search attribute configuration. 
 You can patch these fields:
 * name  * displayName * applicationAttributes
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -261,10 +281,10 @@ $Name = "promotedMailAttribute" # String | Name of the extended search attribute
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSearchAttributeConfig -BetaName $Name  -BetaJsonPatchOperation $Result
+    Update-BetaSearchAttributeConfig -Name $Name -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSearchAttributeConfig -BetaName $Name -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaSearchAttributeConfig -Name $Name -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSearchAttributeConfig"
     Write-Host $_.ErrorDetails

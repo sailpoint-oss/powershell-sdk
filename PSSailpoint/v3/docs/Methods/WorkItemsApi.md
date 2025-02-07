@@ -48,6 +48,10 @@ Method | HTTP request | Description
 ## approve-approval-item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/approve-approval-item)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -80,7 +84,7 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Approve an Approval Item
 
 try {
-    Approve-ApprovalItem -Id $Id  -ApprovalItemId $ApprovalItemId 
+    Approve-ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
     # Approve-ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId  
@@ -92,6 +96,10 @@ try {
 [[Back to top]](#) 
 ## approve-approval-items-in-bulk
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/approve-approval-items-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -136,6 +144,10 @@ try {
 ## complete-work-item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/complete-work-item)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -179,6 +191,10 @@ try {
 ## get-completed-work-items
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-completed-work-items)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -214,7 +230,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Completed Work Items
 
 try {
-    Get-CompletedWorkItems
+    Get-CompletedWorkItems 
     
     # Below is a request that includes all optional parameters
     # Get-CompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count  
@@ -226,6 +242,10 @@ try {
 [[Back to top]](#) 
 ## get-count-completed-work-items
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-count-completed-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -256,7 +276,7 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item own
 # Count Completed Work Items
 
 try {
-    Get-CountCompletedWorkItems
+    Get-CountCompletedWorkItems 
     
     # Below is a request that includes all optional parameters
     # Get-CountCompletedWorkItems -OwnerId $OwnerId  
@@ -268,6 +288,10 @@ try {
 [[Back to top]](#) 
 ## get-count-work-items
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-count-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -298,7 +322,7 @@ $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item own
 # Count Work Items
 
 try {
-    Get-CountWorkItems
+    Get-CountWorkItems 
     
     # Below is a request that includes all optional parameters
     # Get-CountWorkItems -OwnerId $OwnerId  
@@ -310,6 +334,10 @@ try {
 [[Back to top]](#) 
 ## get-work-item
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-work-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -353,6 +381,10 @@ try {
 ## get-work-items-summary
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-work-items-summary)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -382,7 +414,7 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item own
 # Work Items Summary
 
 try {
-    Get-WorkItemsSummary
+    Get-WorkItemsSummary 
     
     # Below is a request that includes all optional parameters
     # Get-WorkItemsSummary -OwnerId $OwnerId  
@@ -394,6 +426,10 @@ try {
 [[Back to top]](#) 
 ## list-work-items
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -430,7 +466,7 @@ $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item own
 # List Work Items
 
 try {
-    Get-WorkItems
+    Get-WorkItems 
     
     # Below is a request that includes all optional parameters
     # Get-WorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId  
@@ -442,6 +478,10 @@ try {
 [[Back to top]](#) 
 ## reject-approval-item
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/reject-approval-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -475,7 +515,7 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Reject an Approval Item
 
 try {
-    Deny-ApprovalItem -Id $Id  -ApprovalItemId $ApprovalItemId 
+    Deny-ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
     # Deny-ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId  
@@ -487,6 +527,10 @@ try {
 [[Back to top]](#) 
 ## reject-approval-items-in-bulk
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/reject-approval-items-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -531,6 +575,10 @@ try {
 ## send-work-item-forward
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/send-work-item-forward)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -567,10 +615,10 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Send-WorkItemForward -Id $Id  -WorkItemForward $Result
+    Send-WorkItemForward -Id $Id -WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-WorkItemForward -Id $Id -WorkItemForward $WorkItemForward  
+    # Send-WorkItemForward -Id $Id -WorkItemForward $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-WorkItemForward"
     Write-Host $_.ErrorDetails
@@ -579,6 +627,10 @@ try {
 [[Back to top]](#) 
 ## submit-account-selection
 This API submits account selections. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/submit-account-selection)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -613,10 +665,10 @@ $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Sele
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Submit-AccountSelection -Id $Id  -RequestBody $Result
+    Submit-AccountSelection -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-AccountSelection -Id $Id -RequestBody $RequestBody  
+    # Submit-AccountSelection -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-AccountSelection"
     Write-Host $_.ErrorDetails

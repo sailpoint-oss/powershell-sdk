@@ -129,6 +129,10 @@ This API generates a create policy/template based on field value transforms. Thi
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-provisioning-policy)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -201,10 +205,10 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024ProvisioningPolicyDto $Result
+    New-V2024ProvisioningPolicy -SourceId $SourceId -V2024ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
+    # New-V2024ProvisioningPolicy -SourceId $SourceId -V2024ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -213,6 +217,10 @@ try {
 [[Back to top]](#) 
 ## create-source
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -328,10 +336,10 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-V2024Source -V2024Source $Result
+    New-V2024Source -V2024Source $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Source -V2024Source $Source -V2024ProvisionAsCsv $ProvisionAsCsv  
+    # New-V2024Source -V2024Source $Result -ProvisionAsCsv $ProvisionAsCsv  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Source"
     Write-Host $_.ErrorDetails
@@ -341,6 +349,10 @@ try {
 ## create-source-schedule
 Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -374,10 +386,10 @@ $Schedule1 = @""@
 
 try {
     $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
-    New-V2024SourceSchedule -V2024SourceId $SourceId  -V2024Schedule1 $Result
+    New-V2024SourceSchedule -SourceId $SourceId -V2024Schedule1 $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceSchedule -V2024SourceId $SourceId -V2024Schedule1 $Schedule1  
+    # New-V2024SourceSchedule -SourceId $SourceId -V2024Schedule1 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -387,6 +399,10 @@ try {
 ## create-source-schema
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -453,10 +469,10 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-V2024SourceSchema -V2024SourceId $SourceId  -V2024Schema $Result
+    New-V2024SourceSchema -SourceId $SourceId -V2024Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceSchema -V2024SourceId $SourceId -V2024Schema $Schema  
+    # New-V2024SourceSchema -SourceId $SourceId -V2024Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceSchema"
     Write-Host $_.ErrorDetails
@@ -471,6 +487,10 @@ This endpoint is good for:
 * Removing accounts that won't be aggregated following updates to the source configuration.
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-accounts-async)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -503,10 +523,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Remove All Accounts in a Source
 
 try {
-    Remove-V2024AccountsAsync -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024AccountsAsync -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024AccountsAsync -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024AccountsAsync -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024AccountsAsync"
     Write-Host $_.ErrorDetails
@@ -515,6 +535,10 @@ try {
 [[Back to top]](#) 
 ## delete-native-change-detection-config
 Deletes the native change detection configuration for the source specified by the given ID.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-native-change-detection-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -548,10 +572,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Native Change Detection Configuration
 
 try {
-    Remove-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -560,6 +584,10 @@ try {
 [[Back to top]](#) 
 ## delete-provisioning-policy
 Deletes the provisioning policy with the specified usage on an application.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -593,10 +621,10 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Delete Provisioning Policy by UsageType
 
 try {
-    Remove-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType 
+    Remove-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType  
+    # Remove-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -606,6 +634,10 @@ try {
 ## delete-source
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -637,10 +669,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Delete Source by ID
 
 try {
-    Remove-V2024Source -V2024Id $Id 
+    Remove-V2024Source -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Source -V2024Id $Id  
+    # Remove-V2024Source -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Source"
     Write-Host $_.ErrorDetails
@@ -649,6 +681,10 @@ try {
 [[Back to top]](#) 
 ## delete-source-schedule
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -682,10 +718,10 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 # Delete Source Schedule by type.
 
 try {
-    Remove-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType 
+    Remove-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
+    # Remove-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -694,6 +730,10 @@ try {
 [[Back to top]](#) 
 ## delete-source-schema
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -727,10 +767,10 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Delete Source Schema by ID
 
 try {
-    Remove-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId 
+    Remove-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId  
+    # Remove-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SourceSchema"
     Write-Host $_.ErrorDetails
@@ -740,6 +780,10 @@ try {
 ## get-accounts-schema
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-accounts-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -771,10 +815,10 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 # Downloads source accounts schema template
 
 try {
-    Get-V2024AccountsSchema -V2024Id $Id 
+    Get-V2024AccountsSchema -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccountsSchema -V2024Id $Id  
+    # Get-V2024AccountsSchema -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccountsSchema"
     Write-Host $_.ErrorDetails
@@ -783,6 +827,10 @@ try {
 [[Back to top]](#) 
 ## get-correlation-config
 This API returns the existing correlation configuration for a source specified by the given ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-correlation-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -814,10 +862,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 # Get Source Correlation Configuration
 
 try {
-    Get-V2024CorrelationConfig -V2024Id $Id 
+    Get-V2024CorrelationConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CorrelationConfig -V2024Id $Id  
+    # Get-V2024CorrelationConfig -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CorrelationConfig"
     Write-Host $_.ErrorDetails
@@ -828,6 +876,10 @@ try {
 This API downloads the CSV schema that defines the entitlement attributes on a source.
 
 >**NOTE: This API is designated only for Delimited File sources.**
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlements-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -861,10 +913,10 @@ $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optiona
 # Downloads source entitlements schema template
 
 try {
-    Get-V2024EntitlementsSchema -V2024Id $Id 
+    Get-V2024EntitlementsSchema -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024EntitlementsSchema -V2024Id $Id -V2024SchemaName $SchemaName  
+    # Get-V2024EntitlementsSchema -Id $Id -SchemaName $SchemaName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024EntitlementsSchema"
     Write-Host $_.ErrorDetails
@@ -873,6 +925,10 @@ try {
 [[Back to top]](#) 
 ## get-native-change-detection-config
 This API returns the existing native change detection configuration for a source specified by the given ID.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-native-change-detection-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -906,10 +962,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Native Change Detection Configuration
 
 try {
-    Get-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -918,6 +974,10 @@ try {
 [[Back to top]](#) 
 ## get-provisioning-policy
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -951,10 +1011,10 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Get Provisioning Policy by UsageType
 
 try {
-    Get-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType 
+    Get-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType  
+    # Get-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -963,6 +1023,10 @@ try {
 [[Back to top]](#) 
 ## get-source
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -994,10 +1058,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Get Source by ID
 
 try {
-    Get-V2024Source -V2024Id $Id 
+    Get-V2024Source -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Source -V2024Id $Id  
+    # Get-V2024Source -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Source"
     Write-Host $_.ErrorDetails
@@ -1006,6 +1070,10 @@ try {
 [[Back to top]](#) 
 ## get-source-attr-sync-config
 This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-attr-sync-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1039,10 +1107,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Attribute Sync Config
 
 try {
-    Get-V2024SourceAttrSyncConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceAttrSyncConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceAttrSyncConfig"
     Write-Host $_.ErrorDetails
@@ -1051,6 +1119,10 @@ try {
 [[Back to top]](#) 
 ## get-source-config
 Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1085,10 +1157,10 @@ $Locale = "de" # String | The locale to apply to the config. If no viable locale
 # Gets source config with language translations
 
 try {
-    Get-V2024SourceConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Locale $Locale  
+    # Get-V2024SourceConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceConfig"
     Write-Host $_.ErrorDetails
@@ -1101,6 +1173,10 @@ This API gets the current entitlement request configuration for a source. This s
 Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined.
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-entitlement-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1131,10 +1207,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Source Entitlement Request Configuration
 
 try {
-    Get-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -1143,6 +1219,10 @@ try {
 [[Back to top]](#) 
 ## get-source-health
 This endpoint fetches source health by source's id
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-health)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1174,10 +1254,10 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 # Fetches source health by id
 
 try {
-    Get-V2024SourceHealth -V2024SourceId $SourceId 
+    Get-V2024SourceHealth -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceHealth -V2024SourceId $SourceId  
+    # Get-V2024SourceHealth -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceHealth"
     Write-Host $_.ErrorDetails
@@ -1187,6 +1267,10 @@ try {
 ## get-source-schedule
 Get the source schedule by type in Identity Security Cloud (ISC).
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1220,10 +1304,10 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 # Get Source Schedule by Type
 
 try {
-    Get-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType 
+    Get-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType  
+    # Get-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -1232,6 +1316,10 @@ try {
 [[Back to top]](#) 
 ## get-source-schedules
 Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schedules)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1263,10 +1351,10 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # List Schedules on Source
 
 try {
-    Get-V2024SourceSchedules -V2024SourceId $SourceId 
+    Get-V2024SourceSchedules -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceSchedules -V2024SourceId $SourceId  
+    # Get-V2024SourceSchedules -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceSchedules"
     Write-Host $_.ErrorDetails
@@ -1276,6 +1364,10 @@ try {
 ## get-source-schema
 Get the Source Schema by ID in IdentityNow.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1309,10 +1401,10 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Get Source Schema by ID
 
 try {
-    Get-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId 
+    Get-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId  
+    # Get-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceSchema"
     Write-Host $_.ErrorDetails
@@ -1321,6 +1413,10 @@ try {
 [[Back to top]](#) 
 ## get-source-schemas
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schemas)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1356,10 +1452,10 @@ $IncludeNames = "account" # String | A comma-separated list of schema names to f
 # List Schemas on Source
 
 try {
-    Get-V2024SourceSchemas -V2024SourceId $SourceId 
+    Get-V2024SourceSchemas -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceSchemas -V2024SourceId $SourceId -V2024IncludeTypes $IncludeTypes -V2024IncludeNames $IncludeNames  
+    # Get-V2024SourceSchemas -SourceId $SourceId -IncludeTypes $IncludeTypes -IncludeNames $IncludeNames  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceSchemas"
     Write-Host $_.ErrorDetails
@@ -1370,6 +1466,10 @@ try {
 Starts an account aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-accounts)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1406,10 +1506,10 @@ $DisableOptimization = "MyDisableOptimization" # String | Use this flag to repro
 # Account Aggregation
 
 try {
-    Import-V2024Accounts -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024Accounts -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024Accounts -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024File $File -V2024DisableOptimization $DisableOptimization  
+    # Import-V2024Accounts -Id $Id -XSailPointExperimental $XSailPointExperimental -File $File -DisableOptimization $DisableOptimization  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024Accounts"
     Write-Host $_.ErrorDetails
@@ -1424,6 +1524,10 @@ To retrieve the file to modify and upload, log into Identity Now.
 Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**
 
 >**NOTE: This API is designated only for Delimited File sources.**
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-accounts-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1456,10 +1560,10 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source accounts schema template
 
 try {
-    Import-V2024AccountsSchema -V2024Id $Id 
+    Import-V2024AccountsSchema -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024AccountsSchema -V2024Id $Id -V2024File $File  
+    # Import-V2024AccountsSchema -Id $Id -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024AccountsSchema"
     Write-Host $_.ErrorDetails
@@ -1468,6 +1572,10 @@ try {
 [[Back to top]](#) 
 ## import-connector-file
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-connector-file)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1500,10 +1608,10 @@ $File =  # System.IO.FileInfo |  (optional)
 # Upload connector file to source
 
 try {
-    Import-V2024ConnectorFile -V2024SourceId $SourceId 
+    Import-V2024ConnectorFile -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024ConnectorFile -V2024SourceId $SourceId -V2024File $File  
+    # Import-V2024ConnectorFile -SourceId $SourceId -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024ConnectorFile"
     Write-Host $_.ErrorDetails
@@ -1518,6 +1626,10 @@ To retrieve the file to modify and upload, log into Identity Now.
 Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**
 
 >**NOTE: This API is designated only for Delimited File sources.**
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-entitlements-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1552,10 +1664,10 @@ $File =  # System.IO.FileInfo |  (optional)
 # Uploads source entitlements schema template
 
 try {
-    Import-V2024EntitlementsSchema -V2024Id $Id 
+    Import-V2024EntitlementsSchema -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024EntitlementsSchema -V2024Id $Id -V2024SchemaName $SchemaName -V2024File $File  
+    # Import-V2024EntitlementsSchema -Id $Id -SchemaName $SchemaName -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024EntitlementsSchema"
     Write-Host $_.ErrorDetails
@@ -1564,6 +1676,10 @@ try {
 [[Back to top]](#) 
 ## import-uncorrelated-accounts
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-uncorrelated-accounts)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1598,10 +1714,10 @@ $File =  # System.IO.FileInfo |  (optional)
 # Process Uncorrelated Accounts
 
 try {
-    Import-V2024UncorrelatedAccounts -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Import-V2024UncorrelatedAccounts -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024UncorrelatedAccounts -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024File $File  
+    # Import-V2024UncorrelatedAccounts -Id $Id -XSailPointExperimental $XSailPointExperimental -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024UncorrelatedAccounts"
     Write-Host $_.ErrorDetails
@@ -1610,6 +1726,10 @@ try {
 [[Back to top]](#) 
 ## list-provisioning-policies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-provisioning-policies)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1641,10 +1761,10 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 # Lists ProvisioningPolicies
 
 try {
-    Get-V2024ProvisioningPolicies -V2024SourceId $SourceId 
+    Get-V2024ProvisioningPolicies -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ProvisioningPolicies -V2024SourceId $SourceId  
+    # Get-V2024ProvisioningPolicies -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ProvisioningPolicies"
     Write-Host $_.ErrorDetails
@@ -1653,6 +1773,10 @@ try {
 [[Back to top]](#) 
 ## list-sources
 This end-point lists all the sources in IdentityNow.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1696,10 +1820,10 @@ $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the resp
 # Lists all sources in IdentityNow.
 
 try {
-    Get-V2024Sources
+    Get-V2024Sources 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Sources -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters -V2024ForSubadmin $ForSubadmin -V2024IncludeIDNSource $IncludeIDNSource  
+    # Get-V2024Sources -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSubadmin $ForSubadmin -IncludeIDNSource $IncludeIDNSource  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Sources"
     Write-Host $_.ErrorDetails
@@ -1708,6 +1832,10 @@ try {
 [[Back to top]](#) 
 ## peek-resource-objects
 Retrieves a sample of data returned from account and group aggregation requests.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/peek-resource-objects)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1747,10 +1875,10 @@ $ResourceObjectsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-    Receive-V2024ResourceObjects -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024ResourceObjectsRequest $Result
+    Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Receive-V2024ResourceObjects -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $ResourceObjectsRequest  
+    # Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Receive-V2024ResourceObjects"
     Write-Host $_.ErrorDetails
@@ -1759,6 +1887,10 @@ try {
 [[Back to top]](#) 
 ## ping-cluster
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/ping-cluster)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1792,10 +1924,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Ping cluster for source connector
 
 try {
-    Ping-V2024Cluster -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Ping-V2024Cluster -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Ping-V2024Cluster -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Ping-V2024Cluster -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-V2024Cluster"
     Write-Host $_.ErrorDetails
@@ -1804,6 +1936,10 @@ try {
 [[Back to top]](#) 
 ## put-correlation-config
 Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-correlation-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1858,10 +1994,10 @@ $CorrelationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-V2024CorrelationConfig -V2024Id $Id  -V2024CorrelationConfig $Result
+    Send-V2024CorrelationConfig -Id $Id -V2024CorrelationConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024CorrelationConfig -V2024Id $Id -V2024CorrelationConfig $CorrelationConfig  
+    # Send-V2024CorrelationConfig -Id $Id -V2024CorrelationConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024CorrelationConfig"
     Write-Host $_.ErrorDetails
@@ -1870,6 +2006,10 @@ try {
 [[Back to top]](#) 
 ## put-native-change-detection-config
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-native-change-detection-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1913,10 +2053,10 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-V2024NativeChangeDetectionConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024NativeChangeDetectionConfig $Result
+    Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024NativeChangeDetectionConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $NativeChangeDetectionConfig  
+    # Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -1927,6 +2067,10 @@ try {
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2002,10 +2146,10 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType  -V2024ProvisioningPolicyDto $Result
+    Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
+    # Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -2026,6 +2170,10 @@ These fields are immutable, so they cannot be changed:
 
 Attempts to modify these fields will result in a 400 error.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2142,10 +2290,10 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-V2024Source -V2024Id $Id  -V2024Source $Result
+    Send-V2024Source -Id $Id -V2024Source $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024Source -V2024Id $Id -V2024Source $Source  
+    # Send-V2024Source -Id $Id -V2024Source $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024Source"
     Write-Host $_.ErrorDetails
@@ -2155,6 +2303,10 @@ try {
 ## put-source-attr-sync-config
 Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the "enabled" field of the values in the "attributes" array is mutable. Attempting to change other attributes or add new values to the "attributes" array will result in an error.
 
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source-attr-sync-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2208,10 +2360,10 @@ $AttrSyncSourceConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-    Send-V2024SourceAttrSyncConfig -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024AttrSyncSourceConfig $Result
+    Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SourceAttrSyncConfig -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $AttrSyncSourceConfig  
+    # Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SourceAttrSyncConfig"
     Write-Host $_.ErrorDetails
@@ -2230,6 +2382,10 @@ Any attempt to modify these fields will result in an error response with a statu
 
 > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2299,10 +2455,10 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId  -V2024Schema $Result
+    Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024Schema $Schema  
+    # Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SourceSchema"
     Write-Host $_.ErrorDetails
@@ -2311,6 +2467,10 @@ try {
 [[Back to top]](#) 
 ## sync-attributes-for-source
 This end-point performs attribute synchronization for a selected source.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/sync-attributes-for-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2344,10 +2504,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Synchronize single source attributes.
 
 try {
-    Sync-V2024AttributesForSource -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Sync-V2024AttributesForSource -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Sync-V2024AttributesForSource -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Sync-V2024AttributesForSource -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-V2024AttributesForSource"
     Write-Host $_.ErrorDetails
@@ -2356,6 +2516,10 @@ try {
 [[Back to top]](#) 
 ## test-source-configuration
 This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-source-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2389,10 +2553,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Test configuration for source connector
 
 try {
-    Test-V2024SourceConfiguration -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Test-V2024SourceConfiguration -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024SourceConfiguration -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Test-V2024SourceConfiguration -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SourceConfiguration"
     Write-Host $_.ErrorDetails
@@ -2401,6 +2565,10 @@ try {
 [[Back to top]](#) 
 ## test-source-connection
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-source-connection)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2434,10 +2602,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Check connection for source connector.
 
 try {
-    Test-V2024SourceConnection -V2024SourceId $SourceId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Test-V2024SourceConnection -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024SourceConnection -V2024SourceId $SourceId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Test-V2024SourceConnection -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SourceConnection"
     Write-Host $_.ErrorDetails
@@ -2448,6 +2616,10 @@ try {
 This API can be used to set up or update Password Policy in IdentityNow for the specified Source.
 Source must support PASSWORD feature.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-password-policy-holders)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2483,10 +2655,10 @@ $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
-    Update-V2024PasswordPolicyHolders -V2024SourceId $SourceId  -V2024PasswordPolicyHoldersDtoInner $Result
+    Update-V2024PasswordPolicyHolders -SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PasswordPolicyHolders -V2024SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $PasswordPolicyHoldersDtoInner  
+    # Update-V2024PasswordPolicyHolders -SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PasswordPolicyHolders"
     Write-Host $_.ErrorDetails
@@ -2495,6 +2667,10 @@ try {
 [[Back to top]](#) 
 ## update-provisioning-policies-in-bulk
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-provisioning-policies-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2569,10 +2745,10 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-V2024ProvisioningPoliciesInBulk -V2024SourceId $SourceId  -V2024ProvisioningPolicyDto $Result
+    Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -V2024ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ProvisioningPoliciesInBulk -V2024SourceId $SourceId -V2024ProvisioningPolicyDto $ProvisioningPolicyDto  
+    # Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -V2024ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ProvisioningPoliciesInBulk"
     Write-Host $_.ErrorDetails
@@ -2583,6 +2759,10 @@ try {
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-provisioning-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2624,10 +2804,10 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ProvisioningPolicy -V2024SourceId $SourceId  -V2024UsageType $UsageType  -V2024JsonPatchOperation $Result
+    Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ProvisioningPolicy -V2024SourceId $SourceId -V2024UsageType $UsageType -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -2651,6 +2831,10 @@ These fields are immutable, so they cannot be changed:
 
 Attempts to modify these fields will result in a 400 error.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2690,10 +2874,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Source -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024Source -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Source -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024Source -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Source"
     Write-Host $_.ErrorDetails
@@ -2706,6 +2890,10 @@ This API replaces the current entitlement request configuration for a source. Th
 Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined.
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-entitlement-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2751,10 +2939,10 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental  -V2024SourceEntitlementRequestConfig $Result
+    Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceEntitlementRequestConfig -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $SourceEntitlementRequestConfig  
+    # Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -2768,6 +2956,10 @@ The following schedule fields are immutable and cannot be updated:
 
 - type
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2809,10 +3001,10 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchedule -V2024SourceId $SourceId  -V2024ScheduleType $ScheduleType  -V2024JsonPatchOperation $Result
+    Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceSchedule -V2024SourceId $SourceId -V2024ScheduleType $ScheduleType -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -2850,6 +3042,10 @@ To switch an account attribute to a group entitlement, you need to have the foll
 }
 ```
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-schema)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -2891,10 +3087,10 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchema -V2024SourceId $SourceId  -V2024SchemaId $SchemaId  -V2024JsonPatchOperation $Result
+    Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceSchema -V2024SourceId $SourceId -V2024SchemaId $SchemaId -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchema"
     Write-Host $_.ErrorDetails

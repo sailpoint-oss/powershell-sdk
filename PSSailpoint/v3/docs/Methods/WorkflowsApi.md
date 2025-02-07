@@ -40,6 +40,10 @@ Method | HTTP request | Description
 ## cancel-workflow-execution
 Use this API to cancel a running workflow execution.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-workflow-execution)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -83,6 +87,10 @@ try {
 ## create-external-execute-workflow
 This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-external-execute-workflow)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -117,7 +125,7 @@ try {
     New-ExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # New-ExternalExecuteWorkflow -Id $Id -CreateExternalExecuteWorkflowRequest $CreateExternalExecuteWorkflowRequest  
+    # New-ExternalExecuteWorkflow -Id $Id -CreateExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
@@ -126,6 +134,10 @@ try {
 [[Back to top]](#) 
 ## create-workflow
 Create a new workflow with the desired trigger and steps specified in the request body.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,10 +169,10 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-    New-Workflow -CreateWorkflowRequest $Result
+    New-Workflow -CreateWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-Workflow -CreateWorkflowRequest $CreateWorkflowRequest  
+    # New-Workflow -CreateWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-Workflow"
     Write-Host $_.ErrorDetails
@@ -169,6 +181,10 @@ try {
 [[Back to top]](#) 
 ## create-workflow-external-trigger
 Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-workflow-external-trigger)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -212,6 +228,10 @@ try {
 ## delete-workflow
 Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-workflow)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -253,6 +273,10 @@ try {
 [[Back to top]](#) 
 ## get-workflow
 Get a single workflow by id.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -296,6 +320,10 @@ try {
 ## get-workflow-execution
 Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -338,6 +366,10 @@ try {
 [[Back to top]](#) 
 ## get-workflow-execution-history
 Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution-history)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -392,6 +424,10 @@ Use this API to list a specified workflow's executions. Workflow executions are 
   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.
   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-executions)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -443,6 +479,10 @@ try {
 ## list-complete-workflow-library
 This lists all triggers, actions, and operators in the library
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-complete-workflow-library)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -474,7 +514,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Complete Workflow Library
 
 try {
-    Get-CompleteWorkflowLibrary
+    Get-CompleteWorkflowLibrary 
     
     # Below is a request that includes all optional parameters
     # Get-CompleteWorkflowLibrary -Limit $Limit -Offset $Offset  
@@ -486,6 +526,10 @@ try {
 [[Back to top]](#) 
 ## list-workflow-library-actions
 This lists the workflow actions available to you.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-actions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -520,7 +564,7 @@ $Filters = 'id eq "sp:create-campaign"' # String | Filter results using the stan
 # List Workflow Library Actions
 
 try {
-    Get-WorkflowLibraryActions
+    Get-WorkflowLibraryActions 
     
     # Below is a request that includes all optional parameters
     # Get-WorkflowLibraryActions -Limit $Limit -Offset $Offset -Filters $Filters  
@@ -532,6 +576,10 @@ try {
 [[Back to top]](#) 
 ## list-workflow-library-operators
 This lists the workflow operators available to you
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-operators)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -560,7 +608,7 @@ Code | Description  | Data Type
 # List Workflow Library Operators
 
 try {
-    Get-WorkflowLibraryOperators
+    Get-WorkflowLibraryOperators 
     
     # Below is a request that includes all optional parameters
     # Get-WorkflowLibraryOperators  
@@ -572,6 +620,10 @@ try {
 [[Back to top]](#) 
 ## list-workflow-library-triggers
 This lists the workflow triggers available to you
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-triggers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -606,7 +658,7 @@ $Filters = 'id eq "idn:identity-attributes-changed"' # String | Filter results u
 # List Workflow Library Triggers
 
 try {
-    Get-WorkflowLibraryTriggers
+    Get-WorkflowLibraryTriggers 
     
     # Below is a request that includes all optional parameters
     # Get-WorkflowLibraryTriggers -Limit $Limit -Offset $Offset -Filters $Filters  
@@ -618,6 +670,10 @@ try {
 [[Back to top]](#) 
 ## list-workflows
 List all workflows in the tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflows)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -646,7 +702,7 @@ Code | Description  | Data Type
 # List Workflows
 
 try {
-    Get-Workflows
+    Get-Workflows 
     
     # Below is a request that includes all optional parameters
     # Get-Workflows  
@@ -658,6 +714,10 @@ try {
 [[Back to top]](#) 
 ## patch-workflow
 Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -696,10 +756,10 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Workflow -Id $Id  -JsonPatchOperation $Result
+    Update-Workflow -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-Workflow -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-Workflow -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-Workflow"
     Write-Host $_.ErrorDetails
@@ -708,6 +768,10 @@ try {
 [[Back to top]](#) 
 ## put-workflow
 Perform a full update of a workflow.  The updated workflow object is returned in the response.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -779,10 +843,10 @@ $WorkflowBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-    Send-Workflow -Id $Id  -WorkflowBody $Result
+    Send-Workflow -Id $Id -WorkflowBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-Workflow -Id $Id -WorkflowBody $WorkflowBody  
+    # Send-Workflow -Id $Id -WorkflowBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-Workflow"
     Write-Host $_.ErrorDetails
@@ -791,6 +855,10 @@ try {
 [[Back to top]](#) 
 ## test-external-execute-workflow
 Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/test-external-execute-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -826,7 +894,7 @@ try {
     Test-ExternalExecuteWorkflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Test-ExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $TestExternalExecuteWorkflowRequest  
+    # Test-ExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-ExternalExecuteWorkflow"
     Write-Host $_.ErrorDetails
@@ -837,6 +905,10 @@ try {
 Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow.
 This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint.
 **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/test-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -870,10 +942,10 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-    Test-Workflow -Id $Id  -TestWorkflowRequest $Result
+    Test-Workflow -Id $Id -TestWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-Workflow -Id $Id -TestWorkflowRequest $TestWorkflowRequest  
+    # Test-Workflow -Id $Id -TestWorkflowRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-Workflow"
     Write-Host $_.ErrorDetails

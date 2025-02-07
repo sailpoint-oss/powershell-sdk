@@ -94,7 +94,7 @@ function Initialize-BetaMultiHostIntegrationsAggScheduleUpdate {
 
 
         $PSO = [PSCustomObject]@{
-            "multihostId" = ${MultihostId}
+            "multihost_id" = ${MultihostId}
             "aggregation_grp_id" = ${AggregationGrpId}
             "aggregation_grp_name" = ${AggregationGrpName}
             "aggregation_cron_schedule" = ${AggregationCronSchedule}
@@ -138,7 +138,7 @@ function ConvertFrom-BetaJsonToMultiHostIntegrationsAggScheduleUpdate {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaMultiHostIntegrationsAggScheduleUpdate
-        $AllProperties = ("multihostId", "aggregation_grp_id", "aggregation_grp_name", "aggregation_cron_schedule", "enableSchedule", "source_id_list", "created", "modified")
+        $AllProperties = ("multihost_id", "aggregation_grp_id", "aggregation_grp_name", "aggregation_cron_schedule", "enableSchedule", "source_id_list", "created", "modified")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -146,13 +146,13 @@ function ConvertFrom-BetaJsonToMultiHostIntegrationsAggScheduleUpdate {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'multihostId' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'multihost_id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "multihostId"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'multihostId' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "multihost_id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'multihost_id' missing."
         } else {
-            $MultihostId = $JsonParameters.PSobject.Properties["multihostId"].value
+            $MultihostId = $JsonParameters.PSobject.Properties["multihost_id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "aggregation_grp_id"))) {
@@ -198,7 +198,7 @@ function ConvertFrom-BetaJsonToMultiHostIntegrationsAggScheduleUpdate {
         }
 
         $PSO = [PSCustomObject]@{
-            "multihostId" = ${MultihostId}
+            "multihost_id" = ${MultihostId}
             "aggregation_grp_id" = ${AggregationGrpId}
             "aggregation_grp_name" = ${AggregationGrpName}
             "aggregation_cron_schedule" = ${AggregationCronSchedule}

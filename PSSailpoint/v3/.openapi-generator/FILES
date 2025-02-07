@@ -350,6 +350,7 @@ docs/ManualWorkItemDetails.md
 docs/ManualWorkItemDetailsCurrentOwner.md
 docs/ManualWorkItemDetailsOriginalOwner.md
 docs/ManualWorkItemState.md
+docs/Methods/index.md
 docs/MetricAggregation.md
 docs/MetricType.md
 docs/MfaConfigTestResponse.md
@@ -565,6 +566,7 @@ docs/SearchArguments.md
 docs/SearchAttributeConfig.md
 docs/SearchAttributeConfigurationApi.md
 docs/SearchAttributeConfigurationApideveloperSite_code_examples.yaml
+docs/SearchDocument.md
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchSchedule.md
@@ -709,6 +711,7 @@ docs/WorkflowTrigger.md
 docs/WorkflowTriggerAttributes.md
 docs/WorkflowsApi.md
 docs/WorkflowsApideveloperSite_code_examples.yaml
+index.md
 src/PSSailpoint.V3/Api/AccessProfilesApi.ps1
 src/PSSailpoint.V3/Api/AccessRequestApprovalsApi.ps1
 src/PSSailpoint.V3/Api/AccessRequestsApi.ps1
@@ -1241,6 +1244,7 @@ src/PSSailpoint.V3/Model/Search.ps1
 src/PSSailpoint.V3/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint.V3/Model/SearchArguments.ps1
 src/PSSailpoint.V3/Model/SearchAttributeConfig.ps1
+src/PSSailpoint.V3/Model/SearchDocument.ps1
 src/PSSailpoint.V3/Model/SearchExportReportArguments.ps1
 src/PSSailpoint.V3/Model/SearchFilterType.ps1
 src/PSSailpoint.V3/Model/SearchSchedule.ps1
@@ -1905,6 +1909,7 @@ tests/Model/Search.Tests.ps1
 tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
 tests/Model/SearchAttributeConfig.Tests.ps1
+tests/Model/SearchDocument.Tests.ps1
 tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchSchedule.Tests.ps1

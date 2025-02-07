@@ -34,6 +34,10 @@ Method | HTTP request | Description
 Creates a new connector rule.
 A token with ORG_ADMIN authority is required to call this API.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-connector-rule)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -89,10 +93,10 @@ $ConnectorRuleCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-    New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result
+    New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaConnectorRule -BetaConnectorRuleCreateRequest $ConnectorRuleCreateRequest  
+    # New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaConnectorRule"
     Write-Host $_.ErrorDetails
@@ -102,6 +106,10 @@ try {
 ## delete-connector-rule
 Deletes the connector rule specified by the given ID.
 A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-connector-rule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -133,10 +141,10 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to 
 # Delete a Connector-Rule
 
 try {
-    Remove-BetaConnectorRule -BetaId $Id 
+    Remove-BetaConnectorRule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaConnectorRule -BetaId $Id  
+    # Remove-BetaConnectorRule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaConnectorRule"
     Write-Host $_.ErrorDetails
@@ -146,6 +154,10 @@ try {
 ## get-connector-rule
 Returns the connector rule specified by ID.
 A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-rule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -177,10 +189,10 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to 
 # Connector-Rule by ID
 
 try {
-    Get-BetaConnectorRule -BetaId $Id 
+    Get-BetaConnectorRule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaConnectorRule -BetaId $Id  
+    # Get-BetaConnectorRule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaConnectorRule"
     Write-Host $_.ErrorDetails
@@ -190,6 +202,10 @@ try {
 ## get-connector-rule-list
 Returns the list of connector rules.
 A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-rule-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -218,7 +234,7 @@ Code | Description  | Data Type
 # List Connector Rules
 
 try {
-    Get-BetaConnectorRuleList
+    Get-BetaConnectorRuleList 
     
     # Below is a request that includes all optional parameters
     # Get-BetaConnectorRuleList  
@@ -231,6 +247,10 @@ try {
 ## update-connector-rule
 Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-connector-rule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -290,10 +310,10 @@ $ConnectorRuleUpdateRequest = @"{
 # Update a Connector Rule
 
 try {
-    Update-BetaConnectorRule -BetaId $Id 
+    Update-BetaConnectorRule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaConnectorRule -BetaId $Id -BetaConnectorRuleUpdateRequest $ConnectorRuleUpdateRequest  
+    # Update-BetaConnectorRule -Id $Id -BetaConnectorRuleUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaConnectorRule"
     Write-Host $_.ErrorDetails
@@ -303,6 +323,10 @@ try {
 ## validate-connector-rule
 Returns a list of issues within the code to fix, if any.
 A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/validate-connector-rule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -337,10 +361,10 @@ $SourceCode = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-    Confirm-BetaConnectorRule -BetaSourceCode $Result
+    Confirm-BetaConnectorRule -BetaSourceCode $Result 
     
     # Below is a request that includes all optional parameters
-    # Confirm-BetaConnectorRule -BetaSourceCode $SourceCode  
+    # Confirm-BetaConnectorRule -BetaSourceCode $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Confirm-BetaConnectorRule"
     Write-Host $_.ErrorDetails

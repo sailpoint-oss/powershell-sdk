@@ -35,6 +35,10 @@ Method | HTTP request | Description
  of the batchId.'
 
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sed-batch-stats)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -67,10 +71,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Submit Sed Batch Stats Request
 
 try {
-    Get-V2024SedBatchStats -V2024BatchId $BatchId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SedBatchStats -BatchId $BatchId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SedBatchStats -V2024BatchId $BatchId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SedBatchStats -BatchId $BatchId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SedBatchStats"
     Write-Host $_.ErrorDetails
@@ -80,6 +84,10 @@ try {
 ## get-sed-batches
 List Sed Batches.
 API responses with Sed Batch Status
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sed-batches)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -111,10 +119,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Sed Batch Request
 
 try {
-    Get-V2024SedBatches -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SedBatches -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SedBatches -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SedBatches -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SedBatches"
     Write-Host $_.ErrorDetails
@@ -137,6 +145,10 @@ SED field descriptions:
 **status**: the status of the suggested entitlement description, valid status options: "requested", "suggested", "not_suggested", "failed", "assigned", "approved", "denied"
 
 **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-seds)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -182,10 +194,10 @@ $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are
 # List Suggested Entitlement Descriptions
 
 try {
-    Get-V2024Seds -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Seds -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Seds -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Filters $Filters -V2024Sorters $Sorters -V2024Count $Count -V2024CountOnly $CountOnly -V2024RequestedByAnyone $RequestedByAnyone -V2024ShowPendingStatusOnly $ShowPendingStatusOnly  
+    # Get-V2024Seds -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Filters $Filters -Sorters $Sorters -Count $Count -CountOnly $CountOnly -RequestedByAnyone $RequestedByAnyone -ShowPendingStatusOnly $ShowPendingStatusOnly  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Seds"
     Write-Host $_.ErrorDetails
@@ -194,6 +206,10 @@ try {
 [[Back to top]](#) 
 ## patch-sed
 Patch Suggested Entitlement Description
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-sed)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -235,10 +251,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
-    Update-V2024Sed -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedPatch $Result
+    Update-V2024Sed -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SedPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Sed -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SedPatch $SedPatch  
+    # Update-V2024Sed -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SedPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Sed"
     Write-Host $_.ErrorDetails
@@ -248,6 +264,10 @@ try {
 ## submit-sed-approval
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-approval)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -285,10 +305,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
-    Submit-V2024SedApproval -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedApproval $Result
+    Submit-V2024SedApproval -XSailPointExperimental $XSailPointExperimental -V2024SedApproval $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-V2024SedApproval -V2024XSailPointExperimental $XSailPointExperimental -V2024SedApproval $SedApproval  
+    # Submit-V2024SedApproval -XSailPointExperimental $XSailPointExperimental -V2024SedApproval $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedApproval"
     Write-Host $_.ErrorDetails
@@ -298,6 +318,10 @@ try {
 ## submit-sed-assignment
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-assignment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -338,10 +362,10 @@ $SedAssignment = @"{
 
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
-    Submit-V2024SedAssignment -V2024XSailPointExperimental $XSailPointExperimental  -V2024SedAssignment $Result
+    Submit-V2024SedAssignment -XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-V2024SedAssignment -V2024XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $SedAssignment  
+    # Submit-V2024SedAssignment -XSailPointExperimental $XSailPointExperimental -V2024SedAssignment $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedAssignment"
     Write-Host $_.ErrorDetails
@@ -351,6 +375,10 @@ try {
 ## submit-sed-batch-request
 Submit Sed Batch Request.
 Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-sed-batch-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -387,10 +415,10 @@ $SedBatchRequest = @"{
 # Submit Sed Batch Request
 
 try {
-    Submit-V2024SedBatchRequest -V2024XSailPointExperimental $XSailPointExperimental 
+    Submit-V2024SedBatchRequest -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Submit-V2024SedBatchRequest -V2024XSailPointExperimental $XSailPointExperimental -V2024SedBatchRequest $SedBatchRequest  
+    # Submit-V2024SedBatchRequest -XSailPointExperimental $XSailPointExperimental -V2024SedBatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024SedBatchRequest"
     Write-Host $_.ErrorDetails

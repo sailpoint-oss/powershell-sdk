@@ -39,6 +39,10 @@ Since this endpoint reports on the status of an *in-progress* account aggregatio
 *Only available up to an hour after the aggregation completes. May respond with *404 Not Found* after that.*
 required to call this API.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-account-aggregation-status)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -70,10 +74,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # In-progress Account Aggregation status
 
 try {
-    Get-V2024AccountAggregationStatus -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccountAggregationStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccountAggregationStatus -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccountAggregationStatus -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccountAggregationStatus"
     Write-Host $_.ErrorDetails

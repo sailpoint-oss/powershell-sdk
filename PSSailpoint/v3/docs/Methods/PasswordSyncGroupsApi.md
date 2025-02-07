@@ -58,6 +58,10 @@ Method | HTTP request | Description
 ## create-password-sync-group
 This API creates a password sync group based on the specifications provided.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-password-sync-group)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -95,10 +99,10 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    New-PasswordSyncGroup -PasswordSyncGroup $Result
+    New-PasswordSyncGroup -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # New-PasswordSyncGroup -PasswordSyncGroup $PasswordSyncGroup  
+    # New-PasswordSyncGroup -PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PasswordSyncGroup"
     Write-Host $_.ErrorDetails
@@ -107,6 +111,10 @@ try {
 [[Back to top]](#) 
 ## delete-password-sync-group
 This API deletes the specified password sync group.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -149,6 +157,10 @@ try {
 [[Back to top]](#) 
 ## get-password-sync-group
 This API returns the sync group for the specified ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -193,6 +205,10 @@ try {
 ## get-password-sync-groups
 This API returns a list of password sync groups.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-sync-groups)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -226,7 +242,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Get Password Sync Group List
 
 try {
-    Get-PasswordSyncGroups
+    Get-PasswordSyncGroups 
     
     # Below is a request that includes all optional parameters
     # Get-PasswordSyncGroups -Limit $Limit -Offset $Offset -Count $Count  
@@ -238,6 +254,10 @@ try {
 [[Back to top]](#) 
 ## update-password-sync-group
 This API updates the specified password sync group.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-password-sync-group)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -279,10 +299,10 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    Update-PasswordSyncGroup -Id $Id  -PasswordSyncGroup $Result
+    Update-PasswordSyncGroup -Id $Id -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-PasswordSyncGroup -Id $Id -PasswordSyncGroup $PasswordSyncGroup  
+    # Update-PasswordSyncGroup -Id $Id -PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PasswordSyncGroup"
     Write-Host $_.ErrorDetails

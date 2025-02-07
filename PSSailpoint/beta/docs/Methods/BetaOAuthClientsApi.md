@@ -29,6 +29,10 @@ Method | HTTP request | Description
 ## create-oauth-client
 This creates an OAuth client.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-oauth-client)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -75,10 +79,10 @@ $CreateOAuthClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
-    New-BetaOauthClient -BetaCreateOAuthClientRequest $Result
+    New-BetaOauthClient -BetaCreateOAuthClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaOauthClient -BetaCreateOAuthClientRequest $CreateOAuthClientRequest  
+    # New-BetaOauthClient -BetaCreateOAuthClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaOauthClient"
     Write-Host $_.ErrorDetails
@@ -87,6 +91,10 @@ try {
 [[Back to top]](#) 
 ## delete-oauth-client
 This deletes an OAuth client.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -118,10 +126,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Delete OAuth Client
 
 try {
-    Remove-BetaOauthClient -BetaId $Id 
+    Remove-BetaOauthClient -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaOauthClient -BetaId $Id  
+    # Remove-BetaOauthClient -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaOauthClient"
     Write-Host $_.ErrorDetails
@@ -130,6 +138,10 @@ try {
 [[Back to top]](#) 
 ## get-oauth-client
 This gets details of an OAuth client.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -161,10 +173,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Get OAuth Client
 
 try {
-    Get-BetaOauthClient -BetaId $Id 
+    Get-BetaOauthClient -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaOauthClient -BetaId $Id  
+    # Get-BetaOauthClient -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaOauthClient"
     Write-Host $_.ErrorDetails
@@ -173,6 +185,10 @@ try {
 [[Back to top]](#) 
 ## list-oauth-clients
 This gets a list of OAuth clients.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-oauth-clients)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -203,10 +219,10 @@ $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results usin
 # List OAuth Clients
 
 try {
-    Get-BetaOauthClients
+    Get-BetaOauthClients 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaOauthClients -BetaFilters $Filters  
+    # Get-BetaOauthClients -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaOauthClients"
     Write-Host $_.ErrorDetails
@@ -217,6 +233,10 @@ try {
 This performs a targeted update to the field(s) of an OAuth client.
 Request will require a security scope of 
 - sp:oauth-client:manage
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -256,10 +276,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaOauthClient -BetaId $Id  -BetaJsonPatchOperation $Result
+    Update-BetaOauthClient -Id $Id -BetaJsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaOauthClient -BetaId $Id -BetaJsonPatchOperation $JsonPatchOperation  
+    # Update-BetaOauthClient -Id $Id -BetaJsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaOauthClient"
     Write-Host $_.ErrorDetails

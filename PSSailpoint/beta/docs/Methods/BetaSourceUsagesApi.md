@@ -26,6 +26,10 @@ Method | HTTP request | Description
 ## get-status-by-source-id
 This API returns the status of the source usage insights setup by IDN source ID.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-status-by-source-id)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -55,10 +59,10 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
 # Finds status of source usage
 
 try {
-    Get-BetaStatusBySourceId -BetaSourceId $SourceId 
+    Get-BetaStatusBySourceId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaStatusBySourceId -BetaSourceId $SourceId  
+    # Get-BetaStatusBySourceId -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaStatusBySourceId"
     Write-Host $_.ErrorDetails
@@ -67,6 +71,10 @@ try {
 [[Back to top]](#) 
 ## get-usages-by-source-id
 This API returns a summary of source usage insights for past 12 months.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-usages-by-source-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -105,10 +113,10 @@ $Sorters = "-date" # String | Sort results using the standard syntax described i
 # Returns source usage insights
 
 try {
-    Get-BetaUsagesBySourceId -BetaSourceId $SourceId 
+    Get-BetaUsagesBySourceId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaUsagesBySourceId -BetaSourceId $SourceId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaSorters $Sorters  
+    # Get-BetaUsagesBySourceId -SourceId $SourceId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaUsagesBySourceId"
     Write-Host $_.ErrorDetails

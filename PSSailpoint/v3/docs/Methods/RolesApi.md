@@ -68,6 +68,10 @@ In addition, a ROLE_SUBADMIN may not create a role including an access profile i
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-role)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -255,10 +259,10 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-Role -Role $Result
+    New-Role -Role $Result 
     
     # Below is a request that includes all optional parameters
-    # New-Role -Role $Role  
+    # New-Role -Role $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-Role"
     Write-Host $_.ErrorDetails
@@ -270,6 +274,10 @@ This endpoint initiates a bulk deletion of one or more roles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-bulk-roles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -303,10 +311,10 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-BulkRoles -RoleBulkDeleteRequest $Result
+    Remove-BulkRoles -RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BulkRoles -RoleBulkDeleteRequest $RoleBulkDeleteRequest  
+    # Remove-BulkRoles -RoleBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BulkRoles"
     Write-Host $_.ErrorDetails
@@ -317,6 +325,10 @@ try {
 This API deletes a Role by its ID.
 
 A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -361,6 +373,10 @@ try {
 This API returns a Role by its ID.
 A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-role)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -402,6 +418,10 @@ try {
 [[Back to top]](#) 
 ## get-role-assigned-identities
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-role-assigned-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -455,6 +475,10 @@ try {
 ## list-roles
 This API returns a list of Roles.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-roles)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -498,7 +522,7 @@ $IncludeUnsegmented = $false # Boolean | Whether or not the response list should
 # List Roles
 
 try {
-    Get-Roles
+    Get-Roles 
     
     # Below is a request that includes all optional parameters
     # Get-Roles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented  
@@ -529,6 +553,10 @@ A user with ROLE_SUBADMIN authority may only call this API if all access profile
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
 When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -567,10 +595,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-Role -Id $Id  -JsonPatchOperation $Result
+    Update-Role -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-Role -Id $Id -JsonPatchOperation $JsonPatchOperation  
+    # Update-Role -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-Role"
     Write-Host $_.ErrorDetails

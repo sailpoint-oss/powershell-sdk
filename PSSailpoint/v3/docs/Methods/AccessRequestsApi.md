@@ -42,6 +42,10 @@ Method | HTTP request | Description
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-access-request)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -76,10 +80,10 @@ $CancelAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
-    Suspend-AccessRequest -CancelAccessRequest $Result
+    Suspend-AccessRequest -CancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Suspend-AccessRequest -CancelAccessRequest $CancelAccessRequest  
+    # Suspend-AccessRequest -CancelAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-AccessRequest"
     Write-Host $_.ErrorDetails
@@ -118,6 +122,10 @@ __REVOKE_ACCESS__
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -202,10 +210,10 @@ $AccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
-    New-AccessRequest -AccessRequest $Result
+    New-AccessRequest -AccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-AccessRequest -AccessRequest $AccessRequest  
+    # New-AccessRequest -AccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessRequest"
     Write-Host $_.ErrorDetails
@@ -214,6 +222,10 @@ try {
 [[Back to top]](#) 
 ## get-access-request-config
 This endpoint returns the current access-request configuration.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -242,7 +254,7 @@ Code | Description  | Data Type
 # Get Access Request Configuration
 
 try {
-    Get-AccessRequestConfig
+    Get-AccessRequestConfig 
     
     # Below is a request that includes all optional parameters
     # Get-AccessRequestConfig  
@@ -256,6 +268,10 @@ try {
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-access-request-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -304,7 +320,7 @@ $RequestState = "request-state=EXECUTING" # String | Filter the results by the s
 # Access Request Status
 
 try {
-    Get-AccessRequestStatus
+    Get-AccessRequestStatus 
     
     # Below is a request that includes all optional parameters
     # Get-AccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState  
@@ -316,6 +332,10 @@ try {
 [[Back to top]](#) 
 ## set-access-request-config
 This endpoint replaces the current access-request configuration.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-access-request-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -372,10 +392,10 @@ $AccessRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
-    Set-AccessRequestConfig -AccessRequestConfig $Result
+    Set-AccessRequestConfig -AccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-AccessRequestConfig -AccessRequestConfig $AccessRequestConfig  
+    # Set-AccessRequestConfig -AccessRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfig"
     Write-Host $_.ErrorDetails

@@ -38,6 +38,10 @@ Method | HTTP request | Description
 Creates a new saved search.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-saved-search)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -68,10 +72,10 @@ $CreateSavedSearchRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
-    New-SavedSearch -CreateSavedSearchRequest $Result
+    New-SavedSearch -CreateSavedSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-SavedSearch -CreateSavedSearchRequest $CreateSavedSearchRequest  
+    # New-SavedSearch -CreateSavedSearchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SavedSearch"
     Write-Host $_.ErrorDetails
@@ -81,6 +85,10 @@ try {
 ## delete-saved-search
 Deletes the specified saved search.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-saved-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -126,6 +134,10 @@ try {
 Executes the specified saved search.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/execute-saved-search)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -169,10 +181,10 @@ $SearchArguments = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
-    Invoke-ExecuteSavedSearch -Id $Id  -SearchArguments $Result
+    Invoke-ExecuteSavedSearch -Id $Id -SearchArguments $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-ExecuteSavedSearch -Id $Id -SearchArguments $SearchArguments  
+    # Invoke-ExecuteSavedSearch -Id $Id -SearchArguments $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ExecuteSavedSearch"
     Write-Host $_.ErrorDetails
@@ -182,6 +194,10 @@ try {
 ## get-saved-search
 Returns the specified saved search.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-saved-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -227,6 +243,10 @@ try {
 Returns a list of saved searches.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-saved-searches)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -262,7 +282,7 @@ $Filters = 'owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"' # String | Filte
 # A list of Saved Searches
 
 try {
-    Get-SavedSearches
+    Get-SavedSearches 
     
     # Below is a request that includes all optional parameters
     # Get-SavedSearches -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters  
@@ -277,6 +297,10 @@ Updates an existing saved search.
 
 >**NOTE: You cannot update the `owner` of the saved search.**
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-saved-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -354,10 +378,10 @@ $SavedSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
-    Send-SavedSearch -Id $Id  -SavedSearch $Result
+    Send-SavedSearch -Id $Id -SavedSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-SavedSearch -Id $Id -SavedSearch $SavedSearch  
+    # Send-SavedSearch -Id $Id -SavedSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SavedSearch"
     Write-Host $_.ErrorDetails

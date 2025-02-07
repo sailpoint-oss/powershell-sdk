@@ -24,6 +24,10 @@ Method | HTTP request | Description
 ## create-common-access
 This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-common-access)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -64,10 +68,10 @@ $CommonAccessItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
-    New-BetaCommonAccess -BetaCommonAccessItemRequest $Result
+    New-BetaCommonAccess -BetaCommonAccessItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaCommonAccess -BetaCommonAccessItemRequest $CommonAccessItemRequest  
+    # New-BetaCommonAccess -BetaCommonAccessItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCommonAccess"
     Write-Host $_.ErrorDetails
@@ -76,6 +80,10 @@ try {
 [[Back to top]](#) 
 ## get-common-access
 This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-common-access)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,10 +121,10 @@ $Sorters = "access.name" # String | Sort results using the standard syntax descr
 # Get a paginated list of common access
 
 try {
-    Get-BetaCommonAccess
+    Get-BetaCommonAccess 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCommonAccess -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaCommonAccess -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCommonAccess"
     Write-Host $_.ErrorDetails
@@ -125,6 +133,10 @@ try {
 [[Back to top]](#) 
 ## update-common-access-status-in-bulk
 This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-common-access-status-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -160,10 +172,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
-    Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $Result
+    Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $CommonAccessIDStatus  
+    # Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaCommonAccessStatusInBulk"
     Write-Host $_.ErrorDetails

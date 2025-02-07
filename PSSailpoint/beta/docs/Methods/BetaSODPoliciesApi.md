@@ -63,6 +63,10 @@ Method | HTTP request | Description
 ## create-sod-policy
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -149,10 +153,10 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    New-BetaSodPolicy -BetaSodPolicy $Result
+    New-BetaSodPolicy -BetaSodPolicy $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSodPolicy -BetaSodPolicy $SodPolicy  
+    # New-BetaSodPolicy -BetaSodPolicy $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSodPolicy"
     Write-Host $_.ErrorDetails
@@ -162,6 +166,10 @@ try {
 ## delete-sod-policy
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -195,10 +203,10 @@ $Logical = $true # Boolean | Indicates whether this is a soft delete (logical tr
 # Delete SOD policy by ID
 
 try {
-    Remove-BetaSodPolicy -BetaId $Id 
+    Remove-BetaSodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaSodPolicy -BetaId $Id -BetaLogical $Logical  
+    # Remove-BetaSodPolicy -Id $Id -Logical $Logical  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSodPolicy"
     Write-Host $_.ErrorDetails
@@ -208,6 +216,10 @@ try {
 ## delete-sod-policy-schedule
 This deletes schedule for a specified SOD policy.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sod-policy-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -239,10 +251,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the SOD policy the
 # Delete SOD policy schedule
 
 try {
-    Remove-BetaSodPolicySchedule -BetaId $Id 
+    Remove-BetaSodPolicySchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaSodPolicySchedule -BetaId $Id  
+    # Remove-BetaSodPolicySchedule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSodPolicySchedule"
     Write-Host $_.ErrorDetails
@@ -252,6 +264,10 @@ try {
 ## get-custom-violation-report
 This allows to download a specified named violation report for a given report reference.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-custom-violation-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -285,10 +301,10 @@ $FileName = "custom-name" # String | Custom Name for the  file.
 # Download custom violation report
 
 try {
-    Get-BetaCustomViolationReport -BetaReportResultId $ReportResultId  -BetaFileName $FileName 
+    Get-BetaCustomViolationReport -ReportResultId $ReportResultId -FileName $FileName 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCustomViolationReport -BetaReportResultId $ReportResultId -BetaFileName $FileName  
+    # Get-BetaCustomViolationReport -ReportResultId $ReportResultId -FileName $FileName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCustomViolationReport"
     Write-Host $_.ErrorDetails
@@ -298,6 +314,10 @@ try {
 ## get-default-violation-report
 This allows to download a violation report for a given report reference.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-default-violation-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -329,10 +349,10 @@ $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the re
 # Download violation report
 
 try {
-    Get-BetaDefaultViolationReport -BetaReportResultId $ReportResultId 
+    Get-BetaDefaultViolationReport -ReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaDefaultViolationReport -BetaReportResultId $ReportResultId  
+    # Get-BetaDefaultViolationReport -ReportResultId $ReportResultId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaDefaultViolationReport"
     Write-Host $_.ErrorDetails
@@ -342,6 +362,10 @@ try {
 ## get-sod-all-report-run-status
 This endpoint gets the status for a violation report for all policy run.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-all-report-run-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -370,7 +394,7 @@ Code | Description  | Data Type
 # Get multi-report run task status
 
 try {
-    Get-BetaSodAllReportRunStatus
+    Get-BetaSodAllReportRunStatus 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSodAllReportRunStatus  
@@ -383,6 +407,10 @@ try {
 ## get-sod-policy
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -414,10 +442,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get SOD policy by ID
 
 try {
-    Get-BetaSodPolicy -BetaId $Id 
+    Get-BetaSodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSodPolicy -BetaId $Id  
+    # Get-BetaSodPolicy -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSodPolicy"
     Write-Host $_.ErrorDetails
@@ -427,6 +455,10 @@ try {
 ## get-sod-policy-schedule
 This endpoint gets a specified SOD policy's schedule.
 Requires the role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-policy-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -457,10 +489,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get SOD policy schedule
 
 try {
-    Get-BetaSodPolicySchedule -BetaId $Id 
+    Get-BetaSodPolicySchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSodPolicySchedule -BetaId $Id  
+    # Get-BetaSodPolicySchedule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSodPolicySchedule"
     Write-Host $_.ErrorDetails
@@ -470,6 +502,10 @@ try {
 ## get-sod-violation-report-run-status
 This gets the status for a violation report run task that has already been invoked.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-violation-report-run-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -501,10 +537,10 @@ $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of th
 # Get violation report run status
 
 try {
-    Get-BetaSodViolationReportRunStatus -BetaReportResultId $ReportResultId 
+    Get-BetaSodViolationReportRunStatus -ReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSodViolationReportRunStatus -BetaReportResultId $ReportResultId  
+    # Get-BetaSodViolationReportRunStatus -ReportResultId $ReportResultId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSodViolationReportRunStatus"
     Write-Host $_.ErrorDetails
@@ -514,6 +550,10 @@ try {
 ## get-sod-violation-report-status
 This gets the status for a violation report run task that has already been invoked.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sod-violation-report-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -545,10 +585,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object referen
 # Get SOD violation report status
 
 try {
-    Get-BetaSodViolationReportStatus -BetaId $Id 
+    Get-BetaSodViolationReportStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSodViolationReportStatus -BetaId $Id  
+    # Get-BetaSodViolationReportStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSodViolationReportStatus"
     Write-Host $_.ErrorDetails
@@ -558,6 +598,10 @@ try {
 ## list-sod-policies
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-sod-policies)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -596,10 +640,10 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # List SOD policies
 
 try {
-    Get-BetaSodPolicies
+    Get-BetaSodPolicies 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSodPolicies -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaSodPolicies -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSodPolicies"
     Write-Host $_.ErrorDetails
@@ -610,6 +654,10 @@ try {
 Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -646,10 +694,10 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of SOD Policy update ope
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Update-BetaSodPolicy -BetaId $Id  -BetaRequestBody $Result
+    Update-BetaSodPolicy -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSodPolicy -BetaId $Id -BetaRequestBody $RequestBody  
+    # Update-BetaSodPolicy -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSodPolicy"
     Write-Host $_.ErrorDetails
@@ -659,6 +707,10 @@ try {
 ## put-policy-schedule
 This updates schedule for a specified SOD policy.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-policy-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -777,10 +829,10 @@ $SodPolicySchedule = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-    Send-BetaPolicySchedule -BetaId $Id  -BetaSodPolicySchedule $Result
+    Send-BetaPolicySchedule -Id $Id -BetaSodPolicySchedule $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaPolicySchedule -BetaId $Id -BetaSodPolicySchedule $SodPolicySchedule  
+    # Send-BetaPolicySchedule -Id $Id -BetaSodPolicySchedule $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaPolicySchedule"
     Write-Host $_.ErrorDetails
@@ -790,6 +842,10 @@ try {
 ## put-sod-policy
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -879,10 +935,10 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    Send-BetaSodPolicy -BetaId $Id  -BetaSodPolicy $Result
+    Send-BetaSodPolicy -Id $Id -BetaSodPolicy $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSodPolicy -BetaId $Id -BetaSodPolicy $SodPolicy  
+    # Send-BetaSodPolicy -Id $Id -BetaSodPolicy $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSodPolicy"
     Write-Host $_.ErrorDetails
@@ -892,6 +948,10 @@ try {
 ## start-sod-all-policies-for-org
 Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-sod-all-policies-for-org)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -924,10 +984,10 @@ $MultiPolicyRequest = @"{
 # Runs all policies for org
 
 try {
-    Start-BetaSodAllPoliciesForOrg
+    Start-BetaSodAllPoliciesForOrg 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaSodAllPoliciesForOrg -BetaMultiPolicyRequest $MultiPolicyRequest  
+    # Start-BetaSodAllPoliciesForOrg -BetaMultiPolicyRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaSodAllPoliciesForOrg"
     Write-Host $_.ErrorDetails
@@ -937,6 +997,10 @@ try {
 ## start-sod-policy
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
 Requires role of ORG_ADMIN.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -968,10 +1032,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The SOD policy ID to run.
 # Runs SOD policy violation report
 
 try {
-    Start-BetaSodPolicy -BetaId $Id 
+    Start-BetaSodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaSodPolicy -BetaId $Id  
+    # Start-BetaSodPolicy -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaSodPolicy"
     Write-Host $_.ErrorDetails

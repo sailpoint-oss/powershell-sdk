@@ -84,6 +84,10 @@ Method | HTTP request | Description
 ## approve-non-employee-request
 Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-non-employee-request)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -118,10 +122,10 @@ $NonEmployeeApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
-    Approve-V2024NonEmployeeRequest -V2024Id $Id  -V2024NonEmployeeApprovalDecision $Result
+    Approve-V2024NonEmployeeRequest -Id $Id -V2024NonEmployeeApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Approve-V2024NonEmployeeRequest -V2024Id $Id -V2024NonEmployeeApprovalDecision $NonEmployeeApprovalDecision  
+    # Approve-V2024NonEmployeeRequest -Id $Id -V2024NonEmployeeApprovalDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2024NonEmployeeRequest"
     Write-Host $_.ErrorDetails
@@ -131,6 +135,10 @@ try {
 ## create-non-employee-record
 This request will create a non-employee record.
 Requires role context of `idn:nesr:create`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -175,10 +183,10 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-V2024NonEmployeeRecord -V2024NonEmployeeRequestBody $Result
+    New-V2024NonEmployeeRecord -V2024NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024NonEmployeeRecord -V2024NonEmployeeRequestBody $NonEmployeeRequestBody  
+    # New-V2024NonEmployeeRecord -V2024NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024NonEmployeeRecord"
     Write-Host $_.ErrorDetails
@@ -187,6 +195,10 @@ try {
 [[Back to top]](#) 
 ## create-non-employee-request
 This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -231,10 +243,10 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    New-V2024NonEmployeeRequest -V2024NonEmployeeRequestBody $Result
+    New-V2024NonEmployeeRequest -V2024NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024NonEmployeeRequest -V2024NonEmployeeRequestBody $NonEmployeeRequestBody  
+    # New-V2024NonEmployeeRequest -V2024NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024NonEmployeeRequest"
     Write-Host $_.ErrorDetails
@@ -243,6 +255,10 @@ try {
 [[Back to top]](#) 
 ## create-non-employee-source
 This request will create a non-employee source. Requires role context of `idn:nesr:create`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-non-employee-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -299,10 +315,10 @@ $NonEmployeeSourceRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
-    New-V2024NonEmployeeSource -V2024NonEmployeeSourceRequestBody $Result
+    New-V2024NonEmployeeSource -V2024NonEmployeeSourceRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024NonEmployeeSource -V2024NonEmployeeSourceRequestBody $NonEmployeeSourceRequestBody  
+    # New-V2024NonEmployeeSource -V2024NonEmployeeSourceRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024NonEmployeeSource"
     Write-Host $_.ErrorDetails
@@ -312,6 +328,10 @@ try {
 ## create-non-employee-source-schema-attributes
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 Requires role context of `idn:nesr:create`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-non-employee-source-schema-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -352,10 +372,10 @@ $NonEmployeeSchemaAttributeBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
-    New-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId  -V2024NonEmployeeSchemaAttributeBody $Result
+    New-V2024NonEmployeeSourceSchemaAttributes -SourceId $SourceId -V2024NonEmployeeSchemaAttributeBody $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId -V2024NonEmployeeSchemaAttributeBody $NonEmployeeSchemaAttributeBody  
+    # New-V2024NonEmployeeSourceSchemaAttributes -SourceId $SourceId -V2024NonEmployeeSchemaAttributeBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024NonEmployeeSourceSchemaAttributes"
     Write-Host $_.ErrorDetails
@@ -365,6 +385,10 @@ try {
 ## delete-non-employee-record
 This request will delete a non-employee record.
 Requires role context of `idn:nesr:delete`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -395,10 +419,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID
 # Delete Non-Employee Record
 
 try {
-    Remove-V2024NonEmployeeRecord -V2024Id $Id 
+    Remove-V2024NonEmployeeRecord -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NonEmployeeRecord -V2024Id $Id  
+    # Remove-V2024NonEmployeeRecord -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NonEmployeeRecord"
     Write-Host $_.ErrorDetails
@@ -407,6 +431,10 @@ try {
 [[Back to top]](#) 
 ## delete-non-employee-records-in-bulk
 This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-non-employee-records-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -438,10 +466,10 @@ $DeleteNonEmployeeRecordsInBulkRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordsInBulkRequest -Json $DeleteNonEmployeeRecordsInBulkRequest
-    Remove-V2024NonEmployeeRecordsInBulk -V2024DeleteNonEmployeeRecordsInBulkRequest $Result
+    Remove-V2024NonEmployeeRecordsInBulk -V2024DeleteNonEmployeeRecordsInBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NonEmployeeRecordsInBulk -V2024DeleteNonEmployeeRecordsInBulkRequest $DeleteNonEmployeeRecordsInBulkRequest  
+    # Remove-V2024NonEmployeeRecordsInBulk -V2024DeleteNonEmployeeRecordsInBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NonEmployeeRecordsInBulk"
     Write-Host $_.ErrorDetails
@@ -451,6 +479,10 @@ try {
 ## delete-non-employee-request
 This request will delete a non-employee request. 
 Requires role context of `idn:nesr:delete`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -482,10 +514,10 @@ $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id 
 # Delete Non-Employee Request
 
 try {
-    Remove-V2024NonEmployeeRequest -V2024Id $Id 
+    Remove-V2024NonEmployeeRequest -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NonEmployeeRequest -V2024Id $Id  
+    # Remove-V2024NonEmployeeRequest -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NonEmployeeRequest"
     Write-Host $_.ErrorDetails
@@ -496,6 +528,10 @@ try {
 This end-point deletes a specific schema attribute for a non-employee source.
 Requires role context of `idn:nesr:delete`
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-non-employee-schema-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -528,10 +564,10 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Delete a Schema Attribute for Non-Employee Source
 
 try {
-    Remove-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId  -V2024SourceId $SourceId 
+    Remove-V2024NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId -V2024SourceId $SourceId  
+    # Remove-V2024NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NonEmployeeSchemaAttribute"
     Write-Host $_.ErrorDetails
@@ -540,6 +576,10 @@ try {
 [[Back to top]](#) 
 ## delete-non-employee-source
 This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-non-employee-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -570,10 +610,10 @@ $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
 # Delete Non-Employee Source
 
 try {
-    Remove-V2024NonEmployeeSource -V2024SourceId $SourceId 
+    Remove-V2024NonEmployeeSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NonEmployeeSource -V2024SourceId $SourceId  
+    # Remove-V2024NonEmployeeSource -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NonEmployeeSource"
     Write-Host $_.ErrorDetails
@@ -582,6 +622,10 @@ try {
 [[Back to top]](#) 
 ## delete-non-employee-source-schema-attributes
 This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-non-employee-source-schema-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -612,10 +656,10 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Delete all custom schema attributes for Non-Employee Source
 
 try {
-    Remove-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId 
+    Remove-V2024NonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId  
+    # Remove-V2024NonEmployeeSourceSchemaAttributes -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NonEmployeeSourceSchemaAttributes"
     Write-Host $_.ErrorDetails
@@ -624,6 +668,10 @@ try {
 [[Back to top]](#) 
 ## export-non-employee-records
 This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/export-non-employee-records)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -655,10 +703,10 @@ $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
 # Exports Non-Employee Records to CSV
 
 try {
-    Export-V2024NonEmployeeRecords -V2024Id $Id 
+    Export-V2024NonEmployeeRecords -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024NonEmployeeRecords -V2024Id $Id  
+    # Export-V2024NonEmployeeRecords -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024NonEmployeeRecords"
     Write-Host $_.ErrorDetails
@@ -667,6 +715,10 @@ try {
 [[Back to top]](#) 
 ## export-non-employee-source-schema-template
 This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/export-non-employee-source-schema-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -698,10 +750,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id (UUID)
 # Exports Source Schema Template
 
 try {
-    Export-V2024NonEmployeeSourceSchemaTemplate -V2024Id $Id 
+    Export-V2024NonEmployeeSourceSchemaTemplate -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Export-V2024NonEmployeeSourceSchemaTemplate -V2024Id $Id  
+    # Export-V2024NonEmployeeSourceSchemaTemplate -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024NonEmployeeSourceSchemaTemplate"
     Write-Host $_.ErrorDetails
@@ -713,6 +765,10 @@ Gets a non-employee approval item detail. There are two contextual uses for this
   1. The user has the role context of `idn:nesr:read`, in which case they
 can get any approval.
   2. The user owns the requested approval.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-approval)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -745,10 +801,10 @@ $IncludeDetail = $true # Boolean | The object nonEmployeeRequest will not be inc
 # Get a non-employee approval item detail
 
 try {
-    Get-V2024NonEmployeeApproval -V2024Id $Id 
+    Get-V2024NonEmployeeApproval -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeApproval -V2024Id $Id -V2024IncludeDetail $IncludeDetail  
+    # Get-V2024NonEmployeeApproval -Id $Id -IncludeDetail $IncludeDetail  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeApproval"
     Write-Host $_.ErrorDetails
@@ -761,6 +817,10 @@ This request will retrieve a summary of non-employee approval requests. There ar
 she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id.
   2. The current user is an approver, in which case "me" should be provided
 as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-approval-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -791,10 +851,10 @@ $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID
 # Get Summary of Non-Employee Approval Requests
 
 try {
-    Get-V2024NonEmployeeApprovalSummary -V2024RequestedFor $RequestedFor 
+    Get-V2024NonEmployeeApprovalSummary -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeApprovalSummary -V2024RequestedFor $RequestedFor  
+    # Get-V2024NonEmployeeApprovalSummary -RequestedFor $RequestedFor  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeApprovalSummary"
     Write-Host $_.ErrorDetails
@@ -805,6 +865,10 @@ try {
 The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
 Requires role context of `idn:nesr:read`
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-bulk-upload-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -835,10 +899,10 @@ $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source ID (UUID)
 # Obtain the status of bulk upload on the source
 
 try {
-    Get-V2024NonEmployeeBulkUploadStatus -V2024Id $Id 
+    Get-V2024NonEmployeeBulkUploadStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeBulkUploadStatus -V2024Id $Id  
+    # Get-V2024NonEmployeeBulkUploadStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeBulkUploadStatus"
     Write-Host $_.ErrorDetails
@@ -848,6 +912,10 @@ try {
 ## get-non-employee-record
 This gets a non-employee record.
 Requires role context of `idn:nesr:read`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -878,10 +946,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID
 # Get a Non-Employee Record
 
 try {
-    Get-V2024NonEmployeeRecord -V2024Id $Id 
+    Get-V2024NonEmployeeRecord -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeRecord -V2024Id $Id  
+    # Get-V2024NonEmployeeRecord -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeRecord"
     Write-Host $_.ErrorDetails
@@ -894,6 +962,10 @@ There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:read`, in this case the user
 can get the non-employee request for any user.
   2. The user must be the owner of the non-employee request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -925,10 +997,10 @@ $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id 
 # Get a Non-Employee Request
 
 try {
-    Get-V2024NonEmployeeRequest -V2024Id $Id 
+    Get-V2024NonEmployeeRequest -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeRequest -V2024Id $Id  
+    # Get-V2024NonEmployeeRequest -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeRequest"
     Write-Host $_.ErrorDetails
@@ -941,6 +1013,10 @@ This request will retrieve a summary of non-employee requests. There are two con
 she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id.
   2. The current user is an account manager, in which case "me" should be
 provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-request-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -971,10 +1047,10 @@ $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID
 # Get Summary of Non-Employee Requests
 
 try {
-    Get-V2024NonEmployeeRequestSummary -V2024RequestedFor $RequestedFor 
+    Get-V2024NonEmployeeRequestSummary -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeRequestSummary -V2024RequestedFor $RequestedFor  
+    # Get-V2024NonEmployeeRequestSummary -RequestedFor $RequestedFor  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeRequestSummary"
     Write-Host $_.ErrorDetails
@@ -983,6 +1059,10 @@ try {
 [[Back to top]](#) 
 ## get-non-employee-schema-attribute
 This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-schema-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1015,10 +1095,10 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # Get Schema Attribute Non-Employee Source
 
 try {
-    Get-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId  -V2024SourceId $SourceId 
+    Get-V2024NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId -V2024SourceId $SourceId  
+    # Get-V2024NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeSchemaAttribute"
     Write-Host $_.ErrorDetails
@@ -1031,6 +1111,10 @@ This gets a non-employee source. There are two contextual uses for the requested
 she may request any source.
   2. The current user is an account manager, in which case the user can only
 request sources that they own.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1061,10 +1145,10 @@ $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 # Get a Non-Employee Source
 
 try {
-    Get-V2024NonEmployeeSource -V2024SourceId $SourceId 
+    Get-V2024NonEmployeeSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeSource -V2024SourceId $SourceId  
+    # Get-V2024NonEmployeeSource -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeSource"
     Write-Host $_.ErrorDetails
@@ -1074,6 +1158,10 @@ try {
 ## get-non-employee-source-schema-attributes
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
 Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-non-employee-source-schema-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1105,10 +1193,10 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 # List Schema Attributes Non-Employee Source
 
 try {
-    Get-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId 
+    Get-V2024NonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeSourceSchemaAttributes -V2024SourceId $SourceId  
+    # Get-V2024NonEmployeeSourceSchemaAttributes -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeSourceSchemaAttributes"
     Write-Host $_.ErrorDetails
@@ -1117,6 +1205,10 @@ try {
 [[Back to top]](#) 
 ## import-non-employee-records-in-bulk
 This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/import-non-employee-records-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1150,10 +1242,10 @@ $Data =  # System.IO.FileInfo |
 # Imports, or Updates, Non-Employee Records
 
 try {
-    Import-V2024NonEmployeeRecordsInBulk -V2024Id $Id  -V2024Data $Data 
+    Import-V2024NonEmployeeRecordsInBulk -Id $Id -Data $Data 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024NonEmployeeRecordsInBulk -V2024Id $Id -V2024Data $Data  
+    # Import-V2024NonEmployeeRecordsInBulk -Id $Id -Data $Data  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024NonEmployeeRecordsInBulk"
     Write-Host $_.ErrorDetails
@@ -1166,6 +1258,10 @@ There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:read`, in which case they
 can list the approvals for any approver.
   2. The user owns the requested approval.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-non-employee-approvals)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1206,10 +1302,10 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 # Get List of Non-Employee Approval Requests
 
 try {
-    Get-V2024NonEmployeeApprovals
+    Get-V2024NonEmployeeApprovals 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeApprovals -V2024RequestedFor $RequestedFor -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024NonEmployeeApprovals -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeApprovals"
     Write-Host $_.ErrorDetails
@@ -1220,6 +1316,10 @@ try {
 This gets a list of non-employee records. There are two contextual uses for this endpoint:
   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.
   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-non-employee-records)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1258,10 +1358,10 @@ $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter re
 # List Non-Employee Records
 
 try {
-    Get-V2024NonEmployeeRecords
+    Get-V2024NonEmployeeRecords 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeRecords -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
+    # Get-V2024NonEmployeeRecords -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeRecords"
     Write-Host $_.ErrorDetails
@@ -1274,6 +1374,10 @@ This gets a list of non-employee requests. There are two contextual uses for the
 she may request a list non-employee requests assigned to a particular account manager by passing in that manager's id.
   2. The current user is an account manager, in which case "me" should be
 provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-non-employee-requests)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1314,10 +1418,10 @@ $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter re
 # List Non-Employee Requests
 
 try {
-    Get-V2024NonEmployeeRequests -V2024RequestedFor $RequestedFor 
+    Get-V2024NonEmployeeRequests -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeRequests -V2024RequestedFor $RequestedFor -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters -V2024Filters $Filters  
+    # Get-V2024NonEmployeeRequests -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeRequests"
     Write-Host $_.ErrorDetails
@@ -1330,6 +1434,10 @@ This gets a list of non-employee sources. There are two contextual uses for the 
 she may request a list sources assigned to a particular account manager by passing in that manager's id.
   2. The current user is an account manager, in which case "me" should be
 provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-non-employee-sources)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1370,10 +1478,10 @@ $Sorters = "name,created" # String | Sort results using the standard syntax desc
 # List Non-Employee Sources
 
 try {
-    Get-V2024NonEmployeeSources -V2024RequestedFor $RequestedFor 
+    Get-V2024NonEmployeeSources -RequestedFor $RequestedFor 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NonEmployeeSources -V2024RequestedFor $RequestedFor -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024NonEmployeeCount $NonEmployeeCount -V2024Sorters $Sorters  
+    # Get-V2024NonEmployeeSources -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NonEmployeeSources"
     Write-Host $_.ErrorDetails
@@ -1386,6 +1494,10 @@ This request will patch a non-employee record. There are two contextual uses for
 update all available fields.
   2. The user is owner of the source, in this case they can only update the
 end date.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1425,10 +1537,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024NonEmployeeRecord -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024NonEmployeeRecord -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024NonEmployeeRecord -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024NonEmployeeRecord -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024NonEmployeeRecord"
     Write-Host $_.ErrorDetails
@@ -1439,6 +1551,10 @@ try {
 This end-point patches a specific schema attribute for a non-employee SourceId.
 Requires role context of `idn:nesr:update`
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-non-employee-schema-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1480,10 +1596,10 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId  -V2024SourceId $SourceId  -V2024JsonPatchOperation $Result
+    Update-V2024NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024NonEmployeeSchemaAttribute -V2024AttributeId $AttributeId -V2024SourceId $SourceId -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024NonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024NonEmployeeSchemaAttribute"
     Write-Host $_.ErrorDetails
@@ -1492,6 +1608,10 @@ try {
 [[Back to top]](#) 
 ## patch-non-employee-source
 patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-non-employee-source)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1530,10 +1650,10 @@ $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024NonEmployeeSource -V2024SourceId $SourceId  -V2024JsonPatchOperation $Result
+    Update-V2024NonEmployeeSource -SourceId $SourceId -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024NonEmployeeSource -V2024SourceId $SourceId -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024NonEmployeeSource -SourceId $SourceId -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024NonEmployeeSource"
     Write-Host $_.ErrorDetails
@@ -1542,6 +1662,10 @@ try {
 [[Back to top]](#) 
 ## reject-non-employee-request
 This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/reject-non-employee-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1577,10 +1701,10 @@ $NonEmployeeRejectApprovalDecision = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-    Deny-V2024NonEmployeeRequest -V2024Id $Id  -V2024NonEmployeeRejectApprovalDecision $Result
+    Deny-V2024NonEmployeeRequest -Id $Id -V2024NonEmployeeRejectApprovalDecision $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-V2024NonEmployeeRequest -V2024Id $Id -V2024NonEmployeeRejectApprovalDecision $NonEmployeeRejectApprovalDecision  
+    # Deny-V2024NonEmployeeRequest -Id $Id -V2024NonEmployeeRejectApprovalDecision $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2024NonEmployeeRequest"
     Write-Host $_.ErrorDetails
@@ -1593,6 +1717,10 @@ This request will update a non-employee record. There are two contextual uses fo
 update all available fields.
   2. The user is owner of the source, in this case they can only update the
 end date.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1640,10 +1768,10 @@ $NonEmployeeRequestBody = @"{
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    Update-V2024NonEmployeeRecord -V2024Id $Id  -V2024NonEmployeeRequestBody $Result
+    Update-V2024NonEmployeeRecord -Id $Id -V2024NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024NonEmployeeRecord -V2024Id $Id -V2024NonEmployeeRequestBody $NonEmployeeRequestBody  
+    # Update-V2024NonEmployeeRecord -Id $Id -V2024NonEmployeeRequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024NonEmployeeRecord"
     Write-Host $_.ErrorDetails

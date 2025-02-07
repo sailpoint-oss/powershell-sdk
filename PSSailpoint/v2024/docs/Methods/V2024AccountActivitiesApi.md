@@ -56,6 +56,10 @@ Method | HTTP request | Description
 ## get-account-activity
 This gets a single account activity by its id.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-account-activity)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -86,10 +90,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
 # Get an Account Activity
 
 try {
-    Get-V2024AccountActivity -V2024Id $Id 
+    Get-V2024AccountActivity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccountActivity -V2024Id $Id  
+    # Get-V2024AccountActivity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccountActivity"
     Write-Host $_.ErrorDetails
@@ -98,6 +102,10 @@ try {
 [[Back to top]](#) 
 ## list-account-activities
 This gets a collection of account activities that satisfy the given query parameters.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-account-activities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -142,10 +150,10 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 # List Account Activities
 
 try {
-    Get-V2024AccountActivities
+    Get-V2024AccountActivities 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccountActivities -V2024RequestedFor $RequestedFor -V2024RequestedBy $RequestedBy -V2024RegardingIdentity $RegardingIdentity -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024AccountActivities -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccountActivities"
     Write-Host $_.ErrorDetails

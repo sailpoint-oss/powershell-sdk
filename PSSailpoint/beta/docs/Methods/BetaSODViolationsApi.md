@@ -41,6 +41,10 @@ Method | HTTP request | Description
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 A token with ORG_ADMIN or API authority is required to call this API.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-predict-sod-violations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -84,10 +88,10 @@ $IdentityWithNewAccess = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
-    Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $Result
+    Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $IdentityWithNewAccess  
+    # Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaPredictSodViolations"
     Write-Host $_.ErrorDetails

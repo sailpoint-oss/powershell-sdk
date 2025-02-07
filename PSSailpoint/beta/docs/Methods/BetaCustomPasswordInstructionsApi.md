@@ -35,6 +35,10 @@ Method | HTTP request | Description
 ## create-custom-password-instructions
 This API creates the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-custom-password-instructions)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -67,10 +71,10 @@ $CustomPasswordInstruction = @"{
 
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
-    New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $Result
+    New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $CustomPasswordInstruction  
+    # New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCustomPasswordInstructions"
     Write-Host $_.ErrorDetails
@@ -79,6 +83,10 @@ try {
 [[Back to top]](#) 
 ## delete-custom-password-instructions
 This API delete the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-custom-password-instructions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -110,10 +118,10 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 # Delete Custom Password Instructions by page ID
 
 try {
-    Remove-BetaCustomPasswordInstructions -BetaPageId $PageId 
+    Remove-BetaCustomPasswordInstructions -PageId $PageId 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaCustomPasswordInstructions -BetaPageId $PageId -BetaLocale $Locale  
+    # Remove-BetaCustomPasswordInstructions -PageId $PageId -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaCustomPasswordInstructions"
     Write-Host $_.ErrorDetails
@@ -122,6 +130,10 @@ try {
 [[Back to top]](#) 
 ## get-custom-password-instructions
 This API returns the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-custom-password-instructions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -153,10 +165,10 @@ $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 
 # Get Custom Password Instructions by Page ID
 
 try {
-    Get-BetaCustomPasswordInstructions -BetaPageId $PageId 
+    Get-BetaCustomPasswordInstructions -PageId $PageId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCustomPasswordInstructions -BetaPageId $PageId -BetaLocale $Locale  
+    # Get-BetaCustomPasswordInstructions -PageId $PageId -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCustomPasswordInstructions"
     Write-Host $_.ErrorDetails

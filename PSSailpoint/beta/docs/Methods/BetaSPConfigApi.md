@@ -29,6 +29,10 @@ Method | HTTP request | Description
 This post will export objects from the tenant to a JSON configuration file.
 For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/export-sp-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -62,10 +66,10 @@ $ExportPayload = @"{
 
 try {
     $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
-    Export-BetaSpConfig -BetaExportPayload $Result
+    Export-BetaSpConfig -BetaExportPayload $Result 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaSpConfig -BetaExportPayload $ExportPayload  
+    # Export-BetaSpConfig -BetaExportPayload $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaSpConfig"
     Write-Host $_.ErrorDetails
@@ -76,6 +80,10 @@ try {
 This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sp-config-export)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,10 +115,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job who
 # Download export job result.
 
 try {
-    Get-BetaSpConfigExport -BetaId $Id 
+    Get-BetaSpConfigExport -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSpConfigExport -BetaId $Id  
+    # Get-BetaSpConfigExport -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigExport"
     Write-Host $_.ErrorDetails
@@ -121,6 +129,10 @@ try {
 This gets the status of the export job identified by the `id` parameter.
 The request will need one of the following security scopes:
 - sp:config:read - sp:config:manage
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sp-config-export-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -152,10 +164,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job who
 # Get export job status
 
 try {
-    Get-BetaSpConfigExportStatus -BetaId $Id 
+    Get-BetaSpConfigExportStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSpConfigExportStatus -BetaId $Id  
+    # Get-BetaSpConfigExportStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigExportStatus"
     Write-Host $_.ErrorDetails
@@ -166,6 +178,10 @@ try {
 This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import.
 The request will need the following security scope:
 - sp:config:manage
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sp-config-import)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -197,10 +213,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job who
 # Download import job result
 
 try {
-    Get-BetaSpConfigImport -BetaId $Id 
+    Get-BetaSpConfigImport -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSpConfigImport -BetaId $Id  
+    # Get-BetaSpConfigImport -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigImport"
     Write-Host $_.ErrorDetails
@@ -210,6 +226,10 @@ try {
 ## get-sp-config-import-status
 This gets the status of the import job identified by the `id` parameter.
 For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-sp-config-import-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -241,10 +261,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job who
 # Get import job status
 
 try {
-    Get-BetaSpConfigImportStatus -BetaId $Id 
+    Get-BetaSpConfigImportStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSpConfigImportStatus -BetaId $Id  
+    # Get-BetaSpConfigImportStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigImportStatus"
     Write-Host $_.ErrorDetails
@@ -263,6 +283,10 @@ You cannot currently import from the Non-Employee Lifecycle Management (NELM) so
 
 For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/import-sp-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -298,10 +322,10 @@ $Options = @""@
 # Initiates configuration objects import job
 
 try {
-    Import-BetaSpConfig -BetaData $Data 
+    Import-BetaSpConfig -Data $Data 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaSpConfig -BetaData $Data -BetaPreview $Preview -BetaOptions $Options  
+    # Import-BetaSpConfig -Data $Data -Preview $Preview -BetaOptions $Options  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSpConfig"
     Write-Host $_.ErrorDetails
@@ -310,6 +334,10 @@ try {
 [[Back to top]](#) 
 ## list-sp-config-objects
 This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -339,7 +367,7 @@ Code | Description  | Data Type
 # Get config object details
 
 try {
-    Get-BetaSpConfigObjects
+    Get-BetaSpConfigObjects 
     
     # Below is a request that includes all optional parameters
     # Get-BetaSpConfigObjects  

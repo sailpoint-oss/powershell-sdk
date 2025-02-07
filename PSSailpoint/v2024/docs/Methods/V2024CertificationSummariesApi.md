@@ -39,6 +39,10 @@ Method | HTTP request | Description
 ## get-identity-access-summaries
 This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-access-summaries)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -81,10 +85,10 @@ $Sorters = "access.name" # String | Sort results using the standard syntax descr
 # Access Summaries
 
 try {
-    Get-V2024IdentityAccessSummaries -V2024Id $Id  -V2024Type $Type 
+    Get-V2024IdentityAccessSummaries -Id $Id -Type $Type 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityAccessSummaries -V2024Id $Id -V2024Type $Type -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024IdentityAccessSummaries -Id $Id -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityAccessSummaries"
     Write-Host $_.ErrorDetails
@@ -93,6 +97,10 @@ try {
 [[Back to top]](#) 
 ## get-identity-decision-summary
 This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. Reviewers for this certification can also call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-decision-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -126,10 +134,10 @@ $Filters = 'identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"' # String |
 # Summary of Certification Decisions
 
 try {
-    Get-V2024IdentityDecisionSummary -V2024Id $Id 
+    Get-V2024IdentityDecisionSummary -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityDecisionSummary -V2024Id $Id -V2024Filters $Filters  
+    # Get-V2024IdentityDecisionSummary -Id $Id -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityDecisionSummary"
     Write-Host $_.ErrorDetails
@@ -138,6 +146,10 @@ try {
 [[Back to top]](#) 
 ## get-identity-summaries
 This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-summaries)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -179,10 +191,10 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Identity Summaries for Campaign Certification
 
 try {
-    Get-V2024IdentitySummaries -V2024Id $Id 
+    Get-V2024IdentitySummaries -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentitySummaries -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024IdentitySummaries -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySummaries"
     Write-Host $_.ErrorDetails
@@ -191,6 +203,10 @@ try {
 [[Back to top]](#) 
 ## get-identity-summary
 This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -224,10 +240,10 @@ $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity 
 # Summary for Identity
 
 try {
-    Get-V2024IdentitySummary -V2024Id $Id  -V2024IdentitySummaryId $IdentitySummaryId 
+    Get-V2024IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentitySummary -V2024Id $Id -V2024IdentitySummaryId $IdentitySummaryId  
+    # Get-V2024IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySummary"
     Write-Host $_.ErrorDetails

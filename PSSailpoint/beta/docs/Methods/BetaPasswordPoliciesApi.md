@@ -35,6 +35,10 @@ Method | HTTP request | Description
 ## create-password-policy
 This API creates the specified password policy.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-password-policy)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -98,10 +102,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $Result
+    New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $PasswordPolicyV3Dto  
+    # New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPasswordPolicy"
     Write-Host $_.ErrorDetails
@@ -110,6 +114,10 @@ try {
 [[Back to top]](#) 
 ## delete-password-policy
 This API deletes the specified password policy.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-password-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -141,10 +149,10 @@ $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to
 # Delete Password Policy by ID
 
 try {
-    Remove-BetaPasswordPolicy -BetaId $Id 
+    Remove-BetaPasswordPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaPasswordPolicy -BetaId $Id  
+    # Remove-BetaPasswordPolicy -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaPasswordPolicy"
     Write-Host $_.ErrorDetails
@@ -153,6 +161,10 @@ try {
 [[Back to top]](#) 
 ## get-password-policy-by-id
 This API returns the password policy for the specified ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-policy-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -184,10 +196,10 @@ $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to
 # Get Password Policy by ID
 
 try {
-    Get-BetaPasswordPolicyById -BetaId $Id 
+    Get-BetaPasswordPolicyById -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPasswordPolicyById -BetaId $Id  
+    # Get-BetaPasswordPolicyById -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPasswordPolicyById"
     Write-Host $_.ErrorDetails
@@ -197,6 +209,10 @@ try {
 ## list-password-policies
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-password-policies)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -231,10 +247,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Password Policies
 
 try {
-    Get-BetaPasswordPolicies
+    Get-BetaPasswordPolicies 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPasswordPolicies -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaPasswordPolicies -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPasswordPolicies"
     Write-Host $_.ErrorDetails
@@ -243,6 +259,10 @@ try {
 [[Back to top]](#) 
 ## set-password-policy
 This API updates the specified password policy.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-password-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -309,10 +329,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-BetaPasswordPolicy -BetaId $Id  -BetaPasswordPolicyV3Dto $Result
+    Set-BetaPasswordPolicy -Id $Id -BetaPasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaPasswordPolicy -BetaId $Id -BetaPasswordPolicyV3Dto $PasswordPolicyV3Dto  
+    # Set-BetaPasswordPolicy -Id $Id -BetaPasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaPasswordPolicy"
     Write-Host $_.ErrorDetails

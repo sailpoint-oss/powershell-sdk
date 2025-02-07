@@ -48,6 +48,10 @@ Method | HTTP request | Description
 ## approve-approval-item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-item)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -77,10 +81,10 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Approve an Approval Item
 
 try {
-    Approve-BetaApprovalItem -BetaId $Id  -BetaApprovalItemId $ApprovalItemId 
+    Approve-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
-    # Approve-BetaApprovalItem -BetaId $Id -BetaApprovalItemId $ApprovalItemId  
+    # Approve-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaApprovalItem"
     Write-Host $_.ErrorDetails
@@ -89,6 +93,10 @@ try {
 [[Back to top]](#) 
 ## approve-approval-items-in-bulk
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-items-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,10 +125,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk approve Approval Items
 
 try {
-    Approve-BetaApprovalItemsInBulk -BetaId $Id 
+    Approve-BetaApprovalItemsInBulk -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Approve-BetaApprovalItemsInBulk -BetaId $Id  
+    # Approve-BetaApprovalItemsInBulk -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaApprovalItemsInBulk"
     Write-Host $_.ErrorDetails
@@ -129,6 +137,10 @@ try {
 [[Back to top]](#) 
 ## complete-work-item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/complete-work-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,10 +169,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Complete a Work Item
 
 try {
-    Complete-BetaWorkItem -BetaId $Id 
+    Complete-BetaWorkItem -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-BetaWorkItem -BetaId $Id  
+    # Complete-BetaWorkItem -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaWorkItem"
     Write-Host $_.ErrorDetails
@@ -169,6 +181,10 @@ try {
 [[Back to top]](#) 
 ## forward-work-item
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/forward-work-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -206,10 +222,10 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Invoke-BetaForwardWorkItem -BetaId $Id  -BetaWorkItemForward $Result
+    Invoke-BetaForwardWorkItem -Id $Id -BetaWorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaForwardWorkItem -BetaId $Id -BetaWorkItemForward $WorkItemForward  
+    # Invoke-BetaForwardWorkItem -Id $Id -BetaWorkItemForward $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardWorkItem"
     Write-Host $_.ErrorDetails
@@ -218,6 +234,10 @@ try {
 [[Back to top]](#) 
 ## get-completed-work-items
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-completed-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -252,10 +272,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Completed Work Items
 
 try {
-    Get-BetaCompletedWorkItems
+    Get-BetaCompletedWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCompletedWorkItems -BetaOwnerId $OwnerId -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaCompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCompletedWorkItems"
     Write-Host $_.ErrorDetails
@@ -264,6 +284,10 @@ try {
 [[Back to top]](#) 
 ## get-count-completed-work-items
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-completed-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -292,10 +316,10 @@ $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 # Count Completed Work Items
 
 try {
-    Get-BetaCountCompletedWorkItems
+    Get-BetaCountCompletedWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCountCompletedWorkItems -BetaOwnerId $OwnerId  
+    # Get-BetaCountCompletedWorkItems -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCountCompletedWorkItems"
     Write-Host $_.ErrorDetails
@@ -304,6 +328,10 @@ try {
 [[Back to top]](#) 
 ## get-count-work-items
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -332,10 +360,10 @@ $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 # Count Work Items
 
 try {
-    Get-BetaCountWorkItems
+    Get-BetaCountWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCountWorkItems -BetaOwnerId $OwnerId  
+    # Get-BetaCountWorkItems -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCountWorkItems"
     Write-Host $_.ErrorDetails
@@ -344,6 +372,10 @@ try {
 [[Back to top]](#) 
 ## get-work-item
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -374,10 +406,10 @@ $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 # Get a Work Item
 
 try {
-    Get-BetaWorkItem -BetaId $Id 
+    Get-BetaWorkItem -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkItem -BetaId $Id -BetaOwnerId $OwnerId  
+    # Get-BetaWorkItem -Id $Id -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItem"
     Write-Host $_.ErrorDetails
@@ -386,6 +418,10 @@ try {
 [[Back to top]](#) 
 ## get-work-items-summary
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-items-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -414,10 +450,10 @@ $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 # Work Items Summary
 
 try {
-    Get-BetaWorkItemsSummary
+    Get-BetaWorkItemsSummary 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkItemsSummary -BetaOwnerId $OwnerId  
+    # Get-BetaWorkItemsSummary -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItemsSummary"
     Write-Host $_.ErrorDetails
@@ -426,6 +462,10 @@ try {
 [[Back to top]](#) 
 ## list-work-items
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-work-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -460,10 +500,10 @@ $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 # List Work Items
 
 try {
-    Get-BetaWorkItems
+    Get-BetaWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaWorkItems -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaOwnerId $OwnerId  
+    # Get-BetaWorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItems"
     Write-Host $_.ErrorDetails
@@ -472,6 +512,10 @@ try {
 [[Back to top]](#) 
 ## reject-approval-item
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -502,10 +546,10 @@ $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the ap
 # Reject an Approval Item
 
 try {
-    Deny-BetaApprovalItem -BetaId $Id  -BetaApprovalItemId $ApprovalItemId 
+    Deny-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
     
     # Below is a request that includes all optional parameters
-    # Deny-BetaApprovalItem -BetaId $Id -BetaApprovalItemId $ApprovalItemId  
+    # Deny-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaApprovalItem"
     Write-Host $_.ErrorDetails
@@ -514,6 +558,10 @@ try {
 [[Back to top]](#) 
 ## reject-approval-items-in-bulk
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-items-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -542,10 +590,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 # Bulk reject Approval Items
 
 try {
-    Deny-BetaApprovalItemsInBulk -BetaId $Id 
+    Deny-BetaApprovalItemsInBulk -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Deny-BetaApprovalItemsInBulk -BetaId $Id  
+    # Deny-BetaApprovalItemsInBulk -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaApprovalItemsInBulk"
     Write-Host $_.ErrorDetails
@@ -554,6 +602,10 @@ try {
 [[Back to top]](#) 
 ## submit-account-selection
 This API submits account selections. Either an admin, or the owning/current user must make this request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-account-selection)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -585,10 +637,10 @@ $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Sele
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Submit-BetaAccountSelection -BetaId $Id  -BetaRequestBody $Result
+    Submit-BetaAccountSelection -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Submit-BetaAccountSelection -BetaId $Id -BetaRequestBody $RequestBody  
+    # Submit-BetaAccountSelection -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaAccountSelection"
     Write-Host $_.ErrorDetails

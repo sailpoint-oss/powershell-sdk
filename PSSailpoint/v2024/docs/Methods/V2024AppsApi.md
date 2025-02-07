@@ -37,6 +37,10 @@ Method | HTTP request | Description
 ## create-source-app
 This endpoint creates a source app using the given source app payload
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-source-app)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -78,10 +82,10 @@ $SourceAppCreateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
-    New-V2024SourceApp -V2024XSailPointExperimental $XSailPointExperimental  -V2024SourceAppCreateDto $Result
+    New-V2024SourceApp -XSailPointExperimental $XSailPointExperimental -V2024SourceAppCreateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceApp -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceAppCreateDto $SourceAppCreateDto  
+    # New-V2024SourceApp -XSailPointExperimental $XSailPointExperimental -V2024SourceAppCreateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceApp"
     Write-Host $_.ErrorDetails
@@ -90,6 +94,10 @@ try {
 [[Back to top]](#) 
 ## delete-access-profiles-from-source-app-by-bulk
 This API returns the final list of access profiles for the specified source app after removing
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-access-profiles-from-source-app-by-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -129,10 +137,10 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-V2024AccessProfilesFromSourceAppByBulk -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024RequestBody $Result
+    Remove-V2024AccessProfilesFromSourceAppByBulk -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024AccessProfilesFromSourceAppByBulk -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024RequestBody $RequestBody -V2024Limit $Limit  
+    # Remove-V2024AccessProfilesFromSourceAppByBulk -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result -Limit $Limit  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024AccessProfilesFromSourceAppByBulk"
     Write-Host $_.ErrorDetails
@@ -141,6 +149,10 @@ try {
 [[Back to top]](#) 
 ## delete-source-app
 Use this API to delete a specific source app
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -173,10 +185,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete source app by ID
 
 try {
-    Remove-V2024SourceApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SourceApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SourceApp"
     Write-Host $_.ErrorDetails
@@ -185,6 +197,10 @@ try {
 [[Back to top]](#) 
 ## get-source-app
 This API returns a source app by its ID.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -218,10 +234,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get source app by ID
 
 try {
-    Get-V2024SourceApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceApp"
     Write-Host $_.ErrorDetails
@@ -230,6 +246,10 @@ try {
 [[Back to top]](#) 
 ## list-access-profiles-for-source-app
 This API returns the list of access profiles for the specified source app
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-profiles-for-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -268,10 +288,10 @@ $Filters = 'name eq "developer access profile"' # String | Filter results using 
 # List access profiles for the specified source app
 
 try {
-    Get-V2024AccessProfilesForSourceApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessProfilesForSourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessProfilesForSourceApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters  
+    # Get-V2024AccessProfilesForSourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessProfilesForSourceApp"
     Write-Host $_.ErrorDetails
@@ -280,6 +300,10 @@ try {
 [[Back to top]](#) 
 ## list-all-source-app
 This API returns the list of all source apps for the org.    
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-all-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -320,10 +344,10 @@ $Filters = 'enabled eq true' # String | Filter results using the standard syntax
 # List all source apps
 
 try {
-    Get-V2024AllSourceApp -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AllSourceApp -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AllSourceApp -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset -V2024Sorters $Sorters -V2024Filters $Filters  
+    # Get-V2024AllSourceApp -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AllSourceApp"
     Write-Host $_.ErrorDetails
@@ -333,6 +357,10 @@ try {
 ## list-all-user-apps
 This API returns the list of all user apps with specified filters.
 This API must be used with **filters** query parameter.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-all-user-apps)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -371,10 +399,10 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List all user apps
 
 try {
-    Get-V2024AllUserApps -V2024Filters $Filters  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AllUserApps -Filters $Filters -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AllUserApps -V2024Filters $Filters -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset  
+    # Get-V2024AllUserApps -Filters $Filters -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AllUserApps"
     Write-Host $_.ErrorDetails
@@ -383,6 +411,10 @@ try {
 [[Back to top]](#) 
 ## list-assigned-source-app
 This API returns the list of source apps assigned for logged in user.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-assigned-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -423,10 +455,10 @@ $Filters = 'name eq "source app name"' # String | Filter results using the stand
 # List assigned source apps
 
 try {
-    Get-V2024AssignedSourceApp -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AssignedSourceApp -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AssignedSourceApp -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset -V2024Sorters $Sorters -V2024Filters $Filters  
+    # Get-V2024AssignedSourceApp -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AssignedSourceApp"
     Write-Host $_.ErrorDetails
@@ -435,6 +467,10 @@ try {
 [[Back to top]](#) 
 ## list-available-accounts-for-user-app
 This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-available-accounts-for-user-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -471,10 +507,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List available accounts for user app
 
 try {
-    Get-V2024AvailableAccountsForUserApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AvailableAccountsForUserApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AvailableAccountsForUserApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count  
+    # Get-V2024AvailableAccountsForUserApp -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AvailableAccountsForUserApp"
     Write-Host $_.ErrorDetails
@@ -483,6 +519,10 @@ try {
 [[Back to top]](#) 
 ## list-available-source-apps
 This API returns the list of source apps available for access request.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-available-source-apps)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -523,10 +563,10 @@ $Filters = 'name eq "source app name"' # String | Filter results using the stand
 # List available source apps
 
 try {
-    Get-V2024AvailableSourceApps -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AvailableSourceApps -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AvailableSourceApps -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset -V2024Sorters $Sorters -V2024Filters $Filters  
+    # Get-V2024AvailableSourceApps -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AvailableSourceApps"
     Write-Host $_.ErrorDetails
@@ -535,6 +575,10 @@ try {
 [[Back to top]](#) 
 ## list-owned-user-apps
 This API returns the list of user apps assigned to logged in user
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-owned-user-apps)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -573,10 +617,10 @@ $Filters = 'name eq "user app name"' # String | Filter results using the standar
 # List owned user apps
 
 try {
-    Get-V2024OwnedUserApps -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024OwnedUserApps -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024OwnedUserApps -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Count $Count -V2024Offset $Offset -V2024Filters $Filters  
+    # Get-V2024OwnedUserApps -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024OwnedUserApps"
     Write-Host $_.ErrorDetails
@@ -587,6 +631,10 @@ try {
 This API updates an existing source app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts** and **accessProfiles**.
 Name, description and owner can't be empty or null.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-source-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -627,10 +675,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch source app by ID
 
 try {
-    Update-V2024SourceApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceApp"
     Write-Host $_.ErrorDetails
@@ -640,6 +688,10 @@ try {
 ## patch-user-app
 This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **account**
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-user-app)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -680,10 +732,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch user app by ID
 
 try {
-    Update-V2024UserApp -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024UserApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024UserApp -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024UserApp -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024UserApp"
     Write-Host $_.ErrorDetails
@@ -694,6 +746,10 @@ try {
 This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  It can update up to 50 source apps in a batch.
 The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**.
 Name, description and owner can't be empty or null.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-source-apps-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -738,10 +794,10 @@ $SourceAppBulkUpdateRequest = @"{
 # Bulk update source apps
 
 try {
-    Update-V2024SourceAppsInBulk -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024SourceAppsInBulk -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceAppsInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024SourceAppBulkUpdateRequest $SourceAppBulkUpdateRequest  
+    # Update-V2024SourceAppsInBulk -XSailPointExperimental $XSailPointExperimental -V2024SourceAppBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceAppsInBulk"
     Write-Host $_.ErrorDetails

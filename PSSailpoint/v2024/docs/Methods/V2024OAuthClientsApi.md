@@ -29,6 +29,10 @@ Method | HTTP request | Description
 ## create-oauth-client
 This creates an OAuth client.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-oauth-client)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -75,10 +79,10 @@ $CreateOAuthClientRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
-    New-V2024OauthClient -V2024CreateOAuthClientRequest $Result
+    New-V2024OauthClient -V2024CreateOAuthClientRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024OauthClient -V2024CreateOAuthClientRequest $CreateOAuthClientRequest  
+    # New-V2024OauthClient -V2024CreateOAuthClientRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024OauthClient"
     Write-Host $_.ErrorDetails
@@ -87,6 +91,10 @@ try {
 [[Back to top]](#) 
 ## delete-oauth-client
 This deletes an OAuth client.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -118,10 +126,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Delete OAuth Client
 
 try {
-    Remove-V2024OauthClient -V2024Id $Id 
+    Remove-V2024OauthClient -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024OauthClient -V2024Id $Id  
+    # Remove-V2024OauthClient -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024OauthClient"
     Write-Host $_.ErrorDetails
@@ -130,6 +138,10 @@ try {
 [[Back to top]](#) 
 ## get-oauth-client
 This gets details of an OAuth client.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -161,10 +173,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 # Get OAuth Client
 
 try {
-    Get-V2024OauthClient -V2024Id $Id 
+    Get-V2024OauthClient -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024OauthClient -V2024Id $Id  
+    # Get-V2024OauthClient -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024OauthClient"
     Write-Host $_.ErrorDetails
@@ -173,6 +185,10 @@ try {
 [[Back to top]](#) 
 ## list-oauth-clients
 This gets a list of OAuth clients.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-oauth-clients)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -203,10 +219,10 @@ $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results usin
 # List OAuth Clients
 
 try {
-    Get-V2024OauthClients
+    Get-V2024OauthClients 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024OauthClients -V2024Filters $Filters  
+    # Get-V2024OauthClients -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024OauthClients"
     Write-Host $_.ErrorDetails
@@ -215,6 +231,10 @@ try {
 [[Back to top]](#) 
 ## patch-oauth-client
 This performs a targeted update to the field(s) of an OAuth client.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-oauth-client)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -254,10 +274,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024OauthClient -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024OauthClient -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024OauthClient -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024OauthClient -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024OauthClient"
     Write-Host $_.ErrorDetails

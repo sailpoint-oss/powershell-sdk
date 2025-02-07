@@ -36,6 +36,10 @@ Method | HTTP request | Description
 ## create-workgroup
 This API creates a new Governance Group.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workgroup)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -83,10 +87,10 @@ $WorkgroupDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
-    New-V2024Workgroup -V2024XSailPointExperimental $XSailPointExperimental  -V2024WorkgroupDto $Result
+    New-V2024Workgroup -XSailPointExperimental $XSailPointExperimental -V2024WorkgroupDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Workgroup -V2024XSailPointExperimental $XSailPointExperimental -V2024WorkgroupDto $WorkgroupDto  
+    # New-V2024Workgroup -XSailPointExperimental $XSailPointExperimental -V2024WorkgroupDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -95,6 +99,10 @@ try {
 [[Back to top]](#) 
 ## delete-workgroup
 This API deletes a Governance Group by its ID.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workgroup)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -127,10 +135,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete a Governance Group
 
 try {
-    Remove-V2024Workgroup -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Workgroup -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -142,6 +150,10 @@ This API removes one or more  members from a Governance Group.  A
 >  **Following field of Identity is an optional field in the request.**
 
 >  **name**
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workgroup-members)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -178,10 +190,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-    Remove-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityPreviewResponseIdentity $Result
+    Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $IdentityPreviewResponseIdentity  
+    # Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024WorkgroupMembers"
     Write-Host $_.ErrorDetails
@@ -201,6 +213,10 @@ This API initiates a bulk deletion of one or more Governance Groups.
 >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it. 
 
 >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workgroups-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -236,10 +252,10 @@ $WorkgroupBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-    Remove-V2024WorkgroupsInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024WorkgroupBulkDeleteRequest $Result
+    Remove-V2024WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -V2024WorkgroupBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024WorkgroupsInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024WorkgroupBulkDeleteRequest $WorkgroupBulkDeleteRequest  
+    # Remove-V2024WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -V2024WorkgroupBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024WorkgroupsInBulk"
     Write-Host $_.ErrorDetails
@@ -248,6 +264,10 @@ try {
 [[Back to top]](#) 
 ## get-workgroup
 This API returns a Governance Groups by its ID.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workgroup)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -280,10 +300,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Governance Group by Id
 
 try {
-    Get-V2024Workgroup -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Workgroup -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -292,6 +312,10 @@ try {
 [[Back to top]](#) 
 ## list-connections
 This API returns list of connections associated with a Governance Group.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-connections)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -332,10 +356,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List connections for Governance Group
 
 try {
-    Get-V2024Connections -V2024WorkgroupId $WorkgroupId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Connections -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Connections -V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters  
+    # Get-V2024Connections -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Connections"
     Write-Host $_.ErrorDetails
@@ -344,6 +368,10 @@ try {
 [[Back to top]](#) 
 ## list-workgroup-members
 This API returns list of members associated with a Governance Group.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workgroup-members)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -384,10 +412,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Governance Group Members
 
 try {
-    Get-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Sorters $Sorters  
+    # Get-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkgroupMembers"
     Write-Host $_.ErrorDetails
@@ -396,6 +424,10 @@ try {
 [[Back to top]](#) 
 ## list-workgroups
 This API returns list of Governance Groups
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workgroups)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -436,10 +468,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Governance Groups
 
 try {
-    Get-V2024Workgroups -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Workgroups -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Workgroups -V2024XSailPointExperimental $XSailPointExperimental -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024Workgroups -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workgroups"
     Write-Host $_.ErrorDetails
@@ -451,6 +483,10 @@ This API updates an existing governance group by ID. The following fields and ob
 * name
 * description
 * owner
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-workgroup)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -490,10 +526,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch a Governance Group
 
 try {
-    Update-V2024Workgroup -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Update-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Workgroup -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -506,6 +542,10 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 >  **Following field of Identity is an optional field in the request.**
 
 >  **name**
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-workgroup-members)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -542,10 +582,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-    Update-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId  -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityPreviewResponseIdentity $Result
+    Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024WorkgroupMembers -V2024WorkgroupId $WorkgroupId -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $IdentityPreviewResponseIdentity  
+    # Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -V2024IdentityPreviewResponseIdentity $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024WorkgroupMembers"
     Write-Host $_.ErrorDetails

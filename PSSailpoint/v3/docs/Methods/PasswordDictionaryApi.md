@@ -98,6 +98,10 @@ qazxsws
 
 ```
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-dictionary)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -126,7 +130,7 @@ Code | Description  | Data Type
 # Get Password Dictionary
 
 try {
-    Get-PasswordDictionary
+    Get-PasswordDictionary 
     
     # Below is a request that includes all optional parameters
     # Get-PasswordDictionary  
@@ -167,6 +171,10 @@ qazxsws
 
 ```
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-password-dictionary)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -198,7 +206,7 @@ $File =  # System.IO.FileInfo |  (optional)
 # Update Password Dictionary
 
 try {
-    Send-PasswordDictionary
+    Send-PasswordDictionary 
     
     # Below is a request that includes all optional parameters
     # Send-PasswordDictionary -File $File  

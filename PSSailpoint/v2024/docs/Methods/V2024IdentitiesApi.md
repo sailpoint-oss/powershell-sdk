@@ -47,6 +47,10 @@ Method | HTTP request | Description
 ## delete-identity
 The API returns successful response if the requested identity was deleted.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -79,10 +83,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete identity
 
 try {
-    Remove-V2024Identity -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Identity -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Identity"
     Write-Host $_.ErrorDetails
@@ -91,6 +95,10 @@ try {
 [[Back to top]](#) 
 ## get-identity
 This API returns a single identity using the Identity ID.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -124,10 +132,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Identity Details
 
 try {
-    Get-V2024Identity -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Identity -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Identity"
     Write-Host $_.ErrorDetails
@@ -138,6 +146,10 @@ try {
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
 For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-ownership-details)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -171,10 +183,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get ownership details
 
 try {
-    Get-V2024IdentityOwnershipDetails -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityOwnershipDetails -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityOwnershipDetails -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024IdentityOwnershipDetails -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityOwnershipDetails"
     Write-Host $_.ErrorDetails
@@ -183,6 +195,10 @@ try {
 [[Back to top]](#) 
 ## get-role-assignment
 
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-assignment)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -218,10 +234,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Role assignment details
 
 try {
-    Get-V2024RoleAssignment -V2024IdentityId $IdentityId  -V2024AssignmentId $AssignmentId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RoleAssignment -V2024IdentityId $IdentityId -V2024AssignmentId $AssignmentId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleAssignment"
     Write-Host $_.ErrorDetails
@@ -230,6 +246,10 @@ try {
 [[Back to top]](#) 
 ## get-role-assignments
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-assignments)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -267,10 +287,10 @@ $RoleName = "Engineer" # String | Role name to filter the role assignments with 
 # List role assignments
 
 try {
-    Get-V2024RoleAssignments -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleAssignments -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RoleAssignments -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental -V2024RoleId $RoleId -V2024RoleName $RoleName  
+    # Get-V2024RoleAssignments -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -RoleId $RoleId -RoleName $RoleName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleAssignments"
     Write-Host $_.ErrorDetails
@@ -279,6 +299,10 @@ try {
 [[Back to top]](#) 
 ## list-identities
 This API returns a list of identities.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -321,10 +345,10 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List Identities
 
 try {
-    Get-V2024Identities -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Identities -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Identities -V2024XSailPointExperimental $XSailPointExperimental -V2024Filters $Filters -V2024Sorters $Sorters -V2024DefaultFilter $DefaultFilter -V2024Count $Count -V2024Limit $Limit -V2024Offset $Offset  
+    # Get-V2024Identities -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Identities"
     Write-Host $_.ErrorDetails
@@ -333,6 +357,10 @@ try {
 [[Back to top]](#) 
 ## reset-identity
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/reset-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -366,10 +394,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Reset an identity
 
 try {
-    Reset-V2024Identity -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Reset-V2024Identity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Reset-V2024Identity -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Reset-V2024Identity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-V2024Identity"
     Write-Host $_.ErrorDetails
@@ -379,6 +407,10 @@ try {
 ## send-identity-verification-account-token
 This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
 
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/send-identity-verification-account-token)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -418,10 +450,10 @@ $SendAccountVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
-    Send-V2024IdentityVerificationAccountToken -V2024XSailPointExperimental $XSailPointExperimental  -V2024Id $Id  -V2024SendAccountVerificationRequest $Result
+    Send-V2024IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -V2024SendAccountVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024IdentityVerificationAccountToken -V2024XSailPointExperimental $XSailPointExperimental -V2024Id $Id -V2024SendAccountVerificationRequest $SendAccountVerificationRequest  
+    # Send-V2024IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -V2024SendAccountVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024IdentityVerificationAccountToken"
     Write-Host $_.ErrorDetails
@@ -435,6 +467,10 @@ This task will send an invitation email only for unregistered identities.
 
 The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status).
 
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-identities-invite)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -472,10 +508,10 @@ $InviteIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-    Start-V2024IdentitiesInvite -V2024XSailPointExperimental $XSailPointExperimental  -V2024InviteIdentitiesRequest $Result
+    Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -V2024InviteIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024IdentitiesInvite -V2024XSailPointExperimental $XSailPointExperimental -V2024InviteIdentitiesRequest $InviteIdentitiesRequest  
+    # Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -V2024InviteIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024IdentitiesInvite"
     Write-Host $_.ErrorDetails
@@ -491,6 +527,10 @@ This endpoint will perform the following tasks:
 3. Enforce provisioning for any assigned accesses that haven't been fulfilled (e.g. failure due to source health).
 4. Recalculate manager relationships.
 5. Potentially clean-up identity processing errors, assuming the error has been resolved.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-identity-processing)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -527,10 +567,10 @@ $ProcessIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
-    Start-V2024IdentityProcessing -V2024XSailPointExperimental $XSailPointExperimental  -V2024ProcessIdentitiesRequest $Result
+    Start-V2024IdentityProcessing -XSailPointExperimental $XSailPointExperimental -V2024ProcessIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024IdentityProcessing -V2024XSailPointExperimental $XSailPointExperimental -V2024ProcessIdentitiesRequest $ProcessIdentitiesRequest  
+    # Start-V2024IdentityProcessing -XSailPointExperimental $XSailPointExperimental -V2024ProcessIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024IdentityProcessing"
     Write-Host $_.ErrorDetails
@@ -539,6 +579,10 @@ try {
 [[Back to top]](#) 
 ## synchronize-attributes-for-identity
 This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/synchronize-attributes-for-identity)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -572,10 +616,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Attribute synchronization for single identity.
 
 try {
-    Sync-V2024hronizeAttributesForIdentity -V2024IdentityId $IdentityId  -V2024XSailPointExperimental $XSailPointExperimental 
+    Sync-V2024hronizeAttributesForIdentity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Sync-V2024hronizeAttributesForIdentity -V2024IdentityId $IdentityId -V2024XSailPointExperimental $XSailPointExperimental  
+    # Sync-V2024hronizeAttributesForIdentity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-V2024hronizeAttributesForIdentity"
     Write-Host $_.ErrorDetails

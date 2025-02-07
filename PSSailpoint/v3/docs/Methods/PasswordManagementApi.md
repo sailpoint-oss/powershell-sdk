@@ -48,6 +48,10 @@ Method | HTTP request | Description
 ## get-password-change-status
 This API returns the status of a password change request.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-change-status)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -92,6 +96,10 @@ try {
 This API is used to query password related information. 
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/query-password-info)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -125,10 +133,10 @@ $PasswordInfoQueryDTO = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-    Search-PasswordInfo -PasswordInfoQueryDTO $Result
+    Search-PasswordInfo -PasswordInfoQueryDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-PasswordInfo -PasswordInfoQueryDTO $PasswordInfoQueryDTO  
+    # Search-PasswordInfo -PasswordInfoQueryDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-PasswordInfo"
     Write-Host $_.ErrorDetails
@@ -156,6 +164,10 @@ If you are using a Windows machine, refer to this [guide](https://tecadmin.net/i
 
 You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password. 
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-password)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -193,10 +205,10 @@ $PasswordChangeRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-    Set-Password -PasswordChangeRequest $Result
+    Set-Password -PasswordChangeRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-Password -PasswordChangeRequest $PasswordChangeRequest  
+    # Set-Password -PasswordChangeRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-Password"
     Write-Host $_.ErrorDetails

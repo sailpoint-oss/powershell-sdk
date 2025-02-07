@@ -36,6 +36,10 @@ Method | HTTP request | Description
 ## create-domain-dkim
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-domain-dkim)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -71,10 +75,10 @@ $DomainAddress = @"{
 
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
-    New-V2024DomainDkim -V2024XSailPointExperimental $XSailPointExperimental  -V2024DomainAddress $Result
+    New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -V2024DomainAddress $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024DomainDkim -V2024XSailPointExperimental $XSailPointExperimental -V2024DomainAddress $DomainAddress  
+    # New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -V2024DomainAddress $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024DomainDkim"
     Write-Host $_.ErrorDetails
@@ -85,6 +89,10 @@ try {
 This creates a template for your site. 
 
 You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-notification-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -135,10 +143,10 @@ $TemplateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
-    New-V2024NotificationTemplate -V2024XSailPointExperimental $XSailPointExperimental  -V2024TemplateDto $Result
+    New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -V2024TemplateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024NotificationTemplate -V2024XSailPointExperimental $XSailPointExperimental -V2024TemplateDto $TemplateDto  
+    # New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -V2024TemplateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024NotificationTemplate"
     Write-Host $_.ErrorDetails
@@ -147,6 +155,10 @@ try {
 [[Back to top]](#) 
 ## create-verified-from-address
 Create a new sender email address and initiate verification process.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-verified-from-address)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -185,10 +197,10 @@ $EmailStatusDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
-    New-V2024VerifiedFromAddress -V2024XSailPointExperimental $XSailPointExperimental  -V2024EmailStatusDto $Result
+    New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -V2024EmailStatusDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024VerifiedFromAddress -V2024XSailPointExperimental $XSailPointExperimental -V2024EmailStatusDto $EmailStatusDto  
+    # New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -V2024EmailStatusDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024VerifiedFromAddress"
     Write-Host $_.ErrorDetails
@@ -197,6 +209,10 @@ try {
 [[Back to top]](#) 
 ## delete-notification-templates-in-bulk
 This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-notification-templates-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -235,10 +251,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
-    Remove-V2024NotificationTemplatesInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024TemplateBulkDeleteDto $Result
+    Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -V2024TemplateBulkDeleteDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NotificationTemplatesInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024TemplateBulkDeleteDto $TemplateBulkDeleteDto  
+    # Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -V2024TemplateBulkDeleteDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NotificationTemplatesInBulk"
     Write-Host $_.ErrorDetails
@@ -247,6 +263,10 @@ try {
 [[Back to top]](#) 
 ## delete-verified-from-address
 Delete a verified sender email address
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-verified-from-address)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -280,10 +300,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Verified From Address
 
 try {
-    Remove-V2024VerifiedFromAddress -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024VerifiedFromAddress -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024VerifiedFromAddress -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024VerifiedFromAddress -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024VerifiedFromAddress"
     Write-Host $_.ErrorDetails
@@ -292,6 +312,10 @@ try {
 [[Back to top]](#) 
 ## get-dkim-attributes
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-dkim-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -322,10 +346,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get DKIM Attributes
 
 try {
-    Get-V2024DkimAttributes -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024DkimAttributes -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DkimAttributes -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024DkimAttributes -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DkimAttributes"
     Write-Host $_.ErrorDetails
@@ -334,6 +358,10 @@ try {
 [[Back to top]](#) 
 ## get-mail-from-attributes
 Retrieve MAIL FROM attributes for a given AWS SES identity.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mail-from-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -366,10 +394,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get MAIL FROM Attributes
 
 try {
-    Get-V2024MailFromAttributes -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024MailFromAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024MailFromAttributes -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024MailFromAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MailFromAttributes"
     Write-Host $_.ErrorDetails
@@ -378,6 +406,10 @@ try {
 [[Back to top]](#) 
 ## get-notification-template
 This gets a template that you have modified for your site by Id.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-notification-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -410,10 +442,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Notification Template By Id
 
 try {
-    Get-V2024NotificationTemplate -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationTemplate -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NotificationTemplate -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024NotificationTemplate -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationTemplate"
     Write-Host $_.ErrorDetails
@@ -423,6 +455,10 @@ try {
 ## get-notifications-template-context
 The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
  that will be available per tenant (organization).
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-notifications-template-context)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -453,10 +489,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Notification Template Context
 
 try {
-    Get-V2024NotificationsTemplateContext -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationsTemplateContext -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NotificationsTemplateContext -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024NotificationsTemplateContext -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationsTemplateContext"
     Write-Host $_.ErrorDetails
@@ -465,6 +501,10 @@ try {
 [[Back to top]](#) 
 ## list-from-addresses
 Retrieve a list of sender email addresses and their verification statuses
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-from-addresses)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -504,10 +544,10 @@ $Sorters = "email" # String | Sort results using the standard syntax described i
 # List From Addresses
 
 try {
-    Get-V2024FromAddresses -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024FromAddresses -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024FromAddresses -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024FromAddresses -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024FromAddresses"
     Write-Host $_.ErrorDetails
@@ -516,6 +556,10 @@ try {
 [[Back to top]](#) 
 ## list-notification-preferences
 Returns a list of notification preferences for tenant.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-preferences)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -547,10 +591,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List Notification Preferences for tenant.
 
 try {
-    Get-V2024NotificationPreferences -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationPreferences -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NotificationPreferences -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024NotificationPreferences -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationPreferences"
     Write-Host $_.ErrorDetails
@@ -559,6 +603,10 @@ try {
 [[Back to top]](#) 
 ## list-notification-template-defaults
 This lists the default templates used for notifications, such as emails from IdentityNow.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-template-defaults)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -595,10 +643,10 @@ $Filters = 'key eq "cloud_manual_work_item_summary"' # String | Filter results u
 # List Notification Template Defaults
 
 try {
-    Get-V2024NotificationTemplateDefaults -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationTemplateDefaults -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NotificationTemplateDefaults -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters  
+    # Get-V2024NotificationTemplateDefaults -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationTemplateDefaults"
     Write-Host $_.ErrorDetails
@@ -607,6 +655,10 @@ try {
 [[Back to top]](#) 
 ## list-notification-templates
 This lists the templates that you have modified for your site.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-templates)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -643,10 +695,10 @@ $Filters = 'medium eq "EMAIL"' # String | Filter results using the standard synt
 # List Notification Templates
 
 try {
-    Get-V2024NotificationTemplates -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NotificationTemplates -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NotificationTemplates -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Filters $Filters  
+    # Get-V2024NotificationTemplates -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationTemplates"
     Write-Host $_.ErrorDetails
@@ -655,6 +707,10 @@ try {
 [[Back to top]](#) 
 ## put-mail-from-attributes
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-mail-from-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -691,10 +747,10 @@ $MailFromAttributesDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
-    Send-V2024MailFromAttributes -V2024XSailPointExperimental $XSailPointExperimental  -V2024MailFromAttributesDto $Result
+    Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -V2024MailFromAttributesDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024MailFromAttributes -V2024XSailPointExperimental $XSailPointExperimental -V2024MailFromAttributesDto $MailFromAttributesDto  
+    # Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -V2024MailFromAttributesDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024MailFromAttributes"
     Write-Host $_.ErrorDetails
@@ -703,6 +759,10 @@ try {
 [[Back to top]](#) 
 ## send-test-notification
 Send a Test Notification
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/send-test-notification)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -741,10 +801,10 @@ $SendTestNotificationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
-    Send-V2024TestNotification -V2024XSailPointExperimental $XSailPointExperimental  -V2024SendTestNotificationRequestDto $Result
+    Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -V2024SendTestNotificationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024TestNotification -V2024XSailPointExperimental $XSailPointExperimental -V2024SendTestNotificationRequestDto $SendTestNotificationRequestDto  
+    # Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -V2024SendTestNotificationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024TestNotification"
     Write-Host $_.ErrorDetails

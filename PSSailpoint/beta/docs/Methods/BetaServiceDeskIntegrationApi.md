@@ -55,6 +55,10 @@ Method | HTTP request | Description
 ## create-service-desk-integration
 Create a new Service Desk integration.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-service-desk-integration)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -116,10 +120,10 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $Result
+    New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
+    # New-BetaServiceDeskIntegration -BetaServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -128,6 +132,10 @@ try {
 [[Back to top]](#) 
 ## delete-service-desk-integration
 Delete an existing Service Desk integration by ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -159,10 +167,10 @@ $Id = "anId" # String | ID of Service Desk integration to delete
 # Delete a Service Desk integration
 
 try {
-    Remove-BetaServiceDeskIntegration -BetaId $Id 
+    Remove-BetaServiceDeskIntegration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaServiceDeskIntegration -BetaId $Id  
+    # Remove-BetaServiceDeskIntegration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -171,6 +179,10 @@ try {
 [[Back to top]](#) 
 ## get-service-desk-integration
 Get an existing Service Desk integration by ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -202,10 +214,10 @@ $Id = "anId" # String | ID of the Service Desk integration to get
 # Get a Service Desk integration
 
 try {
-    Get-BetaServiceDeskIntegration -BetaId $Id 
+    Get-BetaServiceDeskIntegration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaServiceDeskIntegration -BetaId $Id  
+    # Get-BetaServiceDeskIntegration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -214,6 +226,10 @@ try {
 [[Back to top]](#) 
 ## get-service-desk-integration-list
 Get a list of Service Desk integration objects.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-list)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -253,10 +269,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List existing Service Desk integrations
 
 try {
-    Get-BetaServiceDeskIntegrationList
+    Get-BetaServiceDeskIntegrationList 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaServiceDeskIntegrationList -BetaOffset $Offset -BetaLimit $Limit -BetaSorters $Sorters -BetaFilters $Filters -BetaCount $Count  
+    # Get-BetaServiceDeskIntegrationList -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegrationList"
     Write-Host $_.ErrorDetails
@@ -265,6 +281,10 @@ try {
 [[Back to top]](#) 
 ## get-service-desk-integration-template
 This API endpoint returns an existing Service Desk integration template by scriptName.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -296,10 +316,10 @@ $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk 
 # Service Desk integration template by scriptName
 
 try {
-    Get-BetaServiceDeskIntegrationTemplate -BetaScriptName $ScriptName 
+    Get-BetaServiceDeskIntegrationTemplate -ScriptName $ScriptName 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaServiceDeskIntegrationTemplate -BetaScriptName $ScriptName  
+    # Get-BetaServiceDeskIntegrationTemplate -ScriptName $ScriptName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegrationTemplate"
     Write-Host $_.ErrorDetails
@@ -308,6 +328,10 @@ try {
 [[Back to top]](#) 
 ## get-service-desk-integration-types
 This API endpoint returns the current list of supported Service Desk integration types.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-types)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -337,7 +361,7 @@ Code | Description  | Data Type
 # List Service Desk integration types
 
 try {
-    Get-BetaServiceDeskIntegrationTypes
+    Get-BetaServiceDeskIntegrationTypes 
     
     # Below is a request that includes all optional parameters
     # Get-BetaServiceDeskIntegrationTypes  
@@ -349,6 +373,10 @@ try {
 [[Back to top]](#) 
 ## get-status-check-details
 Get the time check configuration of queued SDIM tickets.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-status-check-details)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -378,7 +406,7 @@ Code | Description  | Data Type
 # Get the time check configuration
 
 try {
-    Get-BetaStatusCheckDetails
+    Get-BetaStatusCheckDetails 
     
     # Below is a request that includes all optional parameters
     # Get-BetaStatusCheckDetails  
@@ -390,6 +418,10 @@ try {
 [[Back to top]](#) 
 ## patch-service-desk-integration
 Update an existing Service Desk integration by ID with a PATCH request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -424,10 +456,10 @@ $PatchServiceDeskIntegrationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-BetaServiceDeskIntegration -BetaId $Id  -BetaPatchServiceDeskIntegrationRequest $Result
+    Update-BetaServiceDeskIntegration -Id $Id -BetaPatchServiceDeskIntegrationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaServiceDeskIntegration -BetaId $Id -BetaPatchServiceDeskIntegrationRequest $PatchServiceDeskIntegrationRequest  
+    # Update-BetaServiceDeskIntegration -Id $Id -BetaPatchServiceDeskIntegrationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -436,6 +468,10 @@ try {
 [[Back to top]](#) 
 ## put-service-desk-integration
 Update an existing Service Desk integration by ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -500,10 +536,10 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    Send-BetaServiceDeskIntegration -BetaId $Id  -BetaServiceDeskIntegrationDto $Result
+    Send-BetaServiceDeskIntegration -Id $Id -BetaServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaServiceDeskIntegration -BetaId $Id -BetaServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
+    # Send-BetaServiceDeskIntegration -Id $Id -BetaServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -512,6 +548,10 @@ try {
 [[Back to top]](#) 
 ## update-status-check-details
 Update the time check configuration of queued SDIM tickets.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-status-check-details)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -547,10 +587,10 @@ $QueuedCheckConfigDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-    Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $Result
+    Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $QueuedCheckConfigDetails  
+    # Update-BetaStatusCheckDetails -BetaQueuedCheckConfigDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaStatusCheckDetails"
     Write-Host $_.ErrorDetails

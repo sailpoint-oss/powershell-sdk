@@ -26,6 +26,10 @@ Method | HTTP request | Description
 ## get-approval
 Get a single approval for a given approval ID. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and doesn't include access-request-approvals.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-approval)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -55,10 +59,10 @@ $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that 
 # Get Approval
 
 try {
-    Get-BetaApproval -BetaId $Id 
+    Get-BetaApproval -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaApproval -BetaId $Id  
+    # Get-BetaApproval -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaApproval"
     Write-Host $_.ErrorDetails
@@ -68,6 +72,10 @@ try {
 ## get-approvals
 Get a list of approvals, which can be filtered by requester ID, status, or reference type. You can use the "Mine" query parameter to return all approvals for the current approver. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
 Absence of all query parameters will will default to mine=true.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-approvals)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -102,10 +110,10 @@ $Filters = 'filters=status eq PENDING' # String | Filter results using the stand
 # Get Approvals
 
 try {
-    Get-BetaApprovals
+    Get-BetaApprovals 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaApprovals -BetaMine $Mine -BetaRequesterId $RequesterId -BetaFilters $Filters  
+    # Get-BetaApprovals -Mine $Mine -RequesterId $RequesterId -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaApprovals"
     Write-Host $_.ErrorDetails

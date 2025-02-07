@@ -30,6 +30,10 @@ Method | HTTP request | Description
 ## create-launcher
 Create a Launcher with given information
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-launcher)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -71,10 +75,10 @@ $LauncherRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
-    New-BetaLauncher -BetaLauncherRequest $Result
+    New-BetaLauncher -BetaLauncherRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaLauncher -BetaLauncherRequest $LauncherRequest  
+    # New-BetaLauncher -BetaLauncherRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaLauncher"
     Write-Host $_.ErrorDetails
@@ -83,6 +87,10 @@ try {
 [[Back to top]](#) 
 ## delete-launcher
 Delete the given Launcher ID
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-launcher)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -114,10 +122,10 @@ $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launch
 # Delete Launcher
 
 try {
-    Remove-BetaLauncher -BetaLauncherID $LauncherID 
+    Remove-BetaLauncher -LauncherID $LauncherID 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaLauncher -BetaLauncherID $LauncherID  
+    # Remove-BetaLauncher -LauncherID $LauncherID  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaLauncher"
     Write-Host $_.ErrorDetails
@@ -126,6 +134,10 @@ try {
 [[Back to top]](#) 
 ## get-launcher
 Get details for the given Launcher ID
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-launcher)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,10 +169,10 @@ $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launch
 # Get Launcher by ID
 
 try {
-    Get-BetaLauncher -BetaLauncherID $LauncherID 
+    Get-BetaLauncher -LauncherID $LauncherID 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaLauncher -BetaLauncherID $LauncherID  
+    # Get-BetaLauncher -LauncherID $LauncherID  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaLauncher"
     Write-Host $_.ErrorDetails
@@ -169,6 +181,10 @@ try {
 [[Back to top]](#) 
 ## get-launchers
 Return a list of Launchers for the authenticated tenant
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-launchers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -204,10 +220,10 @@ $Limit = 42 # Int32 | Number of Launchers to return (optional) (default to 10)
 # List all Launchers for tenant
 
 try {
-    Get-BetaLaunchers
+    Get-BetaLaunchers 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaLaunchers -BetaFilters $Filters -BetaNext $Next -BetaLimit $Limit  
+    # Get-BetaLaunchers -Filters $Filters -Next $Next -Limit $Limit  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaLaunchers"
     Write-Host $_.ErrorDetails
@@ -216,6 +232,10 @@ try {
 [[Back to top]](#) 
 ## put-launcher
 Replace the given Launcher ID with given payload
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-launcher)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -260,10 +280,10 @@ $LauncherRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
-    Send-BetaLauncher -BetaLauncherID $LauncherID  -BetaLauncherRequest $Result
+    Send-BetaLauncher -LauncherID $LauncherID -BetaLauncherRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaLauncher -BetaLauncherID $LauncherID -BetaLauncherRequest $LauncherRequest  
+    # Send-BetaLauncher -LauncherID $LauncherID -BetaLauncherRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaLauncher"
     Write-Host $_.ErrorDetails
@@ -272,6 +292,10 @@ try {
 [[Back to top]](#) 
 ## start-launcher
 Launch the given Launcher ID
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-launcher)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -303,10 +327,10 @@ $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launch
 # Launch a Launcher
 
 try {
-    Start-BetaLauncher -BetaLauncherID $LauncherID 
+    Start-BetaLauncher -LauncherID $LauncherID 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaLauncher -BetaLauncherID $LauncherID  
+    # Start-BetaLauncher -LauncherID $LauncherID  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaLauncher"
     Write-Host $_.ErrorDetails

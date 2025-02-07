@@ -55,6 +55,10 @@ Method | HTTP request | Description
 ## create-service-desk-integration
 Create a new Service Desk integration.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-service-desk-integration)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -119,10 +123,10 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    New-ServiceDeskIntegration -ServiceDeskIntegrationDto $Result
+    New-ServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-ServiceDeskIntegration -ServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
+    # New-ServiceDeskIntegration -ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -131,6 +135,10 @@ try {
 [[Back to top]](#) 
 ## delete-service-desk-integration
 Delete an existing Service Desk integration by ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -175,6 +183,10 @@ try {
 ## get-service-desk-integration
 Get an existing Service Desk integration by ID.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-service-desk-integration)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -217,6 +229,10 @@ try {
 [[Back to top]](#) 
 ## get-service-desk-integration-template
 This API endpoint returns an existing Service Desk integration template by scriptName.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-service-desk-integration-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -261,6 +277,10 @@ try {
 ## get-service-desk-integration-types
 This API endpoint returns the current list of supported Service Desk integration types.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-service-desk-integration-types)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -289,7 +309,7 @@ Code | Description  | Data Type
 # List Service Desk integration types
 
 try {
-    Get-ServiceDeskIntegrationTypes
+    Get-ServiceDeskIntegrationTypes 
     
     # Below is a request that includes all optional parameters
     # Get-ServiceDeskIntegrationTypes  
@@ -301,6 +321,10 @@ try {
 [[Back to top]](#) 
 ## get-service-desk-integrations
 Get a list of Service Desk integration objects.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-service-desk-integrations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -340,7 +364,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List existing Service Desk integrations
 
 try {
-    Get-ServiceDeskIntegrations
+    Get-ServiceDeskIntegrations 
     
     # Below is a request that includes all optional parameters
     # Get-ServiceDeskIntegrations -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count  
@@ -352,6 +376,10 @@ try {
 [[Back to top]](#) 
 ## get-status-check-details
 Get the time check configuration of queued SDIM tickets.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-status-check-details)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -381,7 +409,7 @@ Code | Description  | Data Type
 # Get the time check configuration
 
 try {
-    Get-StatusCheckDetails
+    Get-StatusCheckDetails 
     
     # Below is a request that includes all optional parameters
     # Get-StatusCheckDetails  
@@ -393,6 +421,10 @@ try {
 [[Back to top]](#) 
 ## patch-service-desk-integration
 Update an existing Service Desk integration by ID with a PATCH request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -427,10 +459,10 @@ $PatchServiceDeskIntegrationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-ServiceDeskIntegration -Id $Id  -PatchServiceDeskIntegrationRequest $Result
+    Update-ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $PatchServiceDeskIntegrationRequest  
+    # Update-ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -439,6 +471,10 @@ try {
 [[Back to top]](#) 
 ## put-service-desk-integration
 Update an existing Service Desk integration by ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/put-service-desk-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -506,10 +542,10 @@ $ServiceDeskIntegrationDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-    Send-ServiceDeskIntegration -Id $Id  -ServiceDeskIntegrationDto $Result
+    Send-ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $ServiceDeskIntegrationDto  
+    # Send-ServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -518,6 +554,10 @@ try {
 [[Back to top]](#) 
 ## update-status-check-details
 Update the time check configuration of queued SDIM tickets.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-status-check-details)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -553,10 +593,10 @@ $QueuedCheckConfigDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-    Update-StatusCheckDetails -QueuedCheckConfigDetails $Result
+    Update-StatusCheckDetails -QueuedCheckConfigDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-StatusCheckDetails -QueuedCheckConfigDetails $QueuedCheckConfigDetails  
+    # Update-StatusCheckDetails -QueuedCheckConfigDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StatusCheckDetails"
     Write-Host $_.ErrorDetails

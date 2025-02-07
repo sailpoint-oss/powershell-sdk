@@ -53,6 +53,10 @@ Method | HTTP request | Description
 ## create-campaign-filter
 Use this API to create a campaign filter based on filter details and criteria.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-campaign-filter)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -100,10 +104,10 @@ $CampaignFilterDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    New-V2024CampaignFilter -V2024CampaignFilterDetails $Result
+    New-V2024CampaignFilter -V2024CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CampaignFilter -V2024CampaignFilterDetails $CampaignFilterDetails  
+    # New-V2024CampaignFilter -V2024CampaignFilterDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CampaignFilter"
     Write-Host $_.ErrorDetails
@@ -112,6 +116,10 @@ try {
 [[Back to top]](#) 
 ## delete-campaign-filters
 Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-campaign-filters)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -146,10 +154,10 @@ $RequestBody = "MyRequestBody" # String[] | A json list of IDs of campaign filte
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-V2024CampaignFilters -V2024RequestBody $Result
+    Remove-V2024CampaignFilters -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024CampaignFilters -V2024RequestBody $RequestBody  
+    # Remove-V2024CampaignFilters -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024CampaignFilters"
     Write-Host $_.ErrorDetails
@@ -158,6 +166,10 @@ try {
 [[Back to top]](#) 
 ## get-campaign-filter-by-id
 Retrieves information for an existing campaign filter using the filter's ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-campaign-filter-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -189,10 +201,10 @@ $Id = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filte
 # Get Campaign Filter by ID
 
 try {
-    Get-V2024CampaignFilterById -V2024Id $Id 
+    Get-V2024CampaignFilterById -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CampaignFilterById -V2024Id $Id  
+    # Get-V2024CampaignFilterById -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CampaignFilterById"
     Write-Host $_.ErrorDetails
@@ -201,6 +213,10 @@ try {
 [[Back to top]](#) 
 ## list-campaign-filters
 Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-campaign-filters)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -235,10 +251,10 @@ $IncludeSystemFilters = $true # Boolean | If this is true, the API includes syst
 # List Campaign Filters
 
 try {
-    Get-V2024CampaignFilters
+    Get-V2024CampaignFilters 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CampaignFilters -V2024Limit $Limit -V2024Start $Start -V2024IncludeSystemFilters $IncludeSystemFilters  
+    # Get-V2024CampaignFilters -Limit $Limit -Start $Start -IncludeSystemFilters $IncludeSystemFilters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CampaignFilters"
     Write-Host $_.ErrorDetails
@@ -247,6 +263,10 @@ try {
 [[Back to top]](#) 
 ## update-campaign-filter
 Updates an existing campaign filter using the filter's ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-campaign-filter)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -297,10 +317,10 @@ $CampaignFilterDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
-    Update-V2024CampaignFilter -V2024FilterId $FilterId  -V2024CampaignFilterDetails $Result
+    Update-V2024CampaignFilter -FilterId $FilterId -V2024CampaignFilterDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024CampaignFilter -V2024FilterId $FilterId -V2024CampaignFilterDetails $CampaignFilterDetails  
+    # Update-V2024CampaignFilter -FilterId $FilterId -V2024CampaignFilterDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024CampaignFilter"
     Write-Host $_.ErrorDetails

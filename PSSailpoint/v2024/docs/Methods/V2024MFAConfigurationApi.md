@@ -28,6 +28,10 @@ Method | HTTP request | Description
 ## get-mfa-duo-config
 This API returns the configuration of an Duo MFA method.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-duo-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -55,7 +59,7 @@ Code | Description  | Data Type
 # Configuration of Duo MFA method
 
 try {
-    Get-V2024MFADuoConfig
+    Get-V2024MFADuoConfig 
     
     # Below is a request that includes all optional parameters
     # Get-V2024MFADuoConfig  
@@ -67,6 +71,10 @@ try {
 [[Back to top]](#) 
 ## get-mfa-kba-config
 This API returns the KBA configuration for MFA.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-kba-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -97,10 +105,10 @@ $AllLanguages = $false # Boolean | Indicator whether the question text should be
 # Configuration of KBA MFA method
 
 try {
-    Get-V2024MFAKbaConfig
+    Get-V2024MFAKbaConfig 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024MFAKbaConfig -V2024AllLanguages $AllLanguages  
+    # Get-V2024MFAKbaConfig -AllLanguages $AllLanguages  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MFAKbaConfig"
     Write-Host $_.ErrorDetails
@@ -109,6 +117,10 @@ try {
 [[Back to top]](#) 
 ## get-mfa-okta-config
 This API returns the configuration of an Okta MFA method.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-okta-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -137,7 +149,7 @@ Code | Description  | Data Type
 # Configuration of Okta MFA method
 
 try {
-    Get-V2024MFAOktaConfig
+    Get-V2024MFAOktaConfig 
     
     # Below is a request that includes all optional parameters
     # Get-V2024MFAOktaConfig  
@@ -149,6 +161,10 @@ try {
 [[Back to top]](#) 
 ## set-mfa-duo-config
 This API sets the configuration of an Duo MFA method.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfa-duo-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -190,10 +206,10 @@ $MfaDuoConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-    Set-V2024MFADuoConfig -V2024MfaDuoConfig $Result
+    Set-V2024MFADuoConfig -V2024MfaDuoConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024MFADuoConfig -V2024MfaDuoConfig $MfaDuoConfig  
+    # Set-V2024MFADuoConfig -V2024MfaDuoConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFADuoConfig"
     Write-Host $_.ErrorDetails
@@ -202,6 +218,10 @@ try {
 [[Back to top]](#) 
 ## set-mfakba-config
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfakba-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -237,10 +257,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Set-V2024MFAKBAConfig -V2024KbaAnswerRequestItem $Result
+    Set-V2024MFAKBAConfig -V2024KbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024MFAKBAConfig -V2024KbaAnswerRequestItem $KbaAnswerRequestItem  
+    # Set-V2024MFAKBAConfig -V2024KbaAnswerRequestItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFAKBAConfig"
     Write-Host $_.ErrorDetails
@@ -249,6 +269,10 @@ try {
 [[Back to top]](#) 
 ## set-mfa-okta-config
 This API sets the configuration of an Okta MFA method.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfa-okta-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -286,10 +310,10 @@ $MfaOktaConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-    Set-V2024MFAOktaConfig -V2024MfaOktaConfig $Result
+    Set-V2024MFAOktaConfig -V2024MfaOktaConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024MFAOktaConfig -V2024MfaOktaConfig $MfaOktaConfig  
+    # Set-V2024MFAOktaConfig -V2024MfaOktaConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFAOktaConfig"
     Write-Host $_.ErrorDetails
@@ -298,6 +322,10 @@ try {
 [[Back to top]](#) 
 ## test-mfa-config
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/test-mfa-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -328,10 +356,10 @@ $Method = "okta-verify" # String | The name of the MFA method. The currently sup
 # MFA method's test configuration
 
 try {
-    Test-V2024MFAConfig -V2024Method $Method 
+    Test-V2024MFAConfig -Method $Method 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024MFAConfig -V2024Method $Method  
+    # Test-V2024MFAConfig -Method $Method  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024MFAConfig"
     Write-Host $_.ErrorDetails

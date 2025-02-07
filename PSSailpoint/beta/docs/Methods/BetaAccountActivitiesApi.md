@@ -56,6 +56,10 @@ Method | HTTP request | Description
 ## get-account-activity
 This gets a single account activity by its id.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-account-activity)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -86,10 +90,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
 # Get Account Activity
 
 try {
-    Get-BetaAccountActivity -BetaId $Id 
+    Get-BetaAccountActivity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccountActivity -BetaId $Id  
+    # Get-BetaAccountActivity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccountActivity"
     Write-Host $_.ErrorDetails
@@ -98,6 +102,10 @@ try {
 [[Back to top]](#) 
 ## list-account-activities
 This gets a collection of account activities that satisfy the given query parameters.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-account-activities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -144,10 +152,10 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # List Account Activities
 
 try {
-    Get-BetaAccountActivities
+    Get-BetaAccountActivities 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccountActivities -BetaRequestedFor $RequestedFor -BetaRequestedBy $RequestedBy -BetaRegardingIdentity $RegardingIdentity -BetaType $Type -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaAccountActivities -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccountActivities"
     Write-Host $_.ErrorDetails

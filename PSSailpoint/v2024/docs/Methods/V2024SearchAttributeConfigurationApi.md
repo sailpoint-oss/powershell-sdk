@@ -44,6 +44,10 @@ Method | HTTP request | Description
 ## create-search-attribute-config
 Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-search-attribute-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -82,10 +86,10 @@ $SearchAttributeConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-    New-V2024SearchAttributeConfig -V2024SearchAttributeConfig $Result
+    New-V2024SearchAttributeConfig -V2024SearchAttributeConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SearchAttributeConfig -V2024SearchAttributeConfig $SearchAttributeConfig  
+    # New-V2024SearchAttributeConfig -V2024SearchAttributeConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SearchAttributeConfig"
     Write-Host $_.ErrorDetails
@@ -94,6 +98,10 @@ try {
 [[Back to top]](#) 
 ## delete-search-attribute-config
 Delete an extended attribute configuration by name.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -125,10 +133,10 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Delete Extended Search Attribute
 
 try {
-    Remove-V2024SearchAttributeConfig -V2024Name $Name 
+    Remove-V2024SearchAttributeConfig -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SearchAttributeConfig -V2024Name $Name  
+    # Remove-V2024SearchAttributeConfig -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SearchAttributeConfig"
     Write-Host $_.ErrorDetails
@@ -137,6 +145,10 @@ try {
 [[Back to top]](#) 
 ## get-search-attribute-config
 Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -165,7 +177,7 @@ Code | Description  | Data Type
 # List Extended Search Attributes
 
 try {
-    Get-V2024SearchAttributeConfig
+    Get-V2024SearchAttributeConfig 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SearchAttributeConfig  
@@ -177,6 +189,10 @@ try {
 [[Back to top]](#) 
 ## get-single-search-attribute-config
 Get an extended attribute configuration by name.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-single-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -209,10 +225,10 @@ $Name = "newMailAttribute" # String | Name of the extended search attribute conf
 # Get Extended Search Attribute
 
 try {
-    Get-V2024SingleSearchAttributeConfig -V2024Name $Name 
+    Get-V2024SingleSearchAttributeConfig -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SingleSearchAttributeConfig -V2024Name $Name  
+    # Get-V2024SingleSearchAttributeConfig -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SingleSearchAttributeConfig"
     Write-Host $_.ErrorDetails
@@ -223,6 +239,10 @@ try {
 Update an existing search attribute configuration. 
 You can patch these fields:
 * name  * displayName * applicationAttributes
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -262,10 +282,10 @@ $Name = "promotedMailAttribute" # String | Name of the search attribute configur
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SearchAttributeConfig -V2024Name $Name  -V2024JsonPatchOperation $Result
+    Update-V2024SearchAttributeConfig -Name $Name -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SearchAttributeConfig -V2024Name $Name -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024SearchAttributeConfig -Name $Name -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SearchAttributeConfig"
     Write-Host $_.ErrorDetails

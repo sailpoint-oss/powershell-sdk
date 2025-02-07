@@ -33,6 +33,10 @@ Method | HTTP request | Description
 ## create-auth-org-network-config
 This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:manage'
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-auth-org-network-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -68,10 +72,10 @@ $NetworkConfiguration = @"{
 
 try {
     $Result = ConvertFrom-JsonToNetworkConfiguration -Json $NetworkConfiguration
-    New-AuthOrgNetworkConfig -NetworkConfiguration $Result
+    New-AuthOrgNetworkConfig -NetworkConfiguration $Result 
     
     # Below is a request that includes all optional parameters
-    # New-AuthOrgNetworkConfig -NetworkConfiguration $NetworkConfiguration  
+    # New-AuthOrgNetworkConfig -NetworkConfiguration $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AuthOrgNetworkConfig"
     Write-Host $_.ErrorDetails
@@ -80,6 +84,10 @@ try {
 [[Back to top]](#) 
 ## get-auth-org-lockout-config
 This API returns the details of an org's lockout auth configuration.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-org-lockout-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -109,7 +117,7 @@ Code | Description  | Data Type
 # Get Auth Org Lockout Configuration.
 
 try {
-    Get-AuthOrgLockoutConfig
+    Get-AuthOrgLockoutConfig 
     
     # Below is a request that includes all optional parameters
     # Get-AuthOrgLockoutConfig  
@@ -121,6 +129,10 @@ try {
 [[Back to top]](#) 
 ## get-auth-org-network-config
 This API returns the details of an org's network auth configuration.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-org-network-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -150,7 +162,7 @@ Code | Description  | Data Type
 # Get security network configuration.
 
 try {
-    Get-AuthOrgNetworkConfig
+    Get-AuthOrgNetworkConfig 
     
     # Below is a request that includes all optional parameters
     # Get-AuthOrgNetworkConfig  
@@ -162,6 +174,10 @@ try {
 [[Back to top]](#) 
 ## get-auth-org-service-provider-config
 This API returns the details of an org's service provider auth configuration.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-org-service-provider-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -191,7 +207,7 @@ Code | Description  | Data Type
 # Get Service Provider Configuration.
 
 try {
-    Get-AuthOrgServiceProviderConfig
+    Get-AuthOrgServiceProviderConfig 
     
     # Below is a request that includes all optional parameters
     # Get-AuthOrgServiceProviderConfig  
@@ -203,6 +219,10 @@ try {
 [[Back to top]](#) 
 ## get-auth-org-session-config
 This API returns the details of an org's session auth configuration.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-auth-org-session-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -232,7 +252,7 @@ Code | Description  | Data Type
 # Get Auth Org Session Configuration.
 
 try {
-    Get-AuthOrgSessionConfig
+    Get-AuthOrgSessionConfig 
     
     # Below is a request that includes all optional parameters
     # Get-AuthOrgSessionConfig  
@@ -245,6 +265,10 @@ try {
 ## patch-auth-org-lockout-config
 This API updates an existing lockout configuration for an org using PATCH
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-org-lockout-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -282,10 +306,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthOrgLockoutConfig -JsonPatchOperation $Result
+    Update-AuthOrgLockoutConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AuthOrgLockoutConfig -JsonPatchOperation $JsonPatchOperation  
+    # Update-AuthOrgLockoutConfig -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgLockoutConfig"
     Write-Host $_.ErrorDetails
@@ -295,6 +319,10 @@ try {
 ## patch-auth-org-network-config
 This API updates an existing network configuration for an org using PATCH
  Requires security scope of:  'sp:auth-org:manage'
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-org-network-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -332,10 +360,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthOrgNetworkConfig -JsonPatchOperation $Result
+    Update-AuthOrgNetworkConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AuthOrgNetworkConfig -JsonPatchOperation $JsonPatchOperation  
+    # Update-AuthOrgNetworkConfig -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgNetworkConfig"
     Write-Host $_.ErrorDetails
@@ -344,6 +372,10 @@ try {
 [[Back to top]](#) 
 ## patch-auth-org-service-provider-config
 This API updates an existing service provider configuration for an org using PATCH.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-org-service-provider-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -381,10 +413,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthOrgServiceProviderConfig -JsonPatchOperation $Result
+    Update-AuthOrgServiceProviderConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AuthOrgServiceProviderConfig -JsonPatchOperation $JsonPatchOperation  
+    # Update-AuthOrgServiceProviderConfig -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgServiceProviderConfig"
     Write-Host $_.ErrorDetails
@@ -393,6 +425,10 @@ try {
 [[Back to top]](#) 
 ## patch-auth-org-session-config
 This API updates an existing session configuration for an org using PATCH.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/patch-auth-org-session-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -430,10 +466,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-AuthOrgSessionConfig -JsonPatchOperation $Result
+    Update-AuthOrgSessionConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-AuthOrgSessionConfig -JsonPatchOperation $JsonPatchOperation  
+    # Update-AuthOrgSessionConfig -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgSessionConfig"
     Write-Host $_.ErrorDetails

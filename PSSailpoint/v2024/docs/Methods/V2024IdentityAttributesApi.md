@@ -27,6 +27,10 @@ Method | HTTP request | Description
 ## create-identity-attribute
 Use this API to create a new identity attribute.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-identity-attribute)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -81,10 +85,10 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    New-V2024IdentityAttribute -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityAttribute $Result
+    New-V2024IdentityAttribute -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024IdentityAttribute -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $IdentityAttribute  
+    # New-V2024IdentityAttribute -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024IdentityAttribute"
     Write-Host $_.ErrorDetails
@@ -93,6 +97,10 @@ try {
 [[Back to top]](#) 
 ## delete-identity-attribute
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -126,10 +134,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete Identity Attribute
 
 try {
-    Remove-V2024IdentityAttribute -V2024Name $Name  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024IdentityAttribute -V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024IdentityAttribute"
     Write-Host $_.ErrorDetails
@@ -138,6 +146,10 @@ try {
 [[Back to top]](#) 
 ## delete-identity-attributes-in-bulk
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-attributes-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -174,10 +186,10 @@ $IdentityAttributeNames = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-    Remove-V2024IdentityAttributesInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityAttributeNames $Result
+    Remove-V2024IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttributeNames $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024IdentityAttributesInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttributeNames $IdentityAttributeNames  
+    # Remove-V2024IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttributeNames $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024IdentityAttributesInBulk"
     Write-Host $_.ErrorDetails
@@ -186,6 +198,10 @@ try {
 [[Back to top]](#) 
 ## get-identity-attribute
 This gets an identity attribute for a given technical name.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -219,10 +235,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get Identity Attribute
 
 try {
-    Get-V2024IdentityAttribute -V2024Name $Name  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityAttribute -V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityAttribute"
     Write-Host $_.ErrorDetails
@@ -231,6 +247,10 @@ try {
 [[Back to top]](#) 
 ## list-identity-attributes
 Use this API to get a collection of identity attributes.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -269,10 +289,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Identity Attributes
 
 try {
-    Get-V2024IdentityAttributes -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024IdentityAttributes -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024IdentityAttributes -V2024XSailPointExperimental $XSailPointExperimental -V2024IncludeSystem $IncludeSystem -V2024IncludeSilent $IncludeSilent -V2024SearchableOnly $SearchableOnly -V2024Count $Count  
+    # Get-V2024IdentityAttributes -XSailPointExperimental $XSailPointExperimental -IncludeSystem $IncludeSystem -IncludeSilent $IncludeSilent -SearchableOnly $SearchableOnly -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityAttributes"
     Write-Host $_.ErrorDetails
@@ -281,6 +301,10 @@ try {
 [[Back to top]](#) 
 ## put-identity-attribute
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-identity-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -338,10 +362,10 @@ $IdentityAttribute = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-    Send-V2024IdentityAttribute -V2024Name $Name  -V2024XSailPointExperimental $XSailPointExperimental  -V2024IdentityAttribute $Result
+    Send-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024IdentityAttribute -V2024Name $Name -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $IdentityAttribute  
+    # Send-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -V2024IdentityAttribute $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024IdentityAttribute"
     Write-Host $_.ErrorDetails

@@ -48,6 +48,10 @@ Method | HTTP request | Description
 ## create-deploy
 This API performs a deploy based on an existing daft.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-deploy)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -80,10 +84,10 @@ $DeployRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
-    New-V2024Deploy -V2024DeployRequest $Result
+    New-V2024Deploy -V2024DeployRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Deploy -V2024DeployRequest $DeployRequest  
+    # New-V2024Deploy -V2024DeployRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Deploy"
     Write-Host $_.ErrorDetails
@@ -95,6 +99,10 @@ This creates an object mapping between current org and source org.
 Source org should be "default" when creating an object mapping that is not to be associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-object-mapping)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -135,10 +143,10 @@ $ObjectMappingRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
-    New-V2024ObjectMapping -V2024SourceOrg $SourceOrg  -V2024ObjectMappingRequest $Result
+    New-V2024ObjectMapping -SourceOrg $SourceOrg -V2024ObjectMappingRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ObjectMapping -V2024SourceOrg $SourceOrg -V2024ObjectMappingRequest $ObjectMappingRequest  
+    # New-V2024ObjectMapping -SourceOrg $SourceOrg -V2024ObjectMappingRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ObjectMapping"
     Write-Host $_.ErrorDetails
@@ -150,6 +158,10 @@ This creates a set of object mappings (Max 25) between current org and source or
 Source org should be "default" when creating object mappings that are not to be associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-object-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -198,10 +210,10 @@ $ObjectMappingBulkCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
-    New-V2024ObjectMappings -V2024SourceOrg $SourceOrg  -V2024ObjectMappingBulkCreateRequest $Result
+    New-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ObjectMappings -V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $ObjectMappingBulkCreateRequest  
+    # New-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ObjectMappings"
     Write-Host $_.ErrorDetails
@@ -214,6 +226,10 @@ This API uploads a JSON configuration file into a tenant.
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
 
 Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-uploaded-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -246,10 +262,10 @@ $Name = "MyName" # String | Name that will be assigned to the uploaded configura
 # Upload a Configuration
 
 try {
-    New-V2024UploadedConfiguration -V2024Data $Data  -V2024Name $Name 
+    New-V2024UploadedConfiguration -Data $Data -Name $Name 
     
     # Below is a request that includes all optional parameters
-    # New-V2024UploadedConfiguration -V2024Data $Data -V2024Name $Name  
+    # New-V2024UploadedConfiguration -Data $Data -Name $Name  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024UploadedConfiguration"
     Write-Host $_.ErrorDetails
@@ -262,6 +278,10 @@ This API deletes an existing backup for the current tenant.
 On success, this endpoint will return an empty response.
 
 The backup id can be obtained from the response after a backup was successfully created, or from the list backups endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-backup)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -293,10 +313,10 @@ $Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the backup to 
 # Delete a Backup
 
 try {
-    Remove-V2024Backup -V2024Id $Id 
+    Remove-V2024Backup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Backup -V2024Id $Id  
+    # Remove-V2024Backup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Backup"
     Write-Host $_.ErrorDetails
@@ -309,6 +329,10 @@ This API deletes an existing draft for the current tenant.
 On success, this endpoint will return an empty response.
 
 The draft id can be obtained from the response after a draft was successfully created, or from the list drafts endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-draft)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -340,10 +364,10 @@ $Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the draft to d
 # Delete a draft
 
 try {
-    Remove-V2024Draft -V2024Id $Id 
+    Remove-V2024Draft -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Draft -V2024Id $Id  
+    # Remove-V2024Draft -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Draft"
     Write-Host $_.ErrorDetails
@@ -355,6 +379,10 @@ This deletes an existing object mapping.
 Source org should be "default" when deleting an object mapping that is not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-object-mapping)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -388,10 +416,10 @@ $ObjectMappingId = "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4" # String | The id of t
 # Deletes an object mapping
 
 try {
-    Remove-V2024ObjectMapping -V2024SourceOrg $SourceOrg  -V2024ObjectMappingId $ObjectMappingId 
+    Remove-V2024ObjectMapping -SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024ObjectMapping -V2024SourceOrg $SourceOrg -V2024ObjectMappingId $ObjectMappingId  
+    # Remove-V2024ObjectMapping -SourceOrg $SourceOrg -ObjectMappingId $ObjectMappingId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ObjectMapping"
     Write-Host $_.ErrorDetails
@@ -404,6 +432,10 @@ This API deletes an uploaded configuration based on Id.
 On success, this endpoint will return an empty response.
 
 The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-uploaded-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -435,10 +467,10 @@ $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded c
 # Delete an Uploaded Configuration
 
 try {
-    Remove-V2024UploadedConfiguration -V2024Id $Id 
+    Remove-V2024UploadedConfiguration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024UploadedConfiguration -V2024Id $Id  
+    # Remove-V2024UploadedConfiguration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024UploadedConfiguration"
     Write-Host $_.ErrorDetails
@@ -447,6 +479,10 @@ try {
 [[Back to top]](#) 
 ## get-deploy
 This API gets an existing deploy for the current tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-deploy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -478,10 +514,10 @@ $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the deploy.
 # Get a Deploy
 
 try {
-    Get-V2024Deploy -V2024Id $Id 
+    Get-V2024Deploy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Deploy -V2024Id $Id  
+    # Get-V2024Deploy -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Deploy"
     Write-Host $_.ErrorDetails
@@ -493,6 +529,10 @@ This gets a list of existing object mappings between current org and source org.
 Source org should be "default" when getting object mappings that are not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:read
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-object-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -524,10 +564,10 @@ $SourceOrg = "source-org" # String | The name of the source org.
 # Gets list of object mappings
 
 try {
-    Get-V2024ObjectMappings -V2024SourceOrg $SourceOrg 
+    Get-V2024ObjectMappings -SourceOrg $SourceOrg 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ObjectMappings -V2024SourceOrg $SourceOrg  
+    # Get-V2024ObjectMappings -SourceOrg $SourceOrg  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ObjectMappings"
     Write-Host $_.ErrorDetails
@@ -536,6 +576,10 @@ try {
 [[Back to top]](#) 
 ## get-uploaded-configuration
 This API gets an existing uploaded configuration for the current tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-uploaded-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -567,10 +611,10 @@ $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded c
 # Get an Uploaded Configuration
 
 try {
-    Get-V2024UploadedConfiguration -V2024Id $Id 
+    Get-V2024UploadedConfiguration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024UploadedConfiguration -V2024Id $Id  
+    # Get-V2024UploadedConfiguration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024UploadedConfiguration"
     Write-Host $_.ErrorDetails
@@ -579,6 +623,10 @@ try {
 [[Back to top]](#) 
 ## list-backups
 This API gets a list of existing backups for the current tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-backups)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -609,10 +657,10 @@ $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard s
 # List Backups
 
 try {
-    Get-V2024Backups
+    Get-V2024Backups 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Backups -V2024Filters $Filters  
+    # Get-V2024Backups -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Backups"
     Write-Host $_.ErrorDetails
@@ -621,6 +669,10 @@ try {
 [[Back to top]](#) 
 ## list-deploys
 This API gets a list of deploys for the current tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-deploys)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -649,7 +701,7 @@ Code | Description  | Data Type
 # List Deploys
 
 try {
-    Get-V2024Deploys
+    Get-V2024Deploys 
     
     # Below is a request that includes all optional parameters
     # Get-V2024Deploys  
@@ -661,6 +713,10 @@ try {
 [[Back to top]](#) 
 ## list-drafts
 This API gets a list of existing drafts for the current tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-drafts)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -691,10 +747,10 @@ $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard s
 # List Drafts
 
 try {
-    Get-V2024Drafts
+    Get-V2024Drafts 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Drafts -V2024Filters $Filters  
+    # Get-V2024Drafts -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Drafts"
     Write-Host $_.ErrorDetails
@@ -703,6 +759,10 @@ try {
 [[Back to top]](#) 
 ## list-uploaded-configurations
 This API gets a list of existing uploaded configurations for the current tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-uploaded-configurations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -734,10 +794,10 @@ $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard s
 # List Uploaded Configurations
 
 try {
-    Get-V2024UploadedConfigurations
+    Get-V2024UploadedConfigurations 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024UploadedConfigurations -V2024Filters $Filters  
+    # Get-V2024UploadedConfigurations -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024UploadedConfigurations"
     Write-Host $_.ErrorDetails
@@ -749,6 +809,10 @@ This updates a set of object mappings, only enabled and targetValue fields can b
 Source org should be "default" when updating object mappings that are not associated to any particular org.
 The request will need the following security scope:
 - sp:config-object-mapping:manage
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-object-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -796,10 +860,10 @@ $ObjectMappingBulkPatchRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
-    Update-V2024ObjectMappings -V2024SourceOrg $SourceOrg  -V2024ObjectMappingBulkPatchRequest $Result
+    Update-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ObjectMappings -V2024SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $ObjectMappingBulkPatchRequest  
+    # Update-V2024ObjectMappings -SourceOrg $SourceOrg -V2024ObjectMappingBulkPatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ObjectMappings"
     Write-Host $_.ErrorDetails

@@ -65,6 +65,10 @@ Method | HTTP request | Description
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-sod-policy)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -150,10 +154,10 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    New-V2024SodPolicy -V2024SodPolicy $Result
+    New-V2024SodPolicy -V2024SodPolicy $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SodPolicy -V2024SodPolicy $SodPolicy  
+    # New-V2024SodPolicy -V2024SodPolicy $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SodPolicy"
     Write-Host $_.ErrorDetails
@@ -163,6 +167,10 @@ try {
 ## delete-sod-policy
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -196,10 +204,10 @@ $Logical = $true # Boolean | Indicates whether this is a soft delete (logical tr
 # Delete SOD policy by ID
 
 try {
-    Remove-V2024SodPolicy -V2024Id $Id 
+    Remove-V2024SodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SodPolicy -V2024Id $Id -V2024Logical $Logical  
+    # Remove-V2024SodPolicy -Id $Id -Logical $Logical  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SodPolicy"
     Write-Host $_.ErrorDetails
@@ -208,6 +216,10 @@ try {
 [[Back to top]](#) 
 ## delete-sod-policy-schedule
 This deletes schedule for a specified SOD policy by ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-sod-policy-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -239,10 +251,10 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy
 # Delete SOD policy schedule
 
 try {
-    Remove-V2024SodPolicySchedule -V2024Id $Id 
+    Remove-V2024SodPolicySchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SodPolicySchedule -V2024Id $Id  
+    # Remove-V2024SodPolicySchedule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SodPolicySchedule"
     Write-Host $_.ErrorDetails
@@ -251,6 +263,10 @@ try {
 [[Back to top]](#) 
 ## get-custom-violation-report
 This allows to download a specified named violation report for a given report reference.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-custom-violation-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -284,10 +300,10 @@ $FileName = "custom-name" # String | Custom Name for the  file.
 # Download custom violation report
 
 try {
-    Get-V2024CustomViolationReport -V2024ReportResultId $ReportResultId  -V2024FileName $FileName 
+    Get-V2024CustomViolationReport -ReportResultId $ReportResultId -FileName $FileName 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CustomViolationReport -V2024ReportResultId $ReportResultId -V2024FileName $FileName  
+    # Get-V2024CustomViolationReport -ReportResultId $ReportResultId -FileName $FileName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CustomViolationReport"
     Write-Host $_.ErrorDetails
@@ -296,6 +312,10 @@ try {
 [[Back to top]](#) 
 ## get-default-violation-report
 This allows to download a violation report for a given report reference.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-default-violation-report)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -327,10 +347,10 @@ $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the re
 # Download violation report
 
 try {
-    Get-V2024DefaultViolationReport -V2024ReportResultId $ReportResultId 
+    Get-V2024DefaultViolationReport -ReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DefaultViolationReport -V2024ReportResultId $ReportResultId  
+    # Get-V2024DefaultViolationReport -ReportResultId $ReportResultId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DefaultViolationReport"
     Write-Host $_.ErrorDetails
@@ -339,6 +359,10 @@ try {
 [[Back to top]](#) 
 ## get-sod-all-report-run-status
 This endpoint gets the status for a violation report for all policy run.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sod-all-report-run-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -367,7 +391,7 @@ Code | Description  | Data Type
 # Get multi-report run task status
 
 try {
-    Get-V2024SodAllReportRunStatus
+    Get-V2024SodAllReportRunStatus 
     
     # Below is a request that includes all optional parameters
     # Get-V2024SodAllReportRunStatus  
@@ -380,6 +404,10 @@ try {
 ## get-sod-policy
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -411,10 +439,10 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy
 # Get SOD policy by ID
 
 try {
-    Get-V2024SodPolicy -V2024Id $Id 
+    Get-V2024SodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SodPolicy -V2024Id $Id  
+    # Get-V2024SodPolicy -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicy"
     Write-Host $_.ErrorDetails
@@ -423,6 +451,10 @@ try {
 [[Back to top]](#) 
 ## get-sod-policy-schedule
 This endpoint gets a specified SOD policy's schedule.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sod-policy-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -453,10 +485,10 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy
 # Get SOD policy schedule
 
 try {
-    Get-V2024SodPolicySchedule -V2024Id $Id 
+    Get-V2024SodPolicySchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SodPolicySchedule -V2024Id $Id  
+    # Get-V2024SodPolicySchedule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicySchedule"
     Write-Host $_.ErrorDetails
@@ -465,6 +497,10 @@ try {
 [[Back to top]](#) 
 ## get-sod-violation-report-run-status
 This gets the status for a violation report run task that has already been invoked.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sod-violation-report-run-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -496,10 +532,10 @@ $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of th
 # Get violation report run status
 
 try {
-    Get-V2024SodViolationReportRunStatus -V2024ReportResultId $ReportResultId 
+    Get-V2024SodViolationReportRunStatus -ReportResultId $ReportResultId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SodViolationReportRunStatus -V2024ReportResultId $ReportResultId  
+    # Get-V2024SodViolationReportRunStatus -ReportResultId $ReportResultId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodViolationReportRunStatus"
     Write-Host $_.ErrorDetails
@@ -508,6 +544,10 @@ try {
 [[Back to top]](#) 
 ## get-sod-violation-report-status
 This gets the status for a violation report run task that has already been invoked.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sod-violation-report-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -539,10 +579,10 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation 
 # Get SOD violation report status
 
 try {
-    Get-V2024SodViolationReportStatus -V2024Id $Id 
+    Get-V2024SodViolationReportStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SodViolationReportStatus -V2024Id $Id  
+    # Get-V2024SodViolationReportStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodViolationReportStatus"
     Write-Host $_.ErrorDetails
@@ -552,6 +592,10 @@ try {
 ## list-sod-policies
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-sod-policies)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -590,10 +634,10 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # List SOD policies
 
 try {
-    Get-V2024SodPolicies
+    Get-V2024SodPolicies 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SodPolicies -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024SodPolicies -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicies"
     Write-Host $_.ErrorDetails
@@ -604,6 +648,10 @@ try {
 Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -643,10 +691,10 @@ $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SodPolicy -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024SodPolicy -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SodPolicy -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024SodPolicy -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SodPolicy"
     Write-Host $_.ErrorDetails
@@ -655,6 +703,10 @@ try {
 [[Back to top]](#) 
 ## put-policy-schedule
 This updates schedule for a specified SOD policy.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-policy-schedule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -773,10 +825,10 @@ $SodPolicySchedule = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-    Send-V2024PolicySchedule -V2024Id $Id  -V2024SodPolicySchedule $Result
+    Send-V2024PolicySchedule -Id $Id -V2024SodPolicySchedule $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024PolicySchedule -V2024Id $Id -V2024SodPolicySchedule $SodPolicySchedule  
+    # Send-V2024PolicySchedule -Id $Id -V2024SodPolicySchedule $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024PolicySchedule"
     Write-Host $_.ErrorDetails
@@ -786,6 +838,10 @@ try {
 ## put-sod-policy
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -875,10 +931,10 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    Send-V2024SodPolicy -V2024Id $Id  -V2024SodPolicy $Result
+    Send-V2024SodPolicy -Id $Id -V2024SodPolicy $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SodPolicy -V2024Id $Id -V2024SodPolicy $SodPolicy  
+    # Send-V2024SodPolicy -Id $Id -V2024SodPolicy $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SodPolicy"
     Write-Host $_.ErrorDetails
@@ -887,6 +943,10 @@ try {
 [[Back to top]](#) 
 ## start-evaluate-sod-policy
 Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-evaluate-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -917,10 +977,10 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run
 # Evaluate one policy by ID
 
 try {
-    Start-V2024EvaluateSodPolicy -V2024Id $Id 
+    Start-V2024EvaluateSodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024EvaluateSodPolicy -V2024Id $Id  
+    # Start-V2024EvaluateSodPolicy -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024EvaluateSodPolicy"
     Write-Host $_.ErrorDetails
@@ -929,6 +989,10 @@ try {
 [[Back to top]](#) 
 ## start-sod-all-policies-for-org
 Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-sod-all-policies-for-org)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -961,10 +1025,10 @@ $MultiPolicyRequest = @"{
 # Runs all policies for org
 
 try {
-    Start-V2024SodAllPoliciesForOrg
+    Start-V2024SodAllPoliciesForOrg 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024SodAllPoliciesForOrg -V2024MultiPolicyRequest $MultiPolicyRequest  
+    # Start-V2024SodAllPoliciesForOrg -V2024MultiPolicyRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024SodAllPoliciesForOrg"
     Write-Host $_.ErrorDetails
@@ -973,6 +1037,10 @@ try {
 [[Back to top]](#) 
 ## start-sod-policy
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-sod-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1004,10 +1072,10 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run
 # Runs SOD policy violation report
 
 try {
-    Start-V2024SodPolicy -V2024Id $Id 
+    Start-V2024SodPolicy -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024SodPolicy -V2024Id $Id  
+    # Start-V2024SodPolicy -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024SodPolicy"
     Write-Host $_.ErrorDetails

@@ -33,6 +33,10 @@ Method | HTTP request | Description
 ## get-public-identity-config
 This gets details of public identity config.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-public-identity-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -60,7 +64,7 @@ Code | Description  | Data Type
 # Get Public Identity Config
 
 try {
-    Get-BetaPublicIdentityConfig
+    Get-BetaPublicIdentityConfig 
     
     # Below is a request that includes all optional parameters
     # Get-BetaPublicIdentityConfig  
@@ -72,6 +76,10 @@ try {
 [[Back to top]](#) 
 ## update-public-identity-config
 This updates the details of public identity config.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-public-identity-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,10 +125,10 @@ $PublicIdentityConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
-    Update-BetaPublicIdentityConfig -BetaPublicIdentityConfig $Result
+    Update-BetaPublicIdentityConfig -BetaPublicIdentityConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaPublicIdentityConfig -BetaPublicIdentityConfig $PublicIdentityConfig  
+    # Update-BetaPublicIdentityConfig -BetaPublicIdentityConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPublicIdentityConfig"
     Write-Host $_.ErrorDetails

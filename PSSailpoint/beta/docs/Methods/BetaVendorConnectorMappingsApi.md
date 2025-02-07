@@ -29,6 +29,10 @@ Method | HTTP request | Description
 Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-vendor-connector-mapping)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -82,10 +86,10 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result
+    New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $VendorConnectorMapping  
+    # New-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaVendorConnectorMapping"
     Write-Host $_.ErrorDetails
@@ -95,6 +99,10 @@ try {
 ## delete-vendor-connector-mapping
 Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-vendor-connector-mapping)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -149,10 +157,10 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result
+    Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $VendorConnectorMapping  
+    # Remove-BetaVendorConnectorMapping -BetaVendorConnectorMapping $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaVendorConnectorMapping"
     Write-Host $_.ErrorDetails
@@ -162,6 +170,10 @@ try {
 ## get-vendor-connector-mappings
 Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-vendor-connector-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -191,7 +203,7 @@ Code | Description  | Data Type
 # List Vendor Connector Mappings
 
 try {
-    Get-BetaVendorConnectorMappings
+    Get-BetaVendorConnectorMappings 
     
     # Below is a request that includes all optional parameters
     # Get-BetaVendorConnectorMappings  

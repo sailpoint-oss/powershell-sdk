@@ -26,6 +26,10 @@ Method | HTTP request | Description
 
 ## get-client-log-configuration
 Get managed cluster's log configuration.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-client-log-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -57,10 +61,10 @@ $Id = "aClusterId" # String | ID of ManagedCluster to get log configuration for
 # Get managed cluster's log configuration
 
 try {
-    Get-BetaClientLogConfiguration -BetaId $Id 
+    Get-BetaClientLogConfiguration -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaClientLogConfiguration -BetaId $Id  
+    # Get-BetaClientLogConfiguration -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaClientLogConfiguration"
     Write-Host $_.ErrorDetails
@@ -69,6 +73,10 @@ try {
 [[Back to top]](#) 
 ## get-managed-cluster
 Retrieve a ManagedCluster by ID.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-cluster)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -100,10 +108,10 @@ $Id = "aClusterId" # String | ID of the ManagedCluster to get
 # Get a specified ManagedCluster.
 
 try {
-    Get-BetaManagedCluster -BetaId $Id 
+    Get-BetaManagedCluster -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaManagedCluster -BetaId $Id  
+    # Get-BetaManagedCluster -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedCluster"
     Write-Host $_.ErrorDetails
@@ -112,6 +120,10 @@ try {
 [[Back to top]](#) 
 ## get-managed-clusters
 Retrieve all Managed Clusters for the current Org, based on request context.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-clusters)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -148,10 +160,10 @@ $Filters = 'operational eq operation' # String | Filter results using the standa
 # Retrieve all Managed Clusters.
 
 try {
-    Get-BetaManagedClusters
+    Get-BetaManagedClusters 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaManagedClusters -BetaOffset $Offset -BetaLimit $Limit -BetaCount $Count -BetaFilters $Filters  
+    # Get-BetaManagedClusters -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedClusters"
     Write-Host $_.ErrorDetails
@@ -160,6 +172,10 @@ try {
 [[Back to top]](#) 
 ## put-client-log-configuration
 Update managed cluster's log configuration
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-client-log-configuration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -199,10 +215,10 @@ $ClientLogConfiguration = @"{
 # Update managed cluster's log configuration
 
 try {
-    Send-BetaClientLogConfiguration -BetaId $Id  -BetaClientLogConfiguration $Result
+    Send-BetaClientLogConfiguration -Id $Id -BetaClientLogConfiguration $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaClientLogConfiguration -BetaId $Id -BetaClientLogConfiguration $ClientLogConfiguration  
+    # Send-BetaClientLogConfiguration -Id $Id -BetaClientLogConfiguration $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaClientLogConfiguration"
     Write-Host $_.ErrorDetails

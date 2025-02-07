@@ -77,6 +77,10 @@ In addition, a ROLE_SUBADMIN may not create a role including an access profile i
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-role)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -264,10 +268,10 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-V2024Role -V2024Role $Result
+    New-V2024Role -V2024Role $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Role -V2024Role $Role  
+    # New-V2024Role -V2024Role $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Role"
     Write-Host $_.ErrorDetails
@@ -279,6 +283,10 @@ This endpoint initiates a bulk deletion of one or more roles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-bulk-roles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -312,10 +320,10 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result
+    Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $RoleBulkDeleteRequest  
+    # Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024BulkRoles"
     Write-Host $_.ErrorDetails
@@ -324,6 +332,10 @@ try {
 [[Back to top]](#) 
 ## delete-metadata-from-role-by-key-and-value
 This API initialize a request to remove a single Access Model Metadata from a role by attribute key and value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-metadata-from-role-by-key-and-value)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -358,10 +370,10 @@ $AttributeValue = "public" # String | Technical name of the Attribute Value.
 # Remove a Metadata From Role.
 
 try {
-    Remove-V2024MetadataFromRoleByKeyAndValue -V2024Id $Id  -V2024AttributeKey $AttributeKey  -V2024AttributeValue $AttributeValue 
+    Remove-V2024MetadataFromRoleByKeyAndValue -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024MetadataFromRoleByKeyAndValue -V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue  
+    # Remove-V2024MetadataFromRoleByKeyAndValue -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024MetadataFromRoleByKeyAndValue"
     Write-Host $_.ErrorDetails
@@ -372,6 +384,10 @@ try {
 This API deletes a Role by its ID.
 
 A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -402,10 +418,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Delete a Role
 
 try {
-    Remove-V2024Role -V2024Id $Id 
+    Remove-V2024Role -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Role -V2024Id $Id  
+    # Remove-V2024Role -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Role"
     Write-Host $_.ErrorDetails
@@ -414,6 +430,10 @@ try {
 [[Back to top]](#) 
 ## get-bulk-update-status
 This API returns a list of all unfinished bulk update process status of the tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-bulk-update-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -442,7 +462,7 @@ Code | Description  | Data Type
 # Get Bulk-Update Statuses
 
 try {
-    Get-V2024BulkUpdateStatus
+    Get-V2024BulkUpdateStatus 
     
     # Below is a request that includes all optional parameters
     # Get-V2024BulkUpdateStatus  
@@ -456,6 +476,10 @@ try {
 
 This API initial a request for one bulk update's status by bulk update Id returns the status of the bulk update process.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-bulk-update-status-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -486,10 +510,10 @@ $Id = "c24359c389374d0fb8585698a2189e3d" # String | The Id of the bulk update ta
 # Get Bulk-Update Status by ID
 
 try {
-    Get-V2024BulkUpdateStatusById -V2024Id $Id 
+    Get-V2024BulkUpdateStatusById -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024BulkUpdateStatusById -V2024Id $Id  
+    # Get-V2024BulkUpdateStatusById -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024BulkUpdateStatusById"
     Write-Host $_.ErrorDetails
@@ -499,6 +523,10 @@ try {
 ## get-role
 This API returns a Role by its ID.
 A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -529,10 +557,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 # Get a Role
 
 try {
-    Get-V2024Role -V2024Id $Id 
+    Get-V2024Role -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Role -V2024Id $Id  
+    # Get-V2024Role -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Role"
     Write-Host $_.ErrorDetails
@@ -541,6 +569,10 @@ try {
 [[Back to top]](#) 
 ## get-role-assigned-identities
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-assigned-identities)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -581,10 +613,10 @@ $Sorters = "aliasName,name" # String | Sort results using the standard syntax de
 # List Identities assigned a Role
 
 try {
-    Get-V2024RoleAssignedIdentities -V2024Id $Id 
+    Get-V2024RoleAssignedIdentities -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RoleAssignedIdentities -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024RoleAssignedIdentities -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleAssignedIdentities"
     Write-Host $_.ErrorDetails
@@ -593,6 +625,10 @@ try {
 [[Back to top]](#) 
 ## get-role-entitlements
 This API lists the Entitlements associated with a given role.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -635,10 +671,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List role's Entitlements
 
 try {
-    Get-V2024RoleEntitlements -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024RoleEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024RoleEntitlements -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024RoleEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleEntitlements"
     Write-Host $_.ErrorDetails
@@ -647,6 +683,10 @@ try {
 [[Back to top]](#) 
 ## list-roles
 This API returns a list of Roles.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-roles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -691,10 +731,10 @@ $IncludeUnsegmented = $false # Boolean | Whether or not the response list should
 # List Roles
 
 try {
-    Get-V2024Roles
+    Get-V2024Roles 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Roles -V2024ForSubadmin $ForSubadmin -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters -V2024ForSegmentIds $ForSegmentIds -V2024IncludeUnsegmented $IncludeUnsegmented  
+    # Get-V2024Roles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Roles"
     Write-Host $_.ErrorDetails
@@ -722,6 +762,10 @@ A user with ROLE_SUBADMIN authority may only call this API if all access profile
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
 When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -760,10 +804,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Role -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024Role -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Role -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024Role -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Role"
     Write-Host $_.ErrorDetails
@@ -773,6 +817,10 @@ try {
 ## search-roles-by-filter
 This API returns a list of Role that filter by metadata and filter, it support filter by  both path parameter and attribute key and values.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, HELPDESK, CERT_ADMIN, REPORT_ADMIN or SOURCE_ADMIN  authority is required to call this API. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/search-roles-by-filter)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -823,10 +871,10 @@ $RoleListFilterDTO = @"{
 # Filter Roles by Metadata
 
 try {
-    Search-V2024RolesByFilter
+    Search-V2024RolesByFilter 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024RolesByFilter -V2024ForSubadmin $ForSubadmin -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Sorters $Sorters -V2024ForSegmentIds $ForSegmentIds -V2024IncludeUnsegmented $IncludeUnsegmented -V2024RoleListFilterDTO $RoleListFilterDTO  
+    # Search-V2024RolesByFilter -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -V2024RoleListFilterDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024RolesByFilter"
     Write-Host $_.ErrorDetails
@@ -835,6 +883,10 @@ try {
 [[Back to top]](#) 
 ## update-attribute-key-and-value-to-role
 This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum number of attributes in one role is 25. Custom metadata update, including ADD and REPLACE need suit licensed.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-attribute-key-and-value-to-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -869,10 +921,10 @@ $AttributeValue = "public" # String | Technical name of the Attribute Value.
 # Add a Metadata to Role.
 
 try {
-    Update-V2024AttributeKeyAndValueToRole -V2024Id $Id  -V2024AttributeKey $AttributeKey  -V2024AttributeValue $AttributeValue 
+    Update-V2024AttributeKeyAndValueToRole -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024AttributeKeyAndValueToRole -V2024Id $Id -V2024AttributeKey $AttributeKey -V2024AttributeValue $AttributeValue  
+    # Update-V2024AttributeKeyAndValueToRole -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AttributeKeyAndValueToRole"
     Write-Host $_.ErrorDetails
@@ -884,6 +936,10 @@ This API initiates a bulk update of metadata for one or more Roles by filter.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum metadata value count for a single role is 25.
 Custom metadata update, including add, replace need suit licensed.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-roles-metadata-by-filter)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -923,10 +979,10 @@ $RoleMetadataBulkUpdateByFilterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
-    Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result
+    Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $RoleMetadataBulkUpdateByFilterRequest  
+    # Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByFilter"
     Write-Host $_.ErrorDetails
@@ -938,6 +994,10 @@ This API initiates a bulk update of metadata for one or more Roles by a list of 
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum role count in a single update request is 3000. The maximum metadata value count for a single role is 25.
 Custom metadata update, including add, replace need suit licensed.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-roles-metadata-by-ids)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -977,10 +1037,10 @@ $RoleMetadataBulkUpdateByIdRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
-    Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result
+    Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $RoleMetadataBulkUpdateByIdRequest  
+    # Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByIds"
     Write-Host $_.ErrorDetails
@@ -992,6 +1052,10 @@ This API initiates a bulk update of metadata for one or more Roles by query.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum metadata value count for a single role is 25.
 Custom metadata update, including add, replace need suit licensed.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-roles-metadata-by-query)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1046,10 +1110,10 @@ $RoleMetadataBulkUpdateByQueryRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
-    Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result
+    Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $RoleMetadataBulkUpdateByQueryRequest  
+    # Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByQuery"
     Write-Host $_.ErrorDetails

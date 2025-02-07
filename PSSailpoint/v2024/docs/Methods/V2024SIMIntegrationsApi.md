@@ -35,6 +35,10 @@ Method | HTTP request | Description
 ## create-sim-integration
 Create a new SIM Integrations.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-sim-integration)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -85,10 +89,10 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    New-V2024SIMIntegration -V2024XSailPointExperimental $XSailPointExperimental  -V2024SimIntegrationDetails $Result
+    New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SIMIntegration -V2024XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $SimIntegrationDetails  
+    # New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SIMIntegration"
     Write-Host $_.ErrorDetails
@@ -97,6 +101,10 @@ try {
 [[Back to top]](#) 
 ## delete-sim-integration
 Get the details of a SIM integration.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-sim-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -130,10 +138,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Delete a SIM integration
 
 try {
-    Remove-V2024SIMIntegration -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024SIMIntegration -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SIMIntegration"
     Write-Host $_.ErrorDetails
@@ -142,6 +150,10 @@ try {
 [[Back to top]](#) 
 ## get-sim-integration
 Get the details of a SIM integration.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sim-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -175,10 +187,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get a SIM integration details.
 
 try {
-    Get-V2024SIMIntegration -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SIMIntegration -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SIMIntegration"
     Write-Host $_.ErrorDetails
@@ -187,6 +199,10 @@ try {
 [[Back to top]](#) 
 ## get-sim-integrations
 List the existing SIM integrations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sim-integrations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -218,10 +234,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # List the existing SIM integrations.
 
 try {
-    Get-V2024SIMIntegrations -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SIMIntegrations -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SIMIntegrations -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024SIMIntegrations -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SIMIntegrations"
     Write-Host $_.ErrorDetails
@@ -230,6 +246,10 @@ try {
 [[Back to top]](#) 
 ## patch-before-provisioning-rule
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-before-provisioning-rule)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -266,10 +286,10 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-V2024BeforeProvisioningRule -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatch $Result
+    Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024BeforeProvisioningRule -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $JsonPatch  
+    # Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024BeforeProvisioningRule"
     Write-Host $_.ErrorDetails
@@ -278,6 +298,10 @@ try {
 [[Back to top]](#) 
 ## patch-sim-attributes
 Patch a SIM attribute given a JsonPatch object.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-sim-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -314,10 +338,10 @@ $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\"
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-    Update-V2024SIMAttributes -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024JsonPatch $Result
+    Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SIMAttributes -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $JsonPatch  
+    # Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024JsonPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SIMAttributes"
     Write-Host $_.ErrorDetails
@@ -326,6 +350,10 @@ try {
 [[Back to top]](#) 
 ## put-sim-integration
 Update an existing SIM integration.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/put-sim-integration)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -379,10 +407,10 @@ $SimIntegrationDetails = @"{
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-    Send-V2024SIMIntegration -V2024Id $Id  -V2024XSailPointExperimental $XSailPointExperimental  -V2024SimIntegrationDetails $Result
+    Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SIMIntegration -V2024Id $Id -V2024XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $SimIntegrationDetails  
+    # Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024SimIntegrationDetails $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SIMIntegration"
     Write-Host $_.ErrorDetails

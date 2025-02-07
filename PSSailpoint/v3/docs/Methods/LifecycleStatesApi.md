@@ -65,6 +65,10 @@ Method | HTTP request | Description
 ## create-lifecycle-state
 Use this endpoint to create a lifecycle state.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-lifecycle-state)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -121,10 +125,10 @@ $LifecycleState = @"{
 
 try {
     $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
-    New-LifecycleState -IdentityProfileId $IdentityProfileId  -LifecycleState $Result
+    New-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleState $Result 
     
     # Below is a request that includes all optional parameters
-    # New-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleState $LifecycleState  
+    # New-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleState $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-LifecycleState"
     Write-Host $_.ErrorDetails
@@ -133,6 +137,10 @@ try {
 [[Back to top]](#) 
 ## delete-lifecycle-state
 Use this endpoint to delete the lifecycle state by its ID. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-lifecycle-state)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -166,7 +174,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Delete Lifecycle State
 
 try {
-    Remove-LifecycleState -IdentityProfileId $IdentityProfileId  -LifecycleStateId $LifecycleStateId 
+    Remove-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
     # Remove-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId  
@@ -178,6 +186,10 @@ try {
 [[Back to top]](#) 
 ## get-lifecycle-state
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-lifecycle-state)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -211,7 +223,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 # Get Lifecycle State
 
 try {
-    Get-LifecycleState -IdentityProfileId $IdentityProfileId  -LifecycleStateId $LifecycleStateId 
+    Get-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
     
     # Below is a request that includes all optional parameters
     # Get-LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId  
@@ -223,6 +235,10 @@ try {
 [[Back to top]](#) 
 ## get-lifecycle-states
 Use this endpoint to list all lifecycle states by their associated identity profiles. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-lifecycle-states)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -274,6 +290,10 @@ try {
 ## set-lifecycle-state
 Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-lifecycle-state)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -307,10 +327,10 @@ $SetLifecycleStateRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
-    Set-LifecycleState -IdentityId $IdentityId  -SetLifecycleStateRequest $Result
+    Set-LifecycleState -IdentityId $IdentityId -SetLifecycleStateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-LifecycleState -IdentityId $IdentityId -SetLifecycleStateRequest $SetLifecycleStateRequest  
+    # Set-LifecycleState -IdentityId $IdentityId -SetLifecycleStateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-LifecycleState"
     Write-Host $_.ErrorDetails
@@ -319,6 +339,10 @@ try {
 [[Back to top]](#) 
 ## update-lifecycle-states
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-lifecycle-states)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -360,10 +384,10 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-LifecycleStates -IdentityProfileId $IdentityProfileId  -LifecycleStateId $LifecycleStateId  -JsonPatchOperation $Result
+    Update-LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $JsonPatchOperation  
+    # Update-LifecycleStates -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-LifecycleStates"
     Write-Host $_.ErrorDetails

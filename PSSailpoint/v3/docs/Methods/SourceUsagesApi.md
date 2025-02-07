@@ -26,6 +26,10 @@ Method | HTTP request | Description
 ## get-status-by-source-id
 This API returns the status of the source usage insights setup by IDN source ID.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-status-by-source-id)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -67,6 +71,10 @@ try {
 [[Back to top]](#) 
 ## get-usages-by-source-id
 This API returns a summary of source usage insights for past 12 months.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-usages-by-source-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

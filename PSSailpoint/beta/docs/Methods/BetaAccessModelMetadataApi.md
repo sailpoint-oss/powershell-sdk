@@ -35,6 +35,10 @@ Method | HTTP request | Description
 ## get-access-model-metadata-attribute
 Get single Access Model Metadata Attribute
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -64,10 +68,10 @@ $Key = "iscPrivacy" # String | Technical name of the Attribute.
 # Get Access Model Metadata Attribute
 
 try {
-    Get-BetaAccessModelMetadataAttribute -BetaKey $Key 
+    Get-BetaAccessModelMetadataAttribute -Key $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessModelMetadataAttribute -BetaKey $Key  
+    # Get-BetaAccessModelMetadataAttribute -Key $Key  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessModelMetadataAttribute"
     Write-Host $_.ErrorDetails
@@ -76,6 +80,10 @@ try {
 [[Back to top]](#) 
 ## get-access-model-metadata-attribute-value
 Get single Access Model Metadata Attribute Value
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute-value)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -108,10 +116,10 @@ $Value = "public" # String | Technical name of the Attribute value.
 # Get Access Model Metadata Value
 
 try {
-    Get-BetaAccessModelMetadataAttributeValue -BetaKey $Key  -BetaValue $Value 
+    Get-BetaAccessModelMetadataAttributeValue -Key $Key -Value $Value 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessModelMetadataAttributeValue -BetaKey $Key -BetaValue $Value  
+    # Get-BetaAccessModelMetadataAttributeValue -Key $Key -Value $Value  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessModelMetadataAttributeValue"
     Write-Host $_.ErrorDetails
@@ -120,6 +128,10 @@ try {
 [[Back to top]](#) 
 ## list-access-model-metadata-attribute
 Get a list of Access Model Metadata Attributes
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -150,10 +162,10 @@ $Filters = 'name eq "Privacy"' # String | Filter results using the standard synt
 # List Access Model Metadata Attributes
 
 try {
-    Get-BetaAccessModelMetadataAttribute
+    Get-BetaAccessModelMetadataAttribute 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessModelMetadataAttribute -BetaFilters $Filters  
+    # Get-BetaAccessModelMetadataAttribute -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessModelMetadataAttribute"
     Write-Host $_.ErrorDetails
@@ -162,6 +174,10 @@ try {
 [[Back to top]](#) 
 ## list-access-model-metadata-attribute-value
 Get a list of Access Model Metadata Attribute Values
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute-value)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -192,10 +208,10 @@ $Key = "iscPrivacy" # String | Technical name of the Attribute.
 # List Access Model Metadata Values
 
 try {
-    Get-BetaAccessModelMetadataAttributeValue -BetaKey $Key 
+    Get-BetaAccessModelMetadataAttributeValue -Key $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessModelMetadataAttributeValue -BetaKey $Key  
+    # Get-BetaAccessModelMetadataAttributeValue -Key $Key  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessModelMetadataAttributeValue"
     Write-Host $_.ErrorDetails

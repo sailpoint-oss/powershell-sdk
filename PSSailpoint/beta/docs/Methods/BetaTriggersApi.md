@@ -72,6 +72,10 @@ Method | HTTP request | Description
 ## complete-trigger-invocation
 Completes an invocation to a REQUEST_RESPONSE type trigger.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/complete-trigger-invocation)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -110,10 +114,10 @@ $CompleteInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
-    Complete-BetaTriggerInvocation -BetaId $Id  -BetaCompleteInvocation $Result
+    Complete-BetaTriggerInvocation -Id $Id -BetaCompleteInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Complete-BetaTriggerInvocation -BetaId $Id -BetaCompleteInvocation $CompleteInvocation  
+    # Complete-BetaTriggerInvocation -Id $Id -BetaCompleteInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaTriggerInvocation"
     Write-Host $_.ErrorDetails
@@ -124,6 +128,10 @@ try {
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-subscription)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -179,10 +187,10 @@ $SubscriptionPostRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-    New-BetaSubscription -BetaSubscriptionPostRequest $Result
+    New-BetaSubscription -BetaSubscriptionPostRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSubscription -BetaSubscriptionPostRequest $SubscriptionPostRequest  
+    # New-BetaSubscription -BetaSubscriptionPostRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSubscription"
     Write-Host $_.ErrorDetails
@@ -191,6 +199,10 @@ try {
 [[Back to top]](#) 
 ## delete-subscription
 Deletes an existing subscription to a trigger.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/delete-subscription)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -222,10 +234,10 @@ $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
 # Delete a Subscription
 
 try {
-    Remove-BetaSubscription -BetaId $Id 
+    Remove-BetaSubscription -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaSubscription -BetaId $Id  
+    # Remove-BetaSubscription -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSubscription"
     Write-Host $_.ErrorDetails
@@ -234,6 +246,10 @@ try {
 [[Back to top]](#) 
 ## list-subscriptions
 Gets a list of all trigger subscriptions.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-subscriptions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -272,10 +288,10 @@ $Sorters = "triggerName" # String | Sort results using the standard syntax descr
 # List Subscriptions
 
 try {
-    Get-BetaSubscriptions
+    Get-BetaSubscriptions 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaSubscriptions -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaSubscriptions -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSubscriptions"
     Write-Host $_.ErrorDetails
@@ -286,6 +302,10 @@ try {
 Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-trigger-invocation-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -324,10 +344,10 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 # List Latest Invocation Statuses
 
 try {
-    Get-BetaTriggerInvocationStatus
+    Get-BetaTriggerInvocationStatus 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaTriggerInvocationStatus -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaTriggerInvocationStatus -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTriggerInvocationStatus"
     Write-Host $_.ErrorDetails
@@ -336,6 +356,10 @@ try {
 [[Back to top]](#) 
 ## list-triggers
 Gets a list of triggers that are available in the tenant.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-triggers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -374,10 +398,10 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List Triggers
 
 try {
-    Get-BetaTriggers
+    Get-BetaTriggers 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaTriggers -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count -BetaFilters $Filters -BetaSorters $Sorters  
+    # Get-BetaTriggers -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTriggers"
     Write-Host $_.ErrorDetails
@@ -388,6 +412,10 @@ try {
 This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-subscription)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -423,10 +451,10 @@ $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription t
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-    Update-BetaSubscription -BetaId $Id  -BetaSubscriptionPatchRequestInner $Result
+    Update-BetaSubscription -Id $Id -BetaSubscriptionPatchRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSubscription -BetaId $Id -BetaSubscriptionPatchRequestInner $SubscriptionPatchRequestInner  
+    # Update-BetaSubscription -Id $Id -BetaSubscriptionPatchRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSubscription"
     Write-Host $_.ErrorDetails
@@ -435,6 +463,10 @@ try {
 [[Back to top]](#) 
 ## start-test-trigger-invocation
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/start-test-trigger-invocation)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -476,10 +508,10 @@ $TestInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
-    Start-BetaTestTriggerInvocation -BetaTestInvocation $Result
+    Start-BetaTestTriggerInvocation -BetaTestInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaTestTriggerInvocation -BetaTestInvocation $TestInvocation  
+    # Start-BetaTestTriggerInvocation -BetaTestInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaTestTriggerInvocation"
     Write-Host $_.ErrorDetails
@@ -489,6 +521,10 @@ try {
 ## test-subscription-filter
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/test-subscription-filter)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -525,10 +561,10 @@ $ValidateFilterInputDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-    Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $Result
+    Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $ValidateFilterInputDto  
+    # Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaSubscriptionFilter"
     Write-Host $_.ErrorDetails
@@ -546,6 +582,10 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 
 
   Attempts to modify these fields result in 400.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-subscription)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -603,10 +643,10 @@ $SubscriptionPutRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-    Update-BetaSubscription -BetaId $Id  -BetaSubscriptionPutRequest $Result
+    Update-BetaSubscription -Id $Id -BetaSubscriptionPutRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSubscription -BetaId $Id -BetaSubscriptionPutRequest $SubscriptionPutRequest  
+    # Update-BetaSubscription -Id $Id -BetaSubscriptionPutRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSubscription"
     Write-Host $_.ErrorDetails

@@ -27,6 +27,10 @@ Method | HTTP request | Description
 ## create-auth-org-network-config
 This API returns the details of an org's network auth configuration. Requires security scope of: 'sp:auth-org:manage'
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-auth-org-network-config)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -62,10 +66,10 @@ $NetworkConfiguration = @"{
 
 try {
     $Result = ConvertFrom-JsonToNetworkConfiguration -Json $NetworkConfiguration
-    New-V2024AuthOrgNetworkConfig -V2024NetworkConfiguration $Result
+    New-V2024AuthOrgNetworkConfig -V2024NetworkConfiguration $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024AuthOrgNetworkConfig -V2024NetworkConfiguration $NetworkConfiguration  
+    # New-V2024AuthOrgNetworkConfig -V2024NetworkConfiguration $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024AuthOrgNetworkConfig"
     Write-Host $_.ErrorDetails
@@ -74,6 +78,10 @@ try {
 [[Back to top]](#) 
 ## get-auth-org-network-config
 This API returns the details of an org's network auth configuration.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-auth-org-network-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -103,7 +111,7 @@ Code | Description  | Data Type
 # Get security network configuration.
 
 try {
-    Get-V2024AuthOrgNetworkConfig
+    Get-V2024AuthOrgNetworkConfig 
     
     # Below is a request that includes all optional parameters
     # Get-V2024AuthOrgNetworkConfig  
@@ -116,6 +124,10 @@ try {
 ## patch-auth-org-network-config
 This API updates an existing network configuration for an org using PATCH
  Requires security scope of:  'sp:auth-org:manage'
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-auth-org-network-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -153,10 +165,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024AuthOrgNetworkConfig -V2024JsonPatchOperation $Result
+    Update-V2024AuthOrgNetworkConfig -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024AuthOrgNetworkConfig -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024AuthOrgNetworkConfig -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AuthOrgNetworkConfig"
     Write-Host $_.ErrorDetails

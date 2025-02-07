@@ -29,6 +29,10 @@ Method | HTTP request | Description
 ## add-access-request-recommendations-ignored-item
 This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/add-access-request-recommendations-ignored-item)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -67,10 +71,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsIgnoredItem -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessRequestRecommendationActionItemDto $Result
+    Add-V2024AccessRequestRecommendationsIgnoredItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-V2024AccessRequestRecommendationsIgnoredItem -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
+    # Add-V2024AccessRequestRecommendationsIgnoredItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-V2024AccessRequestRecommendationsIgnoredItem"
     Write-Host $_.ErrorDetails
@@ -79,6 +83,10 @@ try {
 [[Back to top]](#) 
 ## add-access-request-recommendations-requested-item
 This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/add-access-request-recommendations-requested-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -118,10 +126,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsRequestedItem -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessRequestRecommendationActionItemDto $Result
+    Add-V2024AccessRequestRecommendationsRequestedItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-V2024AccessRequestRecommendationsRequestedItem -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
+    # Add-V2024AccessRequestRecommendationsRequestedItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-V2024AccessRequestRecommendationsRequestedItem"
     Write-Host $_.ErrorDetails
@@ -130,6 +138,10 @@ try {
 [[Back to top]](#) 
 ## add-access-request-recommendations-viewed-item
 This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/add-access-request-recommendations-viewed-item)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -169,10 +181,10 @@ $AccessRequestRecommendationActionItemDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsViewedItem -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessRequestRecommendationActionItemDto $Result
+    Add-V2024AccessRequestRecommendationsViewedItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-V2024AccessRequestRecommendationsViewedItem -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
+    # Add-V2024AccessRequestRecommendationsViewedItem -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-V2024AccessRequestRecommendationsViewedItem"
     Write-Host $_.ErrorDetails
@@ -181,6 +193,10 @@ try {
 [[Back to top]](#) 
 ## add-access-request-recommendations-viewed-items
 This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/add-access-request-recommendations-viewed-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -221,10 +237,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-V2024AccessRequestRecommendationsViewedItems -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessRequestRecommendationActionItemDto $Result
+    Add-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-V2024AccessRequestRecommendationsViewedItems -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $AccessRequestRecommendationActionItemDto  
+    # Add-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -V2024AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-V2024AccessRequestRecommendationsViewedItems"
     Write-Host $_.ErrorDetails
@@ -233,6 +249,10 @@ try {
 [[Back to top]](#) 
 ## get-access-request-recommendations
 This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -277,10 +297,10 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # Identity Access Request Recommendations
 
 try {
-    Get-V2024AccessRequestRecommendations -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestRecommendations -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestRecommendations -V2024XSailPointExperimental $XSailPointExperimental -V2024IdentityId $IdentityId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024IncludeTranslationMessages $IncludeTranslationMessages -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024AccessRequestRecommendations -XSailPointExperimental $XSailPointExperimental -IdentityId $IdentityId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendations"
     Write-Host $_.ErrorDetails
@@ -289,6 +309,10 @@ try {
 [[Back to top]](#) 
 ## get-access-request-recommendations-ignored-items
 This API returns the list of ignored access request recommendations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations-ignored-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -329,10 +353,10 @@ $Sorters = "access.id" # String | Sort results using the standard syntax describ
 # List of Ignored Access Request Recommendations
 
 try {
-    Get-V2024AccessRequestRecommendationsIgnoredItems -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestRecommendationsIgnoredItems -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestRecommendationsIgnoredItems -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024AccessRequestRecommendationsIgnoredItems -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendationsIgnoredItems"
     Write-Host $_.ErrorDetails
@@ -341,6 +365,10 @@ try {
 [[Back to top]](#) 
 ## get-access-request-recommendations-requested-items
 This API returns a list of requested access request recommendations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations-requested-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -381,10 +409,10 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # List of Requested Access Request Recommendations
 
 try {
-    Get-V2024AccessRequestRecommendationsRequestedItems -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestRecommendationsRequestedItems -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestRecommendationsRequestedItems -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024AccessRequestRecommendationsRequestedItems -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendationsRequestedItems"
     Write-Host $_.ErrorDetails
@@ -393,6 +421,10 @@ try {
 [[Back to top]](#) 
 ## get-access-request-recommendations-viewed-items
 This API returns the list of viewed access request recommendations.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-recommendations-viewed-items)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -433,10 +465,10 @@ $Sorters = "MySorters" # String | Sort results using the standard syntax describ
 # List of Viewed Access Request Recommendations
 
 try {
-    Get-V2024AccessRequestRecommendationsViewedItems -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestRecommendationsViewedItems -V2024XSailPointExperimental $XSailPointExperimental -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestRecommendationsViewedItems"
     Write-Host $_.ErrorDetails

@@ -54,6 +54,10 @@ Method | HTTP request | Description
 Creates a new scheduled search.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-scheduled-search)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -85,10 +89,10 @@ $CreateScheduledSearchRequest = @"{savedSearchId=9c620e13-cd33-4804-a13d-403bd7b
 
 try {
     $Result = ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
-    New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $Result
+    New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $CreateScheduledSearchRequest  
+    # New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ScheduledSearch"
     Write-Host $_.ErrorDetails
@@ -98,6 +102,10 @@ try {
 ## delete-scheduled-search
 Deletes the specified scheduled search.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -129,10 +137,10 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Delete a Scheduled Search
 
 try {
-    Remove-V2024ScheduledSearch -V2024Id $Id 
+    Remove-V2024ScheduledSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024ScheduledSearch -V2024Id $Id  
+    # Remove-V2024ScheduledSearch -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ScheduledSearch"
     Write-Host $_.ErrorDetails
@@ -141,6 +149,10 @@ try {
 [[Back to top]](#) 
 ## get-scheduled-search
 Returns the specified scheduled search.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -172,10 +184,10 @@ $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document
 # Get a Scheduled Search
 
 try {
-    Get-V2024ScheduledSearch -V2024Id $Id 
+    Get-V2024ScheduledSearch -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ScheduledSearch -V2024Id $Id  
+    # Get-V2024ScheduledSearch -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ScheduledSearch"
     Write-Host $_.ErrorDetails
@@ -185,6 +197,10 @@ try {
 ## list-scheduled-search
 Returns a list of scheduled searches.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -222,10 +238,10 @@ $Filters = 'savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"' # String | 
 # List scheduled searches
 
 try {
-    Get-V2024ScheduledSearch
+    Get-V2024ScheduledSearch 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ScheduledSearch -V2024Offset $Offset -V2024Limit $Limit -V2024Count $Count -V2024Filters $Filters  
+    # Get-V2024ScheduledSearch -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ScheduledSearch"
     Write-Host $_.ErrorDetails
@@ -235,6 +251,10 @@ try {
 ## unsubscribe-scheduled-search
 Unsubscribes a recipient from the specified scheduled search.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/unsubscribe-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -269,10 +289,10 @@ $TypedReference = @"{
 
 try {
     $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
-    Invoke-V2024UnsubscribeScheduledSearch -V2024Id $Id  -V2024TypedReference $Result
+    Invoke-V2024UnsubscribeScheduledSearch -Id $Id -V2024TypedReference $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024UnsubscribeScheduledSearch -V2024Id $Id -V2024TypedReference $TypedReference  
+    # Invoke-V2024UnsubscribeScheduledSearch -Id $Id -V2024TypedReference $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024UnsubscribeScheduledSearch"
     Write-Host $_.ErrorDetails
@@ -282,6 +302,10 @@ try {
 ## update-scheduled-search
 Updates an existing scheduled search.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-scheduled-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -406,10 +430,10 @@ $ScheduledSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
-    Update-V2024ScheduledSearch -V2024Id $Id  -V2024ScheduledSearch $Result
+    Update-V2024ScheduledSearch -Id $Id -V2024ScheduledSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ScheduledSearch -V2024Id $Id -V2024ScheduledSearch $ScheduledSearch  
+    # Update-V2024ScheduledSearch -Id $Id -V2024ScheduledSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ScheduledSearch"
     Write-Host $_.ErrorDetails

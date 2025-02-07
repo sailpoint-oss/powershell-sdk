@@ -21,6 +21,10 @@ Method | HTTP request | Description
 
 ## get-peer-group-outliers
 -- Deprecated : See 'IAI Outliers' This API will be used by Identity Governance systems to identify identities that are not included in an organization's peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
+:::caution deprecated\n\n This endpoint has been deprecated and may be replaced or removed in future versions of the API. \n\n:::
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-peer-group-outliers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -57,10 +61,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # Identity Outliers List
 
 try {
-    Get-BetaPeerGroupOutliers -BetaStrategy $Strategy 
+    Get-BetaPeerGroupOutliers -Strategy $Strategy 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaPeerGroupOutliers -BetaStrategy $Strategy -BetaLimit $Limit -BetaOffset $Offset -BetaCount $Count  
+    # Get-BetaPeerGroupOutliers -Strategy $Strategy -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaPeerGroupOutliers"
     Write-Host $_.ErrorDetails

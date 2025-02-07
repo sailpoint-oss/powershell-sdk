@@ -34,6 +34,10 @@ Method | HTTP request | Description
 ## create-password-policy
 This API creates the specified password policy.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-password-policy)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -97,10 +101,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-PasswordPolicy -PasswordPolicyV3Dto $Result
+    New-PasswordPolicy -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-PasswordPolicy -PasswordPolicyV3Dto $PasswordPolicyV3Dto  
+    # New-PasswordPolicy -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PasswordPolicy"
     Write-Host $_.ErrorDetails
@@ -109,6 +113,10 @@ try {
 [[Back to top]](#) 
 ## delete-password-policy
 This API deletes the specified password policy.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-password-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -152,6 +160,10 @@ try {
 [[Back to top]](#) 
 ## get-password-policy-by-id
 This API returns the password policy for the specified ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-policy-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -197,6 +209,10 @@ try {
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-password-policies)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -230,7 +246,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List Password Policies
 
 try {
-    Get-PasswordPolicies
+    Get-PasswordPolicies 
     
     # Below is a request that includes all optional parameters
     # Get-PasswordPolicies -Limit $Limit -Offset $Offset -Count $Count  
@@ -242,6 +258,10 @@ try {
 [[Back to top]](#) 
 ## set-password-policy
 This API updates the specified password policy.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/set-password-policy)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -308,10 +328,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-PasswordPolicy -Id $Id  -PasswordPolicyV3Dto $Result
+    Set-PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-PasswordPolicy -Id $Id -PasswordPolicyV3Dto $PasswordPolicyV3Dto  
+    # Set-PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-PasswordPolicy"
     Write-Host $_.ErrorDetails

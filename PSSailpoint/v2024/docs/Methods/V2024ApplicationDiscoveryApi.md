@@ -27,6 +27,10 @@ Method | HTTP request | Description
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-discovered-applications)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -64,10 +68,10 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # Get Discovered Applications for Tenant
 
 try {
-    Get-V2024DiscoveredApplications
+    Get-V2024DiscoveredApplications 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024DiscoveredApplications -V2024Limit $Limit -V2024Offset $Offset -V2024Detail $Detail -V2024Filter $Filter -V2024Sorters $Sorters  
+    # Get-V2024DiscoveredApplications -Limit $Limit -Offset $Offset -Detail $Detail -Filter $Filter -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DiscoveredApplications"
     Write-Host $_.ErrorDetails
@@ -79,6 +83,10 @@ Download an example CSV file with two columns `application_name` and `descriptio
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-manual-discover-applications-csv-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -107,7 +115,7 @@ Code | Description  | Data Type
 # Download CSV Template for Discovery
 
 try {
-    Get-V2024ManualDiscoverApplicationsCsvTemplate
+    Get-V2024ManualDiscoverApplicationsCsvTemplate 
     
     # Below is a request that includes all optional parameters
     # Get-V2024ManualDiscoverApplicationsCsvTemplate  
@@ -120,6 +128,10 @@ try {
 ## send-manual-discover-applications-csv-template
 Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/send-manual-discover-applications-csv-template)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -150,10 +162,10 @@ $File =  # System.IO.FileInfo | The CSV file to upload containing `application_n
 # Upload CSV to Discover Applications
 
 try {
-    Send-V2024ManualDiscoverApplicationsCsvTemplate -V2024File $File 
+    Send-V2024ManualDiscoverApplicationsCsvTemplate -File $File 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ManualDiscoverApplicationsCsvTemplate -V2024File $File  
+    # Send-V2024ManualDiscoverApplicationsCsvTemplate -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ManualDiscoverApplicationsCsvTemplate"
     Write-Host $_.ErrorDetails

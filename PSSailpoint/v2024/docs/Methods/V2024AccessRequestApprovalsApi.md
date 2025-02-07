@@ -45,6 +45,10 @@ Method | HTTP request | Description
 ## approve-access-request
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-access-request)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -85,10 +89,10 @@ $CommentDto = @"{
 # Approve Access Request Approval
 
 try {
-    Approve-V2024AccessRequest -V2024ApprovalId $ApprovalId 
+    Approve-V2024AccessRequest -ApprovalId $ApprovalId 
     
     # Below is a request that includes all optional parameters
-    # Approve-V2024AccessRequest -V2024ApprovalId $ApprovalId -V2024CommentDto $CommentDto  
+    # Approve-V2024AccessRequest -ApprovalId $ApprovalId -V2024CommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2024AccessRequest"
     Write-Host $_.ErrorDetails
@@ -97,6 +101,10 @@ try {
 [[Back to top]](#) 
 ## forward-access-request
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/forward-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -134,10 +142,10 @@ $ForwardApprovalDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
-    Invoke-V2024ForwardAccessRequest -V2024ApprovalId $ApprovalId  -V2024ForwardApprovalDto $Result
+    Invoke-V2024ForwardAccessRequest -ApprovalId $ApprovalId -V2024ForwardApprovalDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024ForwardAccessRequest -V2024ApprovalId $ApprovalId -V2024ForwardApprovalDto $ForwardApprovalDto  
+    # Invoke-V2024ForwardAccessRequest -ApprovalId $ApprovalId -V2024ForwardApprovalDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024ForwardAccessRequest"
     Write-Host $_.ErrorDetails
@@ -146,6 +154,10 @@ try {
 [[Back to top]](#) 
 ## get-access-request-approval-summary
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information. info.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-approval-summary)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -178,10 +190,10 @@ $FromDate = "from-date=2020-03-19T19:59:11Z" # String | This is the date and tim
 # Get Access Requests Approvals Number
 
 try {
-    Get-V2024AccessRequestApprovalSummary
+    Get-V2024AccessRequestApprovalSummary 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestApprovalSummary -V2024OwnerId $OwnerId -V2024FromDate $FromDate  
+    # Get-V2024AccessRequestApprovalSummary -OwnerId $OwnerId -FromDate $FromDate  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestApprovalSummary"
     Write-Host $_.ErrorDetails
@@ -191,6 +203,10 @@ try {
 ## list-access-request-approvers
 This API endpoint returns the list of approvers for the given access request id.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-request-approvers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -228,10 +244,10 @@ $Count = $false # Boolean | If this is true, the *X-Total-Count* response header
 # Access Request Approvers
 
 try {
-    Get-V2024AccessRequestApprovers -V2024AccessRequestId $AccessRequestId 
+    Get-V2024AccessRequestApprovers -AccessRequestId $AccessRequestId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessRequestApprovers -V2024AccessRequestId $AccessRequestId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count  
+    # Get-V2024AccessRequestApprovers -AccessRequestId $AccessRequestId -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessRequestApprovers"
     Write-Host $_.ErrorDetails
@@ -240,6 +256,10 @@ try {
 [[Back to top]](#) 
 ## list-completed-approvals
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-completed-approvals)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -280,10 +300,10 @@ $Sorters = "modified" # String | Sort results using the standard syntax describe
 # Completed Access Request Approvals List
 
 try {
-    Get-V2024CompletedApprovals
+    Get-V2024CompletedApprovals 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024CompletedApprovals -V2024OwnerId $OwnerId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024CompletedApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CompletedApprovals"
     Write-Host $_.ErrorDetails
@@ -292,6 +312,10 @@ try {
 [[Back to top]](#) 
 ## list-pending-approvals
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-pending-approvals)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -332,10 +356,10 @@ $Sorters = "modified" # String | Sort results using the standard syntax describe
 # Pending Access Request Approvals List
 
 try {
-    Get-V2024PendingApprovals
+    Get-V2024PendingApprovals 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PendingApprovals -V2024OwnerId $OwnerId -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024PendingApprovals -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PendingApprovals"
     Write-Host $_.ErrorDetails
@@ -344,6 +368,10 @@ try {
 [[Back to top]](#) 
 ## reject-access-request
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/reject-access-request)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -386,10 +414,10 @@ $CommentDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto
-    Deny-V2024AccessRequest -V2024ApprovalId $ApprovalId  -V2024CommentDto $Result
+    Deny-V2024AccessRequest -ApprovalId $ApprovalId -V2024CommentDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Deny-V2024AccessRequest -V2024ApprovalId $ApprovalId -V2024CommentDto $CommentDto  
+    # Deny-V2024AccessRequest -ApprovalId $ApprovalId -V2024CommentDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-V2024AccessRequest"
     Write-Host $_.ErrorDetails

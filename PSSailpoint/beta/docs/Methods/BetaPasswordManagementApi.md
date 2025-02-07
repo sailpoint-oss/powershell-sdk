@@ -49,6 +49,10 @@ Method | HTTP request | Description
 ## create-digit-token
 This API is used to generate a digit token for password management. Requires authorization scope of "idn:password-digit-token:create".
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-digit-token)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -83,10 +87,10 @@ $PasswordDigitTokenReset = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
-    New-BetaDigitToken -BetaPasswordDigitTokenReset $Result
+    New-BetaDigitToken -BetaPasswordDigitTokenReset $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaDigitToken -BetaPasswordDigitTokenReset $PasswordDigitTokenReset  
+    # New-BetaDigitToken -BetaPasswordDigitTokenReset $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaDigitToken"
     Write-Host $_.ErrorDetails
@@ -95,6 +99,10 @@ try {
 [[Back to top]](#) 
 ## get-identity-password-change-status
 This API returns the status of a password change request. A token with identity owner or trusted API client application authority is required to call this API.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-password-change-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -125,10 +133,10 @@ $Id = "MyId" # String |
 # Get Password Change Request Status
 
 try {
-    Get-BetaIdentityPasswordChangeStatus -BetaId $Id 
+    Get-BetaIdentityPasswordChangeStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaIdentityPasswordChangeStatus -BetaId $Id  
+    # Get-BetaIdentityPasswordChangeStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaIdentityPasswordChangeStatus"
     Write-Host $_.ErrorDetails
@@ -145,6 +153,10 @@ or a token generated with the [authorization_code](https://developer.sailpoint.c
 grant type will **NOT** work on this endpoint, and a `403 Forbidden` response 
 will be returned.
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/query-password-info)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -179,10 +191,10 @@ $PasswordInfoQueryDTO = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-    Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $Result
+    Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $PasswordInfoQueryDTO  
+    # Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-BetaPasswordInfo"
     Write-Host $_.ErrorDetails
@@ -235,6 +247,10 @@ In this example, `toEncrypt` refers to the plain text password you are setting a
 You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password. 
 
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/set-identity-password)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -271,10 +287,10 @@ $PasswordChangeRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-    Set-BetaIdentityPassword -BetaPasswordChangeRequest $Result
+    Set-BetaIdentityPassword -BetaPasswordChangeRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaIdentityPassword -BetaPasswordChangeRequest $PasswordChangeRequest  
+    # Set-BetaIdentityPassword -BetaPasswordChangeRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaIdentityPassword"
     Write-Host $_.ErrorDetails

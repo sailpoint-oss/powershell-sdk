@@ -41,6 +41,10 @@ Method | HTTP request | Description
 ## start-predict-sod-violations
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-predict-sod-violations)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -83,10 +87,10 @@ $IdentityWithNewAccess = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
-    Start-V2024PredictSodViolations -V2024IdentityWithNewAccess $Result
+    Start-V2024PredictSodViolations -V2024IdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024PredictSodViolations -V2024IdentityWithNewAccess $IdentityWithNewAccess  
+    # Start-V2024PredictSodViolations -V2024IdentityWithNewAccess $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024PredictSodViolations"
     Write-Host $_.ErrorDetails
@@ -95,6 +99,10 @@ try {
 [[Back to top]](#) 
 ## start-violation-check
 This API initiates a SOD policy verification asynchronously.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/start-violation-check)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -127,10 +135,10 @@ $IdentityWithNewAccess1 = @"{identityId=2c91808568c529c60168cca6f90c1313, access
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess1 -Json $IdentityWithNewAccess1
-    Start-V2024ViolationCheck -V2024IdentityWithNewAccess1 $Result
+    Start-V2024ViolationCheck -V2024IdentityWithNewAccess1 $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024ViolationCheck -V2024IdentityWithNewAccess1 $IdentityWithNewAccess1  
+    # Start-V2024ViolationCheck -V2024IdentityWithNewAccess1 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024ViolationCheck"
     Write-Host $_.ErrorDetails

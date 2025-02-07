@@ -49,6 +49,10 @@ Method | HTTP request | Description
 ## create-digit-token
 This API is used to generate a digit token for password management. Requires authorization scope of "idn:password-digit-token:create".
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-digit-token)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -85,10 +89,10 @@ $PasswordDigitTokenReset = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
-    New-V2024DigitToken -V2024XSailPointExperimental $XSailPointExperimental  -V2024PasswordDigitTokenReset $Result
+    New-V2024DigitToken -XSailPointExperimental $XSailPointExperimental -V2024PasswordDigitTokenReset $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024DigitToken -V2024XSailPointExperimental $XSailPointExperimental -V2024PasswordDigitTokenReset $PasswordDigitTokenReset  
+    # New-V2024DigitToken -XSailPointExperimental $XSailPointExperimental -V2024PasswordDigitTokenReset $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024DigitToken"
     Write-Host $_.ErrorDetails
@@ -97,6 +101,10 @@ try {
 [[Back to top]](#) 
 ## get-password-change-status
 This API returns the status of a password change request.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-change-status)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -128,10 +136,10 @@ $Id = "089899f13a8f4da7824996191587bab9" # String | Password change request ID
 # Get Password Change Request Status
 
 try {
-    Get-V2024PasswordChangeStatus -V2024Id $Id 
+    Get-V2024PasswordChangeStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PasswordChangeStatus -V2024Id $Id  
+    # Get-V2024PasswordChangeStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PasswordChangeStatus"
     Write-Host $_.ErrorDetails
@@ -141,6 +149,10 @@ try {
 ## query-password-info
 This API is used to query password related information. 
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/query-password-info)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -175,10 +187,10 @@ $PasswordInfoQueryDTO = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-    Search-V2024PasswordInfo -V2024PasswordInfoQueryDTO $Result
+    Search-V2024PasswordInfo -V2024PasswordInfoQueryDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024PasswordInfo -V2024PasswordInfoQueryDTO $PasswordInfoQueryDTO  
+    # Search-V2024PasswordInfo -V2024PasswordInfoQueryDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024PasswordInfo"
     Write-Host $_.ErrorDetails
@@ -206,6 +218,10 @@ If you are using a Windows machine, refer to this [guide](https://tecadmin.net/i
 
 You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password. 
 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-password)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -243,10 +259,10 @@ $PasswordChangeRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-    Set-V2024Password -V2024PasswordChangeRequest $Result
+    Set-V2024Password -V2024PasswordChangeRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024Password -V2024PasswordChangeRequest $PasswordChangeRequest  
+    # Set-V2024Password -V2024PasswordChangeRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024Password"
     Write-Host $_.ErrorDetails

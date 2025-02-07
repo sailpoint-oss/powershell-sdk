@@ -65,6 +65,10 @@ Use this API to create an access profile.
 A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile's Source.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-profile)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -179,10 +183,10 @@ $AccessProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
-    New-V2024AccessProfile -V2024AccessProfile $Result
+    New-V2024AccessProfile -V2024AccessProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024AccessProfile -V2024AccessProfile $AccessProfile  
+    # New-V2024AccessProfile -V2024AccessProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024AccessProfile"
     Write-Host $_.ErrorDetails
@@ -195,6 +199,10 @@ This API deletes an existing Access Profile.
 The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
 
 A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-access-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -225,10 +233,10 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 # Delete the specified Access Profile
 
 try {
-    Remove-V2024AccessProfile -V2024Id $Id 
+    Remove-V2024AccessProfile -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024AccessProfile -V2024Id $Id  
+    # Remove-V2024AccessProfile -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024AccessProfile"
     Write-Host $_.ErrorDetails
@@ -241,6 +249,10 @@ When the request is successful, the endpoint returns the bulk delete's task resu
 This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
 By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted.
 A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they're able to administer.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-access-profiles-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -276,10 +288,10 @@ $AccessProfileBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
-    Remove-V2024AccessProfilesInBulk -V2024AccessProfileBulkDeleteRequest $Result
+    Remove-V2024AccessProfilesInBulk -V2024AccessProfileBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024AccessProfilesInBulk -V2024AccessProfileBulkDeleteRequest $AccessProfileBulkDeleteRequest  
+    # Remove-V2024AccessProfilesInBulk -V2024AccessProfileBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024AccessProfilesInBulk"
     Write-Host $_.ErrorDetails
@@ -288,6 +300,10 @@ try {
 [[Back to top]](#) 
 ## get-access-profile
 This API returns an Access Profile by its ID.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -318,10 +334,10 @@ $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
 # Get an Access Profile
 
 try {
-    Get-V2024AccessProfile -V2024Id $Id 
+    Get-V2024AccessProfile -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessProfile -V2024Id $Id  
+    # Get-V2024AccessProfile -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessProfile"
     Write-Host $_.ErrorDetails
@@ -332,6 +348,10 @@ try {
 Use this API to get a list of an access profile's entitlements. 
 A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-profile-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -372,10 +392,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List Access Profile's Entitlements
 
 try {
-    Get-V2024AccessProfileEntitlements -V2024Id $Id 
+    Get-V2024AccessProfileEntitlements -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessProfileEntitlements -V2024Id $Id -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters  
+    # Get-V2024AccessProfileEntitlements -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessProfileEntitlements"
     Write-Host $_.ErrorDetails
@@ -385,6 +405,10 @@ try {
 ## list-access-profiles
 Use this API to get a list of access profiles.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -429,10 +453,10 @@ $IncludeUnsegmented = $false # Boolean | Indicates whether the response list sho
 # List Access Profiles
 
 try {
-    Get-V2024AccessProfiles
+    Get-V2024AccessProfiles 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessProfiles -V2024ForSubadmin $ForSubadmin -V2024Limit $Limit -V2024Offset $Offset -V2024Count $Count -V2024Filters $Filters -V2024Sorters $Sorters -V2024ForSegmentIds $ForSegmentIds -V2024IncludeUnsegmented $IncludeUnsegmented  
+    # Get-V2024AccessProfiles -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessProfiles"
     Write-Host $_.ErrorDetails
@@ -471,6 +495,10 @@ A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which
 
 > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile's source.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-access-profile)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -508,10 +536,10 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024AccessProfile -V2024Id $Id  -V2024JsonPatchOperation $Result
+    Update-V2024AccessProfile -Id $Id -V2024JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024AccessProfile -V2024Id $Id -V2024JsonPatchOperation $JsonPatchOperation  
+    # Update-V2024AccessProfile -Id $Id -V2024JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AccessProfile"
     Write-Host $_.ErrorDetails
@@ -526,6 +554,10 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 
 >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.
  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-access-profiles-in-bulk)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -561,10 +593,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
-    Update-V2024AccessProfilesInBulk -V2024XSailPointExperimental $XSailPointExperimental  -V2024AccessProfileBulkUpdateRequestInner $Result
+    Update-V2024AccessProfilesInBulk -XSailPointExperimental $XSailPointExperimental -V2024AccessProfileBulkUpdateRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024AccessProfilesInBulk -V2024XSailPointExperimental $XSailPointExperimental -V2024AccessProfileBulkUpdateRequestInner $AccessProfileBulkUpdateRequestInner  
+    # Update-V2024AccessProfilesInBulk -XSailPointExperimental $XSailPointExperimental -V2024AccessProfileBulkUpdateRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AccessProfilesInBulk"
     Write-Host $_.ErrorDetails

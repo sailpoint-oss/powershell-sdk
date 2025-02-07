@@ -42,6 +42,10 @@ Method | HTTP request | Description
 ## create-identity-profile
 This creates an Identity Profile.    
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/create-identity-profile)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -120,10 +124,10 @@ $IdentityProfile = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
-    New-IdentityProfile -IdentityProfile $Result
+    New-IdentityProfile -IdentityProfile $Result 
     
     # Below is a request that includes all optional parameters
-    # New-IdentityProfile -IdentityProfile $IdentityProfile  
+    # New-IdentityProfile -IdentityProfile $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityProfile"
     Write-Host $_.ErrorDetails
@@ -137,6 +141,10 @@ On success, this endpoint will return a reference to the bulk delete task result
     
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -185,6 +193,10 @@ On success, this endpoint will return a reference to the bulk delete task result
 
 The following rights are required to access this endpoint: idn:identity-profile:delete
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/delete-identity-profiles)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -217,10 +229,10 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-    Remove-IdentityProfiles -RequestBody $Result
+    Remove-IdentityProfiles -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-IdentityProfiles -RequestBody $RequestBody  
+    # Remove-IdentityProfiles -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityProfiles"
     Write-Host $_.ErrorDetails
@@ -229,6 +241,10 @@ try {
 [[Back to top]](#) 
 ## export-identity-profiles
 This exports existing identity profiles in the format specified by the sp-config service.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/export-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -267,7 +283,7 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # Export Identity Profiles
 
 try {
-    Export-IdentityProfiles
+    Export-IdentityProfiles 
     
     # Below is a request that includes all optional parameters
     # Export-IdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -279,6 +295,10 @@ try {
 [[Back to top]](#) 
 ## get-default-identity-attribute-config
 This returns the default identity attribute config.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-default-identity-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -323,6 +343,10 @@ try {
 ## get-identity-profile
 This returns a single Identity Profile based on ID.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-profile)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -365,6 +389,10 @@ try {
 [[Back to top]](#) 
 ## import-identity-profiles
 This imports previously exported identity profiles.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/import-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -458,10 +486,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
-    Import-IdentityProfiles -IdentityProfileExportedObject $Result
+    Import-IdentityProfiles -IdentityProfileExportedObject $Result 
     
     # Below is a request that includes all optional parameters
-    # Import-IdentityProfiles -IdentityProfileExportedObject $IdentityProfileExportedObject  
+    # Import-IdentityProfiles -IdentityProfileExportedObject $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-IdentityProfiles"
     Write-Host $_.ErrorDetails
@@ -470,6 +498,10 @@ try {
 [[Back to top]](#) 
 ## list-identity-profiles
 This returns a list of Identity Profiles based on the specified query parameters.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/list-identity-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -508,7 +540,7 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # Identity Profiles List
 
 try {
-    Get-IdentityProfiles
+    Get-IdentityProfiles 
     
     # Below is a request that includes all optional parameters
     # Get-IdentityProfiles -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
@@ -521,6 +553,10 @@ try {
 ## show-identity-preview
 Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/show-identity-preview)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -578,10 +614,10 @@ $IdentityPreviewRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    Show-IdentityPreview -IdentityPreviewRequest $Result
+    Show-IdentityPreview -IdentityPreviewRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Show-IdentityPreview -IdentityPreviewRequest $IdentityPreviewRequest  
+    # Show-IdentityPreview -IdentityPreviewRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-IdentityPreview"
     Write-Host $_.ErrorDetails
@@ -594,6 +630,10 @@ This operation should not be used to schedule your own identity processing or to
 This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh.
 This operation will perform the following activities on all identities under the identity profile.
 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity's correct manager through manager correlation. 3. Updates the identity's access according to their assigned lifecycle state. 4. Updates the identity's access based on role assignment criteria.
+
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/sync-identity-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -648,6 +688,10 @@ Some fields of the Schema cannot be updated. These fields are listed below:
 * identityRefreshRequired
 * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
 
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v3/update-identity-profile)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -686,10 +730,10 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-IdentityProfile -IdentityProfileId $IdentityProfileId  -JsonPatchOperation $Result
+    Update-IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $JsonPatchOperation  
+    # Update-IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-IdentityProfile"
     Write-Host $_.ErrorDetails

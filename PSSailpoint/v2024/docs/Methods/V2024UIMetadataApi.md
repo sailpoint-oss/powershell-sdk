@@ -24,6 +24,10 @@ Method | HTTP request | Description
 ## get-tenant-ui-metadata
 This API endpoint retrieves UI metadata configured for your tenant.
 
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-ui-metadata)
+
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
@@ -54,10 +58,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Get a tenant UI metadata
 
 try {
-    Get-V2024TenantUiMetadata -V2024XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TenantUiMetadata -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024TenantUiMetadata -V2024XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024TenantUiMetadata -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TenantUiMetadata"
     Write-Host $_.ErrorDetails
@@ -66,6 +70,10 @@ try {
 [[Back to top]](#) 
 ## set-tenant-ui-metadata
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
+
+:::warning experimental\n\nThis API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.\n\n:::\n\n
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-tenant-ui-metadata)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -104,10 +112,10 @@ $TenantUiMetadataItemUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
-    Set-V2024TenantUiMetadata -V2024XSailPointExperimental $XSailPointExperimental  -V2024TenantUiMetadataItemUpdateRequest $Result
+    Set-V2024TenantUiMetadata -XSailPointExperimental $XSailPointExperimental -V2024TenantUiMetadataItemUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024TenantUiMetadata -V2024XSailPointExperimental $XSailPointExperimental -V2024TenantUiMetadataItemUpdateRequest $TenantUiMetadataItemUpdateRequest  
+    # Set-V2024TenantUiMetadata -XSailPointExperimental $XSailPointExperimental -V2024TenantUiMetadataItemUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024TenantUiMetadata"
     Write-Host $_.ErrorDetails

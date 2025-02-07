@@ -638,10 +638,12 @@ docs/ManuallyUpdatedFieldsDTO.md
 docs/MatchTerm.md
 docs/Medium.md
 docs/MessageCatalogDto.md
+docs/Methods/index.md
 docs/MetricResponse.md
 docs/MfaConfigTestResponse.md
 docs/MfaDuoConfig.md
 docs/MfaOktaConfig.md
+docs/Models/index.md
 docs/MultiHostIntegrationTemplateType.md
 docs/MultiHostIntegrations.md
 docs/MultiHostIntegrationsAggScheduleUpdate.md

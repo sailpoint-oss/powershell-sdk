@@ -14,3 +14,9 @@ files:
   developerSite_code_examples.mustache:
     templateType: APIDocs
     destinationFilename: developerSite_code_examples.yaml
+  docs_methods_index.mustache:
+    templateType: SupportingFiles
+    destinationFilename: docs/Methods/index.md
+  docs_models_index.mustache:
+    templateType: SupportingFiles
+    destinationFilename: index.md

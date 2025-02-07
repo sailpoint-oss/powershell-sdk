@@ -53,19 +53,41 @@ const renameFileToIndices = function (filePath) {
 // Function to create a directory if it doesn't exist
 const createDir = (srcDir, dirName) => {
   const newDir = path.join(srcDir, dirName);
-  // Create the directory only if it doesn't exist
-  if (!fs.existsSync(newDir)) {
-    fs.mkdirSync(newDir, { recursive: true });
+
+  // Check if the directory already exists before creating it
+  if (fs.existsSync(newDir)) {
+    return newDir; // Return the existing directory path if it already exists
   }
+
+  // Create the directory only if it doesn't exist
+  fs.mkdirSync(newDir, { recursive: true });
+
   return newDir; // Return the path for further use
 };
 // Function to handle the movement of files/folders
-const moveFiles = (srcPath, destPath) => {
+const moveFiles = (srcPath, destPath, filename = null) => {
   if (!fs.existsSync(destPath)) {
     fs.mkdirSync(destPath, { recursive: true });
   }
-  // Move file/folder from srcPath to destPath
-  fs.renameSync(srcPath, path.join(destPath, path.basename(srcPath)));
+
+  if (filename) {
+    // If a filename is provided, move only that file
+    const filePath = path.join(srcPath, filename);
+    if (fs.existsSync(filePath)) {
+      fs.renameSync(filePath, path.join(destPath, filename));
+    } else {
+      console.error(`File ${filename} does not exist in the source path.`);
+    }
+  } else {
+    // If no filename is provided, move all files/folders
+    const files = fs.readdirSync(srcPath);
+    files.forEach((file) => {
+      const filePath = path.join(srcPath, file);
+      if (fs.lstatSync(filePath).isFile()) {
+        fs.renameSync(filePath, path.join(destPath, file));
+      }
+    });
+  }
 };
 // Main logic
 const processDirectory = (srcDir) => {
@@ -78,7 +100,7 @@ const processDirectory = (srcDir) => {
   // Iterate over each file/folder in the source directory
   files.forEach(file => {
     const currentPath = path.join(srcDir, file);
-    
+
     // Ensure destination paths for files
     const destExamplePath = path.join(examplesDir, file);
     const destMethodPath = path.join(methodsDir, file);
@@ -89,8 +111,10 @@ const processDirectory = (srcDir) => {
       if (file.includes('developerSite_code_examples')) {
         moveFiles(currentPath, examplesDir); // Move to Examples
       } else if (file.includes('Api.md')) {
+        console.log(methodsDir);
         moveFiles(currentPath, methodsDir); // Move to Methods
-      } else {
+      } else if (file.includes('index.md') || file.includes('Methods') || file.includes('Models')) { moveFiles(currentPath, currentPath); } // Move to Models
+      else {
         moveFiles(currentPath, modelsDir); // Otherwise, move to Models
       }
     } else { // If it's a file
@@ -143,11 +167,11 @@ const fixFiles = function (myArray) {
 
     if (file.includes(".md")) {
       for (const line of rawDataArra) {
-        if (line.includes("**Indices** | Pointer to [**[]Index**](Index)")) {
+        if (line.includes("**Indices** | [**[]Index**](index)")) {
           fileOut.push(
             line.replaceAll(
-              "**Indices** | Pointer to [**[]Index**](Index)",
-              "**Indices** | Pointer to [**[]Index**](Indices)"
+              "**Indices** | [**[]Index**](index)",
+              "**Indices** | [**[]Index**](Indices)"
             )
           );
           madeChange = true;
@@ -296,5 +320,7 @@ processDirectory(path.join(process.argv[2], '/docs'));
 getAllFiles(process.argv[2], myArray);
 // fix the files
 fixFiles(myArray)
+//moving index.md from root to docs/models after the generation of the models
+moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "index.md");
 // merge all the code examples into a single file
 mergeCodeExampleFiles(path.join(process.argv[2], 'docs/Examples'));

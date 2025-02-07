@@ -21,8 +21,19 @@ Method | HTTP request | Description
 {{/operation}}{{/operations}}
 {{#operations}}
 {{#operation}}
+
 ## {{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+{{#isDeprecated}}:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+{{/isDeprecated}}
+{{#headerParams}}:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+{{/headerParams}}
 {{#notes}}{{{unescapedNotes}}}{{/notes}}
+
+[API Spec](https://developer.sailpoint.com/docs/api/{{apiVersion}}/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}})
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -74,10 +85,10 @@ ${{paramName}} = {{{vendorExtensions.x-powershell-example}}} # {{{dataType}}} | 
 
 try {
     {{#requiredAndNotNullableParams}}{{#isBodyParam}}$Result = ConvertFrom-JsonTo{{paramName}} -Json ${{paramName}}
-    {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}}{{#allParams}}{{#required}} -{{funtionPrefix}}{{paramName}}{{^isBodyParam}} ${{paramName}}{{/isBodyParam}} {{#isBodyParam}}$Result{{/isBodyParam}}{{/required}}{{/allParams}}
+    {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}} {{#allParams}}{{#required}}{{^isArray}}{{#isModel}}-{{funtionPrefix}}{{paramName}}{{/isModel}}{{^isModel}}-{{paramName}}{{/isModel}}{{/isArray}}{{#isArray}}{{#items.isModel}}-{{funtionPrefix}}{{paramName}}{{/items.isModel}}{{^items.isModel}}-{{paramName}}{{/items.isModel}}{{/isArray}}{{^isBodyParam}} ${{paramName}} {{/isBodyParam}}{{#isBodyParam}} $Result {{/isBodyParam}}{{/required}}{{/allParams}}
     
     # Below is a request that includes all optional parameters
-    # {{{vendorExtensions.x-powershell-method-name}}}{{#allParams}} -{{funtionPrefix}}{{paramName}} ${{paramName}}{{/allParams}}  
+    # {{{vendorExtensions.x-powershell-method-name}}}{{#allParams}} {{^isArray}}{{#isModel}}-{{funtionPrefix}}{{paramName}}{{/isModel}}{{^isModel}}-{{paramName}}{{/isModel}}{{/isArray}}{{#isArray}}{{#items.isModel}}-{{funtionPrefix}}{{paramName}}{{/items.isModel}}{{^items.isModel}}-{{paramName}}{{/items.isModel}}{{/isArray}}{{^isBodyParam}} ${{paramName}}{{/isBodyParam}}{{#isBodyParam}} $Result{{/isBodyParam}}{{/allParams}}  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling {{{vendorExtensions.x-powershell-method-name}}}"
     Write-Host $_.ErrorDetails

@@ -578,6 +578,7 @@ docs/ManuallyUpdatedFieldsDTO.md
 docs/MatchTerm.md
 docs/Medium.md
 docs/MembershipType.md
+docs/Methods/index.md
 docs/MetricAggregation.md
 docs/MetricResponse.md
 docs/MetricType.md
@@ -863,6 +864,7 @@ docs/Search.md
 docs/SearchAggregationSpecification.md
 docs/SearchArguments.md
 docs/SearchAttributeConfig.md
+docs/SearchDocument.md
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchFormDefinitionsByTenant400Response.md
@@ -1256,6 +1258,7 @@ docs/WorkgroupDto.md
 docs/WorkgroupDtoOwner.md
 docs/WorkgroupMemberAddItem.md
 docs/WorkgroupMemberDeleteItem.md
+index.md
 src/PSSailpoint.V2024/Api/V2024AccessModelMetadataApi.ps1
 src/PSSailpoint.V2024/Api/V2024AccessProfilesApi.ps1
 src/PSSailpoint.V2024/Api/V2024AccessRequestApprovalsApi.ps1
@@ -2201,6 +2204,7 @@ src/PSSailpoint.V2024/Model/Search.ps1
 src/PSSailpoint.V2024/Model/SearchAggregationSpecification.ps1
 src/PSSailpoint.V2024/Model/SearchArguments.ps1
 src/PSSailpoint.V2024/Model/SearchAttributeConfig.ps1
+src/PSSailpoint.V2024/Model/SearchDocument.ps1
 src/PSSailpoint.V2024/Model/SearchExportReportArguments.ps1
 src/PSSailpoint.V2024/Model/SearchFilterType.ps1
 src/PSSailpoint.V2024/Model/SearchFormDefinitionsByTenant400Response.ps1
@@ -3379,6 +3383,7 @@ tests/Model/Search.Tests.ps1
 tests/Model/SearchAggregationSpecification.Tests.ps1
 tests/Model/SearchArguments.Tests.ps1
 tests/Model/SearchAttributeConfig.Tests.ps1
+tests/Model/SearchDocument.Tests.ps1
 tests/Model/SearchExportReportArguments.Tests.ps1
 tests/Model/SearchFilterType.Tests.ps1
 tests/Model/SearchFormDefinitionsByTenant400Response.Tests.ps1

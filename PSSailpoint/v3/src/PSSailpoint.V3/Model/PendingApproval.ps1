@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER Id
 The approval id.
+.PARAMETER AccessRequestId
+This is the access request id.
 .PARAMETER Name
 The name of the approval.
 .PARAMETER Created
@@ -63,6 +65,9 @@ function Initialize-PendingApproval {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${AccessRequestId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
@@ -136,6 +141,7 @@ function Initialize-PendingApproval {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "accessRequestId" = ${AccessRequestId}
             "name" = ${Name}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -190,7 +196,7 @@ function ConvertFrom-JsonToPendingApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in PendingApproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext")
+        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -201,6 +207,12 @@ function ConvertFrom-JsonToPendingApproval {
             $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessRequestId"))) { #optional property not found
+            $AccessRequestId = $null
+        } else {
+            $AccessRequestId = $JsonParameters.PSobject.Properties["accessRequestId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -313,6 +325,7 @@ function ConvertFrom-JsonToPendingApproval {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "accessRequestId" = ${AccessRequestId}
             "name" = ${Name}
             "created" = ${Created}
             "modified" = ${Modified}

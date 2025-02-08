@@ -43,13 +43,23 @@ const mergeCodeExampleFiles = (srcDir) => {
   });
 };
 
+// Function to rename the file to 'indices.md'
 const renameFileToIndices = function (filePath) {
-  // Determine the new file path by changing the file's name to 'indices'
-  let dirPath = path.dirname(filePath); // Gets the directory path of the current file
-  const newFilePath = path.join(dirPath, "indices.md"); // Constructs the full target path
-  // Rename the file
-  fs.renameSync(filePath, newFilePath);
+  // Check if the file exists before proceeding
+  if (!fs.existsSync(filePath)) {
+    return; // Exit the function if the file does not exist
+  }
+
+  let dirPath = path.dirname(filePath); // Get the directory of the current file
+  const newFilePath = path.join(dirPath, "indices.md"); // Define the new file path
+  
+  try {
+    fs.renameSync(filePath, newFilePath); // Rename the file synchronously
+  } catch (error) {
+    console.error(`Failed to rename file: ${error.message}`);
+  }
 };
+
 // Function to create a directory if it doesn't exist
 const createDir = (srcDir, dirName) => {
   const newDir = path.join(srcDir, dirName);
@@ -111,7 +121,6 @@ const processDirectory = (srcDir) => {
       if (file.includes('developerSite_code_examples')) {
         moveFiles(currentPath, examplesDir); // Move to Examples
       } else if (file.includes('Api.md')) {
-        console.log(methodsDir);
         moveFiles(currentPath, methodsDir); // Move to Methods
       } else if (file.includes('index.md') || file.includes('Methods') || file.includes('Models')) { moveFiles(currentPath, currentPath); } // Move to Models
       else {
@@ -141,15 +150,7 @@ const fixFiles = function (myArray) {
     let madeChange = false;
     let rawdata = fs.readFileSync(file).toString();
     let rawDataArra = rawdata.split("\n");
-    if (file.includes("Index.md")) {
-      if (fs.existsSync(file)) {
-        renameFileToIndices(file);
-        continue; // Skip further processing for this file
-      } else {
-        console.error(`File not found: ${file}`);
-        continue;
-      }
-    }
+  
     if (file.includes("Api.md") || file.includes(".yaml")) {
       for (const line of rawDataArra) {
         if (line.includes("Initialize-")) {
@@ -307,6 +308,59 @@ const fixFiles = function (myArray) {
       rawDataArra = fileOut.slice();
       fileOut = [];
     }
+
+    if (file.includes("indices.md")) {
+      // Loop through each line of rawDataArra
+      for (const line of rawDataArra) {
+        if (line.includes("slug:")) {  // Exact match for the slug
+          fileOut.push(
+            line.replace(
+              "index",
+              "indices"
+            )
+          );
+          madeChange = true;
+        } else if (line.includes("id:")) {  // Exact match for "id: index"
+          fileOut.push(
+            line.replace(
+              "index",
+              "indices"
+            )
+          );
+          madeChange = true;
+        } else if (line.includes("title:")) {  // Exact match for "title: Index"
+          fileOut.push(
+            line.replace(
+              "Index",
+              "Indices"
+            )
+          );
+          madeChange = true;
+        } else if (line.includes("pagination_label:")) {  // Exact match for "pagination_label: Index"
+          fileOut.push(
+            line.replace(
+              "Index",
+              "Indices"
+            )
+          );
+          madeChange = true;
+        } else if (line.includes("sidebar_label:")) {  // Exact match for "sidebar_label: Index"
+          fileOut.push(
+            line.replace(
+              "Index",
+              "Indices"
+            )
+          );
+          madeChange = true;
+        } else {
+          // If the line doesn't match any condition, just push it as-is
+          fileOut.push(line);
+        }
+      }
+      rawDataArra = fileOut.slice();  // Replace the original array with modified one
+      fileOut = [];  // Reset the output array
+    }
+
     if (madeChange) {
       fs.writeFileSync(file, rawDataArra.join("\n"));
     }
@@ -314,8 +368,13 @@ const fixFiles = function (myArray) {
 }
 
 let myArray = [];
+
 // move all files from doc folder into either method, models or examples folder
 processDirectory(path.join(process.argv[2], '/docs'));
+
+//rename index.md to indices.md
+renameFileToIndices(path.join(process.argv[2], '/docs/models/Index.md'));
+
 // get all the files in the folder
 getAllFiles(process.argv[2], myArray);
 // fix the files

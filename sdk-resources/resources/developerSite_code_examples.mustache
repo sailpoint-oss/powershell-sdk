@@ -42,10 +42,10 @@
         
         try {
             {{#requiredAndNotNullableParams}}{{#isBodyParam}}$Result = ConvertFrom-JsonTo{{paramName}} -Json ${{paramName}}
-            {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}}{{#allParams}}{{#required}}-{{funtionPrefix}}{{paramName}}{{^isBodyParam}} ${{paramName}}{{/isBodyParam}} {{#isBodyParam}}$Result{{/isBodyParam}}{{/required}}{{/allParams}}
-            
+            {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}} {{#allParams}}{{#required}}{{^isArray}}{{#isModel}}-{{funtionPrefix}}{{paramName}}{{/isModel}}{{^isModel}}-{{paramName}}{{/isModel}}{{/isArray}}{{#isArray}}{{#items.isModel}}-{{funtionPrefix}}{{paramName}}{{/items.isModel}}{{^items.isModel}}-{{paramName}}{{/items.isModel}}{{/isArray}}{{^isBodyParam}} ${{paramName}} {{/isBodyParam}}{{#isBodyParam}} $Result {{/isBodyParam}}{{/required}}{{/allParams}}
+    
             # Below is a request that includes all optional parameters
-            # {{{vendorExtensions.x-powershell-method-name}}}{{#allParams}} -{{funtionPrefix}}{{paramName}} ${{paramName}}{{/allParams}}  
+            # {{{vendorExtensions.x-powershell-method-name}}}{{#allParams}} {{^isArray}}{{#isModel}}-{{funtionPrefix}}{{paramName}}{{/isModel}}{{^isModel}}-{{paramName}}{{/isModel}}{{/isArray}}{{#isArray}}{{#items.isModel}}-{{funtionPrefix}}{{paramName}}{{/items.isModel}}{{^items.isModel}}-{{paramName}}{{/items.isModel}}{{/isArray}}{{^isBodyParam}} ${{paramName}}{{/isBodyParam}}{{#isBodyParam}} $Result{{/isBodyParam}}{{/allParams}}   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling {{{vendorExtensions.x-powershell-method-name}}}"
             Write-Host $_.ErrorDetails

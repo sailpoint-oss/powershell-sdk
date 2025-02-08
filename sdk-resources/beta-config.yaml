@@ -19,4 +19,4 @@ files:
     destinationFilename: docs/Methods/index.md
   docs_models_index.mustache:
     templateType: SupportingFiles
-    destinationFilename: docs/Models/index.md
+    destinationFilename: index.md

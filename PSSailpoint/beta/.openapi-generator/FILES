@@ -643,7 +643,6 @@ docs/MetricResponse.md
 docs/MfaConfigTestResponse.md
 docs/MfaDuoConfig.md
 docs/MfaOktaConfig.md
-docs/Models/index.md
 docs/MultiHostIntegrationTemplateType.md
 docs/MultiHostIntegrations.md
 docs/MultiHostIntegrationsAggScheduleUpdate.md
@@ -1078,6 +1077,7 @@ docs/WorkgroupDto.md
 docs/WorkgroupDtoOwner.md
 docs/WorkgroupMemberAddItem.md
 docs/WorkgroupMemberDeleteItem.md
+index.md
 src/PSSailpoint.Beta/Api/BetaAccessModelMetadataApi.ps1
 src/PSSailpoint.Beta/Api/BetaAccessProfilesApi.ps1
 src/PSSailpoint.Beta/Api/BetaAccessRequestApprovalsApi.ps1

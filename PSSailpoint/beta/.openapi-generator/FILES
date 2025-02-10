@@ -1,5 +1,6 @@
 .openapi-generator-ignore
 Build.ps1
+Index.md
 README.md
 appveyor.yml
 docs/AccessConstraint.md
@@ -638,7 +639,7 @@ docs/ManuallyUpdatedFieldsDTO.md
 docs/MatchTerm.md
 docs/Medium.md
 docs/MessageCatalogDto.md
-docs/Methods/index.md
+docs/Methods/Index.md
 docs/MetricResponse.md
 docs/MfaConfigTestResponse.md
 docs/MfaDuoConfig.md
@@ -1077,7 +1078,6 @@ docs/WorkgroupDto.md
 docs/WorkgroupDtoOwner.md
 docs/WorkgroupMemberAddItem.md
 docs/WorkgroupMemberDeleteItem.md
-index.md
 src/PSSailpoint.Beta/Api/BetaAccessModelMetadataApi.ps1
 src/PSSailpoint.Beta/Api/BetaAccessProfilesApi.ps1
 src/PSSailpoint.Beta/Api/BetaAccessRequestApprovalsApi.ps1

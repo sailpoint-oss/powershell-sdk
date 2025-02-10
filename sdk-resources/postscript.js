@@ -270,32 +270,6 @@ const fixFiles = async function (myArray) {
       fileOut = [];
     }
 
-    // Processing Indices.md with specific changes
-    if (file.includes("Indices.md")) {
-      for (const line of rawDataArra) {
-        if (line.includes("slug:")) {
-          fileOut.push(line.replace("index", "indices"));
-          madeChange = true;
-        } else if (line.includes("id:")) {
-          fileOut.push(line.replace("index", "indices"));
-          madeChange = true;
-        } else if (line.includes("title:")) {
-          fileOut.push(line.replace("Index", "Indices"));
-          madeChange = true;
-        } else if (line.includes("pagination_label:")) {
-          fileOut.push(line.replace("Index", "Indices"));
-          madeChange = true;
-        } else if (line.includes("sidebar_label:")) {
-          fileOut.push(line.replace("Index", "Indices"));
-          madeChange = true;
-        } else {
-          fileOut.push(line);
-        }
-      }
-      rawDataArra = fileOut.slice();
-      fileOut = [];
-    }
-
     // Write changes back to file if any modification was made
     if (madeChange) {
       await fs.writeFile(absolutePath, rawDataArra.join("\n"));
@@ -312,7 +286,7 @@ const main = async () => {
   await renameFileToIndices(path.join(process.argv[2], '/docs/models/Index.md'));
   await getAllFiles(process.argv[2], myArray);
   await fixFiles(myArray);
-  await moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "index.md");
+  await moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "Index.md");
   await mergeCodeExampleFiles(path.join(process.argv[2], 'docs/Examples'));
 };
 

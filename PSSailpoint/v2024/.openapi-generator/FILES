@@ -1,5 +1,6 @@
 .openapi-generator-ignore
 Build.ps1
+Index.md
 README.md
 appveyor.yml
 docs/Access.md
@@ -578,7 +579,7 @@ docs/ManuallyUpdatedFieldsDTO.md
 docs/MatchTerm.md
 docs/Medium.md
 docs/MembershipType.md
-docs/Methods/index.md
+docs/Methods/Index.md
 docs/MetricAggregation.md
 docs/MetricResponse.md
 docs/MetricType.md
@@ -1258,7 +1259,6 @@ docs/WorkgroupDto.md
 docs/WorkgroupDtoOwner.md
 docs/WorkgroupMemberAddItem.md
 docs/WorkgroupMemberDeleteItem.md
-index.md
 src/PSSailpoint.V2024/Api/V2024AccessModelMetadataApi.ps1
 src/PSSailpoint.V2024/Api/V2024AccessProfilesApi.ps1
 src/PSSailpoint.V2024/Api/V2024AccessRequestApprovalsApi.ps1

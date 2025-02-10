@@ -1,5 +1,6 @@
 .openapi-generator-ignore
 Build.ps1
+Index.md
 README.md
 appveyor.yml
 docs/Access.md
@@ -350,7 +351,7 @@ docs/ManualWorkItemDetails.md
 docs/ManualWorkItemDetailsCurrentOwner.md
 docs/ManualWorkItemDetailsOriginalOwner.md
 docs/ManualWorkItemState.md
-docs/Methods/index.md
+docs/Methods/Index.md
 docs/MetricAggregation.md
 docs/MetricType.md
 docs/MfaConfigTestResponse.md
@@ -711,7 +712,6 @@ docs/WorkflowTrigger.md
 docs/WorkflowTriggerAttributes.md
 docs/WorkflowsApi.md
 docs/WorkflowsApideveloperSite_code_examples.yaml
-index.md
 src/PSSailpoint.V3/Api/AccessProfilesApi.ps1
 src/PSSailpoint.V3/Api/AccessRequestApprovalsApi.ps1
 src/PSSailpoint.V3/Api/AccessRequestsApi.ps1

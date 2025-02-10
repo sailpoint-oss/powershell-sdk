@@ -172,15 +172,7 @@ const fixFiles = async function (myArray) {
     // Processing .md files for specific replacements
     if (file.includes(".md")) {
       for (const line of rawDataArra) {
-        if (line.includes("**Indices** | [**[]Index**](index)")) {
-          fileOut.push(
-            line.replaceAll(
-              "**Indices** | [**[]Index**](index)",
-              "**Indices** | [**[]Index**](indices)"
-            )
-          );
-          madeChange = true;
-        } else if (line.includes("../models/system-collections-hashtable")) {
+        if (line.includes("../models/system-collections-hashtable")) {
           fileOut.push(line.replace("../models/system-collections-hashtable", "https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0"));
           madeChange = true;
         } else if (line.includes("(system-collections-hashtable)")) {

@@ -15,7 +15,7 @@ files:
     destinationFilename: developerSite_code_examples.yaml 
   docs_methods_index.mustache:
     templateType: SupportingFiles
-    destinationFilename: docs/Methods/index.md
+    destinationFilename: docs/Methods/Index.md
   docs_models_index.mustache:
     templateType: SupportingFiles
-    destinationFilename: index.md
+    destinationFilename: Index.md

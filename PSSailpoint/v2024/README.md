@@ -1563,6 +1563,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SearchAggregationSpecification](docs/SearchAggregationSpecification.md)
  - [PSSailpoint.V2024\Model.SearchArguments](docs/SearchArguments.md)
  - [PSSailpoint.V2024\Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
+ - [PSSailpoint.V2024\Model.SearchDocument](docs/SearchDocument.md)
  - [PSSailpoint.V2024\Model.SearchExportReportArguments](docs/SearchExportReportArguments.md)
  - [PSSailpoint.V2024\Model.SearchFilterType](docs/SearchFilterType.md)
  - [PSSailpoint.V2024\Model.SearchFormDefinitionsByTenant400Response](docs/SearchFormDefinitionsByTenant400Response.md)

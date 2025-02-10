@@ -51,7 +51,7 @@ const renameFileToIndices = function (filePath) {
   }
 
   let dirPath = path.dirname(filePath); // Get the directory of the current file
-  const newFilePath = path.join(dirPath, "indices.md"); // Define the new file path
+  const newFilePath = path.join(dirPath, "Indices.md"); // Define the new file path
   
   try {
     fs.renameSync(filePath, newFilePath); // Rename the file synchronously
@@ -172,7 +172,7 @@ const fixFiles = function (myArray) {
           fileOut.push(
             line.replaceAll(
               "**Indices** | [**[]Index**](index)",
-              "**Indices** | [**[]Index**](Indices)"
+              "**Indices** | [**[]Index**](indices)"
             )
           );
           madeChange = true;
@@ -309,7 +309,7 @@ const fixFiles = function (myArray) {
       fileOut = [];
     }
 
-    if (file.includes("indices.md")) {
+    if (file.includes("Indices.md")) {
       // Loop through each line of rawDataArra
       for (const line of rawDataArra) {
         if (line.includes("slug:")) {  // Exact match for the slug

@@ -29,9 +29,9 @@ String
 function Get-V2024PasswordDictionary {
     [CmdletBinding()]
     Param (
-        
-        
-        
+        [String]
+        [ValidateSet("text/plain", "application/json")]
+        $ReturnType,
         [Switch]
         $WithHttpInfo
     )
@@ -50,7 +50,7 @@ function Get-V2024PasswordDictionary {
         $LocalVarBodyParameter = $null
 
         # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('text/plain')
+        $LocalVarAccepts = @('text/plain', 'application/json')
 
         if ($ReturnType) {
             # use the return type (MIME) provided by the user

@@ -899,7 +899,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.SearchAggregationSpecification](docs/SearchAggregationSpecification.md)
  - [PSSailpoint.V3\Model.SearchArguments](docs/SearchArguments.md)
  - [PSSailpoint.V3\Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
- - [PSSailpoint.V3\Model.SearchDocument](docs/SearchDocument.md)
  - [PSSailpoint.V3\Model.SearchExportReportArguments](docs/SearchExportReportArguments.md)
  - [PSSailpoint.V3\Model.SearchFilterType](docs/SearchFilterType.md)
  - [PSSailpoint.V3\Model.SearchSchedule](docs/SearchSchedule.md)

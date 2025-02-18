@@ -30,7 +30,13 @@ const fixFiles = function (myArray) {
           madeChange = true;
     }
   
-  
+  // remove the complex search scema
+  if (file.includes(path.join("documents", "SearchDocuments.yaml"))) {
+    fileOut.push("type: object");
+    rawDataArra = fileOut.slice();
+    fileOut = [];
+    madeChange = true;
+}
   
   
   

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'AccessProfileDocument' {
     Context 'AccessProfileDocument' {
         It 'Initialize-AccessProfileDocument' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccessProfileDocument -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Enabled "TEST_VALUE" -Requestable "TEST_VALUE" -RequestCommentsRequired "TEST_VALUE" -Owner "TEST_VALUE" -Type "TEST_VALUE" -Source "TEST_VALUE" -Entitlements "TEST_VALUE" -EntitlementCount "TEST_VALUE" -Tags "TEST_VALUE"
+            #$NewObject = Initialize-AccessProfileDocument -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Enabled "TEST_VALUE" -Requestable "TEST_VALUE" -RequestCommentsRequired "TEST_VALUE" -Owner "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -Source "TEST_VALUE" -Entitlements "TEST_VALUE" -EntitlementCount "TEST_VALUE" -Segments "TEST_VALUE" -SegmentCount "TEST_VALUE" -Tags "TEST_VALUE" -Apps "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessProfileDocument
             #$NewObject.property | Should -Be 0
         }

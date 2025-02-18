@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'AccessProfileRole' {
     Context 'AccessProfileRole' {
         It 'Initialize-AccessProfileRole' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccessProfileRole -Id "TEST_VALUE" -Name "TEST_VALUE" -DisplayName "TEST_VALUE" -Type "TEST_VALUE" -Description "TEST_VALUE" -Owner "TEST_VALUE" -Disabled "TEST_VALUE" -Revocable "TEST_VALUE"
+            #$NewObject = Initialize-AccessProfileRole -Id "TEST_VALUE" -Name "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Owner "TEST_VALUE" -Disabled "TEST_VALUE" -Revocable "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessProfileRole
             #$NewObject.property | Should -Be 0
         }

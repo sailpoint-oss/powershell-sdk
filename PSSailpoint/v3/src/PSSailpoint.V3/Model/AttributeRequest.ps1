@@ -19,7 +19,7 @@ Attribute name.
 .PARAMETER Op
 Operation to perform on attribute.
 .PARAMETER Value
-Value of attribute.
+No description available.
 .OUTPUTS
 
 AttributeRequest<PSCustomObject>
@@ -35,7 +35,7 @@ function Initialize-AttributeRequest {
         [String]
         ${Op},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${Value}
     )
 

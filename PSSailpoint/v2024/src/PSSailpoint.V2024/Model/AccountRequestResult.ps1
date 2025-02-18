@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Errors
-No description available.
+Error message.
 .PARAMETER Status
 The status of the account request
 .PARAMETER TicketId
-No description available.
+ID of associated ticket.
 .OUTPUTS
 
 AccountRequestResult<PSCustomObject>

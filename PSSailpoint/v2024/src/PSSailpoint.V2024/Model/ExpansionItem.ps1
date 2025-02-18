@@ -17,13 +17,17 @@ No description available.
 .PARAMETER AccountId
 The ID of the account
 .PARAMETER Cause
-No description available.
+Cause of the expansion item.
 .PARAMETER Name
 The name of the item
-.PARAMETER AttributeRequests
+.PARAMETER AttributeRequest
 No description available.
 .PARAMETER Source
 No description available.
+.PARAMETER Id
+ID of the expansion item
+.PARAMETER State
+State of the expansion item
 .OUTPUTS
 
 ExpansionItem<PSCustomObject>
@@ -42,11 +46,17 @@ function Initialize-V2024ExpansionItem {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${AttributeRequests},
+        [PSCustomObject]
+        ${AttributeRequest},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Source}
+        ${Source},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${State}
     )
 
     Process {
@@ -58,8 +68,10 @@ function Initialize-V2024ExpansionItem {
             "accountId" = ${AccountId}
             "cause" = ${Cause}
             "name" = ${Name}
-            "attributeRequests" = ${AttributeRequests}
+            "attributeRequest" = ${AttributeRequest}
             "source" = ${Source}
+            "id" = ${Id}
+            "state" = ${State}
         }
 
         return $PSO
@@ -96,7 +108,7 @@ function ConvertFrom-V2024JsonToExpansionItem {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024ExpansionItem
-        $AllProperties = ("accountId", "cause", "name", "attributeRequests", "source")
+        $AllProperties = ("accountId", "cause", "name", "attributeRequest", "source", "id", "state")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,10 +133,10 @@ function ConvertFrom-V2024JsonToExpansionItem {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeRequests"))) { #optional property not found
-            $AttributeRequests = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeRequest"))) { #optional property not found
+            $AttributeRequest = $null
         } else {
-            $AttributeRequests = $JsonParameters.PSobject.Properties["attributeRequests"].value
+            $AttributeRequest = $JsonParameters.PSobject.Properties["attributeRequest"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) { #optional property not found
@@ -133,12 +145,26 @@ function ConvertFrom-V2024JsonToExpansionItem {
             $Source = $JsonParameters.PSobject.Properties["source"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "state"))) { #optional property not found
+            $State = $null
+        } else {
+            $State = $JsonParameters.PSobject.Properties["state"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "accountId" = ${AccountId}
             "cause" = ${Cause}
             "name" = ${Name}
-            "attributeRequests" = ${AttributeRequests}
+            "attributeRequest" = ${AttributeRequest}
             "source" = ${Source}
+            "id" = ${Id}
+            "state" = ${State}
         }
 
         return $PSO

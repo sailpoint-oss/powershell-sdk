@@ -36,6 +36,10 @@ A date-time in ISO-8601 format
 Map or dictionary of key/value pairs.
 .PARAMETER Created
 ISO-8601 date-time referring to the time when the object was created.
+.PARAMETER SupportsPasswordChange
+Indicates whether the account supports password change.
+.PARAMETER AccountAttributes
+Map or dictionary of key/value pairs.
 .OUTPUTS
 
 BaseAccount<PSCustomObject>
@@ -76,7 +80,13 @@ function Initialize-V2024BaseAccount {
         ${EntitlementAttributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${Created}
+        ${Created},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${SupportsPasswordChange} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${AccountAttributes}
     )
 
     Process {
@@ -96,6 +106,8 @@ function Initialize-V2024BaseAccount {
             "passwordLastSet" = ${PasswordLastSet}
             "entitlementAttributes" = ${EntitlementAttributes}
             "created" = ${Created}
+            "supportsPasswordChange" = ${SupportsPasswordChange}
+            "accountAttributes" = ${AccountAttributes}
         }
 
         return $PSO
@@ -132,7 +144,7 @@ function ConvertFrom-V2024JsonToBaseAccount {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024BaseAccount
-        $AllProperties = ("id", "name", "accountId", "source", "disabled", "locked", "privileged", "manuallyCorrelated", "passwordLastSet", "entitlementAttributes", "created")
+        $AllProperties = ("id", "name", "accountId", "source", "disabled", "locked", "privileged", "manuallyCorrelated", "passwordLastSet", "entitlementAttributes", "created", "supportsPasswordChange", "accountAttributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -205,6 +217,18 @@ function ConvertFrom-V2024JsonToBaseAccount {
             $Created = $JsonParameters.PSobject.Properties["created"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "supportsPasswordChange"))) { #optional property not found
+            $SupportsPasswordChange = $null
+        } else {
+            $SupportsPasswordChange = $JsonParameters.PSobject.Properties["supportsPasswordChange"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountAttributes"))) { #optional property not found
+            $AccountAttributes = $null
+        } else {
+            $AccountAttributes = $JsonParameters.PSobject.Properties["accountAttributes"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -217,6 +241,8 @@ function ConvertFrom-V2024JsonToBaseAccount {
             "passwordLastSet" = ${PasswordLastSet}
             "entitlementAttributes" = ${EntitlementAttributes}
             "created" = ${Created}
+            "supportsPasswordChange" = ${SupportsPasswordChange}
+            "accountAttributes" = ${AccountAttributes}
         }
 
         return $PSO

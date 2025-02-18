@@ -4,6 +4,8 @@ Index.md
 README.md
 appveyor.yml
 docs/Access.md
+docs/AccessApps.md
+docs/AccessAppsOwner.md
 docs/AccessConstraint.md
 docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
@@ -125,6 +127,7 @@ docs/AccountsCollectedForAggregationSource.md
 docs/AccountsCollectedForAggregationStats.md
 docs/AccountsExportReportArguments.md
 docs/ActivateCampaignOptions.md
+docs/ActivityIdentity.md
 docs/ActivityInsights.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
@@ -172,6 +175,7 @@ docs/AttributeDefinition.md
 docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
 docs/AttributeRequest.md
+docs/AttributeRequestValue.md
 docs/AttributeValueDTO.md
 docs/AttributesChanged.md
 docs/AuditDetails.md
@@ -183,7 +187,7 @@ docs/BackupResponse.md
 docs/Base64Decode.md
 docs/Base64Encode.md
 docs/BaseAccess.md
-docs/BaseAccessAllOfOwner.md
+docs/BaseAccessOwner.md
 docs/BaseAccessProfile.md
 docs/BaseAccount.md
 docs/BaseCommonDto.md
@@ -349,7 +353,6 @@ docs/DimensionMembershipSelectorType.md
 docs/DimensionRef.md
 docs/DisplayReference.md
 docs/DkimAttributes.md
-docs/DocumentType.md
 docs/DomainAddress.md
 docs/DomainStatusDto.md
 docs/DraftResponse.md
@@ -367,6 +370,8 @@ docs/EntitlementAccessRequestConfig.md
 docs/EntitlementApprovalScheme.md
 docs/EntitlementBulkUpdateRequest.md
 docs/EntitlementDocument.md
+docs/EntitlementDocumentAllOfManuallyUpdatedFields.md
+docs/EntitlementDocumentAllOfPermissions.md
 docs/EntitlementDocumentAllOfSource.md
 docs/EntitlementDto.md
 docs/EntitlementRef.md
@@ -384,9 +389,11 @@ docs/ErrorMessageDto1.md
 docs/ErrorResponseDto.md
 docs/EvaluateResponse.md
 docs/Event.md
+docs/EventActor.md
 docs/EventAttributes.md
 docs/EventBridgeConfig.md
 docs/EventDocument.md
+docs/EventTarget.md
 docs/ExceptionAccessCriteria.md
 docs/ExceptionCriteria.md
 docs/ExceptionCriteriaAccess.md
@@ -756,6 +763,7 @@ docs/RequestedItemStatusSodViolationContext.md
 docs/ResourceObject.md
 docs/ResourceObjectsRequest.md
 docs/ResourceObjectsResponse.md
+docs/Result.md
 docs/ReviewDecision.md
 docs/ReviewReassign.md
 docs/ReviewRecommendation.md
@@ -782,6 +790,10 @@ docs/RoleCriteriaLevel2.md
 docs/RoleCriteriaLevel3.md
 docs/RoleCriteriaOperation.md
 docs/RoleDocument.md
+docs/RoleDocumentAllOfDimensionSchemaAttributes.md
+docs/RoleDocumentAllOfDimensions.md
+docs/RoleDocumentAllOfEntitlements.md
+docs/RoleDocumentAllOfEntitlements1.md
 docs/RoleGetAllBulkUpdateResponse.md
 docs/RoleIdentity.md
 docs/RoleInsight.md
@@ -1343,6 +1355,8 @@ src/PSSailpoint.V2024/Api/V2024WorkReassignmentApi.ps1
 src/PSSailpoint.V2024/Api/V2024WorkflowsApi.ps1
 src/PSSailpoint.V2024/Client/V2024Configuration.ps1
 src/PSSailpoint.V2024/Model/Access.ps1
+src/PSSailpoint.V2024/Model/AccessApps.ps1
+src/PSSailpoint.V2024/Model/AccessAppsOwner.ps1
 src/PSSailpoint.V2024/Model/AccessConstraint.ps1
 src/PSSailpoint.V2024/Model/AccessCriteria.ps1
 src/PSSailpoint.V2024/Model/AccessCriteriaCriteriaListInner.ps1
@@ -1464,6 +1478,7 @@ src/PSSailpoint.V2024/Model/AccountsCollectedForAggregationSource.ps1
 src/PSSailpoint.V2024/Model/AccountsCollectedForAggregationStats.ps1
 src/PSSailpoint.V2024/Model/AccountsExportReportArguments.ps1
 src/PSSailpoint.V2024/Model/ActivateCampaignOptions.ps1
+src/PSSailpoint.V2024/Model/ActivityIdentity.ps1
 src/PSSailpoint.V2024/Model/ActivityInsights.ps1
 src/PSSailpoint.V2024/Model/AdminReviewReassign.ps1
 src/PSSailpoint.V2024/Model/AdminReviewReassignReassignTo.ps1
@@ -1511,6 +1526,7 @@ src/PSSailpoint.V2024/Model/AttributeDefinition.ps1
 src/PSSailpoint.V2024/Model/AttributeDefinitionSchema.ps1
 src/PSSailpoint.V2024/Model/AttributeDefinitionType.ps1
 src/PSSailpoint.V2024/Model/AttributeRequest.ps1
+src/PSSailpoint.V2024/Model/AttributeRequestValue.ps1
 src/PSSailpoint.V2024/Model/AttributeValueDTO.ps1
 src/PSSailpoint.V2024/Model/AttributesChanged.ps1
 src/PSSailpoint.V2024/Model/AuditDetails.ps1
@@ -1522,7 +1538,7 @@ src/PSSailpoint.V2024/Model/BackupResponse.ps1
 src/PSSailpoint.V2024/Model/Base64Decode.ps1
 src/PSSailpoint.V2024/Model/Base64Encode.ps1
 src/PSSailpoint.V2024/Model/BaseAccess.ps1
-src/PSSailpoint.V2024/Model/BaseAccessAllOfOwner.ps1
+src/PSSailpoint.V2024/Model/BaseAccessOwner.ps1
 src/PSSailpoint.V2024/Model/BaseAccessProfile.ps1
 src/PSSailpoint.V2024/Model/BaseAccount.ps1
 src/PSSailpoint.V2024/Model/BaseCommonDto.ps1
@@ -1688,7 +1704,6 @@ src/PSSailpoint.V2024/Model/DimensionMembershipSelectorType.ps1
 src/PSSailpoint.V2024/Model/DimensionRef.ps1
 src/PSSailpoint.V2024/Model/DisplayReference.ps1
 src/PSSailpoint.V2024/Model/DkimAttributes.ps1
-src/PSSailpoint.V2024/Model/DocumentType.ps1
 src/PSSailpoint.V2024/Model/DomainAddress.ps1
 src/PSSailpoint.V2024/Model/DomainStatusDto.ps1
 src/PSSailpoint.V2024/Model/DraftResponse.ps1
@@ -1706,6 +1721,8 @@ src/PSSailpoint.V2024/Model/EntitlementAccessRequestConfig.ps1
 src/PSSailpoint.V2024/Model/EntitlementApprovalScheme.ps1
 src/PSSailpoint.V2024/Model/EntitlementBulkUpdateRequest.ps1
 src/PSSailpoint.V2024/Model/EntitlementDocument.ps1
+src/PSSailpoint.V2024/Model/EntitlementDocumentAllOfManuallyUpdatedFields.ps1
+src/PSSailpoint.V2024/Model/EntitlementDocumentAllOfPermissions.ps1
 src/PSSailpoint.V2024/Model/EntitlementDocumentAllOfSource.ps1
 src/PSSailpoint.V2024/Model/EntitlementDto.ps1
 src/PSSailpoint.V2024/Model/EntitlementRef.ps1
@@ -1721,9 +1738,11 @@ src/PSSailpoint.V2024/Model/ErrorMessageDto.ps1
 src/PSSailpoint.V2024/Model/ErrorMessageDto1.ps1
 src/PSSailpoint.V2024/Model/ErrorResponseDto.ps1
 src/PSSailpoint.V2024/Model/EvaluateResponse.ps1
+src/PSSailpoint.V2024/Model/EventActor.ps1
 src/PSSailpoint.V2024/Model/EventAttributes.ps1
 src/PSSailpoint.V2024/Model/EventBridgeConfig.ps1
 src/PSSailpoint.V2024/Model/EventDocument.ps1
+src/PSSailpoint.V2024/Model/EventTarget.ps1
 src/PSSailpoint.V2024/Model/ExceptionAccessCriteria.ps1
 src/PSSailpoint.V2024/Model/ExceptionCriteria.ps1
 src/PSSailpoint.V2024/Model/ExceptionCriteriaAccess.ps1
@@ -2094,6 +2113,7 @@ src/PSSailpoint.V2024/Model/RequestedItemStatusSodViolationContext.ps1
 src/PSSailpoint.V2024/Model/ResourceObject.ps1
 src/PSSailpoint.V2024/Model/ResourceObjectsRequest.ps1
 src/PSSailpoint.V2024/Model/ResourceObjectsResponse.ps1
+src/PSSailpoint.V2024/Model/Result.ps1
 src/PSSailpoint.V2024/Model/ReviewDecision.ps1
 src/PSSailpoint.V2024/Model/ReviewReassign.ps1
 src/PSSailpoint.V2024/Model/ReviewRecommendation.ps1
@@ -2120,6 +2140,10 @@ src/PSSailpoint.V2024/Model/RoleCriteriaLevel2.ps1
 src/PSSailpoint.V2024/Model/RoleCriteriaLevel3.ps1
 src/PSSailpoint.V2024/Model/RoleCriteriaOperation.ps1
 src/PSSailpoint.V2024/Model/RoleDocument.ps1
+src/PSSailpoint.V2024/Model/RoleDocumentAllOfDimensionSchemaAttributes.ps1
+src/PSSailpoint.V2024/Model/RoleDocumentAllOfDimensions.ps1
+src/PSSailpoint.V2024/Model/RoleDocumentAllOfEntitlements.ps1
+src/PSSailpoint.V2024/Model/RoleDocumentAllOfEntitlements1.ps1
 src/PSSailpoint.V2024/Model/RoleGetAllBulkUpdateResponse.ps1
 src/PSSailpoint.V2024/Model/RoleIdentity.ps1
 src/PSSailpoint.V2024/Model/RoleInsight.ps1
@@ -2521,6 +2545,8 @@ tests/Api/V2024WorkItemsApi.Tests.ps1
 tests/Api/V2024WorkReassignmentApi.Tests.ps1
 tests/Api/V2024WorkflowsApi.Tests.ps1
 tests/Model/Access.Tests.ps1
+tests/Model/AccessApps.Tests.ps1
+tests/Model/AccessAppsOwner.Tests.ps1
 tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
@@ -2642,6 +2668,7 @@ tests/Model/AccountsCollectedForAggregationSource.Tests.ps1
 tests/Model/AccountsCollectedForAggregationStats.Tests.ps1
 tests/Model/AccountsExportReportArguments.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
+tests/Model/ActivityIdentity.Tests.ps1
 tests/Model/ActivityInsights.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
@@ -2689,6 +2716,7 @@ tests/Model/AttributeDefinition.Tests.ps1
 tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
 tests/Model/AttributeRequest.Tests.ps1
+tests/Model/AttributeRequestValue.Tests.ps1
 tests/Model/AttributeValueDTO.Tests.ps1
 tests/Model/AttributesChanged.Tests.ps1
 tests/Model/AuditDetails.Tests.ps1
@@ -2700,7 +2728,7 @@ tests/Model/BackupResponse.Tests.ps1
 tests/Model/Base64Decode.Tests.ps1
 tests/Model/Base64Encode.Tests.ps1
 tests/Model/BaseAccess.Tests.ps1
-tests/Model/BaseAccessAllOfOwner.Tests.ps1
+tests/Model/BaseAccessOwner.Tests.ps1
 tests/Model/BaseAccessProfile.Tests.ps1
 tests/Model/BaseAccount.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
@@ -2866,7 +2894,6 @@ tests/Model/DimensionMembershipSelectorType.Tests.ps1
 tests/Model/DimensionRef.Tests.ps1
 tests/Model/DisplayReference.Tests.ps1
 tests/Model/DkimAttributes.Tests.ps1
-tests/Model/DocumentType.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1
 tests/Model/DomainStatusDto.Tests.ps1
 tests/Model/DraftResponse.Tests.ps1
@@ -2884,6 +2911,8 @@ tests/Model/EntitlementAccessRequestConfig.Tests.ps1
 tests/Model/EntitlementApprovalScheme.Tests.ps1
 tests/Model/EntitlementBulkUpdateRequest.Tests.ps1
 tests/Model/EntitlementDocument.Tests.ps1
+tests/Model/EntitlementDocumentAllOfManuallyUpdatedFields.Tests.ps1
+tests/Model/EntitlementDocumentAllOfPermissions.Tests.ps1
 tests/Model/EntitlementDocumentAllOfSource.Tests.ps1
 tests/Model/EntitlementDto.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
@@ -2899,9 +2928,11 @@ tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorMessageDto1.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
 tests/Model/EvaluateResponse.Tests.ps1
+tests/Model/EventActor.Tests.ps1
 tests/Model/EventAttributes.Tests.ps1
 tests/Model/EventBridgeConfig.Tests.ps1
 tests/Model/EventDocument.Tests.ps1
+tests/Model/EventTarget.Tests.ps1
 tests/Model/ExceptionAccessCriteria.Tests.ps1
 tests/Model/ExceptionCriteria.Tests.ps1
 tests/Model/ExceptionCriteriaAccess.Tests.ps1
@@ -3272,6 +3303,7 @@ tests/Model/RequestedItemStatusSodViolationContext.Tests.ps1
 tests/Model/ResourceObject.Tests.ps1
 tests/Model/ResourceObjectsRequest.Tests.ps1
 tests/Model/ResourceObjectsResponse.Tests.ps1
+tests/Model/Result.Tests.ps1
 tests/Model/ReviewDecision.Tests.ps1
 tests/Model/ReviewReassign.Tests.ps1
 tests/Model/ReviewRecommendation.Tests.ps1
@@ -3298,6 +3330,10 @@ tests/Model/RoleCriteriaLevel2.Tests.ps1
 tests/Model/RoleCriteriaLevel3.Tests.ps1
 tests/Model/RoleCriteriaOperation.Tests.ps1
 tests/Model/RoleDocument.Tests.ps1
+tests/Model/RoleDocumentAllOfDimensionSchemaAttributes.Tests.ps1
+tests/Model/RoleDocumentAllOfDimensions.Tests.ps1
+tests/Model/RoleDocumentAllOfEntitlements.Tests.ps1
+tests/Model/RoleDocumentAllOfEntitlements1.Tests.ps1
 tests/Model/RoleGetAllBulkUpdateResponse.Tests.ps1
 tests/Model/RoleIdentity.Tests.ps1
 tests/Model/RoleInsight.Tests.ps1

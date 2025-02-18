@@ -14,12 +14,6 @@ No summary available.
 
 Role
 
-.PARAMETER Id
-The unique ID of the referenced object.
-.PARAMETER Name
-The human readable name of the referenced object.
-.PARAMETER Type
-No description available.
 .PARAMETER Description
 Access item's description.
 .PARAMETER Created
@@ -36,6 +30,10 @@ Indicates whether the access item can be requested.
 Indicates whether comments are required for requests to access the item.
 .PARAMETER Owner
 No description available.
+.PARAMETER Id
+ID of the role.
+.PARAMETER Name
+Name of the role.
 .PARAMETER AccessProfiles
 Access profiles included with the role.
 .PARAMETER AccessProfileCount
@@ -50,6 +48,14 @@ Number of segments with the role.
 Entitlements included with the role.
 .PARAMETER EntitlementCount
 Number of entitlements included with the role.
+.PARAMETER Dimensional
+No description available.
+.PARAMETER DimensionSchemaAttributeCount
+Number of dimension attributes included with the role.
+.PARAMETER DimensionSchemaAttributes
+Dimension attributes included with the role.
+.PARAMETER Dimensions
+No description available.
 .OUTPUTS
 
 RoleDocument<PSCustomObject>
@@ -58,16 +64,6 @@ RoleDocument<PSCustomObject>
 function Initialize-RoleDocument {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
-        [PSCustomObject]
-        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
@@ -93,6 +89,12 @@ function Initialize-RoleDocument {
         [PSCustomObject]
         ${Owner},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccessProfiles},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -112,7 +114,19 @@ function Initialize-RoleDocument {
         ${Entitlements},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${EntitlementCount}
+        ${EntitlementCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Dimensional} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${DimensionSchemaAttributeCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${DimensionSchemaAttributes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Dimensions}
     )
 
     Process {
@@ -127,15 +141,8 @@ function Initialize-RoleDocument {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "_type" = ${Type}
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -144,6 +151,8 @@ function Initialize-RoleDocument {
             "requestable" = ${Requestable}
             "requestCommentsRequired" = ${RequestCommentsRequired}
             "owner" = ${Owner}
+            "id" = ${Id}
+            "name" = ${Name}
             "accessProfiles" = ${AccessProfiles}
             "accessProfileCount" = ${AccessProfileCount}
             "tags" = ${Tags}
@@ -151,6 +160,10 @@ function Initialize-RoleDocument {
             "segmentCount" = ${SegmentCount}
             "entitlements" = ${Entitlements}
             "entitlementCount" = ${EntitlementCount}
+            "dimensional" = ${Dimensional}
+            "dimensionSchemaAttributeCount" = ${DimensionSchemaAttributeCount}
+            "dimensionSchemaAttributes" = ${DimensionSchemaAttributes}
+            "dimensions" = ${Dimensions}
         }
 
         return $PSO
@@ -187,7 +200,7 @@ function ConvertFrom-JsonToRoleDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RoleDocument
-        $AllProperties = ("id", "name", "_type", "description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "accessProfiles", "accessProfileCount", "tags", "segments", "segmentCount", "entitlements", "entitlementCount")
+        $AllProperties = ("description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "id", "name", "accessProfiles", "accessProfileCount", "tags", "segments", "segmentCount", "entitlements", "entitlementCount", "dimensional", "dimensionSchemaAttributeCount", "dimensionSchemaAttributes", "dimensions")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -208,12 +221,6 @@ function ConvertFrom-JsonToRoleDocument {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_type"))) {
-            throw "Error! JSON cannot be serialized due to the required property '_type' missing."
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["_type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -306,10 +313,31 @@ function ConvertFrom-JsonToRoleDocument {
             $EntitlementCount = $JsonParameters.PSobject.Properties["entitlementCount"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dimensional"))) { #optional property not found
+            $Dimensional = $null
+        } else {
+            $Dimensional = $JsonParameters.PSobject.Properties["dimensional"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dimensionSchemaAttributeCount"))) { #optional property not found
+            $DimensionSchemaAttributeCount = $null
+        } else {
+            $DimensionSchemaAttributeCount = $JsonParameters.PSobject.Properties["dimensionSchemaAttributeCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dimensionSchemaAttributes"))) { #optional property not found
+            $DimensionSchemaAttributes = $null
+        } else {
+            $DimensionSchemaAttributes = $JsonParameters.PSobject.Properties["dimensionSchemaAttributes"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dimensions"))) { #optional property not found
+            $Dimensions = $null
+        } else {
+            $Dimensions = $JsonParameters.PSobject.Properties["dimensions"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
-            "_type" = ${Type}
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -318,6 +346,8 @@ function ConvertFrom-JsonToRoleDocument {
             "requestable" = ${Requestable}
             "requestCommentsRequired" = ${RequestCommentsRequired}
             "owner" = ${Owner}
+            "id" = ${Id}
+            "name" = ${Name}
             "accessProfiles" = ${AccessProfiles}
             "accessProfileCount" = ${AccessProfileCount}
             "tags" = ${Tags}
@@ -325,6 +355,10 @@ function ConvertFrom-JsonToRoleDocument {
             "segmentCount" = ${SegmentCount}
             "entitlements" = ${Entitlements}
             "entitlementCount" = ${EntitlementCount}
+            "dimensional" = ${Dimensional}
+            "dimensionSchemaAttributeCount" = ${DimensionSchemaAttributeCount}
+            "dimensionSchemaAttributes" = ${DimensionSchemaAttributes}
+            "dimensions" = ${Dimensions}
         }
 
         return $PSO

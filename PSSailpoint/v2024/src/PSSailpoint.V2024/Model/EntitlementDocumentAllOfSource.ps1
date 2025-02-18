@@ -18,6 +18,8 @@ Entitlement's source.
 ID of entitlement's source.
 .PARAMETER Name
 Display name of entitlement's source.
+.PARAMETER Type
+Type of object.
 .OUTPUTS
 
 EntitlementDocumentAllOfSource<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-V2024EntitlementDocumentAllOfSource {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name}
+        ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Type}
     )
 
     Process {
@@ -42,6 +47,7 @@ function Initialize-V2024EntitlementDocumentAllOfSource {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
+            "type" = ${Type}
         }
 
         return $PSO
@@ -78,7 +84,7 @@ function ConvertFrom-V2024JsonToEntitlementDocumentAllOfSource {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024EntitlementDocumentAllOfSource
-        $AllProperties = ("id", "name")
+        $AllProperties = ("id", "name", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -97,9 +103,16 @@ function ConvertFrom-V2024JsonToEntitlementDocumentAllOfSource {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
+            "type" = ${Type}
         }
 
         return $PSO

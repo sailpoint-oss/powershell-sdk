@@ -20,12 +20,12 @@ The unique ID of the referenced object.
 The human readable name of the referenced object.
 .PARAMETER DisplayName
 No description available.
-.PARAMETER Type
-No description available.
 .PARAMETER Description
-No description available.
+Description of access item.
 .PARAMETER Source
 No description available.
+.PARAMETER Type
+Type of the access item.
 .PARAMETER Privileged
 No description available.
 .PARAMETER Attribute
@@ -52,15 +52,14 @@ function Initialize-V2024AccessProfileEntitlement {
         [String]
         ${DisplayName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "MACHINE_IDENTITY", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
-        [PSCustomObject]
-        ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Privileged},
@@ -84,9 +83,9 @@ function Initialize-V2024AccessProfileEntitlement {
             "id" = ${Id}
             "name" = ${Name}
             "displayName" = ${DisplayName}
-            "type" = ${Type}
             "description" = ${Description}
             "source" = ${Source}
+            "type" = ${Type}
             "privileged" = ${Privileged}
             "attribute" = ${Attribute}
             "value" = ${Value}
@@ -127,7 +126,7 @@ function ConvertFrom-V2024JsonToAccessProfileEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccessProfileEntitlement
-        $AllProperties = ("id", "name", "displayName", "type", "description", "source", "privileged", "attribute", "value", "standalone")
+        $AllProperties = ("id", "name", "displayName", "description", "source", "type", "privileged", "attribute", "value", "standalone")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -152,12 +151,6 @@ function ConvertFrom-V2024JsonToAccessProfileEntitlement {
             $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
@@ -168,6 +161,12 @@ function ConvertFrom-V2024JsonToAccessProfileEntitlement {
             $Source = $null
         } else {
             $Source = $JsonParameters.PSobject.Properties["source"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "privileged"))) { #optional property not found
@@ -198,9 +197,9 @@ function ConvertFrom-V2024JsonToAccessProfileEntitlement {
             "id" = ${Id}
             "name" = ${Name}
             "displayName" = ${DisplayName}
-            "type" = ${Type}
             "description" = ${Description}
             "source" = ${Source}
+            "type" = ${Type}
             "privileged" = ${Privileged}
             "attribute" = ${Attribute}
             "value" = ${Value}

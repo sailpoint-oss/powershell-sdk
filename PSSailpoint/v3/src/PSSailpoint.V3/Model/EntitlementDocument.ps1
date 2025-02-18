@@ -15,11 +15,9 @@ No summary available.
 Entitlement
 
 .PARAMETER Id
-No description available.
+ID of the referenced object.
 .PARAMETER Name
-No description available.
-.PARAMETER Type
-No description available.
+The human readable name of the referenced object.
 .PARAMETER Modified
 ISO-8601 date-time referring to the time when the object was last modified.
 .PARAMETER Synced
@@ -29,7 +27,7 @@ Entitlement's display name.
 .PARAMETER Source
 No description available.
 .PARAMETER Segments
-Segments with the role.
+Segments with the entitlement.
 .PARAMETER SegmentCount
 Number of segments with the role.
 .PARAMETER Requestable
@@ -40,10 +38,28 @@ Indicates whether the entitlement is cloud governed.
 ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Privileged
 Indicates whether the entitlement is privileged.
-.PARAMETER IdentityCount
-Number of identities who have access to the entitlement.
 .PARAMETER Tags
 Tags that have been applied to the object.
+.PARAMETER Attribute
+Attribute information for the entitlement.
+.PARAMETER Value
+Value of the entitlement.
+.PARAMETER SourceSchemaObjectType
+Source schema object type of the entitlement.
+.PARAMETER Schema
+Schema type of the entitlement.
+.PARAMETER Hash
+Read-only calculated hash value of an entitlement.
+.PARAMETER Attributes
+Attributes of the entitlement.
+.PARAMETER TruncatedAttributes
+Truncated attributes of the entitlement.
+.PARAMETER ContainsDataAccess
+Indicates whether the entitlement contains data access.
+.PARAMETER ManuallyUpdatedFields
+No description available.
+.PARAMETER Permissions
+No description available.
 .OUTPUTS
 
 EntitlementDocument<PSCustomObject>
@@ -58,10 +74,6 @@ function Initialize-EntitlementDocument {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
-        [PSCustomObject]
-        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Modified},
@@ -93,11 +105,38 @@ function Initialize-EntitlementDocument {
         [System.Nullable[Boolean]]
         ${Privileged} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Int32]]
-        ${IdentityCount},
+        [String[]]
+        ${Tags},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Attribute},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Value},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SourceSchemaObjectType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Schema},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Hash},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${Attributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Tags}
+        ${TruncatedAttributes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ContainsDataAccess} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ManuallyUpdatedFields},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Permissions}
     )
 
     Process {
@@ -112,15 +151,10 @@ function Initialize-EntitlementDocument {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
             "modified" = ${Modified}
             "synced" = ${Synced}
             "displayName" = ${DisplayName}
@@ -131,8 +165,17 @@ function Initialize-EntitlementDocument {
             "cloudGoverned" = ${CloudGoverned}
             "created" = ${Created}
             "privileged" = ${Privileged}
-            "identityCount" = ${IdentityCount}
             "tags" = ${Tags}
+            "attribute" = ${Attribute}
+            "value" = ${Value}
+            "sourceSchemaObjectType" = ${SourceSchemaObjectType}
+            "schema" = ${Schema}
+            "hash" = ${Hash}
+            "attributes" = ${Attributes}
+            "truncatedAttributes" = ${TruncatedAttributes}
+            "containsDataAccess" = ${ContainsDataAccess}
+            "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
+            "permissions" = ${Permissions}
         }
 
         return $PSO
@@ -169,7 +212,7 @@ function ConvertFrom-JsonToEntitlementDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in EntitlementDocument
-        $AllProperties = ("id", "name", "_type", "modified", "synced", "displayName", "source", "segments", "segmentCount", "requestable", "cloudGoverned", "created", "privileged", "identityCount", "tags")
+        $AllProperties = ("id", "name", "modified", "synced", "displayName", "source", "segments", "segmentCount", "requestable", "cloudGoverned", "created", "privileged", "tags", "attribute", "value", "sourceSchemaObjectType", "schema", "hash", "attributes", "truncatedAttributes", "containsDataAccess", "manuallyUpdatedFields", "permissions")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -190,12 +233,6 @@ function ConvertFrom-JsonToEntitlementDocument {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_type"))) {
-            throw "Error! JSON cannot be serialized due to the required property '_type' missing."
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["_type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
@@ -258,22 +295,75 @@ function ConvertFrom-JsonToEntitlementDocument {
             $Privileged = $JsonParameters.PSobject.Properties["privileged"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityCount"))) { #optional property not found
-            $IdentityCount = $null
-        } else {
-            $IdentityCount = $JsonParameters.PSobject.Properties["identityCount"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tags"))) { #optional property not found
             $Tags = $null
         } else {
             $Tags = $JsonParameters.PSobject.Properties["tags"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attribute"))) { #optional property not found
+            $Attribute = $null
+        } else {
+            $Attribute = $JsonParameters.PSobject.Properties["attribute"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "value"))) { #optional property not found
+            $Value = $null
+        } else {
+            $Value = $JsonParameters.PSobject.Properties["value"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceSchemaObjectType"))) { #optional property not found
+            $SourceSchemaObjectType = $null
+        } else {
+            $SourceSchemaObjectType = $JsonParameters.PSobject.Properties["sourceSchemaObjectType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "schema"))) { #optional property not found
+            $Schema = $null
+        } else {
+            $Schema = $JsonParameters.PSobject.Properties["schema"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "hash"))) { #optional property not found
+            $Hash = $null
+        } else {
+            $Hash = $JsonParameters.PSobject.Properties["hash"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) { #optional property not found
+            $Attributes = $null
+        } else {
+            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "truncatedAttributes"))) { #optional property not found
+            $TruncatedAttributes = $null
+        } else {
+            $TruncatedAttributes = $JsonParameters.PSobject.Properties["truncatedAttributes"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "containsDataAccess"))) { #optional property not found
+            $ContainsDataAccess = $null
+        } else {
+            $ContainsDataAccess = $JsonParameters.PSobject.Properties["containsDataAccess"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "manuallyUpdatedFields"))) { #optional property not found
+            $ManuallyUpdatedFields = $null
+        } else {
+            $ManuallyUpdatedFields = $JsonParameters.PSobject.Properties["manuallyUpdatedFields"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "permissions"))) { #optional property not found
+            $Permissions = $null
+        } else {
+            $Permissions = $JsonParameters.PSobject.Properties["permissions"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
             "modified" = ${Modified}
             "synced" = ${Synced}
             "displayName" = ${DisplayName}
@@ -284,8 +374,17 @@ function ConvertFrom-JsonToEntitlementDocument {
             "cloudGoverned" = ${CloudGoverned}
             "created" = ${Created}
             "privileged" = ${Privileged}
-            "identityCount" = ${IdentityCount}
             "tags" = ${Tags}
+            "attribute" = ${Attribute}
+            "value" = ${Value}
+            "sourceSchemaObjectType" = ${SourceSchemaObjectType}
+            "schema" = ${Schema}
+            "hash" = ${Hash}
+            "attributes" = ${Attributes}
+            "truncatedAttributes" = ${TruncatedAttributes}
+            "containsDataAccess" = ${ContainsDataAccess}
+            "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
+            "permissions" = ${Permissions}
         }
 
         return $PSO

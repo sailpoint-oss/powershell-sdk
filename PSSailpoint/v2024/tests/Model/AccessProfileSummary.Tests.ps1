@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024AccessProfileSummary' {
     Context 'V2024AccessProfileSummary' {
         It 'Initialize-V2024AccessProfileSummary' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024AccessProfileSummary -Id "TEST_VALUE" -Name "TEST_VALUE" -DisplayName "TEST_VALUE" -Type "TEST_VALUE" -Description "TEST_VALUE" -Source "TEST_VALUE" -Owner "TEST_VALUE" -Revocable "TEST_VALUE"
+            #$NewObject = Initialize-V2024AccessProfileSummary -Id "TEST_VALUE" -Name "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Source "TEST_VALUE" -Owner "TEST_VALUE" -Revocable "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessProfileSummary
             #$NewObject.property | Should -Be 0
         }

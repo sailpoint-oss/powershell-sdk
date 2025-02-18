@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'ExpansionItem' {
     Context 'ExpansionItem' {
         It 'Initialize-ExpansionItem' {
             # a simple test to create an object
-            #$NewObject = Initialize-ExpansionItem -AccountId "TEST_VALUE" -Cause "TEST_VALUE" -Name "TEST_VALUE" -AttributeRequests "TEST_VALUE" -Source "TEST_VALUE"
+            #$NewObject = Initialize-ExpansionItem -AccountId "TEST_VALUE" -Cause "TEST_VALUE" -Name "TEST_VALUE" -AttributeRequest "TEST_VALUE" -Source "TEST_VALUE" -Id "TEST_VALUE" -State "TEST_VALUE"
             #$NewObject | Should -BeOfType ExpansionItem
             #$NewObject.property | Should -Be 0
         }

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024BaseDocument' {
     Context 'V2024BaseDocument' {
         It 'Initialize-V2024BaseDocument' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024BaseDocument -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-V2024BaseDocument -Id "TEST_VALUE" -Name "TEST_VALUE"
             #$NewObject | Should -BeOfType BaseDocument
             #$NewObject.property | Should -Be 0
         }

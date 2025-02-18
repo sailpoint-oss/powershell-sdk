@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024RoleSummary' {
     Context 'V2024RoleSummary' {
         It 'Initialize-V2024RoleSummary' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024RoleSummary -Id "TEST_VALUE" -Name "TEST_VALUE" -DisplayName "TEST_VALUE" -Type "TEST_VALUE" -Description "TEST_VALUE" -Owner "TEST_VALUE" -Disabled "TEST_VALUE" -Revocable "TEST_VALUE"
+            #$NewObject = Initialize-V2024RoleSummary -Id "TEST_VALUE" -Name "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Type "TEST_VALUE" -Owner "TEST_VALUE" -Disabled "TEST_VALUE" -Revocable "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleSummary
             #$NewObject.property | Should -Be 0
         }

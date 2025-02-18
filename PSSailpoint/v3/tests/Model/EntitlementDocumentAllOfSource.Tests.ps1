@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'EntitlementDocumentAllOfSource' {
     Context 'EntitlementDocumentAllOfSource' {
         It 'Initialize-EntitlementDocumentAllOfSource' {
             # a simple test to create an object
-            #$NewObject = Initialize-EntitlementDocumentAllOfSource -Id "TEST_VALUE" -Name "TEST_VALUE"
+            #$NewObject = Initialize-EntitlementDocumentAllOfSource -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE"
             #$NewObject | Should -BeOfType EntitlementDocumentAllOfSource
             #$NewObject.property | Should -Be 0
         }

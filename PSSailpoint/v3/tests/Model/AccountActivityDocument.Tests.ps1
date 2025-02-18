@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'AccountActivityDocument' {
     Context 'AccountActivityDocument' {
         It 'Initialize-AccountActivityDocument' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccountActivityDocument -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -Action "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Stage "TEST_VALUE" -Origin "TEST_VALUE" -Status "TEST_VALUE" -Requester "TEST_VALUE" -Recipient "TEST_VALUE" -TrackingNumber "TEST_VALUE" -Errors "TEST_VALUE" -Warnings "TEST_VALUE" -Approvals "TEST_VALUE" -OriginalRequests "TEST_VALUE" -ExpansionItems "TEST_VALUE" -AccountRequests "TEST_VALUE" -Sources "TEST_VALUE"
+            #$NewObject = Initialize-AccountActivityDocument -Id "TEST_VALUE" -Action "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Stage "TEST_VALUE" -Status "TEST_VALUE" -Requester "TEST_VALUE" -Recipient "TEST_VALUE" -TrackingNumber "TEST_VALUE" -Errors "TEST_VALUE" -Warnings "TEST_VALUE" -Approvals "TEST_VALUE" -OriginalRequests "TEST_VALUE" -ExpansionItems "TEST_VALUE" -AccountRequests "TEST_VALUE" -Sources "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountActivityDocument
             #$NewObject.property | Should -Be 0
         }

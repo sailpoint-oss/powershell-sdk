@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024BaseAccount' {
     Context 'V2024BaseAccount' {
         It 'Initialize-V2024BaseAccount' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024BaseAccount -Id "TEST_VALUE" -Name "TEST_VALUE" -AccountId "TEST_VALUE" -Source "TEST_VALUE" -Disabled "TEST_VALUE" -Locked "TEST_VALUE" -Privileged "TEST_VALUE" -ManuallyCorrelated "TEST_VALUE" -PasswordLastSet "TEST_VALUE" -EntitlementAttributes "TEST_VALUE" -Created "TEST_VALUE"
+            #$NewObject = Initialize-V2024BaseAccount -Id "TEST_VALUE" -Name "TEST_VALUE" -AccountId "TEST_VALUE" -Source "TEST_VALUE" -Disabled "TEST_VALUE" -Locked "TEST_VALUE" -Privileged "TEST_VALUE" -ManuallyCorrelated "TEST_VALUE" -PasswordLastSet "TEST_VALUE" -EntitlementAttributes "TEST_VALUE" -Created "TEST_VALUE" -SupportsPasswordChange "TEST_VALUE" -AccountAttributes "TEST_VALUE"
             #$NewObject | Should -BeOfType BaseAccount
             #$NewObject.property | Should -Be 0
         }
